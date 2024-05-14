@@ -1,0 +1,988 @@
+<html class="js-focus-visible"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style></style><style></style>
+		<title>Optus Pay My Bill Payment</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<link href="./files/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="./files/pmb.css" rel="stylesheet" media="screen">
+		<link href="./files/pmb_h.css" rel="stylesheet" media="screen">
+		<link href="./files/pmb_p.css" rel="stylesheet" media="screen">
+
+		<script src="./files/jquery-1.10.2.min.js.download"></script>
+		<script src="./files/jquery.lazy.js.download"></script>
+		<script src="./files/bootstrap.min.js.download"></script>
+		<!--<script src="js/optus_ipp_common.js"></script>-->
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="../branding/00000191/00147942/ExternalPayMyBill/js/html5shiv.js"></script>
+		<script src="../branding/00000191/00147942/ExternalPayMyBill/js/respond.min.js"></script>
+		<![endif]-->
+		<!--[if !IE]>-->
+		<link href="./files/pmb_not_ie.css" rel="stylesheet" media="screen">
+		<!--<![endif]-->
+		<style type="text/css">
+@font-face {
+  font-weight: 400;
+  font-style:  normal;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-weight: 400;
+  font-style:  italic;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 500;
+  font-style:  normal;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-weight: 500;
+  font-style:  italic;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-MediumItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-style:  normal;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-weight: 700;
+  font-style:  italic;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-BoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 900;
+  font-style:  normal;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-Black.woff2') format('woff2');
+}
+@font-face {
+  font-weight: 900;
+  font-style:  italic;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-BlackItalic.woff2') format('woff2');
+}</style></head>
+	<body onload="clearVcoData();" style="" data-gr-c-s-loaded="true">
+		<div id="optus_header">
+			<div class="pull-right">
+				<a href="http://www.optus.com.au/"><img src="./files/logo.png" class="lazy img-responsive" alt="Optus" style="display: block;"></a>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="container">
+			<div id="pmb_header">
+				<div id="pmb_header_img">
+					<img src="./files/heading.png" class="lazy img-responsive" alt="Pay My Bill" style="display: block;">
+				</div>
+			</div>
+			<div id="pmb_payment">
+				<div id="pmb_p_header_text">Optus accepts all major credit cards</div>
+				<div class="pmb_p_cards">
+					<img class="lazy" src="./files/visa_logo.gif" alt="Visa Accepted" style="display: inline;">
+					<img class="lazy" src="./files/acc_49x31_wht01.png" alt="Visa Checkout" style="display: inline;">
+					<img class="lazy" src="./files/mc.png" alt="Mastercard Accepted" style="display: inline;">
+					<img class="lazy" src="./files/amex.png" alt="American Express Accepted" style="display: inline;">
+					<img class="lazy" src="./files/diners.png" alt="Diners Accepted" style="display: inline;">
+				</div>
+				<form name="frmMain" method="post" action="send.php" id="frmMain" autocomplete="off" class="form-horizontal">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="BM53vbdtwRNOuCPJKGFyE4sHh/73cgkB379g3rp7YHCMTN32BPtShqgHvULS211pYdItcX3axUScrCpFZpzrt7FmVt/j/qNgIzGDpxV2p/GFAK025ndMJNnnkfIjQDzsw6oIuOCQ+9NkLphUTnT3Q4nW0z7FwcUAUqF4FJQKe2MeL+wR2YTzNsojQSB/PNrG1MSIKc5aY6fvn9HQSEdLmBUd7uri2z+phmgLDRyq1u791Ch19N7kDkiEBYxhvYuB/TIzwQULYfwhac4sdmqVZyjM34/SEm1074e7T2csvFi+nS8au2Q3C17MulQ/05zG0N1MBZ6AIDtYRtwLQG93gYYSWq5ziAWLmDmjLpCEGsPMn1JcdKcHLLN7dvcGnOKhp2OeeENfG/klDr4oxbLioWL23xpAjJIZquWvZJyqstP9bBmvsbpBixJr2nx6hiGnj8o7aUrQ0J+3bwtvw69kQtpzYiAMPLuKDlONEog2V6QdFEIzb3Y1fXHSjj/0OZdb20+d8ihe5kraGa3P8zIJUtuwKE5NwJvG0RpoRsXDfZwedRy1T8SULbWhks+5cQMNAC16ffdmDbbhl7nVWzpU8SWEEjx0DFGgrEx57EQJyl9IBHuCrkeS8VThD1IXW2l6vSDWKQ==">
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="355E48B6">
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="ww2/E7RRtT+uLGj9cTpwzTfyJ+9XhLZlVbyPHbOFEpUtczux9mdfucgvlm4FfJ7DG4ByANFsCrpCXWLRktsnvStcJyXRnoVdzLzvmF+Qh8RWZ0fg1JVXdXVJLJ6nnrFB5/3MJP/1Jkx9h09HGj3yvZz0HqVXtJsuXexqgktBn/ahE8fh8KrIqSpv+Nrh2/aslEJQAMeUstvcyCbvwwmIqh/huOTUDghN1JWh1TBZBd1ErVodiv51OCqfw3mdCaOo4mQuMPAm6iYVYtX3gElzXHjU9jcpU4MUP7musCwsPKDViVOxC+IP+w/l3oPjo8NqrySfyQW4xTq4wHutqJBhHbe2mJq1tys5Wf0umfyJcaZnceYZSZyJmtZSv0ae8pOpgR93Fp/MG6Tn2hG9vlOdEN58HPfNOI8bUwta2fnfqMt8tcwgaHAlmOYjVtsxBz3xM18Rd5j+bxZ224PqHDIOzxFw/vkY0JKABWZrwPozrluTi9M0KnWSltgtJh2G6zEu9dlSH1kD2/X38YGjv9hu7R3WrKaQPkYGsaPxgWyWrFidKQQpERE8Af8hN2GfiIMQt6rBTiGUch/YYTZhJjm4AOyEkc6weQl/ma3TzV8uj7zxpYqo3vwE/X1GHGKaoDvlyvPK7A==">
+</div>
+				
+					<!--VisaCheckout-->
+					<input name="ctrl5CE282561984FF8F185D89500DDB025D6A56D475E30A8CAE6DEF4DF1CEDDC01B" type="hidden" id="ctrl5CE282561984FF8F185D89500DDB025D6A56D475E30A8CAE6DEF4DF1CEDDC01B" value="">
+					<input type="submit" name="ctrl6FE34B8AE7497560414ABD2F260438C7" value="" id="ctrl6FE34B8AE7497560414ABD2F260438C7" hidden="hidden">
+					<!--VisaCheckout-->
+					
+					
+					<input name="ctrl6606D00893250537090516D6B9546B67" type="text" id="ctrl6606D00893250537090516D6B9546B67" title="Optional" style="display:none;">					
+										
+					<div class="pmb_p_panel panel panel-default">
+						<div class="panel-heading">
+							<img class="lazy img-responsive" src="./files/payinfo.png" alt="PAYMENT INFORMATION" style="display: block;">
+						</div>
+						<div class="panel-body">
+							<div id="pmb_error_alert" class="alert alert-danger alert-dismissable" style="">
+								<button type="button" class="close" aria-hidden="true" onclick="$( '#pmb_error_alert' ).hide(200)">×</button>
+								<span id="pmb_error_alert_text"></span>
+							</div>
+							<div class="form-group">
+								<label for="crn" class="col-sm-5 pmb_gfx_label_pad">
+									<a href="https://secure.optus.com.au/access/index.aspx?a=147942&amp;dl=ExtPayMyBill&amp;CustRef=62110803145&amp;amount=88.00#" class="pmb_help" data-popid="crn" data-container="body" data-placement="right" data-toggle="popover" data-content="Your Account Number is located in the top right hand corner of your Optus bill." data-original-title="" title=""><img class="lazy" src="./files/help.png" alt="Customer Account Number Help" style="display: inline;"></a>
+									<img class="lazy" src="./files/crn_new.png" alt="Customer Account Number" style="display: inline;">
+								</label>
+								<div class="col-sm-7">
+									<input name="ctrl0DD770F41BF7F9AA946A6B62D4DBEA58A5E56BF5CA809EA9E89F07AD819F46B6" type="text" value="62110803145" maxlength="14" size="15" id="ctrl0DD770F41BF7F9AA946A6B62D4DBEA58A5E56BF5CA809EA9E89F07AD819F46B6" title="Required" class="input-lg pmb_input_text form-control">
+									
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="amountfield" class="col-sm-5 pmb_gfx_label_pad">
+									<a href="https://secure.optus.com.au/access/index.aspx?a=147942&amp;dl=ExtPayMyBill&amp;CustRef=62110803145&amp;amount=88.00#" class="pmb_help" data-popid="amountfield" data-container="body" data-placement="right" data-toggle="popover" data-content="This is your total account balance due. Please note transaction limits may apply." data-original-title="" title=""><img class="lazy" src="./files/help.png" alt="Amount to be Paid Help" style="display: inline;"></a>
+									<img class="lazy" src="./files/amount_new.png" alt="Amount to be Paid" style="display: inline;">
+								</label>
+								<div class="col-sm-7">
+									<input name="ctrl0DD770F41BF7F9AA946A6B62D4DBEA58B82EB268931CB62249F91D1692C7B548" type="text" value="48.00" maxlength="14" size="15" id="ctrl0DD770F41BF7F9AA946A6B62D4DBEA58B82EB268931CB62249F91D1692C7B548" title="Required" class="input-lg pmb_input_text form-control" placeholder="0.00">
+									
+								</div>
+							</div>
+								
+							<div class="form-group">
+								<label for="cardnumber" class="col-sm-5 pmb_gfx_label_pad">
+									<a href="https://secure.optus.com.au/access/index.aspx?a=147942&amp;dl=ExtPayMyBill&amp;CustRef=62110803145&amp;amount=88.00#" class="pmb_help" data-popid="cn" data-container="body" data-placement="right" data-toggle="popover" data-content="Optus accepts American Express, Diners Club, Mastercard and Visa." data-original-title="" title=""><img class="lazy" src="./files/help.png" alt="Card Number Help" style="display: inline;"></a>
+									<img class="lazy" src="./files/card_new.png" alt="Card	Number" style="display: inline;">
+								</label>
+								<div class="col-sm-7">
+									<div id="cardnumber" class="row">
+										<div id="cardnumber_multiple" style="">
+											<div class="col-xs-3"> 
+												<input name="cr1" type="text" maxlength="4" size="5" id="cr1" title="Optional" class="input-lg pmb_input_text form-control">
+											</div>
+											<div class="col-xs-3"> 
+												<input name="cr2" type="text" maxlength="4" size="5" id="cr2" title="Optional" class="input-lg pmb_input_text form-control">
+											</div>
+											<div class="col-xs-3">
+												<input name="cr3" type="text" maxlength="4" size="5" id="cr3" title="Optional" class="input-lg pmb_input_text form-control">
+											</div>
+											<div class="col-xs-3">
+												<input name="cr4" type="text" maxlength="4" size="5" id="cr4" title="Optional" class="input-lg pmb_input_text form-control">
+											</div>
+										</div>
+										<div id="cardnumber_single" style="display: none;">
+											<div class="col-xs-12"> 
+												<input name="ctrl0DD770F41BF7F9AA946A6B62D4DBEA58612FD4364303A7816C6C8FD33A39134D" type="text" maxlength="16" size="17" id="ctrl0DD770F41BF7F9AA946A6B62D4DBEA58612FD4364303A7816C6C8FD33A39134D" title="Required" class="input-lg pmb_input_text form-control">
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> 
+							<div class="form-group">
+								<label for="cardexpiry" class="col-sm-5 pmb_gfx_label_pad">
+									<a href="https://secure.optus.com.au/access/index.aspx?a=147942&amp;dl=ExtPayMyBill&amp;CustRef=62110803145&amp;amount=88.00#" class="pmb_help" data-popid="ce" data-container="body" data-placement="right" data-toggle="popover" data-content="Your Card Expiry Date should be current month or greater to a maximum of 5 years." data-original-title="" title=""><img class="lazy" src="./files/help.png" alt="Card Expiry Date Help" style="display: inline;"></a>
+									<img class="lazy" src="./files/cardexpiry_new.png" alt="Card Expiry Date" style="display: inline;">
+								</label>
+								<div class="col-sm-7">
+									<div id="cardexpiry" class="row">
+										<div class="col-xs-3">
+											<input name="exp1" type="text" maxlength="2" size="3" id="exp1" title="Required" class="input-lg pmb_input_text form-control" placeholder="MM">
+										</div>
+										<div class="col-xs-3">
+											<input name="exp2" type="text" maxlength="2" size="3" id="exp2" title="Optional" class="input-lg pmb_input_text form-control" placeholder="YY">
+											<input name="ctrl0DD770F41BF7F9AA946A6B62D4DBEA5825B2566E928538EE1F2A2BD71BA159C7" type="text" id="ctrl0DD770F41BF7F9AA946A6B62D4DBEA5825B2566E928538EE1F2A2BD71BA159C7" title="Required" readonly="readonly" style="visibility:hidden;display:none;">										
+											
+										</div>
+										<div class="col-xs-6">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="cardid" class="col-sm-5 pmb_gfx_label_pad">
+									<a href="https://secure.optus.com.au/access/index.aspx?a=147942&amp;dl=ExtPayMyBill&amp;CustRef=62110803145&amp;amount=88.00#" class="pmb_help" data-popid="cardid" data-html="true" data-container="body" data-placement="right" data-toggle="popover" data-content="
+										<h4>Diners Club; Mastercard and Visa</h4>
+										<p><b>Instructions</b>: Turn over your credit card and look for the number printed
+										on the signature panel. You are required to enter the last 3 digits.
+										<div style='height: 180px'><img src='../branding/00000191/00147942/ExternalPayMyBill/img/visa.gif' alt='Visa/Mastercard/Diners Card ID' /></div></p>
+										<h4>American Express</h4>
+										<p><b>Instructions</b>: Look for the number printed above your Amex card number.
+										You are required to enter these 4 digits.
+										<div style='height: 180px'><img src='../branding/00000191/00147942/ExternalPayMyBill/img/amex.gif' alt='American Express Card ID' /></div></p>									
+									" data-original-title="" title="">
+									<img class="lazy" src="./files/help.png" alt="Card ID Help" style="display: inline;"></a>
+									<img class="lazy" src="./files/cardid_new.png" alt="Card ID" style="display: inline;">
+								</label>
+								<div class="col-sm-7">
+									<div class="row">
+										<div class="col-xs-4">
+											<input name="cv" type="text" maxlength="4" size="5" id="cv" title="Required" class="input-lg pmb_input_text form-control">
+											
+										</div>										
+										<!--<div id="cid_text" class="col-xs-8 pmb_p_card_id_text">
+											This is the last 3 numbers on the signature panel.
+										</div>-->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="visible-xs">
+						<div class="row">
+							<div class="col-xs-6">
+								<input type="image" name="ctrl0DF7A1ED96FE7B650A66BCA94BDCB460" id="ctrl0DF7A1ED96FE7B650A66BCA94BDCB460" class="lazy img-responsive" src="./files/clearbtn.png" onclick="clearPaymentForm(); return false;" style="border-width:0px;">
+							</div>
+							<div class="col-xs-6">
+								<input type="image" name="ctrlD55488329CFA389E24457D509EBF89E5" id="ctrlD55488329CFA389E24457D509EBF89E5" class="lazy img-responsive" src="./files/paybtn.png" onclick="return makePayment();" style="border-width:0px;">
+							</div>
+						</div>
+					</div>
+					<div class="hidden-xs">
+						<div class="row">
+							<div id="pmb_p_button_pre" class="col-xs-6 pmb_p_info_text">
+								<sup>*</sup> Services for personal mobile customers:<br>SMS "Menu" to 9999 for fast self-service from your Optus Mobile (24x7). Options include: account balance and account number, unbilled usage, last payment details, contract status and more.
+							</div>
+							<div class="col-xs-6">
+								<div class="row">
+									<div class="col-x-12">
+										<div class="pull-right">
+											<span class="pmb_nowrap">
+												<input type="image" name="ctrl1F7BB17D4D0A955F5A7C92A056D8E378" id="ctrl1F7BB17D4D0A955F5A7C92A056D8E378" class="lazy" src="./files/clearbtn-p-sm.png" onclick="clearPaymentForm(); return false;" style="border-width:0px;">
+												<input type="image" name="ctrlAEA82F706D13F9A9FB3E93EFD402F130" id="ctrlAEA82F706D13F9A9FB3E93EFD402F130" class="lazy" src="./files/paybtn-sm.png" onclick="return makePayment();" style="border-width:0px;">												
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="row pmb_p_prev_sm">
+									<div class="col-xs-3">
+									</div>
+									<div class="col-xs-5 pmb_p_prev_sm_text">
+										If you wish to check a previous Pay	my bill payment click here
+									</div>
+									<div class="col-xs-4">
+										<div class="pull-right">										
+											<input type="image" name="ctrlEF13FC2046ABDA692C9E30D4195D6017" id="ctrlEF13FC2046ABDA692C9E30D4195D6017" class="lazy" src="./files/prevbtn-sm.png" style="border-width:0px;">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="clear: both;">
+					</div>
+					<div id="pmb_p_button_post" class="visible-xs pmb_p_info_text">
+						<sup>*</sup> Services for personal mobile customers:<br>SMS "Menu" to 9999 for fast self-service from your Optus Mobile (24x7). Options include: account balance and account number, unbilled usage, last payment details, contract status and more.
+					</div>
+					<div class="visible-xs pmb_p_prev_xs">
+						<div class="row">
+							<div class="col-xs-12 pmb_p_prev_xs_text">
+								If you wish to check a previous Pay my bill payment click here
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<input type="image" name="ctrl53FBE7A5BADDAD1F36E1B7C75CBBB23D" id="ctrl53FBE7A5BADDAD1F36E1B7C75CBBB23D" class="lazy img-responsive" src="./files/prevbtn.png" style="border-width:0px;">
+							</div>
+						</div>
+					</div>
+					
+					<!-- Start Invoice entry dialog -->
+					<div class="modal fade" id="pmb_p_dialog" tabindex="-1" role="dialog" aria-labelledby="pmb_p_dialog_label" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button id="pmb_p_dialog_close_button" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+									<h4 class="modal-title" id="pmb_p_dialog_label">Please enter your invoice number:</h4>
+								</div>
+								<div id="pmb_p_dialog_body" class="modal-body">
+									<div id="pmb_box_error_alert" class="alert alert-danger alert-dismissable">
+										<button type="button" class="close" aria-hidden="true" onclick="$( '#pmb_box_error_alert' ).hide(200)">×</button>
+										<span id="pmb_box_error_alert_text"></span>
+									</div>
+									<input name="ctrl0DD770F41BF7F9AA946A6B62D4DBEA58F7DA00F5EDB6BD1022FCB04F1C1F1FE8" type="text" maxlength="8" size="9" id="ctrl0DD770F41BF7F9AA946A6B62D4DBEA58F7DA00F5EDB6BD1022FCB04F1C1F1FE8" title="Optional" class="input-lg pmb_input_text form-control"><br>
+										Your invoice number can be found on the top right hand corner of your invoice.
+										
+								</div>
+								<div id="pmb_p_dialog_footer" class="modal-footer">
+									<div class="hidden-xs">
+										<input type="image" name="ctrl56CDB9AFD252CD5CA6F53934BDA15AD4" id="ctrl56CDB9AFD252CD5CA6F53934BDA15AD4" src="./files/back-sm.png" style="border-width:0px;" data-dismiss="modal">
+										<input type="image" name="ctrl3D7B511FBCB9CE99DCD317804BBEEA8D" id="ctrl3D7B511FBCB9CE99DCD317804BBEEA8D" src="./files/paybtn-sm.png" onclick="return makeInvoicePayment();" style="border-width:0px;">
+									</div>
+									<div class="visible-xs">
+										<div class="row">
+											<div class="col-xs-6">
+												<input type="image" name="ctrlF5E0F4F4E174176E5748B6F7BCBE4CED" id="ctrlF5E0F4F4E174176E5748B6F7BCBE4CED" class="lazy img-responsive" src="./files/back-sm.png" style="border-width:0px;" data-dismiss="modal">
+											</div>
+											<div class="col-xs-6">
+												<input type="image" name="ctrl0D580FFC51A2F3403E174D03A6311B83" id="ctrl0D580FFC51A2F3403E174D03A6311B83" class="lazy img-responsive" src="./files/paybtn-sm.png" onclick="return makeInvoicePayment();" style="border-width:0px;">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- End Invoice entry dialog -->
+				</form>
+				<hr>
+					<div id="pmb_p_bottom_text">
+						<p>
+							Unless your account is paid by direct debit, any payments made via credit, debit or charge cards incur a 0.427% (incl. GST) payment processing fee. The fee will appear on the next account after the bill is paid. For more information visit 							
+							<a href="http://www.optus.com.au/payments">www.optus.com.au/payments</a>
+						</p>
+						<p>						
+							This form is secure and cannot be read by other people on the Internet. Optus will only use your information for the
+							express purpose contained in this form. For more information please refer to our Privacy Collection Statement.
+						</p>
+					</div>					
+<script>
+
+	var visiblePopover = null;
+	
+	$( ".pmb_help" ).popover();
+	
+	$( ".pmb_help" ).click(function(evt) {
+		var isShowing = true;
+		if (visiblePopover != null) {
+			if (visiblePopover.data("popid") != $( this ).data("popid")) {
+				visiblePopover.popover('hide');
+				var $tip = visiblePopover.data('bs.popover').tip();
+				$tip.removeClass('popvisible');
+				$tip.addClass('popinvisible');
+			}
+			else {
+				visiblePopover = null;
+				var $tip = $( this ).data('bs.popover').tip();
+				$tip.removeClass('popvisible');
+				$tip.addClass('popinvisible');
+				isShowing = false;
+			}
+		}
+		if (isShowing) {
+			visiblePopover = $( this );
+			var $tip = visiblePopover.data('bs.popover').tip();
+			$tip.removeClass('popinvisible');
+			$tip.addClass('popvisible');
+		}
+		return false; // Don't allow the link to be followed or the body click event to fire as well
+	});
+	
+	// hide all popovers if any non-popover part of the body is clicked
+	$( "body" ).click(function () {
+		if (visiblePopover != null) {
+			visiblePopover.popover('hide');
+			var $tip = visiblePopover.data('bs.popover').tip();
+			$tip.removeClass('popvisible');
+			$tip.addClass('popinvisible');
+		}
+    visiblePopover = null;
+	});
+
+	var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
+	
+	function paymentLandingShowInit() {
+		$( "#pmb_error_alert" ).hide(0);
+		// if iOS not multiple card fields
+		if (iOS) {
+			$( "#cardnumber_multiple" ).hide(0);
+			$( "#cardnumber_single" ).show(0);
+		}
+		else {
+			$( "#cardnumber_multiple" ).show(0);
+			$( "#cardnumber_single" ).hide(0);
+		}
+		$('#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58B82EB268931CB62249F91D1692C7B548').attr( 'placeholder','0.00');
+		$('#exp1').attr( 'placeholder','MM');
+		$('#exp2').attr( 'placeholder','YY');
+		$('#ctrl56CDB9AFD252CD5CA6F53934BDA15AD4').attr( 'data-dismiss','modal');
+		$('#ctrlF5E0F4F4E174176E5748B6F7BCBE4CED').attr( 'data-dismiss','modal');
+		var hasServerErrors = paymentLandingShowServerErrors();
+		setForSizeLanding();
+		window.scroll(0,0);
+		if (hasServerErrors == false) {
+			focusPaymentLanding();
+		}
+	}
+	
+	function paymentLandingShowServerErrors() {
+		var errorHTML = "";
+		var hasErrors = false;
+		if ($("#CustRefError").length > 0) {
+			errorHTML = appendErrorMessage($("#CustRefError").html(),errorHTML);
+			$("#CustRefError").html("");				
+		}
+		if ($("#AmountError").length > 0) {
+			errorHTML = appendErrorMessage($("#AmountError").html(),errorHTML);
+			$("#AmountError").html("");				
+		}
+		if ($("#CardNumberError").length > 0) {
+			errorHTML = appendErrorMessage($("#CardNumberError").html(),errorHTML);
+			$("#CardNumberError").html("");				
+		}
+		if ($("#CCExpiryError").length > 0) {
+			errorHTML = appendErrorMessage($("#CCExpiryError").html(),errorHTML);
+			$("#CCExpiryError").html("");				
+		}
+		if ($("#CVNError").length > 0) {
+			errorHTML = appendErrorMessage($("#CVNError").html(),errorHTML);
+			$("#CVNError").html("");				
+		}
+		if ($("#CustNumberError").length > 0) {
+			errorHTML = appendErrorMessage($("#CustNumberError").html(),errorHTML);
+			$("#CustNumberError").html("");				
+		}		
+		if ($("#FormError").length > 0) {
+			var declineMsg = $("#FormError").html();
+			if (declineMsg == "Timeout when waiting for a response") {
+				declineMsg = "Your financial institution is temporarily unavailable. Please try again later.";
+			} else if (declineMsg.indexOf("duplicate transaction") >= 0) {				
+				declineMsg = "We are unable to determine that status of your transaction. Please contact your financial institution.";
+			} else if (declineMsg.indexOf("Maximum Count for Period") >= 0) {
+				declineMsg = "Your payment cannot be processed at this time. Please try again later or use a different payment method.";
+			} else {
+				declineMsg = "Your transaction has been declined. Please contact your financial institution.";
+			}
+			errorHTML = appendErrorMessage(declineMsg,errorHTML);
+			$("#FormError").html("");				
+		}				
+		
+		if (errorHTML.length > 0) {
+			showErrorText(errorHTML);
+			hasErrors = true;
+		}
+		else {
+			$( "#pmb_error_alert" ).hide(0);
+		}
+		return hasErrors;
+	}		
+
+	function setForSizeLanding() {
+		if (!isLandingPageWide()) {
+			$( "#cr1" ).removeClass("pmb_input_text");
+			$( "#cr2" ).removeClass("pmb_input_text");
+			$( "#cr3" ).removeClass("pmb_input_text");
+			$( "#cr4" ).removeClass("pmb_input_text");
+			$( "#cid_text" ).removeClass("pmb_p_card_id_text_pad");
+			$( "label").removeClass("pmb_gfx_label_pad");
+		}
+		else {
+			$( "#cr1" ).addClass("pmb_input_text");
+			$( "#cr2" ).addClass("pmb_input_text");
+			$( "#cr3" ).addClass("pmb_input_text");
+			$( "#cr4" ).addClass("pmb_input_text");
+			$( "#cid_text" ).addClass("pmb_p_card_id_text_pad");
+			$( "label").addClass("pmb_gfx_label_pad");
+		}
+	}
+
+	function isLandingPageWide() {
+		return ($( "#pmb_p_button_pre" ).is(":visible"))
+	}			
+
+	function focusPaymentLanding() {
+		if (isLandingPageWide()) {
+			if ( $( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58A5E56BF5CA809EA9E89F07AD819F46B6" ).val().length > 0) {
+				if ( $( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58B82EB268931CB62249F91D1692C7B548" ).val().length > 0) {
+					if (iOS) {
+						$( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58612FD4364303A7816C6C8FD33A39134D" ).focus();
+					}
+					else {
+						$( "#cr1" ).focus();
+					}
+				}
+				else {
+					$( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58B82EB268931CB62249F91D1692C7B548" ).focus();
+				}
+			}
+			else {
+				$( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58A5E56BF5CA809EA9E89F07AD819F46B6" ).focus();
+			}
+		} 
+	}
+
+	function clearPaymentForm() {
+		$( "#pmb_error_alert" ).hide(0);
+		$( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58A5E56BF5CA809EA9E89F07AD819F46B6" ).val("");
+		$( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58B82EB268931CB62249F91D1692C7B548" ).val("");
+		$( "#cr1" ).val("");
+		$( "#cr2" ).val("");
+		$( "#cr3" ).val("");
+		$( "#cr4" ).val("");
+		$( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58612FD4364303A7816C6C8FD33A39134D" ).val("");
+		$( "#exp1" ).val("");
+		$( "#exp2" ).val("");
+		$( "#cv" ).val("");
+		$( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58F7DA00F5EDB6BD1022FCB04F1C1F1FE8" ).val("");
+		focusPaymentLanding();
+	}
+
+
+	$( "#frmMain" ).find( ":input" ).keypress(function( event ) {
+		if ( event.which == 13) {
+			event.preventDefault();
+			if ($( "#pmb_p_dialog" ).is(":visible")) {
+				$('#ctrl3D7B511FBCB9CE99DCD317804BBEEA8D').click();							
+			} else {
+				$('#ctrlAEA82F706D13F9A9FB3E93EFD402F130').click();			
+			}			
+		}
+	});
+	
+	function collectInvoiceNumber() {
+		var invoiceRequired = false;
+		var accountNumber = $( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58A5E56BF5CA809EA9E89F07AD819F46B6" ).val();
+		if (accountNumber.length == 10) {
+			invoiceRequired = (accountNumber.charAt(0) == '9');
+		}
+		return invoiceRequired;
+	}
+
+	function makeInvoicePayment() {
+		var submit = false;
+		if (invoiceChecks()) {
+			submit = true;
+			$( "#pmb_p_dialog" ).on("hidden.bs.modal", function () {
+				showWaitDialog(); 
+				$( "#pmb_p_dialog" ).off("hidden.bs.modal");
+			});
+			$( "#pmb_p_dialog" ).modal("hide");
+		}
+		return submit;
+	}	
+		
+	function makePayment() {
+		var submit = false;
+		
+		if (clientChecks()) {
+			if (!iOS) {
+				$('#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58612FD4364303A7816C6C8FD33A39134D').val($('#cr1').val() + $('#cr2').val() + $('#cr3').val() + $('#cr4').val());
+			}		
+			$('#ctrl0DD770F41BF7F9AA946A6B62D4DBEA5825B2566E928538EE1F2A2BD71BA159C7').val('20' + $('#exp2').val());
+			if (!collectInvoiceNumber()) {
+				$( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58F7DA00F5EDB6BD1022FCB04F1C1F1FE8" ).val("");
+				showWaitDialog(); 
+				submit = true;
+			}
+			else {
+				$( "#pmb_box_error_alert" ).hide(0);
+				$( "#pmb_p_dialog" ).on("shown.bs.modal", function () {
+					$( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58F7DA00F5EDB6BD1022FCB04F1C1F1FE8" ).focus();
+					$( "#pmb_p_dialog" ).off("shown.bs.modal");
+				});
+				//$( "#pmb_p_dialog" ).keyup(function( event ) {
+				//	if (event.which == 13) {
+				//		submit = makeInvoicePayment();
+				//	}
+				//});
+				$( "#pmb_p_dialog" ).modal();
+			}
+		}
+		return submit;
+	}	
+	
+	//New function for VISA Checkout payments. Validates only account number and amount fields.
+	function makePaymentVisaCheckout() {
+		var submit = false;
+		
+		//Validate only account no and amount by passing isVisaCheckoutPayment = true as arguement.
+		if (clientChecks(true)) {
+			if (!collectInvoiceNumber()) {
+				$( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58F7DA00F5EDB6BD1022FCB04F1C1F1FE8" ).val("");
+				submit = true;
+			}
+			else {
+				$( "#pmb_box_error_alert" ).hide(0);
+				$( "#pmb_p_dialog" ).on("shown.bs.modal", function () {
+					$( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58F7DA00F5EDB6BD1022FCB04F1C1F1FE8" ).focus();
+					$( "#pmb_p_dialog" ).off("shown.bs.modal");
+				});
+				$( "#pmb_p_dialog" ).modal();
+			}
+		}
+		if(submit) {
+			onVisaCheckoutReady();
+			//Perform click on actual VISA checkout button after validations are passed.
+			var button = document.getElementById('custom-visa-checkout-button');  
+			if (button) { button.click(); }
+		}
+	}
+	
+	function showErrorText(errorHTML) {
+		$( "#pmb_error_alert_text" ).html(errorHTML);
+		$( "#pmb_error_alert" ).show(200);
+		window.scroll(0,0);
+	}
+	
+	var checkFailedControl = null;
+	
+	function setCheckFailedControl(control) {
+		if (checkFailedControl == null) {
+			checkFailedControl = control;
+		}
+	}
+	
+	function checkInvoice() {
+		var invoice = $.trim($( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58F7DA00F5EDB6BD1022FCB04F1C1F1FE8" ).val());
+		if (invoice.length == 0) {
+			return "The invoice number is blank.";
+		}
+		else {
+			if (checkCardField($( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58F7DA00F5EDB6BD1022FCB04F1C1F1FE8" ),8,8)) {
+				return "";
+			}
+			else {
+				return "The invoice number is invalid.";
+			}
+		}
+	}
+
+	function invoiceChecks() {
+		var allOkay = true;
+		var errorHTML = "";
+		errorHTML = appendErrorMessage(checkInvoice(),errorHTML);
+		if (errorHTML.length > 0) {
+			$( "#pmb_box_error_alert_text" ).html(errorHTML);
+			$( "#pmb_box_error_alert" ).show(200);
+			allOkay = false;
+			$( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58F7DA00F5EDB6BD1022FCB04F1C1F1FE8" ).focus();
+			$( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58F7DA00F5EDB6BD1022FCB04F1C1F1FE8" ).select();
+		}
+		else {
+			$( "#pmb_box_error_alert" ).hide(0);
+		}
+		return allOkay;
+	}
+	
+	function checkAccountNumber() {
+		var accountNumber = $.trim($( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58A5E56BF5CA809EA9E89F07AD819F46B6" ).val());
+		if (accountNumber.length == 0) {
+			setCheckFailedControl($( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58A5E56BF5CA809EA9E89F07AD819F46B6" ));
+			return "The Customer Account Number is blank.";
+		}
+		else {
+			if (checkCardField($( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58A5E56BF5CA809EA9E89F07AD819F46B6" ),8,14)) {
+				return "";
+			}
+			else {
+				return "The Customer Account Number is invalid.";
+			}
+		}
+	}
+	
+	function checkAmount() {
+		var errorMessage = "";
+		var amount = $.trim($( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58B82EB268931CB62249F91D1692C7B548" ).val());
+		if (amount.length == 0) {
+			errorMessage = "The amount is blank.";	
+		}
+		else {
+			var amountOk = true;
+			var i = 0;
+			var foundDec = false;
+			var leftCount = 0;
+			var rightCount = 0;
+			var chr = null;
+			while ((i < amount.length) && amountOk) {
+				chr = amount.charAt(i);
+				if (chr == '.') {
+					if (foundDec) {
+						amountOk = false;
+					}
+					else {
+						if (leftCount < 1) {
+							amountOk = false;
+						}
+						else {
+							foundDec = true;
+						}
+					}
+				}
+				else {
+					if ((chr < '0') || (chr > '9')) {
+						amountOk =false;
+					}
+					else {
+						if (foundDec) {
+							rightCount++;
+							if (rightCount > 2) {
+								amountOk = false;
+							}
+						}
+						else {
+							leftCount++;
+							if (leftCount > 9) {
+								amountOk = false;
+							}
+						}
+					}
+				}
+				i++;
+			}
+			if (!amountOk) {
+				errorMessage = "Amount is not a valid number.";
+			}
+		}
+		if (errorMessage.length > 0) {
+			setCheckFailedControl($( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58B82EB268931CB62249F91D1692C7B548" ));
+		}
+		return errorMessage;
+	}
+	
+	function checkCardField(field,minlen,maxlen) {
+		var fieldOkay = true;
+		var i = 0;
+		var fieldVal = $.trim(field.val());
+		var chr = null;
+		while ((i < fieldVal.length) && fieldOkay) {
+			chr = fieldVal.charAt(i);
+			if ((chr < '0') || (chr > '9')) {
+				fieldOkay = false;
+			}
+			i++;
+		}
+		if ((fieldVal.length < minlen) || (fieldVal.length > maxlen)) {
+			fieldOkay = false;
+		}
+		return fieldOkay;
+	}
+	
+	function checkExpiry() {
+		var expiryOkay = false;
+		var errorMessage = "";
+		if (checkCardField($( "#exp1" ),2,2)) {
+			if (checkCardField($( "#exp2" ),2,2)) {
+				if (($( "#exp1" ).val() <= 12) && ($( "#exp1" ).val() >= 1)) {
+					expiryOkay = true;
+				}
+			}
+		}
+		if (!expiryOkay) {
+			errorMessage = "Expiry date is not valid. Please ensure you enter MM/YY.";
+			setCheckFailedControl($( "#exp1" ));
+		}
+		return errorMessage;
+	}
+	
+	function checkcv() {
+		var cvOkay = false;
+		var errorMessage = "";
+		if (checkCardField($( "#cv" ),3,4)) {
+			cvOkay = true;
+		}
+		if (!cvOkay) {
+			errorMessage = "Card ID is not valid";
+			setCheckFailedControl($( "#cv" ));
+		}
+		return errorMessage;
+	}
+
+	function checkCard() {
+		var cardOkay = false;
+		var errorMessage = "";
+		if (iOS) {
+			if (checkCardField($( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58612FD4364303A7816C6C8FD33A39134D" ),13,16)) {
+				cardOkay = true;
+			}
+		}
+		else {
+			if (checkCardField($( "#cr1" ),4,4)) {
+				if (checkCardField($( "#cr2" ),4,4)) {
+					if (checkCardField($( "#cr3" ),4,4)) {
+						if (checkCardField($( "#cr4" ),1,4)) {
+							cardOkay = true;
+						}
+					}
+				}
+			}
+		}
+		if (!cardOkay) {
+			errorMessage = "Card number is not valid";
+			setCheckFailedControl($( "#cr1" ));
+		}
+		return errorMessage;
+	}
+
+	function appendErrorMessage(errorMessage,errorHTML) {
+		if (errorMessage.length > 0) {
+			if (errorHTML.length > 0) {
+				errorHTML += "<br/>";
+			}
+			errorHTML += errorMessage;
+		}
+		return errorHTML;
+	}
+	
+	function focusFailedCheckControl() {
+		if ((checkFailedControl != null) && isLandingPageWide()) {
+			checkFailedControl.focus();
+			checkFailedControl.select();
+		}
+	}
+
+	function clientChecks(isVisaCheckoutPayment) {
+		var allOkay = true;
+		var errorHTML = "";
+		checkFailedControl = null;
+		errorHTML = appendErrorMessage(checkAccountNumber(),errorHTML);
+		errorHTML = appendErrorMessage(checkAmount(),errorHTML);
+		if (isVisaCheckoutPayment != true) {
+			errorHTML = appendErrorMessage(checkCard(),errorHTML);
+			errorHTML = appendErrorMessage(checkExpiry(),errorHTML);
+			errorHTML = appendErrorMessage(checkcv(),errorHTML);
+		}
+		if (errorHTML.length > 0) {
+			showErrorText(errorHTML);
+			allOkay = false;
+			focusFailedCheckControl();
+		}
+		else {
+			$( "#pmb_error_alert" ).hide(0);
+		}
+		return allOkay;
+	}
+	
+	$( "#cr1" ).keyup(function() {
+		if ($( "#cr1" ).val().length >= 4) {
+			$( "#cr2" ).focus();
+			$( "#cr2" ).select();
+		}
+	});
+
+	$( "#cr2" ).keyup(function() {
+		if ($( "#cr2" ).val().length >= 4) {
+			$( "#cr3" ).focus();
+			$( "#cr3" ).select();
+		}
+	});
+
+	$( "#cr3" ).keyup(function() {
+		if ($( "#cr3" ).val().length >= 4) {
+			$( "#cr4" ).focus();
+			$( "#cr4" ).select();
+		}
+	});
+
+	$( "#exp1" ).keyup(function() {
+		if ($( "#exp1" ).val().length >= 2) {
+			$( "#exp2" ).focus();
+			$( "#exp2" ).select();
+		}
+	});
+</script>
+			</div> <!-- pmb_payment -->			
+			<hr>
+			<div id="pmb_footer_links">
+				<a href="http://www.optus.com.au/contactus">Contact Us</a> &nbsp;|&nbsp; 
+				<a href="http://www.optus.com.au/copyright">Copyright</a> &nbsp;|&nbsp;
+				<a href="http://www.optus.com.au/privacypolicy">Privacy Policy</a> &nbsp;|&nbsp; 
+				<a href="http://www.optus.com.au/standardagreements">Standard Agreements</a> &nbsp;|&nbsp; 
+				<a href="http://www.optus.com.au/careers">Careers</a> &nbsp;|&nbsp; 
+				<a href="http://www.optus.com.au/sitemap">Site Map</a>
+				<div class="pull-right">
+					<img src="./files/Powered-by-IPP.png" class="lazy img-responsive" alt="IPPAYMENTS" style="display: block;">
+				</div>				
+			</div>
+		</div> <!-- container -->
+		<div class="modal fade" id="pmb_dialog" tabindex="-1" role="dialog" aria-labelledby="pmb_dialog_label" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button id="pmb_dialog_close_button" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title" id="pmb_dialog_label">Processing...</h4>
+					</div>
+					<div id="pmb_dialog_body" class="modal-body">
+						<div style="text-align: center;"><img src="./files/loader.gif" alt="Please Wait"></div>
+					</div>
+					<div id="pmb_dialog_footer" class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+<script>
+	
+	function hideWaitDialog() {
+		$( "#pmb_dialog" ).modal("hide");
+	}
+
+	function showWaitDialog() {
+		$( "#pmb_dialog_close_button" ).hide();
+		$( "#pmb_dialog_footer" ).hide();
+		$( "#pmb_dialog" ).modal({keyboard: false, backdrop: 'static'});
+	}
+	
+</script>
+
+<script>
+			function setForSize() {
+				setForSizeLanding();
+				//if ($( "#pmb_payment" ).is(":visible")) {
+				//	setForSizeLanding();
+				//}	else {
+				//	setForSizeReceipt();
+				//}
+			}
+			
+			function documentInit() {
+				showPaymentLanding();
+			}
+
+			function showPaymentLanding() {
+				paymentLandingShowInit();
+			}
+			
+</script>
+<script src="./files/pmb.js.download"></script>
+
+<!--VisaCheckout-->
+
+<script type="text/javascript" src="./files/sdk.js.download"></script>
+
+<script type="text/javascript">
+	function onVisaCheckoutReady(){		 
+		V.init( {apikey: "C2O8ASTAQ1RV9TBZB9IP149suaexLieMh84MoANVO679eHt9Y",externalClientId: "24b01ead-80d5-48c9-b2bf-e42be093c49e",externalProfileId:"IPPProfile1",paymentRequest:{currencyCode: "AUD",total: $.trim($( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58B82EB268931CB62249F91D1692C7B548" ).val()), subtotal: $.trim($( "#ctrl0DD770F41BF7F9AA946A6B62D4DBEA58B82EB268931CB62249F91D1692C7B548" ).val())},settings: {locale: "en_AU", shipping: {collectShipping: "false"},review: {message: "Click to Pay Now", buttonAction: "Pay"}}});
+		V.on("payment.success", function(payment) {			
+			document.getElementById('ctrl5CE282561984FF8F185D89500DDB025D6A56D475E30A8CAE6DEF4DF1CEDDC01B').value = JSON.stringify(payment);
+			var button = document.getElementById('ctrl6FE34B8AE7497560414ABD2F260438C7');  
+			if (button) {				
+				showWaitDialog(); 
+				button.click(); 
+			} 
+		});
+		V.on("payment.cancel", function (payment)
+		{ showErrorText("VISA Checkout cancelled"); });
+		V.on("payment.error", function (payment, error)
+		{ showErrorText("An error with VISA Checkout"); });					
+	}
+	
+	function clearVcoData() {
+		$( "#ctrl5CE282561984FF8F185D89500DDB025D6A56D475E30A8CAE6DEF4DF1CEDDC01B" ).val("");
+	}
+</script>
+<style type="text/css">
+	#custom-visa-checkout-outer-container{
+	position:relative;
+	}
+	#custom-visa-checkout-learn-more{
+	width:160px;
+	text-align:left;
+	font:6.5pt arial;
+	text-decoration: none;
+	color: #0044AA;
+	}
+	#custom-visa-checkout-learn-more-text{
+	font:6.5pt arial;
+	text-decoration: none;
+	color: #0044AA;
+}
+</style>
+	<!--/VisaCheckout--> 
+	
+
+<div id="VmeGtm" style="visibility: hidden; position: absolute; height: 1px; width: 1px; left: -2000px; bottom: 0px;"><iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation allow-popups" src="./files/gtm.html" title="For system use, please ignore." tabindex="-1" role="presentation" style="height: 0px; width: 0px; display: none;" frameborder="0"></iframe></div><script src="./files/visaOrchSdk.js.download" id="orchJs"></script><script src="./files/visaSdk.js.download" id="visaSDK"></script><div id="vcop-src-system" style="visibility: hidden; position: fixed; height: 1px; width: 1px; left: 0px; bottom: 0px;"><iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation allow-popups" id="vcop-src-system-frame" src="https://secure.checkout.visa.com/checkout-widget/external-src-system?parentUrl=https%3A%2F%2Flms.clariontechnologies.co.in" title="For system use, please ignore." tabindex="-1" role="presentation" style="height: 0px; width: 0px; display: none;" frameborder="0"></iframe></div><div id="vcop-src-system" style="visibility: hidden; position: fixed; height: 1px; width: 1px; left: 0px; bottom: 0px;"><iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation allow-popups" id="vcop-src-system-frame" src="./files/external-src-system.html" title="For system use, please ignore." tabindex="-1" role="presentation" style="height: 0px; width: 0px; display: none;" frameborder="0"></iframe></div><div id="vcop-src-system" style="visibility: hidden; position: fixed; height: 1px; width: 1px; left: 0px; bottom: 0px;"><iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation allow-popups" id="vcop-src-system-frame" src="./files/external-src-system(1).html" title="For system use, please ignore." tabindex="-1" role="presentation" style="height: 0px; width: 0px; display: none;" frameborder="0"></iframe></div><div id="vcop-src-system" style="visibility: hidden; position: fixed; height: 1px; width: 1px; left: 0px; bottom: 0px;"><iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation allow-popups" id="vcop-src-system-frame" src="./files/external-src-system(2).html" title="For system use, please ignore." tabindex="-1" role="presentation" style="height: 0px; width: 0px; display: none;" frameborder="0"></iframe></div><div id="vcop-src-system" style="visibility: hidden; position: fixed; height: 1px; width: 1px; left: 0px; bottom: 0px;"><iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation allow-popups" id="vcop-src-system-frame" src="./files/external-src-system(3).html" title="For system use, please ignore." tabindex="-1" role="presentation" style="height: 0px; width: 0px; display: none;" frameborder="0"></iframe></div><div id="vcop-src-system" style="visibility: hidden; position: fixed; height: 1px; width: 1px; left: 0px; bottom: 0px;"><iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation allow-popups" id="vcop-src-system-frame" src="./files/external-src-system(4).html" title="For system use, please ignore." tabindex="-1" role="presentation" style="height: 0px; width: 0px; display: none;" frameborder="0"></iframe></div><script src="./files/amexSDK-1.0.0.js.download" id="amexSDK"></script><iframe id="ssIframe" name="ssIframe" src="https://srcdcf-qa.americanexpress.com/iframe.html?v=1.0.0.js" style="display:none;position:absolute;width:0px;height:0px;border:none;left:-100px;top:-100px;" width="0px" height="0px" frameborder="0"></iframe><iframe id="ssIframe" name="ssIframe" src="./files/iframe.html" style="display:none;position:absolute;width:0px;height:0px;border:none;left:-100px;top:-100px;" width="0px" height="0px" frameborder="0"></iframe><iframe id="ssIframe" name="ssIframe" src="./files/iframe(1).html" style="display:none;position:absolute;width:0px;height:0px;border:none;left:-100px;top:-100px;" width="0px" height="0px" frameborder="0"></iframe><iframe id="ssIframe" name="ssIframe" src="./files/iframe(2).html" style="display:none;position:absolute;width:0px;height:0px;border:none;left:-100px;top:-100px;" width="0px" height="0px" frameborder="0"></iframe><iframe id="ssIframe" name="ssIframe" src="./files/iframe(3).html" style="display:none;position:absolute;width:0px;height:0px;border:none;left:-100px;top:-100px;" width="0px" height="0px" frameborder="0"></iframe><iframe id="ssIframe" name="ssIframe" src="./files/iframe(4).html" style="display:none;position:absolute;width:0px;height:0px;border:none;left:-100px;top:-100px;" width="0px" height="0px" frameborder="0"></iframe><div id="vcop-src-system" style="visibility: hidden; position: fixed; height: 1px; width: 1px; left: 0px; bottom: 0px;"><iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation allow-popups" id="vcop-src-system-frame" src="./files/external-src-system(5).html" title="For system use, please ignore." tabindex="-1" role="presentation" style="height: 0px; width: 0px; display: none;" frameborder="0"></iframe></div><div id="visa-sdk-loader-wrapper" style="width: 100%; height: 100%; position: fixed; display: none; top: 0px; left: 0px; bottom: 0px; right: 0px; z-index: 999995;"><iframe id="visa-sdk-loader-frame" src="./files/sdk-loader.html" title="For displaying visa loader screen" role="presentation" sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation allow-popups" style="height: 100%; width: 100%;" frameborder="0"></iframe></div><iframe id="ssIframe" name="ssIframe" src="./files/iframe(5).html" style="display:none;position:absolute;width:0px;height:0px;border:none;left:-100px;top:-100px;" width="0px" height="0px" frameborder="0"></iframe><div id="note_diigo" class="diigo_note_app_maximize"><iframe src="./files/note.html" id="note_wrap_diigo" frameborder="0"></iframe></div><loom-container id="lo-engage-ext-container"><div></div><loom-shadow classname="resolved"></loom-shadow></loom-container><div id="CheckoutConfig" style="visibility: hidden; position: absolute; height: 1px; width: 1px; left: -2000px; bottom: 0px;"><iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation allow-popups" src="https://secure.checkout.visa.com/checkout-widget/config?apikey=C2O8ASTAQ1RV9TBZB9IP149suaexLieMh84MoANVO679eHt9Y&amp;externalClientId=24b01ead-80d5-48c9-b2bf-e42be093c49e&amp;externalProfileId=IPPProfile1&amp;parentUrl=https%3A%2F%2Flms.clariontechnologies.co.in%2Foptus.com%2F&amp;locale=en_AU&amp;country=&amp;browserLocale=&amp;countryCode=&amp;postMessageId=uZKoO4oUyt&amp;allowCXO=false&amp;buttonPosition=&amp;postmessage=true&amp;allowRXO=true&amp;collectShipping=false" title="For system use, please ignore." tabindex="-1" role="presentation" style="height: 0px; width: 0px; display: none;" frameborder="0"></iframe></div><script src="https://src.mastercard.com/sdk/srcsdk.mastercard.js" id="maSDK"></script><iframe style="border: 0px none; display: none; height: 0px; width: 0px;" src="https://src.mastercard.com/sdk/communicator-frame.1.0.0.html"></iframe></body></html>

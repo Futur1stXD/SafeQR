@@ -1,0 +1,1033 @@
+<html lang="en-US"><head>
+	<meta charset="UTF-8">
+		<title>Wallet – Wallet Synchronization</title>
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="alternate" type="application/rss+xml" title="Wallet Synchronization » Feed" href="https://walletsynchronize.org/feed/">
+<link rel="alternate" type="application/rss+xml" title="Wallet Synchronization » Comments Feed" href="https://walletsynchronize.org/comments/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/walletsynchronize.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.7.5"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="https://walletsynchronize.org/wp-includes/js/wp-emoji-release.min.js?ver=5.7.5" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="https://walletsynchronize.org/wp-includes/css/dist/block-library/style.min.css?ver=5.7.5" type="text/css" media="all">
+<link rel="stylesheet" id="metform-ui-css" href="https://walletsynchronize.org/wp-content/plugins/metform/public/assets/css/metform-ui.css?ver=1.4.8" type="text/css" media="all">
+<link rel="stylesheet" id="metform-style-css" href="https://walletsynchronize.org/wp-content/plugins/metform/public/assets/css/style.css?ver=1.4.8" type="text/css" media="all">
+<link rel="stylesheet" id="hello-elementor-css" href="https://walletsynchronize.org/wp-content/themes/hello-elementor/style.min.css?ver=2.3.1" type="text/css" media="all">
+<link rel="stylesheet" id="hello-elementor-theme-style-css" href="https://walletsynchronize.org/wp-content/themes/hello-elementor/theme.min.css?ver=2.3.1" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-ekiticons-css" href="https://walletsynchronize.org/wp-content/plugins/elementskit-lite/modules/elementskit-icon-pack/assets/css/ekiticons.css?ver=2.2.4" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-css" href="https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.11.0" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-animations-css" href="https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.2.3" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://walletsynchronize.org/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.2.3" type="text/css" media="all">
+<style id="elementor-frontend-inline-css" type="text/css">
+@font-face{font-family:eicons;src:url(https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.eot?5.10.0);src:url(https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.eot?5.10.0#iefix) format("embedded-opentype"),url(https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff2?5.10.0) format("woff2"),url(https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff?5.10.0) format("woff"),url(https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.ttf?5.10.0) format("truetype"),url(https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.svg?5.10.0#eicon) format("svg");font-weight:400;font-style:normal}
+</style>
+<link rel="stylesheet" id="elementor-post-7-css" href="https://walletsynchronize.org/wp-content/uploads/elementor/css/post-7.css?ver=1621712206" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-pro-css" href="https://walletsynchronize.org/wp-content/plugins/elementor-pro/assets/css/frontend.min.css?ver=3.2.2" type="text/css" media="all">
+<link rel="stylesheet" id="metform-css-formpicker-control-editor-css" href="https://walletsynchronize.org/wp-content/plugins/metform/controls/assets/css/form-picker-editor.css?ver=1.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="elementskit-css-widgetarea-control-editor-css" href="https://walletsynchronize.org/wp-content/plugins/elementskit-lite/modules/controls/assets/css/widgetarea-editor.css?ver=2.2.4" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-global-css" href="https://walletsynchronize.org/wp-content/uploads/elementor/css/global.css?ver=1621714816" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-192-css" href="https://walletsynchronize.org/wp-content/uploads/elementor/css/post-192.css?ver=1621716708" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-5-all-css" href="https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=3.2.3" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-4-shim-css" href="https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.2.3" type="text/css" media="all">
+<link rel="stylesheet" id="ekit-widget-styles-css" href="https://walletsynchronize.org/wp-content/plugins/elementskit-lite/widgets/init/assets/css/widget-styles.css?ver=2.2.4" type="text/css" media="all">
+<link rel="stylesheet" id="ekit-responsive-css" href="https://walletsynchronize.org/wp-content/plugins/elementskit-lite/widgets/init/assets/css/responsive.css?ver=2.2.4" type="text/css" media="all">
+<link rel="stylesheet" id="google-fonts-1-css" href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7COpen+Sans%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=auto&amp;ver=5.7.5" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-shared-0-css" href="https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.1" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-fa-brands-css" href="https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=5.15.1" type="text/css" media="all">
+<script type="text/javascript" src="https://walletsynchronize.org/wp-includes/js/jquery/jquery.min.js?ver=3.5.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.2.3" id="font-awesome-4-shim-js"></script>
+<link rel="https://api.w.org/" href="https://walletsynchronize.org/wp-json/"><link rel="alternate" type="application/json" href="https://walletsynchronize.org/wp-json/wp/v2/pages/192"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://walletsynchronize.org/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://walletsynchronize.org/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.7.5">
+<link rel="canonical" href="https://walletsynchronize.org/wallet/">
+<link rel="shortlink" href="https://walletsynchronize.org/?p=192">
+<link rel="alternate" type="application/json+oembed" href="https://walletsynchronize.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwalletsynchronize.org%2Fwallet%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://walletsynchronize.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwalletsynchronize.org%2Fwallet%2F&amp;format=xml">
+		<style type="text/css" id="wp-custom-css">
+			@media (min-width: 350px) {
+  #h-tabs .elementor-tabs-wrapper {
+    display: flex;
+        flex-direction: row;
+  }
+}
+
+@media (min-width: 350px) {
+  #h-tabs .elementor-tab-mobile-title {
+    display: none;
+  }
+}		</style>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></head>
+<body class="page-template page-template-elementor_canvas page page-id-192 elementor-default elementor-template-canvas elementor-kit-7 elementor-page elementor-page-192 e--ua-firefox" data-elementor-device-mode="desktop">
+			<div data-elementor-type="wp-page" data-elementor-id="192" class="elementor elementor-192" data-elementor-settings="[]">
+							<div class="elementor-section-wrap">
+							<section class="elementor-section elementor-top-section elementor-element elementor-element-6a395f12 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6a395f12" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-729eb9f8" data-id="729eb9f8" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-5121bfc5 elementor-icon-list--layout-inline elementor-align-center elementor-mobile-align-left elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="5121bfc5" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items elementor-inline-items">
+							<li class="elementor-icon-list-item elementor-inline-item">
+					<a href="#">					<span class="elementor-icon-list-text">Github</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+					<a href="#">					<span class="elementor-icon-list-text">Docs</span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-77453ab5" data-id="77453ab5" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-3edbb7c4 elementor-widget elementor-widget-image" data-id="3edbb7c4" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/spaces_-LJJeCjcLrr53DcT1Ml7_avatar-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/spaces_-LJJeCjcLrr53DcT1Ml7_avatar-1.png 256w, https://walletsynchronize.org/wp-content/uploads/2021/05/spaces_-LJJeCjcLrr53DcT1Ml7_avatar-1-150x150.png 150w" sizes="(max-width: 256px) 100vw, 256px" width="256" height="256">															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-db8a37a" data-id="db8a37a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-db334ee elementor-icon-list--layout-inline elementor-align-center elementor-mobile-align-left elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="db334ee" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items elementor-inline-items">
+							<li class="elementor-icon-list-item elementor-inline-item">
+					<a href="https://walletsynchronize.org/wallet/">					<span class="elementor-icon-list-text">Wallets</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+										<span class="elementor-icon-list-text">Apps</span>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-6950c126 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6950c126" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-4e9f3d83" data-id="4e9f3d83" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-1a272363 elementor-widget elementor-widget-heading" data-id="1a272363" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Wallets</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-11b715d7 elementor-widget elementor-widget-text-editor" data-id="11b715d7" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<p>Multiple iOS and Android wallets support the WalletConnect protocol. Simply scan a QR code from your desktop computer screen to start securely using a dApp with your mobile wallet. Interaction between mobile apps and mobile browsers are supported via mobile deep linking.</p>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-124455a6 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="124455a6" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-22b4fe66" data-id="22b4fe66" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-7b3b3f24 elementor-widget elementor-widget-image" data-id="7b3b3f24" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/rainbow-207dda8d66f8ffc00a21e4fcc5ce0a73-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/rainbow-207dda8d66f8ffc00a21e4fcc5ce0a73-1.png 420w, https://walletsynchronize.org/wp-content/uploads/2021/05/rainbow-207dda8d66f8ffc00a21e4fcc5ce0a73-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/rainbow-207dda8d66f8ffc00a21e4fcc5ce0a73-1-150x150.png 150w" sizes="(max-width: 420px) 100vw, 420px" width="420" height="420">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Rainbow</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-375c5ed2" data-id="375c5ed2" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-735c4e30 elementor-widget elementor-widget-image" data-id="735c4e30" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/trust-wallet-66f8777532931d9c09b633344981a6a9-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/trust-wallet-66f8777532931d9c09b633344981a6a9-1.png 256w, https://walletsynchronize.org/wp-content/uploads/2021/05/trust-wallet-66f8777532931d9c09b633344981a6a9-1-150x150.png 150w" sizes="(max-width: 256px) 100vw, 256px" width="256" height="256">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Trust</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-7f4b8ff7" data-id="7f4b8ff7" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-65133e2 elementor-widget elementor-widget-image" data-id="65133e2" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/download-1.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/download-1.jpg 225w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-1-150x150.jpg 150w" sizes="(max-width: 225px) 100vw, 225px" width="225" height="225">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Argent</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-13f7412d" data-id="13f7412d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-40d7394e elementor-widget elementor-widget-image" data-id="40d7394e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/metamask-69ce6b56bbc9953dfb4aecebdf88729b-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/metamask-69ce6b56bbc9953dfb4aecebdf88729b-1.png 256w, https://walletsynchronize.org/wp-content/uploads/2021/05/metamask-69ce6b56bbc9953dfb4aecebdf88729b-1-150x150.png 150w" sizes="(max-width: 256px) 100vw, 256px" width="256" height="256">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">MetaMask</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-34694758 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="34694758" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-35300272" data-id="35300272" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-5f0dd332 elementor-widget elementor-widget-image" data-id="5f0dd332" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/download-2-1-1.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/download-2-1-1.jpg 400w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-2-1-1-300x300.jpg 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-2-1-1-150x150.jpg 150w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="400">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Gnosis Safe Multisig</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-17fb515a" data-id="17fb515a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-7477381d elementor-widget elementor-widget-image" data-id="7477381d" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/crypto-4cbeac57421fb3ca2573db2cf448169a-1-1024x1024.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/crypto-4cbeac57421fb3ca2573db2cf448169a-1.png 1024w, https://walletsynchronize.org/wp-content/uploads/2021/05/crypto-4cbeac57421fb3ca2573db2cf448169a-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/crypto-4cbeac57421fb3ca2573db2cf448169a-1-150x150.png 150w, https://walletsynchronize.org/wp-content/uploads/2021/05/crypto-4cbeac57421fb3ca2573db2cf448169a-1-768x768.png 768w" sizes="(max-width: 800px) 100vw, 800px" width="800" height="800">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Crypto.com | DeFi Wallet </figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-4c062660" data-id="4c062660" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-6c2d308e elementor-widget elementor-widget-image" data-id="6c2d308e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/download-2-2.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/download-2-2.png 225w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-2-2-150x150.png 150w" sizes="(max-width: 225px) 100vw, 225px" width="225" height="225">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Theta Wallet</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-2e01d52b" data-id="2e01d52b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-169d2e26 elementor-widget elementor-widget-image" data-id="169d2e26" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/imtoken-fd8c7c52dac6101568954e7448a49202-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/imtoken-fd8c7c52dac6101568954e7448a49202-1.png 400w, https://walletsynchronize.org/wp-content/uploads/2021/05/imtoken-fd8c7c52dac6101568954e7448a49202-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/imtoken-fd8c7c52dac6101568954e7448a49202-1-150x150.png 150w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="400">								</a>
+											<figcaption class="widget-image-caption wp-caption-text"> imToken</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-48c69388 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="48c69388" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-4ba75b1b" data-id="4ba75b1b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-1756b2c1 elementor-widget elementor-widget-image" data-id="1756b2c1" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2083.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2083.png 512w, https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2083-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2083-150x150.png 150w" sizes="(max-width: 512px) 100vw, 512px" width="512" height="512">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Exodus</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-18374d2d" data-id="18374d2d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-2863599c elementor-widget elementor-widget-image" data-id="2863599c" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2084-1024x1024.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2084-1024x1024.png 1024w, https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2084-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2084-150x150.png 150w, https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2084-768x768.png 768w, https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2084.png 1132w" sizes="(max-width: 800px) 100vw, 800px" width="800" height="800">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Ledger</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-3731b8b3" data-id="3731b8b3" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4973e895 elementor-widget elementor-widget-image" data-id="4973e895" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2087.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2087.png 512w, https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2087-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2087-150x150.png 150w" sizes="(max-width: 512px) 100vw, 512px" width="512" height="512">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Coinbase</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-4b85234c" data-id="4b85234c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-6c6fa374 elementor-widget elementor-widget-image" data-id="6c6fa374" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2085.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2085.jpg 400w, https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2085-300x300.jpg 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/IMG_2085-150x150.jpg 150w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="400">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Voyager</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-34681e32 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="34681e32" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-4543cd4e" data-id="4543cd4e" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-3082acb6 elementor-widget elementor-widget-image" data-id="3082acb6" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/tokenpocket-57a4a886cc644e5237ac1558226154cb-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/tokenpocket-57a4a886cc644e5237ac1558226154cb-1.png 1025w, https://walletsynchronize.org/wp-content/uploads/2021/05/tokenpocket-57a4a886cc644e5237ac1558226154cb-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/tokenpocket-57a4a886cc644e5237ac1558226154cb-1-150x150.png 150w, https://walletsynchronize.org/wp-content/uploads/2021/05/tokenpocket-57a4a886cc644e5237ac1558226154cb-1-768x768.png 768w" sizes="(max-width: 800px) 100vw, 800px" width="800" height="800">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">TokenPocket</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-650a9e55" data-id="650a9e55" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-a2e503a elementor-widget elementor-widget-image" data-id="a2e503a" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/walleth-b60336f8dd9ea86285408cb4f96634d1-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/walleth-b60336f8dd9ea86285408cb4f96634d1-1.png 256w, https://walletsynchronize.org/wp-content/uploads/2021/05/walleth-b60336f8dd9ea86285408cb4f96634d1-1-150x150.png 150w" sizes="(max-width: 256px) 100vw, 256px" width="256" height="256">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Walleth</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-52ddba6b" data-id="52ddba6b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-1fe098be elementor-widget elementor-widget-image" data-id="1fe098be" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/atomic-4c02d2b33cf091fd83c7a49819394e41-1-1024x1024.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/atomic-4c02d2b33cf091fd83c7a49819394e41-1-1024x1024.png 1024w, https://walletsynchronize.org/wp-content/uploads/2021/05/atomic-4c02d2b33cf091fd83c7a49819394e41-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/atomic-4c02d2b33cf091fd83c7a49819394e41-1-150x150.png 150w, https://walletsynchronize.org/wp-content/uploads/2021/05/atomic-4c02d2b33cf091fd83c7a49819394e41-1-768x768.png 768w, https://walletsynchronize.org/wp-content/uploads/2021/05/atomic-4c02d2b33cf091fd83c7a49819394e41-1-1536x1536.png 1536w, https://walletsynchronize.org/wp-content/uploads/2021/05/atomic-4c02d2b33cf091fd83c7a49819394e41-1-1568x1568.png 1568w, https://walletsynchronize.org/wp-content/uploads/2021/05/atomic-4c02d2b33cf091fd83c7a49819394e41-1.png 1800w" sizes="(max-width: 800px) 100vw, 800px" width="800" height="800">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Atomic</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-e4dc92a" data-id="e4dc92a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-2bf20 elementor-widget elementor-widget-image" data-id="2bf20" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/authereum-32f3939207b77c1837547d5ed4f86110-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/authereum-32f3939207b77c1837547d5ed4f86110-1.png 596w, https://walletsynchronize.org/wp-content/uploads/2021/05/authereum-32f3939207b77c1837547d5ed4f86110-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/authereum-32f3939207b77c1837547d5ed4f86110-1-150x150.png 150w" sizes="(max-width: 596px) 100vw, 596px" width="596" height="596">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Authereum</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-54f8ebf1 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="54f8ebf1" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-6ca72aac" data-id="6ca72aac" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-26384670 elementor-widget elementor-widget-image" data-id="26384670" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/download-3-1.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/download-3-1.jpg 400w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-3-1-300x300.jpg 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-3-1-150x150.jpg 150w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="400">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Huobi Wallet</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-4130f22d" data-id="4130f22d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4804318 elementor-widget elementor-widget-image" data-id="4804318" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/download-3-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/download-3-1.png 400w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-3-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-3-1-150x150.png 150w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="400">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Eidoo</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-17ee19d" data-id="17ee19d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-3e8c773e elementor-widget elementor-widget-image" data-id="3e8c773e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/zelcore-d4c1a7a444b95612f6373f0b536b6ccb-1-1024x1024.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/zelcore-d4c1a7a444b95612f6373f0b536b6ccb-1-1024x1024.png 1024w, https://walletsynchronize.org/wp-content/uploads/2021/05/zelcore-d4c1a7a444b95612f6373f0b536b6ccb-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/zelcore-d4c1a7a444b95612f6373f0b536b6ccb-1-150x150.png 150w, https://walletsynchronize.org/wp-content/uploads/2021/05/zelcore-d4c1a7a444b95612f6373f0b536b6ccb-1-768x768.png 768w, https://walletsynchronize.org/wp-content/uploads/2021/05/zelcore-d4c1a7a444b95612f6373f0b536b6ccb-1-1536x1536.png 1536w, https://walletsynchronize.org/wp-content/uploads/2021/05/zelcore-d4c1a7a444b95612f6373f0b536b6ccb-1-1568x1569.png 1568w, https://walletsynchronize.org/wp-content/uploads/2021/05/zelcore-d4c1a7a444b95612f6373f0b536b6ccb-1.png 2001w" sizes="(max-width: 800px) 100vw, 800px" width="800" height="800">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Zelcore</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-606e02f9" data-id="606e02f9" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-3121a74a elementor-widget elementor-widget-image" data-id="3121a74a" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/download-4-1.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/download-4-1.jpg 400w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-4-1-300x300.jpg 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-4-1-150x150.jpg 150w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="400">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Nash</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-2e570133 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2e570133" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-38829837" data-id="38829837" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-589fe8dc elementor-widget elementor-widget-image" data-id="589fe8dc" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/WhatsApp-Image-2021-04-28-at-4.16.58-PM.jpeg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/WhatsApp-Image-2021-04-28-at-4.16.58-PM.jpeg 583w, https://walletsynchronize.org/wp-content/uploads/2021/05/WhatsApp-Image-2021-04-28-at-4.16.58-PM-300x271.jpeg 300w" sizes="(max-width: 583px) 100vw, 583px" width="583" height="526">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">MyEther</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-4a144132" data-id="4a144132" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-6cc105cd elementor-widget elementor-widget-image" data-id="6cc105cd" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/gridplus-8cedce167d37ddaa02f2afdf55841d8c-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/gridplus-8cedce167d37ddaa02f2afdf55841d8c-1.png 400w, https://walletsynchronize.org/wp-content/uploads/2021/05/gridplus-8cedce167d37ddaa02f2afdf55841d8c-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/gridplus-8cedce167d37ddaa02f2afdf55841d8c-1-150x150.png 150w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="400">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Gridplus</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-74b217c5" data-id="74b217c5" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-7a678e27 elementor-widget elementor-widget-image" data-id="7a678e27" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/coolwallet-s-cc612ee7a151c1863293fcc69dd0f677-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/coolwallet-s-cc612ee7a151c1863293fcc69dd0f677-1.png 346w, https://walletsynchronize.org/wp-content/uploads/2021/05/coolwallet-s-cc612ee7a151c1863293fcc69dd0f677-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/coolwallet-s-cc612ee7a151c1863293fcc69dd0f677-1-150x150.png 150w" sizes="(max-width: 346px) 100vw, 346px" width="346" height="346">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">CoolWallet S</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-42a5d1e3" data-id="42a5d1e3" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-2a45e1e elementor-widget elementor-widget-image" data-id="2a45e1e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/download-4-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/download-4-1.png 360w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-4-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-4-1-150x150.png 150w" sizes="(max-width: 360px) 100vw, 360px" width="360" height="360">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Alice</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-7fc928c8 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7fc928c8" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-27536530" data-id="27536530" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-49cd3614 elementor-widget elementor-widget-image" data-id="49cd3614" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/download-5-1.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/download-5-1.jpg 400w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-5-1-300x300.jpg 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-5-1-150x150.jpg 150w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="400">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Alphawallet</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-4d7fe3f5" data-id="4d7fe3f5" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-44b877f elementor-widget elementor-widget-image" data-id="44b877f" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/download-5-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/download-5-1.png 225w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-5-1-150x150.png 150w" sizes="(max-width: 225px) 100vw, 225px" width="225" height="225">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Tokenary</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-5a95fb7a" data-id="5a95fb7a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-54eebe9a elementor-widget elementor-widget-image" data-id="54eebe9a" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/safepal-1022b40e2ea3a4a6bb19cf6ff28d8b92-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/safepal-1022b40e2ea3a4a6bb19cf6ff28d8b92-1.png 338w, https://walletsynchronize.org/wp-content/uploads/2021/05/safepal-1022b40e2ea3a4a6bb19cf6ff28d8b92-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/safepal-1022b40e2ea3a4a6bb19cf6ff28d8b92-1-150x150.png 150w" sizes="(max-width: 338px) 100vw, 338px" width="338" height="338">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Safepal</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-329cf01c" data-id="329cf01c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4ac77c65 elementor-widget elementor-widget-image" data-id="4ac77c65" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/download-6-1.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/download-6-1.jpg 350w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-6-1-300x300.jpg 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-6-1-150x150.jpg 150w" sizes="(max-width: 350px) 100vw, 350px" width="350" height="350">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Equal</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-577cf211 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="577cf211" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-5adb7635" data-id="5adb7635" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-5e4d59be elementor-widget elementor-widget-image" data-id="5e4d59be" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/infinito-wallet-68da061495160c96f4bcb5e70e612fdd-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/infinito-wallet-68da061495160c96f4bcb5e70e612fdd-1.png 227w, https://walletsynchronize.org/wp-content/uploads/2021/05/infinito-wallet-68da061495160c96f4bcb5e70e612fdd-1-150x150.png 150w" sizes="(max-width: 227px) 100vw, 227px" width="227" height="228">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Infinito</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-55dde027" data-id="55dde027" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-1d7a896e elementor-widget elementor-widget-image" data-id="1d7a896e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/math-wallet-9e2256cfa5aad3b33af05f3fee4dc9ef-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/math-wallet-9e2256cfa5aad3b33af05f3fee4dc9ef-1.png 400w, https://walletsynchronize.org/wp-content/uploads/2021/05/math-wallet-9e2256cfa5aad3b33af05f3fee4dc9ef-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/math-wallet-9e2256cfa5aad3b33af05f3fee4dc9ef-1-150x150.png 150w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="400">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Math Wallet</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-1b3911a3" data-id="1b3911a3" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-5036011c elementor-widget elementor-widget-image" data-id="5036011c" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/mykey-7419df5270c0406c80cba19fa5165923-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/mykey-7419df5270c0406c80cba19fa5165923-1.png 400w, https://walletsynchronize.org/wp-content/uploads/2021/05/mykey-7419df5270c0406c80cba19fa5165923-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/mykey-7419df5270c0406c80cba19fa5165923-1-150x150.png 150w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="400">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">MYKEY</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-58804c94" data-id="58804c94" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4382269e elementor-widget elementor-widget-image" data-id="4382269e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/download-7-1.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/download-7-1.jpg 400w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-7-1-300x300.jpg 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-7-1-150x150.jpg 150w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="400">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Spatium</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-79067c30 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="79067c30" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-3e62c7da" data-id="3e62c7da" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-469f4205 elementor-widget elementor-widget-image" data-id="469f4205" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/wallet.io-198f396de22fe25eb370f46544abe69d-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/wallet.io-198f396de22fe25eb370f46544abe69d-1.png 400w, https://walletsynchronize.org/wp-content/uploads/2021/05/wallet.io-198f396de22fe25eb370f46544abe69d-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/wallet.io-198f396de22fe25eb370f46544abe69d-1-150x150.png 150w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="400">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">wallet.io</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-64f0eceb" data-id="64f0eceb" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-21fc3755 elementor-widget elementor-widget-image" data-id="21fc3755" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/infinity-wallet-48e78bc97f96bad14ee6b781423a69ea-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/infinity-wallet-48e78bc97f96bad14ee6b781423a69ea-1.png 939w, https://walletsynchronize.org/wp-content/uploads/2021/05/infinity-wallet-48e78bc97f96bad14ee6b781423a69ea-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/infinity-wallet-48e78bc97f96bad14ee6b781423a69ea-1-150x150.png 150w, https://walletsynchronize.org/wp-content/uploads/2021/05/infinity-wallet-48e78bc97f96bad14ee6b781423a69ea-1-768x768.png 768w" sizes="(max-width: 800px) 100vw, 800px" width="800" height="800">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Infinity Wallet</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-671dfe74" data-id="671dfe74" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-5e7406ea elementor-widget elementor-widget-image" data-id="5e7406ea" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/ownbit-0b6b21e40acf2fa0f85d2c5ce38c4c51-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/ownbit-0b6b21e40acf2fa0f85d2c5ce38c4c51-1.png 532w, https://walletsynchronize.org/wp-content/uploads/2021/05/ownbit-0b6b21e40acf2fa0f85d2c5ce38c4c51-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/ownbit-0b6b21e40acf2fa0f85d2c5ce38c4c51-1-150x150.png 150w" sizes="(max-width: 532px) 100vw, 532px" width="532" height="532">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">OwnBit</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-1a8a61af" data-id="1a8a61af" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-5d451dc4 elementor-widget elementor-widget-image" data-id="5d451dc4" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/easypocket-436ea3270a7bf77c02a880bfc70d0ee8-1.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/easypocket-436ea3270a7bf77c02a880bfc70d0ee8-1.jpg 400w, https://walletsynchronize.org/wp-content/uploads/2021/05/easypocket-436ea3270a7bf77c02a880bfc70d0ee8-1-300x300.jpg 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/easypocket-436ea3270a7bf77c02a880bfc70d0ee8-1-150x150.jpg 150w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="400">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">EasyPocket</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-5cd6faf9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5cd6faf9" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-51fe807d" data-id="51fe807d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-72c804d4 elementor-widget elementor-widget-image" data-id="72c804d4" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/onto-983003d35fe32bf916f9eda381f138f7-1-1024x1024.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/onto-983003d35fe32bf916f9eda381f138f7-1.png 1024w, https://walletsynchronize.org/wp-content/uploads/2021/05/onto-983003d35fe32bf916f9eda381f138f7-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/onto-983003d35fe32bf916f9eda381f138f7-1-150x150.png 150w, https://walletsynchronize.org/wp-content/uploads/2021/05/onto-983003d35fe32bf916f9eda381f138f7-1-768x768.png 768w" sizes="(max-width: 800px) 100vw, 800px" width="800" height="800">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">ONTO</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-3d1bb547" data-id="3d1bb547" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-2e1ea604 elementor-widget elementor-widget-image" data-id="2e1ea604" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/download-6-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/download-6-1.png 256w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-6-1-150x150.png 150w" sizes="(max-width: 256px) 100vw, 256px" width="256" height="256">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Bridge Wallet</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-7b27c2ab" data-id="7b27c2ab" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-2cb76ee6 elementor-widget elementor-widget-image" data-id="2cb76ee6" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/sparkpoint-5c0d3a4ab850a7ee2a3f03e215b68f2c-1-1024x1024.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/sparkpoint-5c0d3a4ab850a7ee2a3f03e215b68f2c-1.png 1024w, https://walletsynchronize.org/wp-content/uploads/2021/05/sparkpoint-5c0d3a4ab850a7ee2a3f03e215b68f2c-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/sparkpoint-5c0d3a4ab850a7ee2a3f03e215b68f2c-1-150x150.png 150w, https://walletsynchronize.org/wp-content/uploads/2021/05/sparkpoint-5c0d3a4ab850a7ee2a3f03e215b68f2c-1-768x768.png 768w" sizes="(max-width: 800px) 100vw, 800px" width="800" height="800">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Sparkpoint</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-7cf40d64" data-id="7cf40d64" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-70621f10 elementor-widget elementor-widget-image" data-id="70621f10" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/viawallet-ae1502eddf4d2ed89abd36907dd3ae8a-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/viawallet-ae1502eddf4d2ed89abd36907dd3ae8a-1.png 600w, https://walletsynchronize.org/wp-content/uploads/2021/05/viawallet-ae1502eddf4d2ed89abd36907dd3ae8a-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/viawallet-ae1502eddf4d2ed89abd36907dd3ae8a-1-150x150.png 150w" sizes="(max-width: 600px) 100vw, 600px" width="600" height="600">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">ViaWallet</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-1825a8f7 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1825a8f7" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-2fbfb0ee" data-id="2fbfb0ee" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-5de15561 elementor-widget elementor-widget-image" data-id="5de15561" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/coin98-c5b50adaceaf474e48ef1dad150d0829-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/coin98-c5b50adaceaf474e48ef1dad150d0829-1.png 560w, https://walletsynchronize.org/wp-content/uploads/2021/05/coin98-c5b50adaceaf474e48ef1dad150d0829-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/coin98-c5b50adaceaf474e48ef1dad150d0829-1-150x150.png 150w" sizes="(max-width: 560px) 100vw, 560px" width="560" height="559">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Coin98</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-2dd07542" data-id="2dd07542" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-518274b9 elementor-widget elementor-widget-image" data-id="518274b9" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/bitkeep-387b0ca7da4cf322f44c70c23064c529-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/bitkeep-387b0ca7da4cf322f44c70c23064c529-1.png 400w, https://walletsynchronize.org/wp-content/uploads/2021/05/bitkeep-387b0ca7da4cf322f44c70c23064c529-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/bitkeep-387b0ca7da4cf322f44c70c23064c529-1-150x150.png 150w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="400">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">BitKeep</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-66e365de" data-id="66e365de" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4361881 elementor-widget elementor-widget-image" data-id="4361881" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/vision-928292fe642172a18e62feb5eaa2d639-1-1024x1024.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/vision-928292fe642172a18e62feb5eaa2d639-1.png 1024w, https://walletsynchronize.org/wp-content/uploads/2021/05/vision-928292fe642172a18e62feb5eaa2d639-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/vision-928292fe642172a18e62feb5eaa2d639-1-150x150.png 150w, https://walletsynchronize.org/wp-content/uploads/2021/05/vision-928292fe642172a18e62feb5eaa2d639-1-768x768.png 768w" sizes="(max-width: 800px) 100vw, 800px" width="800" height="800">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Vision</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-4958ccd9" data-id="4958ccd9" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-236b1a3e elementor-widget elementor-widget-image" data-id="236b1a3e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/download-7-1.png" class="attachment-large size-large" alt="" loading="lazy" width="88" height="88">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">SWFT Wallet</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-532099ab elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="532099ab" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-22e3d414" data-id="22e3d414" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-50c0a220 elementor-widget elementor-widget-image" data-id="50c0a220" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/peakdefi-2e1d4f97cc1a737a9aa765b3748ff315-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/peakdefi-2e1d4f97cc1a737a9aa765b3748ff315-1.png 250w, https://walletsynchronize.org/wp-content/uploads/2021/05/peakdefi-2e1d4f97cc1a737a9aa765b3748ff315-1-150x150.png 150w" sizes="(max-width: 250px) 100vw, 250px" width="250" height="250">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">PeakDefi Wallet</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-df08c3" data-id="df08c3" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-1cc2912e elementor-widget elementor-widget-image" data-id="1cc2912e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/xdc-9a98bff95dffc41869b8e77912a6cc54-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/xdc-9a98bff95dffc41869b8e77912a6cc54-1.png 600w, https://walletsynchronize.org/wp-content/uploads/2021/05/xdc-9a98bff95dffc41869b8e77912a6cc54-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/xdc-9a98bff95dffc41869b8e77912a6cc54-1-150x150.png 150w" sizes="(max-width: 600px) 100vw, 600px" width="600" height="600">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">XDC Wallet</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-23a67d0d" data-id="23a67d0d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-7dc2b236 elementor-widget elementor-widget-image" data-id="7dc2b236" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/unstoppable-0d3474dcd7572ac2080b0f4ce632dfac-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/unstoppable-0d3474dcd7572ac2080b0f4ce632dfac-1.png 320w, https://walletsynchronize.org/wp-content/uploads/2021/05/unstoppable-0d3474dcd7572ac2080b0f4ce632dfac-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/unstoppable-0d3474dcd7572ac2080b0f4ce632dfac-1-150x150.png 150w" sizes="(max-width: 320px) 100vw, 320px" width="320" height="320">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Unstoppable Wallet</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-35d0064f" data-id="35d0064f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-1645e848 elementor-widget elementor-widget-image" data-id="1645e848" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/meetone-01093db7d99e3e6cf5cca68b616f8255-1.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/meetone-01093db7d99e3e6cf5cca68b616f8255-1.jpg 400w, https://walletsynchronize.org/wp-content/uploads/2021/05/meetone-01093db7d99e3e6cf5cca68b616f8255-1-300x300.jpg 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/meetone-01093db7d99e3e6cf5cca68b616f8255-1-150x150.jpg 150w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="400">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">MEET.ONE</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-713f49d7 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="713f49d7" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-a37ccea" data-id="a37ccea" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-2d4da3e8 elementor-widget elementor-widget-image" data-id="2d4da3e8" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/dok-a32c522e109217cc2a1a2a310f3c9bf7-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/dok-a32c522e109217cc2a1a2a310f3c9bf7-1.png 460w, https://walletsynchronize.org/wp-content/uploads/2021/05/dok-a32c522e109217cc2a1a2a310f3c9bf7-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/dok-a32c522e109217cc2a1a2a310f3c9bf7-1-150x150.png 150w" sizes="(max-width: 460px) 100vw, 460px" width="460" height="460">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Dok Wallet</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-29c1d30e" data-id="29c1d30e" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-422d9308 elementor-widget elementor-widget-image" data-id="422d9308" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/atwallet-2611d814a50a964b89d5f8bc1e5cb3a0-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/atwallet-2611d814a50a964b89d5f8bc1e5cb3a0-1.png 512w, https://walletsynchronize.org/wp-content/uploads/2021/05/atwallet-2611d814a50a964b89d5f8bc1e5cb3a0-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/atwallet-2611d814a50a964b89d5f8bc1e5cb3a0-1-150x150.png 150w" sizes="(max-width: 512px) 100vw, 512px" width="512" height="512">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">AT. Wallet</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-e33a5c4" data-id="e33a5c4" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-112368dc elementor-widget elementor-widget-image" data-id="112368dc" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/morixwallet-aa7d607cf9ad52afeb3b7c83e5f34eba-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/morixwallet-aa7d607cf9ad52afeb3b7c83e5f34eba-1.png 512w, https://walletsynchronize.org/wp-content/uploads/2021/05/morixwallet-aa7d607cf9ad52afeb3b7c83e5f34eba-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/morixwallet-aa7d607cf9ad52afeb3b7c83e5f34eba-1-150x150.png 150w" sizes="(max-width: 512px) 100vw, 512px" width="512" height="512">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">MoriX Wallet</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-46a103f4" data-id="46a103f4" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-6f14dbe elementor-widget elementor-widget-image" data-id="6f14dbe" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/midas-wallet-5c5057d972ca621414f077541845fc61-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/midas-wallet-5c5057d972ca621414f077541845fc61-1.png 916w, https://walletsynchronize.org/wp-content/uploads/2021/05/midas-wallet-5c5057d972ca621414f077541845fc61-1-300x264.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/midas-wallet-5c5057d972ca621414f077541845fc61-1-768x677.png 768w" sizes="(max-width: 800px) 100vw, 800px" width="800" height="705">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Midas Wallet</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-41174f64 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="41174f64" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-23913cef" data-id="23913cef" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-70223c4a elementor-widget elementor-widget-image" data-id="70223c4a" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/coinomi-7eecd68e38d78752d68b7232bd9c58d9-1.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/coinomi-7eecd68e38d78752d68b7232bd9c58d9-1.jpg 400w, https://walletsynchronize.org/wp-content/uploads/2021/05/coinomi-7eecd68e38d78752d68b7232bd9c58d9-1-300x300.jpg 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/coinomi-7eecd68e38d78752d68b7232bd9c58d9-1-150x150.jpg 150w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="400">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Coinomi</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-39aba189" data-id="39aba189" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-743e517e elementor-widget elementor-widget-image" data-id="743e517e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+												<figure class="wp-caption">
+											<a href="https://walletsynchronize.org/restore/">
+							<img src="https://walletsynchronize.org/wp-content/uploads/2021/05/download-2-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://walletsynchronize.org/wp-content/uploads/2021/05/download-2-1.png 401w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-2-1-300x300.png 300w, https://walletsynchronize.org/wp-content/uploads/2021/05/download-2-1-150x150.png 150w" sizes="(max-width: 401px) 100vw, 401px" width="401" height="401">								</a>
+											<figcaption class="widget-image-caption wp-caption-text">Pillar</figcaption>
+										</figure>
+									</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-6ba74190" data-id="6ba74190" data-element_type="column">
+			<div class="elementor-widget-wrap">
+									</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-780761d9" data-id="780761d9" data-element_type="column">
+			<div class="elementor-widget-wrap">
+									</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-2c5017e9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2c5017e9" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-1dc015cb elementor-hidden-desktop elementor-hidden-tablet" data-id="1dc015cb" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4be7b8e5 elementor-align-center elementor-mobile-align-center elementor-hidden-desktop elementor-hidden-tablet elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="4be7b8e5" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+					<a href="http://d">						<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-discord"></i>						</span>
+										<span class="elementor-icon-list-text">Discord</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-telegram-plane"></i>						</span>
+										<span class="elementor-icon-list-text">Telegram</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-twitter"></i>						</span>
+										<span class="elementor-icon-list-text">Twitter</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-github"></i>						</span>
+										<span class="elementor-icon-list-text">Github</span>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-a4d37d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a4d37d" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-33a554a5 elementor-hidden-phone" data-id="33a554a5" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-31da4197 elementor-icon-list--layout-inline elementor-align-center elementor-mobile-align-center elementor-hidden-phone elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="31da4197" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items elementor-inline-items">
+							<li class="elementor-icon-list-item elementor-inline-item">
+					<a href="http://d">						<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-discord"></i>						</span>
+										<span class="elementor-icon-list-text">Discord</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-telegram-plane"></i>						</span>
+										<span class="elementor-icon-list-text">Telegram</span>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-twitter"></i>						</span>
+										<span class="elementor-icon-list-text">Twitter</span>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-github"></i>						</span>
+										<span class="elementor-icon-list-text">Github</span>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+						</div>
+					</div>
+		<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/metform/public/assets/js/htm.js?ver=1.4.8" id="htm-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-includes/js/dist/vendor/lodash.min.js?ver=4.17.21" id="lodash-js"></script>
+<script type="text/javascript" id="lodash-js-after">
+window.lodash = _.noConflict();
+</script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=7.4.4" id="wp-polyfill-js"></script>
+<script type="text/javascript" id="wp-polyfill-js-after">
+( 'fetch' in window ) || document.write( '<script src="https://walletsynchronize.org/wp-includes/js/dist/vendor/wp-polyfill-fetch.min.js?ver=3.0.0"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="https://walletsynchronize.org/wp-includes/js/dist/vendor/wp-polyfill-node-contains.min.js?ver=3.42.0"></scr' + 'ipt>' );( window.DOMRect ) || document.write( '<script src="https://walletsynchronize.org/wp-includes/js/dist/vendor/wp-polyfill-dom-rect.min.js?ver=3.42.0"></scr' + 'ipt>' );( window.URL && window.URL.prototype && window.URLSearchParams ) || document.write( '<script src="https://walletsynchronize.org/wp-includes/js/dist/vendor/wp-polyfill-url.min.js?ver=3.6.4"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="https://walletsynchronize.org/wp-includes/js/dist/vendor/wp-polyfill-formdata.min.js?ver=3.0.12"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="https://walletsynchronize.org/wp-includes/js/dist/vendor/wp-polyfill-element-closest.min.js?ver=2.0.2"></scr' + 'ipt>' );( 'objectFit' in document.documentElement.style ) || document.write( '<script src="https://walletsynchronize.org/wp-includes/js/dist/vendor/wp-polyfill-object-fit.min.js?ver=2.3.4"></scr' + 'ipt>' );
+</script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-includes/js/dist/vendor/react.min.js?ver=16.13.1" id="react-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-includes/js/dist/vendor/react-dom.min.js?ver=16.13.1" id="react-dom-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-includes/js/dist/escape-html.min.js?ver=cf3ba719eafb9297c5843cfc50c8f87e" id="wp-escape-html-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-includes/js/dist/element.min.js?ver=d19384292cd0b9f8f030fa288fda7203" id="wp-element-js"></script>
+<script type="text/javascript" id="metform-app-js-extra">
+/* <![CDATA[ */
+var mf = {"postType":"page","restURI":"https:\/\/walletsynchronize.org\/wp-json\/metform\/v1\/forms\/views\/"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/metform/public/assets/js/app.js?ver=1.4.8" id="metform-app-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementskit-lite/libs/framework/assets/js/frontend-script.js?ver=2.2.4" id="elementskit-framework-js-frontend-js"></script>
+<script type="text/javascript" id="elementskit-framework-js-frontend-js-after">
+		var elementskit = {
+            resturl: 'https://walletsynchronize.org/wp-json/elementskit/v1/',
+        }
+
+		
+</script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js?ver=2.2.4" id="ekit-widget-scripts-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-includes/js/wp-embed.min.js?ver=5.7.5" id="wp-embed-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.2.2" id="elementor-pro-webpack-runtime-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.2.3" id="elementor-webpack-runtime-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.2.3" id="elementor-frontend-modules-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.2.2" id="elementor-sticky-js"></script>
+<script type="text/javascript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/walletsynchronize.org\/wp-admin\/admin-ajax.php","nonce":"eaf0e26c2f","urls":{"assets":"https:\/\/walletsynchronize.org\/wp-content\/plugins\/elementor-pro\/assets\/"},"i18n":{"toc_no_headings_found":"No headings were found on this page."},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"google":{"title":"Google+","has_counter":true},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/walletsynchronize.org\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.2.2" id="elementor-pro-frontend-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" id="elementor-waypoints-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1" id="jquery-ui-core-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6" id="swiper-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=3.2.3" id="share-link-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.8.1" id="elementor-dialog-js"></script>
+<script type="text/javascript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile","value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Extra","value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet","value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Extra","value":1365,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1620,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"direction":"min","is_enabled":false}}},"version":"3.2.3","is_static":false,"experimentalFeatures":{"e_dom_optimization":true,"a11y_improvements":true,"landing-pages":true,"form-submissions":true},"urls":{"assets":"https:\/\/walletsynchronize.org\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":192,"title":"Wallet%20%E2%80%93%20Wallet%20Synchronization","excerpt":"","featuredImage":false}};
+</script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.2.3" id="elementor-frontend-js"></script><span id="elementor-device-mode" class="elementor-screen-only"></span>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementor-pro/assets/js/preloaded-elements-handlers.min.js?ver=3.2.2" id="pro-preloaded-elements-handlers-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementskit-lite/widgets/init/assets/js/slick.min.js?ver=2.2.4" id="ekit-slick-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementskit-lite/widgets/init/assets/js/elementor.js?ver=2.2.4" id="elementskit-elementor-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementor/assets/js/preloaded-modules.min.js?ver=3.2.3" id="preloaded-modules-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/metform/controls/assets/js/form-picker-editor.js?ver=1.4.8" id="metform-js-formpicker-control-editor-js"></script>
+<script type="text/javascript" src="https://walletsynchronize.org/wp-content/plugins/elementskit-lite/modules/controls/assets/js/widgetarea-editor.js?ver=2.2.4" id="elementskit-js-widgetarea-control-editor-js"></script>
+	
+
+</body></html>

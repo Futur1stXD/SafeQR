@@ -1,0 +1,586 @@
+<html style="" lang="en"><head><meta charset="utf-8"><link rel="icon" href="/favicon.ico"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#000000"><meta name="keywords" content="Brightaverse ,Brightaverse.io"><meta name="description" content="Brightaverse"><link rel="apple-touch-icon" href="/logo192.png"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.10/d3.js"></script><link rel="manifest" href="/manifest.json"><title>Brightaverse</title><link href="/static/css/main.3fb0c38f.chunk.css" rel="stylesheet"><style>
+    .cr-marquee-line {
+      white-space: nowrap;
+      display: flex;
+    }
+
+    #cr-widget-marquee {
+      margin: 0;
+      padding: 0;
+      font-family: Trebuchet MS, Helvetica, sans-serif;
+      position: relative;
+    }
+
+    #cr-widget-marquee > * {
+      box-sizing: border-box;
+    }
+
+    .cr-widget-marquee-container {
+      display: flex;
+      overflow: hidden;
+      position: relative;
+      border-radius: 3px;
+      font-size: 16px;
+      border: 1px solid #e0e3eb;
+    }
+
+    .cr-widget-marquee-container__light {
+      background: #fff;
+    }
+
+    .cr-widget-marquee-container__dark {
+      background: #131516;
+    }
+
+    .cr-widget-marquee-container:hover > * {
+      animation-play-state: paused !important;
+    }
+
+    .cr-marquee-item {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      height: 40px;
+      padding: 0 16px;
+      position: relative;
+      text-decoration: none;
+    }
+
+    .cr-marquee-item__light .cr-marquee-item-coin__name {
+      color: #262b3e;
+    }
+
+    .cr-marquee-item__dark .cr-marquee-item-coin__name {
+      color: rgb(200, 196, 189);
+    }
+
+    .cr-marquee-item:after {
+      position: absolute;
+      content: '';
+      height: 20px;
+      width: 1px;
+      left: 0;
+      background-color: #d6d8e0;
+    }
+
+    .cr-marquee-item__light:hover {
+      background: #f8f9fd;
+    }
+
+    .cr-marquee-item__dark:hover {
+        background-color: rgb(27, 29, 30);
+    }
+
+    .cr-marquee-item-coin__name {
+      font-weight: 700;
+    }
+
+    .cr-marquee-item-coin__icon {
+      width: 16px;
+      height: 16px;
+      margin-right: 7px;
+      position: relative;
+    }
+
+    .cr-marquee-item__coin,
+    .cr-marquee-item__price,
+    .cr-marquee-item__change {
+      display: flex;
+      align-items: center;
+    }
+
+    .cr-marquee-item__light .cr-marquee-item__price {
+      color: #242428;
+    }
+
+    .cr-marquee-item__dark .cr-marquee-item__price {
+      color: #fff;
+    }
+
+    .cr-marquee-item__change {
+      margin-left: 16px;
+    }
+
+    .cr-marquee-item__coin {
+      margin-right: 16px;
+      width: -webkit-max-content;
+      width: -moz-max-content;
+      width: max-content;
+    }
+
+    .cr-marquee-item-change {
+      color: #e53935;
+    }
+
+    .cr-marquee-item-change__up {
+      color: #00897b;
+    }
+
+    .cr-marquee-item-change__down {
+      color: #e53935;
+    }
+
+    .cr-marquee-label {
+      position: absolute;
+      right: 1px;
+      top: 8px;
+      text-decoration: none;
+      border-radius: 12px 0 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 12px;
+      z-index: 900;
+      transition: background 0.3s cubic-bezier(0.4, 0.01, 0.22, 1) 0s;
+      overflow: hidden;
+      min-width: 24px;
+      height: 24px;
+      box-shadow: -1px 0 3px 0 rgba(0, 0, 0, 0.16);
+      color: #ffffff;
+      background-color: #ffffff;
+    }
+
+    .cr-marquee-label__dark {
+      background-color: rgb(34, 37, 49);
+    }
+
+    .cr-marquee-label:hover {
+      background: #0079fb;
+    }
+
+    .cr-marquee-label:hover > .cr-marquee-label__logo {
+      fill: #ffffff;
+    }
+
+    .cr-marquee-label:hover > .cr-marquee-label__text-wrap {
+      max-width: 120px;
+    }
+
+    .cr-marquee-label__logo {
+      width: 12px;
+      height: 12px;
+      margin: 5px 6px 5px 8px;
+      fill: #0079fb;
+    }
+
+    .cr-marquee-label__text-wrap {
+      transition: max-width 0.6s cubic-bezier(0.4, 0.01, 0.22, 1) 0s;
+      display: inline-block;
+      width: 100%;
+      padding: 0;
+      max-width: 0;
+    }
+
+    .cr-marquee-label__text {
+      padding-right: 5px;
+    }
+  </style></head><body class="font-inter antialiased bg-white text-gray-900 tracking-tight" data-aos-easing="ease-out-cubic" data-aos-duration="700" data-aos-delay="0"><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><header class="nav-container fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out false"><div id="cr-widget-marquee" class="nav-marquee" data-coins="eos,bitcoin,ethereum,tether,ripple,binance-coin,cardano,dogecoin,solana,crypto-com-cro,chainlink" data-theme="light" data-show-symbol="true" data-show-icon="true" data-show-period-change="true" data-period-change="24H" data-api-url="https://api.cryptorank.io/v0"><div class="cr-widget-marquee-container cr-widget-marquee-container__light"><div class="cr-marquee-line" style="animation: 90.1429s linear 0.5s infinite normal none running cr-marquee-7740068;">
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/eos" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.eos1524754989992.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">EOS (EOS)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$2.56</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__up">
+        1.673%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/bitcoin" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.bitcoin1524754012028.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">Bitcoin (BTC)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$42587.68</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__down">
+        -0.461%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/ethereum" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.ethereum1524754015525.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">Ethereum (ETH)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$3016.36</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__up">
+        0.066%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/tether" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.tether1645007690922.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">Tether (USDT)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$1.00</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__up">
+        0.207%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/ripple" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.xrp1634717634479.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">XRP (XRP)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$0.84</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__down">
+        -0.885%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/binance-coin" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.binance coin1645029040254.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">Binance Coin (BNB)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$422.59</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__down">
+        -2.248%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/cardano" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.cardano1524754132195.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">Cardano (ADA)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$1.07</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__up">
+        9.832%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/dogecoin" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.dogecoin1524754995294.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">Dogecoin (DOGE)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$0.12</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__down">
+        -0.22%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/solana" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.solana1606979093056.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">Solana (SOL)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$95.62</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__up">
+        2.335%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/crypto-com-cro" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.crypto-com-chain1544821574392.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">Cronos (CRO)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$0.42</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__up">
+        2.331%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/chainlink" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.chainlink1541078222348.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">ChainLink (LINK)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$15.74</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__up">
+        0.884%
+      </span>
+    </div>
+    </a>
+  </div><div class="cr-marquee-line" style="animation: 90.1429s linear 0.5s infinite normal none running cr-marquee-7740068;">
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/eos" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.eos1524754989992.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">EOS (EOS)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$2.56</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__up">
+        1.673%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/bitcoin" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.bitcoin1524754012028.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">Bitcoin (BTC)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$42587.68</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__down">
+        -0.461%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/ethereum" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.ethereum1524754015525.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">Ethereum (ETH)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$3016.36</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__up">
+        0.066%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/tether" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.tether1645007690922.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">Tether (USDT)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$1.00</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__up">
+        0.207%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/ripple" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.xrp1634717634479.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">XRP (XRP)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$0.84</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__down">
+        -0.885%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/binance-coin" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.binance coin1645029040254.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">Binance Coin (BNB)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$422.59</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__down">
+        -2.248%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/cardano" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.cardano1524754132195.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">Cardano (ADA)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$1.07</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__up">
+        9.832%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/dogecoin" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.dogecoin1524754995294.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">Dogecoin (DOGE)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$0.12</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__down">
+        -0.22%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/solana" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.solana1606979093056.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">Solana (SOL)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$95.62</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__up">
+        2.335%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/crypto-com-cro" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.crypto-com-chain1544821574392.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">Cronos (CRO)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$0.42</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__up">
+        2.331%
+      </span>
+    </div>
+    </a>
+  
+    <a class="cr-marquee-item cr-marquee-item__light" href="https://cryptorank.io/price/chainlink" target="_blank">
+      <div class="cr-marquee-item__coin cr-marquee-item-coin">
+        <img class="cr-marquee-item-coin__icon" src="https://img.api.cryptorank.io/coins/icon.chainlink1541078222348.png" alt="coin icon">
+        <span class="cr-marquee-item-coin__name">ChainLink (LINK)</span>
+      </div>
+
+      <div class="cr-marquee-item__price">
+        <span>$15.74</span>
+      </div>
+
+      
+    <div class="cr-marquee-item__change cr-marquee-item-change">
+      <span class="cr-marquee-item-change__up">
+        0.884%
+      </span>
+    </div>
+    </a>
+  </div></div><a class="cr-marquee-label cr-marquee-label__light" href="https://cryptorank.io" target="blank">
+      <svg class="cr-marquee-label__logo" viewBox="0 0 22.924 22.924" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22.924,15.206c0,0.619-0.508,1.111-1.127,1.111c-0.619,0-1.111-0.492-1.111-1.111V3.825
+          L1.909,22.603c-0.429,0.429-1.143,0.429-1.587,0c-0.429-0.444-0.429-1.143,0-1.587L19.099,2.254H7.734
+          c-0.619,0-1.127-0.508-1.127-1.127S7.115,0,7.734,0h14.063c0.619,0,1.127,0.508,1.127,1.127V15.206z"></path>
+      </svg>
+      <span class="cr-marquee-label__text-wrap"><span class="cr-marquee-label__text">CRYPTORANK</span></span>
+  </a><style>
+    @keyframes cr-marquee-7740068 {
+      to {
+        transform: translateX(-3155px);
+      }
+    }
+  </style></div><div class=" max-w-6xl mx-auto px-5 sm:px-6"><div class="hidden md:flex items-center justify-between h-16 md:h-20"><div class="flex-shrink-0 mr-4"><a class="block" aria-label="Cruip" href="/"><img class=" nav-logo md:max-w-none mx-auto rounded" src="/static/media/brightaverse-icon.652b7fe1.png" alt="Features bg" width="500" height="462"></a></div><nav class="nav-bar flex flex-grow"><ul class="flex flex-grow justify-start flex-wrap items-center"><li><a class="nav-button font-medium text-gray-600 hover:text-gray-900 px-3 py-3 flex items-center transition duration-150 ease-in-out" href="/about-us">About Us</a></li><li><a class="nav-button font-medium text-gray-600 hover:text-gray-900 px-3 py-3 flex items-center transition duration-150 ease-in-out" href="/terms">Terms of Use</a></li><li><a class="nav-button font-medium text-gray-600 hover:text-gray-900 px-3 py-3 flex items-center transition duration-150 ease-in-out" href="/privacy">Privacy Policy</a></li></ul><ul class="flex flex-grow justify-end flex-wrap items-center"><li><a class="register-button  text-gray-600" href="/signup"><span>Register</span></a></li><li><a class="download-button btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3" href=""><span>Download</span></a></li></ul></nav></div></div><div class="shadow-2xl max-w-6xl mx-auto px-5 sm:px-6"><div class="md:hidden flex items-center justify-between h-16 md:h-20"><div class="flex justify-center  mr-4"></div><div class="flex justify-center "><a class="block" aria-label="Cruip" href="/"><img class=" nav-logo md:max-w-none mx-auto rounded" src="/static/media/brightaverse-icon.652b7fe1.png" alt="Features bg" width="500" height="462"></a></div><button class="outline-none mobile-menu-button"><svg class="w-6 h-6 text-gray-500" x-show="!showMenu" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div><div class=" mobile-menu-hide dropdown-menu md:hidden flex mobile-menu"><ul class="mobile-menu"><li><a class="block text-sm px-2 py-4 hover:bg-gray-100 " href="/">Home</a></li><li><a class="block text-sm px-2 py-4 hover:bg-gray-100 transition duration-300" href="/about-us">About Us</a></li><li><a class="block text-sm px-2 py-4 hover:bg-gray-100 transition duration-300" href="/terms">Terms of Use</a></li><li><a class="block text-sm px-2 py-4 hover:bg-gray-100 transition duration-300" href="/privacy">Privacy Policy</a></li><li class="flex justify-center"><a class="mobile-button-container flex justify-center text-sm" href="/signup"><button class="btn register-button-mobile">Register</button></a></li><li class="flex justify-center"><a class="mobile-button-container flex justify-center text-sm" href=""><button class="btn download-button-mobile">Download</button></a></li></ul></div></div></header><div class="flex flex-col min-h-screen overflow-hidden"><main class="flex-grow"><section class="relative herohome-container"><div class="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none" aria-hidden="true"><svg width="1360" height="578" viewBox="0 0 1360 578" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="illustration-01"><stop stop-color="#FFF" offset="0%"></stop><stop stop-color="#EAEAEA" offset="77.402%"></stop><stop stop-color="#DFDFDF" offset="100%"></stop></linearGradient></defs><g fill="url(#illustration-01)" fill-rule="evenodd"><circle cx="1232" cy="128" r="128"></circle><circle cx="155" cy="443" r="64"></circle></g></svg></div><div class="max-w-6xl mx-auto px-4 sm:px-6"><div class="pt-32 pb-12 md:pt-40 md:pb-20"><div class="text-center pb-12 md:pb-16"><h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4 aos-init aos-animate" data-aos="zoom-y-out">Welcome to <span class="linear-highlight-text">Brightaverse</span></h1><div class="max-w-3xl mx-auto"><p class="text-xl text-gray-600 mb-8 aos-init aos-animate" data-aos="zoom-y-out" data-aos-delay="150">Brightaverse has made investing simple for millions around the world. <br>   Get started today.</p><div><img class="md:max-w-none mx-auto rounded" src="/static/media/app-screenshot.d5718690.png" alt="Features bg" width="500" height="462"></div><div class="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center aos-init" data-aos="zoom-y-out" data-aos-delay="300"><div><button class="btn text-white downloadBtn w-full mb-4 sm:w-auto sm:mb-0">Download</button></div><div><a href="/signup"><button class="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="/signup">Register</button></a></div></div></div></div></div></div></section><section class="relative"><div class="absolute inset-0 top-1/2 md:mt-24 lg:mt-0 bg-gray-900 pointer-events-none" aria-hidden="true"></div><div class="absolute left-0 right-0 bottom-0 m-auto w-px p-px h-20 bg-gray-200 transform translate-y-1/2"></div><div class="relative max-w-6xl mx-auto px-4 sm:px-6"><div class="py-12 md:py-20"><div class="max-w-3xl mx-auto text-center pb-12 md:pb-20"><h2 class="h2 mb-4">Trust is our product™</h2><p class="text-xl text-gray-600">Over 250+ cryptocurrencies available for buying and selling<br>Over 5 millions users using Brightaverse<br>Get your portfolio by receiving rewards up to 15%<br>Newest NFTs is supported everyday</p></div><div class="max-w-sm mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start md:max-w-2xl lg:max-w-none"><div class="feature-block relative flex flex-col items-center p-6 bg-white rounded shadow-xl"><svg class="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><rect class="fill-current feature-logo-bg" width="64" height="64" rx="32"></rect><g stroke-width="2"><path class="stroke-current feature-logo-secondary" d="M34.514 35.429l2.057 2.285h8M20.571 26.286h5.715l2.057 2.285"></path><path class="stroke-current text-white" d="M20.571 37.714h5.715L36.57 26.286h8"></path><path class="stroke-current feature-logo-secondary" stroke-linecap="square" d="M41.143 34.286l3.428 3.428-3.428 3.429"></path><path class="stroke-current text-white" stroke-linecap="square" d="M41.143 29.714l3.428-3.428-3.428-3.429"></path></g></g></svg><h4 class="text-xl font-bold leading-snug tracking-tight mb-1">Registration </h4><p class="text-gray-600 text-center">Sign up and verify today by just 2 minutes and you are good to go!</p></div><div class="feature-block relative flex flex-col items-center p-6 bg-white rounded shadow-xl"><svg class="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><rect class="fill-current feature-logo-bg" width="64" height="64" rx="32"></rect><g stroke-width="2" transform="translate(19.429 20.571)"><circle class="stroke-current text-white" stroke-linecap="square" cx="12.571" cy="12.571" r="1.143"></circle><path class="stroke-current text-white" d="M19.153 23.267c3.59-2.213 5.99-6.169 5.99-10.696C25.143 5.63 19.514 0 12.57 0 5.63 0 0 5.629 0 12.571c0 4.527 2.4 8.483 5.99 10.696"></path><path class="stroke-current feature-logo-secondary" d="M16.161 18.406a6.848 6.848 0 003.268-5.835 6.857 6.857 0 00-6.858-6.857 6.857 6.857 0 00-6.857 6.857 6.848 6.848 0 003.268 5.835"></path></g></g></svg><h4 class="text-xl font-bold leading-snug tracking-tight mb-1">Community</h4><p class="text-gray-600 text-center">We have a close family of 5 millions valued customers, we love to hear your voice</p></div><div class="feature-block relative flex flex-col items-center p-6 bg-white rounded shadow-xl"><svg class="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><rect class="fill-current feature-logo-bg" width="64" height="64" rx="32"></rect><g stroke-linecap="square" stroke-width="2"><path class="stroke-current feature-logo-secondary" d="M38.826 22.504a9.128 9.128 0 00-13.291-.398M35.403 25.546a4.543 4.543 0 00-6.635-.207"></path><path class="stroke-current text-white" d="M19.429 25.143A6.857 6.857 0 0126.286 32v1.189L28 37.143l-1.714.571V40A2.286 2.286 0 0124 42.286h-2.286v2.285M44.571 25.143A6.857 6.857 0 0037.714 32v1.189L36 37.143l1.714.571V40A2.286 2.286 0 0040 42.286h2.286v2.285"></path></g></g></svg><h4 class="text-xl font-bold leading-snug tracking-tight mb-1">Customer Support</h4><p class="text-gray-600 text-center">Our 24/7 CS support team is ready to hear and solve your problem</p></div><div class="feature-block relative flex flex-col items-center p-6 bg-white rounded shadow-xl"><svg class="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><rect class="fill-current feature-logo-bg" width="64" height="64" rx="32"></rect><g transform="translate(22.857 19.429)" stroke-width="2"><path class="stroke-current text-white" stroke-linecap="square" d="M12.571 4.571V0H0v25.143h12.571V20.57"></path><path class="stroke-current text-white" d="M16 12.571h8"></path><path class="stroke-current text-white" stroke-linecap="square" d="M19.429 8L24 12.571l-4.571 4.572"></path><circle class="stroke-current feature-logo-secondary" stroke-linecap="square" cx="12.571" cy="12.571" r="3.429"></circle></g></g></svg><h4 class="text-xl font-bold leading-snug tracking-tight mb-1">Deposit</h4><p class="text-gray-600 text-center">Brightaverse support many deposit methods to customer to get fund into your account</p></div><div class="feature-block relative flex flex-col items-center p-6 bg-white rounded shadow-xl"><svg class="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><rect class="fill-current feature-logo-bg" width="64" height="64" rx="32"></rect><g stroke-linecap="square" stroke-width="2"><path class="stroke-current text-white" d="M20.571 20.571h13.714v17.143H20.571z"></path><path class="stroke-current feature-logo-secondary" d="M38.858 26.993l6.397 1.73-4.473 16.549-13.24-3.58"></path></g></g></svg><h4 class="text-xl font-bold leading-snug tracking-tight mb-1">2FA authentication</h4><p class="text-gray-600 text-center">Brightaverse enable 2FA for an extra layer of security</p></div><div class="feature-block relative flex flex-col items-center p-6 bg-white rounded shadow-xl"><svg class="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><rect class="fill-current feature-logo-bg" width="64" height="64" rx="32"></rect><g stroke-width="2"><path class="stroke-current text-white" d="M32 37.714A5.714 5.714 0 0037.714 32a5.714 5.714 0 005.715 5.714"></path><path class="stroke-current text-white" d="M32 37.714a5.714 5.714 0 015.714 5.715 5.714 5.714 0 015.715-5.715M20.571 26.286a5.714 5.714 0 005.715-5.715A5.714 5.714 0 0032 26.286"></path><path class="stroke-current text-white" d="M20.571 26.286A5.714 5.714 0 0126.286 32 5.714 5.714 0 0132 26.286"></path><path class="stroke-current feature-logo-secondary" d="M21.714 40h4.572M24 37.714v4.572M37.714 24h4.572M40 21.714v4.572" stroke-linecap="square"></path></g></g></svg><h4 class="text-xl font-bold leading-snug tracking-tight mb-1">Blockchain Certified</h4><p class="text-gray-600 text-center">As a certified member of blockchain, you can be confident Brightaverse meets best practice standards</p></div></div></div></div></section><section class="relative"><div class="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none -mb-32" aria-hidden="true"><svg width="1760" height="518" viewBox="0 0 1760 518" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="illustration-02"><stop stop-color="#FFF" offset="0%"></stop><stop stop-color="#EAEAEA" offset="77.402%"></stop><stop stop-color="#DFDFDF" offset="100%"></stop></linearGradient></defs><g transform="translate(0 -3)" fill="url(#illustration-02)" fill-rule="evenodd"><circle cx="1630" cy="128" r="128"></circle><circle cx="178" cy="481" r="40"></circle></g></svg></div><div class="max-w-6xl mx-auto px-4 sm:px-6"><div class="py-12 md:py-20"><div class="max-w-3xl mx-auto text-center pb-12 md:pb-16"><h2 class="h2 mb-4">Our Mission</h2><p class="text-xl text-gray-600 aos-init" data-aos="zoom-y-out">We set our to empower over 5 millions of people across the world by upgrading them to a more open, efficient, and inclusive financial system. To do that, we built a platform that makes cryptocurrencies such as BitCoin and Ethereum easliy accessible to everyone - whoever and wherever you are.</p></div><div><img class="md:max-w-lg mx-auto rounded" src="/static/media/register.912021ad.1afb20f3.png"></div></div></div></section><section><div class="max-w-6xl mx-auto px-4 sm:px-6"><div class="pb-12 md:pb-20"><div class="relative bg-gray-900 rounded py-10 px-8 md:py-16 md:px-12 shadow-2xl overflow-hidden aos-init" data-aos="zoom-y-out"><div class="absolute right-0 bottom-0 pointer-events-none block" aria-hidden="true"><svg class="box-svg" width="428" height="328" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient cx="35.542%" cy="34.553%" fx="35.542%" fy="34.553%" r="96.031%" id="ni-a"><stop stop-color="#DFDFDF" offset="0%"></stop><stop stop-color="#4C4C4C" offset="44.317%"></stop><stop stop-color="#333" offset="100%"></stop></radialGradient></defs><g fill="none" fill-rule="evenodd"><g fill="#FFF"><ellipse fill-opacity=".04" cx="185" cy="15.576" rx="16" ry="15.576"></ellipse><ellipse fill-opacity=".24" cx="100" cy="68.402" rx="24" ry="23.364"></ellipse><ellipse fill-opacity=".12" cx="29" cy="251.231" rx="29" ry="28.231"></ellipse><ellipse fill-opacity=".64" cx="29" cy="251.231" rx="8" ry="7.788"></ellipse><ellipse fill-opacity=".12" cx="342" cy="31.303" rx="8" ry="7.788"></ellipse><ellipse fill-opacity=".48" cx="62" cy="126.811" rx="2" ry="1.947"></ellipse><ellipse fill-opacity=".12" cx="78" cy="7.072" rx="2" ry="1.947"></ellipse><ellipse fill-opacity=".64" cx="185" cy="15.576" rx="6" ry="5.841"></ellipse></g><circle fill="url(#ni-a)" cx="276" cy="237" r="200"></circle></g></svg></div><div class="relative flex flex-col lg:flex-row justify-between items-center"><div class="text-center lg:text-left lg:max-w-xl"><h3 class="h3 text-white mb-2">Support</h3><p class="text-gray-300 text-lg mb-6">Please contact: cs@brightaverse.io</p></div></div></div></div></div></section></main></div><footer><div class="md:flex hidden max-w-6xl mx-auto px-4 sm:px-6"><div class="max-w-6xl mx-auto px-4 sm:px-6"><div class="md:flex hidden md:items-center md:justify-between py-4 md:py-8 "><ul class="flex mb-4 md:order-1 md:ml-4 md:mb-0"><li class="ml-4"><a class="flex justify-center items-center text-gray-400 hover:text-gray-200 transition duration-150 ease-in-out" href="/">Home</a></li><li class="ml-4"><a class="flex justify-center items-center text-gray-400 hover:text-gray-200 transition duration-150 ease-in-out" href="/about-us">About Us</a></li><li class="ml-4"><a class="flex justify-center items-center text-gray-400 hover:text-gray-200  transition duration-150 ease-in-out" href="/terms">Terms of Use</a></li><li class="ml-4"><a class="flex justify-center items-center text-gray-400 hover:text-gray-200 transition duration-150 ease-in-out" href="/privacy">Privacy Policy</a></li></ul><div class="text-sm text-gray-400 mr-4">Brightaverse 2018. All rights reserved.</div></div><div class="mb-4 flex justify-center items-center"><ul class="flex md:order-1 md:ml-4 md:mb-0"><li class="ml-6"><img class="h-10" src="/static/media/cert3.555f0049.d845361e.webp"></li><li class="ml-6"><img class="h-10" src="/static/media/cert4.d713395c.0e571a5d.webp"></li><li class="ml-6"><img class="h-10" src="/static/media/cert1.8d97b72c.9e0044d4.webp"></li><li class="ml-6"><img class="h-10" src="/static/media/cert2.36a2ca91.34faffcc.webp"></li></ul></div></div></div><div class="mt-4 flex md:hidden max-w-6xl mx-auto px-4 sm:px-6"><ul class="w-full justify-center items-center"><li class="mt-2"><a class="flex justify-center items-center text-gray-400 hover:text-gray-200 transition duration-150 ease-in-out" href="/">Home</a></li><li class="mt-2"><a class="flex justify-center items-center text-gray-400 hover:text-gray-200 transition duration-150 ease-in-out" href="/about-us">About Us</a></li><li class="mt-2"><a class="flex justify-center items-center text-gray-400 hover:text-gray-200  transition duration-150 ease-in-out" href="/terms">Terms of Use</a></li><li class="mt-2"><a class="flex justify-center items-center text-gray-400 hover:text-gray-200 transition duration-150 ease-in-out" href="/privacy">Privacy Policy</a></li><li class="mt-4"><div class="flex justify-center items-center text-sm text-gray-400">Brightaverse 2018. All rights reserved.</div></li><li class="mt-3 flex justify-center items-center"><img class="h-10" src="/static/media/cert3.555f0049.d845361e.webp"></li><li class="mt-3 flex justify-center items-center"><img class="h-10" src="/static/media/cert4.d713395c.0e571a5d.webp"></li><li class="mt-3 flex justify-center items-center"><img class="h-10" src="/static/media/cert1.8d97b72c.9e0044d4.webp"></li><li class="my-3 flex justify-center items-center"><img class="h-10" src="/static/media/cert2.36a2ca91.34faffcc.webp"></li></ul></div></footer></div><script>!function(e){function t(t){for(var n,l,i=t[0],a=t[1],p=t[2],c=0,s=[];c<i.length;c++)l=i[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in a)Object.prototype.hasOwnProperty.call(a,n)&&(e[n]=a[n]);for(f&&f(t);s.length;)s.shift()();return u.push.apply(u,p||[]),r()}function r(){for(var e,t=0;t<u.length;t++){for(var r=u[t],n=!0,i=1;i<r.length;i++){var a=r[i];0!==o[a]&&(n=!1)}n&&(u.splice(t--,1),e=l(l.s=r[0]))}return e}var n={},o={1:0},u=[];function l(t){if(n[t])return n[t].exports;var r=n[t]={i:t,l:!1,exports:{}};return e[t].call(r.exports,r,r.exports,l),r.l=!0,r.exports}l.m=e,l.c=n,l.d=function(e,t,r){l.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,t){if(1&t&&(e=l(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(l.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var n in e)l.d(r,n,function(t){return e[t]}.bind(null,n));return r},l.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(t,"a",t),t},l.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},l.p="/";var i=this["webpackJsonpsimple-light-react"]=this["webpackJsonpsimple-light-react"]||[],a=i.push.bind(i);i.push=t,i=i.slice();for(var p=0;p<i.length;p++)t(i[p]);var f=a;r()}([])</script><script src="/static/js/2.608ee07e.chunk.js"></script><script src="/static/js/main.a16f81ae.chunk.js"></script><script src="https://cryptorank.io/widget/marquee.js"></script></body></html>

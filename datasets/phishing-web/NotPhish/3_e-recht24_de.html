@@ -1,0 +1,2746 @@
+<html dir="ltr" class="layout-erecht24     com_content view-category layout-blog itemid-207 home j31 mm-hover  no-touch" lang="de-de"><head>
+<link href="https://www.e-recht24.de/" rel="canonical">
+
+<!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+<script src="/media/jui/js/jquery.min.js" type="text/javascript"></script>
+	<script src="/media/jui/js/jquery-noconflict.js" type="text/javascript"></script>
+	<script src="/media/jui/js/jquery-migrate.min.js" type="text/javascript"></script><!-- END: Custom advanced (www.pluginaria.com) -->
+<!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["setCookieDomain", "*.e-recht24.de"]);
+  _paq.push(["setDomains", ["*.e-recht24.de","*.digistore24.com","*.webinarraum.net"]]);
+  _paq.push(["enableCrossDomainLinking"]);
+  _paq.push(["setCustomDimension", 1, "Gast"]);
+  _paq.push(["enableHeartBeatTimer", 5]);
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+(function embedTrackingCode() {
+  _paq.push(["setTrackerUrl", "//service.e-recht24.de/matomo.php"]);
+  _paq.push(["setSiteId", "1"]);
+})();
+</script>
+<script defer="" type="text/javascript" src="//service.e-recht24.de/matomo.js"></script><!-- END: Custom advanced (www.pluginaria.com) -->
+<!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+<script>
+try {
+	
+	cbws = "";
+	var cbqa = false;
+	if(localStorage.getItem('cb') == "qa") {  cbqa = true; }
+
+	// ENGAGEBOX: ANZEIGEN
+	// https://www.tassos.gr/joomla-extensions/engagebox/docs/engagebox-javascript-api-2
+	var j=0;
+	var interval2 = setInterval(function() {	
+		j++;
+		if ( typeof EngageBox != "undefined") { // #1
+			EngageBox.onReady(function() { // #2
+				var b = EngageBox.getInstances();				
+				for (var i = 0; i < b.length; i++) { // #3
+					b_id = b[i].id;					
+					b[i].on("afterOpen", function() {
+						_paq.push(['trackEvent', "Engagebox angezeigt: " + b_id, document.location.pathname, cbws]);
+					});
+				}
+			}); // end engagebox  ready
+			clearInterval(interval2);
+		} else {
+			if(j > 500) clearInterval(interval2 );
+		}
+	}, 100);
+	
+	// ENGAGEBOX: KLICKS
+	slideinClicked = false;
+	jQuery( document ).ready(function() {
+		jQuery(document).on("click", "div.eb-inst.eb-7", function() {
+			if( slideinClicked == false ) {
+				_paq.push(['trackEvent', "Layer 7 slide-in Klick", document.location.pathname, cbws]);
+				slideinClicked = true;
+			}
+		});
+		
+		jQuery(document).on("click", "div.eb-inst.eb-5 #rstbox_5", function() {
+			_paq.push(['trackEvent', "Layer 5 exit Intent Klick", document.location.pathname, '']);	
+		});
+	});	
+
+
+	
+	
+
+
+	// Nav
+	jQuery( document ).ready(function() {
+		jQuery(document).on("click", ".t3-wrapper .t3-topbar a, .cb-t3-topbar a, .col-md-9.header-right", function() {
+			_paq.push(['trackEvent', 'Topbar Klicks', jQuery(this).attr("href"), document.location.pathname]);
+		});		
+		jQuery("#t3-mainnav a").on("click", function() {
+			_paq.push(['trackEvent', 'Navigation Klicks', jQuery(this).attr("href"), document.location.pathname]);
+		});
+		jQuery("#t3-stickynav a").on("click", function() {
+			_paq.push(['trackEvent', 'Sticky-Navigation Klicks', jQuery(this).attr("href"), document.location.pathname]);
+		});
+
+	}); // end doc ready
+
+
+
+	// ////////////////////////
+	// CB-26
+	if(document.URL.indexOf("cb_qa=26") > -1) {
+		var _paq = _paq || [];
+		_paq.push(['AbTesting::create', {
+			name: '14',
+			percentage: 100,
+			includedTargets: [{"attribute":"url","inverted":"0","type":"any","value":""}],
+			excludedTargets: [{"attribute":"path","type":"contains","value":"\/mitglieder\/","inverted":"0"}],
+			variations: [
+				{
+					name: 'original',
+					activate: function (event) {
+						
+					}
+				},
+				{
+					name: '17',
+					activate: function(event) {
+						var i=0;
+						var interval = setInterval(function() {	
+							i++;
+							if (document.querySelector("div.eb-inst.eb-7 .bottom-banner-headline span") != null) {
+								// Überschrift anpassen
+								document.querySelector("div.eb-inst.eb-7 .bottom-banner-headline span").innerHTML = "Kostenloses Webinar";
+
+								// Text anpassen
+								document.querySelector("div.eb-inst.eb-7 .bottom-banner-cta-text").innerHTML = "Thema: Die 7 häufigsten Abmahnfallen auf Webseiten.";
+								 
+								
+								// CTA anpassen
+								document.querySelector("div.eb-inst.eb-7 .bottom-banner-cta-button span").innerHTML = "Kostenlos anmelden";
+								document.querySelector("div.eb-inst.eb-7 .bottom-banner-wrap a").href = "https://www.e-recht24.de/e24link/k5ua7";
+
+								clearInterval(interval);
+							} else {
+								if(i > 500) clearInterval(interval );
+							}
+						}, 100);
+					}
+				}            
+			],
+			trigger: function () {
+				return true;
+			}
+		}]);
+	}
+	
+	
+	
+	/* /ARTIKEL */
+	if(document.location.pathname.indexOf("/artikel/") > -1) {
+		document.addEventListener("DOMContentLoaded", function() {
+			// weiterlesen
+			if( document.querySelector("a.su-button.su-button-style-3d.article-content[href='#1']") != null ) { 
+				document.querySelector("a.su-button.su-button-style-3d.article-content[href='#1']").addEventListener("click", function(event) {
+					_paq.push(['trackEvent', 'Artikel Button blau: weiterlesen', document.location.pathname, '']);
+				});
+			}
+
+			// kaufen
+			if( document.querySelector("a.su-button.su-button-style-3d.article-content[target='_self']") != null ) {
+				document.querySelector("a.su-button.su-button-style-3d.article-content[target='_self']").addEventListener("click", function(event) {
+					_paq.push(['trackEvent', 'Artikel Button blau: kaufen', document.location.pathname, '']);
+				});
+			}
+		});
+	}
+	
+	/* DATENSCHUTZGRUNDVERORDNUNG.HTML */
+	if(document.location.pathname == "/datenschutzgrundverordnung.html") {
+		jQuery( document ).ready(function() {
+			jQuery.fn.isInViewport2 = function() {
+				if(jQuery(this).length > 0) {
+					var elementTop = jQuery(this).offset().top;
+					var elementBottom = elementTop + jQuery(this).outerHeight();
+					var viewportTop = jQuery(window).scrollTop();
+					var viewportBottom = viewportTop + jQuery(window).height();
+					return elementBottom > viewportTop && elementTop < viewportBottom;
+				}
+			};
+			
+			select = jQuery("h2, h3");
+			jQuery(document).ready(function() {
+				jQuery(document).on("scroll", function() {
+					jQuery.each( select, function( key, value ) {
+						if( jQuery(value).isInViewport2() ) {
+							console.log(jQuery(value));
+							_paq.push(['trackEvent', "Scroll-Tracking: " + document.location.pathname, jQuery(value).text(), '']);
+							select[key] = "";
+						}
+					});
+				});
+			});
+			
+			// KLICK blaue box
+			jQuery("section.article-content > .su-row.su-clmms-yes.su-gutter-large a").on("click", function() {
+				_paq.push(['trackEvent', "Klick-Tracking blauBox: " + document.location.pathname, jQuery(this).text(), '']);	
+			});
+			/*jQuery("div.microsite-dsgv a").on("click", function() {
+				_paq.push(['trackEvent', "Klick-Tracking dsgvo special: " + document.location.pathname, jQuery(this).text(), '']);	
+			});*/
+			jQuery(".su-call-to-action.microsite-cta a").on("click", function() {
+				_paq.push(['trackEvent', "Klick-Tracking cta orange: " + document.location.pathname, jQuery(this).text(), '']);	
+			});
+		});
+	}
+	
+	
+	// WEBSITESCANNER
+	if( document.location.pathname == '/websitescanner') {
+		_paq.push(['trackEvent', "Website-Scanner", "1 Seitenaufruf", ""]);	
+		console.log("__websitescanner pv");
+
+		var cb_i2=0;
+		var cb_interval2 = setInterval(function() {
+			cb_i2++;
+			if ( document.querySelector("website-scan").shadowRoot.querySelectorAll("form").length ) {
+				clearInterval(cb_interval2);
+				console.log( document.querySelector("website-scan").shadowRoot.querySelector("form") );
+				document.querySelector("website-scan").shadowRoot.querySelector("form").addEventListener('submit', function (e) {
+					_paq.push(['trackEvent', "Website-Scanner", "1.1 Formular abgeschickt", ""]);
+				});
+			} else {
+				if(cb_i2 > 100) clearInterval(cb_interval2);
+			}
+		}, 10);
+
+				
+			
+		function callbackWebsitescannerFinish() {
+			console.log("__websitescanner finish");
+			
+			var cb_root2 = document.querySelector("website-scan").shadowRoot;
+			console.log( cb_root2 );
+			
+			var cb_i=0;
+			var cb_interval = setInterval(function() {
+				cb_i++;
+				console.log( cb_i );
+				if ( cb_root2.querySelector("div[aria-label='Resultate Body'] h2") != null ) {
+					clearInterval(cb_interval);
+					var anzahl = ""; anzahl = cb_root2.querySelector("div[aria-label='Resultate Body'] h2").innerText
+					var dim7 = ""; dim7 =cb_root2.querySelector("h2.headline").innerText;
+					var dim8 = ""; dim8 = cb_root2.querySelector("div[data-check='Hosting & CMS'] small > strong").innerText;
+					var dim9 = ""; dim9 = cb_root2.querySelector("div[data-check='Tools'] small > strong").innerText;
+					var dim10 = ""; dim10 = cb_root2.querySelector("div[data-check='Consent-Tool'] small > strong").innerText;
+					var dim11 = ""; dim11 = cb_root2.querySelector("div[data-check='Rechtstexte'] small > strong").innerText;
+					_paq.push(['trackEvent', "Website-Scanner", 
+						"2 Ergebnis angezeigt", 
+						anzahl,
+						0,
+						{ dimension7: dim7, dimension8: dim8, dimension9: dim9, dimension10: dim10, dimension11: dim11 }
+					]);
+					
+				} else {
+					if(cb_i > 200) clearInterval(cb_interval);
+				}
+			}, 50);
+			
+			var cb_root = document.querySelector("website-scan");
+
+			var cb_akkordeon = false;
+			var cb_absichern1 = false;
+			var cb_absichern2 = false;
+			var cb_absichern3 = false;
+			
+			cb_root.addEventListener( 'click', function (e) {
+				for (i=0; i<e.path.length-18; i++) {
+					//console.log( e.path[i] );
+					//console.log( i );
+					if(e.path[i].matches(".button3")) {
+						label = e.path[i].closest(".scanResultsContainer").getAttribute("data-check");						
+						_paq.push(['trackEvent', "Website-Scanner", "3 Akkordeon ausgeklappt", label]);
+						if(!cb_akkordeon) {
+							_paq.push(['trackEvent', "Website-Scanner", "3 Akkordeon ausgeklappt unique", ""])
+							cb_akkordeon = true;
+						}
+						return;
+					} else if(e.path[i].matches(".button.rounded-sm")) {
+						if(!cb_absichern1) {
+							_paq.push(['trackEvent', "Website-Scanner", "4 Button Jetzt Website absichern", ""]);
+							cb_absichern1 = true;
+						}
+						return;
+					} else if(e.path[i].matches('a[href="https://www.e-recht24.de/e24link/dmv47"]')) {
+						if(!cb_absichern2) {
+							_paq.push(['trackEvent', "Website-Scanner", "4 Link Jetzt absichern", ""]);
+							cb_absichern2 = true;
+						}
+						return;
+					} else if(e.path[i].matches('a[href="https://www.e-recht24.de/e24link/7qn2o"]')) {
+						if(!cb_absichern3) {
+							_paq.push(['trackEvent', "Website-Scanner", "4 Link unten mehr erfahren", ""]);
+							cb_absichern3 = true;
+						}
+						return;
+					}
+					
+				}
+				//&a = Object.values(e.path)
+			});
+		} 
+	}
+	
+	var fc = localStorage.getItem('fc');
+	if( fc == null ) {
+		var quelle = ""; var camp = ""; if (document.referrer == "" || document.referrer.indexOf("https://www.e-recht24.de/") > -1) { quelle = "direct"; } else if (document.referrer.indexOf("google") > -1 || document.referrer.indexOf("bing") > -1 || document.referrer.indexOf("yahoo") > -1 || document.referrer.indexOf("duckduckgo") > -1 || document.referrer.indexOf("ecosia") > -1 ||  document.referrer.indexOf("baidu.com") > -1 ) { quelle = "seo"; } else { quelle = "referral"; }		
+		if( document.location.pathname == "/muster-datenschutzerklaerung.html" ) { camp = "generatordsg";  } else if( document.location.pathname == "/impressum-generator.html" ) { camp = "generatorig"; } else { camp = "anders"; }
+		localStorage.setItem('fc', quelle + "_" + camp);
+	}
+
+
+} catch (e) {
+	console.log(e);
+}
+</script><!-- END: Custom advanced (www.pluginaria.com) -->
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="keywords" content="recht, internetrecht, anwalt, rechtsanwalt, rechtsberatung, abmahnung">
+	<meta name="robots" content="INDEX,FOLLOW">
+	<meta name="description" content="Internetrecht endlich verständlich: Jetzt können auch Sie Ihre Website einfach und schnell abmahnsicher gestalten. Urteile, Tools, Ratgeber und News.">
+	<title>eRecht24: Internetrecht von Rechtsanwalt Sören Siebert</title>
+	<link href="/templates/ja_teline_v/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+	<link href="https://www.e-recht24.de/index.php?option=com_search&amp;Itemid=144&amp;id=97&amp;lang=de&amp;layout=blog&amp;view=category&amp;format=opensearch" rel="search" title="Suchen eRecht24" type="application/opensearchdescription+xml">
+	<link href="/templates/ja_teline_v/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="/plugins/system/bdthemes_shortcodes/css/shortcode-ultimate.css" rel="stylesheet" type="text/css">
+	<link href="https://www.e-recht24.de/media/plg_erecht24_safe_sharing/assets/shariff.complete.css" rel="stylesheet" type="text/css">
+	<link href="/media/com_rstbox/css/engagebox.css?08b410491e456fc3716182117ed77559" rel="stylesheet" type="text/css">
+	<link href="/plugins/system/jce/css/content.css?aa754b1f19c7df490be4b958cf085e7c" rel="stylesheet" type="text/css">
+	<link href="/templates/system/css/system.css" rel="stylesheet" type="text/css">
+	<link href="/templates/ja_teline_v/css/template.css" rel="stylesheet" type="text/css">
+	<link href="/templates/ja_teline_v/css/megamenu.css" rel="stylesheet" type="text/css">
+	<link href="/templates/ja_teline_v/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="/templates/ja_teline_v/local/fonts/roboto/css/roboto.css" rel="stylesheet" type="text/css">
+	<link href="/templates/ja_teline_v/local/fonts/roboto-condensed/css/roboto-condensed.css" rel="stylesheet" type="text/css">
+	<link href="/templates/ja_teline_v/local/fonts/lato/css/lato.css" rel="stylesheet" type="text/css">
+	<link href="/templates/ja_teline_v/css/custom.css" rel="stylesheet" type="text/css">
+	<link href="/plugins/system/bdthemes_shortcodes/css/row-column.css" rel="stylesheet" type="text/css">
+	<link href="/components/com_djtabs/assets/css/style.css?08b410491e456fc3716182117ed77559" rel="stylesheet" type="text/css">
+	<link href="/components/com_djtabs/assets/css/eRecht24.css" rel="stylesheet" type="text/css">
+	<link href="/templates/ja_teline_v/acm/home-erecht24/css/style.css" rel="stylesheet" type="text/css">
+	<link href="/plugins/system/bdthemes_shortcodes/shortcodes/panel/css/panel.css" rel="stylesheet" type="text/css">
+	<link href="/plugins/system/bdthemes_shortcodes/shortcodes/button/css/button.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+.eb-5 {
+                --animation_duration: 400ms;
+
+            }
+        
+
+
+		.eb-5 .eb-close:hover {
+			color: rgba(128, 128, 128, 1) !important;
+		}	
+	
+.bottom-banner-wrap {
+  background: #004059;
+  width: 100%;
+  position: relative;
+  height: 220px;
+}
+
+.bottom-banner-wrap a {
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.bottom-banner-wrap a span {
+  display: none;
+}
+
+.bottom-banner-inner {
+  max-width: 1180px;
+  height: 220px;
+  margin: 0 auto;
+  background: url(https://www.e-recht24.de/images/banners/soeren-siebert-slide-up-banner.png) top left no-repeat;
+  background-size: 282px 220px;
+}
+
+.bottom-banner-symbol {
+  max-width: 1180px;
+  height: 220px;
+  margin: 0 auto;
+  background: url(https://www.e-recht24.de/images/banners/erecht24-symbol-banner.svg) top right no-repeat;
+  background-size: 199px 220px;
+}
+
+
+.bottom-banner-headline {
+  font-size: 32px;
+  line-height: 32px;
+  padding-top: 25px;
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: -5px;
+  margin-right: 5px;
+}
+
+.bottom-banner-cta {
+  font-size: 22px;
+  line-height: 1.4em;
+  color: #fff;
+  padding-top: 10px;
+}
+
+.bottom-banner-cta-text {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  font-weight: 300;
+}
+
+.bottom-banner-cta-button {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+
+.bottom-banner-cta-button span {
+  margin-top: 30px;
+  background: #5DE8C1;
+  line-height: 50px;
+  padding: 0 30px;
+  border-radius: 2px;
+  display: inline-block;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid #5DE8C1;
+  color: #0A4768;
+  font-family: 'Lato', sans-serif;
+}
+
+.bottom-banner-wrap:hover .bottom-banner-cta-button span {
+  border: 2px solid #5DE8C1;
+  color: #5DE8C1;
+  background: transparent;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in-out;
+}
+
+@media all and (max-width: 1199px) {
+
+  .bottom-banner-wrap,
+  .bottom-banner-inner {
+    height: auto;
+  }
+
+  .bottom-banner-inner {
+    background: none;
+  }
+
+}
+.eb-7 {
+                --animation_duration: 1000ms;
+
+            }
+        
+
+
+		.eb-7 .eb-close:hover {
+			color: rgba(255, 255, 255, 1) !important;
+		}	
+	
+#support_tab {
+    cursor: pointer;
+    position: fixed;
+    top: 35%;
+    right:-6px;
+    z-index: 10000;
+    background-color:#990000;
+    font-weight:bold;
+    writing-mode:tb-rl;
+    border:1px solid #990000;
+}
+#support_tab a,
+#support_tab a:hover
+{
+    color:#fff;
+    text-decoration:none;
+    display:block;
+    padding: 30px 10px;
+    border:2px solid #fff;
+}
+#supnl62392da12c200.su-panel { background-color:#990000;color:#ffffff;border:0px solid #cccccc;margin:0 0 6px 0;}
+#supnl62392da12c200.su-panel .su-panel-content { padding:5px;}
+a#subtn_62392da12c37e { color: #FFFFFF; background-color: #2D89EF;-webkit-border-radius: 3px; border-radius: 3px;}
+a#subtn_62392da12c37e span { font-size: 13px;-webkit-border-radius: 3px; border-radius: 3px;line-height:26px;padding: 4px 16px;}
+a#subtn_62392da12c37e:hover { background-color: #4596f1;}
+#supnl62392da12c578.su-panel { background-color:#990000;color:#ffffff;border:0px solid #cccccc;margin:0 0 6px 0;}
+#supnl62392da12c578.su-panel .su-panel-content { padding:5px;}
+a#subtn_62392da12c6de { color: #FFFFFF; background-color: #2D89EF;-webkit-border-radius: 3px; border-radius: 3px;}
+a#subtn_62392da12c6de span { font-size: 13px;-webkit-border-radius: 3px; border-radius: 3px;line-height:26px;padding: 4px 16px;}
+a#subtn_62392da12c6de:hover { background-color: #4596f1;}
+#supnl62392da12c894.su-panel { background-color:#990000;color:#ffffff;border:0px solid #cccccc;margin:0 0 6px 0;}
+#supnl62392da12c894.su-panel .su-panel-content { padding:5px;}
+a#subtn_62392da12c9f9 { color: #FFFFFF; background-color: #2D89EF;-webkit-border-radius: 3px; border-radius: 3px;}
+a#subtn_62392da12c9f9 span { font-size: 13px;-webkit-border-radius: 3px; border-radius: 3px;line-height:26px;padding: 4px 16px;}
+a#subtn_62392da12c9f9:hover { background-color: #4596f1;}
+	</style>
+	<script type="application/json" class="joomla-script-options new">{"csrf.token":"ae97bacf5ab4e3fdbb3de8b8ff395546","system.paths":{"root":"","base":""},"joomla.jtext":{"COM_RSCOMMENTS_HIDE_FORM":"Kommentareingabe ausblenden","COM_RSCOMMENTS_SHOW_FORM":"Kommentareingabe einblenden"}}</script>
+	<script src="/plugins/system/bdthemes_shortcodes/js/shortcode-ultimate.js" type="text/javascript"></script>
+	<script src="/media/system/js/core.js?08b410491e456fc3716182117ed77559" type="text/javascript"></script>
+	<script src="/plugins/system/t3/base-bs3/bootstrap/js/bootstrap.js?08b410491e456fc3716182117ed77559" type="text/javascript"></script>
+	<script src="/media/system/js/caption.js?08b410491e456fc3716182117ed77559" type="text/javascript"></script>
+	<script src="https://www.e-recht24.de/media/plg_erecht24_safe_sharing/assets/shariff.complete.js" type="text/javascript"></script>
+	<script src="/media/system/js/mootools-core.js?08b410491e456fc3716182117ed77559" type="text/javascript"></script>
+	<script src="/media/com_adtrack/js/adtrack.js" type="text/javascript"></script>
+	<script src="/media/com_rstbox/js/vendor/velocity.js?08b410491e456fc3716182117ed77559" type="text/javascript"></script>
+	<script src="/media/com_rstbox/js/vendor/velocity.ui.js?08b410491e456fc3716182117ed77559" type="text/javascript"></script>
+	<script src="/media/com_rstbox/js/engagebox.js?08b410491e456fc3716182117ed77559" type="text/javascript"></script>
+	<script src="/media/com_rstbox/js/legacy.js?08b410491e456fc3716182117ed77559" type="text/javascript"></script>
+	<script src="/media/com_rstbox/js/animations.js?08b410491e456fc3716182117ed77559" type="text/javascript"></script>
+	<script src="/plugins/system/t3/base-bs3/js/jquery.tap.min.js" type="text/javascript"></script>
+	<script src="/plugins/system/t3/base-bs3/js/script.js" type="text/javascript"></script>
+	<script src="/plugins/system/t3/base-bs3/js/menu.js" type="text/javascript"></script>
+	<script src="/plugins/system/t3/base-bs3/js/jquery.ckie.js" type="text/javascript"></script>
+	<script src="/templates/ja_teline_v/js/script.js" type="text/javascript"></script>
+	<script src="/templates/ja_teline_v/local/js/stickynav.js" type="text/javascript"></script>
+	<script src="/plugins/system/t3/base-bs3/js/nav-collapse.js" type="text/javascript"></script>
+	<script src="/components/com_djtabs/assets/js/script.js?08b410491e456fc3716182117ed77559" defer="defer" type="text/javascript"></script>
+	<script src="/components/com_djtabs/assets/js/wcag.js?08b410491e456fc3716182117ed77559" defer="defer" type="text/javascript"></script>
+	<script src="/templates/ja_teline_v/acm/home-erecht24/js/script.js" type="text/javascript"></script>
+	<script src="/plugins/system/bdthemes_shortcodes/shortcodes/panel/js/panel.js" type="text/javascript"></script>
+	<script type="text/javascript">
+jQuery(function($){ initTooltips(); $("body").on("subform-row-add", initTooltips); function initTooltips (event, container) { container = container || document;$(container).find(".hasTooltip").tooltip({"html": true,"container": "body"});} });
+jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+jQuery(document).ready(function() {var buttonsContainer = jQuery(".shariff");new Shariff(buttonsContainer);});
+var adtrack_root = "https://www.e-recht24.de/";
+
+            <!-- EngageBox #5 Actions Start -->
+            
+        !(function() {  
+                if (!EngageBox) {
+                    return;
+                }
+
+                EngageBox.onReady(function() {
+                    var me = EngageBox.getInstance(5);
+
+                    if (!me) {
+                        return;
+                    }
+
+                    
+        !(function() { me.on("open", function() { EngageBox.getInstances().forEach(function(inst) {
+    inst.close({ temporary: true });
+}) }); })();
+                });
+             })();
+            <!-- EngageBox #5 Actions End -->
+        
+	var ja_base_uri = "";
+
+jQuery(function($){ djTabsInit('mod248_djtabs', 'accordion', {"duration":"500","vid_auto":""}); });
+	</script>
+	<link href="http://feeds.feedburner.com/erecht24" rel="alternate" type="application/rss+xml" title="Internetrecht">
+	<meta property="og:image" content="https://www.e-recht24.de/media/jact/big/images/images/DSGVO-Website-750x300-light.jpg">
+	<meta property="og:image" content="https://www.e-recht24.de/https://www.e-recht24.de/mitglieder/wp-content/uploads/cookies-tracking-750x300-light.jpg">
+	<meta property="og:image" content="https://www.e-recht24.de/media/jact/big/images/stories/categories/facebook/datenschutz-socialmedia-750x300.jpg">
+	<meta property="og:image" content="https://www.e-recht24.de/media/jact/big/images/stories/categories/datenschutz/datenschutz19.png">
+	<meta property="og:image" content="https://www.e-recht24.de/media/jact/big/images/stories/categories/ecommerce/ecommerce21.jpg">
+	<meta property="og:image" content="https://www.e-recht24.de/media/jact/big/images/stories/categories/datenschutz/datenschutz18.png">
+	<meta property="og:image" content="https://www.e-recht24.de/media/jact/big/images/stories/categories/wettbewerbsrecht/wettbewerbsrecht12.jpg">
+
+	<meta charset="utf-8">
+<!-- META FOR IOS & HANDHELD -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<style type="text/stylesheet">
+		@-webkit-viewport   { width: device-width; }
+		@-moz-viewport      { width: device-width; }
+		@-ms-viewport       { width: device-width; }
+		@-o-viewport        { width: device-width; }
+		@viewport           { width: device-width; }
+	</style>
+	<script type="text/javascript">
+		//<![CDATA[
+		if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+			var msViewportStyle = document.createElement("style");
+			msViewportStyle.appendChild(
+				document.createTextNode("@-ms-viewport{width:auto!important}")
+			);
+			document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+		}
+		//]]>
+	</script>
+<meta name="HandheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="YES">
+<!-- //META FOR IOS & HANDHELD -->
+
+
+
+<!-- Le HTML5 shim and media query for IE8 support -->
+<!--[if lt IE 9]>
+<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script type="text/javascript" src="/plugins/system/t3/base-bs3/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- You can add Google Analytics here or use T3 Injection feature -->
+<!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+<!-- Start of erecht24 Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=7c308d47-2c43-4045-87c6-994b5a52c920"> </script>
+<!-- End of erecht24 Zendesk Widget script --><!-- END: Custom advanced (www.pluginaria.com) -->
+
+
+<!-- Google sitename markup-->
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "eRecht24",
+    "url": "https://www.e-recht24.de/"
+}
+</script>
+<!-- End of Google sitename markup-->
+
+
+
+
+
+<script charset="utf-8" src="https://cdn.sitesearch360.com/v13/ss360-translations-v13.chunk.5858d7d75ef69a9a5636.js" crossorigin="anonymous" integrity="sha256-F2NsDFP3yGcc/XyxG76nkNkjuE6nrZwvC6hf5qLZ5WY= sha384-z55a8TRIlqzeEJRxonkf/kd8tEr3XUgrt3QKU2P0uowCT5ikqTDMxojaOTOAuig7"></script><style id="ss360-custom-search-input" type="text/css">.ss360-n-button{background:#fefefe;border:0;box-sizing:border-box;display:block;float:none;height:auto;line-height:normal;margin:0;min-width:0;padding:0;text-indent:unset}.ss360-n-button:after,.ss360-n-button:before,.ss360-n-button:focus:after,.ss360-n-button:focus:before,.ss360-n-button:hover:after,.ss360-n-button:hover:before,.ss360-n-li:after,.ss360-n-li:before{content:none}.ss360-n-section{background:transparent;background-image:none;border:0;box-sizing:border-box;display:block;font-size:16px;height:auto;left:0;margin:0;padding:0;position:relative;text-indent:unset;top:0;transform:none;width:100%}.ss360-n-input{background:#fefefe;background-image:none;border:0;border-radius:0}.ss360-search-term-highlight{background-color:#b5f948;padding:2px 4px}.ss360-highlight{font-weight:700}.ss360-sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.ss360-skip-link{background:#fefefe;border:1px solid #dedede;left:-999em;pointer-events:none;position:absolute;z-index:9999}.ss360-skip-link:focus{left:0}.ss360-ca{clear:both}.ss360-flex{display:flex;flex-direction:row}.ss360-flex--column{flex-direction:column}.ss360-flex--align-start{align-items:flex-start}.ss360-flex--align-stretch{align-items:stretch}.ss360-flex--align-center{align-items:center}.ss360-flex--align-end{align-items:flex-end}.ss360-flex--justify-star{justify-content:flex-start}.ss360-flex--justify-center{justify-content:center}.ss360-flex--justify-end{justify-content:flex-end}.ss360-flex--wrap{flex-wrap:wrap}.ss360-flex--nowrap{flex-wrap:nowrap}@media (max-width:680px){.ss360-flex--column-sm{flex-direction:column}}.ss360-custom-search{justify-content:center;max-width:100%;padding:8px 0;position:relative;width:100%}.ss360-custom-search:not(.ss360-custom-search--no-margin){margin-bottom:24px;margin-top:-8px;padding-right:16px}.ss360-custom-search .ss360-custom-search__searchbox{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-position:4px 10px;background-repeat:no-repeat;background-size:24px 24px;border:1px solid #dedede;border-radius:0;border-bottom-left-radius:3px;border-top-left-radius:3px;box-shadow:2px 2px 4px rgba(0,0,0,.12);box-sizing:border-box;font-size:1.2em;height:44px;margin:0;max-width:420px;padding:0 8px;width:100%}.ss360-custom-search .ss360-custom-search__searchbutton{align-items:center;box-shadow:2px 2px 4px rgba(0,0,0,.12);box-sizing:border-box;cursor:pointer;display:flex;font-size:1em;height:44px;justify-content:center;margin-top:0;padding:0 16px;transition:background-color .3s ease-in-out,border-color .3s ease-in-out}.ss360-custom-search__searchbutton{border:1px solid;border-left:0 solid;border-radius:0;border-bottom-right-radius:3px;border-top-right-radius:3px}.ss360-custom-search__searchbutton--no-transition{transition:none}.ss360-custom-search__icon{height:24px;left:0;position:absolute;top:10px;width:24px}.ss360-layer:not(.ss360-layer--overlay) .ss360-custom-search{margin:0 auto 16px;max-width:800px}@media (max-width:680px){.ss360-custom-search:not(.ss360-custom-search--no-margin){margin-top:0;max-width:calc(100% - 50px)}}.ss360-fullscreen-layer{background-color:#fefefe;box-sizing:border-box;height:100%;left:0;overflow:auto;padding-top:16px;position:fixed;top:-100%;width:100%;z-index:999998}@media (max-width:991px){.ss360-fullscreen-layer .ss360-custom-search{padding-left:16px;padding-right:16px}}.ss360-fullscreen-layer--fade{display:none;opacity:0;top:0}.ss360-fullscreen-layer .ss360-custom-search{margin-top:0}.ss360-fullscreen-layer__heading{margin-bottom:16px;padding:0 72px;text-align:center}.ss360-fullscreen-layer__results{margin-left:auto;margin-right:auto;max-width:1140px;width:100%}.ss360-fullscreen-layer--fade.ss360-fullscreen-layer--open{display:block;opacity:1}</style><script charset="utf-8" src="https://cdn.sitesearch360.com/v13/ss360-unibox-v13.chunk.27665f6cc18723c8c279.js" crossorigin="anonymous" integrity="sha256-Ytt0Sts2Wz803EI8WkJ1ALd+zwVrVBqHcG2tE5LgvzU= sha384-uzNefapS2AhbkcHrFSApimAdbJ1gdRMuoGrqAVjROcqICiHn4bYxalTlxOolDTxJ"></script><script charset="utf-8" src="https://cdn.sitesearch360.com/v13/ss360-styles-v13.chunk.6ae25745a22b6f76ba5b.js" crossorigin="anonymous" integrity="sha256-seSklo4CwY0DrJgIPj/f7mpaJRSlnT6EdLPF/M23IxM= sha384-R4WmXVsKY1P6YLGbbB1snvrURn5TApXcC9lU1v6rQnjRCxpAubbJd+6bfVkaQcIT"></script><style id="unibox-css" type="text/css">.unibox-n-button{background:#fefefe;border:0;box-sizing:border-box;display:block;float:none;height:auto;line-height:normal;margin:0;min-width:0;padding:0;text-indent:unset}.unibox-n-button:after,.unibox-n-button:before,.unibox-n-button:focus:after,.unibox-n-button:focus:before,.unibox-n-button:hover:after,.unibox-n-button:hover:before,.unibox-n-li:after,.unibox-n-li:before{content:none}.unibox-n-section{background:transparent;background-image:none;border:0;box-sizing:border-box;display:block;font-size:16px;height:auto;left:0;margin:0;padding:0;position:relative;text-indent:unset;top:0;transform:none;width:100%}.unibox-n-input{background:#fefefe;background-image:none;border:0;border-radius:0}.unibox-sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.unibox-stretch{height:100%}.unibox{background-color:#fefefe;box-shadow:1px 1px 6px rgba(0,0,0,.12);color:#4a4f62;display:none;overflow:hidden;position:absolute;z-index:1500}.unibox--empty{visibility:hidden}.unibox__content-container{box-sizing:border-box;max-width:calc(100% - 60px);padding:12px 8px 16px 16px;width:100%}.unibox__search-content{display:block;margin-bottom:4px;text-align:left}.unibox__search-content--link{color:#4a4f62;overflow:hidden;text-decoration:none}.unibox__suggest-heading{color:#4a4f62;font-size:1.2em;margin:8px;padding:0;text-align:left}.unibox__selectable{clear:both;display:flex;font-size:1em;position:relative;text-align:left}.unibox__vis{width:70px}.unibox__img-container{align-items:center;box-sizing:border-box;display:flex;justify-content:flex-start;min-width:68px;padding:4px 0 4px 8px}.unibox__img{left:0;max-height:60px;max-width:60px;position:relative;top:0;transform:none}.unibox__highlight{font-weight:700}.unibox__result-content{margin-bottom:16px;margin-top:4px}.unibox__ca{clear:both}.unibox__invisible{display:none;height:0;position:relative;text-align:left;visibility:hidden}.unibox__ivf{height:76px;left:-15px;position:absolute;top:-89px;width:76px}.unibox__ivf-img{bottom:0;margin:auto;max-width:76px;position:absolute;top:0;transform:rotateX(-90deg) translateY(100%);transition:.3s ease-out}.unibox__ivf-img--l{transform:rotateX(0) translateY(0)}.unibox__selectable--show-all{align-items:center;background:none;border:0;display:flex;flex-direction:row;justify-content:center;padding:4px 8px;width:100%}.unibox__show-all-icon{margin-left:8px;margin-top:4px}.unibox__cluster--no-img .unibox__content-container{max-width:100%}.unibox__selectable--active,.unibox__selectable:hover{cursor:pointer}.unibox__selectable--active .unibox__content-container,.unibox__selectable--active .unibox__highlight-container,.unibox__selectable:hover .unibox__content-container,.unibox__selectable:hover .unibox__highlight-container{background:#dedede}.unibox__selectable--active.unibox__selectable--show-all,.unibox__selectable:hover.unibox__selectable--show-all{text-decoration:underline}.unibox--fullwidth .unibox__selectable{padding:16px}.unibox--fullwidth .unibox__extra{left:86px;top:41px}.unibox-special{height:100%;left:0;overflow:hidden;position:fixed;top:0;width:100%;z-index:1000000}.unibox-special,.unibox-special__input-wrap{margin:0;padding:0}.unibox-special__input-wrap{background:#fefefe;border:1px solid #dedede;box-sizing:border-box;width:100%}.unibox-special__searchbox{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:1px solid #dedede;border-radius:0;font-size:1.2em;height:48px;margin:16px 63px;padding:0 12px;width:calc(100% - 126px)}.unibox-special__icon{background:transparent;border:0;cursor:pointer;height:50px;padding:0;position:absolute;top:16px;width:50px}.unibox-special__icon--close{background:url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE5IDYuNDFMMTcuNTkgNSAxMiAxMC41OSA2LjQxIDUgNSA2LjQxIDEwLjU5IDEyIDUgMTcuNTkgNi40MSAxOSAxMiAxMy40MSAxNy41OSAxOSAxOSAxNy41OSAxMy40MSAxMnoiLz48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PC9zdmc+") no-repeat 50%;background-size:24px;border-right:1px solid #dedede;left:0}.unibox-special__icon--searchbutton{background:url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAwMTYgOS41IDYuNSA2LjUgMCAxMDkuNSAxNmMxLjYxIDAgMy4wOS0uNTkgNC4yMy0xLjU3bC4yNy4yOHYuNzlsNSA0Ljk5TDIwLjQ5IDE5bC00Ljk5LTV6bS02IDBDNy4wMSAxNCA1IDExLjk5IDUgOS41UzcuMDEgNSA5LjUgNSAxNCA3LjAxIDE0IDkuNSAxMS45OSAxNCA5LjUgMTR6Ii8+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==") no-repeat 50%;background-size:24px;border-left:1px solid #dedede;right:0}.unibox-special .unibox--special{display:block;height:100%;margin-top:4px;-webkit-overflow-scrolling:touch;overflow-x:hidden;overflow-y:scroll;position:absolute;width:100%}.unibox-special .unibox__selectable{min-height:50px}.unibox-special__background{pointer-events:none;transform:translateZ(0);transition-delay:0s;transition-timing-function:ease-out;will-change:transform}.unibox-special__background--left{transform:translate3d(-100%,0,0)}.unibox-special__background--right{transform:translateZ(0)}.unibox__selectable--group-cta{background:#fefefe;border:0;color:#4a4f62;display:block;font-size:14px;margin-bottom:12px;text-align:right;width:100%}.unibox__selectable--group-cta.unibox__selectable--active,.unibox__selectable--group-cta:hover{text-decoration:underline}.unibox__selectable--history .unibox__content-container{align-items:center;display:flex;justify-content:space-between;padding:8px 8px 8px 16px}.unibox__delete-history{background:transparent;border:0;cursor:pointer}.unibox__delete-history-icon{display:block}.unibox-tc-c{color:#4a4f62}.unibox-tc-c--hover:focus,.unibox-tc-c--hover:hover{color:#4a4f62}.unibox-tc-b{border-color:#4a4f62}.unibox-tc-b--hover:focus,.unibox-tc-b--hover:hover{border-color:#4a4f62}.unibox-tc-b--focus:focus{border-color:#4a4f62}.unibox-tc-bg{background-color:#4a4f62;color:#fefefe}.unibox-tc-bg--hover:focus,.unibox-tc-bg--hover:hover{background-color:#4a4f62;color:#fefefe}.unibox-tc-bg--focus:focus{background-color:#4a4f62;color:#fefefe}#unibox-suggest-box .unibox-tc-c{color:#4a4f62}#unibox-suggest-box .unibox-tc-c--hover:focus,#unibox-suggest-box .unibox-tc-c--hover:hover{color:#4a4f62}#unibox-suggest-box .unibox-tc-b{border-color:#4a4f62}#unibox-suggest-box .unibox-tc-b--hover:focus,#unibox-suggest-box .unibox-tc-b--hover:hover{border-color:#4a4f62}#unibox-suggest-box .unibox-tc-b--focus:focus{border-color:#4a4f62}#unibox-suggest-box .unibox-tc-bg{background-color:#4a4f62;color:#fefefe}#unibox-suggest-box .unibox-tc-bg--hover:focus,#unibox-suggest-box .unibox-tc-bg--hover:hover{background-color:#4a4f62;color:#fefefe}#unibox-suggest-box .unibox-tc-bg--focus:focus{background-color:#4a4f62;color:#fefefe}</style><style id="ss360-default-css" type="text/css">@-webkit-keyframes ss360-fid{0%{opacity:0}to{opacity:1}}@keyframes ss360-fid{0%{opacity:0}to{opacity:1}}@-webkit-keyframes ss360-fo{0%{opacity:1}to{opacity:0}}@keyframes ss360-fo{0%{opacity:1}to{opacity:0}}@-webkit-keyframes ss360-upscale{0%{opacity:0;transform:scale(.9)}25%{transform:scale(.9)}to{opacity:1;transform:scale(1)}}@keyframes ss360-upscale{0%{opacity:0;transform:scale(.9)}25%{transform:scale(.9)}to{opacity:1;transform:scale(1)}}@-webkit-keyframes sk-bounce{0%{transform:scale(0)}50%{transform:scale(1)}to{transform:scale(0)}}@keyframes sk-bounce{0%{transform:scale(0)}50%{transform:scale(1)}to{transform:scale(0)}}@-webkit-keyframes sk-rotateplane{0%{transform:perspective(120px)}50%{transform:perspective(120px) rotateY(180deg)}to{transform:perspective(120px) rotateY(180deg) rotateX(180deg)}}@keyframes sk-rotateplane{0%{transform:perspective(120px)}50%{transform:perspective(120px) rotateY(180deg)}to{transform:perspective(120px) rotateY(180deg) rotateX(180deg)}}@-webkit-keyframes ss360-recording{0%{background-color:rgba(224,83,80,0)}50%{background-color:#e05350}to{background-color:rgba(224,83,80,0)}}@keyframes ss360-recording{0%{background-color:rgba(224,83,80,0)}50%{background-color:#e05350}to{background-color:rgba(224,83,80,0)}}.ss360-close-button,.ss360-close-button:focus,.ss360-close-button:hover{border:0;box-sizing:border-box;cursor:pointer;height:64px;position:absolute;right:0;top:0;transform-origin:center;width:64px;z-index:99999}.ss360-close-button__icon{display:block;height:32px;left:16px;opacity:1;position:absolute;top:16px;width:32px}.ss360-close-button__icon-svg{height:100%;width:100%}.ss360-close-button:focus .ss360-close-button__icon,.ss360-close-button:hover .ss360-close-button__icon,.ss360-close-button__icon--active{opacity:0}.ss360-close-button:focus .ss360-close-button__icon--active,.ss360-close-button:hover .ss360-close-button__icon--active{opacity:1}.ss360-darken{background-color:rgba(0,0,0,.65);cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADo0lEQVRYhb1XP2gbZxR/7ztFR4OCWp2wfMa1RUF24BwLdF4aYxAatIjMovVQ0KAMhoJd2XO2DmrwEDzEg0d1Kh6yxSC0eckd2M4NFrVQPeQ4Lh6ubi/osPQ6VBKyIuVOspLfdu973/f73fv+/hA8QpKkgN/vlwFARsTFIWnvAEBpNBoVTdP+8TIuuiXIsiwSUZ6Ikoj4wKtgAHjVbDZ/Pzk5qY4lQJKkAM/zvwDAkxFIPwIRVRzHeTasItygYDweX/D5fL8h4uO7kAMAIGKU47jvI5HIW8Mwrj5q7w/Isiy2Wq3SiOV2BRFdM8Z+VBRF743fqoAkSQHG2AtEnJkkOQAAIvJEJAuC8No0TacTZ71JPM8//8QKn4SIRZ7nn/fGuhVIJBJ5uOOC84gZURRB13UFoL0G2lvt1Rcg7wIRnyiKojMAACLKf0nyXk5OkqSAz+f71a3D8vLyV5FI5J5hGDfDcoLBIFcqlR7Ozs7eOz4+djsJF0OhUInxPJ/0orhQKHy7t7e3kMlkgsPIDw4OFqLR6P3V1dWvg8HgwDOmFzzPJ7np6ek8Ikbdki8uLuxMJiOk0+mwZVmOpmkfett3d3e/W1paelCv1+1cLle1LKvpNiYRASeK4k+IGHZLNgzjRlGUv9Pp9DfJZDJERE1VVf8FACgWi/Nra2uhUcjbaGAikXjjMRkAbpe6XC6/BwBIpVLhMcgBAGBkAf0iAADGJQfoOwm9wrKsZq1WszvftVrNHod8bAHFYnG+U/Z6vW6nUqlwsVicH0sAEZ2P0mFra0vsnfNcLlcdVwQRnTMA0F0z28hms8L6+vqMaZqNzpxbltXM5XJVTdOuxxChc6IoCl4eHtlsVtjZ2Ynatn2zubn55+XlZfdKbTQadHh4eBWLxfypVCoci8X8R0dHlgcBfzDGWMWL1JWVlYBt2zcbGxvV09PTD4Nytre3/yqXy+91XXcGtfeDMVZBAIBEIvESAGS3DnNzc/7eP78jFFVVn3Z2wb6XHhMk73IyAABVVRUiqkxw8E+CiCqqqipdAQAAjuM8g/+NxefGuzYXAPQ8yUzTdKamphRETCMi/zmYiei61Wr9fHZ21t36t+5swzCuIpHIMSIuebkhRyQ/b7VahX6nNNAZtX3gy0m9kIno3HGcp4Pc0cBXi2majiAIrzmO8yPiozuSVxzHKQyzZq7mNB6PLzDG8oiYHJFbAYD9zmofBlcBHbQt2w/gwZ4j4n6/BRuG/wA9X65CnAC2oQAAAABJRU5ErkJggg==") 12 12,auto;height:100%;left:0;position:fixed;top:0;width:100%;z-index:999998}.ss360-darken--noclose{cursor:auto}.ss360-loader{display:none;height:80px;left:49.5%;position:fixed;top:49.5%;width:80px;z-index:999999}.ss360-loader__bounce{-webkit-animation:sk-bounce 2s ease-in-out infinite;animation:sk-bounce 2s ease-in-out infinite;border-radius:50%;height:100%;left:0;opacity:.6;position:absolute;top:0;width:100%}.ss360-loader__bounce--delayed{-webkit-animation-delay:-1s;animation-delay:-1s}.ss360-loader--square{-webkit-animation:sk-rotateplane 1.2s ease-in-out infinite;animation:sk-rotateplane 1.2s ease-in-out infinite;height:60px;width:60px}.ss360-more-results{background:none;border:2px solid;border-radius:3px;box-shadow:2px 2px 4px rgba(0,0,0,.12);box-sizing:border-box;cursor:pointer;display:block;font-size:1.2em;font-weight:400;margin-bottom:24px;margin-left:auto;margin-right:auto;max-width:100%;min-width:180px;padding:8px 32px;text-align:center;transition:background-color .3s ease-in-out,color .3s ease-in-out;width:auto}.ss360-icon--play{border:2px solid #fefefe;border-radius:11px;color:#fefefe;height:22px;left:calc(50% - 11px);top:calc(50% - 11px);transform:scale(2);width:22px}.ss360-icon--play,.ss360-icon--play:after{box-sizing:border-box;display:block;position:absolute}.ss360-icon--play:after{border-bottom:4px solid transparent;border-left:5px solid;border-top:4px solid transparent;content:"";height:8px;left:7px;top:5px;width:0}.ss360-data-points{border:0;font-size:14px;margin-left:0;margin-right:0;width:auto}.ss360-data-point{border:0}.ss360-data-point__cell{border:0;padding:0}.ss360-data-point__cell--key{font-weight:700;padding-right:8px}.ss360-data-point__cell--value{word-break:break-all}.ss360-data-points--row .ss360-data-points__body{display:flex;flex-wrap:wrap}.ss360-data-points--row .ss360-data-point{margin-bottom:8px;margin-right:24px}.ss360-data-points--row .ss360-data-point--last{margin-right:0}.ss360-data-points--column{display:block;max-width:400px;width:100%}.ss360-data-points--column .ss360-data-point__cell{padding-bottom:8px;vertical-align:top}.ss360-group{margin-bottom:0;margin-top:0}.ss360-group .ss360-list{list-style:none;margin-top:0;padding-left:0}.ss360-group__heading{font-size:1.2em;margin-bottom:16px;margin-top:0;padding:8px}.ss360-layer--overlay .ss360-list{padding-left:4px;padding-right:calc(4px + .5em)}.ss360-fullscreen-layer{background-color:#fefefe;box-sizing:border-box;height:100%;left:0;overflow:auto;padding-top:16px;position:fixed;top:-100%;width:100%;z-index:999998}@media (max-width:991px){.ss360-fullscreen-layer .ss360-custom-search{padding-left:16px;padding-right:16px}}.ss360-fullscreen-layer--fade{display:none;opacity:0;top:0}.ss360-fullscreen-layer .ss360-custom-search{margin-top:0}.ss360-fullscreen-layer__heading{margin-bottom:16px;padding:0 72px;text-align:center}.ss360-fullscreen-layer__results{margin-left:auto;margin-right:auto;max-width:1140px;width:100%}.ss360-fullscreen-layer--fade.ss360-fullscreen-layer--open{display:block;opacity:1}@media (min-width:992px){.ss360-grid--lg{display:-ms-grid;display:grid}.ss360-grid--lg .ss360-suggests{max-width:100%;overflow:hidden}.ss360-grid--lg .ss360-suggest__image-container{width:100%}.ss360-grid--lg .ss360-suggests__wrap{flex-direction:column;height:100%}.ss360-grid--lg .ss360-suggests__image-wrap{box-sizing:border-box;height:220px;margin-bottom:24px;min-height:220px;min-width:100%;padding:0 16px;width:100%}.ss360-grid--lg .ss360-suggests__header{max-height:54px;min-height:54px;overflow:hidden;padding-top:0}.ss360-grid--lg .ss360-suggests__content{box-sizing:border-box;display:flex;flex-direction:column;height:100%;justify-content:space-between;margin:0;padding-left:16px;padding-right:16px}.ss360-grid--lg .ss360-suggests__snippet{height:100%}.ss360-grid--lg .ss360-suggests__image{height:100%;max-height:none;width:100%}.ss360-grid--lg .ss360-suggest__image--lazy{height:150px}.ss360-grid--lg .ss360-suggests__image-wrap--object-fit-polyfill{height:150px;width:100%}.ss360-grid--lg .ss360-suggests__image--pdf{-o-object-fit:contain;object-fit:contain}}@media (max-width:991px){.ss360-grid--sm{display:-ms-grid;display:grid}.ss360-grid--sm .ss360-suggests{max-width:100%;overflow:hidden}.ss360-grid--sm .ss360-suggest__image-container{width:100%}.ss360-grid--sm .ss360-suggests__wrap{flex-direction:column;height:100%}.ss360-grid--sm .ss360-suggests__image-wrap{box-sizing:border-box;height:220px;margin-bottom:24px;min-height:220px;min-width:100%;padding:0 16px;width:100%}.ss360-grid--sm .ss360-suggests__header{max-height:54px;min-height:54px;overflow:hidden;padding-top:0}.ss360-grid--sm .ss360-suggests__content{box-sizing:border-box;display:flex;flex-direction:column;height:100%;justify-content:space-between;margin:0;padding-left:16px;padding-right:16px}.ss360-grid--sm .ss360-suggests__snippet{height:100%}.ss360-grid--sm .ss360-suggests__image{height:100%;max-height:none;width:100%}.ss360-grid--sm .ss360-suggest__image--lazy{height:150px}.ss360-grid--sm .ss360-suggests__image-wrap--object-fit-polyfill{height:150px;width:100%}.ss360-grid--sm .ss360-suggests__image--pdf{-o-object-fit:contain;object-fit:contain}}.ss360-grid{grid-column-gap:16px}@media (min-width:992px){.ss360-grid{-ms-grid-columns:1fr 1fr 1fr;grid-template-columns:1fr 1fr 1fr}}@media (min-width:1200px){.ss360-grid{-ms-grid-columns:1fr 1fr 1fr 1fr;grid-template-columns:1fr 1fr 1fr 1fr}}@media (max-width:991px){.ss360-grid{-ms-grid-columns:1fr 1fr;grid-template-columns:1fr 1fr}}@media (max-width:767px){.ss360-grid{-ms-grid-columns:1fr;grid-template-columns:1fr}.ss360-grid .ss360-suggests__header{max-height:unset;min-height:unset;overflow:unset}}@media (min-width:992px){.ss360-grid--lg.ss360-grid--singleline-title .ss360-suggests{min-width:0}.ss360-grid--lg.ss360-grid--singleline-title .ss360-suggests__link-wrap{display:block;max-width:90%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}@media (max-width:991px){.ss360-grid--sm.ss360-grid--singleline-title .ss360-suggests{min-width:0}.ss360-grid--sm.ss360-grid--singleline-title .ss360-suggests__link-wrap{display:block;max-width:90%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}@media (min-width:992px){.ss360-masonry--lg .ss360-group{overflow:hidden}.ss360-masonry--lg.ss360-list{align-content:space-between;display:flex;flex-flow:column wrap;height:2000px;margin-bottom:0;margin-top:0}.ss360-masonry--lg .ss360-suggests__wrap{flex-direction:column}.ss360-masonry--lg .ss360-suggests__image-wrap,.ss360-masonry--lg .ss360-suggests__link{align-items:center;display:flex;justify-content:center;max-width:100%;min-width:100%;width:100%}.ss360-masonry--lg .ss360-suggests__image{height:auto;margin:8px 0;max-height:none;max-width:100%;-o-object-fit:cover;object-fit:cover;width:auto}.ss360-masonry--lg .ss360-suggests__image--lazy{height:150px;width:100%}.ss360-masonry--lg .ss360-masonry-break{content:"";flex-basis:100%;margin:0;padding:0;width:0}}@media (max-width:991px){.ss360-masonry--sm .ss360-group{overflow:hidden}.ss360-masonry--sm.ss360-list{align-content:space-between;display:flex;flex-flow:column wrap;height:2000px;margin-bottom:0;margin-top:0}.ss360-masonry--sm .ss360-suggests__wrap{flex-direction:column}.ss360-masonry--sm .ss360-suggests__image-wrap,.ss360-masonry--sm .ss360-suggests__link{align-items:center;display:flex;justify-content:center;max-width:100%;min-width:100%;width:100%}.ss360-masonry--sm .ss360-suggests__image{height:auto;margin:8px 0;max-height:none;max-width:100%;-o-object-fit:cover;object-fit:cover;width:auto}.ss360-masonry--sm .ss360-suggests__image--lazy{height:150px;width:100%}.ss360-masonry--sm .ss360-masonry-break{content:"";flex-basis:100%;margin:0;padding:0;width:0}}.ss360-layer{background:#fefefe;color:#4a4f62;flex-wrap:wrap;font-size:16px;padding:12px;text-align:left}.ss360-layer--overlay{background-color:#fefefe;box-sizing:content-box;height:80%;left:calc(10% - 28px);max-width:800px;overflow-x:hidden;overflow-y:hidden;padding:32px 24px 32px 32px;position:fixed;top:calc(10% - 30px);width:80%;z-index:99999999999}@media (min-width:1000px){.ss360-layer--overlay{left:calc((100% - 800px)/2 - 28px)}}@media (max-width:680px){.ss360-layer--overlay{box-shadow:none;box-sizing:border-box;height:100%;left:0;overflow-x:auto;padding:12px;position:fixed;top:0;width:100%}}.ss360-layer--wide-overlay{flex-wrap:wrap;left:calc(10% - 28px);max-width:1140px}@media (max-width:680px){.ss360-layer--wide-overlay{left:0}}@media (min-width:1425px){.ss360-layer--wide-overlay{left:calc((100% - 1140px)/2 - 28px)}}.ss360-layer__flex-wrapper{width:100%}.ss360-animated{-webkit-animation:.3s ease 0s 1 normal forwards running;animation:.3s ease 0s 1 normal forwards running}.ss360-animated--fast{-webkit-animation-duration:.15s;animation-duration:.15s}.ss360-fid{-webkit-animation-name:ss360-fid;animation-name:ss360-fid}.ss360-us{-webkit-animation-name:ss360-upscale;animation-name:ss360-upscale}.ss360-fo{-webkit-animation-name:ss360-fo;animation-name:ss360-fo}.ss360-layer__content{margin:0;outline:none;position:relative}.ss360-layer--overlay .ss360-layer__content--filter-top{min-height:325px}.ss360-query-correction{margin-bottom:8px}.ss360-list{margin-left:0}.ss360-layer__heading{font-size:1.2em;margin-bottom:8px;margin-top:0;padding:12px 0}.ss360-layer__heading .ss360-layer__heading-anchor{color:inherit;cursor:default;outline:none;pointer-events:none;text-decoration:none}.ss360-layer__heading--padded{padding:12px 16px}.ss360-layer__content--tabs .ss360-layer__heading{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.ss360-layer__content--tabs.ss360-layer__content--branded{padding-top:26px}@media (max-width:991px){.ss360-hide-dataPoints--sm .ss360-data-points,.ss360-hide-images--sm .ss360-suggests__image,.ss360-hide-snippet--sm .ss360-suggests__snippet,.ss360-hide-title--sm .ss360-suggests__header,.ss360-hide-url--sm .ss360-suggests__url{display:none}}@media (min-width:992px){.ss360-hide-dataPoints--lg .ss360-data-points,.ss360-hide-images--lg .ss360-suggests__image,.ss360-hide-snippet--lg .ss360-suggests__snippet,.ss360-hide-title--lg .ss360-suggests__header,.ss360-hide-url--lg .ss360-suggests__url{display:none}}@media (prefers-reduced-motion:reduce){.ss360-close-button:hover,.ss360-loader,.ss360-loader--square,.ss360-loader__bounce{-webkit-animation-duration:0;animation-duration:0;-webkit-animation-duration:0s;animation-duration:0s}}.ss360-u-hide-y-overflow{overflow-y:hidden}.ss360-nav--top{padding-bottom:0}.ss360-nav--left{flex:1;padding-right:12px}.ss360-nav__entry{background:#fefefe;border-radius:3px;border-style:solid;border-width:2px;box-shadow:2px 2px 4px rgba(0,0,0,.12);color:#4a4f62;cursor:pointer;display:inline-block;font-size:1em;margin-right:12px;padding:12px;transition:background-color .1s ease-in-out,color .1s ease-in-out,border-color .1s ease-in-out}.ss360-nav__result-count{margin-left:4px}.ss360-nav__result-count:after{content:")"}.ss360-nav__result-count:before{content:"("}.ss360-nav__menu{float:none;list-style:none;margin-top:4px;padding-left:0}.ss360-nav--top .ss360-nav__menu{margin-bottom:16px;margin-left:0}.ss360-nav--top .ss360-nav__menu-item{display:inline-block;margin:4px 0 0}.ss360-nav--top .ss360-nav__entry{margin-right:4px}.ss360-nav--left .ss360-nav__entry{margin-bottom:12px}.ss360-layer .ss360-layer__content--right{flex:4}.ss360-layer__content--tabs .ss360-group:not(.ss360-group--active){display:none}.ss360-layer__content--tabs .ss360-group__heading{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.ss360-nav--tabs.ss360-nav--left .ss360-nav__menu{margin-top:0}.ss360-nav--tabs.ss360-nav--left .ss360-nav__menu-item{border-right-style:solid;border-right-width:2px;margin-right:0;text-align:right}.ss360-nav--tabs.ss360-nav--left .ss360-nav__entry{border-bottom-left-radius:3px;border-bottom-right-radius:0;border-right:0;border-top-left-radius:3px;border-top-right-radius:0;margin-right:0}.ss360-nav--tabs.ss360-nav--left .ss360-nav__entry--first{margin-top:0}.ss360-nav--tabs.ss360-nav--left .ss360-nav__entry:not(.ss360-nav__entry--last){margin-bottom:8px}.ss360-nav--tabs.ss360-nav--left .ss360-nav__menu-item--active{border-right:0}.ss360-nav--tabs.ss360-nav--left .ss360-nav__menu-item--active .ss360-nav__entry{border-bottom-width:2px;border-color:inherit;border-right-width:0;margin-bottom:0}.ss360-nav--tabs.ss360-nav--left .ss360-nav__menu-item--active+.ss360-nav__menu-item{padding-top:8px}.ss360-nav--tabs.ss360-nav--left .ss360-nav__post,.ss360-nav--tabs.ss360-nav--left .ss360-nav__pre{border-right-style:solid;border-right-width:2px}.ss360-nav--tabs.ss360-nav--left .ss360-nav__pre{height:3em}.ss360-nav--tabs.ss360-nav--top{align-items:flex-end;margin-bottom:16px}.ss360-nav--tabs.ss360-nav--top .ss360-nav__menu-item{border-bottom-style:solid;border-bottom-width:2px}.ss360-nav--tabs.ss360-nav--top .ss360-nav__entry{border-bottom:0;border-bottom-left-radius:0;border-bottom-right-radius:0;border-top-left-radius:3px;border-top-right-radius:3px;margin-bottom:0}.ss360-nav--tabs.ss360-nav--top .ss360-nav__entry--first{margin-left:0}.ss360-nav--tabs.ss360-nav--top .ss360-nav__entry:not(.ss360-nav__entry--last){margin-right:8px}.ss360-nav--tabs.ss360-nav--top .ss360-nav__menu-item--active{border-bottom:0;margin-left:-2px;margin-right:-2px}.ss360-nav--tabs.ss360-nav--top .ss360-nav__menu-item--active .ss360-nav__entry{margin-right:0}.ss360-nav--tabs.ss360-nav--top .ss360-nav__menu-item--active+.ss360-nav__menu-item{padding-left:8px}.ss360-nav--tabs.ss360-nav--top .ss360-nav__post,.ss360-nav--tabs.ss360-nav--top .ss360-nav__pre{border-bottom-style:solid;border-bottom-width:2px}.ss360-nav--tabs.ss360-nav--top .ss360-nav__pre{flex-grow:1}.ss360-nav--tabs .ss360-nav__entry{background:#dedede;border:0;box-shadow:none}.ss360-nav--tabs .ss360-nav__menu-item--active .ss360-nav__entry{background:#fefefe;border-color:inherit;border-style:solid;border-width:2px 2px 0;color:#4a4f62;padding-bottom:12px}.ss360-nav--tabs .ss360-nav__menu-item:not(.ss360-nav__menu-item--active) .ss360-nav__entry:focus,.ss360-nav--tabs .ss360-nav__menu-item:not(.ss360-nav__menu-item--active) .ss360-nav__entry:hover{color:#fefefe;padding-bottom:12px}.ss360-nav--tabs .ss360-nav__menu{margin-bottom:0;margin-right:0}.ss360-nav--tabs .ss360-nav__post{flex-grow:6}.ss360-nav__select{border:0;filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";height:40px;opacity:0;padding:8px 0;position:absolute;top:0;width:100%}.ss360-nav__select-wrapper{cursor:pointer;max-width:20em;position:relative;width:100%}.ss360-nav__select-label{cursor:pointer;margin:0;padding:4px 12px;position:relative}.ss360-nav__select-label:after{border-left:6px solid #fefefe;content:"▼";font-size:14px;padding:4px 16px;position:absolute;right:0;top:0}.ss360-nav__select-label--open:after{content:"▲"}.ss360-nav__select-label--focus{outline:1px dotted #4a4f62;outline:6px auto -webkit-focus-ring-color}.ss360-nav__select-option{background:#fefefe;color:#484848}.ss360-nav__select,.ss360-nav__select-label{display:block;font:400 1em/2em Source Sans Pro,sans-serif}@media (max-width:680px){.ss360-nav--left{clear:both;margin-bottom:16px;padding-right:0}.ss360-nav--left .ss360-nav__menu-item{display:inline-block;margin-top:8px}.ss360-nav--left .ss360-nav__entry{margin-bottom:0;margin-right:8px}.ss360-layer__content--right,.ss360-nav--left{flex:none;width:100%}}.ss360-suggests{box-shadow:-1px 1px 6px rgba(0,0,0,.12);margin:4px 0 24px}.ss360-suggests:after,.ss360-suggests:before{content:none}.ss360-suggests--hidden{display:none}.ss360-suggests__link{color:#3d8fff;font-size:1.2em;text-decoration:none}.ss360-suggests__link:hover{text-decoration:underline}.ss360-suggests__url{color:#006621;display:block;font-size:14px;padding-right:16px;text-decoration:none;word-break:break-word}.ss360-suggests__header{line-height:1.41;margin-bottom:4px;padding:8px 0 0;position:relative;text-align:left}.ss360-suggests__wrap{display:flex;flex-direction:row}.ss360-suggests__content{display:flex;flex-direction:column;margin-left:16px;max-width:100%;overflow:hidden;padding-bottom:12px;width:100%}.ss360-suggests__link-wrap{margin:0}.ss360-suggests__snippet{font-size:14px;line-height:1.5em;margin-bottom:12px;margin-top:12px;padding-right:16px;word-break:break-word}.ss360-suggests__image-wrap{display:block;line-height:0;max-width:33%;min-height:100%;min-width:250px;overflow:hidden;position:relative;text-align:center;width:250px}.ss360-suggests__image-wrap--empty{background:repeating-linear-gradient(-45deg,#fefefe,#fefefe 4px,#efefef 0,#efefef 8px);height:100%;min-height:100%}.ss360-suggests__image{display:inline-block;max-height:200px;max-width:100%;-o-object-fit:scale-down;object-fit:scale-down;width:auto}.ss360-suggests__image--cover{min-height:100px;-o-object-fit:cover;object-fit:cover}.ss360-suggests__image--lazy{height:100px}.ss360-suggests__image--doc{height:150px;max-height:150px}.ss360-suggests__image--pdf{box-sizing:border-box;-o-object-fit:cover;object-fit:cover;padding:24px}.ss360-suggests__image-wrap--object-fit-polyfill{background-repeat:no-repeat;display:block;height:200px;margin:8px 16px 8px 0}.ss360-suggests--assistant{-ms-grid-column:1;-ms-grid-column-span:4;grid-column:1/5}@media (max-width:1199px){.ss360-suggests--assistant{-ms-grid-column:1;-ms-grid-column-span:3;grid-column:1/4}}@media (max-width:991px){.ss360-suggests--assistant{-ms-grid-column:1;-ms-grid-column-span:2;grid-column:1/3}}@media (max-width:767px){.ss360-suggests--assistant{-ms-grid-column:1;-ms-grid-column-span:1;grid-column:1/2}}.ss360-suggests__image-wrap--video .ss360-suggests__image{filter:brightness(.62)}@media (max-width:991px){.ss360-suggests__content{box-sizing:border-box;margin:0;padding:0 12px}.ss360-suggests__wrap{flex-direction:column}.ss360-suggests__image-wrap{-ms-grid-row-align:center;align-self:center;margin-bottom:16px;max-width:none;width:100%}}.ss360-404 .ss360-sorting{display:none}.ss360-layer__heading+.ss360-sorting{margin-bottom:8px;margin-top:-8px}.ss360-sorting{min-height:24px;position:relative;width:100%}.ss360-sorting__label,.ss360-sorting__select{font-size:14px}.ss360-sorting__select{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:0;border-bottom:1px solid #dedede;height:auto;margin:0;max-width:150px;padding:8px 32px 8px 12px;position:relative}.ss360-sorting__select::-ms-expand{display:none}.ss360-sorting:after{content:"▼";font-size:.62em;pointer-events:none;position:absolute;right:12px;top:10px}.ss360-sorting__label{margin:0 8px 0 0;padding-bottom:8px}@media (max-width:680px){.ss360-sorting__select{margin-right:16px}}.ss360-voice-search{background:transparent;border-color:transparent;border-radius:50%;cursor:pointer;padding:0;z-index:2}.ss360-voice-search--recording{-webkit-animation-duration:1.25s;animation-duration:1.25s;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-name:ss360-recording;animation-name:ss360-recording;background-color:#e05350}.ss360-skeleton__result{box-shadow:none}.ss360-skeleton__result-image{height:125px;width:125px}.ss360-skeleton__result-heading{height:25px;margin-bottom:12px;max-width:350px;width:calc(100% - 50px)}.ss360-skeleton__content-container{display:flex;flex-direction:row}.ss360-skeleton__result-snippet{height:125px;margin:0 0 0 16px;width:100%}.ss360-skeleton__result-snippet-row{height:20px;margin-bottom:12px;width:100%}.ss360-skeleton__result-snippet-row--last{margin-bottom:0;width:62%}.ss360-skeleton__block-heading{height:35px;width:62%}.ss360-skeleton__navigation-entry{display:inline-block;height:37px;margin:16px 4px;width:105px}.ss360-skeleton__navigation-entry--first{margin-left:0}.ss360-skeleton__filter--left{flex:1;padding-right:16px;padding-top:16px}.ss360-skeleton__filter--top{margin-bottom:16px;margin-top:16px;width:100%}.ss360-skeleton--filter-left .ss360-skeleton__block-heading{margin-right:38%;width:100%}.ss360-nav--left.ss360-skeleton__navigation .ss360-skeleton__navigation-entry{margin:8px;width:80%}.ss360-layer__content--skeleton-right{padding-top:8px;width:80%}.ss360-layer__content--skeleton-filter-left{flex:3}.ss360-skeleton__filter--left .ss360-skeleton__filter-block{height:250px;margin-bottom:16px;width:100%}.ss360-skeleton__filter--top .ss360-skeleton__filter-block{height:25px;margin-right:16px;max-width:20%;width:200px}.ss360-shimmer{-webkit-animation-duration:3s;animation-duration:3s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-name:ss360-shimmer;animation-name:ss360-shimmer;-webkit-animation-timing-function:linear;animation-timing-function:linear;background:#ebedee;background-image:linear-gradient(90deg,#ebedee 0,#f8f9f9 20%,#ebedee 40%,#ebedee);background-repeat:no-repeat;background-size:1000px 100%;display:inline-block;position:relative}@-webkit-keyframes ss360-shimmer{0%{background-position:-800px 0}to{background-position:800px 0}}@keyframes ss360-shimmer{0%{background-position:-800px 0}to{background-position:800px 0}}@media (min-width:992px){.ss360-grid--lg .ss360-skeleton__content-container{flex-direction:column}.ss360-grid--lg .ss360-skeleton__result-snippet{margin:16px 0 0;width:100%}.ss360-grid--lg .ss360-skeleton__result-image{height:150px;width:100%}.ss360-grid--lg__block-heading{margin-left:8px}.ss360-skeleton__hide-images--desktop .ss360-skeleton__result-image,.ss360-skeleton__hide-titles--desktop .ss360-skeleton__result-heading{display:none}.ss360-skeleton__hide-images--desktop .ss360-skeleton__result-snippet{margin-left:0}.ss360-skeleton__hide-snippets--desktop .ss360-skeleton__result-snippet{display:none}}@media (max-width:991px){.ss360-grid--sm .ss360-skeleton__content-container{flex-direction:column}.ss360-grid--sm .ss360-skeleton__result-snippet{margin:16px 0 0;width:100%}.ss360-grid--sm .ss360-skeleton__result-image{height:150px;width:100%}.ss360-grid--sm .ss360-skeleton__result-heading{width:100%}.ss360-grid--sm .ss360-skeleton__block-heading{margin-left:8px;width:calc(100% - 16px)}.ss360-skeleton__hide-images--mobile .ss360-skeleton__result-image,.ss360-skeleton__hide-titles--mobile .ss360-skeleton__result-heading,.ss360-skeleton__navigation-entry--last{display:none}.ss360-skeleton__hide-images--mobile .ss360-skeleton__result-snippet{margin-left:0}.ss360-skeleton__hide-snippets--mobile .ss360-skeleton__result-snippet{display:none}.ss360-layer .ss360-layer__content--skeleton-right{padding-left:8px}.ss360-skeleton__filter--left{display:none}}.ss360-suggests__cta-wrap{display:flex}.ss360-suggests__cta-wrap:not(.ss360-suggests__cta-wrap--column){align-items:center}.ss360-suggests__cta-wrap--column{align-items:flex-start;flex-direction:column}.ss360-suggests__cta-wrap--column .ss360-cta{align-self:flex-start}.ss360-suggests__cta-wrap--column .ss360-cta--center{-ms-grid-row-align:center;align-self:center}.ss360-suggests__cta-wrap--column .ss360-cta--right{align-self:flex-end}.ss360-suggests__cta-wrap--row .ss360-cta{margin-right:12px}.ss360-cta{box-sizing:content-box;cursor:pointer;display:inline-block;font-size:1em;margin:12px 0;overflow:visible;position:relative;transition:background-color .3s ease-in-out,color .3s ease-in-out,padding .3s ease-in-out,margin-right .3s ease-in-out,fill .3s ease-in-out}.ss360-cta:not(.ss360-cta--plain){align-items:center;border-radius:4px;border-style:solid;border-width:1px;padding:8px 16px;text-decoration:none}.ss360-cta:not(.ss360-cta--noicon){margin-right:25px}.ss360-cta--noicon:focus,.ss360-cta--noicon:hover{background-color:#fefefe}.ss360-cta__icon{background:#fefefe;height:20px;left:0;overflow:hidden;padding:1px;position:absolute;top:7px;transform:translate3d(-11px,0,0);transition:transform .3s ease-in-out,background-color .3s ease-in-out,fill .3s ease-in-out;width:20px}.ss360-cta__img{max-height:100%;max-width:100%}.ss360-cta:not(.ss360-cta--noicon):focus,.ss360-cta:not(.ss360-cta--noicon):hover{margin-right:12px;padding-left:29px}.ss360-cta:not(.ss360-cta--noicon):focus .ss360-cta__icon,.ss360-cta:not(.ss360-cta--noicon):hover .ss360-cta__icon{background:transparent;transform:translate3d(2px,0,0)}.ss360-error{margin:24px;padding:32px}.ss360-error__icon{margin-right:32px}.ss360-error__cta{width:100%}.ss360-error__heading{font-size:1.5em;margin-bottom:16px;margin-top:0}.ss360-error__message{font-size:1em;line-height:1.41;margin-bottom:32px;margin-top:0}.ss360-error__button{-ms-grid-row-align:center;align-self:center;border:2px solid;border-radius:3px;box-shadow:2px 2px 4px rgba(0,0,0,.12);box-sizing:border-box;cursor:pointer;display:block;font-size:1.2em;font-weight:400;max-width:100%;min-width:180px;padding:8px 32px;text-align:center;text-decoration:none;transition:background-color .3s ease-in-out,color .3s ease-in-out;width:auto}@media (max-width:767px){.ss360-error{flex-direction:column}.ss360-error__description{align-items:center;flex-direction:column}.ss360-error__icon{margin-bottom:16px}.ss360-error__button{-ms-grid-row-align:auto;align-self:auto}}.ss360-product-finder__question--hidden{display:none}.ss360-product-finder__question-title{display:block;font-size:1.2em;font-weight:700;margin-bottom:12px}.ss360-product-finder__answers{display:flex}.ss360-product-finder__answer{border:2px solid #fefefe;cursor:pointer;flex:1;line-height:0;position:relative}.ss360-product-finder__answer-image{height:250px;max-width:100%;-o-object-fit:cover;object-fit:cover;width:100%}.ss360-product-finder__answer-text{background-color:rgba(0,0,0,.72);bottom:0;box-sizing:border-box;color:#fefefe;display:flex;font-weight:700;justify-content:center;line-height:1;padding:8px;position:absolute;width:100%}.ss360-product-finder__controls{box-sizing:border-box;display:flex;justify-content:space-between;padding:12px 2px;width:100%}.ss360-product-finder__button{background-color:#fefefe;border:2px solid;cursor:pointer;font-size:1em;padding:8px 12px}.ss360-product-finder__button--finish,.ss360-product-finder__button--next{font-weight:700}.ss360-product-finder__button:disabled{cursor:auto}.ss360-white-bg--hover:focus,.ss360-white-bg--hover:hover{background:#fefefe}.ss360-tc-c{color:#4a4f62}.ss360-tc-c--hover:focus,.ss360-tc-c--hover:hover{color:#4a4f62}.ss360-tc-b{border-color:#4a4f62}.ss360-tc-b--hover:focus,.ss360-tc-b--hover:hover{border-color:#4a4f62}.ss360-tc-b--focus:focus{border-color:#4a4f62}.ss360-tc-bg{background-color:#4a4f62;color:#fefefe}.ss360-tc-bg--hover:focus,.ss360-tc-bg--hover:hover{background-color:#4a4f62;color:#fefefe}.ss360-tc-bg--focus:focus{background-color:#4a4f62;color:#fefefe}.ss360-ac-c,.ss360-ac-c--hover:focus,.ss360-ac-c--hover:hover{color:#3d8fff}.ss360-ac-b,.ss360-ac-b--focus:focus,.ss360-ac-b--hover:focus,.ss360-ac-b--hover:hover{border-color:#3d8fff}.ss360-ac-bg,.ss360-ac-bg--focus:focus,.ss360-ac-bg--hover:focus,.ss360-ac-bg--hover:hover{background-color:#3d8fff;color:#fefefe}.ss360-acd-bg--hover:focus,.ss360-acd-bg--hover:hover{background-color:#3378d6;color:#fefefe}.ss360-acd-b--hover:focus,.ss360-acd-b--hover:hover{border-color:#3378d6}#ss360-layer .ss360-white-bg--hover:focus,#ss360-layer .ss360-white-bg--hover:hover{background:#fefefe}#ss360-layer .ss360-tc-c{color:#4a4f62}#ss360-layer .ss360-tc-c--hover:focus,#ss360-layer .ss360-tc-c--hover:hover{color:#4a4f62}#ss360-layer .ss360-tc-b{border-color:#4a4f62}#ss360-layer .ss360-tc-b--hover:focus,#ss360-layer .ss360-tc-b--hover:hover{border-color:#4a4f62}#ss360-layer .ss360-tc-b--focus:focus{border-color:#4a4f62}#ss360-layer .ss360-tc-bg{background-color:#4a4f62;color:#fefefe}#ss360-layer .ss360-tc-bg--hover:focus,#ss360-layer .ss360-tc-bg--hover:hover{background-color:#4a4f62;color:#fefefe}#ss360-layer .ss360-tc-bg--focus:focus{background-color:#4a4f62;color:#fefefe}#ss360-layer .ss360-ac-c,#ss360-layer .ss360-ac-c--hover:focus,#ss360-layer .ss360-ac-c--hover:hover{color:#3d8fff}#ss360-layer .ss360-ac-b,#ss360-layer .ss360-ac-b--focus:focus,#ss360-layer .ss360-ac-b--hover:focus,#ss360-layer .ss360-ac-b--hover:hover{border-color:#3d8fff}#ss360-layer .ss360-ac-bg,#ss360-layer .ss360-ac-bg--focus:focus,#ss360-layer .ss360-ac-bg--hover:focus,#ss360-layer .ss360-ac-bg--hover:hover{background-color:#3d8fff;color:#fefefe}#ss360-layer .ss360-acd-bg--hover:focus,#ss360-layer .ss360-acd-bg--hover:hover{background-color:#3378d6;color:#fefefe}#ss360-layer .ss360-acd-b--hover:focus,#ss360-layer .ss360-acd-b--hover:hover{border-color:#3378d6}</style><script src="https://service.e-recht24.de/plugins/HeatmapSessionRecording/configs.php?idsite=1&amp;trackerid=sFalrc&amp;url=https%3A%2F%2Fwww.e-recht24.de%2F" async="" defer=""></script></head>
+
+<body class="su-shortcodes-loaded">
+				<div class="t3-wrapper" itemscope="" itemtype="http://schema.org/WebPage">
+								<!-- Need this wrapper for off-canvas menu. Remove if you don't use of-canvas -->
+
+  
+
+
+	
+<!-- HEADER -->
+<header id="t3-header" class="t3-header t3-header-2021">
+	<div class="container">
+		<div class="row header-row">
+
+			<div class="col-md-3 header-left">
+
+				<!-- OFF CANVAS TOGGLE -->
+				
+				<!-- // OFF CANVAS TOGGLE -->
+
+				<!-- LOGO -->
+				<div class="logo">
+					<div class="logo-image">
+						<a href="https://www.e-recht24.de/" title="eRecht24.de">
+															<img class="logo-img" src="/images/logo-erecht24-light.svg" alt="eRecht24.de">
+																					<span>eRecht24.de</span>
+						</a> <small class="site-slogan"></small>
+					</div>
+				</div>
+				<!-- //LOGO -->
+
+			</div>
+
+
+			<!-- HEADER RIGHT -->
+			<div class="col-md-9 header-right">
+				<div class="header-right-inner">
+
+					<div class="col header-1 ">
+						<div class="t3-module module toolsmenu " id="Mod107"><div class="module-inner"><div class="module-ct"><ul class="nav ">
+<li class="item-134"><a href="/impressum-generator.html" class="">Impressum-Generator</a></li><li class="item-108"><a href="/muster-datenschutzerklaerung.html" class="">Datenschutz-Generator</a></li><li class="item-2313"><a href="https://www.e-recht24.de/e24link/vhagz" class="">Login </a></li></ul>
+</div></div></div><div class="t3-module module " id="Mod352"><div class="module-inner"><div class="module-ct"><!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+<div class="mb-top"><a href="https://www.e-recht24.de/e24link/rsden" class="topbar-btn btn-sale">Jetzt Mitglied werden!</a></div>
+<!-- END: Custom advanced (www.pluginaria.com) -->
+</div></div></div>
+					</div>
+					
+				</div>
+			</div>
+			<!-- // HEADER RIGHT -->
+			<div class="navbar-header">
+														<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".t3-navbar-collapse">
+					<i class="fa fa-bars"></i>
+					</button>
+							</div>
+		</div>
+	</div>
+</header>
+<!-- // HEADER -->
+
+
+  
+<!-- MAIN NAVIGATION -->
+<nav id="t3-mainnav" class="wrap navbar navbar-default t3-mainnav t3-mainnav-2021">
+	<div class="container">
+		<div class="mainnav-search-wrap">
+		<div class="mainnav-wrap">
+			<div class="t3-navbar-collapse navbar-collapse collapse"><ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="nav navbar-nav level0">
+<li itemprop="name" class="current active item-home">
+<a itemprop="url" href="/">Home </a>
+
+</li>
+<li itemprop="name" class="dropdown">
+<a itemprop="url" href="/artikel/" data-toggle="dropdown" data-target="#">Ratgeber <em class="caret"></em></a>
+
+
+<ul class="level1 dropdown-menu"><li itemprop="name">
+<a itemprop="url" href="/ratgeber/abmahnung.html">Abmahnung </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/arbeitsrecht.html">Arbeitsrecht </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/blogs-foren-web20.html">Blogs, Foren, Web2.0 </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/datenschutz.html">Datenschutz </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/domainrecht.html">Domainrecht </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/ecommerce-onlineshops.html">E-Commerce </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/existenzgruender.html">Existenzgründer </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/facebook.html">Facebook </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/tauschboersen.html">Filesharing </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/linkhaftung.html">Haftung </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/hard-software.html">Hard- &amp; Software </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/hosting-provider.html">Hosting &amp; Provider </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/it-sicherheit.html">IT-Sicherheit </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/markenrecht.html">Markenrecht </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/marketing-seo.html">Marketing &amp; SEO </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/onlineauktionen.html">Onlineauktionen </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/strafrecht.html">Strafrecht </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/telekommunikation.html">Telekommunikation </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/urheberrecht.html">Urheberrecht </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/verkehrsrecht.html">Verkehrsrecht </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/vertragsrecht.html">Vertragsrecht </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/wettbewerbsrecht.html">Wettbewerbsrecht </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/ratgeber/widerrufsbelehrung.html">Widerrufsrecht </a>
+
+</li></ul></li>
+<li itemprop="name">
+<a itemprop="url" href="/news/">News </a>
+
+</li>
+<li itemprop="name">
+<a itemprop="url" href="/mediathek.html">Mediathek </a>
+
+</li>
+<li itemprop="name" class="dropdown">
+<a itemprop="url" href="/e24link/bthgs" data-toggle="dropdown" data-target="#">Mitglieder<em class="caret"></em></a>
+
+
+<ul class="level1 dropdown-menu"><li itemprop="name">
+<a itemprop="url" href="https://www.e-recht24.de/e24link/rlxb1">Login</a>
+
+</li></ul></li>
+<li itemprop="name" class="dropdown">
+<a itemprop="url" href="/tools.html" data-toggle="dropdown" data-target="#">Tools<em class="caret"></em></a>
+
+
+<ul class="level1 dropdown-menu"><li itemprop="name">
+<span> Generatoren</span>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/impressum-generator.html">Impressum Generator</a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/muster-datenschutzerklaerung.html">Datenschutzerklärung</a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/facebook-impressum-generator.html">Facebook-Impressum-Generator</a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://www.e-recht24.de/mitglieder/login/?redirect_to=%2Ftools%2Fgenerator-vertraulichkeitsvereinbarung%2F"><span class="fa fa-lock"></span>NDA Generator</a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/homeoffice-generator.html">Datenschutz für Homeoffice </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/barrierefreiheitserklaerung.html">Barrierefreiheitserklärung </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/muster-disclaimer.html">Disclaimer-Generator </a>
+
+</li><li itemprop="name">
+<span> Checks</span>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://www.e-recht24.de/mitglieder/login/?redirect_to=%2Ftools%2Fabmahncheck%2F"><span class="fa fa-lock"></span>Abmahn-Check</a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://www.e-recht24.de/mitglieder/login/?redirect_to=%2Ftools%2Fmarkencheck%2F"><span class="fa fa-lock"></span>Marken-Check</a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://www.e-recht24.de/abmahngefahr-widerruf/">Widerruf-Check</a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://www.e-recht24.de/dsgvo-bussgeldrechner.html">DSGVO Bußgeldrechner</a>
+
+</li><li itemprop="name">
+<span> Plugins</span>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://www.e-recht24.de/mitglieder/lp-cookieeinwilligung/"><span class="fa fa-lock"></span>Cookie Consent Tool</a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="/erecht24-safe-sharing.html"><span class="fa fa-lock"></span>eRecht24 Safe Sharing Tool </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://www.e-recht24.de/mitglieder/login/?redirect_to=%2Ftools%2Ferecht24-rechtstexte-plugin%2F"><span class="fa fa-lock"></span>eRecht24 Rechtstexte Plugin</a>
+
+</li><li itemprop="name">
+<span> Projektmanagement</span>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://www.e-recht24.de/mitglieder/login/?redirect_to=%2Ftools%2Fprojekt-manager%2F"><span class="fa fa-lock"></span>eRecht24 Projekt Manager</a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://www.e-recht24.de/mitglieder/login/?redirect_to=%2Ftools%2Fprojekt-manager%2F"><span class="fa fa-lock"></span>eRecht24 Projekt Planer</a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://www.e-recht24.de/mitglieder/login/?redirect_to=%2Ftools%2Fprojekt-manager%2F"><span class="fa fa-lock"></span>eRecht24 Projekt Report</a>
+
+</li></ul></li>
+<li itemprop="name">
+<a itemprop="url" href="https://www.e-recht24.de/e24link/ayk9o?source_id=e24_menu">Webinar</a>
+
+</li>
+<li itemprop="name" class="dropdown">
+<a itemprop="url" href="https://www.e-recht24.de/mitglieder/vorteilsangebote/uebersicht-rechtsberatungspakete/" data-toggle="dropdown" data-target="#">Rechtsberatung<em class="caret"></em></a>
+
+
+<ul class="level1 dropdown-menu"><li itemprop="name">
+<a itemprop="url" href="/anwalt-internetrecht.htm">Anwalt Internetrecht </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://www.e-recht24.de/mitglieder/vorteilsangebote/website-check-dsgvo/">Website-Check DSGVO</a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://www.e-recht24.de/mitglieder/check-online-shop-b2c-agb/">Check Online-Shop</a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://www.e-recht24.de/mitglieder/vorteilsangebote/premium-agenturpaket/">Webdesigner / Agenturen</a>
+
+</li></ul></li>
+<li itemprop="name">
+<a itemprop="url" href="https://www.e-recht24.de/e24link/x4pfm">Webseite absichern</a>
+
+</li>
+</ul></div>
+			<div class="t3-navbar navbar-collapse collapse">
+				<div class="t3-megamenu" data-responsive="true">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="nav navbar-nav level0">
+<li itemprop="name" class="current active item-home" data-id="207" data-level="1" data-class="item-home">
+<a itemprop="url" class=" homelink" href="/" data-target="#">Home </a>
+
+</li>
+<li itemprop="name" class="dropdown mega" data-id="193" data-level="1">
+<a itemprop="url" class=" dropdown-toggle" href="/artikel/" data-target="#" data-toggle="dropdown">Ratgeber <em class="caret"></em></a>
+
+<div class="nav-child dropdown-menu mega-dropdown-menu" style="width: 800px" data-width="800"><div class="mega-dropdown-inner">
+<div class="row">
+<div class="col-xs-3 mega-col-nav" data-width="3"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="178" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/abmahnung.html" data-target="#">Abmahnung </a>
+
+</li>
+<li itemprop="name" data-id="188" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/arbeitsrecht.html" data-target="#">Arbeitsrecht </a>
+
+</li>
+<li itemprop="name" data-id="177" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/blogs-foren-web20.html" data-target="#">Blogs, Foren, Web2.0 </a>
+
+</li>
+<li itemprop="name" data-id="187" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/datenschutz.html" data-target="#">Datenschutz </a>
+
+</li>
+<li itemprop="name" data-id="186" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/domainrecht.html" data-target="#">Domainrecht </a>
+
+</li>
+<li itemprop="name" data-id="145" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/ecommerce-onlineshops.html" data-target="#">E-Commerce </a>
+
+</li>
+</ul>
+</div></div>
+<div class="col-xs-3 mega-col-nav" data-width="3"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="160" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/existenzgruender.html" data-target="#">Existenzgründer </a>
+
+</li>
+<li itemprop="name" data-id="124" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/facebook.html" data-target="#">Facebook </a>
+
+</li>
+<li itemprop="name" data-id="169" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/tauschboersen.html" data-target="#">Filesharing </a>
+
+</li>
+<li itemprop="name" data-id="176" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/linkhaftung.html" data-target="#">Haftung </a>
+
+</li>
+<li itemprop="name" data-id="112" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/hard-software.html" data-target="#">Hard- &amp; Software </a>
+
+</li>
+<li itemprop="name" data-id="175" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/hosting-provider.html" data-target="#">Hosting &amp; Provider </a>
+
+</li>
+</ul>
+</div></div>
+<div class="col-xs-3 mega-col-nav" data-width="3"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="174" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/it-sicherheit.html" data-target="#">IT-Sicherheit </a>
+
+</li>
+<li itemprop="name" data-id="184" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/markenrecht.html" data-target="#">Markenrecht </a>
+
+</li>
+<li itemprop="name" data-id="173" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/marketing-seo.html" data-target="#">Marketing &amp; SEO </a>
+
+</li>
+<li itemprop="name" data-id="172" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/onlineauktionen.html" data-target="#">Onlineauktionen </a>
+
+</li>
+<li itemprop="name" data-id="183" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/strafrecht.html" data-target="#">Strafrecht </a>
+
+</li>
+<li itemprop="name" data-id="182" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/telekommunikation.html" data-target="#">Telekommunikation </a>
+
+</li>
+</ul>
+</div></div>
+<div class="col-xs-3 mega-col-nav" data-width="3"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="181" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/urheberrecht.html" data-target="#">Urheberrecht </a>
+
+</li>
+<li itemprop="name" data-id="581" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/verkehrsrecht.html" data-target="#">Verkehrsrecht </a>
+
+</li>
+<li itemprop="name" data-id="180" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/vertragsrecht.html" data-target="#">Vertragsrecht </a>
+
+</li>
+<li itemprop="name" data-id="179" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/wettbewerbsrecht.html" data-target="#">Wettbewerbsrecht </a>
+
+</li>
+<li itemprop="name" data-id="130" data-level="2">
+<a itemprop="url" class="" href="/ratgeber/widerrufsbelehrung.html" data-target="#">Widerrufsrecht </a>
+
+</li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</li>
+<li itemprop="name" data-id="196" data-level="1" data-hidesub="1">
+<a itemprop="url" class="" href="/news/" data-target="#">News </a>
+
+</li>
+<li itemprop="name" data-id="1022" data-level="1">
+<a itemprop="url" class="" href="/mediathek.html" data-target="#">Mediathek </a>
+
+</li>
+<li itemprop="name" class="dropdown mega" data-id="383" data-level="1">
+<a itemprop="url" class=" dropdown-toggle" href="/e24link/bthgs" data-target="#" data-toggle="dropdown">Mitglieder<em class="caret"></em></a>
+
+<div class="nav-child dropdown-menu mega-dropdown-menu"><div class="mega-dropdown-inner">
+<div class="row">
+<div class="col-xs-12 mega-col-nav" data-width="12"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="1917" data-level="2">
+<a itemprop="url" class="" href="https://www.e-recht24.de/e24link/rlxb1" data-target="#">Login</a>
+
+</li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</li>
+<li itemprop="name" class="dropdown mega" data-id="1247" data-level="1">
+<a itemprop="url" class=" dropdown-toggle" href="/tools.html" data-target="#" data-toggle="dropdown">Tools<em class="caret"></em></a>
+
+<div class="nav-child dropdown-menu mega-dropdown-menu" style="width: 1000px" data-width="1000"><div class="mega-dropdown-inner">
+<div class="row">
+<div class="col-xs-3 mega-col-nav" data-width="3"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="1334" data-level="2">
+<span class=" separator" data-target="#"> Generatoren</span>
+
+</li>
+<li itemprop="name" data-id="1257" data-level="2">
+<a itemprop="url" class="" href="/impressum-generator.html" data-target="#">Impressum Generator</a>
+
+</li>
+<li itemprop="name" data-id="1258" data-level="2">
+<a itemprop="url" class="" href="/muster-datenschutzerklaerung.html" data-target="#">Datenschutzerklärung</a>
+
+</li>
+<li itemprop="name" data-id="1259" data-level="2">
+<a itemprop="url" class="" href="/facebook-impressum-generator.html" data-target="#">Facebook-Impressum-Generator</a>
+
+</li>
+<li itemprop="name" data-id="1261" data-level="2" data-xicon="fa fa-lock">
+<a itemprop="url" class="" href="https://www.e-recht24.de/mitglieder/login/?redirect_to=%2Ftools%2Fgenerator-vertraulichkeitsvereinbarung%2F" data-target="#"><span class="fa fa-lock"></span>NDA Generator</a>
+
+</li>
+<li itemprop="name" data-id="1984" data-level="2">
+<a itemprop="url" class="" href="/homeoffice-generator.html" data-target="#">Datenschutz für Homeoffice </a>
+
+</li>
+<li itemprop="name" data-id="2172" data-level="2">
+<a itemprop="url" class="" href="/barrierefreiheitserklaerung.html" data-target="#">Barrierefreiheitserklärung </a>
+
+</li>
+<li itemprop="name" data-id="109" data-level="2">
+<a itemprop="url" class="" href="/muster-disclaimer.html" data-target="#">Disclaimer-Generator </a>
+
+</li>
+</ul>
+</div></div>
+<div class="col-xs-3 mega-col-nav" data-width="3"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="1335" data-level="2">
+<span class=" separator" data-target="#"> Checks</span>
+
+</li>
+<li itemprop="name" data-id="582" data-level="2" data-xicon="fa fa-lock">
+<a itemprop="url" class="" href="https://www.e-recht24.de/mitglieder/login/?redirect_to=%2Ftools%2Fabmahncheck%2F" data-target="#"><span class="fa fa-lock"></span>Abmahn-Check</a>
+
+</li>
+<li itemprop="name" data-id="1262" data-level="2" data-xicon="fa fa-lock">
+<a itemprop="url" class="" href="https://www.e-recht24.de/mitglieder/login/?redirect_to=%2Ftools%2Fmarkencheck%2F" data-target="#"><span class="fa fa-lock"></span>Marken-Check</a>
+
+</li>
+<li itemprop="name" data-id="1263" data-level="2">
+<a itemprop="url" class="" href="https://www.e-recht24.de/abmahngefahr-widerruf/" data-target="#">Widerruf-Check</a>
+
+</li>
+<li itemprop="name" data-id="1810" data-level="2">
+<a itemprop="url" class="" href="https://www.e-recht24.de/dsgvo-bussgeldrechner.html" data-target="#">DSGVO Bußgeldrechner</a>
+
+</li>
+</ul>
+</div></div>
+<div class="col-xs-3 mega-col-nav" data-width="3"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="1336" data-level="2">
+<span class=" separator" data-target="#"> Plugins</span>
+
+</li>
+<li itemprop="name" data-id="2097" data-level="2" data-xicon="fa fa-lock">
+<a itemprop="url" class="" href="https://www.e-recht24.de/mitglieder/lp-cookieeinwilligung/" data-target="#"><span class="fa fa-lock"></span>Cookie Consent Tool</a>
+
+</li>
+<li itemprop="name" data-id="986" data-level="2" data-xicon="fa fa-lock">
+<a itemprop="url" class="" href="/erecht24-safe-sharing.html" data-target="#"><span class="fa fa-lock"></span>eRecht24 Safe Sharing Tool </a>
+
+</li>
+<li itemprop="name" data-id="1260" data-level="2" data-xicon="fa fa-lock">
+<a itemprop="url" class="" href="https://www.e-recht24.de/mitglieder/login/?redirect_to=%2Ftools%2Ferecht24-rechtstexte-plugin%2F" data-target="#"><span class="fa fa-lock"></span>eRecht24 Rechtstexte Plugin</a>
+
+</li>
+</ul>
+</div></div>
+<div class="col-xs-3 mega-col-nav" data-width="3"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="1814" data-level="2">
+<span class=" separator" data-target="#"> Projektmanagement</span>
+
+</li>
+<li itemprop="name" data-id="1815" data-level="2" data-xicon="fa fa-lock">
+<a itemprop="url" class="" href="https://www.e-recht24.de/mitglieder/login/?redirect_to=%2Ftools%2Fprojekt-manager%2F" data-target="#"><span class="fa fa-lock"></span>eRecht24 Projekt Manager</a>
+
+</li>
+<li itemprop="name" data-id="1816" data-level="2" data-xicon="fa fa-lock">
+<a itemprop="url" class="" href="https://www.e-recht24.de/mitglieder/login/?redirect_to=%2Ftools%2Fprojekt-manager%2F" data-target="#"><span class="fa fa-lock"></span>eRecht24 Projekt Planer</a>
+
+</li>
+<li itemprop="name" data-id="1817" data-level="2" data-xicon="fa fa-lock">
+<a itemprop="url" class="" href="https://www.e-recht24.de/mitglieder/login/?redirect_to=%2Ftools%2Fprojekt-manager%2F" data-target="#"><span class="fa fa-lock"></span>eRecht24 Projekt Report</a>
+
+</li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</li>
+<li itemprop="name" data-id="1116" data-level="1">
+<a itemprop="url" class="" href="https://www.e-recht24.de/e24link/ayk9o?source_id=e24_menu" data-target="#">Webinar</a>
+
+</li>
+<li itemprop="name" class="dropdown mega" data-id="1572" data-level="1">
+<a itemprop="url" class=" dropdown-toggle" href="https://www.e-recht24.de/mitglieder/vorteilsangebote/uebersicht-rechtsberatungspakete/" data-target="#" data-toggle="dropdown">Rechtsberatung<em class="caret"></em></a>
+
+<div class="nav-child dropdown-menu mega-dropdown-menu"><div class="mega-dropdown-inner">
+<div class="row">
+<div class="col-xs-12 mega-col-nav" data-width="12"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="166" data-level="2">
+<a itemprop="url" class="" href="/anwalt-internetrecht.htm" data-target="#">Anwalt Internetrecht </a>
+
+</li>
+<li itemprop="name" data-id="1721" data-level="2">
+<a itemprop="url" class="" href="https://www.e-recht24.de/mitglieder/vorteilsangebote/website-check-dsgvo/" data-target="#">Website-Check DSGVO</a>
+
+</li>
+<li itemprop="name" data-id="2585" data-level="2">
+<a itemprop="url" class="" href="https://www.e-recht24.de/mitglieder/check-online-shop-b2c-agb/" data-target="#">Check Online-Shop</a>
+
+</li>
+<li itemprop="name" data-id="2586" data-level="2">
+<a itemprop="url" class="" href="https://www.e-recht24.de/mitglieder/vorteilsangebote/premium-agenturpaket/" data-target="#">Webdesigner / Agenturen</a>
+
+</li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</li>
+<li itemprop="name" data-id="2202" data-level="1">
+<a itemprop="url" class="" href="https://www.e-recht24.de/e24link/x4pfm" data-target="#">Webseite absichern</a>
+
+</li>
+</ul>
+</div>
+
+			</div>
+		</div>
+		<div class="searchmod-wrap">
+			<div class="module-search">
+	<form action="/" method="post" class="form-inline" style="position: relative;"><div id="unibox-suggest-box" class="unibox" role="listbox" aria-label="Search Suggestions" style="min-width: 42px;"></div>
+		<i class="fa fa-search"></i>
+		<label for="mod-search-searchword" class="element-invisible">Suchen ...</label> <input name="searchword" id="mod-search-searchword" maxlength="200" class="form-control inputbox search-query" type="text" size="20" value="Suchen ..." onblur="if (this.value=='') this.value='Suchen ...';" onfocus="if (this.value=='Suchen ...') this.value='';" placeholder="Suchen ..." autocomplete="off" role="combobox" aria-describedby="unibox-controls-description" aria-owns="unibox-suggest-box" aria-controls="unibox-suggest-box" aria-expanded="false" style="color: rgb(102, 102, 102); font-size: 16px; padding: 10px 10px 10px 34px; background-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9InRyYW5zcGFyZW50IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGNsYXNzPSIiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0MxNS40MSAxMi41OSAxNiAxMS4xMSAxNiA5LjUgMTYgNS45MSAxMy4wOSAzIDkuNSAzUzMgNS45MSAzIDkuNSA1LjkxIDE2IDkuNSAxNmMxLjYxIDAgMy4wOS0uNTkgNC4yMy0xLjU3bC4yNy4yOHYuNzlsNSA0Ljk5TDIwLjQ5IDE5bC00Ljk5LTV6bS02IDBDNy4wMSAxNCA1IDExLjk5IDUgOS41UzcuMDEgNSA5LjUgNSAxNCA3LjAxIDE0IDkuNSAxMS45OSAxNCA5LjUgMTR6Ii8+PC9zdmc+&quot;); background-repeat: no-repeat; background-position: 10px 9px; background-size: 22px 22px; background-color: transparent;">		<input type="hidden" name="task" value="search">
+		<input type="hidden" name="option" value="com_search">
+		<input type="hidden" name="Itemid" value="144">
+
+	<span id="unibox-controls-description" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0" class="unibox-sr-only" tabindex="-1">Verwende die Pfeile nach oben und unten, um das verfügbare Ergebnis auszuwählen. Drücke die Eingabetaste, um zum ausgewählten Suchergebnis zu gelangen. Benutzer von Touchgeräten können Touch- und Streichgesten verwenden.</span><span id="unibox-status-message" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0" tabindex="-1" aria-live="polite" aria-atomic="true" role="status" class="unibox-sr-only"></span><div id="unibox-invisible" class="unibox__invisible" style="display: none;">&nbsp;<span>&nbsp;</span></div></form>
+
+</div>
+
+		</div>
+		</div>
+	</div>
+</nav>
+
+<script>
+	(function ($){
+		var maps = [];
+		$(maps).each (function (){
+			$('li[data-id="' + this['id'] + '"]').addClass (this['class']);
+		});
+	})(jQuery);
+</script>
+<!-- //MAIN NAVIGATION -->
+
+  
+  
+<!-- STICKY NAV -->
+<div id="t3-stickynav" class="t3-stickynav t3-stickynav-2021">
+	<div class="shadow">
+		<div class="container">
+			<!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+<a href="/"><img alt="eRecht24.de" src="/images/logo-erecht24-light.svg"></a>
+<ul id="stickynavlist">
+<li><a class="stickylink" href="/artikel/">Ratgeber</a></li>
+<li><a class="stickylink" href="/news/">News</a></li>
+<li><a class="stickylink" href="/e24link/68vqb">Mitglieder</a></li>
+<li><a class="stickylink" href="/tools.html">Tools</a></li>
+<li><a class="stickylink" href="/e24link/3646q">AGB</a></li>
+<li><div class="mb-top"><a class="topbar-btn btn-sale" href="/e24link/nfymg">Jetzt Mitglied werden!</a></div></li>
+</ul><!-- END: Custom advanced (www.pluginaria.com) -->
+
+		</div>
+	</div>
+</div>
+<!-- //STICKY NAV -->
+
+
+  
+
+  
+  
+
+  
+  
+	<!-- TOP TOPICS -->
+	<div class="wrap t3-toptopics ">
+    <div class="container">
+		  <div class="t3-module module top-topics " id="Mod324"><div class="module-inner"><div class="module-ct">
+
+<div class="custom top-topics">
+	<ul class="clearfix">
+<li><span>Top-Themen:</span></li>
+<li class="gradient-box"><a href="/e24link/lkbzm">AGB</a></li>
+<li class="gradient-box"><a href="/artikel/datenschutz/8451-hinweispflicht-fuer-cookies.html">Cookies</a></li>
+<li class="gradient-box"><a href="/datenschutzgrundverordnung.html">DSGVO</a></li>
+<li class="gradient-box"><a href="/artikel/ecommerce/14.html">Onlineshops</a></li>
+<li class="gradient-box"><a href="/artikel/datenschutz/6843-google-analytics-datenschutz-rechtskonform-nutzen.html">Google Analytics</a></li>
+<li class="gradient-box"><a href="/artikel/blog-foren-web20/7361-so-nutzen-sie-bilder-rechtssicher-in-ihrem-blog.html">Bildrechte</a></li>
+<li class="gradient-box"><a href="/artikel/datenschutz/10580-auftragsdatenverarbeitung-adv-datenschutz.html">AV-Vertrag</a></li>
+<li class="gradient-box"><a href="/artikel/wettbewerbsrecht/12465-geheimhaltungsvereinbarung.html">NDA</a></li>
+</ul></div>
+</div></div></div>
+    </div>
+	</div>
+	<!-- //TOP TOPICS -->
+
+
+
+<div class="main">
+
+			<div class="wrap ">
+			<div class="container">
+				<!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+<h1 class="home-h1">eRecht24 - Portal zum Internetrecht von Rechtsanwalt Sören Siebert</h1><!-- END: Custom advanced (www.pluginaria.com) -->
+
+<div class="row style-1 magazine-featured">
+
+	<div class="col col-md-8 magazine-featured-items">
+					<div class="magazine-section-heading">
+				<div>Top-Artikel auf eRecht24</div>
+			</div>
+		
+					<!-- Leading -->
+						<div class="magazine-item magazine-leading magazine-featured-leading">
+									<div id="magazine-carousel-325" class="carousel magazine-carousel slide" data-ride="carousel">
+						<div class="carousel-inner" role="listbox">
+
+															<div class="item" itemscope="" itemtype="http://schema.org/Article">
+									
+<div class="magazine-item-media">
+	<span class="media-mask"></span>
+	<div class="pull-left item-image" itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
+
+      <a href="/artikel/datenschutz/11343-neue-premium-tools.html" itemprop="url">
+  	   <img src="/media/jact/big/images/images/DSGVO-Website-750x300-light.jpg" alt="">
+      </a>
+  	<meta itemprop="url" content="https://www.e-recht24.de/media/jact/big/images/images/DSGVO-Website-750x300-light.jpg">
+	<meta itemprop="width" content="750">
+	<meta itemprop="height" content="300">	
+
+</div>
+	
+	</div>
+
+<div class="magazine-item-main">
+	
+			<div class="article-title">
+
+							<h2 itemprop="name">
+											<a href="/artikel/datenschutz/11343-neue-premium-tools.html" itemprop="url">
+						2022 stressfrei &amp; schnell zur rechtssicheren Webseite: Die neuen eRecht24 Premium Tools</a>
+									</h2>
+			
+											</div>
+	
+	
+		
+	
+			<div class="magazine-item-ct">
+
+					
+	
+									
+		<p>In der Corona-Krise müssen sich Unternehmer auf Ihre Webseiten und Agenturen auf Ihre Kundenprojekte konzentrieren. Sonst drohen teure DSGVO-Bußgelder, nervige Abmahnungen oder Ärger mit Kunden. Um Ihnen die Arbeit so einfach wie möglich zu machen, geben wir <a href="/mitglieder/">allen eRecht24 Premium Nutzern</a> dafür 4 praktische und einfach zu bedienende Tools an die Hand. Damit erstellen Sie "auf Knopfdruck" rechtssichere Webseiten. Schnell, einfach und ohne Vorwissen.</p>
+<div class="rsc_comments_count"><img src="/media/com_rscomments/images/comments.png" alt=""> <a href="/artikel/datenschutz/11343-neue-premium-tools.html">9 Kommentare</a></div>			
+		</div>
+	</div>
+								</div>
+															<div class="item active left" itemscope="" itemtype="http://schema.org/Article">
+									
+<div class="magazine-item-media">
+	<span class="media-mask"></span>
+	<div class="pull-left item-image" itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
+
+      <a href="/artikel/datenschutz/12962-was-sind-essenzielle-cookies.html" itemprop="url">
+  	   <div class="img_caption none" style="float: none; width: 750px;"><img class="caption" title="maxsim - Fotolia.com" src="https://www.e-recht24.de/mitglieder/wp-content/uploads/cookies-tracking-750x300-light.jpg" alt=""><p class="img_caption">maxsim - Fotolia.com</p></div>
+      </a>
+  	<meta itemprop="url" content="https://www.e-recht24.de/https://www.e-recht24.de/mitglieder/wp-content/uploads/cookies-tracking-750x300-light.jpg">
+	<meta itemprop="width" content="750">
+	<meta itemprop="height" content="300">	
+
+</div>
+	
+	</div>
+
+<div class="magazine-item-main">
+	
+			<div class="article-title">
+
+							<h2 itemprop="name">
+											<a href="/artikel/datenschutz/12962-was-sind-essenzielle-cookies.html" itemprop="url">
+						Einwilligung und Cookie Banner: Was sind essenzielle Cookies?</a>
+									</h2>
+			
+											</div>
+	
+			<aside class="article-aside clearfix">
+				<dl class="article-info muted">
+
+		
+			<dt class="article-info-term">
+													Details							</dt>
+      <dd class="hidden"></dd>
+			
+						
+						<dd class="modified">
+				<time datetime="2022-03-18T15:34:44+01:00">
+					Letzte Bearbeitung: 18. März 2022				</time>
+			</dd>
+			
+			
+					
+		
+						</dl>
+	
+	<meta itemprop="dateModified" content="2022-03-18T15:34:44+01:00">
+	<meta itemprop="datePublished" content="2022-01-11T16:23:42+01:00">
+	<meta itemprop="dateCreated" content="2022-01-10T11:46:17+01:00">		</aside>
+	
+		
+	
+			<div class="magazine-item-ct">
+
+					
+	
+									
+		<p>Für Websitebetreiber spielt das Thema Cookies schon lange eine große Rolle - mit dem <a href="https://www.gesetze-im-internet.de/ttdsg/" target="_blank" rel="noopener">TTDSG</a> ist es das Thema jetzt wichtiger denn je. Denn nach Jahren der Unsicherheit schreibt der Gesetzgeber jetzt klar vor: Für nicht notwendige Cookies brauchen Sie eine Einwilligung. Aber was sind nicht notwendige oder essenzielle Cookies überhaupt? Wozu gehören Session Cookies, Tracking Cookies, Third Party Cookies und Marketing Cookies? Welche der unzähligen Tools und Cookies auf Webseiten fallen in welche Kategorie? Und praktisch am wichtigsten: Warum müssen Sie das alles bei der Konfiguration Ihres Consent Tools beachten? Wir klären auf.</p>
+<div class="rsc_comments_count"><img src="/media/com_rscomments/images/comments.png" alt=""> <a href="/artikel/datenschutz/12962-was-sind-essenzielle-cookies.html">3 Kommentare</a></div>			
+		</div>
+	</div>
+								</div>
+															<div class="item  next left" itemscope="" itemtype="http://schema.org/Article">
+									
+<div class="magazine-item-media">
+	<span class="media-mask"></span>
+	<div class="pull-left item-image" itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
+
+      <a href="/artikel/facebook/10937-urteil-facebook-fanpages-eugh.html" itemprop="url">
+  	   <div class="img_caption none" style="float: none; width: 750px;"><img class="caption" title="peshkova - Fotolia.com" src="/media/jact/big/images/stories/categories/facebook/datenschutz-socialmedia-750x300.jpg" alt=""><p class="img_caption">peshkova - Fotolia.com</p></div>
+      </a>
+  	<meta itemprop="url" content="https://www.e-recht24.de/media/jact/big/images/stories/categories/facebook/datenschutz-socialmedia-750x300.jpg">
+	<meta itemprop="width" content="750">
+	<meta itemprop="height" content="300">	
+
+</div>
+	
+	</div>
+
+<div class="magazine-item-main">
+	
+			<div class="article-title">
+
+							<h2 itemprop="name">
+											<a href="/artikel/facebook/10937-urteil-facebook-fanpages-eugh.html" itemprop="url">
+						Update zum EuGH-Urteil: Dürfen Datenschutzbehörden Facebook Fanpages verbieten?</a>
+									</h2>
+			
+											</div>
+	
+			<aside class="article-aside clearfix">
+				<dl class="article-info muted">
+
+		
+			<dt class="article-info-term">
+													Details							</dt>
+      <dd class="hidden"></dd>
+			
+						
+						<dd class="modified">
+				<time datetime="2022-01-11T18:19:30+01:00">
+					Letzte Bearbeitung: 11. Januar 2022				</time>
+			</dd>
+			
+			
+					
+		
+						</dl>
+	
+	<meta itemprop="dateModified" content="2022-01-11T18:19:30+01:00">
+	<meta itemprop="datePublished" content="2018-06-05T21:54:22+02:00">
+	<meta itemprop="dateCreated" content="2018-06-05T21:52:51+02:00">		</aside>
+	
+		
+	
+			<div class="magazine-item-ct">
+
+					
+	
+									
+		<p>Der Streit um Facebook Fanpages geht in die nächste Runde: Im Juni 2018 hatte der EuGH entschieden, dass Betreiber von Fanpages für Datenschutzverstöße auf Facebook mitverantwortlich sind. Facebook hatte reagiert und ein "Page Controller Addendum" für Fanpage Betreiber online gestellt. Nun hat das OVG Schleswig-Holstein entschieden, dass die Datenschutzbehörde in diesem Fall zu Recht verlangen konnte, eine Facebook Fanpage abzuschalten. Heißt das, dass jetzt alle Unternehmer ihre Facebook Fanpage abschalten müssen? Und was bedeuten die einzelnen Urteile?</p>
+<div class="rsc_comments_count"><img src="/media/com_rscomments/images/comments.png" alt=""> <a href="/artikel/facebook/10937-urteil-facebook-fanpages-eugh.html">76 Kommentare</a></div>			
+		</div>
+	</div>
+								</div>
+															<div class="item " itemscope="" itemtype="http://schema.org/Article">
+									
+<div class="magazine-item-media">
+	<span class="media-mask"></span>
+	<div class="pull-left item-image" itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
+
+      <a href="/artikel/datenschutz/12834-ttdsg.html" itemprop="url">
+  	   <div class="img_caption none" style="float: none; width: 749px;"><img class="caption" title="putilov_denis - Fotolia.com" src="/media/jact/big/images/stories/categories/datenschutz/datenschutz19.png" alt=""><p class="img_caption">putilov_denis - Fotolia.com</p></div>
+      </a>
+  	<meta itemprop="url" content="https://www.e-recht24.de/media/jact/big/images/stories/categories/datenschutz/datenschutz19.png">
+	<meta itemprop="width" content="750">
+	<meta itemprop="height" content="300">	
+
+</div>
+	
+	</div>
+
+<div class="magazine-item-main">
+	
+			<div class="article-title">
+
+							<h2 itemprop="name">
+											<a href="/artikel/datenschutz/12834-ttdsg.html" itemprop="url">
+						Das neue TTDSG: Neues bei Cookies und Co. für Webseitenbetreiber und Agenturen</a>
+									</h2>
+			
+											</div>
+	
+			<aside class="article-aside clearfix">
+				<dl class="article-info muted">
+
+		
+			<dt class="article-info-term">
+													Details							</dt>
+      <dd class="hidden"></dd>
+			
+						
+						<dd class="modified">
+				<time datetime="2022-02-23T15:41:32+01:00">
+					Letzte Bearbeitung: 23. Februar 2022				</time>
+			</dd>
+			
+			
+					
+		
+						</dl>
+	
+	<meta itemprop="dateModified" content="2022-02-23T15:41:32+01:00">
+	<meta itemprop="datePublished" content="2021-12-02T12:56:50+01:00">
+	<meta itemprop="dateCreated" content="2021-10-15T11:46:37+02:00">		</aside>
+	
+		
+	
+			<div class="magazine-item-ct">
+
+					
+	
+									
+		<p>Der 1.12.2021 war der Tag des Inkrafttretens des Telekommunikation-Telemedien-Datenschutz-Gesetzes (TTDSG). Das Gesetz enthält einige Neuerungen und Klarstellungen für Unternehmen, Websitebetreiber und Agenturen. Die wichtigste: Fast alle Cookies und Tracking-Dienste brauchen eine echte Einwilligung. Doch was müssen Sie seit dem 1.12.2021 noch wissen? Und was ist jetzt konkret zu tun? Wir erklären es.</p>
+<div class="rsc_comments_count"><img src="/media/com_rscomments/images/comments.png" alt=""> <a href="/artikel/datenschutz/12834-ttdsg.html">18 Kommentare</a></div>			
+		</div>
+	</div>
+								</div>
+															<div class="item " itemscope="" itemtype="http://schema.org/Article">
+									
+<div class="magazine-item-media">
+	<span class="media-mask"></span>
+	<div class="pull-left item-image" itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
+
+      <a href="/artikel/ecommerce/8060-recht-online-shop-abmahnsicher.html" itemprop="url">
+  	   <div class="img_caption none" style="float: none; width: 750px;"><img class="caption" title="Montri - Fotolia.com" src="/media/jact/big/images/stories/categories/ecommerce/ecommerce21.jpg" alt=""><p class="img_caption">Montri - Fotolia.com</p></div>
+      </a>
+  	<meta itemprop="url" content="https://www.e-recht24.de/media/jact/big/images/stories/categories/ecommerce/ecommerce21.jpg">
+	<meta itemprop="width" content="750">
+	<meta itemprop="height" content="300">	
+
+</div>
+	
+	</div>
+
+<div class="magazine-item-main">
+	
+			<div class="article-title">
+
+							<h2 itemprop="name">
+											<a href="/artikel/ecommerce/8060-recht-online-shop-abmahnsicher.html" itemprop="url">
+						In 9 Schritten zum abmahnsicheren Online Shop</a>
+									</h2>
+			
+											</div>
+	
+			<aside class="article-aside clearfix">
+				<dl class="article-info muted">
+
+		
+			<dt class="article-info-term">
+													Details							</dt>
+      <dd class="hidden"></dd>
+			
+						
+						<dd class="modified">
+				<time datetime="2022-03-12T10:34:10+01:00">
+					Letzte Bearbeitung: 12. März 2022				</time>
+			</dd>
+			
+			
+					
+		
+						</dl>
+	
+	<meta itemprop="dateModified" content="2022-03-12T10:34:10+01:00">
+	<meta itemprop="datePublished" content="2021-01-04T15:41:24+01:00">
+	<meta itemprop="dateCreated" content="2014-09-16T10:06:12+02:00">		</aside>
+	
+		
+	
+			<div class="magazine-item-ct">
+
+					
+	
+									
+		<p>Die Corona-Krise hat dazu geführ, dass lokale Händler und Online Händler Ihre Online Shops professionalisieren müssen. Was dabei oft übersehen wird ist die rechtliche Seite. Einen Online Shop rechtssicher zu gestalten ist nämlich gar nicht so leicht. Viele Händler sind überfordert mit den unzähligen Gesetze, Vorgaben der EU und Urteilen. Hinzu kommen teure Abmahnungen von Wettbewerbern und Abmahnvereinen. Shop-Profi und Rechtsanwalt Sören Siebert zeigt Ihnen in 9 einfachen Schritten, wie Sie 2022 Ihren Online Shop abmahnsicher gestalten.</p>
+<div class="rsc_comments_count"><img src="/media/com_rscomments/images/comments.png" alt=""> <a href="/artikel/ecommerce/8060-recht-online-shop-abmahnsicher.html">8 Kommentare</a></div>			
+		</div>
+	</div>
+								</div>
+															<div class="item " itemscope="" itemtype="http://schema.org/Article">
+									
+<div class="magazine-item-media">
+	<span class="media-mask"></span>
+	<div class="pull-left item-image" itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
+
+      <a href="/artikel/datenschutz/12828-abmahnung-cookie-consent-banner.html" itemprop="url">
+  	   <div class="img_caption none" style="float: none; width: 750px;"><img class="caption" title="Julien Eichinger - Fotolia.com" src="/media/jact/big/images/stories/categories/datenschutz/datenschutz18.png" alt=""><p class="img_caption">Julien Eichinger - Fotolia.com</p></div>
+      </a>
+  	<meta itemprop="url" content="https://www.e-recht24.de/media/jact/big/images/stories/categories/datenschutz/datenschutz18.png">
+	<meta itemprop="width" content="750">
+	<meta itemprop="height" content="300">	
+
+</div>
+	
+	</div>
+
+<div class="magazine-item-main">
+	
+			<div class="article-title">
+
+							<h2 itemprop="name">
+											<a href="/artikel/datenschutz/12828-abmahnung-cookie-consent-banner.html" itemprop="url">
+						So muss ein Cookie Consent Banner aussehen, um nicht abgemahnt zu werden</a>
+									</h2>
+			
+											</div>
+	
+			<aside class="article-aside clearfix">
+				<dl class="article-info muted">
+
+		
+			<dt class="article-info-term">
+													Details							</dt>
+      <dd class="hidden"></dd>
+			
+						
+						<dd class="modified">
+				<time datetime="2022-02-23T15:31:14+01:00">
+					Letzte Bearbeitung: 23. Februar 2022				</time>
+			</dd>
+			
+			
+					
+		
+						</dl>
+	
+	<meta itemprop="dateModified" content="2022-02-23T15:31:14+01:00">
+	<meta itemprop="datePublished" content="2021-10-14T09:02:59+02:00">
+	<meta itemprop="dateCreated" content="2021-09-30T08:36:24+02:00">		</aside>
+	
+		
+	
+			<div class="magazine-item-ct">
+
+					
+	
+									
+		<p>Fast jede Webseite benötigt ein Consent Tool. Leider gibt es bei der Gestaltung der Consent Banner zahlreiche rechtliche Fallstricke, die Sie kennen sollten. Die Verbraucherzentrale hat in diesem Zusammenhang ca. 1.000 Webseiten zu der Frage untersucht, ob ein Consent Banner vorhanden und korrekt eingebunden ist. Bei 100 Webseiten war das nach Auffassung der Verbraucherzentrale nicht der Fall, diese wurden abgemahnt. Wir erklären Ihnen, was Sie wissen müssen, um Abmahnungen wegen fehlerhafter Consent Banner zu vermeiden. ... <a href="/artikel/datenschutz/12828-abmahnung-cookie-consent-banner.html">Weiterlesen ...</a></p>			
+		</div>
+	</div>
+								</div>
+															<div class="item " itemscope="" itemtype="http://schema.org/Article">
+									
+<div class="magazine-item-media">
+	<span class="media-mask"></span>
+	<div class="pull-left item-image" itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
+
+      <a href="/artikel/haftunginhalte/11035-haftung-agenturen-webdesigner.html" itemprop="url">
+  	   <div class="img_caption none" style="float: none; width: 750px;"><img class="caption" title="Rawpixel.com - Fotolia.com" src="/media/jact/big/images/stories/categories/wettbewerbsrecht/wettbewerbsrecht12.jpg" alt=""><p class="img_caption">Rawpixel.com - Fotolia.com</p></div>
+      </a>
+  	<meta itemprop="url" content="https://www.e-recht24.de/media/jact/big/images/stories/categories/wettbewerbsrecht/wettbewerbsrecht12.jpg">
+	<meta itemprop="width" content="750">
+	<meta itemprop="height" content="300">	
+
+</div>
+	
+	</div>
+
+<div class="magazine-item-main">
+	
+			<div class="article-title">
+
+							<h2 itemprop="name">
+											<a href="/artikel/haftunginhalte/11035-haftung-agenturen-webdesigner.html" itemprop="url">
+						Vorsicht Haftung: Was müssen Agenturen und Webdesigner bei Kundenprojekten beachten?</a>
+									</h2>
+			
+											</div>
+	
+			<aside class="article-aside clearfix">
+				<dl class="article-info muted">
+
+		
+			<dt class="article-info-term">
+													Details							</dt>
+      <dd class="hidden"></dd>
+			
+						
+						<dd class="modified">
+				<time datetime="2021-12-29T16:00:19+01:00">
+					Letzte Bearbeitung: 29. Dezember 2021				</time>
+			</dd>
+			
+			
+					
+		
+						</dl>
+	
+	<meta itemprop="dateModified" content="2021-12-29T16:00:19+01:00">
+	<meta itemprop="datePublished" content="2021-03-09T14:28:08+01:00">
+	<meta itemprop="dateCreated" content="2018-09-21T12:28:09+02:00">		</aside>
+	
+		
+	
+			<div class="magazine-item-ct">
+
+					
+	
+									
+		<p>Webdesigner und Agenturen haben neben der Webseitenerstellung für Ihre Kunden noch zahlreiche andere Aufgaben: Erstellen und Versenden von Newslettern, Hosten von Webseiten, Entwerfen von Werbekampagnen, Auswählen von Texten und Bildern, Pflegen von Social Media Profilen oder die&nbsp; Betreuung laufender Projekte. Deshalb gibt es beim Thema Haftung auch viele Fragen: Hafte ich als Webdesigner für die erstellte Webseite? Und wenn ja, wofür genau und wie lange? Müssen Agenturen die Webseiten und Newsletter der Kunden auf Rechtsverstöße prüfen? Wie geht das praktisch und ohne, dass ein Anwalt jeden einzelnen Schritt überprüft?</p>
+<div class="rsc_comments_count"><img src="/media/com_rscomments/images/comments.png" alt=""> <a href="/artikel/haftunginhalte/11035-haftung-agenturen-webdesigner.html">23 Kommentare</a></div>			
+		</div>
+	</div>
+								</div>
+							
+						</div>
+
+						<!-- Controls -->
+						<div class="carousel-control-btns">
+              <span class="carousel-number">
+              	<strong class="carousel-number-index">2</strong>&nbsp; of &nbsp;<strong>7</strong>
+              </span>
+							<div class="btn left" href="#magazine-carousel-325" role="button" data-slide="prev">
+								<i class="fa fa-chevron-left"></i>
+								<span class="sr-only">Previous</span>
+							</div>
+							<div class="btn right" href="#magazine-carousel-325" role="button" data-slide="next">
+								<i class="fa fa-chevron-right"></i>
+								<span class="sr-only">Next</span>
+							</div>
+						</div>
+					</div>
+
+					<script>
+						(function ($) {
+							$('#magazine-carousel-325').on('slid.bs.carousel', function () {
+								var $carousel = $(this),
+									currentIndex = $carousel.find('.item.active').index() + 1;
+								$carousel.find('.carousel-number-index').html(currentIndex);
+							});
+						})(jQuery);
+					</script>
+							</div>
+
+			<!-- //Leading -->
+		
+		
+	</div>
+	<!-- //Left Column -->
+
+	<div class="col col-md-4 magazine-featured-links">
+		
+		<!-- Banner -->
+		<div class="banner">
+			<div class="t3-module module " id="Mod578"><div class="module-inner"><div class="module-ct"><!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+<a href="/e24link/gaffw" style="display:block;"><img src="/images/banners/Banner-Webinarabmahnfallen-hochformat-petrol.jpg" width="353"></a>
+<!-- <div class="openadstext_after" style="text-align:right;margin-bottom:20px;">Anzeige</div> --><!-- END: Custom advanced (www.pluginaria.com) -->
+</div></div></div>		</div>
+		<!-- // Banner -->
+	</div>
+	<!-- //Right Column -->
+
+</div>
+
+<div class="custom highlighted">
+	<div class="magazine-section-heading">eRecht24 - Unsere praktischen Tools und hilfreichen Tutorials</div>
+<div id="surow62392da12c0db" class="su-row su-clmms-yes">
+<div id="sucol62392da12c0f4" class="su-column su-column-size-1-1 su-column-size-medium-1-3"><div class="su-column-inner"><div class="su-column-content">
+<div id="supnl62392da12c200" class="su-panel su-panel-clickable sup-align-left" data-url="https://www.e-recht24.de/e24link/89qtu" data-target="self"><div class="su-panel-content su-content-wrap">
+<p><img src="/images/intern/mitgliederbereich-teaser.jpg" alt="mitgliederbereich teaser" width="353" height="150"></p>
+<p class="headline">Exklusiv für unsere Mitglieder</p>
+<p>Alles was Webseitenbetreiber, Agenturen und Selbständige wirklich brauchen: Tools, Wissen, Musterverträge, Erstberatung und Live-Webinare.</p>
+<a id="subtn_62392da12c37e" href="https://www.e-recht24.de/e24link/34gp5" class="su-button su-button-style-default green" target="_self"><span> Mehr Informationen</span></a>
+</div></div>
+</div></div></div>
+<div id="sucol62392da12c494" class="su-column su-column-size-1-1 su-column-size-medium-1-3"><div class="su-column-inner"><div class="su-column-content">
+<div id="supnl62392da12c578" class="su-panel su-panel-clickable sup-align-left" data-url="/datenschutzgrundverordnung.html" data-target="self"><div class="su-panel-content su-content-wrap">
+<p><img src="/images/intern/dsgvo-teaser.jpg" alt="dsgvo teaser" width="353" height="150"></p>
+<p class="headline">DSGVO Schnellstarter-Paket</p>
+<p>Das Datenschutzrecht hat sich im Mai 2018 vollständig geändert. Haben Sie die DSGVO bereits umgesetzt? Sichern Sie jetzt Ihre Webseite ab.</p>
+<a id="subtn_62392da12c6de" href="/datenschutzgrundverordnung.html" class="su-button su-button-style-default green" target="_self"><span> Jetzt absichern</span></a>
+</div></div>
+</div></div></div>
+<div id="sucol62392da12c7b2" class="su-column su-column-size-1-1 su-column-size-medium-1-3"><div class="su-column-inner"><div class="su-column-content">
+<div id="supnl62392da12c894" class="su-panel su-panel-clickable sup-align-left" data-url="https://www.e-recht24.de/e24link/34gp5" data-target="self"><div class="su-panel-content su-content-wrap">
+<p><img src="/images/intern/webinar-teaser.jpg" alt="webinar teaser" width="353" height="150"></p>
+<p class="headline">Online Schulung mit RA Siebert</p>
+<p>Die 7 häufigsten Abmahnfallen auf Webseiten und wie Sie diese einfach und ohne teuren Anwalt vermeiden. So haben Abmahner keine Chance!</p>
+<a id="subtn_62392da12c9f9" href="https://www.e-recht24.de/e24link/34gp5" class="su-button su-button-style-default green" target="_self"><span> Mehr Details</span></a>
+</div></div>
+</div></div></div>
+</div>
+</div>
+
+			</div>
+		</div>
+	
+  <div id="t3-mainbody" class="container t3-mainbody mainbody-magazine">
+  
+  	<div class="row">
+
+			<!-- MAIN CONTENT -->
+			<div id="t3-content" class="col t3-content col-md-8">
+												<div class="" itemscope="" itemtype="http://schema.org/Blog">
+
+		
+	
+		<div class="category-desc">
+							<div class="img_caption none" style="float: none; width: 747px;"><img src="/images/stories/categories/news/main/news.jpg" class="caption" title="stockfotocz - Fotolia.com" alt=""><p class="img_caption">stockfotocz - Fotolia.com</p></div>
+											<!-- START: Modules Anywhere -->
+<div class="custom">
+<div class="shariff" data-backend-url="https://www.e-recht24.de/plugins/system/erecht24_safe_sharing/backend/" data-lang="de" data-orientation="horizontal" data-services="[&quot;facebook&quot;,&quot;linkedin&quot;,&quot;twitter&quot;,&quot;xing&quot;,&quot;whatsapp&quot;]" data-theme="color" data-url="https://www.e-recht24.de/"><ul class="theme-color orientation-horizontal button-style-standard shariff-col-5"><li class="shariff-button facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.e-recht24.de%2F" data-rel="popup" rel="nofollow" title="Bei Facebook teilen" role="button" aria-label="Bei Facebook teilen"><span class="fab fa-facebook-f"></span><span class="share_text">teilen</span><span class="share_count share_count_value_1k">1k</span><span class="share_count share_count_value_1k">1k</span></a></li><li class="shariff-button linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&amp;summary=Internetrecht%20endlich%20verst%C3%A4ndlich%3A%20Jetzt%20k%C3%B6nnen%20auch%20Sie%20Ihre%20Website%20einfach%20und%20schnell%20abmahnsicher%20gestalten.%20Urteile%2C%20Tools%2C%20Ratgeber%20und%20News.&amp;title=eRecht24%3A%20Internetrecht%20von%20Rechtsanwalt%20S%C3%B6ren%20Siebert&amp;url=https%3A%2F%2Fwww.e-recht24.de%2F" data-rel="popup" rel="nofollow" title="Bei LinkedIn teilen" role="button" aria-label="Bei LinkedIn teilen"><span class="fab fa-linkedin-in"></span><span class="share_text">mitteilen</span></a></li><li class="shariff-button twitter"><a href="https://twitter.com/intent/tweet?text=eRecht24%3A%20Internetrecht%20von%20Rechtsanwalt%20S%C3%B6ren%20Siebert&amp;url=https%3A%2F%2Fwww.e-recht24.de%2F" data-rel="popup" rel="nofollow" title="Bei Twitter teilen" role="button" aria-label="Bei Twitter teilen"><span class="fab fa-twitter"></span><span class="share_text">tweet</span></a></li><li class="shariff-button xing"><a href="https://www.xing.com/social_plugins/share?url=https%3A%2F%2Fwww.e-recht24.de%2F" data-rel="popup" rel="nofollow" title="Bei XING teilen" role="button" aria-label="Bei XING teilen"><span class="fab fa-xing"></span><span class="share_text">teilen</span><span class="share_count share_count_value_6">6</span><span class="share_count share_count_value_6">6</span></a></li><li class="shariff-button whatsapp"><a href="whatsapp://send?text=eRecht24%3A%20Internetrecht%20von%20Rechtsanwalt%20S%C3%B6ren%20Siebert%20https%3A%2F%2Fwww.e-recht24.de%2F" rel="nofollow" title="Bei Whatsapp teilen" role="button" aria-label="Bei Whatsapp teilen"><span class="fab fa-whatsapp"></span><span class="share_text">teilen</span></a></li></ul></div>
+</div>
+<!-- END: Modules Anywhere -->
+								</div>
+	
+	
+		
+	
+											<div class="items-row cols-1 row-0 row">
+					<div class="col-sm-12">
+				<div class="item column-1" itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
+					
+
+	<!-- Article -->
+	<article>
+  
+    			
+<header class="article-header clearfix">
+	<h2 class="article-title" itemprop="headline">
+					<a href="/news/datenschutz/13000-update-des-datenschutz-generators-auf-version-1-24.html" itemprop="url" title="Update des eRecht24 Datenschutz-Generators auf Version 1.24">
+				Update des eRecht24 Datenschutz-Generators auf Version 1.24</a>
+			</h2>
+
+			</header>    
+		<section class="row article-intro" itemprop="articleBody">
+			<div class="col col-md-3">
+				<div class="pull-left item-image" itemprop="image">
+
+      <a href="/news/datenschutz/13000-update-des-datenschutz-generators-auf-version-1-24.html" itemprop="url">
+  	   <img src="/media/jact/small/images/stories/categories/datenschutz/thumb/datenschutz11.jpg" alt="">
+      </a>
+  </div>
+			</div>
+			<div class="col col-md-9">
+					
+								
+				<p><time datetime="2022-03-10T08:01:33+01:00" itemprop="dateCreated">10. März 2022:</time> Wir haben am&nbsp;<strong>Mittwoch, den 09.03.2022, das Update (1.24) des Datenschutz-Generators</strong>&nbsp;für Sie ausgerollt. Das Update betrifft vor allem die Aufnahme neuer Tools und Plugins sowie vereinzelte Anpassungen zu bereits bestehenden Diensten. ... <a href="/news/datenschutz/13000-update-des-datenschutz-generators-auf-version-1-24.html">Weiterlesen ...</a></p>			</div>
+		</section>
+
+    <!-- footer -->
+        <!-- //footer -->
+
+	</article>
+	<!-- //Article -->
+
+
+ 
+				</div><!-- end item -->
+							</div><!-- end span -->
+					</div><!-- end row -->
+						
+										<div class="items-row cols-1 row-1 row">
+					<div class="col-sm-12">
+				<div class="item column-1" itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
+					
+
+	<!-- Article -->
+	<article>
+  
+    			
+<header class="article-header clearfix">
+	<h2 class="article-title" itemprop="headline">
+					<a href="/news/datenschutz/12999-bewerberdaten-bremer-wohnungsbaugesellschaft.html" itemprop="url" title="Sensible Bewerberdaten gespeichert: 1,9 Millionen Euro Bußgeld für Bremer Wohnungsbaugesellschaft">
+				Sensible Bewerberdaten gespeichert: 1,9 Millionen Euro Bußgeld für Bremer Wohnungsbaugesellschaft</a>
+			</h2>
+
+			</header>    
+		<section class="row article-intro" itemprop="articleBody">
+			<div class="col col-md-3">
+				<div class="pull-left item-image" itemprop="image">
+
+      <a href="/news/datenschutz/12999-bewerberdaten-bremer-wohnungsbaugesellschaft.html" itemprop="url">
+  	   <img src="/media/jact/small/images/stories/categories/datenschutz/thumb/datenschutz3.jpg" alt="">
+      </a>
+  </div>
+			</div>
+			<div class="col col-md-9">
+					
+								
+				<p><time datetime="2022-03-09T13:02:57+01:00" itemprop="dateCreated">09. März 2022:</time> Hautfarbe, Religionszugehörigkeit, sexuelle Orientierung oder Gesundheitszustand waren Merkmale, die die BREBAU bis vor einem Jahr unerlaubt erhoben und verarbeitet hat. Dieses unzulässige Vorgehen beschäftigte nicht nur die Staatsanwaltschaft, sondern auch die Datenschutz-Behörde. Das nun verhängte Bußgeld in Höhe von 1,9 Millionen Euro fällt vergleichsweise niedrig aus. ... <a href="/news/datenschutz/12999-bewerberdaten-bremer-wohnungsbaugesellschaft.html">Weiterlesen ...</a></p>			</div>
+		</section>
+
+    <!-- footer -->
+        <!-- //footer -->
+
+	</article>
+	<!-- //Article -->
+
+
+ 
+				</div><!-- end item -->
+							</div><!-- end span -->
+					</div><!-- end row -->
+						
+										<div class="items-row cols-1 row-2 row">
+					<div class="col-sm-12">
+				<div class="item column-1" itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
+					
+
+	<!-- Article -->
+	<article>
+  
+    			
+<header class="article-header clearfix">
+	<h2 class="article-title" itemprop="headline">
+					<a href="/news/ecommerce/12989-onlineshops-drittes-geschlecht.html" itemprop="url" title="Online-Shops: Drittes Geschlecht muss als Anrede angeboten werden">
+				Online-Shops: Drittes Geschlecht muss als Anrede angeboten werden</a>
+			</h2>
+
+			</header>    
+		<section class="row article-intro" itemprop="articleBody">
+			<div class="col col-md-3">
+				<div class="pull-left item-image" itemprop="image">
+
+      <a href="/news/ecommerce/12989-onlineshops-drittes-geschlecht.html" itemprop="url">
+  	   <img src="/media/jact/small/images/stories/categories/ecommerce/thumb/ecommerce12.jpg" alt="">
+      </a>
+  </div>
+			</div>
+			<div class="col col-md-9">
+					
+								
+				<p><time datetime="2022-02-10T13:07:16+01:00" itemprop="dateCreated">10. Februar 2022:</time> In Stellenanzeigen gehört die Formulierung „männlich/weiblich/divers“ längst zum Standard. Dass auch Bestellformulare und Anmeldemasken im Internet das dritte Geschlecht als Wahlmöglichkeit enthalten müssen, hat nun das Oberlandesgericht Karlsruhe klargestellt. Eine nicht-binäre Person werde andernfalls diskriminiert, so das Urteil. Ein Anspruch auf Entschädigung bestand im konkreten Fall allerdings nicht.</p>
+<div class="rsc_comments_count"><img src="/media/com_rscomments/images/comments.png" alt=""> <a href="/news/ecommerce/12989-onlineshops-drittes-geschlecht.html">2 Kommentare</a></div>			</div>
+		</section>
+
+    <!-- footer -->
+        <!-- //footer -->
+
+	</article>
+	<!-- //Article -->
+
+
+ 
+				</div><!-- end item -->
+							</div><!-- end span -->
+					</div><!-- end row -->
+						
+										<div class="items-row cols-1 row-3 row">
+					<div class="col-sm-12">
+				<div class="item column-1" itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
+					
+
+	<!-- Article -->
+	<article>
+  
+    			
+<header class="article-header clearfix">
+	<h2 class="article-title" itemprop="headline">
+					<a href="/news/datenschutz/12985-update-des-datenschutz-generators-auf-version-1-23.html" itemprop="url" title="Update des eRecht24 Datenschutz-Generators auf Version 1.23">
+				Update des eRecht24 Datenschutz-Generators auf Version 1.23</a>
+			</h2>
+
+			</header>    
+		<section class="row article-intro" itemprop="articleBody">
+			<div class="col col-md-3">
+				<div class="pull-left item-image" itemprop="image">
+
+      <a href="/news/datenschutz/12985-update-des-datenschutz-generators-auf-version-1-23.html" itemprop="url">
+  	   <img src="/media/jact/small/images/stories/categories/datenschutz/thumb/datenschutz11.jpg" alt="">
+      </a>
+  </div>
+			</div>
+			<div class="col col-md-9">
+					
+								
+				<p><time datetime="2022-01-31T12:01:33+01:00" itemprop="dateCreated">31. Januar 2022:</time> Wir haben am&nbsp;<strong>Samstag, den 29.01.22, das Update (1.23) des Datenschutz-Generators</strong>&nbsp;für Sie ausgerollt. Das Update betrifft vor allem die Aufnahme neuer Tools und Plugins sowie vereinzelte Anpassungen zu bereits bestehenden Diensten.</p>
+<div class="rsc_comments_count"><img src="/media/com_rscomments/images/comments.png" alt=""> <a href="/news/datenschutz/12985-update-des-datenschutz-generators-auf-version-1-23.html">1 Kommentare</a></div>			</div>
+		</section>
+
+    <!-- footer -->
+        <!-- //footer -->
+
+	</article>
+	<!-- //Article -->
+
+
+ 
+				</div><!-- end item -->
+							</div><!-- end span -->
+					</div><!-- end row -->
+						
+										<div class="items-row cols-1 row-4 row">
+					<div class="col-sm-12">
+				<div class="item column-1" itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
+					
+
+	<!-- Article -->
+	<article>
+  
+    			
+<header class="article-header clearfix">
+	<h2 class="article-title" itemprop="headline">
+					<a href="/news/datenschutz/12984-dsgvo-bussgelder.html" itemprop="url" title="DSGVO: Bußgelder erreichen Rekordhoch von 1,1 Milliarden Euro">
+				DSGVO: Bußgelder erreichen Rekordhoch von 1,1 Milliarden Euro</a>
+			</h2>
+
+			</header>    
+		<section class="row article-intro" itemprop="articleBody">
+			<div class="col col-md-3">
+				<div class="pull-left item-image" itemprop="image">
+
+      <a href="/news/datenschutz/12984-dsgvo-bussgelder.html" itemprop="url">
+  	   <img src="/media/jact/small/images/stories/categories/datenschutz/thumb/datenschutz1.jpg" alt="">
+      </a>
+  </div>
+			</div>
+			<div class="col col-md-9">
+					
+								
+				<p><time datetime="2022-01-31T11:32:54+01:00" itemprop="dateCreated">31. Januar 2022:</time> Strafen in Höhe von insgesamt über einer Milliarde Euro haben Datenschutz-Behörden in den vergangenen zwölf Monaten verhängt, siebenmal so viel wie im Vorjahr. Zwar fallen hierbei die Verfahren gegen IT-Riesen wie Amazon und WhatsApp besonders ins Gewicht. Dennoch hat die Umsetzung der Datenschutz-Grundverordnung gerade für kleine und mittlere Betriebe existenzielle Bedeutung. ... <a href="/news/datenschutz/12984-dsgvo-bussgelder.html">Weiterlesen ...</a></p>			</div>
+		</section>
+
+    <!-- footer -->
+        <!-- //footer -->
+
+	</article>
+	<!-- //Article -->
+
+
+ 
+				</div><!-- end item -->
+							</div><!-- end span -->
+					</div><!-- end row -->
+						
+										<div class="items-row cols-1 row-5 row">
+					<div class="col-sm-12">
+				<div class="item column-1" itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
+					
+
+	<!-- Article -->
+	<article>
+  
+    			
+<header class="article-header clearfix">
+	<h2 class="article-title" itemprop="headline">
+					<a href="/news/facebook/12983-facebook-us-handelsbehoerde-darf-auf-zerschlagung-des-konzerns-klagen.html" itemprop="url" title="Facebook: US-Handelsbehörde darf auf Zerschlagung des Konzerns klagen">
+				Facebook: US-Handelsbehörde darf auf Zerschlagung des Konzerns klagen</a>
+			</h2>
+
+			</header>    
+		<section class="row article-intro" itemprop="articleBody">
+			<div class="col col-md-3">
+				<div class="pull-left item-image" itemprop="image">
+
+      <a href="/news/facebook/12983-facebook-us-handelsbehoerde-darf-auf-zerschlagung-des-konzerns-klagen.html" itemprop="url">
+  	   <img src="/media/jact/small/images/stories/categories/facebook/thumb/facebook6.jpg" alt="">
+      </a>
+  </div>
+			</div>
+			<div class="col col-md-9">
+					
+								
+				<p><time datetime="2022-01-28T15:11:22+01:00" itemprop="dateCreated">28. Januar 2022:</time> Facebooks Übernahme von WhatsApp und Instagram liegt schon Jahre zurück. Erst 2020 allerdings reichte die Federal Trade Commission (kurz: FTC) deswegen Klage ein. Der Vorwurf: Ausnutzung einer marktbeherrschenden Stellung um die Konkurrenz auszuschalten. Der zuständige Richter reagierte damals verärgert: Die Behörde habe versäumt, ihre Behauptung mit Fakten und Zahlen zu belegen. Im zweiten Anlauf allerdings wurde die Klage nun akzeptiert. ... <a href="/news/facebook/12983-facebook-us-handelsbehoerde-darf-auf-zerschlagung-des-konzerns-klagen.html">Weiterlesen ...</a></p>			</div>
+		</section>
+
+    <!-- footer -->
+        <!-- //footer -->
+
+	</article>
+	<!-- //Article -->
+
+
+ 
+				</div><!-- end item -->
+							</div><!-- end span -->
+					</div><!-- end row -->
+						
+										<div class="items-row cols-1 row-6 row">
+					<div class="col-sm-12">
+				<div class="item column-1" itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
+					
+
+	<!-- Article -->
+	<article>
+  
+    			
+<header class="article-header clearfix">
+	<h2 class="article-title" itemprop="headline">
+					<a href="/news/datenschutz/12980-cookies-google-facebook-strafgelder.html" itemprop="url" title="Cookies: Französische Datenaufsicht verhängt Millionenstrafen gegen Google und Facebook">
+				Cookies: Französische Datenaufsicht verhängt Millionenstrafen gegen Google und Facebook</a>
+			</h2>
+
+			</header>    
+		<section class="row article-intro" itemprop="articleBody">
+			<div class="col col-md-3">
+				<div class="pull-left item-image" itemprop="image">
+
+      <a href="/news/datenschutz/12980-cookies-google-facebook-strafgelder.html" itemprop="url">
+  	   <img src="/media/jact/small/images/stories/categories/datenschutz/thumb/datenschutz19.png" alt="">
+      </a>
+  </div>
+			</div>
+			<div class="col col-md-9">
+					
+								
+				<p><time datetime="2022-01-14T09:12:25+01:00" itemprop="dateCreated">14. Januar 2022:</time> Nicht nur kleine Shops und Agenturen stolpern bisweilen über fehlerhafte Cookie-Hinweise und Consent-Bestimmungen. Auch die beiden Internet-Riesen Google und Facebook haben auf ihren französischsprachigen Seiten geltendes Datenschutzrecht missachtet. Nun werden Strafgelder in Höhe von 150 und 60 Millionen Euro fällig. Stehen die Webseiten nicht in spätestens drei Monaten gesetzeskonform im Netz, kommen täglich weitere Strafen hinzu. ... <a href="/news/datenschutz/12980-cookies-google-facebook-strafgelder.html">Weiterlesen ...</a></p>			</div>
+		</section>
+
+    <!-- footer -->
+        <!-- //footer -->
+
+	</article>
+	<!-- //Article -->
+
+
+ 
+				</div><!-- end item -->
+							</div><!-- end span -->
+					</div><!-- end row -->
+						
+										<div class="items-row cols-1 row-7 row">
+					<div class="col-sm-12">
+				<div class="item column-1" itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
+					
+
+	<!-- Article -->
+	<article>
+  
+    			
+<header class="article-header clearfix">
+	<h2 class="article-title" itemprop="headline">
+					<a href="/news/datenschutz/12964-dsgvo-auskunftsanspruch.html" itemprop="url" title="DSGVO: Auskunftsanspruch auch für Aktenvermerke und Telefonnotizen">
+				DSGVO: Auskunftsanspruch auch für Aktenvermerke und Telefonnotizen</a>
+			</h2>
+
+			</header>    
+		<section class="row article-intro" itemprop="articleBody">
+			<div class="col col-md-3">
+				<div class="pull-left item-image" itemprop="image">
+
+      <a href="/news/datenschutz/12964-dsgvo-auskunftsanspruch.html" itemprop="url">
+  	   <img src="/media/jact/small/images/stories/categories/datenschutz/thumb/datenschutz3.jpg" alt="">
+      </a>
+  </div>
+			</div>
+			<div class="col col-md-9">
+					
+								
+				<p><time datetime="2022-01-12T09:00:36+01:00" itemprop="dateCreated">12. Januar 2022:</time> Wer personenbezogene Daten verarbeitet, muss Betroffene darüber nach einer entsprechenden Anfrage informieren. So sieht es Artikel 15 der Datenschutz-Grundverordnung (kurz: DSGVO) vor. Was aber beinhaltet der Begriff „personenbezogene Daten“? Das Oberlandesgericht München hat entschieden: Auch Kopien von E-Mails, Protokollen, Aktenvermerken und Telefonnotizen müssen herausgegeben werden. ... <a href="/news/datenschutz/12964-dsgvo-auskunftsanspruch.html">Weiterlesen ...</a></p>			</div>
+		</section>
+
+    <!-- footer -->
+        <!-- //footer -->
+
+	</article>
+	<!-- //Article -->
+
+
+ 
+				</div><!-- end item -->
+							</div><!-- end span -->
+					</div><!-- end row -->
+						
+		
+	
+	
+		
+
+</div>
+							</div>
+			<!-- //MAIN CONTENT -->
+
+						<!-- SIDEBAR RIGHT -->
+			<div class="col t3-sidebar t3-sidebar-right col-md-4 ">
+				<div class="t3-module modulenews " id="Mod650"><div class="module-inner"><h3 class="module-title "><span>News-Themen</span></h3><div class="module-ct"><ul class="categories-modulenews mod-list">
+	<li> 		<a href="/news/abmahnung/">
+		Abmahnung					</a>
+
+					</li>
+	<li> 		<a href="/news/arbeitsrecht/">
+		Arbeitsrecht					</a>
+
+					</li>
+	<li> 		<a href="/news/blog-foren-web20/">
+		Blog, Foren, Web2.0					</a>
+
+					</li>
+	<li> 		<a href="/news/datenschutz/">
+		Datenschutz					</a>
+
+					</li>
+	<li> 		<a href="/news/ecommerce/">
+		E-Commerce Onlineshops					</a>
+
+					</li>
+	<li> 		<a href="/news/facebook/">
+		Facebook					</a>
+
+					</li>
+	<li> 		<a href="/news/tauschboersen/">
+		Filesharing					</a>
+
+					</li>
+	<li> 		<a href="/news/haftunginhalte/">
+		Haftung für Links und Inhalte					</a>
+
+					</li>
+	<li> 		<a href="/news/hardware-software/">
+		Hard- &amp; Software					</a>
+
+					</li>
+	<li> 		<a href="/news/it-sicherheit/">
+		IT-Sicherheit					</a>
+
+					</li>
+	<li> 		<a href="/news/markenrecht/">
+		Markenrecht					</a>
+
+					</li>
+	<li> 		<a href="/news/marketing-seo/">
+		Marketing SEO					</a>
+
+					</li>
+	<li> 		<a href="/news/onlineauktionen/">
+		Online Auktionen					</a>
+
+					</li>
+	<li> 		<a href="/news/sonstige/">
+		Sonstige					</a>
+
+					</li>
+	<li> 		<a href="/news/steuerrecht/">
+		Steuerrecht					</a>
+
+					</li>
+	<li> 		<a href="/news/strafrecht/">
+		Strafrecht					</a>
+
+					</li>
+	<li> 		<a href="/news/telekommunikation/">
+		Telekommunikation					</a>
+
+					</li>
+	<li> 		<a href="/news/urheberrecht/">
+		Urheberrecht					</a>
+
+					</li>
+	<li> 		<a href="/news/vertragsrecht/">
+		Vertragsrecht					</a>
+
+					</li>
+	<li> 		<a href="/news/wettbewerbsrecht/">
+		Wettbewerbsrecht					</a>
+
+					</li>
+	<li> 		<a href="/news/widerrufsbelehrung/">
+		Widerrufsrecht					</a>
+
+					</li>
+	<li> 		<a href="/news/verkehrsrecht/">
+		Verkehrsrecht					</a>
+
+					</li>
+</ul>
+</div></div></div><div class="t3-module module newsletterbox greybox " id="Mod334"><div class="module-inner"><div class="module-ct"><!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+<p class="slogan">Der eRecht24 Newsletter</p>
+<p class="slogansub">Immer bestens informiert</p><p>
+</p><p>Bleiben Sie mit unseren regelmäßigen und kostenlosen Updates zum Internetrecht auf dem neuesten Stand. Infos, Urteile, Checklisten, Sonderangebote.</p>
+<p><em><strong>Hinweis:</strong> Sie können den Newsletter von eRecht24  jederzeit und kostenfrei abbestellen. Ihre Daten werden nur zum Versand des Newsletters genutzt. Wir geben Ihre Daten nicht weiter. Mehr Informationen zum Umgang mit Nutzer-Daten finden Sie in unserer <a href="/datenschutzerklaerung.html" target="_blank">Datenschutz-Erklärung</a>.</em></p>
+<form action="https://www.klick-tipp.com/subscribe.php" method="post" accept-charset="UTF-8"><input type="text" name="FormValue_Fields[EmailAddress]" placeholder="Ihre E-Mail-Adresse" value=""><button type="submit" class="btn btn-default" name="FormButton_Subscribe">Abonnieren</button><input type="hidden" name="FormValue_FormID" value="54958"></form><!-- END: Custom advanced (www.pluginaria.com) -->
+</div></div></div><div class="t3-module module webmaster " id="Mod248"><div class="module-inner"><div class="module-ct">
+
+
+<div id="mod248_djtabs" class="djtabs eRecht24 accordion" style="visibility: visible;">
+
+	<div class="djtabs-title-wrapper djtabs-active-wrapper">
+		<div id="mod248_djtab1" class="djtabs-title djtabs-accordion djtabs-active" data-tab-no="1" tabindex="0" aria-expanded="true">
+		
+	<span class="djtab-text" title="Jetzt Premium-Mitglied werden">
+				Jetzt Premium-Mitglied werden	</span>
+		</div>
+	</div>
+	<div class="djclear"></div>
+	<div class="djtabs-in-border" data-no="1" style=""> 
+		<div class="djtabs-in">
+			<div class="djtabs-body accordion-body djclear type-module" data-tab-no="1" tabindex="0" style="overflow: auto;">
+						<div class="djtabs-body-in djtabs-module">
+						<div class="moduletablenews">
+						
+
+<div class="customnews">
+	<p>Ab Heute gestalten Sie Ihre Website ohne Angst vor Abmahnwellen und ohne teuren Anwalt abmahnsicher.</p>
+<p>Alle Videos, Live-Webinare, E-Books, Tools und zahlreiche Rabatte.</p>
+<p><a href="/e24link/imw48"><strong>Jetzt Mitglied werden</strong></a></p>
+<p><a href="/e24link/imw48">Mehr Informationen zu eRecht24 Premium</a></p></div>
+		</div>
+				</div>
+						</div>
+		</div>
+	</div>
+	<div class="djtabs-title-wrapper djtabs-next">
+		<div id="mod248_djtab2" class="djtabs-title djtabs-accordion" data-tab-no="2" tabindex="0" aria-expanded="false">
+		
+	<span class="djtab-text" title="Impressum-Generator">
+				Impressum-Generator	</span>
+		</div>
+	</div>
+	<div class="djclear"></div>
+	<div class="djtabs-in-border" data-no="2" style="display: none;"> 
+		<div class="djtabs-in">
+			<div class="djtabs-body accordion-body djclear type-module" data-tab-no="2" tabindex="0" style="overflow: auto;">
+						<div class="djtabs-body-in djtabs-module">
+						<div class="moduletablenews">
+						
+
+<div class="customnews">
+	<p><strong>Keine Chance für Abmahner</strong></p>
+<p>Erstellen Sie kostenlos ein rechtssicheres Impressum für Ihre Website.</p>
+<p><a href="/impressum-generator.html">Jetzt Kostenlos Impressum generieren</a></p></div>
+		</div>
+				</div>
+						</div>
+		</div>
+	</div>
+	<div class="djtabs-title-wrapper">
+		<div id="mod248_djtab3" class="djtabs-title djtabs-accordion" data-tab-no="3" tabindex="0" aria-expanded="false">
+		
+	<span class="djtab-text" title="Rechtsberatung vom Anwalt">
+				Rechtsberatung vom Anwalt	</span>
+		</div>
+	</div>
+	<div class="djclear"></div>
+	<div class="djtabs-in-border" data-no="3" style="display: none;"> 
+		<div class="djtabs-in">
+			<div class="djtabs-body accordion-body djclear type-module" data-tab-no="3" tabindex="0" style="overflow: auto;">
+						<div class="djtabs-body-in djtabs-module">
+						<div class="moduletablenews">
+						
+
+<div class="customnews">
+	<p>Haben Sie ein konkretes rechtliches Problem? Dann wenden Sie sich bitte einen <a href="/anwalt.html">Anwalt</a>. Auf unseren Seiten finden Sie zahlreiche allgemeine Informationen zum Internetrecht. Fundierte Rechtsberatung im Einzelfall kann allerdings nur ein <a href="/rechtsanwalt.html">spezialisierter Rechtsanwalt</a> leisten.</p></div>
+		</div>
+				</div>
+						</div>
+		</div>
+	</div>
+	<div class="djtabs-title-wrapper">
+		<div id="mod248_djtab4" class="djtabs-title djtabs-accordion" data-tab-no="4" tabindex="0" aria-expanded="false">
+		
+	<span class="djtab-text" title="SSL-Zertifikate">
+				SSL-Zertifikate	</span>
+		</div>
+	</div>
+	<div class="djclear"></div>
+	<div class="djtabs-in-border" data-no="4" style="display: none;"> 
+		<div class="djtabs-in">
+			<div class="djtabs-body accordion-body djclear type-module" data-tab-no="4" tabindex="0" style="overflow: auto;">
+						<div class="djtabs-body-in djtabs-module">
+						<div class="moduletablenews">
+						
+
+<div class="customnews">
+	<p>Steigern Sie das Vertrauen Ihrer Kunden. Für Betreiber von Onlineshops und kommerziellen Webseiten unabdingbar:</p>
+<p><a href="/psw.html">SSL-Verschlüsselung, SSL-Zertifikate und Trust-Logos </a></p></div>
+		</div>
+				</div>
+						</div>
+		</div>
+	</div>
+</div></div></div></div><div class="t3-module modulenews " id="Mod360"><div class="module-inner"><h3 class="module-title "><span>Meistgelesen</span></h3><div class="module-ct"><ul class="mostreadnews">
+	<li>
+		<a href="/news/facebook/12960-facebook-usa.html">
+			<span>
+				Facebook: Trotz EuGH-Verbot werden Nutzerdaten in USA abgeführt			</span>
+		</a>
+	</li>
+	<li>
+		<a href="/news/datenschutz/12964-dsgvo-auskunftsanspruch.html">
+			<span>
+				DSGVO: Auskunftsanspruch auch für Aktenvermerke und Telefonnotizen			</span>
+		</a>
+	</li>
+	<li>
+		<a href="/news/datenschutz/12961-dsgvo-amazon-strafzahlung.html">
+			<span>
+				DSGVO: Amazon wendet tägliche Strafzahlungen wegen Datenschutz-Verstößen ab			</span>
+		</a>
+	</li>
+	<li>
+		<a href="/news/sonstige/12963-erecht24-spendenaktion-2021-18-000-euro-fuer-die-arche-aerzte-ohne-grenzen-obdachenlosehilfe.html">
+			<span>
+				eRecht24 Spendenaktion 2021: 18.000 Euro für die Arche, Ärzte ohne Grenzen &amp; Obdachenlosehilfe			</span>
+		</a>
+	</li>
+	<li>
+		<a href="/news/datenschutz/12980-cookies-google-facebook-strafgelder.html">
+			<span>
+				Cookies: Französische Datenaufsicht verhängt Millionenstrafen gegen Google und Facebook			</span>
+		</a>
+	</li>
+</ul>
+</div></div></div><div class="t3-module modulenews " id="Mod145"><div class="module-inner"><p class="module-title "><span>IT-Recht endlich verständlich</span></p><div class="module-ct">
+
+<div class="customnews">
+	<p><img src="/images/stories/siebert_web_hoch_127.jpg" alt="Autor Sören Siebert" style="margin-bottom: 10px; margin-left: 10px; float: right;" width="113" height="143">Sören&nbsp;Siebert ist Rechtsanwalt mit Kanzleien in Berlin und Potsdam.</p>
+<p>Er berät Unternehmer, Shops und Seitenbetreiber in allen Fragen des Rechts der neuen Medien.<br><a href="https://www.kanzlei-siebert.de/" target="_blank" rel="noopener noreferrer">www.kanzlei-siebert.de</a></p>
+<p>Als Betreiber von eRecht24 ist er seit mehr als 15 Jahren auch als Internet-Unternehmer tätig. Deshalb finden Sie auf eRecht24 Tipps und Tricks eines spezialisierten Rechtsanwalts, aber verständlich und praxisnah erklärt.</p></div>
+</div></div></div><div class="t3-module module " id="Mod292"><div class="module-inner"><div class="module-ct"><!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+<div class="add-raster"><a href="/psw.html" target="_blank"><img src="/images/stories/partner/psw_group_banner.jpg" alt="SSL-Zertifikate, Code-Signing, S/MIME" width="160" height="160" border="0"></a><a href="https://www.semotion.de/online-marketing/suchmaschinenoptimierung/" target="_blank"><img src="/images/stories/partner/semotion-suchmaschinenoptimierung.jpg" alt="Suchmaschienoptimierung &amp; Onlinemarketing" width="160" height="160" border="0"></a><a href="https://www.kanzlei-siebert.de/check-onlineshop/" target="_blank"><img src="/images/stories/partner/siebert-lexow-banner.jpg" alt="Rechtliche OnlineShop-Prüfung" width="160" height="160" border="0"></a><div class="syndic"><span class="openadstext_after">Anzeige</span></div></div><!-- END: Custom advanced (www.pluginaria.com) -->
+</div></div></div>
+			</div>
+			<!-- //SIDEBAR RIGHT -->
+			
+			</div>
+
+  </div> 
+
+		<div class="wrap ">
+		<div class="container">
+			
+
+<div class="custom keywordbox">
+	<div id="surow62392da10071c" class="su-row su-clmms-yes leading-row"> <div id="sucol62392da100746" class="su-column su-column-size-1-1 su-column-size-medium-1-6"><div class="su-column-inner"><div class="su-column-content">
+<p><img src="/images/stories/categories/datenschutz/thumb/datenschutz10.jpg" alt="datenschutz5"></p>
+</div></div></div> <div id="sucol62392da100859" class="su-column content-column su-column-size-1-1 su-column-size-medium-5-6"><div class="su-column-inner"><div class="su-column-content">
+<h3><a href="/artikel/datenschutz/209.html">Impressumspflicht: 7 wichtige Fragen zum Impressum für Webseiten</a></h3>
+<p>Jede Webseite braucht ein Impressum. Gut, nicht jede Seite. Aber geschätzt 90% aller Webseiten und Blogs unterliegen der Impressumspflicht nach TMG, auch Anbieterkennzeichnung genannt. Impressumsverstöße sind seit Jahren einer der Abmahnklassiker im Netz. Dabei ist es gar nicht so schwer, ein vollständiges Impressum zu erstellen und korrekt auf der eigenen Seite einzubinden. Wir zeigen Ihnen die häufigsten Fehler und Abmahnfallen und sorgen dafür, dass Sie diese Sorge los werden. <a href="/artikel/datenschutz/209.html">Weiterlesen » </a></p>
+</div></div></div> </div>
+<div id="surow62392da10093e" class="su-row su-clmms-yes"> <div id="sucol62392da10094f" class="su-column content-column su-column-size-1-1 su-column-size-medium-1-2"><div class="su-column-inner"><div class="su-column-content">
+<p>» <a href="/artikel/datenschutz/11284-dsgvo-und-e-mail-verschluesselung.html">Die DSGVO und die E-Mail-Verschlüsselung </a></p>
+<p>» <a href="/artikel/datenschutz/11342-geschaeftliche-e-mails-signatur-impressum-und-dsgvo-pflichtangaben.html">Geschäftliche E-Mails: Signatur, Impressum &amp; DSGVO</a></p>
+<p>» <a href="/datenschutzerklaerung.html">Datenschutzerklärung rundum beschrieben</a></p>
+</div></div></div> <div id="sucol62392da100a2e" class="su-column content-column su-column-size-1-1 su-column-size-medium-1-2"><div class="su-column-inner"><div class="su-column-content">
+<p>» <a href="/lp/webinar-abmahnfallen.html?source_id=e24_redirect-prive">Webinar: 7 häufigsten Abmahnfallen</a></p>
+<p>» <a href="/ratgeber/datenschutz.html">Der Datenschutz-Ratgeber im Überblick</a></p>
+<p>» <a href="/artikel/datenschutz/10985-datenschutz-in-schulen-kitas.html">Datenschutz: Was jetzt für Kitas und Schulen wichtig ist</a></p>
+</div></div></div> </div>
+</div>
+
+
+<div class="custom keywordbox">
+	<div id="surow62392da100f3d" class="su-row su-clmms-yes leading-row"> <div id="sucol62392da100f53" class="su-column su-column-size-1-1 su-column-size-medium-1-6"><div class="su-column-inner"><div class="su-column-content">
+<p><img src="/images/stories/categories/datenschutz/thumb/datenschutz12.jpg" alt="datenschutz5"></p>
+</div></div></div> <div id="sucol62392da101047" class="su-column content-column su-column-size-1-1 su-column-size-medium-5-6"><div class="su-column-inner"><div class="su-column-content">
+<h3><a href="/datenschutzgrundverordnung.html">DSGVO: Das müssen Webseitenbetreiber und Unternehmer wissen!</a></h3>
+<p>Datenschutz ist für alle Webseitenbetreiber, Unternehmer sowie Shopbetreiber und Dienstleister bereits seit Jahren ein wichtiges Thema. Nutzertracking, Kundenbestellungen, E-Mail Kampagnen: überall spielt der Datenschutz eine wesentliche Rolle. 2018 kamen auf alle Unternehmen weitreichende Änderungen zu: Seit dem 25. Mai 2018 gilt die neue EU Datenschutzgrundverordnung (EU-DSGVO) auch in Deutschland verbindlich. Diese stellt viele Grundsätze des Datenschutzrechts nach dem alten BDSG auf den Kopf. <a href="/datenschutzgrundverordnung.html">Weiterlesen » </a></p>
+</div></div></div> </div>
+<div id="surow62392da10112a" class="su-row su-clmms-yes"> <div id="sucol62392da10113b" class="su-column content-column su-column-size-1-1 su-column-size-medium-1-2"><div class="su-column-inner"><div class="su-column-content">
+<p>» <a href="/muster-datenschutzerklaerung.html">Erstellen Sie eine Datenschutzerklärung für Ihre Webseite</a></p>
+<p>» <a href="/artikel/datenschutz/10580-auftragsdatenverarbeitung-adv-datenschutz.html">DSGVO Auftragsverarbeitung: Was ist das und was geht mich das an?</a></p>
+<p>» <a href="/artikel/datenschutz/11023-whatsapp-auf-firmenhandy-nach-dsgvo-erlaubt-oder-nicht.html">Whatsapp: Darf der Messenger auf dem Firmenhandy bleiben? </a></p>
+<p>» <a href="/artikel/datenschutz/10744-datenschutzbeauftragter-dsgvo.html">Datenschutzbeauftragter: Bestellung, Aufgaben, Qualifikation. Intern/Extern? </a></p>
+</div></div></div> <div id="sucol62392da10121a" class="su-column content-column su-column-size-1-1 su-column-size-medium-1-2"><div class="su-column-inner"><div class="su-column-content">
+<p>» <a href="/artikel/datenschutz/11125-dsgvo-datenschutz-abmahnungen.html">Wichtiges aktuelles Urteil: DSGVO-Verstöße sind abmahnfähig</a></p>
+<p>» <a href="/artikel/datenschutz/10718-dsgvo-datenschutzerklaerung-generator.html">Der neue eRecht24 Datenschutz-Generator ist online </a></p>
+<p>» <a href="/artikel/datenschutz/11189-datenpanne-dsgvo-verpflichtet-sie-zur-meldung.html">Datenpannen: Wann sind Sie zu einer Meldung verpflichtet? </a></p>
+<p>» <a href="/artikel/datenschutz/11271-achtung-hohe-dsgvo-bussgelder-verhaengt.html">Achtung: Hohe DSGVO-Bußgelder verhängt </a></p>
+<p>» <a href="/artikel/datenschutz/11329-e-privacy-verordnung-die-dsgvo-war-erst-der-anfang.html">E-Privacy-Verordnung: Die DSGVO war erst der Anfang </a></p>
+</div></div></div> </div>
+</div>
+
+
+<div class="custom keywordbox">
+	<div id="surow62392da101712" class="su-row su-clmms-yes leading-row"> <div id="sucol62392da101726" class="su-column su-column-size-1-1 su-column-size-medium-1-6"><div class="su-column-inner"><div class="su-column-content">
+<p><img src="/images/stories/categories/datenschutz/thumb/datenschutz6.jpg" alt="datenschutz5"></p>
+</div></div></div> <div id="sucol62392da101814" class="su-column content-column su-column-size-1-1 su-column-size-medium-5-6"><div class="su-column-inner"><div class="su-column-content">
+<h3><a href="/artikel/datenschutz/8451-hinweispflicht-fuer-cookies.html">Cookie-Hinweis und Einwilligung auf Webseiten: Quatsch oder Pflicht?</a></h3>
+<p>Viele Seitenbetreiber konfrontieren ihre Besucher mit einem Cookie-Hinweis auf der Webseite. So einfach ist das Thema "Cookies auf Webseiten" aber leider nicht umzusetzen. Brauchen Seitenbetreiber überhaupt einen Cookie Hinweis oder sogar eine Einwilligung? Wenn ja, für alle Cookies? Welche Rolle spielt das aktuelle EuGH-Urteil dabei? Was ist ein Consent Tool? Welche Hinweise müssen dann in der Datenschutzerklärung stehen? Und wie genau sollte der Text für die Cookie Warnung aussehen? <a href="/artikel/datenschutz/8451-hinweispflicht-fuer-cookies.html">Weiterlesen » </a></p>
+</div></div></div> </div>
+<div id="surow62392da1018f6" class="su-row su-clmms-yes"> <div id="sucol62392da101907" class="su-column content-column su-column-size-1-1 su-column-size-medium-1-2"><div class="su-column-inner"><div class="su-column-content">
+<p>» <a href="/artikel/datenschutz/6590-facebook-like-button-datenschutz-disclaimer.html">Facebook: Abmahnungen wegen Einbindung des Like-Buttons?</a></p>
+<p>» <a href="/artikel/datenschutz/10066-abmahnung-datenschutzerklaerung-auf-webseiten.html">Fehlende Datenschutzerklärung kann ab sofort abgemahnt werden </a></p>
+<p>» <a href="/artikel/datenschutz/6843-google-analytics-datenschutz-rechtskonform-nutzen.html">Google Analytics rechtssicher nutzen - Was Webseitenbetreiber tun müssen </a></p>
+<p>» <a href="/artikel/datenschutz/10964-dsgvo-wordpress-tools-plugins.html">WordPress Tools &amp; Plugins: Was ist nach DSGVO noch erlaubt? </a></p>
+<p>» <a href="/artikel/hardware-software/10475-datenschutzerklaerung-fuer-apps.html">Datenschutzerklärung für Apps: Alles, was Entwickler wissen müssen</a></p>
+</div></div></div> <div id="sucol62392da1019e7" class="su-column content-column su-column-size-1-1 su-column-size-medium-1-2"><div class="su-column-inner"><div class="su-column-content">
+<p>» <a href="/artikel/datenschutz/6449-facebook-datenschutz-so-sichern-sie-ihre-daten.html">Facebook: 10 Tipps, wie Sie persönlichen Daten schützen können </a></p>
+<p>» <a href="/artikel/ecommerce/7902-datenschutzerklaerung-fuer-online-shops-was-shopbetreiber-wissen-muessen.html">Online Shops: Was Shopbetreiber wissen müssen </a></p>
+<p>» <a href="/artikel/datenschutz/7460-daten-loeschen-facebook-twitter-google.html">Facebook, Google, Foren &amp; Co.: So löschen Sie Ihren Account </a></p>
+<p>» <a href="/artikel/datenschutz/10747-facebook-fanpages-datenschutz.html">Facebook und Fanpages: Wer ist für den Datenschutz verantwortlich? </a></p>
+<p>» <a href="/artikel/datenschutz/6635-datenschutz-rechtliche-risiken-bei-der-nutzung-von-google-analytics-und-googleadsense.html">Datenschutz: Was Sie zu Google AdSense wissen müssen</a></p>
+</div></div></div> </div>
+</div>
+
+
+<div class="custom keywordbox">
+	<div id="surow62392da101eb2" class="su-row su-clmms-yes leading-row"> <div id="sucol62392da101ec6" class="su-column su-column-size-1-1 su-column-size-medium-1-6"><div class="su-column-inner"><div class="su-column-content">
+<p><img src="/images/stories/categories/arbeitsrecht/thumb/arbeitsrecht2.jpg" alt="datenschutz5"></p>
+</div></div></div> <div id="sucol62392da101fbb" class="su-column content-column su-column-size-1-1 su-column-size-medium-5-6"><div class="su-column-inner"><div class="su-column-content">
+<h3><a href="/ratgeber/arbeitsrecht.html">Der Arbeitsrecht-Ratgeber für Arbeitnehmer und Arbeitgeber</a></h3>
+<p>Arbeitgeber und Arbeitnehmer stehen durch die Nutzung des Internet vor vielen neuen Fragen: Surfen am Arbeitsplatz, die Haftung des Arbeitgebers für illegale Aktivitäten der Mitarbeiter, Kündigungen wegen privater Internetnutzung, IT-Sicherheit, etc. Darüber hinaus benötigen Themen wie Abmahnung, Arbeitnehmerrechte und Arbeitgeberpflichten immer wieder aufs Neue Klärung um beiden Seiten gerecht zu werden.&nbsp; <a href="/ratgeber/arbeitsrecht.html">Weiterlesen » </a></p>
+</div></div></div> </div>
+<div id="surow62392da10209e" class="su-row su-clmms-yes"> <div id="sucol62392da1020ae" class="su-column content-column su-column-size-1-1 su-column-size-medium-1-2"><div class="su-column-inner"><div class="su-column-content">
+<p>» <a href="/artikel/arbeitsrecht/7836-abmahnung-arbeitsrecht.html">Die Abmahnung: Was Arbeitgeber und Arbeitnehmer wissen müssen </a></p>
+<p>» <a href="/artikel/arbeitsrecht/7835-kuendigung-arbeitsrecht.html">Die Kündigung: 10 Punkte, die Sie beachten sollten </a></p>
+<p>» <a href="/artikel/arbeitsrecht/189.html">Bin ich (Schein)Selbständig oder abhängiger Arbeitnehmer? </a></p>
+</div></div></div> <div id="sucol62392da10218d" class="su-column content-column su-column-size-1-1 su-column-size-medium-1-2"><div class="su-column-inner"><div class="su-column-content">
+<p>» <a href="/artikel/arbeitsrecht/10027-das-wichtigste-zum-arbeitsrecht-was-sie-zu-arbeitsvertrag-abmahnung-kuendigung-und-internet-am-arbeitsplatz-wissen-muessen.html">Arbeitsvertrag, Abmahnung, Kündigung und Internet am Arbeitsplatz</a></p>
+<p>» <a href="/news/arbeitsrecht/">Aktuelle News zum Arbeitsrecht</a></p>
+<p>» <a href="/anwalt-arbeitsrecht.html">Den richtigen Anwalt für Arbeitsrecht finden</a></p>
+</div></div></div> </div>
+</div>
+
+
+<div class="custom keywordbox">
+	<div id="surow62392da1027f2" class="su-row su-clmms-yes leading-row"> <div id="sucol62392da102806" class="su-column su-column-size-1-1 su-column-size-medium-1-6"><div class="su-column-inner"><div class="su-column-content">
+<p><img src="/images/stories/categories/ecommerce/thumb/ecommerce6.jpg" alt="datenschutz5"></p>
+</div></div></div> <div id="sucol62392da1028f8" class="su-column content-column su-column-size-1-1 su-column-size-medium-5-6"><div class="su-column-inner"><div class="su-column-content">
+<h3><a href="/artikel/ecommerce/76.html">Garantie, Gewährleistung und Produkthaftung: Wo ist der Unterschied</a></h3>
+<p>Die Begriffe "Garantie", "Gewährleistung" und "Produkthaftung" spielen für Käufer und Verkäufer eine große Rolle. Allerdings werden die Begriffe immer wieder verwechselt, falsch verstanden oder nicht richtig angewendet. Gerade bei Käufen und Verkäufen im Internet ist es wichtig, den Unterschied zwischen Garantie und Gewährleitung zu kennen. Hier besteht im Gegensatz zum stationären Handeln oft nicht die Möglichkeit, schnell mal beim Vertragspartner vorbeizugehen und auftretende Probleme zu lösen. <a href="/artikel/ecommerce/76.html">Weiterlesen » </a></p>
+</div></div></div> </div>
+<div id="surow62392da1029e1" class="su-row su-clmms-yes"> <div id="sucol62392da1029f3" class="su-column content-column su-column-size-1-1 su-column-size-medium-1-2"><div class="su-column-inner"><div class="su-column-content">
+<p>» <a href="/artikel/ecommerce/12.html">Fernabsatzrecht: Harmonisierung des Versandhandels in der EU?</a></p>
+<p>» <a href="/artikel/ecommerce/212.html">Verpackungsverordnung: Was müssen Shops und eBay-Händler beachten? </a></p>
+<p>» <a href="/artikel/ecommerce/14.html">AGB für Online Shops: So werden Sie nicht abgemahnt </a></p>
+<p>» <a href="/artikel/ecommerce/6534-newsletter-rechtssicher-erstellen-und-versenden.html">Rechtssicheres E-Mail Marketing und DSGVO - 11 Tipps</a></p>
+<p>» <a href="/artikel/ecommerce/6328-agb-fuer-agenturen-und-webdesigner.html">AGBs: Generator, Muster-AGB oder individuell vom Anwalt?</a></p>
+</div></div></div> <div id="sucol62392da102ad2" class="su-column content-column su-column-size-1-1 su-column-size-medium-1-2"><div class="su-column-inner"><div class="su-column-content">
+<p>» <a href="/artikel/ecommerce/10986-verpackungsgesetz-2019-was-muss-beachtet-werden.html">Was das neue Verpackungsgesetz (VerpackG) konkret bedeutet</a></p>
+<p>» <a href="/artikel/ecommerce/10324-streitschlichtung-neue-informationspflichten-2017.html">Streitschlichtung: Schon wieder neue Informationspflichten</a></p>
+<p>» <a href="/artikel/ecommerce/6734-kunden-und-online-haendler-aufgepasst-wichtige-neuregelungen-durch-neue-eu-verbraucherrichtlinie.html">Wichtige Neuregelungen durch neue EU-Verbraucherrichtlinie</a></p>
+<p>» <a href="/artikel/ecommerce/205.html">Abo- und Vertragsfallen im Internet</a></p>
+<p>» <a href="/artikel/ecommerce/11.html">Vertragsschluss im Internet</a></p>
+</div></div></div> </div>
+</div>
+
+
+<div class="custom keywordbox">
+	<div id="surow62392da102f9b" class="su-row su-clmms-yes leading-row"> <div id="sucol62392da102faf" class="su-column su-column-size-1-1 su-column-size-medium-1-6"><div class="su-column-inner"><div class="su-column-content">
+<p><img src="/images/stories/categories/haftunginhalte/thumb/haftung3.jpg" alt="datenschutz5"></p>
+</div></div></div> <div id="sucol62392da10309b" class="su-column content-column su-column-size-1-1 su-column-size-medium-5-6"><div class="su-column-inner"><div class="su-column-content">
+<h3><a href="/artikel/tauschboersen/6716-filesharing-abmahnungen.html">Filesharing Abmahnung: So reagieren Sie richtig! </a></h3>
+<p>Wenn Sie eine Abmahnung wegen Filesharing erhalten haben, heißt es Ruhe bewahren! Wichtig: Wenn Sie jetzt richtig und schnell reagieren, können Sie sich hohe Kosten und viel Ärger ersparen. Wir zeigen Ihnen Schritt für Schritt, was hinter einer Filesharing Abmahnung steckt, was Sie jetzt tun müssen und welche Fehler Sie unbedingt vermeiden sollten. <a href="/artikel/tauschboersen/6716-filesharing-abmahnungen.html">Weiterlesen » </a></p>
+</div></div></div> </div>
+<div id="surow62392da103184" class="su-row su-clmms-yes"> <div id="sucol62392da103196" class="su-column content-column su-column-size-1-1 su-column-size-medium-1-2"><div class="su-column-inner"><div class="su-column-content">
+<p>» <a href="/artikel/tauschboersen/8236-verjaehrung-filesharing-abmahnung.html">Verjährung bei Abmahnungen: Fristen und Mahnbescheid</a></p>
+<p>» <a href="/artikel/tauschboersen/7849-abmahnung-filesharing-rechtsanwalt-daniel-sebastian.html">Abmahnungen der Kanzlei Daniel Sebastian: So reagieren Sie richtig</a></p>
+<p>» <a href="/artikel/tauschboersen/7532-filesharing-abmahnung-kanzlei-baumgarten-brandt.html">Abmahnung der Kanzlei Baumgarten Brandt Rechtsanwälte</a></p>
+<p>» <a href="/filesharing-ratgeber-eltern">Filesharing: Ein Ratgeber für Eltern </a></p>
+</div></div></div> <div id="sucol62392da103275" class="su-column content-column su-column-size-1-1 su-column-size-medium-1-2"><div class="su-column-inner"><div class="su-column-content">
+<p>» <a href="/artikel/tauschboersen/7494-filesharing-abmahnung-kanzlei-fareds.html">Abmahnungen der Kanzlei Fareds </a></p>
+<p>» <a href="/artikel/tauschboersen/7515-filesharing-abmahnungen-der-rasch-rechtsanwaelte.html">Abmahnungen der Rasch Rechtsanwälte </a></p>
+<p>» <a href="/artikel/tauschboersen/7934-abmahnung-filesharing-kanzlei-nimrod.html">Abmahnung der Rechtsanwaltskanzlei Nimrod bei Urheberrechtsverletzungen</a></p>
+<p>» <a href="https://www.abmahnung-internet.de/abmahnung-filesharing/">Themenspecial Abmahnungen Filesharing</a></p>
+</div></div></div> </div>
+</div>
+
+
+<div class="custom keywordbox">
+	<div id="surow62392da10382b" class="su-row su-clmms-yes leading-row"> <div id="sucol62392da103849" class="su-column su-column-size-1-1 su-column-size-medium-1-6"><div class="su-column-inner"><div class="su-column-content">
+<p><img src="/images/stories/categories/verkehrsrecht/thumb/verkehrsrecht3.jpg" alt="datenschutz5"></p>
+</div></div></div> <div id="sucol62392da1039b2" class="su-column content-column su-column-size-1-1 su-column-size-medium-5-6"><div class="su-column-inner"><div class="su-column-content">
+<h3><a href="/artikel/verkehrsrecht/10113-einspruch-bussgeldbescheid.html">Einspruch gegen Bußgeldbescheid: So gehen Sie richtig vor </a></h3>
+<p>Ergeht wegen eines Vergehens im Straßenverkehr ein Bußgeldbescheid, kann die Angelegenheit schnell teuer werden. In sehr vielen Fällen besteht aber durchaus die Möglichkeit, mit einem Einspruch gegen den Bußgeldbescheid vorzugehen und dadurch viel Geld zu sparen. <a href="/artikel/verkehrsrecht/10113-einspruch-bussgeldbescheid.html">Weiterlesen » </a></p>
+</div></div></div> </div>
+<div id="surow62392da103af4" class="su-row su-clmms-yes"> <div id="sucol62392da103b13" class="su-column content-column su-column-size-1-1 su-column-size-medium-1-2"><div class="su-column-inner"><div class="su-column-content">
+<p>» <a href="/artikel/verkehrsrecht/8448-rote-ampel-ueberfahren.html">Rote Ampel überfahren: Was müssen Sie beachten? </a></p>
+<p>» <a href="/artikel/verkehrsrecht/10109-handy-am-steuer-was-erlaubt-ist-und-was-nicht.html">Handy am Steuer: Was erlaubt ist und was nicht </a></p>
+<p>» <a href="/artikel/verkehrsrecht/10097-drogen-und-alkohol-am-steuer.html">Drogen und Alkohol am Steuer </a></p>
+<p>» <a href="/artikel/verkehrsrecht/8455-geschwindigkeitsueberschreitung.html">Geschwindigkeitsüberschreitung: Was muss ich tun?</a></p>
+<p>» <a href="/check-verkehrsrecht/">Einspruch ja oder nein: Lohnt sich der Einspruch? Jetzt checken!</a></p>
+</div></div></div> <div id="sucol62392da103c13" class="su-column content-column su-column-size-1-1 su-column-size-medium-1-2"><div class="su-column-inner"><div class="su-column-content">
+<p>» <a href="/artikel/verkehrsrecht/10095-fahrer-und-unfallflucht.html">Fahrer- und Unfallflucht </a></p>
+<p>» <a href="/anwalt-verkehrsrecht.html">Finden Sie den richtigen Anwalt für Ihr Vergehen</a></p>
+<p>» <a href="/artikel/verkehrsrecht/10096-abstand-und-abstandvergehen.html">Abstand und Abstandvergehen</a></p>
+<p>» <a href="/artikel/verkehrsrecht/10125-halte-und-parkverstoss.html">Halte- und Parkverstöße - Was tun? </a></p>
+<p>» <a href="/artikel/verkehrsrecht/10023-fahrverbot-was-nun.html">Fahrverbot – Was nun? </a></p>
+</div></div></div> </div>
+</div>
+
+		</div>
+	</div>
+	
+
+</div>
+
+	
+<!-- FOOTER -->
+<footer id="t3-footer" class="wrap t3-footer t3-footer-2021">
+	<div class="container">
+
+		<section class="t3-footer-links">
+			<div class="row">
+
+				<div class="col-md-12">
+      	      	<!-- FOOT NAVIGATION -->
+      			<!-- SPOTLIGHT -->
+	<div class="t3-spotlight t3-footnav  row">
+					<div class=" col-lg-4 col-md-4 col-sm-4 col-xs-6">
+								<div class="t3-module module " id="Mod643"><div class="module-inner"><div class="module-ct">
+
+<div class="custom">
+	<div><img src="/images/logo-erecht24-light.svg" alt="eRecht24.de" class="logo-img" style="width: 100px; margin-bottom: 35px;"></div>
+<div style="margin-bottom: 30px;">eRecht24 ist als eine der bekanntesten digitalen Informationsplattformen rund um die Themen Internetrecht, Datenschutz und E-Commerce am Legal Tech Markt vertreten und hilft täglich tausenden Webseitenbetreibern und Agenturen dabei ihre Webseiten rechtssicher zu gestalten.</div>
+<p><a href="https://www.facebook.com/eRecht24"><img src="/images/facebook-logo.svg" alt="Facebook Logo" class="social-img" style="width: 24px;"></a>&nbsp;&nbsp;&nbsp;<a href="https://de.linkedin.com/company/erecht24"><img src="/images/linkedin-logo.svg" alt="LinkedIn Logo" class="social-img" style="width: 24px;"></a>&nbsp;&nbsp;&nbsp;<a href="https://www.xing.com/pages/erecht24"><img src="/images/xing-logo.svg" alt="Xing Logo" class="social-img" style="width: 24px;"></a></p></div>
+</div></div></div>
+							</div>
+					<div class=" col-lg-4 col-md-4 col-sm-4 col-xs-6">
+								<div class="t3-module module " id="Mod166"><div class="module-inner"><div class="module-title "><span>Unternehmen</span></div><div class="module-ct"><ul class="nav ">
+<li class="item-114"><a href="/redaktion.html" class="">Redaktion</a></li><li class="item-126"><a href="/internes/microsites/6310-werden-sie-autor-bei-erecht24.html" class="">Autor werden</a></li><li class="item-170"><a href="/mediadaten.htm" class="">Mediadaten</a></li><li class="item-1678"><a href="/jobs.html" class="">Jobs</a></li></ul>
+</div></div></div>
+							</div>
+					<div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12">
+								<div class="t3-module module_menu " id="Mod99"><div class="module-inner"><div class="module-title "><span>Informatives</span></div><div class="module-ct"><ul class="nav   horizontal">
+<li class="item-2479"><a href="/anwalt-arbeitsrecht.html" class="">Anwalt Arbeitsrecht </a></li><li class="item-2203"><a href="/anwalt-internetrecht.htm" class="">Anwalt Internetrecht </a></li><li class="item-2480"><a href="/anwalt-verkehrsrecht.html" class="">Anwalt Verkehrsrecht </a></li><li class="item-1567"><a href="https://www.e-recht24.de/erecht24-premium-kuendigen.html" class="">eRecht24 kündigen </a></li><li class="item-201"><a href="https://forum.e-recht24.de/" class="">Forum </a></li><li class="item-2481"><a href="/anwalt.html" class="">Rechtsberatung vom Anwalt </a></li><li class="item-754"><a href="/rechtsschutzversicherung.html" class="">Rechtsschutzversicherung</a></li></ul>
+</div></div></div>
+							</div>
+			</div>
+<!-- SPOTLIGHT -->
+      	<!-- //FOOT NAVIGATION -->
+      	          
+      </div>
+
+			</div>
+		</section>
+		<section class="t3-copyright">
+			<div class="t3-bottom">
+				<div class="row">
+					<div class="col-sm-6 col-sm-push-6">
+						<ul class="nav  horizontal">
+<li class="item-813"><a href="/kontakt.html" class="">Kontakt</a></li><li class="item-167"><a href="/datenschutzerklaerung.html" class="" target="_blank">Datenschutz</a></li><li class="item-206"><a href="/impressum.htm" class="" target="_blank">Impressum</a></li></ul>
+
+					</div>
+					<div class="col-sm-6 col-sm-pull-6">
+						
+
+<div class="custom">
+	<p>Copyright © eRecht24 GmbH &amp; Co. KG</p></div>
+
+					</div>
+
+				</div>
+			</div>
+		</section>
+ 
+  
+  </div>
+</footer>
+<!-- //FOOTER -->
+
+</div>
+
+				<!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+<!-- Start of Site Search 360 script -->
+
+<script defer="" type="text/javascript">
+window.ss360Config = {
+	suggestions : {
+		showImages : false
+	},
+	style : {
+		themeColor : "#0971B2",
+		accentColor: "#0971B2",
+		searchBox : {
+			text : {
+				color : "#666666",
+				size : "16px"
+			},
+			background : {
+				color : "transparent"
+			},
+			padding : "10px",
+			icon : {
+				image : "magnifier",
+				color : "transparent"
+			}
+		},
+		animationSpeed : 50
+	},
+	searchBox : {
+		placeholder : "Suchen ...",
+		selector : "#mod-search-searchword"
+	},
+	results : {
+		embedConfig : {
+			contentBlock : "#erecht24-search",
+			url : "/index.php?searchphrase=all&Itemid=144&option=com_search"
+		},
+		caption : "#COUNT# Ergebnisse für \"#QUERY#\" gefunden",
+		group : false,
+		num : "10000",
+		moreResultsButton : "Weitere Ergebnisse anzeigen",
+		noResultsText : "Es tut uns leid. Wir konnten keine Ergebnisse für Ihre Suchanfrage finden.",
+		queryCorrectionText : "Meinten Sie \"#CORRECTION#\"?",
+		moreResultsPagingSize : "50",
+		infiniteScroll : true,
+		sorting : "_relevance" // the default sorting option to apply
+	},
+	tracking : {
+		providers : []
+	},
+	layout : {
+		mobile : {
+			showImages : false
+		},
+		desktop : {
+			showImages : false
+		}
+	},
+	dataPoints : {
+		exclude : [],
+		single : []
+	},
+	siteId : "www.e-recht24.de",
+	language : "de",
+	showErrors : false
+};
+
+var e = document.createElement("script");
+e.async = !0;
+e.src = "https://cdn.sitesearch360.com/v13/sitesearch360-v13.min.js";
+document.getElementsByTagName("body")[0].appendChild(e);
+</script><script async="" src="https://cdn.sitesearch360.com/v13/sitesearch360-v13.min.js"></script>
+<!-- End of Site Search 360 script --><!-- END: Custom advanced (www.pluginaria.com) -->
+<!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+<div id="support_tab"><a href="/kontakt.html">Support</a></div><!-- END: Custom advanced (www.pluginaria.com) -->
+
+<div data-id="5" class="eb-inst eb-hide eb-5 eb-center eb-module hide-on-mobile eb-init rstbox" data-options="{&quot;trigger&quot;:&quot;onExit&quot;,&quot;trigger_selector&quot;:null,&quot;delay&quot;:0,&quot;scroll_depth&quot;:&quot;percentage&quot;,&quot;scroll_depth_value&quot;:80,&quot;firing_frequency&quot;:1,&quot;reverse_scroll_close&quot;:true,&quot;threshold&quot;:0,&quot;close_out_viewport&quot;:false,&quot;exit_timer&quot;:1000,&quot;idle_time&quot;:10000,&quot;animation_open&quot;:&quot;transition.fadeIn&quot;,&quot;animation_close&quot;:&quot;transition.fadeOut&quot;,&quot;animation_duration&quot;:400,&quot;prevent_default&quot;:true,&quot;backdrop&quot;:true,&quot;backdrop_color&quot;:&quot;rgba(0, 0, 0, 0.8)&quot;,&quot;backdrop_click&quot;:true,&quot;disable_page_scroll&quot;:false,&quot;test_mode&quot;:false,&quot;debug&quot;:false,&quot;ga_tracking&quot;:false,&quot;ga_tracking_id&quot;:0,&quot;ga_tracking_event_category&quot;:&quot;EngageBox&quot;,&quot;ga_tracking_event_label&quot;:&quot;Box #5 - Popup Webinar 7 Abmahnfallen&quot;,&quot;auto_focus&quot;:false}" data-type="popup">
+<div class="eb-dialog eb-shd1 eb-acm eb-acc rstbox" style="max-width:770px;height:300px;background-color:#ffffff;color:#333333;border-radius:5px;padding:0px;" role="dialog" tabindex="-1" id="rstbox_5">
+<button type="button" data-ebox-cmd="close" class="eb-close rstbox-close" aria-label="Close" style="color:rgba(174, 174, 174, 1);font-size:22px">
+			<span aria-hidden="true">×</span>
+	</button>	
+<div class="eb-container rstbox-container">
+<div class="eb-content rstbox-content">
+				<!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+<a href="https://www.e-recht24.de/e24link/5p6k0" style="display:block;"><img src="/images/banners/
+Banner-Webinarabmahnfallen-querformat-petrol.jpg" width="770" height="300"></a>
+<!-- END: Custom advanced (www.pluginaria.com) -->
+			</div>
+		</div>
+			</div>
+</div>
+<div data-id="7" class="eb-inst eb-hide eb-7 eb-bottom-center eb-module hide-on-mobile eb-init rstbox" data-options="{&quot;trigger&quot;:&quot;onPageReady&quot;,&quot;trigger_selector&quot;:null,&quot;delay&quot;:20000,&quot;scroll_depth&quot;:&quot;percentage&quot;,&quot;scroll_depth_value&quot;:20,&quot;firing_frequency&quot;:1,&quot;reverse_scroll_close&quot;:true,&quot;threshold&quot;:0,&quot;close_out_viewport&quot;:false,&quot;exit_timer&quot;:1000,&quot;idle_time&quot;:10000,&quot;animation_open&quot;:&quot;rstbox.slideUpIn&quot;,&quot;animation_close&quot;:&quot;transition.slideDownOut&quot;,&quot;animation_duration&quot;:1000,&quot;prevent_default&quot;:true,&quot;backdrop&quot;:false,&quot;backdrop_color&quot;:&quot;rgba(0, 0, 0, 0.8)&quot;,&quot;backdrop_click&quot;:true,&quot;disable_page_scroll&quot;:false,&quot;test_mode&quot;:false,&quot;debug&quot;:false,&quot;ga_tracking&quot;:false,&quot;ga_tracking_id&quot;:0,&quot;ga_tracking_event_category&quot;:&quot;EngageBox&quot;,&quot;ga_tracking_event_label&quot;:&quot;Box #7 - Slide-up Banner eRecht24 Premium&quot;,&quot;auto_focus&quot;:false}" data-type="popup">
+<div class="eb-dialog eb-shd3 eb-acb eb-acc rstbox" style="max-width:100%;background-color:none;color:rgba(51, 51, 51, 1);border-radius:0px;padding:0px;" role="dialog" tabindex="-1" id="rstbox_7">
+<button type="button" data-ebox-cmd="close" class="eb-close rstbox-close" aria-label="Close" style="color:rgba(222, 222, 222, 1);font-size:22px">
+			<span aria-hidden="true">×</span>
+	</button>	
+<div class="eb-container rstbox-container">
+<div class="eb-content rstbox-content">
+				<!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+<div class="bottom-banner-wrap">
+  <a href="https://www.e-recht24.de/e24link/ojsnj"><span>Zum Angebot von eRecht24 Premium</span></a>
+<div class="bottom-banner-inner">
+<div class="bottom-banner-symbol">
+<div class="bottom-banner-headline">
+        <img src="https://www.e-recht24.de/images/banners/check-icon-green.svg" class="icon"><span>Ohne Vorkenntnisse</span>
+      </div>
+<div class="bottom-banner-cta clearfix">
+<div class="bottom-banner-cta-text">
+          Rechtssichere Website erstellen?
+          Können Sie! Mit eRecht24 Premium.
+        </div>
+<div class="bottom-banner-cta-button">
+          <span>Jetzt starten</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END: Custom advanced (www.pluginaria.com) -->
+			</div>
+		</div>
+			</div>
+</div>
+
+<iframe data-product="web_widget" title="No content" tabindex="-1" aria-hidden="true" style="width: 0px; height: 0px; border: 0px none; position: absolute; top: -9999px;" src="about:blank"></iframe><div class="ss360-loader"><div class="ss360-loader ss360-loader__bounce ss360-tc-bg" style="animation-duration: 2.05s;"></div>
+			   <div class="ss360-loader ss360-loader__bounce ss360-tc-bg ss360-loader__bounce--delayed" style="animation-duration: 2.05s;"></div></div><section id="ss360-layer" style="display:none" aria-label="Search Results" class="ss360-layer ss360-n-section"></section><style id="unibox-theme-color">.unibox-tc-c,.unibox-tc-c--hover:hover,.unibox-tc-c--hover:focus{color:#0971B2}.unibox-tc-b,.unibox-tc-b--hover:hover,.unibox-tc-b--hover:focus,.unibox-tc-b--focus:focus{border-color:#0971B2}.unibox-tc-bg,.unibox-tc-bg--hover:hover,.unibox-tc-bg--hover:focus,.unibox-tc-bg--focus:focus{background-color:#0971B2}#unibox-suggest-box .unibox-tc-c,#unibox-suggest-box .unibox-tc-c--hover:hover,#unibox-suggest-box .unibox-tc-c--hover:focus{color:#0971B2}#unibox-suggest-box .unibox-tc-b,#unibox-suggest-box .unibox-tc-b--hover:hover,#unibox-suggest-box .unibox-tc-b--hover:focus,#unibox-suggest-box .unibox-tc-b--focus:focus{border-color:#0971B2}#unibox-suggest-box .unibox-tc-bg,#unibox-suggest-box .unibox-tc-bg--hover:hover,#unibox-suggest-box .unibox-tc-bg--hover:focus,#unibox-suggest-box .unibox-tc-bg--focus:focus{background-color:#0971B2}</style><style id="ss360-theme-color">.ss360-tc-c,.ss360-tc-c--hover:hover,.ss360-tc-c--hover:focus{color:#0971B2}.ss360-tc-b,.ss360-tc-b--hover:hover,.ss360-tc-b--hover:focus,.ss360-tc-b--focus:focus{border-color:#0971B2}.ss360-tc-bg,.ss360-tc-bg--hover:hover,.ss360-tc-bg--hover:focus,.ss360-tc-bg--focus:focus{background-color:#0971B2}.ss360-ac-c,.ss360-ac-c--hover:hover,.ss360-ac-c--hover:focus{color:#0971B2}.ss360-ac-b,.ss360-ac-b--hover:hover,.ss360-ac-b--hover:focus,.ss360-ac-b--focus:focus{border-color:#0971B2}.ss360-ac-bg,.ss360-ac-bg--hover:hover,.ss360-ac-bg--hover:focus,.ss360-ac-bg--focus:focus{background-color:#0971B2}.ss360-acd-bg--hover:hover,.ss360-acd-bg--hover:focus{background-color:#085f96}.ss360-acd-b--hover:hover,.ss360-acd-b--hover:focus{border-color:#085f96}#ss360-layer .ss360-tc-c,#ss360-layer .ss360-tc-c--hover:hover,#ss360-layer .ss360-tc-c--hover:focus{color:#0971B2}#ss360-layer .ss360-tc-b,#ss360-layer .ss360-tc-b--hover:hover,#ss360-layer .ss360-tc-b--hover:focus,#ss360-layer .ss360-tc-b--focus:focus{border-color:#0971B2}#ss360-layer .ss360-tc-bg,#ss360-layer .ss360-tc-bg--hover:hover,#ss360-layer .ss360-tc-bg--hover:focus,#ss360-layer .ss360-tc-bg--focus:focus{background-color:#0971B2}#ss360-layer .ss360-ac-c,#ss360-layer .ss360-ac-c--hover:hover,#ss360-layer .ss360-ac-c--hover:focus{color:#0971B2}#ss360-layer .ss360-ac-b,#ss360-layer .ss360-ac-b--hover:hover,#ss360-layer .ss360-ac-b--hover:focus,#ss360-layer .ss360-ac-b--focus:focus{border-color:#0971B2}#ss360-layer .ss360-ac-bg,#ss360-layer .ss360-ac-bg--hover:hover,#ss360-layer .ss360-ac-bg--hover:focus,#ss360-layer .ss360-ac-bg--focus:focus{background-color:#0971B2}#ss360-layer .ss360-acd-bg--hover:hover,#ss360-layer .ss360-acd-bg--hover:focus{background-color:#085f96}#ss360-layer .ss360-acd-b--hover:hover,#ss360-layer .ss360-acd-b--hover:focus{border-color:#085f96}</style><div><iframe title="Opens a widget where you can chat to one of our agents" id="launcher" tabindex="0" style="width: 133px; height: 50px; padding: 0px; margin: 10px 20px; position: fixed; bottom: 0px; overflow: visible; opacity: 1; border: 0px none; z-index: 999998; transition-duration: 250ms; transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); transition-property: opacity, top, bottom; right: 0px;"></iframe></div></body></html>

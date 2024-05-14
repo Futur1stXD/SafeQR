@@ -1,0 +1,214 @@
+<html><head>
+	<title>bitkoin.io - bitcoin calculator + price ticker</title>
+	<link rel="shortcut icon" type="image/png" href="/favicon.png">
+	<meta name="description" content="Bitcoin calculator and simple price ticker.  Convert between 160+ global fiat currencies and bitcoin units (satoshi, bit, mbtc, btc) using live exchange rates.  Fully customizable colors and sizes.">
+	<meta name="keywords" content="Bitcoin, satoshi, bit, btc, price, fiat, currency, current, live, value, quote, exchange rate, conversion, calculator, ticker, public address, lookup, search, balance">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="https://bitkoin.io">
+	<meta name="twitter:title" content="bitkoin.io - bitcoin calculator + price ticker">
+	<meta name="twitter:description" content="Convert between 160+ global fiat currencies and bitcoin units (satoshi, bit, mbtc, btc) using live exchange rates.  Fully customizable colors and sizes.">
+	<meta name="twitter:image" content="https://bitkoin.io/images/social.png">
+
+	<meta property="og:title" content="bitkoin.io - bitcoin calculator + price ticker">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://bitkoin.io">
+	<meta property="og:description" content="Convert between 160+ global fiat currencies and bitcoin units (satoshi, bit, mbtc, btc) using live exchange rates.  Fully customizable colors and sizes.">
+	<meta property="og:image" content="https://bitkoin.io/images/facebook.png">
+
+	<link rel="stylesheet" href="style.css">
+	<script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202203170101/reactive_library_fy2019.js"></script><script src="https://partner.googleadservices.com/gampad/cookie.js?domain=bitkoin.io&amp;callback=_gfp_s_&amp;client=ca-pub-1644303093850525"></script><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202203170101/show_ads_impl_fy2019.js" id="google_shimpl"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="jquery-3.1.0.min.js"></script>
+	<script src="script.min.js"></script>
+	<script src="jscolor.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-12661306-14"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-12661306-14');
+	</script>
+
+<meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A8FHS1NmdCwGqD9DwOicnHHY+y27kdWfxKa0YHSGDfv0CSpDKRHTQdQmZVPDUdaFWUsxdgVxlwAd6o+dhJykPA0AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A8zdXi6dr1hwXEUjQrYiyYQGlU3557y5QWDnN0Lwgj9ePt66XMEvNkVWOEOWPd7TP9sBQ25X0Q15Lr1Nn4oGFQkAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A4/Htern2udN9w3yJK9QgWQxQFruxOXsXL7cW60DyCl0EZFGCSme/J33Q/WzF7bBkVvhEWDlcBiUyZaim5CpFQwAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=bitkoin.io" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=bitkoin.io"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=bitkoin.io" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=bitkoin.io"></script></head>
+<body class="background stretchy" style="background: rgb(61, 59, 53) none repeat scroll 0% 0%; padding: 0px;" aria-hidden="false">
+	<div id="gear"><img src="images/gear.png" width="32" height="32"></div>
+
+	<div id="settings" class="textcolor-settings stretchy" style="background: rgb(45, 45, 45) none repeat scroll 0% 0%; color: rgb(255, 255, 240);"> <div id="settings-inner">
+		<div id="close" class="textcolor-settings" style="color: rgb(255, 255, 240);">✕</div>
+		<div class="title">bitkoin.io</div>
+		<div class="subtitle">bitcoin calculator + price ticker</div>
+		<div id="mode">
+			<div id="modeBorder" class="sBorder" style="border: 1px solid rgb(252, 192, 0);">
+				<div id="modeCalc" class="modeButton stretchy foreground-settings" style="background: rgb(252, 192, 0) none repeat scroll 0% 0%; color: rgb(61, 59, 53);">CALCULATOR</div>
+				<div id="modeTick" class="modeButton stretchy" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; color: rgb(255, 255, 240);">PRICE TICKER</div>
+			</div>
+		</div>
+		<div class="settings-div">
+			<div class="subheading">TEXT COLOR:</div>
+			<input id="textcolor" class="sBorder jscolor {borderColor:'#FFF', insetColor:'#FFF', backgroundColor:'#666'}" type="text" style="border: 1px solid rgb(252, 192, 0); background-image: none; background-color: rgb(255, 255, 240); color: rgb(0, 0, 0);" autocomplete="off">
+
+		</div>
+		<div class="settings-div">
+			<div class="subheading">BACKGROUND:</div>
+			<input id="bgcolor" class="jscolor sBorder" type="text" style="border: 1px solid rgb(252, 192, 0); background-image: none; background-color: rgb(61, 59, 53); color: rgb(255, 255, 255);" autocomplete="off">
+		</div>
+		<div class="settings-div">
+			<div class="subheading">BORDERS:</div>
+			<input id="bordercolor" class="jscolor sBorder" type="text" style="border: 1px solid rgb(252, 192, 0); background-image: none; background-color: rgb(252, 192, 0); color: rgb(0, 0, 0);" autocomplete="off">
+		</div>
+		<div id="tickerSettings" style="display: none;">
+			<div class="settings-div">
+				<div class="subheading">PRICE SIZE:</div>
+				<div class="sBorder size-border" style="border: 1px solid rgb(252, 192, 0);">
+					<div class="size-plus" id="font-size-plus">+</div>
+					<div class="sBorder size" id="font-size" style="border: 1px solid rgb(252, 192, 0);">70</div>
+					<div class="size-minus" id="font-size-minus">-</div>
+				</div>
+			</div>
+			<div class="settings-div">
+				<div class="subheading">UNITS SIZE:</div>
+				<div class="sBorder size-border" style="border: 1px solid rgb(252, 192, 0);">
+					<div class="size-plus" id="unit-size-plus">+</div>
+					<div class="sBorder size" id="unit-size" style="border: 1px solid rgb(252, 192, 0);">40</div>
+					<div class="size-minus" id="unit-size-minus">-</div>
+				</div>
+			</div>
+			<div class="settings-div">
+				<div class="subheading">HIDE UNITS:</div>
+				<div id="hideunits-checkbox" class="cbox">☐</div>
+			</div>
+		</div>
+		<div class="settings-div">
+			<div class="subheading">DEFAULT:</div>
+			<div id="reset" class="sBorder" style="border: 1px solid rgb(252, 192, 0);">RESET</div>
+		</div>
+		<div id="links">
+			<!-- <a href="https://itunes.apple.com/us/app/bitkoin.io-bitcoin-calculator/id1155873211" target="_blank"><img id="ios" src="images/ios.png" height="40" width="135"/></a>
+			<a href="https://play.google.com/store/apps/details?id=io.bitkoinio" target="_blank"><img id="android" src="images/android.png" height="40" width="135"/></a>
+			<br> -->
+			<a class="icon" href="https://cryptoji.com" target="_blank" style="color: rgb(255, 255, 240);"><img src="images/cryptoji.png" width="24" height="24"></a>
+			<a class="icon-link" href="https://litekoin.io" target="_blank" style="color: rgb(255, 255, 240);">cryptoji.com - encrypted emoji</a>
+			<br>
+			<a class="icon" href="https://litekoin.io" target="_blank" style="color: rgb(255, 255, 240);"><img src="images/litekoin.png" width="24" height="24"></a>
+			<a class="icon-link" href="https://litekoin.io" target="_blank" style="color: rgb(255, 255, 240);">litekoin.io - litecoin calculator</a>
+			<br>
+			<a class="icon" href="https://publicnote.com" target="_blank" style="color: rgb(255, 255, 240);"><img src="images/publicnote.png" width="24" height="24"></a>
+			<a class="icon-link" href="https://publicnote.com" target="_blank" style="color: rgb(255, 255, 240);">publicnote.com - public notepad</a>
+			<br>
+			<a class="icon" href="https://brainwallet.io" target="_blank" style="color: rgb(255, 255, 240);"><img src="images/brainwallet.png" width="24" height="24"></a>
+			<a class="icon-link" href="https://brainwallet.io" target="_blank" style="color: rgb(255, 255, 240);">brainwallet.io - bitcoin in your brain</a>
+		</div>
+		<div id="footer">
+			daniel@ncrypt.org<br>
+			1HrQfojcRt4gGEZntEwp24KVrSch8mtqMk<br>
+			rates by <a href="https://coinbase.com" target="_blank" style="color: rgb(255, 255, 240);">coinbase.com</a><br>
+			bitkoin.io © 2014-<script>document.write(new Date().getFullYear())</script>2022<br>
+		</div>
+	</div></div>
+	<div id="content">
+		<div id="container">
+			<div id="calculator" style="display: block;">
+				<div id="bitcoin">
+					<div id="bitcoinText" class="stretchy border textfields textcolor" style="color: rgb(255, 255, 240); border: 1px solid rgb(252, 192, 0); font-size: 48px;">1</div>
+					<div id="currentUnit" class="current textcolor" style="color: rgb(255, 255, 240);">BTC</div>
+					<div id="unitArrow" class="arrow textcolor" style="color: rgb(255, 255, 240);">▼</div>
+					<div id="units">
+						<div id="sat" class="border stretchy unitbutton" style="border: 1px solid rgb(252, 192, 0); color: rgb(255, 255, 240); background: rgba(0, 0, 0, 0) url(&quot;grid.png&quot;) repeat scroll 0% 0%;">SAT</div>
+						<div id="bit" class="border stretchy unitbutton" style="border: 1px solid rgb(252, 192, 0); color: rgb(255, 255, 240); background: rgba(0, 0, 0, 0) url(&quot;grid.png&quot;) repeat scroll 0% 0%;">BIT</div>
+						<div id="mbtc" class="border stretchy unitbutton" style="border: 1px solid rgb(252, 192, 0); color: rgb(255, 255, 240); background: rgba(0, 0, 0, 0) url(&quot;grid.png&quot;) repeat scroll 0% 0%;">MBTC</div>
+						<div id="btc" class="border stretchy unitbutton foreground" style="border: 1px solid rgb(252, 192, 0); color: rgb(61, 59, 53); background: rgb(252, 192, 0) none repeat scroll 0% 0%;">BTC</div>
+					</div>
+				</div>
+				<div id="fiat">
+					<div id="fiatText" class="stretchy border textfields textcolor" style="color: rgb(255, 255, 240); border: 1px solid rgb(252, 192, 0); font-size: 48px;">42,868.82</div>
+					<div id="currentFiat" class="current textcolor" style="color: rgb(255, 255, 240);">USD</div>
+					<div id="fiatArrow" class="arrow textcolor" style="color: rgb(255, 255, 240);">▼</div>
+					<input id="fiatSearch" class="textcolor border valid stretchy" type="text" placeholder="SEARCH CURRENCY" onclick="this.select();setSelectionRange(0,9999);" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" style="color: rgb(255, 255, 240); background: rgb(61, 59, 53) none repeat scroll 0% 0%; border: 1px solid rgb(252, 192, 0);">
+					<div id="results-container">
+						<div class="results" id="result1">
+							<div class="resultname" id="resultname1"></div>
+							<div class="resultcode" id="resultcode1"></div>
+						</div>
+						<div class="results" id="result2">
+							<div class="resultname" id="resultname2"></div>
+							<div class="resultcode" id="resultcode2"></div>
+						</div>
+						<div class="results" id="result3">
+							<div class="resultname" id="resultname3"></div>
+							<div class="resultcode" id="resultcode3"></div>
+						</div>
+						<div class="results" id="result4">
+							<div class="resultname" id="resultname4"></div>
+							<div class="resultcode" id="resultcode4"></div>
+						</div>
+						<div class="results" id="result5">
+							<div class="resultname" id="resultname5"></div>
+							<div class="resultcode" id="resultcode5"></div>
+						</div>
+					</div>
+				</div>
+				<div id="numpad" class="textcolor" style="color: rgb(255, 255, 240);">
+					<div id="c" class="border stretchy numbutton numside" style="border: 1px solid rgb(252, 192, 0);">C</div>
+					<div id="(" class="border stretchy numbutton numside" style="border: 1px solid rgb(252, 192, 0);">(</div>
+					<div id=")" class="border stretchy numbutton numside" style="border: 1px solid rgb(252, 192, 0);">)</div>
+					<div id="/" class="border stretchy numbutton numside numlarge numright" style="border: 1px solid rgb(252, 192, 0);">÷</div>
+
+					<div id="7" class="border stretchy numbutton" style="border: 1px solid rgb(252, 192, 0);">7</div>
+					<div id="8" class="border stretchy numbutton" style="border: 1px solid rgb(252, 192, 0);">8</div>
+					<div id="9" class="border stretchy numbutton" style="border: 1px solid rgb(252, 192, 0);">9</div>
+					<div id="*" class="border stretchy numbutton numside nummedium numright" style="border: 1px solid rgb(252, 192, 0);">x</div>
+
+					<div id="4" class="border stretchy numbutton" style="border: 1px solid rgb(252, 192, 0);">4</div>
+					<div id="5" class="border stretchy numbutton" style="border: 1px solid rgb(252, 192, 0);">5</div>
+					<div id="6" class="border stretchy numbutton" style="border: 1px solid rgb(252, 192, 0);">6</div>
+					<div id="-" class="border stretchy numbutton numside numlarge numright" style="border: 1px solid rgb(252, 192, 0);">-</div>
+
+					<div id="1" class="border stretchy numbutton" style="border: 1px solid rgb(252, 192, 0);">1</div>
+					<div id="2" class="border stretchy numbutton" style="border: 1px solid rgb(252, 192, 0);">2</div>
+					<div id="3" class="border stretchy numbutton" style="border: 1px solid rgb(252, 192, 0);">3</div>
+					<div id="+" class="border stretchy numbutton numside numlarge numright" style="border: 1px solid rgb(252, 192, 0);">+</div>
+
+					<div id="<" class="border stretchy numbutton" style="border: 1px solid rgb(252, 192, 0);">←</div>
+					<div id="0" class="border stretchy numbutton" style="border: 1px solid rgb(252, 192, 0);">0</div>
+					<div id="." class="border stretchy numbutton numlarge" style="border: 1px solid rgb(252, 192, 0);">.</div>
+					<div id="=" class="border stretchy numbutton numside numlarge numright" style="border: 1px solid rgb(252, 192, 0);">=</div>
+				</div>
+				<div id="promo">
+					<!-- <a class="icon-link" href="https://publicnote.com" target="_blank">publicnote.com - encrypted notes</a> -->
+				</div>
+			</div>
+
+			<div id="ticker" class="textcolor" style="color: rgb(255, 255, 240); display: none;">
+				<div id="tickerRate" style="font-size: 70px;">42,868.82</div>
+				<div id="tickerUnit" style="font-size: 40px;">USD/BTC</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div id="ad">
+		<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+	 <!-- bitkoin -->
+	 <style type="text/css">
+		.adslot_1 { width: 320px; height: 50px; }
+		@media (min-width:321px) { .adslot_1 { width: 420px; height: 50px; } }
+	 </style>
+	 <ins class="adsbygoogle adslot_1" style="display: inline-block; width: 420px; height: 50px;" data-ad-client="ca-pub-1644303093850525" data-ad-slot="6589645732" data-adsbygoogle-status="done" data-ad-status="filled">
+	<ins id="aswift_0_expand" style="border: medium none; height: 50px; width: 420px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_0_anchor" style="border: medium none; height: 50px; width: 420px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:420px;height:50px" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1644303093850525&amp;output=html&amp;h=50&amp;slotname=6589645732&amp;adk=275509640&amp;adf=2959189023&amp;pi=t.ma~as.6589645732&amp;w=420&amp;lmt=1644299835&amp;rafmt=12&amp;psa=0&amp;format=420x50&amp;url=https%3A%2F%2Fbitkoin.io%2F&amp;wgl=1&amp;dt=1648085776116&amp;bpp=2&amp;bdt=1380&amp;idt=249&amp;shv=r20220317&amp;mjsv=m202203170101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;correlator=7281398200187&amp;frm=20&amp;pv=2&amp;ga_vid=1188311049.1648085776&amp;ga_sid=1648085777&amp;ga_hid=655901252&amp;ga_fc=1&amp;u_tz=-300&amp;u_his=50&amp;u_h=1600&amp;u_w=3840&amp;u_ah=1560&amp;u_aw=3840&amp;u_cd=24&amp;u_sd=1&amp;adx=432&amp;ady=938&amp;biw=1284&amp;bih=988&amp;scr_x=0&amp;scr_y=0&amp;eid=44759876%2C44759927%2C44759837&amp;oid=2&amp;pvsid=1206492584638890&amp;pem=877&amp;tmod=1373625176&amp;nvt=1&amp;eae=0&amp;fc=896&amp;brdim=4%2C4%2C4%2C4%2C3840%2C0%2C1296%2C1079%2C1284%2C988&amp;vis=1&amp;rsz=%7C%7CfeE%7C&amp;abl=CF&amp;pfx=0&amp;fu=256&amp;bc=31&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;xpc=mIU9X882hb&amp;p=https%3A//bitkoin.io&amp;dtd=678" data-google-container-id="a!1" data-google-query-id="CKGEivvN3fYCFVSXAAAdsbwCOg" data-load-complete="true" width="420" height="50" frameborder="0"></iframe></ins></ins></ins>
+
+	<script>
+		window.addEventListener( 'load', function() {
+    	(adsbygoogle = window.adsbygoogle || []).push({});
+		});
+	</script>
+
+
+	</div>
+
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" style="display: none !important;" data-adsbygoogle-status="done" data-ad-status="unfilled"><ins id="aswift_1_expand" style="border: medium none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_1_anchor" style="border: medium none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1644303093850525&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1644299835&amp;plat=1%3A16777216%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fbitkoin.io%2F&amp;ea=0&amp;pra=7&amp;wgl=1&amp;dt=1648085776116&amp;bpp=1&amp;bdt=1381&amp;idt=252&amp;shv=r20220317&amp;mjsv=m202203170101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;prev_fmts=420x50&amp;nras=1&amp;correlator=7281398200187&amp;frm=20&amp;pv=1&amp;ga_vid=1188311049.1648085776&amp;ga_sid=1648085777&amp;ga_hid=655901252&amp;ga_fc=1&amp;u_tz=-300&amp;u_his=50&amp;u_h=1600&amp;u_w=3840&amp;u_ah=1560&amp;u_aw=3840&amp;u_cd=24&amp;u_sd=1&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1284&amp;bih=988&amp;scr_x=0&amp;scr_y=0&amp;eid=44759876%2C44759927%2C44759837&amp;oid=2&amp;pvsid=1206492584638890&amp;pem=877&amp;tmod=1373625176&amp;nvt=1&amp;eae=2&amp;fc=896&amp;brdim=4%2C4%2C4%2C4%2C3840%2C0%2C1296%2C1079%2C1284%2C988&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;ifi=2&amp;uci=a!2&amp;fsb=1&amp;dtd=680" data-google-container-id="a!2" data-load-complete="true" frameborder="0"></iframe></ins></ins></ins><iframe src="https://www.google.com/recaptcha/api2/aframe" style="display: none;" width="0" height="0"></iframe><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none;" data-anchor-status="ready-to-display" data-ad-status="filled"><ins id="aswift_3_expand" style="border: medium none; height: 124px; width: 1005px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_3_anchor" style="border: medium none; height: 124px; width: 1005px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_3" name="aswift_3" style="width:1005px !IMPORTANT;height:124px !IMPORTANT" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/html/r20220317/r20110914/zrt_lookup.html?fsb=1#RS-1-&amp;adk=1812271802&amp;client=ca-pub-1644303093850525&amp;fa=2&amp;ifi=4&amp;uci=a!4&amp;xpc=pLDG4tJps2&amp;p=https%3A//bitkoin.io" data-google-container-id="a!4" data-google-query-id="CJywivvN3fYCFYidAAAd-FgDKA" data-load-complete="true" width="1005" height="124" frameborder="0"></iframe></ins></ins><ins style="inset: 124px auto auto !important; clear: none !important; display: block !important; float: none !important; height: 5px !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: absolute !important; vertical-align: baseline !important; visibility: visible !important; width: 100% !important; z-index: 1 !important; background-color: rgb(250, 250, 250) !important; box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px -1px, rgba(0, 0, 0, 0.1) 0px -1px 2px -1px !important;" class="ee"><span style="display: block !important; width: 80px !important; height: 45px !important; top: 0px !important; left: 0% !important; pointer-events: none !important;"><svg style="margin: 0px !important; position: absolute !important; top: 0px !important; left: 0% !important; display: block !important; width: 80px !important; height: 30px !important; transform: none !important; pointer-events: initial !important;"><defs><filter id="dropShadowBottom" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feComponentTransfer in="SourceAlpha" result="TransferredAlpha"><feFuncR type="discrete" tableValues="0.5"></feFuncR><feFuncG type="discrete" tableValues="0.5"></feFuncG><feFuncB type="discrete" tableValues="0.5"></feFuncB></feComponentTransfer><feGaussianBlur in="TransferredAlpha" stdDeviation="2"></feGaussianBlur><feOffset dx="0" dy="0" result="offsetblur"></feOffset><feMerge><feMergeNode></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs><path d="M0,4 L0,22 A6,6 0 0,0 6,28 L50,28 A6,6 0 0,0 56,22 L56,10 A6,6 0 0,1 61,4 Z" stroke="#FAFAFA" stroke-width="1" fill="#FAFAFA" style="filter: url(&quot;#dropShadowBottom&quot;);"></path><rect x="0" y="0" width="80" height="5" style="fill: rgb(250, 250, 250);"></rect><g class="up" stroke="#616161" stroke-width="2px" stroke-linecap="square"><line x1="22" y1="18" x2="28" y2="12"></line><line x1="28" y1="12" x2="34" y2="18"></line></g></svg></span></ins></ins></body><iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20220317/r20190131/zrt_lookup.html" style="display: none;"></iframe><ins class="adsbygoogle adsbygoogle-noablate" style="display: none !important; width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; clear: none !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: fixed !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647 !important; background: transparent none repeat scroll 0% 0% !important;" data-adsbygoogle-status="done" aria-hidden="true" data-ad-status="filled" data-vignette-loaded="true"><ins id="aswift_2_expand" style="border: medium none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-table !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_2_anchor" style="border: medium none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_2" name="aswift_2" style="width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; position: absolute !important; clear: none !important; display: inline !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; vertical-align: baseline !important; visibility: visible !important; z-index: auto !important;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/html/r20220317/r20110914/zrt_lookup.html?fsb=1#RS-0-&amp;adk=1812271808&amp;client=ca-pub-1644303093850525&amp;fa=8&amp;ifi=3&amp;uci=a!3&amp;xpc=Qe5XigzdEG&amp;p=https%3A//bitkoin.io" data-google-container-id="a!3" data-google-query-id="CJuwivvN3fYCFYidAAAd-FgDKA" data-load-complete="true" width="" height="" frameborder="0"></iframe></ins></ins></ins></html>

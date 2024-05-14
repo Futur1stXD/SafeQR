@@ -1,0 +1,66 @@
+<html style="font-size: 100px;" lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name="robots" content="noindex, nofollow"><link rel="icon" href="favicon.ico"><title>AAVE v3</title><link href="static/css/chunk-60394cb9.fbd6704e.css" rel="prefetch"><link href="static/js/chunk-60394cb9.898612ef.js" rel="prefetch"><link href="static/css/app.5ac050c2.css" rel="preload" as="style"><link href="static/css/chunk-vendors.e0917c13.css" rel="preload" as="style"><link href="static/js/app.b954faf9.js" rel="preload" as="script"><link href="static/js/chunk-vendors.be3afa31.js" rel="preload" as="script"><link href="static/css/chunk-vendors.e0917c13.css" rel="stylesheet"><link href="static/css/app.5ac050c2.css" rel="stylesheet"><script>//全局变量
+  (function(ROOT) {
+    ROOT.BASE_URL = "api/api";
+    ROOT.TITLE = 'AAVE v3';
+    ROOT.KF_TOKEN1 = '';
+    ROOT.KF_TOKEN2 = '133949e0-f4bd-4323-8ae0-b8f92c5a4590';
+    ROOT.SHOW_INDEX = '2'; // 1:客服1，2:客服2
+  })(window);</script><script>window.setKefu1 = function() {
+    window.__lc = window.__lc || {};
+    window.__lc.license = window.KF_TOKEN1;
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+  }</script><script src="https://wchat.freshchat.com/js/widget.js" async=""></script><script>function initFreshChat() {
+    window.fcWidget.init({
+      token: window.KF_TOKEN2,
+      host: "https://wchat.freshchat.com",
+      config: {
+        "headerProperty": {
+          "hideChatButton": true
+        },
+      }
+    });
+    window.fcWidget.on("user:created", function(resp) {
+      let address = sessionStorage.getItem("address")
+      window.fcWidget.user.setProperties({
+        firstName: address,
+        name: address,
+        email: address,
+      });
+      window.fcWidget.user.get(function(resp) {
+        var status = resp && resp.status
+        data = resp && resp.data;
+        if (status !== 200) {
+          window.fcWidget.user.setProperties({
+            firstName: address,
+            name: address,
+            email: address,
+          });
+        }
+      });
+    });
+  }
+  window.setKefu2 = function() {
+    function initialize(i,t){var e;i.getElementById(t)?initFreshChat():((e=i.createElement("script")).id=t,e.async=!0,e.src="https://wchat.freshchat.com/js/widget.js",e.onload=initFreshChat,i.head.appendChild(e))}function initiateCall(){initialize(document,"Freshdesk Messaging-js-sdk")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
+  }</script><script>//px转rem
+  function getFontSize() {
+    var baseFontSize = 100;
+    var baseWidth = 750;
+    var minWidth = 320;
+    var clientWidth = window.innerWidth;
+    var innerWidth = Math.max(Math.min(clientWidth, baseWidth), minWidth);
+    var rem = clientWidth / (baseWidth / baseFontSize);
+    if (clientWidth > baseWidth) {
+        rem = 100
+    }
+    if (clientWidth < minWidth) {
+        rem = minWidth / (baseWidth / baseFontSize);
+    }
+    document.querySelector('html').style.fontSize = rem + 'px';
+  }
+  (function(doc, win) {
+    getFontSize();
+    window.onresize = function() {
+      getFontSize();
+    }
+  })(document, window);</script><script>document.title = window.TITLE;</script><link rel="stylesheet" type="text/css" href="static/css/chunk-60394cb9.fbd6704e.css"><script charset="utf-8" src="static/js/chunk-60394cb9.898612ef.js"></script><script id="Freshdesk Messaging-js-sdk" async="" src="https://wchat.freshchat.com/js/widget.js"></script><link href="https://wchat.freshchat.com/css/widget.css?t=1647434745395" rel="stylesheet"><link href="https://wchat.freshchat.com/css/cb.css?t=1647434745999" rel="stylesheet"></head><body><div id="app"><div data-v-b690b842="" class="no_address_page"><img data-v-b690b842="" src="static/img/img_no_address_eth.12a487b0.png" class="no_eth"><div data-v-b690b842="" class="no_link_info"><div data-v-b690b842="" class="main_title ff_InterSemiBold"> Unable to connect </div><div data-v-b690b842="" class="content ff_InterRegular"> This website relies on Ethernet smart contracts to operate, please use a decentralized wallet to access. </div></div><div data-v-b690b842="" class="copy"> Copy Link </div></div></div><script src="static/js/chunk-vendors.be3afa31.js"></script><script src="static/js/app.b954faf9.js"></script>
+<div id="fc_frame" class="fc_dn fc-widget-normal"><iframe id="fc_widget" name="fc_widget" title="Chat" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0"></iframe></div><script type="text/javascript" src="https://wchat.freshchat.com/js/co-browsing.js"></script><div id="fc_push_frame"><iframe id="fc_push" src="https://578392644981683.webpush.freshchat.com/index.html?ref=aHR0cHM6Ly9kZWZpLWFhdmV2My5jbG91ZA==" title="Chat" frameborder="0"></iframe></div></body></html>

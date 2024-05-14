@@ -1,0 +1,308 @@
+<html prefix="og: http://ogp.me/ns#" lang="en"><head>
+  <meta charset="UTF-8">
+<script src="https://js-agent.newrelic.com/nr-1215.min.js"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"844a840367","applicationID":"13323906","transactionName":"c1cMREAKXVRcRhpCVlxbDV1XSlhWXVFN","queueTime":2,"applicationTime":19,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).init={ajax:{deny_list:["bam.nr-data.net"]}};(window.NREUM||(NREUM={})).loader_config={licenseKey:"844a840367",applicationID:"13323906"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(){}function i(t,e,n,r){return function(){return s.recordSupportability("API/"+e+"/called"),o(t+e,[u.now()].concat(c(arguments)),n?null:this,r),n?void 0:this}}var o=t("handle"),a=t(10),c=t(11),f=t("ee").get("tracer"),u=t("loader"),s=t(4),d=NREUM;"undefined"==typeof window.newrelic&&(newrelic=d);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",v=l+"ixn-";a(p,function(t,e){d[e]=i(l,e,!0,"api")}),d.addPageAction=i(l,"addPageAction",!0),d.setCurrentRouteName=i(l,"routeName",!0),e.exports=newrelic,d.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(v+"tracer",[u.now(),t,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw f.emit("fn-err",[arguments,this,t],n),t}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=i(v,e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),s.recordSupportability("API/noticeError/called"),o("err",[t,u.now(),!1,e])}},{}],2:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],3:[function(t,e,n){var r=!1;try{var i=Object.defineProperty({},"passive",{get:function(){r=!0}});window.addEventListener("testPassive",null,i),window.removeEventListener("testPassive",null,i)}catch(o){}e.exports=function(t){return r?{passive:!0,capture:!!t}:!!t}},{}],4:[function(t,e,n){function r(t,e){var n=[a,t,{name:t},e];return o("storeMetric",n,null,"api"),n}function i(t,e){var n=[c,t,{name:t},e];return o("storeEventMetrics",n,null,"api"),n}var o=t("handle"),a="sm",c="cm";e.exports={constants:{SUPPORTABILITY_METRIC:a,CUSTOM_METRIC:c},recordSupportability:r,recordCustom:i}},{}],5:[function(t,e,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=t(12);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],6:[function(t,e,n){function r(t){return!(!t||!t.protocol||"file:"===t.protocol)}e.exports=r},{}],7:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?l("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&l("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();if(n.length>0){var r=n[n.length-1];if(u&&u<r.startTime)return;var i=[r],o=a({});o&&i.push(o),l("lcp",i)}}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||l("cls",[t])})}function a(t){var e=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(e)return e.type&&(t["net-type"]=e.type),e.effectiveType&&(t["net-etype"]=e.effectiveType),e.rtt&&(t["net-rtt"]=e.rtt),e.downlink&&(t["net-dlink"]=e.downlink),t}function c(t){if(t instanceof y&&!w){var e=Math.round(t.timeStamp),n={type:t.type};a(n),e<=v.now()?n.fid=v.now()-e:e>v.offset&&e<=Date.now()?(e-=v.offset,n.fid=v.now()-e):e=v.now(),w=!0,l("timing",["fi",e,n])}}function f(t){"hidden"===t&&(u=v.now(),l("pageHide",[u]))}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var u,s,d,p,l=t("handle"),v=t("loader"),m=t(9),g=t(3),y=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){s=new PerformanceObserver(r);try{s.observe({entryTypes:["paint"]})}catch(h){}d=new PerformanceObserver(i);try{d.observe({entryTypes:["largest-contentful-paint"]})}catch(h){}p=new PerformanceObserver(o);try{p.observe({type:"layout-shift",buffered:!0})}catch(h){}}if("addEventListener"in document){var w=!1,b=["click","keydown","mousedown","pointerdown","touchstart"];b.forEach(function(t){document.addEventListener(t,c,g(!1))})}m(f)}},{}],8:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}e.exports={agent:i,version:o,match:r}},{}],9:[function(t,e,n){function r(t){function e(){t(c&&document[c]?document[c]:document[o]?"hidden":"visible")}"addEventListener"in document&&a&&document.addEventListener(a,e,i(!1))}var i=t(3);e.exports=r;var o,a,c;"undefined"!=typeof document.hidden?(o="hidden",a="visibilitychange",c="visibilityState"):"undefined"!=typeof document.msHidden?(o="msHidden",a="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(o="webkitHidden",a="webkitvisibilitychange",c="webkitVisibilityState")},{}],10:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],11:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],12:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?u(t,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){t&&a&&t(n,r,i);for(var c=e(i),f=m(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[w[n]];return p&&p.push([b,n,r,c]),c}}function o(t,e){h[t]=m(t).concat(e)}function v(t,e){var n=h[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return h[t]||[]}function g(t){return p[t]=p[t]||i(n)}function y(t,e){l.aborted||s(t,function(t,n){e=e||"feature",w[n]=e,e in d||(d[e]=[])})}var h={},w={},b={on:o,addEventListener:o,removeEventListener:v,emit:n,get:g,listeners:m,context:e,buffer:y,abort:c,aborted:!1};return b}function o(t){return u(t,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=t("gos"),s=t(10),d={},p={},l=e.exports=i();e.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!P++){var t=M.info=NREUM.info,e=g.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();f(O,function(e,n){t[e]||(t[e]=n)});var n=a();c("mark",["onload",n+M.offset],null,"api"),c("timing",["load",n]);var r=g.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=v+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===g.readyState&&o()}function o(){c("mark",["domContent",a()+M.offset],null,"api")}var a=t(5),c=t("handle"),f=t(10),u=t("ee"),s=t(8),d=t(6),p=t(2),l=t(3),v=p.getConfiguration("ssl")===!1?"http":"https",m=window,g=m.document,y="addEventListener",h="attachEvent",w=m.XMLHttpRequest,b=w&&w.prototype,E=!d(m.location);NREUM.o={ST:setTimeout,SI:m.setImmediate,CT:clearTimeout,XHR:w,REQ:m.Request,EV:m.Event,PR:m.Promise,MO:m.MutationObserver};var x=""+location,O={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1215.min.js"},T=w&&b&&b[y]&&!/CriOS/.test(navigator.userAgent),M=e.exports={offset:a.getLastTimestamp(),now:a,origin:x,features:{},xhrWrappable:T,userAgent:s,disabled:E};if(!E){t(1),t(7),g[y]?(g[y]("DOMContentLoaded",o,l(!1)),m[y]("load",r,l(!1))):(g[h]("onreadystatechange",i),m[h]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var P=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],t)}c(n+"start",[o,a,f],s,u);try{return p=e.apply(a,o)}catch(v){throw c(n+"err",[o,a,v],s,u),v}finally{c(n+"end",[o,a,p],s,u)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<e.length;u++)f=e[u],c=t[f],a(c)||(t[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!v||e){var c=v;v=!0;try{t.emit(n,r,o,e,a)}catch(f){i([f,n,r,o],t)}v=c}}return t||(t=s),n.inPlace=r,n.flag=p,n}function i(t,e){e||(e=s);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function c(t,e){var n=e(t);return n[p]=t,o(t,n,s),n}function f(t,e,n){var r=t[e];t[e]=c(r,n)}function u(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var s=t("ee"),d=t(11),p="nr@original",l=Object.prototype.hasOwnProperty,v=!1;e.exports=r,e.exports.wrapFunction=c,e.exports.wrapInPlace=f,e.exports.argsToArray=u},{}]},{},["loader"]);</script>
+  <title>Atom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" media="all" href="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/application-fdd7f7650d8faa2d8ab54247e8408a2793f8123feccb414c159dbc4f0af7987f.css" data-turbolinks-track="true">
+  <script src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/application-df4a23a8a3624a91d7e68c86a8999ec8742ac4a8afd3eddaee8fc2f99e8e9cd5.js" data-turbolinks-track="true"></script>
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="Bsl4gyNEXmHJaa+Q1ZrEn+lZWAk38dxDG+0BytxyIKgb6Vb7O534NLPmXjCS6RwMp5XSWWR4oE/28WDtj2XlDQ==">
+  <meta property="og:url" content="https://atom.io/">
+<meta property="og:site_name" content="Atom">
+<meta property="og:title" content="A hackable text editor for the 21st Century">
+<meta property="og:description" content="At GitHub, we’re building the text editor we’ve always wanted: hackable to the core, but approachable on the first day without ever touching a config file. We can’t wait to see what you build with it.">
+<meta property="og:type" content="website">
+<meta property="og:author" content="https://www.facebook.com/GitHub">
+  <meta property="og:image" content="http://og.github.com/atom-mark/atom-mark@1200x630.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:site" content="@AtomEditor">
+<meta property="twitter:creator" content="@github">
+<meta property="twitter:title" content="Atom">
+<meta property="twitter:description" content="A hackable text editor for the 21st Century">
+  <meta property="twitter:image:src" content="http://og.github.com/atom-logo/atom-logo@1200x630.png">
+  <meta property="twitter:image:width" content="1200">
+  <meta property="twitter:image:height" content="630">
+
+  <meta name="description" content="At GitHub, we’re building the text editor we’ve always wanted: hackable to the core, but approachable on the first day without ever touching a config file. We can’t wait to see what you build with it.">
+<meta name="google-site-verification" content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY">
+
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="Atom Packages and Themes" href="https://atom.io/packages.atom">
+</head>
+<body class="is-responsive">
+
+  
+
+  <div class="footer-push">
+    <nav class="top-bar" aria-label="Primary">
+  <div class="wrapper no-pad">
+
+    <ul class="navigation">
+      
+      <li><a class="" href="/packages">Packages</a></li>
+      <li><a class="" href="/themes">Themes</a></li>
+      <li><a class="" href="/docs">Documentation</a></li>
+      <li><a href="https://blog.atom.io">Blog</a></li>
+      <li><a href="https://github.com/atom/atom/discussions">Discussions</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+        <a href="/login?last_url=%2F">
+          <span class="octicon octicon-log-in"></span> Sign in
+        </a>
+    </div>
+  </div>
+</nav>
+
+
+    <div id="js-pjax-container">
+      
+<div class="welcome">
+
+  <section class="section section--hero">
+  <div class="wrapper">
+
+    <header class="hero-header">
+      <div class="hero-header-item hero-logo" aria-hidden="true">
+        <div class="hero-logo-circles">
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-red-semi-5aec49dbe5d420f928cece7001b96267ee17a9d3577374b68b4fba47c547bd75.svg">
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-red-2f7737b286dff1537adff47b8201aa43e33cbe1e47bd528ca2189809917fe132.svg">
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-orange-semi-d9d13d5529ae8f3c91dc80b182cf14fc629118bbdac8851b36e102dd15652557.svg">
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-orange-235189ed438049f084ca873f6ed2055c4127ddef84a55fa464053f34c10157e6.svg">
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-yellow-semi-af7a94ccf4768a81e6692d808f00e33ac88d9110f842d02c5ab211577686301a.svg">
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-yellow-bf8ec5927e343b3a804448d37a799c9c346af320f30b3cdc019297938fe00300.svg">
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-green-semi-6b12059c6aea11bf60e8f3c89afdffb6b817913541a1ce72cbca29f733224984.svg">
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-green-8a75a5e7cc4f8426a47f5ebfe2459283d3554cfdcf8dc5f492fda0b26d2d6d79.svg">
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-blue-semi-930c6662236ab84933e73083bc057b869b895bd36cef9e3e5254018fb61bc82a.svg">
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-blue-50996d0762fb6d9ee13d6a52404dd01327fc542cc729777d532c9b633103c835.svg">
+        </div>
+      </div>
+      <ul class="hero-header-item hero-download">
+  <li>
+    <img class="logo-wordmark" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-atom-wordmark-6d36b9d0e4877d895e92cbe7b5347d24dd34cc3d68ae0248ab315c2993a187b2.svg">
+  </li>
+  <li>
+    <span class="version">1.60.0</span>
+    <a href="/releases">Release notes</a>
+  </li>
+
+
+    <li>
+      <span class="platform">Windows</span>
+      <span class="support">For 64-bit Windows 7 or later</span>
+    </li>
+    <li>
+      <a href="/download/windows_x64" class="welcome-button js-download-button"> <span class="octicon octicon-move-down"></span>Download</a>
+    </li>
+
+
+</ul>
+
+<p class="hero-meta">
+  <span class="hero-tos">
+    By downloading, you agree to the <a href="https://docs.github.com/en/github/site-policy/github-open-source-applications-terms-and-conditions">Terms and Conditions</a>.
+  </span>
+  <a href="https://github.com/atom/atom/releases/latest">Other platforms</a>
+  <a href="/beta">Try Atom Beta</a>
+  <a href="/nightly">Try Atom Nightly</a>
+</p>
+
+    </header>
+
+    <div class="hero-features">
+      <h1 class="hero-tagline">A hackable <span class="hero-tagline-highlight">text editor</span> for the 21st Century</h1>
+    </div>
+
+    <img class="hero-octonaut" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-octonaut-8ece2623b8966578e2414c89b7b7190cb56339d1f8b7d260adf62110ce9f39c4.svg">
+
+  </div>
+</section>
+
+
+  <section id="teletype" class="section section--realtime">
+  <div class="wrapper">
+
+    <h3>Teletype for Atom</h3>
+
+    <p>Great things happen when developers work together—from teaching and sharing knowledge to building better software. Teletype for Atom makes collaborating on code just as easy as it is to code alone, right from your editor.</p>
+
+    <div class="welcome-bgs">
+      <img class="welcome-bg welcome-bg--screenshot" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-teletype-screenshot-1de356892e9bab0f5a1e95b4a003dfecaab0d9e67a91fd60b63006a32f147db0.png">
+    </div>
+
+    <p>Share your workspace and edit code together in real time. To start collaborating, <a href="atom://settings-view/show-package?package=teletype">open Teletype in Atom</a> and install the package.</p>
+
+    <p class="welcome-cta">
+      <a href="https://teletype.atom.io" class="welcome-button">Learn more</a>
+    </p>
+
+  </div>
+</section>
+
+  <section id="github" class="section section--github">
+  <div class="wrapper">
+
+    <h3>GitHub for Atom</h3>
+
+    <p>A text editor is at the core of a developer’s toolbox, but it doesn't usually work alone. Work with Git and GitHub directly from Atom with the GitHub package.</p>
+
+    <div class="welcome-bgs">
+      <img class="welcome-bg welcome-bg--screenshot" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-github-screenshot-5ef20a84a038d3d368001d2e661ca84fad58f7de9e08e9a46189ddcc2a55f993.png">
+    </div>
+
+    <p>Create new branches, stage and commit, push and pull, resolve merge conflicts, view pull requests and more—all from within your editor. The GitHub package is already bundled with Atom, so you're ready to go!</p>
+
+    <p class="welcome-cta">
+      <a href="https://github.atom.io" class="welcome-button">Learn more</a>
+    </p>
+
+  </div>
+</section>
+
+
+  <section class="section section--features">
+  <div class="wrapper no-pad">
+
+    <h3>Everything you would expect</h3>
+
+    <div class="features">
+
+      <div class="features-item">
+        <span class="mega-octicon octicon-device-desktop"></span>
+        <h4>Cross-platform editing</h4>
+        <p>Atom works across operating systems. Use it on OS X, Windows, or Linux.</p>
+      </div>
+      <div class="features-item">
+        <span class="mega-octicon octicon-package"></span>
+        <h4>Built-in package manager</h4>
+        <p>Search for and install new packages or create your own right from Atom.</p>
+      </div>
+      <div class="features-item">
+        <span class="mega-octicon octicon-light-bulb"></span>
+        <h4>Smart autocompletion</h4>
+        <p>Atom helps you write code faster with a smart and flexible autocomplete.</p>
+      </div>
+      <div class="features-item">
+        <span class="mega-octicon octicon-file-code"></span>
+        <h4>File system browser</h4>
+        <p>Easily browse and open a single file, a whole project, or multiple projects in one window.</p>
+      </div>
+      <div class="features-item">
+        <span class="mega-octicon octicon-mirror"></span>
+        <h4>Multiple panes</h4>
+        <p>Split your Atom interface into multiple panes to compare and edit code across files.</p>
+      </div>
+      <div class="features-item">
+        <span class="mega-octicon octicon-search"></span>
+        <h4>Find and replace</h4>
+        <p>Find, preview, and replace text as you type in a file or across all your projects.</p>
+      </div>
+
+    </div>
+
+
+    <h3>Make it your editor</h3>
+
+    <div class="features">
+
+      <div class="features-item">
+        <span class="mega-octicon octicon-package"></span>
+        <h4>Packages</h4>
+        <p>Choose from thousands of <a href="https://atom.io/packages">open source packages</a> that add new features and functionality to Atom, or build a package from scratch and publish it for everyone else to use.</p>
+      </div>
+      <div class="features-item">
+        <span class="mega-octicon octicon-paintcan"></span>
+        <h4>Themes</h4>
+        <p>Atom comes pre-installed with four UI and eight syntax <a href="https://atom.io/themes">themes</a> in both dark and light colors. Can't find what you're looking for? Install themes created by the Atom community or create your own.</p>
+      </div>
+      <div class="features-item">
+        <span class="mega-octicon octicon-tools"></span>
+        <h4>Customization</h4>
+        <p>It's easy to customize and style Atom. Tweak the look and feel of your UI with CSS/Less, and add major features with HTML and JavaScript.</p>
+        <p><br><a href="https://www.youtube.com/watch?v=U5POoGSrtGg" target="_blank">See how to set up Atom</a></p>
+      </div>
+      <div class="features-item">
+        <span class="mega-octicon octicon-code"></span>
+        <h4>Under the hood</h4>
+        <p>Atom is a desktop application built with HTML, JavaScript, CSS, and Node.js integration. It runs on <a href="https://electronjs.org">Electron</a>, a framework for building cross platform apps using web technologies.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+  <section class="section section--contact">
+  <a name="contact"></a>
+  <div class="wrapper no-pad">
+    <div class="columns">
+
+      <div class="column">
+        <h3>Open source</h3>
+        <p>Atom is open source. Be part of the Atom community or help improve your favorite text editor.</p>
+        <p class="welcome-cta">
+          <a href="https://github.com/atom/atom" class="welcome-button">Fork on GitHub</a>
+        </p>
+      </div>
+
+      <div class="column">
+        <h3>Keep in touch</h3>
+        <table class="welcome-contact-table">
+          <tbody>
+            <tr><td>GitHub</td><td><a href="https://github.com/atom">github.com/atom</a></td></tr>
+            <tr><td>Twitter</td><td><a href="https://twitter.com/atomeditor">@AtomEditor</a></td></tr>
+            <tr><td>Discussions</td><td><a href="https://github.com/atom/atom/discussions">Github Discussions</a></td></tr>
+            <tr><td>Stuff</td><td><a href="https://github.myshopify.com/search?q=atom">Atom Gear</a></td></tr>
+            <tr><td>RSS Feed</td><td><a href="https://atom.io/packages.atom">Packages &amp; Themes</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Twitter analytics -->
+  <script src="https://platform.twitter.com/oct.js" type="text/javascript"></script>
+  <script type="text/javascript">twttr.conversion.trackPid('l6c37', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
+  <noscript>
+    <img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=l6c37&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+    <img height="1" width="1" style="display:none;" alt="" src="https://t.co/i/adsct?txn_id=l6c37&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+  </noscript>
+</section>
+
+
+</div>
+
+    </div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper no-pad">
+      <ul class="footer-left">
+        <li><a href="https://docs.github.com/en/github/site-policy/github-open-source-applications-terms-and-conditions">Terms of Use</a></li>
+        <li><a href="https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement">Privacy</a></li>
+        <li><a href="https://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+        <li><a href="/releases">Releases</a></li>
+        <li><a href="https://flight-manual.atom.io/faq/">FAQ</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<div id="lean_overlay"></div><div id="lean_overlay"></div><div id="lean_overlay"></div></body></html>

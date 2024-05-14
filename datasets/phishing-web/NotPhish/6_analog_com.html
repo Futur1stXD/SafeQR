@@ -1,0 +1,2103 @@
+<html class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en"><!--<![endif]--><!-- 410d675e-5702-4534-8c40-3ac403053bb3|p|w --><head>
+
+
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="follow, index">
+    <title>Mixed-signal and digital signal processing ICs | Analog Devices</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Analog Devices is a global leader in the design and manufacturing of analog, mixed signal, and DSP integrated circuits to help solve the toughest engineering challenges.">
+    <meta name="viewport" id="adiviewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="analog devices, adi, digital signal processing, analog, dsp integrated circuits">
+    <meta name="breadcrumb" content="Home">
+    <meta name="pageInfoType" content="Home">
+    <meta name="verify-v1" content="EH6D19wZGxG0dpmm3/iUbsWFvGU/hZp9p5Vs5UuoIXI=">
+    <meta name="y_key" content="fdd5bc59ae0e6340">
+    <meta name="msvalidate.01" content="739DEB4E2F14C3A552E581E88FA542AC">
+    <meta name="baidu-site-verification" content="cSddD8r1N7">
+    <meta name="yandex-verification" content="86a60d9bcaab43f0">
+    <meta name="google-site-verification" content="aVOSmh5Dsd1VpzYMM3a_ZvOQcjP9G5GDlvU-atf48ss">
+        <link rel="canonical" href="https://www.analog.com/en/index.html">
+                <link rel="alternate" hreflang="x-default" href="https://www.analog.com/en/index.html">
+                <link rel="alternate" hreflang="zh-Hans-CN" href="https://www.analog.com/cn/index.html">
+                <link rel="alternate" hreflang="ja-JP" href="https://www.analog.com/jp/index.html">
+                <link rel="alternate" hreflang="ru-RU" href="https://www.analog.com/ru/index.html">
+
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    
+
+
+<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:400,400i,500,500i,600,600i,700,700i|Barlow:300,300i,400,400i,500,500i,600,600i,700,700i&amp;display=swap" rel="stylesheet">
+<link href="https://assets.analog.com/css/bootstrap.css" rel="stylesheet" media="all">
+<link href="https://assets.analog.com/css/vendor.css" rel="stylesheet" media="all">
+<link href="https://assets.analog.com/css/global.css" rel="stylesheet" media="all">
+<link href="https://assets.analog.com/css/print.css" rel="stylesheet" media="print">
+    <link href="https://assets.analog.com/lib/css/components.css" rel="stylesheet">
+
+    <script async="" id="demandbase_js_lib" src="https://tag.demandbase.com/cae72688.min.js"></script><script>
+        var isForceDesktopCookie = (document.cookie.indexOf("forcedesktopview") > -1) ? document.cookie.substring(document.cookie.indexOf("forcedesktopview"),
+            (document.cookie.indexOf(";", document.cookie.indexOf("forcedesktopview")) > -1) ?
+                document.cookie.indexOf(";", document.cookie.indexOf("forcedesktopview")) : document.cookie.length) : "";
+
+        isForceDesktopCookie = (isForceDesktopCookie) ? isForceDesktopCookie.split("=")[1] : '';
+
+        if (isForceDesktopCookie) {
+            var mvp = document.getElementById('adiviewport');
+            mvp.setAttribute('content', 'width=1024');
+        }
+    </script>
+
+
+<script src="https://assets.analog.com/js/adi/modernizr.js" type="text/javascript"></script>
+
+            <link href="https://assets.analog.com/lib/css/home.css" rel="stylesheet">
+
+
+
+    <script src="https://assets.analog.com/js/adi/vendor.js" type="text/javascript"></script>
+
+    <script src="/lib/scripts/reactScript/client.min.js"></script>
+
+
+<style type="text/css">@media all and (max-width: 767px){ .tools-header .logomenu .iconbar:hover{background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;} .tools-header .logomenu .iconbar:hover .iconbar-icon{ background-position: -10px -40px;} .tools-header .logomenu .iconbar:hover .submenu{display:none}}</style><style type="text/css">@media all and (max-width: 767px){ .tools-header .logomenu .iconbar:hover{background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;} .tools-header .logomenu .iconbar:hover .iconbar-icon{ background-position: -10px -40px;} .tools-header .logomenu .iconbar:hover .submenu{display:none}}</style><script src="https://assets.adobedtm.com/bc68b7886092/2a726ea8b70d/cf83669f1093/EX0a91929e8b66476c8f4b32905f4a8060-libraryCode_source.min.js" async=""></script><script src="https://assets.adobedtm.com/bc68b7886092/2a726ea8b70d/cf83669f1093/RC512caec8471a41f080c85be91ce4a587-source.min.js" async=""></script><script src="https://assets.adobedtm.com/bc68b7886092/2a726ea8b70d/cf83669f1093/RC95b8862edbfb4541b0d644a79ffd397d-source.min.js" async=""></script><script src="//api.demandbase.com/api/v2/ip.json?key=cc85c8e1e8cd95682aade667a12c7f0e&amp;callback=dbP.demandbaseParse"></script></head>
+<body class="large-container home modal-open" data-adi-spy="scroll" style="padding-right: 17px;"><div id="cookie-consent-container" class="modal fade in" role="dialog" data-id="gdpr-consent" style="display: block; padding-right: 17px;"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title"><img src="https://assets.analog.com/images/en/ADI_Logo_AWP.png" alt="ADI" loading="lazy"> Analog Devices Uses Cookies for Enhanced Online Performance </h4></div><div class="modal-body"><div class="short-description"><p> Some cookies are required for secure log-ins but others are optional for functional activities. Our data collection is used to improve our products and services. We recommend you accept our cookies to ensure you’re receiving the best performance and functionality our site can provide. For additional information you may view the <a href="#" data-id="cookie-details">cookie details</a>. Read more about our <a href="https://www.analog.com/en/about-adi/landing-pages/001/privacy_security_statement.html#cookies">privacy policy</a>. </p><a href="#" class="btn btn-success" data-id="consent"><em class="fa fa-check"></em> Accept and proceed </a></div><div class="long-description"><a href="#" class="btn btn-success" data-id="consent"><i class="fa fa-check"></i> Accept and proceed </a><p>The cookies we use can be categorized as follows:</p><dl><dt>Strictly Necessary Cookies:</dt><dd> These are cookies that are required for the operation of analog.com or specific functionality offered. They either serve the sole purpose of carrying out network transmissions or are strictly necessary to provide an online service explicitly requested by you. </dd><dt>Analytics/Performance Cookies:</dt><dd> These cookies allow us to carry out web analytics or other forms of audience measuring such as recognizing and counting the number of visitors and seeing how visitors move around our website. This helps us to improve the way the website works, for example, by ensuring that users are easily finding what they are looking for. </dd><dt>Functionality Cookies:</dt><dd> These cookies are used to recognize you when you return to our website. This enables us to personalize our content for you, greet you by name and remember your preferences (for example, your choice of language or region). Loss of the information in these cookies may make our services less functional, but would not prevent the website from working. </dd><dt>Targeting/Profiling Cookies:</dt><dd> These cookies record your visit to our website and/or your use of the services, the pages you have visited and the links you have followed. We will use this information to make the website and the advertising displayed on it more relevant to your interests. We may also share this information with third parties for this purpose. </dd></dl><a href="#" class="btn btn-link" data-id="decline">Decline cookies</a></div></div></div></div></div>
+
+        <ol class="list-inline nbm hide">
+
+        </ol>
+
+
+    
+ <header class="common" data-isnoncore="False"><div class="ie_support_alert"><div class="ie_support_alert_content"><span>Attention Internet Explorer users:</span> Analog.com no longer supports IE 11. Please update your browser to ensure the best performance on analog.com </div></div><div class="saveToMyAnalog visible-xs"><button id="myAnalogWidgetBtn" class="widget-Btn" name="myAnalog"><img class="add-plus" src="https://assets.analog.com/images/myAnalog/add.svg" alt="add" loading="lazy"><!-- <img class="add-check" src="" alt="added" /> --><img class="myAnalog-saveTo" src="https://assets.analog.com/images/myAnalog/myAnalog-logo.svg" alt="myAnalog" loading="lazy"></button></div><nav class="navbar navbar-default"><div class="container"><div class="navbar-collapse collapse"><ul class="site-family nav nav-bar-nav"><li><a class="AnD-link" href="https://www.analog.com/en/analog-dialogue.html" target=""><strong>Analog</strong>Dialogue </a></li><li><a class="ez-link" href="https://ez.analog.com" target=""><strong>Engineer</strong>Zone </a></li><li class="last"><a class="wiki-link" href="https://wiki.analog.com/" target=""><strong>Wiki</strong></a></li></ul><ul class="regional nav nav-bar-nav navbar-right"><li><a href="https://shoppingcart.analog.com/ShoppingCartPage.aspx" target="" title="Cart" class="cart" name="Cart_8697d4f3-2cf9-4e3a-8fee-f7b834be2f9f"><strong></strong></a></li><li class="insert-language js-insert-language">
+                    <a href="#" data-toggle="dropdown" name="Region_7fe452b3-5379-47e8-aa31-5b3ddffd9ec6">
+
+                        <span data-toggle="dropdown" class="region"></span>
+                        <span class="arrow-down-transparent"></span>
+                    </a>
+
+        <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <ul>
+                <li><strong>Region</strong></li>
+                                <li>
+                        <a tabindex="-1" href="https://www.analog.com/en/landing-pages/001/india-welcome.html" target="" title="" name="India_d28fd230-86d1-43a5-a921-270db9a11aef">India</a>
+                    </li>
+                    <li>
+                        <a tabindex="-1" href="https://www.analog.com/en/landing-pages/001/korea-welcome.html" target="" title="" name="Korea_154f8b08-52bc-4468-a8e2-90eae4f85b44">Korea</a>
+                    </li>
+                    <li>
+                        <a tabindex="-1" href="https://www.analog.com/en/landing-pages/001/singapore-welcome.html" target="" title="" name="Singapore_13a09ebe-e404-43e9-a609-c21f2b2da0a9">Singapore</a>
+                    </li>
+                    <li>
+                        <a tabindex="-1" href="https://www.analog.com/en/landing-pages/001/taiwan-welcome.html" target="" title="" name="Taiwan_3146147e-7236-4692-b1a8-18240f3e01e0">Taiwan</a>
+                    </li>
+
+        </ul>
+        <ul class="setLang">
+                    <li>
+                        <strong>Languages</strong>
+                    </li>
+                                    <li>
+                                            <a tabindex="-1" href="https://www.analog.com/en/index.html" title="English" name="English_e33369c5-cf6f-415c-a408-fcf42c2a6c19"><strong>English</strong></a>
+                                        </li>
+                                    <li>
+                                            <a tabindex="-1" href="https://www.analog.com/cn/index.html" title="简体中文" name="Chinese_42e59427-ab8e-4088-8e78-b229a94f639d">简体中文</a>
+                                    </li>
+                                    <li>
+                                            <a tabindex="-1" href="https://www.analog.com/jp/index.html" title="日本語" name="Japanese_36645878-0d31-42ed-80fd-4101c6c03573">日本語</a>
+                                    </li>
+                                    <li>
+                                            <a tabindex="-1" href="https://www.analog.com/ru/index.html" title="Руccкий" name="Russian_c5a43e16-297b-4109-938d-6fd2c28e272b">Руccкий</a>
+                                    </li>
+
+        </ul>
+
+        </div>
+
+
+
+            </li><li><a href="https://careers.analog.com" target="" title="" class="" name="Careers_1ce06318-42f2-415b-9698-8e2c40f8adec"><strong><strong>Careers</strong></strong></a></li></ul></div></div></nav></header><header id="header" data-assets-path="https://assets.analog.com"><script> var megaMenuData = {"Company":{"linkUrl":"/company","label":"Company","order":1,"qaElement":"link_company"},"MyAnalog":{"linkUrl":"/MyAnalog","label":"MyAnalog","order":2,"qaElement":"link_myAnalog"},"Products":{"linkUrl":"/product-category","label":"Products","order":3,"qaElement":"link_products"},"Applications":{"linkUrl":"/applications","label":"Applications","order":4,"qaElement":"link_applications"},"Design Center":{"linkUrl":"/design-center","label":"Design Center","order":5,"qaElement":"link_designcenter"},"Education":{"linkUrl":"/education","label":"Education","order":6,"qaElement":"link_education"},"Support":{"linkUrl":"/support","label":"Support","order":7,"qaElement":"link_support"}}; </script><div class="col-md-12 ie-support"><div><span class="support-desc">Browser Compatibility Issue: We no longer support this version of Internet Explorer. For optimal site performance we recommend you update your browser to the latest version.</span><span class="update-ie-button"><a href="https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads" class="btn btn-primary anchor-class-ie">Update Microsoft Internet Explorer</a></span></div></div><nav class="navbar linkbar" role="navigation"><section class="masthead"><div class="container"><div class="row"><div class="col-md-3 col-sm-3" data-qa-widget="logo_navbar_analog"><a href="https://www.analog.com/en/index.html" class="home-link" data-qa-element="link_return_home"><img src="https://assets.analog.com/images/en/ADI_Logo_AWP.png" alt=""></a></div><div class="col-md-6 col-sm-6" data-qa-widget="div_global_search"><form method="get" action="https://www.analog.com/en/search.html" class="global-search" autocomplete="off"><label class="sr-only">Search</label><input type="text" autocomplete="off" id="text-global-search" class="text-global-search" name="q" placeholder="Search" data-qa-element="textarea_global_search"><div class="controls"><button type="reset" data-qa-element="button_clear_search" data-search="true" class="clear"><span class="sr-only">Clear</span><i class="fa fas fa-times"></i></button><button type="submit" data-qa-element="button_submit_search" data-search="true" class="searchIcon submit"><span class="sr-only">Search</span><i class="fa fa-search"></i></button></div><div class="helpful-links"><a href="https://www.analog.com/cpsearch/CrossReferenceSearch.aspx" data-search="true">Cross Reference Search</a></div><ul class="auto-complete"></ul></form></div></div></div></section></nav><section class="bottomnav mega-menu" data-domain="https://assets.analog.com/" data-adi-root="https://www.analog.com/" data-manifest="cdp/adicommon/versionconfig.json" data-fail="client/Home/GetNavigationContent?navigation={tab}&amp;languageCode={lang}" data-my-analog="https://my.analog.com/"><nav class="navbar"><div class="container primary"><ul class="nav navbar-nav"><li class="company"><a href="/company" data-qa-element="link_company" data-id="Company"><span>Company</span></a></li><li class="myanalog"><a href="/MyAnalog" data-qa-element="link_myAnalog" data-id="MyAnalog"><span>MyAnalog<img alt="" class="" src="https://assets.analog.com//images/myanalog/logo-wave-blue.svg" loading="lazy"></span></a></li><li class="products"><a href="/product-category" data-qa-element="link_products" data-id="Products"><span>Products</span></a></li><li class="applications"><a href="/applications" data-qa-element="link_applications" data-id="Applications"><span>Applications</span></a></li><li class="designcenter"><a href="/design-center" data-qa-element="link_designcenter" data-id="Design Center"><span>Design Center</span></a></li><li class="education"><a href="/education" data-qa-element="link_education" data-id="Education"><span>Education</span></a></li><li class="support"><a href="/support" data-qa-element="link_support" data-id="Support"><span>Support</span></a></li></ul></div></nav><div class="company menu content" role="navigation"><div class="emptybar"></div><div class="padded container"></div></div><div class="myAnalog menu content" role="navigation"><div class="emptybar"></div><div class="container"></div></div><div class="applications menu content" role="navigation"><div class="emptybar"></div><div class="padded container"></div></div><div class="education menu content" role="navigation"><div class="emptybar"></div><div class="padded container"></div></div><div class="designcenter menu content" role="navigation"><div class="emptybar"></div><div class=""></div></div><div class="support menu content" role="navigation"><div class="emptybar"></div><div class=""></div></div><div class="products menu content" role="navigation"></div></section><script type="text/x-handlebars-template" id="template__megamenu__company__column"><div class="company__nav"> {{#Links}} <div class="company__nav__parent"><div class="header3"><a href="{{ItemLink.Url}}" title={{{ItemLink.Title}}}>{{{ItemLink.Text}}}</a></div><ul class="company__nav__children"> {{#Children}} <li><a href="{{ItemLink.Url}}" title={{{ItemLink.Title}}}>{{{ItemLink.Text}}}</a></li> {{/Children}} </ul></div> {{/Links}} </div> {{#NavigationPanelData}} {{#if PromoBannerDetails}} {{#PromoBannerDetails}} <div class="menu-promo" style="background-image: url(&quot;{{{BackgroundImageUrl}}}&quot;);"><div class="{{#if PipeSeparator}}menu-promo__thumbnail--pipe {{else}} menu-promo__thumbnail{{/if}}"><img class="menu-promo__thumbnail__image" src={{{SupportingImageUrl}}} loading="lazy"></div><div class="menu-promo__title"><div class="menu-promo__title__information"><div class="menu-promo__title__information__name">{{{Title}}}</div> {{#if Body}} <div class="menu-promo__title__information__description">{{{Body}}}</div> {{/if}} <a href={{{CTA.Url}}} class="link-learn-more"> {{{CTA.Name}}} </a></div></div></div> {{/PromoBannerDetails}} {{/if}} {{/NavigationPanelData}} </script><script type="text/x-handlebars-template" id="template__megamenu__education__column"><div class="education__nav"> {{#Links}} <div class="education__nav__parent"><div class="header3"><a href="{{ItemLink.Url}}" title={{{ItemLink.Title}}}>{{{ItemLink.Text}}}</a></div><ul class="education__nav__children"> {{#Children}} <li><a href="{{{ItemLink.Url}}}" title={{{ItemLink.Title}}}> {{{ItemLink.Text}}} </a></li> {{/Children}} </ul></div> {{/Links}} </div> {{#NavigationPanelData}} {{#if PromoBannerDetails}} {{#PromoBannerDetails}} <div class="menu-promo" style="background-image: url(&quot;{{{BackgroundImageUrl}}}&quot;);"><div class="{{#if PipeSeparator}}menu-promo__thumbnail--pipe {{else}} menu-promo__thumbnail{{/if}}"><img class="menu-promo__thumbnail__image" src={{{SupportingImageUrl}}} loading="lazy"></div><div class="menu-promo__title"><div class="menu-promo__title__information"><div class="menu-promo__title__information__name">{{{Title}}}</div> {{#if Body}} <div class="menu-promo__title__information__description">{{{Body}}}</div> {{/if}} <a href={{{CTA.Url}}} class="link-learn-more"> {{{CTA.Name}}} </a></div></div></div> {{/PromoBannerDetails}} {{/if}} {{/NavigationPanelData}} </script><script type="text/x-handlebars-template" id="template__megamenu__myhistory__column"><div class="myhistory__nav "> {{#Links}} <div class="myhistory__nav__parent"><div class="header3"><a href="#" title={{{ItemName}}}>{{{ItemName}}} Viewed</a></div> {{#if Children}} <ul class="myhistory__nav__children"> {{#Children}} {{#if dataSheet}} <li class="myhistory__col_2"><a href="{{#decode url}}{{/decode}}" title="{{#decode code}}{{/decode}}">{{#decode code}}{{/decode}}</a><span></span><a href="{{dataSheet}}" title="Data Sheet">Data Sheet</a></li> {{else}} <li><a href="{{#decode url}}{{/decode}}" title="{{#decode code}}{{/decode}}">{{#decode code}}{{/decode}}</a></li> {{/if}} {{/Children}} </ul> {{ else }} {{#if noData}} <p>{{ noData }}</p> {{/if}} {{/if}} </div> {{/Links}} </div> {{#NavigationPanelData}} {{#if PromoBannerDetails}} {{#PromoBannerDetails}} <div class="menu-promo" style="background-image: url(&quot;{{{BackgroundImageUrl}}}&quot;);"><div class="{{#if PipeSeparator}}menu-promo__thumbnail--pipe {{else}} menu-promo__thumbnail{{/if}}"><img class="menu-promo__thumbnail__image" src={{{SupportingImageUrl}}} loading="lazy"></div><div class="menu-promo__title"><div class="menu-promo__title__information"><div class="menu-promo__title__information__name">{{{Title}}}</div> {{#if Body}} <div class="menu-promo__title__information__description">{{{Body}}}</div> {{/if}} <a href={{{CTA.Url}}} class="link-learn-more"> {{{CTA.Name}}} </a></div></div></div> {{/PromoBannerDetails}} {{/if}} {{/NavigationPanelData}} </script><script type="text/x-handlebars-template" id="template__megamenu_applications"><div class="applications__nav"> {{#Links}} <div class="row"><div class="applications__nav__parent col-md-12"><div class="header3"><a href="{{{Url}}}">{{{Title}}}</a></div><ul class="applications__nav__children"> {{#Children}} {{#if Title}} <li><a data-category="{{{Title}}}" href="{{{Url}}}" title="{{{Title}}}"> {{{Title}}} </a> {{#if New}}<span>New</span>{{/if}} </li> {{else}} <li class="applications__nav__children__empty">&nbsp;</li> {{/if}} {{/Children}} </ul></div></div> {{/Links}} </div> {{#NavigationPanelData}} {{#if PromoBannerDetails}} {{#PromoBannerDetails}} <div class="menu-promo" style="background-image: url(&quot;{{{BackgroundImageUrl}}}&quot;);"><div class="{{#if PipeSeparator}}menu-promo__thumbnail--pipe {{else}} menu-promo__thumbnail{{/if}}"><img class="menu-promo__thumbnail__image" src={{{SupportingImageUrl}}} loading="lazy"></div><div class="menu-promo__title"><div class="menu-promo__title__information"><div class="menu-promo__title__information__name">{{{Title}}}</div> {{#if Body}} <div class="menu-promo__title__information__description">{{{Body}}}</div> {{/if}} <a href={{{CTA.Url}}} class="link-learn-more"> {{{CTA.Name}}} </a></div></div></div> {{/PromoBannerDetails}} {{/if}} {{/NavigationPanelData}} </script><script type="text/x-handlebars-template" id="template_megamenu_designcenter"><div class="row featured-section bg-grey"><div class="container"> {{#Links}} {{#if IsFeatured}} <div class="col-md-6"><div class="secondary-nav-block clearfix"><h3><a href="{{{ItemLink.Url}}}"><span> {{{ItemLink.Text}}}</span></a></h3><ul class="col-md-6 nav__children"> {{#Children}} <li><a href="{{{ItemLink.Url}}}" title={{{ItemLink.Title}}}> {{{ItemLink.Text}}} </a></li> {{/Children}} </ul> {{#if ImageUrl}} <img class="col-md-6" src={{{ImageUrl}}} loading="lazy" /> {{/if}} </div></div> {{/if}} {{/Links}} </div></div><div class="row featured-section-sub"><div class="container"> {{#Links}} {{#if IsFeatured}} {{else}} <div class="col-md-6"><div class="secondary-nav-block clearfix"><h3><a href="{{{ItemLink.Url}}}"> {{{ItemLink.Text}}}</a></h3><ul class="nav__children"> {{#Children}} <li><a href="{{{ItemLink.Url}}}" title={{{ItemLink.Title}}}> {{{ItemLink.Text}}} </a></li> {{/Children}} </ul></div></div> {{/if}} {{/Links}} </div><div class="row"><div class="col-md-12"> {{#NavigationPanelData}} {{#if PromoBannerDetails}} {{#PromoBannerDetails}} <div class="menu-promo" style="background-image: url(&quot;{{{BackgroundImageUrl}}}&quot;);"><div class="{{#if PipeSeparator}}menu-promo__thumbnail--pipe {{else}} menu-promo__thumbnail{{/if}}"><img class="menu-promo__thumbnail__image" src={{{SupportingImageUrl}}} loading="lazy"></div><div class="menu-promo__title"><div class="menu-promo__title__information"><div class="menu-promo__title__information__name">{{{Title}}}</div> {{#if Body}} <div class="menu-promo__title__information__description">{{{Body}}}</div> {{/if}} <a href={{{CTA.Url}}} class="link-learn-more"> {{{CTA.Name}}} </a></div></div></div> {{/PromoBannerDetails}} {{/if}} {{/NavigationPanelData}} </div></div></div></script><script type="text/x-handlebars-template" id="megamenu_support"><div class="row featured-section bg-grey"><div class="container"><div class="search-support"><div class="control-form"><form class="form form-findanswers col-md-9" role="form" method="get" action="https://www.analog.com/en/support/searchsupport.html"><div class="form-group"><label class="sr-only" for="text-findanswer">Search within Support</label><span class="twitter-typeahead"><span class="twitter-typeahead" style="position: relative; display: inline-block;"><input type="text" class="form-control tt-hint" data-data-source="https://www.analog.com/en/client/Search/GetPredictiveSearchResultsJson?q=%QUERY&amp;moduleFacets={1EC6C453-FA49-4F49-97A6-FDE9DFB2C6ED}" autocomplete="off" spellcheck="false" dir="ltr" data-autosuggest-text="Search" readonly="" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);"><input type="text" class="form-control tt-hint tt-input" data-data-source="https://www.analog.com/en/client/Search/GetPredictiveSearchResultsJson?q=%QUERY&amp;moduleFacets={1EC6C453-FA49-4F49-97A6-FDE9DFB2C6ED}" autocomplete="off" spellcheck="false" dir="ltr" data-autosuggest-text="Search" readonly="" tabindex="-1" style="position: relative; vertical-align: top; background-color: transparent;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><div class="tt-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"><div class="tt-dataset tt-dataset-contentsearch-undefined"></div></div></span><span class="twitter-typeahead" style="position: relative; display: inline-block;"><input type="text" class="form-control tt-input tt-hint" data-data-source="https://www.analog.com/en/client/Search/GetPredictiveSearchResultsJson?q=%QUERY&amp;moduleFacets={1EC6C453-FA49-4F49-97A6-FDE9DFB2C6ED}" autocomplete="off" spellcheck="false" dir="ltr" data-autosuggest-text="Search" readonly="" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);"><input type="text" class="form-control tt-input" data-data-source="https://www.analog.com/en/client/Search/GetPredictiveSearchResultsJson?q=%QUERY&amp;moduleFacets={1EC6C453-FA49-4F49-97A6-FDE9DFB2C6ED}" autocomplete="off" spellcheck="false" dir="auto" data-autosuggest-text="Search" placeholder="Search within Support" id="text-findanswer-943d6e18-ff15-487c-b6b6-99fc39eaf4c4" name="q" style="position: relative; vertical-align: top; background-color: transparent;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><div class="tt-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"><div class="tt-dataset tt-dataset-contentsearch-text-findanswer-943d6e18-ff15-487c-b6b6-99fc39eaf4c4"></div></div></span><button type="submit"><i class="fa fa-search fa-lg"></i></button></span></div></form></div></div> {{#Links}} {{#if IsFeatured}} <div class="col-md-4"><div class="secondary-nav-block clearfix {{#isStringEqual ItemName 'ADI Technical Support'}}adiTechSupport{{/isStringEqual}}"> {{#if ImageUrl}} <h3 class="{{{ImageLogo}}}"><a href={{{ItemLink.Url}}}><img src="{{{ImageUrl}}}" alt="{{ItemName}}" loading="lazy" /></a></h3> {{else}} <h3><a href="{{{ItemLink.Url}}}">{{{ItemLink.Text}}}</a></h3> {{/if}} {{#if PageDescription}} <p class="support__featured__description">{{{PageDescription}}}</p> {{/if}} {{#if IsDropdown}} <div class="ez"><div class="dropdown ez-dropdown"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa pull-right fa-angle-down fa-2x"></i><span> Select {{#Children}}{{#isStringEqual ItemName "Forum"}} {{{ItemName}}}{{/isStringEqual}}{{/Children}} </span></button><ul class="dropdown-menu support-dropdown-community"> {{#each Children}} {{#isStringEqual ItemName "Forum"}} {{#Children}} <li><a href="{{{Url}}}" title={{{Title}}}> {{{ItemName}}} </a></li> {{/Children}} {{/isStringEqual}} {{/each}} </ul></div> {{#each Children}} {{#isStringEqual ItemName "ADI Community User Forums Terms of Use"}} <a class="support-link" href={{{ItemLink.Url}}}>{{{ItemLink.Text}}}</a> {{/isStringEqual}} {{/each}} </div><ul class="register"> {{#each Children}} {{#isStringEqual ItemName "Register Now"}} <li><a href="{{{ItemLink.Url}}}">{{{ItemName}}}</a></li> {{/isStringEqual}} {{#isStringEqual ItemName "ADI Partner Zone"}} <li><a href="{{{ItemLink.Url}}}">{{{ItemName}}}</a></li> {{/isStringEqual}} {{/each}} </ul> {{else}} <ul class="nav__children"> {{#Children}} {{#if RegionKey}} <li class="support__regional__email"><img src="{{../../assetsUrl}}/images/header/menu/icon-support-email.svg" alt="{{Title}}" loading="lazy" class="support__icon"><img class="support__icon__hover" src="{{../../assetsUrl}}/images/header/menu/icon-support-email-hover.svg" alt="{{Title}}" loading="lazy"><a href="mailto:{{EmailId}}">{{ Title }}</a></li><li class="support__regional__phone"><img src="{{../../assetsUrl}}/images/header/menu/icon-support-phone.svg" alt="{{Title}}" loading="lazy"><div class="support__regional__phone__toll-free"><span class="support__regional__phone__number">{{{ ContactNumber }}}</span><span class="support__regional__phone__hours"> {{ PrimaryWorkingDays }}:<br> {{ PrimaryWorkTimings }} </span></div><div class="support__regional__phone__direct"><span class="support__regional__phone__number">{{{ AltContactNumber }}}</span><span class="support__regional__phone__hours"> {{ SecondaryWorkingDays }}:<br> {{ SecondaryWorkTimings }} </span></div></li> {{else}} <li class="{{#if DisplayBelowRegion}}displayBelowRegion{{/if}}"><a href="{{{ItemLink.Url}}}" title="{{{ItemLink.Title}}}"> {{#if LinkIcon}} <img class="support__icon" src="{{LinkIcon.Src}}" alt="" /> {{/if}} {{#if HoverImage}} <img class="support__icon__hover" src="{{HoverImage.Src}}" alt="" /> {{/if}} {{{ItemLink.Text}}} </a></li> {{/if}} {{/Children}} </ul> {{/if}} </div></div> {{/if}} {{/Links}} </div></div><div class="row featured-section-sub"><div class="container"> {{#Links}} {{#if IsFeatured}} {{else}} <div class="col-md-4"><div class="secondary-nav-block clearfix"><h3> {{#if ItemLink}} <a href="{{{ItemLink.Url}}}">{{{ItemLink.Text}}}</a> {{else}} {{ItemName}} {{/if}} </h3><ul class="nav__children"> {{#Children}} <li><a href="{{{ItemLink.Url}}}" title={{{ItemLink.Title}}}> {{{ItemLink.Text}}} </a></li> {{/Children}} </ul></div></div> {{/if}} {{/Links}} </div></div> {{#NavigationPanelData}} {{#if PromoBannerDetails}} {{#PromoBannerDetails}} <div class="menu-promo" style="background-image: url(&quot;{{{BackgroundImageUrl}}}&quot;);"><div class="{{#if PipeSeparator}}menu-promo__thumbnail--pipe {{else}} menu-promo__thumbnail{{/if}}"><img class="menu-promo__thumbnail__image" src={{{SupportingImageUrl}}} loading="lazy"></div><div class="menu-promo__title"><div class="menu-promo__title__information"><p class="menu-promo__title__information__name"> {{{Title}}} </p> {{#if Body}} <div class="menu-promo__title__information__description">{{{Body}}}</div> {{/if}} <a href={{{CTA.Url}}} class="link-learn-more"> {{{CTA.Name}}} </a></div></div></div> {{/PromoBannerDetails}} {{/if}} {{/NavigationPanelData}} </script><script id="login-widget-template" type="text/x-handlebars-template"><div class="col-md-8 register"> {{#if videoId}} <div class="col-md-6"><div class="header">{{registerNow}}</div><p>{{description}}</p><button class="btn btn-primary">{{getStarted}}</button></div><div class="col-md-6"><div class="video"><div id="videoTemplate"><div><div class="deferred-video-player" data-account="{{accountId}}" data-application-id="" data-controls data-embed="{{embed}}" data-player="{{playerId}}" data-video-id="{{videoId}}"><i class="fa fa-spinner fa-spin fa-2x"></i></div></div></div></div><a class="explore" href={{exploreUrl}}>{{explore}}</a></div> {{else}} <div class="col-md-12"><div class="header">{{registerNow}}</div><p>{{description}}</p><button class="btn btn-primary">{{getStarted}}</button></div> {{/if}} </div><div class="col-md-4 login"><form autocomplete="off"><div class="header">{{login}}</div><p>{{youWillBeRedirected}}</p><button type="submit" class="ma btn btn-primary">{{loginToMyAnalog}}</button><p>{{{dontHaveAccount}}}<a href={{route}}>{{registerNow}}</a></p></form></div></script><script id="project-widget-template" type="text/x-handlebars-template"><div class="title"><a href={{route}}><span>{{title}}</span> {{#if count}} <span>({{count}})</span> {{/if}} </a></div><div class="content"><div class="details"> {{#if defaultState}} <div class="default state">{{{defaultState}}}</div> {{else}} <div class="project"><a href={{{projectRoute}}} class="name">{{name}}</a><p class="timestamp">{{modifiedOn}}<span>{{date}}</span></p><div class="info"><div class="contributors"><span class="count">{{contributors.count}}</span><span>{{contributors.title}}</span> {{#if contributors.new}} <div class="new flag"></div> {{/if}} </div><div class="product"><span class="count">{{product.count}}</span><span>{{product.title}}</span> {{#if product.new}} <div class="new flag"></div> {{/if}} </div><div class="resources"><span class="count">{{resources.count}}</span><span>{{resources.title}}</span> {{#if resources.new}} <div class="new flag"></div> {{/if}} </div><div class="notes"><span class="count">{{notes.count}}</span><span>{{notes.title}}</span> {{#if notes.new}} <div class="new flag"></div> {{/if}} </div></div></div> {{/if}} <a class="create project" href={{{route}}}>{{createProject}}</a></div> {{#if seeAllYourProjects}} <div class="more"><a href={{{route}}}>{{seeAllYourProjects}}</a></div> {{/if}} </div></script><script id="product-widget-template" type="text/x-handlebars-template"><div class="title"><a href={{route}}><span>{{title}}</span> {{#if count}} <span>({{count}})</span> {{/if}} </a></div><div class="content"><div class="details"> {{#if defaultState}} <div class="default state">{{{defaultState}}}</div> {{else}} <div class="info"><ul> {{#each productsData}} <li><span><a href={{{url}}}>{{name}}</a></span><span class="datasheet"><a target="_blank" href="{{../datasheetRoute}}/{{name}}/datasheet">{{../datasheet}}</a></span></li> {{/each}} </ul></div> {{/if}} </div> {{#if seeAllYourProducts}} <div class="more"><a href={{{route}}}>{{seeAllYourProducts}}</a></div> {{/if}} </div></script><script id="list-widget-template" type="text/x-handlebars-template"><div class="title"><a href={{route}}><span>{{title}}</span></a></div><div class="content"><div class="details"> {{#if defaultState}} <div class="default state">{{{defaultState}}}</div> {{else}} <ul> {{#each list}} <li><a href={{{url}}}>{{{title}}}</a> {{#if desc}} <p>{{desc}}</p> {{/if}} </li> {{/each}} </ul> {{/if}} </div> {{#if seeAll}} <div class="more"><a href={{route}}>{{seeAll}}</a></div> {{/if}} </div></script><script id="profile-widget-template" type="text/x-handlebars-template"><div class="{{avatarColor}} completeness"><svg class="doughnut"><circle class="total" cx="72" cy="72" r="56.5" fill="transparent" stroke-width="7" fill="pink"></circle><circle class="complete" cx="72" cy="72" r="56.5" fill="transparent" stroke-width="7" fill="hotpink" stroke-dasharray={{avatarFilled}}></circle></svg><div><div class="{{avatarColor}} avatar editable"><span class="initials">{{initials}}</span><a class="edit" href={{editRoute}}>{{edit}}</a></div></div><div class="details"><div class="username">{{username}}</div><div class="company">{{company}}</div><div><a class="logout" href={{signOutUrl}}>{{signOut}}</a></div></div></div><div><a class="link dashboard" href={{route}}>{{{dashboard}}}</a></div><div><a class="local sales" href={{salesContactLink}}><img src="https://assets.analog.com/images/myanalog/sales-contact.svg" loading="lazy" /><div>{{{salesContact}}}</div></a></div><div><a class="distributor portal" href={{distributorPortalLink}}><img src="https://assets.analog.com/images/myanalog/hyperion-logo.svg" loading="lazy" /><div>{{distributorPortal}}</div></a></div></script><div class="container"><div class="socialmediawidget socialmediawidget-main visible-desktop hidden"><ul class="clearfix visible-lg visible-md"><li class="link print" onclick="window.print();return false;"><a href="#" name="Print"> Print </a></li><li class="saveToMyAnalog"><button id="myAnalogWidgetBtn" class="widget-Btn" name="myAnalog"><img class="add-plus" src="https://assets.analog.com/images/myanalog/add.svg" alt="add" loading="lazy"><img class="add-check" src="" alt="added" loading="lazy"><img class="myAnalog-saveTo" src="https://assets.analog.com/images/myanalog/myAnalog-logo.svg" alt="myAnalog" loading="lazy"></button></li></ul><div id="myAnalog-widget" style="display:none"></div><script id="template-save-to-myAnalog-prelogin" type="text/x-handlebars-template"><div class="saveToMyAnalog widget"><div class="authenticate"><p class="message">{{message}}</p><button class="btn btn-primary">{{loginToMyAnalog}}</button><div class="other actions"><span>{{dontHaveAnAccount}}</span>&nbsp; <a href={{registerLink}}>{{registerNow}}</a></div></div></div></script><script id="template-save-to-myAnalog-postlogin" type="text/x-handlebars-template"><div class="saveToMyAnalog widget"><div class="saveTo createProject"><div class="tab-header"><ul><li data-tab="saveToWidget" class="active">{{saveTo}}</li><li data-tab="createProject">{{newProject}}</li></ul><span class="helper-text">* {{required}}</span></div> {{#if RESOURCES}} <div class="selected-resources" id="selectedResources"><span class="count">0</span><span> {{selected}}</span></div> {{/if}} <div class="save-to-widget tab active" id="saveToWidget"> {{#if PST}} <label>* {{saveModelsTo}}</label> {{/if}} {{#if PDP}} <label>* <span class="productLabel">{{saveTo}}</span><span>{{saveProductTo}}</span></label> {{/if}} {{#if RESOURCES}} <label>* {{saveResourceTo}}</label> {{/if}} <div class="select-product dropdown"><div class="selected-value"><span>myAnalog</span><img class="angle down" alt="down" src="https://assets.analog.com/images/myanalog/data-arrow-open.svg" loading="lazy" /><img class="angle up" alt="up" src="https://assets.analog.com/images/myanalog/data-arrow-open.svg" loading="lazy" /></div><ul class="hide"><li>myAnalog</li> {{#if projects}} {{#each projects}} <li id="{{ id }}">{{ title }}</li> {{/each}} {{/if}} </ul><div class="validation-message" style="display:none"></div></div></div><div class="create-new-item-widget tab" id="createProject"><div class="input-control"><label>* {{createNewProject}}</label><input type="text" placeholder="{{projectName}}" id="newProjectTitle" maxlength="128"/><div class="validation-message" style="display:none"></div></div><div class="add item active"><button class="outline-button"><img class="plus-icon" src="https://assets.analog.com/images/myanalog/plus.svg" alt="add" loading="lazy" />{{addDescription}}</button><textarea id="projectDescription"></textarea><div class="validation-message" style="display:none"></div></div></div> {{#if PST}} <div class="pst-table-name"><div class="input-control"><label>* {{tableName}}</label><input type="text" placeholder="{{enterTableName}}" id="pstTableName" /><div class="validation-message" style="display:none"></div></div><div class="add item active"><button class="outline-button"><img class="plus-icon" src="https://assets.analog.com/images/myAnalog/plus.svg" alt="add" loading="lazy" />{{addNote}}</button><textarea id="tableNote"></textarea><div class="validation-message" style="display:none"></div></div></div> {{/if}} {{#if RESOURCES}} <div class="add item active"><button class="outline-button"><img class="plus-icon" src="https://assets.analog.com/images/myAnalog/plus.svg" alt="add" loading="lazy" />{{addNote}}</button><textarea id="resourceNote"></textarea><div class="validation-message" style="display:none"></div></div> {{/if}} {{#if PST}} <div class="widget-footer single btn"><button class="btn btn-primary pst" id="saveProductToMyanalog">{{savePST}}</button></div> {{/if}} {{#if PDP}} <div class="widget-footer single btn"><button class="btn btn-primary pdp" id="saveProductToMyanalog"><span class="productLabel">{{saveProduct}}</span><span>{{save}}</span></button></div> {{/if}} {{#if RESOURCES}} <div class="widget-footer single btn"><button class="btn btn-primary resource" id="saveProductToMyanalog">{{saveResource}}</button></div> {{/if}} </div><div class="saved info hide" id="savedInfo"><h5><span>{{savedTo}}</span><img class="saved-myAnalog-logo" alt="myAnalog" src="https://assets.analog.com/images/myanalog/myAnalog-logo.svg" loading="lazy" /></h5><div class="saved-message"> {{#if PDP }} <h5><span class="productLabel">{{productSavedTo}}</span><span>{{resourceSavedTo}}</span> "<span id="savedTo"></span>"</h5> {{/if}} {{#if PST }} <h5>{{tableSavedTo}} "<span id="savedTo"></span>"</h5> {{/if}} {{#if RESOURCES }} <h5>{{resourceSavedTo}} "<span id="savedTo"></span>"</h5> {{/if}} {{#if PDP }} <div class="pcn-notification"><div class="switch"><input type="checkbox" class="toggle" name="PCNPDNNotification" id="pcnNotify" /><label for="pcnNotify"></label></div><span><label for="pcnNotify">{{ turnOnPCNNotification }}</label></span></div> {{/if}} </div></div><div class="widget-footer single hide" id="mySavedFooter"><a href="#" target="_blank"><img class="share-icon" src="https://assets.analog.com/images/myanalog/link.svg" alt="share-icon" loading="lazy" /> {{#if PDP}} <span class="productLabel">{{viewMySavedProducts}}</span><span>{{viewMySavedResources}}</span> {{/if}} {{#if PST}} <span>{{viewMySavedProducts}}</span> {{/if}} {{#if RESOURCES}} <span>{{viewMySavedResources}}</span> {{/if}} </a></div></div></script></div></div><div class="breadcrumb adicrumb visible-desktop" name="adi_breadcrumb"><div class="container"><ol class="list-inline nbm"><li><a href="https://www.analog.com/en/index.html" class="home" alt="Home" title="Home"></a></li>
+
+        </ol></div></div></header><div class="modal fade" id="search_tips_modal" tab-index="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-dialog-center"><div class="search_model_content"><div class="search_model_content_header"><button type="button" class="close search-close" data-dismiss="modal" aria-hidden="true">×</button><span class="search-title-head">Four Easy Search Tips</span></div><div class="hr_line"><div class="modal-content-search content_search"><div class="content-search-txt"><div class="wrap-search-txt">1.</div><div>Press the Enter key or click the Search Icon to get general search results</div></div><div class="wrap-search-img"><span style="background-image:url('https://assets.analog.com/images/en/enter.jpg');" class="search-tips-img"></span></div></div></div><div class="hr_line1 "><div class="content_search"><div class="content-search-txt"><div class="wrap-search-txt">2.</div><div>Click a suggested result to go directly to that page</div></div><div class="wrap-search-img"><span style="background-image:url('https://assets.analog.com/images/en/suggested.jpg');" class="suggested-img"></span></div></div></div><div class="hr_line1"><div class="content_search-result"><div class="content-search-txt"><div class="wrap-search-txt">3.</div><div>Click Search to get general search results based on this suggestion</div></div><div class="wrap-search-img"><span style="background-image:url('https://assets.analog.com/images/en/search.jpg');" class="search-img"></span></div></div></div><div class="hr_line1"><div class="content_search"><div class="content-search-txt"><div class="wrap-search-txt">4.</div><div>On Search Results page use Filters found in the left hand column to refine your search</div></div><div class="wrap-search-img"><span style="background-image:url('https://assets.analog.com/images/en/filters.jpg');" class="filters-img"></span></div></div></div></div></div></div> 
+
+
+    <noscript>Enable javascript</noscript>
+    <div class="content" role="main">
+
+        
+
+        
+
+
+
+                    <div>
+
+        
+        
+
+
+
+
+<div class="row visible-desktop">
+
+
+    </div>
+<div id="myPageContainer" data-ezuser="lallison" data-ezcount="100"> </div>
+    <div class="">
+        <div id="carousel-main-home" class="slider-hero slider-hero-bg " name="adi_homepage_carousel" data-slides="1" data-autoplay="true" data-autoplayspeed="9000" data-defaultvideoindex="0" data-moveby="1" data-pauseonhover="true" data-animationspeed="1500" data-direction="left">
+
+            <div class="adi-nr-slider owl-carousel owl-theme slides slides-layout-3 singleSlider-0 owl-loaded" data-items="1" data-autoplay="true" data-loop="false" data-autoplaytimeout="9000" data-autoplayhoverpause="true" data-dots="False">
+
+                    
+
+
+
+            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1277px;"><div class="owl-item active" style="width: 1267px; margin-right: 10px;"><div class="sliderItem">
+                            <div class="home-hero-bg">
+                                <div data-class="img-responsive" data-title="Rescue person on mountain top speaking into radio" data-alt="Rescue person on mountain top speaking into radio" data-picture="">
+
+                                        <div data-src="https://www.analog.com/-/media/analog/en/home/hp2022/sdr-transceivers-desktop-mobile.jpg?la=en&amp;imgver=1"></div>    
+                                                                            <div data-src="https://www.analog.com/-/media/analog/en/home/hp2022/sdr-transceivers-desktop-hero.jpg?la=en&amp;imgver=1" data-media="(min-width: 640px)"></div>  
+                                        <!--[if (lt IE 9) & (!IEMobile)]>
+                                            <div data-src="https://www.analog.com/-/media/analog/en/home/hp2022/sdr-transceivers-desktop-hero.jpg?la=en&amp;imgver=1"></div> 
+                                        <![endif]-->
+                                    <img alt="Rescue person on mountain top speaking into radio" class="img-responsive" title="" src="https://www.analog.com/-/media/analog/en/home/hp2022/sdr-transceivers-desktop-hero.jpg?la=en&amp;imgver=1" loading="lazy">
+                                </div>
+                            </div>
+
+
+
+
+                        <div class="container">
+
+
+                            <div class="home-hero-area col-md-6 visible-desktop ">
+                                <div class="title ">
+<h1><span class="text-highlights">Unique Capabilities<br>for Mission Critical Communications</span></h1>                                </div>
+
+                                <div class="description rte visible-desktop">
+<p>Narrow-Band to Wideband. Highest Dynamic Range. Lowest Power. Explore ADI’s RF agile SDR transceivers, developed specifically for mission critical communications systems.</p>
+
+                                </div>
+                                    <a href="/product-category/rf-agile-sdr-transceivers.html" class="link-learn-more" target="" name="Explore_SDR_transceivers_d420b5f6-cdad-4ff7-b4e2-7f82675b37e8">
+                                        Explore SDR transceivers
+                                            <span></span>
+                                    </a>
+                            </div>
+
+
+                            <div class="home-hero-area visible-phone ">
+                                <!--AL-18208 Span or H1 tag formation based on enable heading and carousel items-->
+                                <div class="title">
+                                    <h1><span class="text-highlights">Unique Capabilities for Mission Critical Communications</span></h1>
+                                </div>
+                                    <a href="/product-category/rf-agile-sdr-transceivers.html" class="link-learn-more" target="" name="Explore_SDR_transceivers_d420b5f6-cdad-4ff7-b4e2-7f82675b37e8">
+                                        Explore SDR transceivers
+                                    </a>
+                            </div>
+                        </div>
+
+                    </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"><button role="button" class="owl-dot active"><span></span></button></div></div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row">
+            <div class="container">
+                <section class="spotlight  spotlight--padded-light-top spotlight--padded-light-bottom">
+
+                        <div class="spotlight__container spotlight__container--two">
+                            
+        <div class="spotlight__container__column">
+                            <figure class="spotlight__picture-lead ">
+                    <img class="spotlight__picture-lead__img" alt="City skyline with 5G signals" src="https://www.analog.com/-/media/analog/en/home/hp2022/homepage-signals-financialtimes-spotlight_50_50.jpg?la=en&amp;imgver=1" loading="lazy">
+
+                </figure>
+                                                                            <div class="spotlight__container__column__content ">
+                    <h3>Financial Times Video: In transitioning to 5G what have we learned and what lies ahead?</h3>
+<p><a href="/signals/videos/5g-revolution-in-communications.html"><span class="analog-rounded-button">Explore on ADI Signals+ now</span></a></p>
+<br>
+                </div>
+                                </div>
+        <div class="spotlight__container__column">
+                            <figure class="spotlight__picture-lead ">
+                    <img class="spotlight__picture-lead__img" alt="myAnalog features " src="https://www.analog.com/-/media/analog/en/home/homepage_short_myanalog_spotlight_50_50-3.jpg?la=en&amp;imgver=1" loading="lazy">
+
+                </figure>
+                                                                            <div class="spotlight__container__column__content ">
+                    <h3>Manage orders, PCNs, subscriptions, and view support cases from your myAnalog dashboard.</h3>
+<p><a href="https://www.analog.com/en/landing-pages/001/new-myanalog-experience.html"><span class="analog-rounded-button">View myAnalog features now</span></a></p>
+<br>
+                </div>
+                                </div>
+                        </div>
+                                                        </section>
+            </div>
+    </div>
+
+
+
+
+
+
+    <!--Check for left nav compatibilty-->
+        <div class="container">
+            <section data-type="personalized-content" class="articles row " data-personalizedcontent="homepage_v44">
+
+                            <article class="col-md-4 col-sm-12">
+                                <a href="https://www.analog.com/en/applications/markets/communications-pavilion-home/wireless-infrastructure.html">
+                                    <span class="img-container">
+                                        <img class="overlay" src="https://www.analog.com/-/media/analog/en/home/tiles/2022-tiles/tile1-mar21-desktop.jpg?la=en&amp;imgver=1" alt="Wireless Infrastructure Diagram" loading="lazy">
+                                                                            <img class="banner" src="https://www.analog.com/-/media/analog/en/home/tiles/2022-tiles/tile1-mar21-desktop.jpg?la=en&amp;imgver=1" alt="Wireless Infrastructure Diagram" loading="lazy">
+                                                                            <img alt="Wireless Infrastructure Diagram" class="mobile visible-xs" src="https://www.analog.com/-/media/analog/en/home/tiles/2022-tiles/tile1-mar21-mobile.jpg?la=en&amp;imgver=1" loading="lazy">
+                                    </span>
+                                    <h3 class="title">Wireless Infrastructure</h3>
+                                    <div class="description">
+                                        <p>RF ICs for the entire signal chain, world-leading converters, amplifiers and more. ADI’s high-performance devices are supported by a full range of resources to ease the design of wireless infrastructure equipment.</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="col-md-4 col-sm-12">
+                                <a href="/analog-dialogue/articles/transceiver-with-scalable-power-and-performance.html">
+                                    <span class="img-container">
+                                        <img class="overlay" src="https://www.analog.com/-/media/analog/en/home/tiles/2022-tiles/tile2-mar21-desktop.jpg?la=en&amp;imgver=1" alt="ADRV9001 Radio Card" loading="lazy">
+                                                                            <img class="banner" src="https://www.analog.com/-/media/analog/en/home/tiles/2022-tiles/tile2-mar21-desktop.jpg?la=en&amp;imgver=1" alt="ADRV9001 Radio Card" loading="lazy">
+                                                                            <img alt="ADRV9001 Radio Card" class="mobile visible-xs" src="https://www.analog.com/-/media/analog/en/home/tiles/2022-tiles/tile2-mar21-mobile.jpg?la=en&amp;imgver=1" loading="lazy">
+                                    </span>
+                                    <h3 class="title">All in the Family: Discover What Makes ADRV9001 Unique</h3>
+                                    <div class="description">
+                                        <p>The ADRV9001 is part of a highly agile, user-configurable, new generation SDR IC transceiver family. It provides state-of-the-art RF performance with advanced system features you can count on in the toughest conditions.</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="col-md-4 col-sm-12">
+                                <a href="https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html">
+                                    <span class="img-container">
+                                        <img class="overlay" src="https://www.analog.com/-/media/analog/en/home/hp2021/homepage-tile-ltspice_v2.jpg?la=en&amp;imgver=1" alt="LTspice" loading="lazy">
+                                                                            <img class="banner" src="https://www.analog.com/-/media/analog/en/home/hp2021/homepage-tile-ltspice_v2.jpg?la=en&amp;imgver=1" alt="LTspice" loading="lazy">
+                                                                            <img alt="LTspice" class="mobile visible-xs" src="https://www.analog.com/-/media/analog/en/home/tiles/homepage-tile-ltspice-mobile-1.jpg?la=en&amp;imgver=1" loading="lazy">
+                                    </span>
+                                    <h3 class="title">Download LTspice®</h3>
+                                    <div class="description">
+                                        <p>A powerful simulation software, schematic capture and waveform viewer for improving the simulation of analog circuits.</p>
+                                    </div>
+                                </a>
+                            </article>
+            </section>
+        </div>
+    <div class="bg-grey">
+        <div class="new-products-component container">
+            <div class="col-xs-12 col-md-4 featured-new-product ">
+
+                    <h4>New Products</h4>
+
+                    <div class="featured-new-product-container clearfix">
+
+                        <a href="https://www.analog.com/en/products/adin2111.html">
+                                <div class="product-description">
+                                    <p><span>ADIN2111</span></p>
+                                    <p>
+                                        Low Complexity, 2-Port Ethernet Switch with Integrated 10BASE-T1L PHYs
+                                    </p>
+                                </div>
+                                                            <div class="product-image">
+                                    <img class="img-responsive" src="https://www.analog.com/-/media/analog/en/home/new-product-listing/adin2111-npi.png?la=en&amp;imgver=1" alt="ADIN2111" loading="lazy">
+                                </div>
+                        </a>
+                    </div>
+            </div>
+
+            <ul class="col-xs-12 col-md-4">
+                    <li>
+                        <a href="https://www.analog.com/en/products/lt8640a.html">
+                            <span>LT8640A</span>
+                            42V, 5A/8A Peak Synchronous Step-Down Silent Switcher with 2.5μA Quiescent Current
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.analog.com/en/products/ltc2959.html">
+                            <span>LTC2959</span>
+                            Ultra-Low Power Battery Gas Gauge
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.analog.com/en/products/ltc7000a.html">
+                            <span>LTC7000A</span>
+                            Fast 150V Protected High Side NMOS Static Switch Driver
+                        </a>
+                    </li>
+            </ul>
+            <ul class="col-xs-12 col-md-4">
+                
+                    <li>
+                        <a href="https://www.analog.com/en/products/adn4693e-1.html">
+                            <span>ADN4693E-1</span>
+                            3.3 V, 200 Mbps, Full-Duplex, High Speed M-LVDS Transceiver
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.analog.com/en/products/ada4098-2.html">
+                            <span>ADA4098-2</span>
+                            50 V, 1 MHz, 165 μA per Channel, Robust, Over-The-Top, Precision Op Amps
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.analog.com/en/products/ada4077-4s.html">
+                            <span>ADA4077-4S</span>
+                            Space 4 MHz, 7 nV/√Hz, Low Offset and Drift, High Precision Quad Amplifier
+                        </a>
+                    </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="row bg-grey">
+        <div class="new-products-link container">
+            <div class="col-xs-12 col-md-8 featured-new-product ">
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <a class="new-products-cta" href="https://www.analog.com/en/products/landing-pages/new-products-listing.html">
+                    VIEW ALL NEW PRODUCTS
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row bg-grey homepage-carousel-main " name="Carousel_Analog_Signals_6faeaaa5-9c40-49b3-b9a8-d7859dd5c1b9">
+        <div class="container col-md-12 clearfix">
+
+            <div class="">
+            <div class="clearfix padding-top-spacing-16">
+                <h2 class="pull-left">Analog News
+                </h2>
+
+            </div>
+            <div class="carousel-container video-resource-container clearfix" data-target="#6faeaaa5-9c40-49b3-b9a8-d7859dd5c1b9">
+                <div class="static-carousel" data-slides="3" data-autoplay="false" data-carouselnav="true" data-autoplayspeed="5" data-defaultvideoindex="0" data-pauseonhover="False" data-animationspeed="600">
+
+
+                    <ul class="tile-slider owl-carousel owl-theme slides slides-layout-2 tileSlider-0 owl-loaded owl-drag" data-items="3">
+                                
+                                
+                                
+
+
+                    <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1084px;"><div class="owl-item active" style="width: 351.333px; margin-right: 10px;"><li class="sliderItem">
+                                    <div>
+                                        <span class="header4">
+                                            Press Releases
+                                                <span class="date">
+                                                    MAR 14 2022
+                                                </span>
+                                        </span>
+                                        <a href="https://www.analog.com/en/about-adi/news-room/press-releases/2022/3-14-22-adi-to-host-2022-investor-day-on-April-5.html" class="slide-title" target="_blank" name="3-14-22-adi-to-host-2022-investor-day-on-April-5_5764e69c-9600-4557-89c8-024318096b99"><h3>Analog Devices to Host 2022 Investor Day on April 5</h3></a>
+
+                                    </div>
+                                </li></div><div class="owl-item active" style="width: 351.333px; margin-right: 10px;"><li class="sliderItem">
+                                    <div>
+                                        <span class="header4">
+                                            Press Releases
+                                                <span class="date">
+                                                    MAR 7 2022
+                                                </span>
+                                        </span>
+                                        <a href="https://www.analog.com/en/about-adi/news-room/press-releases/2022/3-7-2022-analog-devices-names-gregory-bryant-new-position-evp-president-business-units.html" class="slide-title" target="_blank" name="3-7-2022-analog-devices-names-gregory-bryant-new-position-evp-president-business-units_364c2b53-b7b2-4cb0-b911-c9df8c89f5d6"><h3>Analog Devices Names Gregory Bryant to the  New Position of EVP and President of Business Units</h3></a>
+
+                                    </div>
+                                </li></div><div class="owl-item active" style="width: 351.333px; margin-right: 10px;"><li class="sliderItem">
+                                    <div>
+                                        <span class="header4">
+                                            Press Releases
+                                                <span class="date">
+                                                    MAR 4 2022
+                                                </span>
+                                        </span>
+                                        <a href="https://www.analog.com/en/about-adi/news-room/press-releases/2022/3-4-2022-analog-devices-invests-100million-in-europe-operations-with-adi-catalyst-launch.html" class="slide-title" target="_blank" name="3-4-2022-analog-devices-invests-100million-in-europe-operations-with-adi-catalyst-launch_7a5eb8e3-2405-4784-ad55-2b1f9b7a7bbe"><h3>Analog Devices Invests €100 Million in Europe Operations with ADI Catalyst Launch </h3></a>
+
+                                    </div>
+                                </li></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev disabled"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next disabled"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"><button role="button" class="owl-dot active"><span>1</span></button></div></ul>
+
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row category-list-embed">
+        <div class="section-bar">
+            <div class="container">
+                <div class="row offset-block">
+                    <div class="section-heading clearfix">
+                                    <h3>Product Categories</h3>
+                        <span> <a href="#" class="close-icon">X</a> <a href="#" class="expand-icon">+</a> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-content">
+            <div class="container">
+                <div class="mobilerow linked-list-item">
+                    <div class="categories-list">
+                                    <ul class="column3 clearfix">
+                                <li>
+                                <a href="/en/product-category/amplifiers.html" name="amplifiers"> Amplifiers </a>
+                                </li>                                                            
+                                <li>
+                                <a href="/en/product-category/analog-functions.html" name="analog-functions"> Analog Functions </a>
+                                </li>                                                            
+                                <li>
+                                <a href="/en/product-category/analog-to-digital-converters.html" name="analog-to-digital-converters"> A/D Converters (ADC) </a>
+                                </li>                                                            
+                                <li>
+                                <a href="/en/product-category/audio-video.html" name="audio-video"> Audio and Video Products </a>
+                                </li>                                                            
+                                <li>
+                                <a href="/en/product-category/clock-and-timing.html" name="clock-and-timing"> Clock and Timing </a>
+                                </li>                                                            
+                                <li>
+                                <a href="/en/product-category/digital-to-analog-converters.html" name="digital-to-analog-converters"> D/A Converters (DAC) </a>
+                                </li>                                                            
+                                    </ul>
+                                    <ul class="column3 clearfix">
+                                <li>
+                                <a href="/en/product-category/high-speed-logic.html" name="high-speed-logic"> High Speed Logic and Data Path Management </a>
+                                </li>                                                            
+                                <li>
+                                <a href="/en/product-category/industrial-ethernet.html" name="industrial-ethernet"> Industrial Ethernet Solutions </a>
+                                </li>                                                            
+                                <li>
+                                <a href="/en/product-category/interface-isolation.html" name="interface-isolation"> Interface and Isolation </a>
+                                </li>                                                            
+                                <li>
+                                <a href="/en/product-category/monitor-control-protection.html" name="monitor-control-protection"> Power Monitor, Control, and Protection </a>
+                                </li>                                                            
+                                <li>
+                                <a href="/en/product-category/obsolete.html" name="obsolete"> Obsolete </a>
+                                </li>                                                            
+                                <li>
+                                <a href="/en/product-category/optical.html" name="optical"> Optical Communications and Sensing </a>
+                                </li>                                                            
+                                    </ul>
+                                    <ul class="column3 clearfix">
+                                <li>
+                                <a href="/en/product-category/power-management.html" name="power-management"> Power Management </a>
+                                </li>                                                            
+                                <li>
+                                <a href="/en/product-category/processors-microcontrollers.html" name="processors-microcontrollers"> Processors and Microcontrollers </a>
+                                </li>                                                            
+                                <li>
+                                <a href="/en/product-category/rf-microwave.html" name="rf-microwave"> RF and Microwave </a>
+                                </li>                                                            
+                                <li>
+                                <a href="/en/product-category/sensors-mems.html" name="sensors-mems"> Sensors and MEMS </a>
+                                </li>                                                            
+                                <li>
+                                <a href="/en/product-category/switches-multiplexers.html" name="switches-multiplexers"> Switches and Multiplexers </a>
+                                </li>                                                            
+                </ul></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">		
+   
+if(typeof MutationObserver !== 'undefined' && MutationObserver)
+     {
+          //Select the target node 
+	  var homepageCarouselTarget = document.getElementsByClassName("homepage-carousel-main"); 
+
+	  // create an observer instance
+	  var homepageObserver = new MutationObserver(function(mutations) 
+          {
+                 var carouselCount = 0;
+                 $(".homepage-carousel-main").each(function () {
+                    if (carouselCount % 2 === 0) { $(this).addClass("bg-grey"); }
+                    else { $(this).removeClass("bg-grey"); }
+                    carouselCount++;
+                });
+                  
+               homepageObserver.disconnect();
+	  });
+		 
+	  // configuration of the observer:
+	  var homepageObserverConfig = { attributes: true };
+		 
+	  // pass in the target node, as well as the observer options
+          homepageObserver.observe(homepageCarouselTarget[homepageCarouselTarget.length-1], homepageObserverConfig );
+     }
+</script><script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "WebSite",
+"url": "https://www.analog.com/en/index.html",
+"potentialAction": {
+"@type": "SearchAction",
+"target": "https://www.analog.com/en/search.html?q={search_term_string}",
+"query-input": "required name=search_term_string"
+}
+}
+</script>
+
+        </div>
+
+        
+        <div class="special-content">
+            <li class="dropdown dropdown-region">
+                    <a href="#" data-toggle="dropdown" name="Region_7fe452b3-5379-47e8-aa31-5b3ddffd9ec6">
+
+                        <span data-toggle="dropdown" class="region"></span>
+                        <span class="arrow-down-transparent"></span>
+                    </a>
+
+        <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <ul>
+                <li><strong>Region</strong></li>
+                                <li>
+                        <a tabindex="-1" href="https://www.analog.com/en/landing-pages/001/india-welcome.html" target="" title="" name="India_d28fd230-86d1-43a5-a921-270db9a11aef">India</a>
+                    </li>
+                    <li>
+                        <a tabindex="-1" href="https://www.analog.com/en/landing-pages/001/korea-welcome.html" target="" title="" name="Korea_154f8b08-52bc-4468-a8e2-90eae4f85b44">Korea</a>
+                    </li>
+                    <li>
+                        <a tabindex="-1" href="https://www.analog.com/en/landing-pages/001/singapore-welcome.html" target="" title="" name="Singapore_13a09ebe-e404-43e9-a609-c21f2b2da0a9">Singapore</a>
+                    </li>
+                    <li>
+                        <a tabindex="-1" href="https://www.analog.com/en/landing-pages/001/taiwan-welcome.html" target="" title="" name="Taiwan_3146147e-7236-4692-b1a8-18240f3e01e0">Taiwan</a>
+                    </li>
+
+        </ul>
+        <ul class="setLang">
+                    <li>
+                        <strong>Languages</strong>
+                    </li>
+                                    <li>
+                                            <a tabindex="-1" href="https://www.analog.com/en/index.html" title="English" name="English_e33369c5-cf6f-415c-a408-fcf42c2a6c19"><strong>English</strong></a>
+                                        </li>
+                                    <li>
+                                            <a tabindex="-1" href="https://www.analog.com/cn/index.html" title="简体中文" name="Chinese_42e59427-ab8e-4088-8e78-b229a94f639d">简体中文</a>
+                                    </li>
+                                    <li>
+                                            <a tabindex="-1" href="https://www.analog.com/jp/index.html" title="日本語" name="Japanese_36645878-0d31-42ed-80fd-4101c6c03573">日本語</a>
+                                    </li>
+                                    <li>
+                                            <a tabindex="-1" href="https://www.analog.com/ru/index.html" title="Руccкий" name="Russian_c5a43e16-297b-4109-938d-6fd2c28e272b">Руccкий</a>
+                                    </li>
+
+        </ul>
+
+        </div>
+
+
+
+            </li>
+        </div>
+
+    </div>
+    <iframe id="ifrmPrint" style="width: 0pt; height: 0pt; border: none;"></iframe>
+    <iframe id="trackVisitor" class="track-visitor-class"></iframe>
+    <label for="itemId" class="hidden"></label>
+    <input type="hidden" id="itemId" name="itemId" value="df300df4-e134-49c7-82e6-5af72f5cfa65">
+
+    
+    
+    
+
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="row footer-top visible-desktop" name="adi_footer_top">
+                
+<div class="col-md-8">
+             <div class="row">
+            <div class="tiles-big" name="adi_tiles_big">
+                <ul class="list-inline ">
+                   
+            <a href="https://www.analog.com/en/about-adi.html" target="" name="problem-solvers_53c6a6a3-7113-400e-b299-320e2f5f43ae">
+                        <li class="boxes blue ">
+
+                           
+                            
+                            <div class="number">~25,000</div>
+                                <div class="fact">Problem Solvers</div>
+                              
+                            
+                        </li>
+              
+                        </a>
+            <a href="https://www.analog.com/en/about-adi.html" target="" name="patents_1350c01c-8972-4593-a0bf-0eb6ba1be865">
+                        <li class="boxes blue ">
+
+                           
+                            
+                            <div class="number">6,400+</div>
+                                <div class="fact">Patents Worldwide</div>
+                              
+                            
+                        </li>
+              
+                        </a>
+            <a href="https://www.analog.com/en/about-adi.html" target="" name="customers_af6aaac4-a660-4ac9-86ee-fd52e3adddf9">
+                        <li class="boxes blue ">
+
+                           
+                            
+                            <div class="number">125,000</div>
+                                <div class="fact">Customers</div>
+                              
+                            
+                        </li>
+              
+                        </a>
+            <a href="https://www.analog.com/en/landing-pages/001/future-turns-fifty.html" target="" name="years_f0252945-126f-49a1-8fbb-1c465709aa1e">
+                        <li class="boxes blue last">
+
+                           
+                            
+                            <div class="number">55+</div>
+                                <div class="fact">Years</div>
+                              
+                            
+                        </li>
+              
+                        </a>
+                </ul>
+                <div class="clearfix">&nbsp;</div>
+              
+                <div class="row">
+                        <div class="col-xs-12">
+                            <div class="dividertop">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 dividerbottom">&nbsp;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <span class="tac header4">Analog Devices. Dedicated to solving the toughest engineering challenges.</span>
+                        </div>
+                    </div>
+             
+            </div>
+       </div>
+             </div>
+
+
+
+
+    <div class="col-md-4">
+        <div class="callout">
+            <span class="ntm header3">Ahead of What's Possible</span>	        <div class="bg-head">&nbsp;</div>
+<p></p><h4>Analog Devices is a global leader in the design and manufacturing of analog, mixed signal, and DSP integrated circuits to help solve the toughest engineering challenges.<br>
+<br>
+<a href="https://www.analog.com/en/signals.html">See the Innovations</a></h4><p></p>        </div>
+    </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+ <a class="backtotop" href="#header">&nbsp;</a><footer class="footer" id="footer" data-session="https://analogb2c.b2clogin.com/tfp/analogb2c.onmicrosoft.com/b2c_1a_adi_signuporsigninsocial/oauth2/v2.0/authorize?client_id=63aa5bf0-fc9b-4ab2-8f60-ad90b639eb32&amp;nonce=0c6ead94-f4e4-42bf-b761-fe32f97aa7bb&amp;redirect_uri=https://my.analog.com/app/session-exist&amp;scope=https://analogb2c.onmicrosoft.com/myanalog/read&amp;response_type=code&amp;prompt=none"><div class="container"><div class="row footer-bottom" name="adi_footer_bottom"><div class="col-md-12 clearfix"><div class="visible-desktop"><div class="col-md-2" name="Footer_Social_Media_Links_eee39a50-a6b0-4426-9c6a-78dd1523c507"><div class="row"><div class="sociallinks"><span class="header4"><a href="#" class="footer-collapse dropdown-toggle" data-toggle="dropdown"> Social<span class="expand-icon visible-phone"></span></a></span><ul class="pull-right list-social footer-dropdown-menu"><li class="ez-color"><a href="https://ez.analog.com" target="" title="Join Analog Devices on EngineerZone"></a></li><li><a class="instagram" href="https://www.instagram.com/analogdevices/?hl=en" target="_blank" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a></li><li><a class="facebook" href="https://www.facebook.com/AnalogDevicesInc" target="_blank" title="Visit Analog Devices on Facebook"><i class="fab fa-facebook-f"></i></a></li><li><a class="twitter" href="https://twitter.com/#!/adi_news" target="_blank" title="Follow Analog Devices on Twitter"><i class="fab fa-twitter"></i></a></li><li><a class="linkedin" href="https://www.linkedin.com/company/3450" target="_blank" title="Join Analog Devices on LinkedIn"><i class="fab fa-linkedin-in"></i></a></li><li><a class="youtube" href="https://www.youtube.com/user/AnalogDevicesInc" target="_blank" title="View Analog Devices on YouTube"><i class="fab fa-youtube"></i></a></li></ul><div id="weixin-modal" class="modal fade" role="dialog"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div><div class="modal-body"><img src="https://assets.analog.com/images/zh/weixin-qr-code.jpg" alt="" loading="lazy"></div></div></div></div></div></div></div><div class="col-md-4 quick" name="adi_footer_quicklinks"><div class="quicklinks"><span class="header4 open"><a href="#" class="footer-collapse dropdown-toggle expanded" data-toggle="dropdown" aria-expanded="true">Quick Links<span class="pull-right expand-icon visible-phone"></span></a></span><ul class="list-unstyled footer-dropdown-menu"><li class=""><a href="https://www.analog.com/en/about-adi.html" target="" title="About ADI" name="About_ADI_a18d047b-e6c9-43eb-ac39-f2433cb55f1f">About ADI</a></li><li class=""><a href="https://www.analog.com/en/signals.html" target="" title="" name="adi-signals_3588a8fa-88e8-4753-b76f-320caa7b0feb">ADI Signals+</a></li><li class=""><a href="https://www.analog.com/en/analog-dialogue.html" target="" title="Analog Dialogue" name="Analog_Dialogue_41ade380-bf31-4791-8015-2a7cc8211984">Analog Dialogue</a></li><li class=""><a href="https://careers.analog.com" target="" title="Careers" name="Careers_d3bc9a5a-eaac-4f74-a4eb-9588b983bae8">Careers</a></li><li class=""><a href="https://www.analog.com/en/about-adi/contact-us.html" target="" title="Contact us" name="Contact_us_95dc0fe9-dc2d-4f85-81fa-1a49595a3d0d">Contact us</a></li><li class=""><a href="https://investor.analog.com/" target="" title="Investor Relations" name="Investor_Relations_2ffc3744-f828-4aa2-8db4-3e3bb8854bb7">Investor Relations</a></li><li class=""><a href="https://www.analog.com/en/about-adi/news-room.html" target="" title="News Room" name="News_Room_0b77676a-6e78-428a-b729-3b12f20cb0d0">News Room</a></li><li class=""><a href="https://www.analog.com/en/about-adi/quality-reliability.html" target="" title="Quality &amp; Reliability" name="Quality_N_Reliability_9f2071ca-97a4-4e6c-85f8-a28480bc998c">Quality &amp; Reliability</a></li><li class=""><a href="https://www.analog.com/en/about-adi/corporate-information/sales-distribution.html" target="" title="Sales &amp; Distributors" name="Sales_N_Distributors_c71f89eb-3bca-4ca9-a79d-73a1172cfa1a">Sales &amp; Distribution</a></li><li class=""><a href="https://www.analog.com/en/about-adi/incubators.html" target="" title="" name="Incubators_4ff1c013-2c5e-4ccb-8e48-7e349dba983a">Incubators</a></li></ul></div></div></div><div class="visible-phone"><div class="col-md-4 quick" name="adi_footer_quicklinks"><div class="quicklinks"><span class="header4 open"><a href="#" class="footer-collapse dropdown-toggle expanded" data-toggle="dropdown" aria-expanded="true">Quick Links<span class="pull-right expand-icon visible-phone"></span></a></span><ul class="list-unstyled footer-dropdown-menu"><li class=""><a href="https://www.analog.com/en/about-adi.html" target="" title="About ADI" name="About_ADI_a18d047b-e6c9-43eb-ac39-f2433cb55f1f">About ADI</a></li><li class=""><a href="https://www.analog.com/en/signals.html" target="" title="" name="adi-signals_3588a8fa-88e8-4753-b76f-320caa7b0feb">ADI Signals+</a></li><li class=""><a href="https://www.analog.com/en/analog-dialogue.html" target="" title="Analog Dialogue" name="Analog_Dialogue_41ade380-bf31-4791-8015-2a7cc8211984">Analog Dialogue</a></li><li class=""><a href="https://careers.analog.com" target="" title="Careers" name="Careers_d3bc9a5a-eaac-4f74-a4eb-9588b983bae8">Careers</a></li><li class=""><a href="https://www.analog.com/en/about-adi/contact-us.html" target="" title="Contact us" name="Contact_us_95dc0fe9-dc2d-4f85-81fa-1a49595a3d0d">Contact us</a></li><li class=""><a href="https://investor.analog.com/" target="" title="Investor Relations" name="Investor_Relations_2ffc3744-f828-4aa2-8db4-3e3bb8854bb7">Investor Relations</a></li><li class=""><a href="https://www.analog.com/en/about-adi/news-room.html" target="" title="News Room" name="News_Room_0b77676a-6e78-428a-b729-3b12f20cb0d0">News Room</a></li><li class=""><a href="https://www.analog.com/en/about-adi/quality-reliability.html" target="" title="Quality &amp; Reliability" name="Quality_N_Reliability_9f2071ca-97a4-4e6c-85f8-a28480bc998c">Quality &amp; Reliability</a></li><li class=""><a href="https://www.analog.com/en/about-adi/corporate-information/sales-distribution.html" target="" title="Sales &amp; Distributors" name="Sales_N_Distributors_c71f89eb-3bca-4ca9-a79d-73a1172cfa1a">Sales &amp; Distribution</a></li><li class=""><a href="https://www.analog.com/en/about-adi/incubators.html" target="" title="" name="Incubators_4ff1c013-2c5e-4ccb-8e48-7e349dba983a">Incubators</a></li></ul></div></div><div class="col-md-2" name="Footer_Social_Media_Links_eee39a50-a6b0-4426-9c6a-78dd1523c507"><div class="row"><div class="sociallinks"><span class="header4"><a href="#" class="footer-collapse dropdown-toggle" data-toggle="dropdown"> Social<span class="expand-icon visible-phone"></span></a></span><ul class="pull-right list-social footer-dropdown-menu"><li class="ez-color"><a href="https://ez.analog.com" target="" title="Join Analog Devices on EngineerZone"></a></li><li><a class="instagram" href="https://www.instagram.com/analogdevices/?hl=en" target="_blank" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a></li><li><a class="facebook" href="https://www.facebook.com/AnalogDevicesInc" target="_blank" title="Visit Analog Devices on Facebook"><i class="fab fa-facebook-f"></i></a></li><li><a class="twitter" href="https://twitter.com/#!/adi_news" target="_blank" title="Follow Analog Devices on Twitter"><i class="fab fa-twitter"></i></a></li><li><a class="linkedin" href="https://www.linkedin.com/company/3450" target="_blank" title="Join Analog Devices on LinkedIn"><i class="fab fa-linkedin-in"></i></a></li><li><a class="youtube" href="https://www.youtube.com/user/AnalogDevicesInc" target="_blank" title="View Analog Devices on YouTube"><i class="fab fa-youtube"></i></a></li></ul><div id="weixin-modal" class="modal fade" role="dialog"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div><div class="modal-body"><img src="https://assets.analog.com/images/zh/weixin-qr-code.jpg" alt="" loading="lazy"></div></div></div></div></div></div></div></div><!--[if gt IE 8]><!--><!--<![endif]--><div class="col-md-2 visible-desktop"><span class="header4">Languages</span><div class="quicklinks" name="adi_footer_languages_quicklinks"><ul class="list-unstyled"><li><a href="https://www.analog.com/en/" target="" title="English" name="English_2c0dae2c-e343-42a4-8ce2-cd8350c8ec55">English</a></li><li><a href="https://www.analog.com/cn/" target="" title="简体中文" name="Chinese_8f00bfa0-df96-41b4-b43b-9937d78c4452">简体中文</a></li><li><a href="https://www.analog.com/jp/" target="" title="日本語" name="Japanese_28d4203f-f1f1-4a94-acf1-e5023759cda3">日本語</a></li><li><a href="https://www.analog.com/ru/" target="" title="Руccкий" name="Russian_08ad222c-9e19-46af-997d-9e7a12a99c0b">Руccкий</a></li></ul></div></div><div class="col-md-4 visible-desktop"><div class="newsletter" name="Callouts_Newsletter_b24a4bad-d9d0-4b9a-bb7d-149bf3a624cf"><span class="header4">Newsletters</span><p>Interested in the latest news and articles about ADI products, design tools, training and events? Choose from one of our 12 newsletters that match your product area of interest, delivered monthly or quarterly to your inbox.</p><div class="control-form"><a class="btn btn-primary" name="Newsletter_Sign Up_b24a4bad-d9d0-4b9a-bb7d-149bf3a624cf" href="https://my.analog.com/en/app/subscriptions">Sign Up</a></div></div><div class="switch-mobile-view"><a href="" id="btn-force-mobile-view" class="btn btn-primary">Switch to mobile view</a></div></div></div><div class="col-md-12 clearfix visible-phone"><div class="container text-center"><button type="button" id="btn-force-desktop-view" class="btn btn-primary"> Desktop View </button></div></div><div class="col-md-12"><div class="row copyright" name="adi_footer_copyright"><div class="col-md-5 visible-phone"><div data-src="https://assets.analog.com/images/footer_logo.gif" class="visible-phone"><img src="https://assets.analog.com/images/footer_logo.gif" alt="Analog Logo" loading="lazy" width="100"></div><span class="copy">©</span> 1995 - 2022 Analog Devices, Inc. All Rights Reserved <span><a id="CN-ICP-number" href="https://beian.miit.gov.cn">沪ICP备09046653号-1</a></span></div><ul class="list-inline pull-left visible-desktop links"><li> © </li><li> 1995 - 2022 Analog Devices, Inc. All Rights Reserved </li><li><a id="CN-ICP-number" href="https://beian.miit.gov.cn">沪ICP备09046653号-1</a></li></ul><ul class="list-inline pull-right visible-desktop" name="adi_footer_horizontal_links"><li class=""><a href="https://www.analog.com/en/sitemap.html" target="" title="Sitemap" name="Sitemap_b8effdcc-bc20-42ab-af7b-e2a546667326">Sitemap</a></li><li class=""><a href="https://www.analog.com/en/about-adi/landing-pages/001/privacy_security_statement.html" target="" title="Privacy &amp; Security" name="Privacy_N_Security_7bd22b0b-d67b-4530-ae22-266045bc4d73">Privacy &amp; Security</a></li><li class=""><a href="https://www.analog.com/en/landing-pages/001/privacy-settings.html" target="" title="Privacy Settings" name="Privacy_Settings_c3370251-faa8-4c65-b2b4-1bfeab8d75ea">Privacy Settings</a></li><li class=""><a href="https://www.analog.com/en/about-adi/landing-pages/001/terms_of_use.html" target="" title="Terms of use" name="Terms_of_Use_fd8a5f4a-6e7a-4d1d-9605-56488afcf6c6">Terms of use</a></li></ul></div></div></div></div><script type="text/javascript"> var ADIAssetsPath = "https://assets.analog.com"; var cookiesToDelete = [ { "Domain": ".analog.com", "Cookie": [ "__qca", "adiHintCookie", "bCrumbs", "dmdbase_cdc", "ELOQUA", "FedAuthentication", "gpv_p14", "gpv_v100", "myAnalog_id", "Mysite_info", "s_cc", "s_dfa", "s_fid", "s_gad", "s_gpv", "s_invisit", "s_lv", "s_nr", "s_ptc", "s_sq", "s_vi", "s_vnum", "es_visited", "AdiSessionAuthCookie", "AdiSecureDlCookie" ] }, { "Domain": ".investor.analog.com", "Cookie": [ "ADI_BRIEFCASE", "ADI_SESSION" ] }, { "Domain": "careers.analog.com", "Cookie": [ "in_ref", "Per_UniqueID", "PLAY_SESSION", "VISITED_COUNTRY", "VISITED_LANG", "ext_trk", "_gat_UA-84784380-31" ] }, { "Domain": "distiadmin-dev.corpnt.analog.com", "Cookie": [ "ASP.NET_SessionId" ] }, { "Domain": "distributor-dev.corpnt.analog.com", "Cookie": [ "FedAuth1", "FedAuth", "ipe_30155_fov", "ipe.30155.pageViewedCount", "ipe_s", "_sdsat_Email Address", "dmdbase", "_sdsat_DevQaOrProd" ] }, { "Domain": "ez.analog.com", "Cookie": [ "containerSecurityToken", "jive.security.context", "X-JCAPI-Token ", "BIGipServerpool_vanity_analog.jiveon.com", "JSESSIONID", "jive.login.ts" ] }, { "Domain": "form.analog.com", "Cookie": [ "AdiSessionAuthCookie", "FedAuth1", "FedAuth", "ASP.NET_SessionId", "AlteonP", "ipe_30155_fov", "ipe.30155.pageViewedCount", "ipe_s", "_sdsat_DevQaOrProd", "adicftlassetdata", "AdiSessionAuthCookie", "_sdsat_Membership Status", "_sdsat_Email Address" ] }, { "Domain": "registration.analog.com", "Cookie": [ "ipe_30155_fov", "ipe.30155.pageViewedCount", "ipe_s", "registration-dev.corpnt.analog.com", "_sdsat_Email Address", "FedAuth1", "FedAuth", "_sdsat_Membership Status", "AlteonP", "ASP.NET_SessionId" ] }, { "Domain": "sdk.analog.com", "Cookie": [ "dmdbase", "_sdsat_DevQaOrProd", "ipe_30155_fov", "ipe.30155.pageViewedCount", "_sdsat_Membership Status", "_sdsat_Email Address", "ipe_s", "AdiSessionAuthCookie", "FedAuth1" ] }, { "Domain": "shoppingcart.analog.com", "Cookie": [ "ipe_30155_fov", "ipe.30155.pageViewedCount", "ipe_s", "dmdbase", "_sdsat_DevQaOrProd", "_sdsat_Membership Status", "_sdsat_Email Address", "ASP.NET_SessionId", "adiSessionAuth", "FedAuth", "FedAuth1", "analogp", "USERID", "SHOPPINGCARTID", "DISTI_COUNTRY_CODE", "AlteonP" ] }, { "Domain": "webuseradmin.analog.com", "Cookie": [ "ASP.NET_SessionId" ] }, { "Domain": "wiki.analog.com", "Cookie": [ "DokuWiki", "DW<hash>", "DOKU_PREFS" ] }, { "Domain": "www.analog.com", "Cookie": [ "__atuvc", "__atuvs", "_sdsat_Email Address", "_sdsat_Membership Status", "DisclaimerConfirmation", "dmdbase", "downloadGoals", "sc.ASP.NET_SESSIONID", "sc.Status", "SC_ANALYTICS_GLOBAL_COOKIE", "website#lang", "ipe.30155.pageViewedCount", "ipe_30155_fov", "ipe_s", "_sdsat_DevQaOrProd", "ASP.NET_SessionId" ] } ]; </script></footer> 
+
+
+
+
+    
+        <script>
+            var datalayer = {"device":{"browser":"","type":""},"page":{"details":{"part":{"applicableParts":null,"categories":null,"id":"{DF300DF4-E134-49C7-82E6-5AF72F5CFA65}","lifeCycle":null,"markets":null,"name":"home","type":"Home Page"}},"meta":{"breadcrumbs":["{DF300DF4-E134-49C7-82E6-5AF72F5CFA65}"],"id":"{DF300DF4-E134-49C7-82E6-5AF72F5CFA65}","journey":null,"language":"en","pathname":"/en/index.html","persona":null,"publishDate":null,"title":"Mixed-signal and digital signal processing ICs | Analog Devices","taxonomy":null,"type":"Home"}},"user":{"cart":{"purchaseID":"","sampleID":"","transactionID":""},"email":"","loggedIn":false,"blocked":false,"memberStatus":false}}
+        </script>
+
+    <script type="text/javascript">
+
+                (function (d) {
+                    var scripts = [];
+                    scripts.push("//assets.adobedtm.com/bc68b7886092/2a726ea8b70d/launch-a4a6d55de309.min.js");
+
+            function loadScript(src) {
+                var script = d.createElement('script');
+                script.src = src;
+                script.async = true;
+                d.body.appendChild(script);
+            }
+
+            function loadScripts() {
+                scripts.forEach(loadScript);
+            }
+
+            window.addEventListener('load', loadScripts, false);
+
+        })(document);
+    </script>
+
+
+    <script id="image-modal-template" type="text/x-handlebars-template">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="image-label">{{{title}}}</h4>
+        </div>
+        <div class="modal-body">
+            <ul class="control-icons">
+                <li>
+                    {{#if data_download}}
+                    <a class="downloadimagelink" href="{{data_download}}" download="{{data_download}}">
+                        <span id="downbutton" class="icon-download"></span>
+                    </a>
+                    {{else}}
+                    <a class="downloadimagelink" href="{{src}}" download="{{src}}">
+                        <span id="downbutton" class="icon-download"></span>
+                    </a>
+                    {{/if}}
+                </li>
+                <li><a class="print pull-right"><span class="icon-print"></span></a></li>
+            </ul>
+            <br />
+            <img alt="{{{title}}}" class="img-responsive" title="{{{title}}}" src="{{src}}" loading="lazy" />
+            <br />
+        </div>
+
+    </script>
+    <div class="modal fade product-modal" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="product-modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+    <div class="modal" id="adi-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script id="html5Videoplayer" type="text/x-handlebars-template">
+        <div class="deferred-video-player"
+             data-account="{{accountid}}"
+             data-application-id
+             data-controls
+             data-embed="{{embed}}"
+             data-player="{{playerid}}"
+             data-video-id="{{videoid}}">
+            <i class="fa fa-spinner fa-spin fa-2x"></i>
+        </div>
+    </script>
+
+
+    <link href="https://assets.analog.com/css/vendor.css" rel="stylesheet">
+    <script src="https://assets.analog.com/js/adi/global.js" type="text/javascript"></script>
+    
+
+    
+    <!--Added as part of Sitecore Forms Changes-->
+    
+
+<input id="MediaFramework_ItemId" name="MediaFramework_ItemId" type="hidden" value="DF300DF4E13449C782E65AF72F5CFA65">
+<script type="text/javascript" src="/H3G-s/8N8ak/QM/2nPp/c_-q/1E1LkDQ4rir3/ejN9VGIBBQ/RzE/Wfl8YBQcB"></script>
+<div class="modal-backdrop fade in"></div><div class="modal fade product-modal modal-video-window" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">×</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div><script src="//assets.adobedtm.com/bc68b7886092/2a726ea8b70d/launch-a4a6d55de309.min.js" async=""></script><script>_satellite["__runScript1"](function(event, target) {
+var cookie = _satellite.readCookie( 'cookieAccepted' );
+  if (cookie === "true"){
+    adobe.optIn.approveAll()
+    return;
+  }
+
+
+
+
+
+});</script><script>_satellite["__runScript2"](function(event, target) {
+(function( w, d, $s ){
+
+    var i;
+    check();
+
+    function check(){
+      
+      	var cookie = $s.cookie.get( 'cookieAccepted' );
+
+        if( cookie === 'pending' || !cookie ){
+            if( !i ) i = setInterval( check, 1000 ); 
+            return;
+        }
+
+        if( i ) clearInterval( i );
+
+        if( cookie === 'false' ) return $s.logger.info( '[GTM] User declined analytics.' );
+
+        addGTM();
+
+    }
+
+    function addGTM(){
+
+      $s.logger.info('[GTM] Load tag manager: AW-745164575')
+
+        var s = d.createElement( 'script' );
+        s.src = "https://www.googletagmanager.com/gtag/js?id=AW-745164575";
+        s.async = true;
+	      d.head.appendChild( s );
+      
+      	function gtag(){ dataLayer.push( arguments ) };
+      
+      	w.dataLayer = w.dataLayer || [];
+        gtag('js', new Date());
+        gtag('config', 'AW-745164575'); 
+    }          
+})( window, document, _satellite );
+});</script><script>_satellite["__runScript3"](function(event, target) {
+(function( w, d, $s ){
+
+    var i;
+    check();
+
+    function check(){
+      
+      	var cookie = $s.cookie.get( 'cookieAccepted' );
+
+        if( cookie === 'pending' || !cookie ){
+            if( !i ) i = setInterval( check, 1000 ); 
+            return;
+        }
+
+        if( i ) clearInterval( i );
+
+        if( cookie === 'false' ) return $s.logger.info( '[GTM] User declined analytics.' );
+
+        addGTM();
+
+    }
+
+    function addGTM(){
+
+      $s.logger.info('[GTM] Load tag manager: AW-1071562956')
+
+        var s = d.createElement( 'script' );
+        s.src = "https://www.googletagmanager.com/gtag/js?id=AW-1071562956";
+        s.async = true;
+	      d.head.appendChild( s );
+      
+      	function gtag(){ dataLayer.push( arguments ) };
+      
+      	w.dataLayer = w.dataLayer || [];
+        gtag('js', new Date());
+        gtag('config', 'AW-1071562956'); 
+    }          
+})( window, document, _satellite );
+});</script><script>_satellite["__runScript4"](function(event, target) {
+
+(function(w, d, $s) {
+
+    var i;
+
+    check();
+
+    function check() {
+
+        var cookie = $s.cookie.get('cookieAccepted');
+
+        if (cookie === 'pending' || !cookie ) {
+            if (!i) i = setInterval(check, 1000);
+            return;
+        }
+
+        if (i) clearInterval(i);
+
+        if (cookie === 'false') return $s.logger.info('[GTM] User declined analytics.');
+
+        addGTM();
+
+    }
+
+    function addGTM() {
+        var axel = Math.random(),
+            a = axel * 10000000000000,
+            s = document.createElement("script"),
+            s2 = document.createElement("script"),
+            sessionID = _satellite.cookie.get("ipe_s"),
+        	text = document.createTextNode("ttd_dom_ready(function() {if (typeof TTDUniversalPixelApi === 'function') {var universalPixelApi = new TTDUniversalPixelApi();universalPixelApi.init('tsmgpd7', ['cegtmc5'], 'https://insight.adsrvr.org/track/up');}});");
+      
+        s.type = "text/javascript";
+        s.src = "https://js.adsrvr.org/up_loader.1.1.0.js";
+      	s.onload = function(){
+            $s.logger.info("GTM - Trade Desk loaded");
+            ttd_dom_ready( function() {
+                if (typeof TTDUniversalPixelApi === 'function') {
+                    var universalPixelApi = new TTDUniversalPixelApi();
+                    universalPixelApi.init("tsmgpd7", ["cegtmc5"], "https://insight.adsrvr.org/track/up");
+                }
+            });
+        }
+				
+        document.body.appendChild(s);
+    }
+
+})(window, document, _satellite);
+});</script><script>_satellite["__runScript5"](function(event, target) {
+(function(w, d, $s){
+
+    var i, interval;
+
+    check();
+
+    function check() {
+
+        var cookie = $s.cookie.get('cookieAccepted');
+
+        if (cookie === 'pending' || !cookie ) {
+            if (!i) i = setInterval(check, 1000);
+            return;
+        }
+
+        if (i) clearInterval(i);
+
+        if (cookie === 'false') return $s.logger.info('[GTM] User declined analytics.');
+
+        run();
+
+    }
+
+    function run(){
+
+        if( !window.dbP || ( window.dbP && !window.dbP.stringData ) || Object.keys( window.dbP.stringData ).length === 0 ){
+            if( !interval ) interval = setInterval( run, 200 );
+            return;
+        }
+
+        if( interval ) clearInterval( interval );
+
+		var country = dbP.sess.country.toLowerCase();      
+      	country = country.toLowerCase();
+      
+        if( country === 'cn' || country === 'zh' ) return;
+
+        !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+            },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+            a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+            // Insert Twitter Pixel ID and Standard Event data below
+            twq('init','o1gqj');
+            twq('track','PageView');
+            
+    }
+  
+    $s.logger.info('TMK Twitter account call');
+    
+})(window, document, _satellite);
+});</script><script>_satellite["__runScript6"](function(event, target) {
+(function(){
+
+    var container = document.querySelector( 'section.new-designs' );
+    
+    if( container ) {
+      document.querySelector( 'section.new-designs .layout-column div:first-child' ).onclick = trackDesignClick;
+      document.querySelector( 'section.new-designs .layout-column .reference-description' ).onclick = trackDescriptionClick;
+      document.querySelectorAll( 'section.new-designs .layout-two-column li a' ).forEach(function(el){ el.onclick = trackListDescriptionClick });
+      document.querySelector( 'section.new-designs .layout-two-column a.btn' ).onclick = trackViewAllBtnClick;
+    }
+
+    function trackDesignClick(e){
+        var link = e.currentTarget || e.target;
+        var value = "design|" + document.querySelector( 'section.new-designs .layout-column .reference-description h2' ).innerText;
+        s.clearVars();
+        s.linkTrackVars= "eVar112,events";
+        s.linkTrackEvents = "event192";
+        s.eVar112 = value;
+        s.events = "event192";
+        s.tl( link, 'o', 'Reference Design Image Click' );
+    }
+  
+    function trackDescriptionClick(e){
+        var link = e.currentTarget || e.target;
+        var value = "part|" + document.querySelector( 'section.new-designs .layout-column .reference-description h2' ).innerText;
+        s.clearVars();
+        s.linkTrackVars= "eVar112,events";
+        s.linkTrackEvents = "event192";
+        s.eVar112 = value;
+        s.events = "event192";
+        s.tl( link, 'o', 'Reference Design Image Description Click' );
+    }
+  
+    function trackListDescriptionClick(e){
+        var link = e.currentTarget || e.target;
+        var value = "part|" + e.target.innerText;
+        s.clearVars();
+        s.linkTrackVars= "eVar112,events";
+        s.linkTrackEvents = "event192";
+        s.eVar112 = value;
+        s.events = "event192";
+        s.tl( link, 'o', 'Reference Design List Description Click' );
+    }
+  
+    function trackViewAllBtnClick(e){
+        var link = e.currentTarget || e.target;
+        var value = "view all new reference designs";
+        s.clearVars();
+        s.linkTrackVars= "eVar112,events";
+        s.linkTrackEvents = "event192";
+        s.eVar112 = value;
+        s.events = "event192";
+        s.tl( link, 'o', 'Reference Design View All Click' );
+    }
+
+})();
+});</script><script>_satellite["__runScript7"](function(event, target) {
+(function(){
+
+    var container = document.querySelector( '.designcenter .content' );
+    
+    if( container ) {
+      var menu = document.querySelectorAll( '#stickyheadernav .menuwrap .nav.navbar-nav li' ),
+          owlSlider = document.querySelectorAll( '.referenceDesign #previewProducts .owl-item .sliderItem img' ),
+          carousel = document.querySelectorAll( '.referenceDesign #previewProductsThumnails .thumb-item' ),
+          CTA = document.querySelectorAll( '.referenceDesign .adi-tabs .more.information a' ),
+          overviewTabs = document.querySelectorAll( '.referenceDesign .adi-tabs .nav.nav-tabs li' ),
+          rightPanelMenus = document.querySelectorAll( '.referenceDesign .radioverse ul.subHeading li a:not(.pst)' ),
+          parts = document.querySelectorAll( '.referenceDesign .radioverse #compatible-parts li a' );
+           
+      if( menu ) Array.from( menu ).forEach(function(el){ el.onclick = trackmenuClick });
+      if( owlSlider ) Array.from( owlSlider ).forEach(function(el){ el.onclick = trackowlSliderClick });
+      if( carousel ) Array.from( carousel ).forEach(function(el){ el.onclick = trackCarouselClick });
+      if( CTA ) Array.from( CTA ).forEach(function(el){ el.onclick = trackCTAClick });
+      if( overviewTabs ) Array.from( overviewTabs ).forEach(function(el){ el.onclick = trackOverviewTabsClick });
+      if( rightPanelMenus ) Array.from( rightPanelMenus ).forEach(function(el){ el.onclick = trackRightPanelClick });
+      if( parts ) Array.from( parts ).forEach(function(el){ el.onclick = trackPartsClick });
+    }
+  
+    function trackmenuClick(e){       
+        var link = e.currentTarget || e.target;
+        var value = "design center product - "+ e.target.innerText;
+        s.linkTrackVars= "eVar116,events";
+        s.linkTrackEvents = "event220";
+        s.eVar116 = value;
+        s.events = "event220";
+        s.tl( link, 'o', 'Reference Design Header Menu Click' );
+        s.clearVars();
+    }
+  
+    function trackowlSliderClick(e){
+        var link = e.currentTarget || e.target;
+        var value = "main image|"+ e.target.getAttribute("alt");
+        s.linkTrackVars= "eVar114,events";
+        s.linkTrackEvents = "event201";
+        s.eVar114 = value;
+        s.events = "event201";
+        s.tl( link, 'o', 'Reference Design OwlSlider Click' );
+    }
+  
+    function trackCarouselClick(e){
+        var link = e.currentTarget || e.target;
+        var value = "carousel image|"+ e.target.getAttribute("alt");
+        s.linkTrackVars= "eVar114,events";
+        s.linkTrackEvents = "event201";
+        s.eVar114 = value;
+        s.events = "event201";
+        s.tl( link, 'o', 'Reference Design Carousel Click' );
+    }
+  
+    function trackCTAClick(e){
+        var link = e.currentTarget || e.target;
+        var value = "cta clicks|"+ e.target.getAttribute("href");
+        s.linkTrackVars= "eVar114,events";
+        s.linkTrackEvents = "event203";
+        s.eVar114 = value;
+        s.events = "event203";
+        s.tl( link, 'o', 'Reference Design CTA Click' );
+    }
+  
+    function trackOverviewTabsClick(e){     
+        
+        if(!e.target.parentElement.classList.contains('active')) {
+          var link = e.currentTarget || e.target;
+          var value = "overview|"+ e.target.innerText;
+          s.linkTrackVars= "eVar114,events";
+          s.linkTrackEvents = "event202";
+          s.eVar114 = value;
+          s.eVar114 = value.toLowerCase();
+          s.events = "event202";
+          s.tl( link, 'o', 'Reference Design Overview Tabs Click' );
+        }
+    }
+  
+    function trackRightPanelClick(e){       
+      var link = e.currentTarget || e.target;
+      var subHeading = e.target.closest('ul.subHeading');
+      var value = subHeading.previousElementSibling.innerText + "|"+ e.target.innerText;
+      s.linkTrackVars= "eVar114,events";
+      s.linkTrackEvents = "event204";
+      s.eVar114 = value.toLowerCase();
+      s.events = "event204";
+      s.tl( link, 'o', 'Reference Design Right Panel Click' );
+    }
+    
+    function trackPartsClick(e){       
+      var link = e.currentTarget || e.target;
+      var value = "parts used|"+ e.target.innerText.toLowerCase();
+      s.linkTrackVars= "eVar114,events";
+      s.linkTrackEvents = "event204";
+      s.eVar114 = value;
+      s.events = "event204";
+      s.tl( link, 'o', 'Reference Design Parts Used Click' );
+    }
+
+})();
+});</script><script>_satellite["__runScript8"](function(event, target) {
+(function( w ){
+
+    /**
+     * @name events
+     * @object
+     * @description Contains the list of events that should be triggered for personalization.
+     * To add an event, simply add an object to the corresponding event and it will be executed.
+     */
+    var events = {
+        click: [],
+        load: []
+    },
+    delimiter = ',',
+    goals = [],
+    trackGoalUrl = "/services/SitecoreAnalyticsService.svc/TrackGoal",
+    useNavigator = ( navigator && navigator.sendBeacon );
+
+    /**
+     * @name bind
+     * @function
+     * @description Binds events to their respective elements
+     */
+    function bind(){
+
+        var handleEvent = function( event ){
+
+            if( !checkValidity( event ) || !event.selector ) return;
+            
+            if( event.goal ){
+
+                goals.forEach(function( goal ){
+                    bindSelector( event.id, event.selector.replace( '{goal}', goal[ 0 ] ), event.type );
+                });
+
+            } else {
+                bindSelector( event.id, event.selector, event.type );
+            }
+
+        }
+
+        events.click.forEach( handleEvent );
+
+    }
+
+    function bindSelector( id, selector, market ){
+
+        var elems = document.querySelectorAll( selector );
+
+        for( var i = 0; i < elems.length; ++i ){
+            var elem = elems[ i ],
+            markets = elem.dataset.markets ? elem.dataset.markets.split( delimiter ) : [];
+            elem.dataset.eventIds = elem.dataset.eventIds ? elem.dataset.eventIds + delimiter + id : id;
+            if( !markets.includes( market ) ) markets.push( market );
+            elem.dataset.markets = markets.join( delimiter );
+            elem.addEventListener( 'click', handleClick );
+        }
+    }
+
+    /**
+     * @name checkElement
+     * @function
+     * @description Determines if the provided element selector exists on the current page
+     * @returns {boolean}
+     * @param {string} selector
+     */
+    function checkElement( selector ){
+        return (!!document.querySelector( selector ) );
+    }
+
+    /**
+     * @name checkPath
+     * @function
+     * @description Determines if the current document path meets the regexp requirements
+     * @returns {boolean}
+     * @param {RegExp} exp Expression to check the path against
+     */
+    function checkPath( exp ){
+        return ( !!document.location.pathname.match( exp ) );
+    }
+
+    /**
+     * @name checkValidity
+     * @function
+     * @description Checks if an event is viable for the current page
+     * @returns {boolean}
+     * @param {object} event 
+     */
+    function checkValidity( event ){
+        
+        if( event.selector && !checkElement( event.selector ) ) return false;
+        if( event.matchPath && !checkPath( event.matchPath ) ) return false;
+        if( event.requires && !checkElement( event.requires ) ) return false;
+        if( event.disqualifiers && checkElement( event.disqualifiers ) ) return false;
+
+        _satellite.logger.info( 'Personalize for ' + event.context + ' - ' + event.type );
+
+        return true;
+    }
+
+    /**
+     * @name objToStr
+     * @function
+     * @description
+     * @param {Object} obj 
+     * @returns {string}
+     */
+    function objToStr( obj ){
+        return JSON.stringify( obj );
+    }
+
+    /**
+     * @name createEvent
+     * @function
+     * @description Adds an event to the appropriate queue
+     * @param {string} [type=click|load] Type of event to execute
+     * @param {object} event The event information
+     * @param {string} [event.context] The context in which the event is executing. Used for debugging
+     * @param {string} event.id The goal ID to be sent
+     * @param {RegExp} [event.matchPath] Expression to match paths in which the event should execute
+     * @param {string} [event.requires] CSS selector for an element that must be on the page to execute
+     * @param {string} [event.selector] CSS selector to bing the click event to. *Required* for click events.
+     * @param {string} [event.type] The type of personzalition that the event belongs to. Used for debugging
+     */
+    function createEvent( type, event ){
+        events[ type ].push( event );
+    }
+    w.dtmPersonalizationEvent = createEvent;
+
+    /**
+     * @name execute
+     * @function
+     * @description Executes page load functions only
+     */
+    function execute(){
+        var markets = [],
+        handleEvent = function( event ){
+
+            if( !checkValidity( event ) ) return;
+
+            track( event.id, null );
+            markets.push( event.type );
+        }
+
+        events.load.forEach( handleEvent );
+        trackMarkets( markets.join( delimiter ) );
+    }
+
+    /**
+     * @name handleClick
+     * @function
+     * @description Handles click events for click driven personalization
+     * @param {EventListenerObject} e 
+     */
+    function handleClick( e ){
+
+        var elem = e.currentTarget || e.target,
+        ids = elem.dataset.eventIds.split( ',' ),
+        href = elem.getAttribute( 'href' ),
+        // determine if the goal should be tracked with unload
+        dontTrack = ( ( !elem.target || elem.target === '' ) && ( href !== '#' && !isDownloadable( elem ) ) ), 
+        count = 0,
+        callback = function(){
+            ++count;
+            if( count !== ids.length ) return;
+        },
+        trackId = function( id ){
+            track( id, elem.href, callback );
+        };
+
+        ( !dontTrack ) ? 
+            ids.forEach( trackId ) : // if the link isn't to be opened in a new tab don't track here
+            w.lastClicked = elem; // set the link as a global variable to track during the unload event
+
+        trackMarkets( elem.dataset.markets );
+    }
+    w.dtmPersonlizationClick = handleClick;
+
+    /**
+     * Tracking through the unload event allows us to delay the page load until the 
+     * TrackGoal requests have finished, without having to prevent the default action
+     * @name handleUnload
+     * @function
+     * @description Handles unload events triggered by clicking of a goal link. 
+     */
+    function handleUnload(){
+
+        if( !w.lastClicked ) return;
+
+        var ids = w.lastClicked.dataset.eventIds.split( ',' ),
+        
+        trackSync = function( id ){
+            var req = new XMLHttpRequest();
+            req.open( "POST", trackGoalUrl, false );
+            req.setRequestHeader( "Content-Type", "text/plain;charset=UTF-8" );
+            req.send({ 
+                eventId: id,
+                link: w.lastClicked.href
+            });
+        },
+        trackBeacon = function( id ){
+            navigator.sendBeacon( trackGoalUrl, objToStr({ 
+                eventId: id,
+                link: w.lastClicked.href
+            }))
+        };
+
+        trackMarkets( w.lastClicked.dataset.markets );
+        ids.forEach( useNavigator ? trackBeacon : trackSync );
+
+    }
+
+
+    /**
+     * @name init
+     * @function
+     * @description Initialize personalization
+     */
+    function init(){
+        bind()
+        execute();
+    }
+    w.dtmPersonalizationInit = init;
+
+    /**
+     * @name isDownloadable
+     * @function
+     * @description Determines if the provided anchor element triggers a download
+     * @param {HTMLElement} elem 
+     * @returns {boolean} `true` if it triggers a download, `false` if it triggers anything else
+     */
+    function isDownloadable( elem ){
+
+        var filetypes = [ '.cir', '.csv', '.mp4', '.wiki', '.zip' ],
+        href = elem.getAttribute( 'href' ),
+        isDownload = false;
+
+        if( elem.hasAttribute( 'download' ) ) return true;
+
+        filetypes.forEach(function( filetype ){
+            if( isDownload ) return;
+            isDownload = href.endsWith( filetype );
+        });
+
+        return isDownload;
+
+    }
+
+    function track( id, link, callback ){
+
+        var data = { eventId: id };
+      
+        if( link ) data.link = link;
+      
+        if( useNavigator ){
+            navigator.sendBeacon( trackGoalUrl, objToStr( data ) );
+            callback();
+        } else {
+            jQuery.post( trackGoalUrl, data, callback );
+        }
+      
+    }
+
+    /**
+     * @name trackMarkets
+     * @function
+     * @description Sends market personalization activity to DTM
+     * @param {string} markets list of markets being personalized
+     */
+    function trackMarkets( markets ){
+        if(markets){
+          s.clearVars();
+          s.linkTrackVars = "eVar65";
+          s.eVar65 = markets;
+          s.tl( this, 'o', 'Personalization Market' );
+        }
+    }
+
+    w.dtmPersonalizationEvent = createEvent;
+    window.addEventListener( 'unload', handleUnload, false );
+
+})( window );
+});</script><script>_satellite["__runScript9"](function(event, target) {
+(function( w ){
+
+    /**
+     * @name check
+     * @function
+     * @description checks to see if the event creator has been mounted by the other script, then adds events once its finished
+     */
+    function check(){
+        if( !w.dtmPersonalizationEvent ) return;
+        clearInterval( int );
+        createEvents();
+    }
+
+    /**
+     * @name w.dtmPersonalizationEvents
+     * @function
+     * @description Adds personalization events to the queue
+     */
+    function createEvents(){
+
+        /**
+         * ADEF
+         */
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Resource Download',
+            id: '8B76DC9C-EB58-4890-9398-B5A3C0B99AA1',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/hardware-reference-design\//g,
+            requires: 'a[href*="/markets/aerospace-and-defense"]',
+            selector: 'a[data-resource-type="data-sheets"], a[data-resource-type="user-guides"], a[data-resource-type="design-integration-files"], a[data-resource-type="evaluation-kit-manuals"]',
+            type: 'ADEF'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Sample & Buy',
+            id: 'A68CDD3D-809F-4659-91C8-18C469ACA2D6',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/hardware-reference-design\//g,
+            requires: 'a[href*="/markets/aerospace-and-defense"]',
+            selector: 'td[ data-id="Order" ] > a, a.add-to-inventory, td.distributor > a, td[ data-id="AnalogDevices" ] > a',
+            type: 'ADEF'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Resource Download',
+            id: '8b76dc9c-eb58-4890-9398-b5a3c0b99aa1',
+            matchPath: /\/products\//g,
+            requires: 'a[href$="aerospace-and-defense-pavilion-home.html"]',
+            goal: true,
+            selector: '.content a[href*="{goal}"]',
+            type: 'ADEF'
+        });
+
+        /**
+         * Automotive
+         */
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Resource Download',
+            id: '46028817-66DD-4ADE-BFAC-8CB6D9327E10',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/hardware-reference-design\//g,
+            requires: 'a[href*="/markets/automotive"]',
+            selector: 'a[data-resource-type="data-sheets"], a[data-resource-type="user-guides"], a[data-resource-type="design-integration-files"], a[data-resource-type="evaluation-kit-manuals"]',
+            type: 'Automotive'
+        });
+    
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Sample & Buy',
+            id: 'D823AE40-B655-4CDC-9EAC-2BD1C504C1CB',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/hardware-reference-design\//g,
+            requires: 'a[href*="/markets/automotive"]',
+            selector: 'td[ data-id="Order" ] > a, a.add-to-inventory, td.distributor > a, td[ data-id="AnalogDevices" ] > a',
+            type: 'Automotive'
+        });
+
+        /**
+         * Engineer
+         */
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Reference Designs',
+            id: '8FC2796D-B097-4CF7-93F1-632B11124038',
+            selector: 'a[href*="/hardware-reference-design/"]',
+            type: 'Engineer'
+        });
+    
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Tools & Simulations',
+            id: '333E488E-FE06-4959-B44A-00AAB653EA93',
+            matchPath: /\/products\//g,
+            selector: 'section.toolsAndSimulation a',
+            type: 'Engineer'
+        });
+    
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Content Download',
+            id: '2444AE9D-6A9B-43B5-BC4C-D14C2D626CAB',
+            selector: 'a[data-resource-type]',
+            type: 'Engineer'
+        });
+    
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Content Download (Exclude user guide)',
+            id: 'A30D3BE1-143D-4E00-8FCC-A8235164281B',
+            selector: 'a[data-resource-type]:not( [data-resource-type="user-guides"] )',
+            type: 'Engineer'
+        });
+    
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Datasheet Download',
+            id: 'eb083f4a-1d93-40ab-b018-e27671d31a92',
+            matchPath: /\/products\//g,
+            selector: 'a[data-resource-type="data-sheets"]',
+            type: 'Engineer'
+        });
+    
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Content Download after Tools & Simulations',
+            id: '2444AE9D-6A9B-43B5-BC4C-D14C2D626CAB',
+            referrer: '',
+          	matchPath: /\/products\//g,
+            selector: 'a[href$=".pdf"], a[href$=".zip"]',
+            type: 'Engineer'
+        });
+    
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Evaluation Board Content Download',
+            id: '8266C570-0D61-4962-A2D9-CE6367633281',
+            matchPath: /\/evaluation-boards-kits\//g,
+            selector: 'section.documentation div.group a, section.software div.group a, section.overview a[href$=".cir"], section.overview a[href*="wiki."], section.overview a[href$=".mp4"], section.overview a[href$=".pdf"], section.overview a[href$=".zip"]',
+            type: 'Engineer'
+        });
+    
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Reference Design Content Download',
+            id: '12D948AC-87CF-4ADD-A130-A94D1F3DD00A',
+            matchPath: /\/hardware-reference-design\//g,
+            selector: 'a[href$=".pdf"], a[href$=".zip"]',
+            type: 'Engineer'
+        });
+    
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'User Guide Download',
+            id: 'f9480c97-12cc-433d-b759-2b81ea593ad1',
+            matchPath: /\/evaluation-hardware-and-software\//g,
+            selector: 'a[data-resource-type="user-guides"]',
+            type: 'Engineer'
+        });
+    
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Navigate to Evaluation Board from PDP',
+            id: '5f600e03-2930-465e-8100-63fe692bc9b4',
+            matchPath: /\/products\//g,
+            selector: '.evaluation-kits-section .gallery-block .description-block + div a',
+            type: 'Engineer'
+        });
+
+        /**
+         * Phased Array
+         */
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Datasheet Download',
+            id: '5EAF5636-3472-4DBF-BF98-88F961E42989',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            requires: 'a[href*="/phased-array-solution"]',
+            selector: 'a[data-resource-type="data-sheets"]',
+            type: 'Phased Array (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'User Guide Download',
+            id: '65C7B1CD-17F1-4827-9D5E-1F4B126018C3',
+            requires: 'a[href*="/phased-array-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="user-guides"]',
+            type: 'Phased Array (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Design Integration',
+            id: '6F964D03-E167-4F94-9509-42BC62D04AD9',
+            requires: 'a[href*="/phased-array-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="/design-integration-files/"]',
+            type: 'Phased Array (ADEF)'
+        });
+
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Sample',
+            id: '5A38A67C-F70C-4E6A-9357-AA7DC9A486A2',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            requires: 'a[href*="/phased-array-solution"]',
+            selector: 'a[href*="ACTION=SAMPLE"]',
+            type: 'Phased Array (ADEF)'
+        });
+
+        /**
+         * Radar
+         */
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Datasheet Download',
+            id: '06A3F874-FD85-4F2F-B224-3DE5CEF2EA3C',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            requires: 'a[href*="/radar-solution"]',
+            selector: 'a[data-resource-type="data-sheets"]',
+            type: 'Radar (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'User Guide Download',
+            id: '08291F2D-8CAA-4485-8477-D61E4E8218D2',
+            requires: 'a[href*="/radar-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="user-guides"]',
+            type: 'Radar (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Design Integration',
+            id: '310F3707-3F18-4FE3-8FAB-FB808EE2618E',
+            requires: 'a[href*="/radar-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="/design-integration-files/"]',
+            type: 'Radar (ADEF)'
+        });
+
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Sample',
+            id: '164A4E96-7C11-45C0-B6C5-E5401BD02DFA',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            requires: 'a[href*="/radar-solution"]',
+            selector: 'a[href*="ACTION=SAMPLE"]',
+            type: 'Radar (ADEF)'
+        });
+
+        /**
+         * Milcom
+         */
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Datasheet Download',
+            id: 'D50BEE87-7BB5-4B3E-92EC-08A95FD95E27',
+            requires: 'a[href*="/milcom-solutions"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="data-sheets"]',
+            type: 'MILCOM (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'User Guide Download',
+            id: 'F920206E-E8F5-487D-B54F-C618A3DA8EE4',
+            requires: 'a[href*="/milcom-solutions"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="user-guides"]',
+            type: 'MILCOM (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Design Integration',
+            id: '9BD89157-8BF5-4CE9-A143-C3BA966DF577',
+            requires: 'a[href*="/milcom-solutions"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="/design-integration-files/"]',
+            type: 'MILCOM (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Sample',
+            id: 'FE3217C9-01D3-4E99-B0D8-D409AA0E5FBA',
+            requires: 'a[href*="/milcom-solutions"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="ACTION=SAMPLE"]',
+            type: 'MILCOM (ADEF)'
+        });
+
+        /**
+         * electronic surveillance
+         */
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Datasheet Download',
+            id: 'CE7F4E78-A5A6-4F8E-ADC6-C3A2A020A770',
+            requires: 'a[href*="/electronic-surveillance-and-countermeasures-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="data-sheets"]',
+            type: 'Electronic Surveillance (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'User Guide Download',
+            id: '24957C1F-67C1-4823-8B7E-C65DE5822711',
+            requires: 'a[href*="/electronic-surveillance-and-countermeasures-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="user-guides"]',
+            type: 'Electronic Surveillance (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Design Integration',
+            id: '72404C4A-CB1A-4D7C-A2DC-170F0D7E56CF',
+            requires: 'a[href*="/electronic-surveillance-and-countermeasures-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="/design-integration-files/"]',
+            type: 'Electronic Surveillance (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Sample',
+            id: '4B6CFF75-9A8B-484E-B58C-3175002070F1',
+            requires: 'a[href*="/electronic-surveillance-and-countermeasures-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="ACTION=SAMPLE"]',
+            type: 'Electronic Surveillance (ADEF)'
+        });
+
+        /**
+         * unmanned systems
+         */
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Datasheet Download',
+            id: '2FE3F59E-F8AF-4AEF-97A2-E3809206F836',
+            requires: 'a[href*="/unmanned-systems-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="data-sheets"]',
+            type: 'Unmanned Systems (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'User Guide Download',
+            id: 'B000C9C3-FF44-4389-B0DC-2BFE7D42E8FD',
+            requires: 'a[href*="/unmanned-systems-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="user-guides"]',
+            type: 'Unmanned Systems (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Design Integration',
+            id: '3C16F26E-5DE7-4391-80D4-98E2B875ECFD',
+            requires: 'a[href*="/unmanned-systems-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="/design-integration-files/"]',
+            type: 'Unmanned Systems (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Sample',
+            id: 'E0EEED0F-423F-4683-B3E9-398A545A84FA',
+            requires: 'a[href*="/unmanned-systems-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="ACTION=SAMPLE"]',
+            type: 'Unmanned Systems (ADEF)'
+        });
+
+        /**
+         * avionics
+         */
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Datasheet Download',
+            id: 'E0E577EE-6B6F-4209-9132-17591F3FC4AA',
+            requires: 'a[href*="/avionics-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="data-sheets"]',
+            type: 'Avionics (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'User Guide Download',
+            id: '7316287F-3587-4EDC-8FE7-045B25602304',
+            requires: 'a[href*="/avionics-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="user-guides"]',
+            type: 'Avionics (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Design Integration',
+            id: '1E067A99-B07A-4954-A19A-F79F67B919AE',
+            requires: 'a[href*="/avionics-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="/design-integration-files/"]',
+            type: 'Avionics (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Sample',
+            id: 'EC28B621-1BAD-4696-93FC-D402A0727135',
+            requires: 'a[href*="/avionics-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="ACTION=SAMPLE"]',
+            type: 'Avionics (ADEF)'
+        });
+
+        /**
+         * missles and munitions
+         */
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Datasheet Download',
+            id: 'F0651BE4-8333-47BA-85D8-D7630E557425',
+            requires: 'a[href*="/missiles-and-precision-munitions-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="data-sheets"]',
+            type: 'Missiles & Munitions (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'User Guide Download',
+            id: 'EBBDF092-9629-4238-8AB2-35E26EA9656F',
+            requires: 'a[href*="/missiles-and-precision-munitions-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="user-guides"]',
+            type: 'Missiles & Munitions (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Design Integration',
+            id: 'BAA1A8D3-790D-44FE-AE4C-1B72FAAFD885',
+            requires: 'a[href*="/missiles-and-precision-munitions-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="/design-integration-files/"]',
+            type: 'Missiles & Munitions (ADEF)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Sample',
+            id: 'C75B7436-C94D-40FD-90B2-AB96125BDF93',
+            requires: 'a[href*="/missiles-and-precision-munitions-solution"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="ACTION=SAMPLE"]',
+            type: 'Missiles & Munitions (ADEF)'
+        });
+
+        /**
+         * vehicle electrification
+         */
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Datasheet Download',
+            id: '0D98FE34-D87E-4A2E-A916-7B139C09EB95',
+            requires: 'a[href*="/vehicle-electrification"], a[href*="/battery-management-systems-bms"], a[href*="/dc-dc-conversion"], a[href*="/position-speed-magnetic-sensing"], a[href*="/inverter-and-e-motor-systems"], a[href*="/on-board-charging"], a[href*="/current-sensing"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="data-sheets"]',
+            type: 'Vehicle Electrification (Automotive)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'User Guide Download',
+            id: 'D0CF9406-D8F0-47F5-BD2D-1E83FE6C7D30',
+            requires: 'a[href*="/vehicle-electrification"], a[href*="/battery-management-systems-bms"], a[href*="/dc-dc-conversion"], a[href*="/position-speed-magnetic-sensing"], a[href*="/inverter-and-e-motor-systems"], a[href*="/on-board-charging"], a[href*="/current-sensing"]',
+            matchPath:/\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="user-guides"]',
+            type: 'Vehicle Electrification (Automotive)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Design Integration',
+            id: 'BA5BA10B-2231-446D-A304-66E71F4C3C4A',
+            requires: 'a[href*="/vehicle-electrification"], a[href*="/battery-management-systems-bms"], a[href*="/dc-dc-conversion"], a[href*="/position-speed-magnetic-sensing"], a[href*="/inverter-and-e-motor-systems"], a[href*="/on-board-charging"], a[href*="/current-sensing"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="/design-integration-files/"]',
+            type: 'Vehicle Electrification (Automotive)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Sample',
+            id: 'B23E0EF6-A3D2-42AE-8DE1-A0659BBCF28A',
+            requires: 'a[href*="/vehicle-electrification"], a[href*="/battery-management-systems-bms"], a[href*="/dc-dc-conversion"], a[href*="/position-speed-magnetic-sensing"], a[href*="/inverter-and-e-motor-systems"], a[href*="/on-board-charging"], a[href*="/current-sensing"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="ACTION=SAMPLE"]',
+            type: 'Vehicle Electrification (Automotive)'
+        });
+
+        /**
+         * cabin electronics and infotainment
+         */
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Datasheet Download',
+            id: 'D47518CE-2249-4940-B122-90B04CA91749',
+            requires: 'a[href*="/cabin-electronics-and-infotainment"], a[href*="/head-units-and-cluster"], a[href*="/active-noise-cancellation"], a[href*="/video-connectivity"], a[href*="/user-interaction-and-cabin-sensing"], a[href*="/premium-audio-and-amplifiers"], a[href*="/audio-connectivity"], a[href*="/telematics"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="data-sheets"]',
+            type: 'Cabin Electronics & Infotainment (Automotive)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'User Guide Download',
+            id: '4955FD35-8BBC-43B4-B366-AED9C47C8AAE',
+            requires: 'a[href*="/cabin-electronics-and-infotainment"], a[href*="/head-units-and-cluster"], a[href*="/active-noise-cancellation"], a[href*="/video-connectivity"], a[href*="/user-interaction-and-cabin-sensing"], a[href*="/premium-audio-and-amplifiers"], a[href*="/audio-connectivity"], a[href*="/telematics"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="user-guides"]',
+            type: 'Cabin Electronics & Infotainment (Automotive)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Design Integration',
+            id: '4C1821CB-7C30-4A55-85B7-D6544A8B90DC',
+            requires: 'a[href*="/cabin-electronics-and-infotainment"], a[href*="/head-units-and-cluster"], a[href*="/active-noise-cancellation"], a[href*="/video-connectivity"], a[href*="/user-interaction-and-cabin-sensing"], a[href*="/premium-audio-and-amplifiers"], a[href*="/audio-connectivity"], a[href*="/telematics"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="/design-integration-files/"]',
+            type: 'Cabin Electronics & Infotainment (Automotive)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Sample',
+            id: 'BFC14FDC-ADAB-4A65-BC43-50BDEFB8A2ED',
+            requires: 'a[href*="/cabin-electronics-and-infotainment"], a[href*="/head-units-and-cluster"], a[href*="/active-noise-cancellation"], a[href*="/video-connectivity"], a[href*="/user-interaction-and-cabin-sensing"], a[href*="/premium-audio-and-amplifiers"], a[href*="/audio-connectivity"], a[href*="/telematics"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="ACTION=SAMPLE"]',
+            type: 'Cabin Electronics & Infotainment (Automotive)'
+        });
+
+        /**
+         * autonomous transportation & adas
+         */
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Datasheet Download',
+            id: '4DAE0463-BB84-4095-8833-8B4C67960CF8',
+            requires: 'a[href*="/autonomous-transportation-and-adas"], a[href*="/autonomous-vehicle-perception-sensing"], a[href*="/imu"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="data-sheets"]',
+            type: 'Automated Transportation & ADAS (Automotive)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'User Guide Download',
+            id: '74155078-1297-4661-B9E6-BC67565BC6F9',
+            requires: 'a[href*="/autonomous-transportation-and-adas"], a[href*="/autonomous-vehicle-perception-sensing"], a[href*="/imu"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[data-resource-type="user-guides"]',
+            type: 'Automated Transportation & ADAS (Automotive)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Design Integration',
+            id: 'CA33DBAA-F9F0-4140-8FFD-BBA0DCD824C7',
+            requires: 'a[href*="/autonomous-transportation-and-adas"], a[href*="/autonomous-vehicle-perception-sensing"], a[href*="/imu"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="/design-integration-files/"]',
+            type: 'Automated Transportation & ADAS (Automotive)'
+        });
+
+        w.dtmPersonalizationEvent( 'click', {
+            context: 'Sample',
+            id: 'C94811D0-7CE0-4BF8-A48F-F14E090B1479',
+            requires: 'a[href*="/autonomous-transportation-and-adas"], a[href*="/autonomous-vehicle-perception-sensing"], a[href*="/imu"]',
+            matchPath: /\/products\/|\/evaluation-boards-kits\/|\/reference-designs\//g,
+            selector: 'a[href*="ACTION=SAMPLE"]',
+            type: 'Automated Transportation & ADAS (Automotive)'
+        });
+
+        w.dtmPersonalizationInit();
+
+    }
+
+    var int = setInterval( check, 100 );
+
+})( window );
+});</script><script>_satellite["__runScript10"](function(event, target) {
+(function(){
+
+    var container = document.querySelector( 'section.bottomnav.mega-menu' );
+    if( container ) container.addEventListener( 'expand', handleExpand );
+
+    /**
+     * @name bindListeners
+     * @function
+     * @description Applies click event handlers on all PST links
+     */
+    function bindListeners(){
+        var psts = container.querySelectorAll( 'a.pst' );
+        for( var i = 0; i < psts.length; ++i ) psts[ i ].onclick = trackClick;
+    }
+
+    /**
+     * @name handleExpand
+     * @function
+     * @description Watches the expanding of the megamenu
+     * @param {EventListenerObject} e 
+     */
+    function handleExpand( e ){
+
+        if( e.detail !== 'products' ) return;
+
+        var target = container.querySelector( 'div.main div.results' );
+
+        if( window.MutationObserver ){
+            var observer = new MutationObserver( bindListeners );
+            if( target ) observer.observe( target, { childList: true });
+        } else {
+            jQuery( target ).bind( 'DOMNodeInserted', bindListeners );
+        }
+    }
+
+    /**
+     * @name trackClick
+     * @function
+     * @description Tracks PST clicks and prevents page from continuing until its successfully completed
+     * @param {EventListenerObject} e 
+     */
+    function trackClick( e ){
+        var link = e.currentTarget || e.target,
+            currentElement = link.parentElement.parentElement,
+            category = document.querySelector('div.products.menu.content.expanded div.main div.meta div.header a')
+        if (category && currentElement.classList && currentElement.classList.contains('category')) {
+             var parent = currentElement.dataset.parent,
+             parentSelector = document.querySelector("div.products.menu.content.expanded div.main div.results div.category.first-level[data-parent='" + parent + "'] a:not(.pst)");
+             var value =  category.innerHTML.toLowerCase() + '|' + parentSelector.innerHTML.toLowerCase();
+             s.eVar111 = value ;
+        }
+        e.preventDefault();
+        s.events = 'event93';
+        s.linkTrackEvents = 'event93';
+        s.tl( link, 'o', 'Products Masthead PST Icon Click' );
+
+        window.location = link.href;
+    }
+
+})();
+});</script><script>_satellite["__runScript11"](function(event, target) {
+!function(a,e,t,n){function o(a){var e=t.cookie.get("cookieAccepted");if("pending"!==e&&e){if(i&&clearInterval(i),"false"===e)return t.logger.info("[AWP Tracking] User declined analytics.");t.logger.info("[AWP Tracking] Execute."),a()}else i||(i=setInterval(o,1e3,a))}function c(a){a.forEach((function(a){t.logger.info('[AWP Tracking] Load iframe "'+a.cat+'"');var n=e.createElement("iframe");n.style.display="none",n.src="https://9206192.fls.doubleclick.net/activityi;src=9206192;type=pagev0;cat="+a.cat+";dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord="+a.ord,a.num&&(n.src+=";num="+a.num),n.src+="? width=1 height=1 frameborder=0 style=display:none",e.body.appendChild(n)}))}var i,r=t.getVar("Page Name"),d=1e13*Math.random(),s=n.pathname.split("/");switch(r.indexOf("en/index.html")>-1&&o((function(){c([{cat:"adiho0",ord:d},{cat:"adiho00",ord:1,num:d}])})),r.indexOf("applications/markets/aerospace-and-defense-pavilion-home/adef-solutions/avionics-solution.html")>-1&&"?icid=adef-default_en_adef-hp_avionics-solution"===n.search&&o((function(){c([{cat:"avion0",ord:d},{cat:"avion00",ord:1,num:d}])})),r.indexOf("en/technical-documentation/white-papers/Customized-Modules-for-System-Providers-Most-Challenging-Needs.pdf")>-1&&o((function(){c([{cat:"custo0",ord:d},{cat:"custo00",ord:1,num:d}])})),r.indexOf("en/landing-pages/001/sdr-radioverse-pavilion/index.html")>-1&&o((function(){c([{cat:"radio000",ord:d},{cat:"radio001",ord:1,num:d}])})),r.indexOf("en/applications/markets/aerospace-and-defense-pavilion-home/adef-solutions/integrated-sub-assembly-applications-solution.html")>-1&&"?icid=adef-default_en_adef-hp_integrated-sub-assembly-applications-solution"===n.search&&o((function(){c([{cat:"subas0",ord:d},{cat:"subas00",ord:1,num:d}])})),r.indexOf("applications/markets/aerospace-and-defense-pavilion-home/adef-solutions/electronic-surveillance-and-countermeasures-solution.html")>-1&&o((function(){c([{cat:"adefv001",ord:d},{cat:"adefv000",ord:1,num:d}])})),r.indexOf("en/products/industrial-ethernet.html")>-1&&o((function(){c([{cat:"indus0",ord:d},{cat:"indus00",ord:1,num:d}])})),r.indexOf("markets/aerospace-and-defense-pavilion-home/adef-solutions/phased-array-solution.html")>-1&&o((function(){c([{cat:"adefp0",ord:d},{cat:"adefp00",ord:1,num:d}])})),s[s.length-1]){case"5103367210001.html":o((function(){c([{cat:"digit0",ord:d},{cat:"digit00",ord:1,num:d}])}));break;case"a2b.html":o((function(){c([{cat:"a2b-t0",ord:d},{cat:"a2b-u0",ord:1,num:d}])}));break;case"ad9375.html":o((function(){c([{cat:"ad9370",ord:d},{cat:"ad93700",ord:1,num:d}])}));break;case"aerojet-rocketdyne.html":o((function(){c([{cat:"aeroj000",ord:d},{cat:"aeroj001",ord:1,num:d}])}));break;case"aerospace-and-defense-pavilion-home.html":o((function(){c([{cat:"adefv0",ord:d},{cat:"adefv00",ord:1,num:d}])}));break;case"ahead-of-whats-possible.html":o((function(){c([{cat:"awpho0",ord:d},{cat:"awpho00",ord:1,num:d}])}));break;case"analog-dialogue.html":o((function(){c([{cat:"analo000",ord:d},{cat:"analo001",ord:1,num:d}])}));break;case"anritsu.html":"?icid=anritsu_en_hp"==n.search?o((function(){c([{cat:"anrit002",ord:d},{cat:"anrit003",ord:1,num:d}])})):o((function(){c([{cat:"anrit000",ord:d},{cat:"anrit001",ord:1,num:d}])}));break;case"audi-revving-the-automotive-revolution.html":o((function(){c([{cat:"revvi0",ord:d},{cat:"revvi00",ord:1,num:d}])}));break;case"blackbox-biometrics.html":o((function(){c([{cat:"black0",ord:d},{cat:"black00",ord:1,num:d}])}));break;case"custom-modules.html":o((function(){c([{cat:"adefi0",ord:d},{cat:"adefi00",ord:1,num:d}])}));break;case"deka.html":o((function(){c([{cat:"deka-0",ord:d},{cat:"deka-00",ord:1,num:d}])}));break;case"dji.html":o((function(){c([{cat:"dji-t0",ord:d},{cat:"dji-u0",ord:1,num:d}])}));break;case"electronic-surveillance-and-countermeasures-solution.html":o((function(){c([{cat:"elect0",ord:d},{cat:"elect00",ord:1,num:d}])}));break;case"honeywell.html":o((function(){c([{cat:"honey0",ord:d},{cat:"honey00",ord:1,num:d}])}));break;case"icecube-chasing-the-ghost-particle.html":o((function(){c([{cat:"icecu0",ord:d},{cat:"icecu00",ord:1,num:d}])}));break;case"ims.html":o((function(){c([{cat:"ims-t0",ord:d},{cat:"ims-u0",ord:1,num:d}])}));break;case"iot-internet-of-tomatoes.html":o((function(){c([{cat:"iot-t0",ord:d},{cat:"iot-u0",ord:1,num:d}])}));break;case"keysight-technologies.html":o((function(){c([{cat:"keysi000",ord:d},{cat:"keysi001",ord:1,num:d}])}));break;case"ligo.html":o((function(){c([{cat:"ligo-0",ord:d},{cat:"ligo-00",ord:1,num:d}])}));break;case"medrc.html":o((function(){c([{cat:"medrc0",ord:d},{cat:"medrc00",ord:1,num:d}])}));break;case"milcom-solutions.html":if("?icid=adef-default_en_adef-hp_milcom"!==n.search)break;o((function(){c([{cat:"milco0",ord:d},{cat:"milco00",ord:1,num:d}])}));break;case"missiles-and-precision-munitions-solution.html":if("?icid=adef-default_en_adef-hp_missiles-and-precision-munitions-solution-solution"!==n.search)break;o((function(){c([{cat:"missi0",ord:d},{cat:"missi00",ord:1,num:d}])}));break;case"national-instruments.html":o((function(){c([{cat:"5gni-0",ord:d},{cat:"5gni-00",ord:1,num:d}])}));break;case"radar-solution.html":if("?icid=adef-default_en_adef-hp_radar-solutions"!==n.search)break;o((function(){c([{cat:"radar0",ord:d},{cat:"radar00",ord:1,num:d}])}));break;case"rf-microwave.html":o((function(){c([{cat:"rfmic0",ord:d},{cat:"rfmic00",ord:1,num:d}])}));break;case"sdr-radioverse-pavilion-home.html":o((function(){c([{cat:"radio002",ord:d},{cat:"radio003",ord:1,num:d}])}));break;case"sdr-software-defined-revolution.html":o((function(){c([{cat:"sdr-t0",ord:d},{cat:"sdr-u0",ord:1,num:d}])}));break;case"sensing-transforms-surgery.html":o((function(){c([{cat:"ortha000",ord:d},{cat:"ortha001",ord:1,num:d}])}));break;case"solaredge.html":o((function(){c([{cat:"awpso0",ord:d},{cat:"awpso00",ord:1,num:d}])}));break;case"space-solution.html":if("?icid=adef-default_en_adef-hp_space-solution"!==n.search)break;o((function(){c([{cat:"space0",ord:d},{cat:"space00",ord:1,num:d}])}));break;case"unmanned-systems-solution.html":if("?icid=adef-default_en_adef-hp_unmanned-systems-solution"!==n.search)break;o((function(){c([{cat:"unman0",ord:d},{cat:"unman00",ord:1,num:d}])}));break;case"withings-activity-tracker.html":o((function(){c([{cat:"mems-0",ord:d},{cat:"mems-00",ord:1,num:d}])}))}}(window,document,_satellite,location);
+});</script><script>
+function viewdetails(){s.linkTrackVars="eVar95, events",s.linkTrackEvents="event110";var e=bThis[0].parentElement.parentElement.previousElementSibling.children[0].innerText;s.eVar95=scTitle.toLowerCase()+"|"+e.toLowerCase()+"|View Details",s.events="event110",s.tl(this,"o","Signal Chain: Reference Click - View Details")}function viewprice(){s.linkTrackVars="eVar95, events",s.linkTrackEvents="event110";var e=aThis[0].parentElement.parentElement.previousElementSibling.children[0].innerText;s.eVar95=scTitle.toLowerCase()+"|"+e.toLowerCase()+"|View Pricing",s.events="event110",s.tl(this,"o","Signal Chain: Reference Click - View pricing")}function productused(){var e=cThis.text().substring(1),i=cThis[0].parentElement.parentElement.parentElement.parentElement.previousElementSibling.previousElementSibling.innerText;s.linkTrackVars="eVar95, events",s.linkTrackEvents="event111",s.eVar95=scTitle.toLowerCase()+"|Products Used|"+i.toLowerCase()+"|"+e.toLowerCase(),s.events="event111",s.tl(this,"o","Signal Chain: Products Used Click")}var scTitle=document.querySelector("h3#signalChaintitle"),s=window.s;if(scTitle&&(scTitle=scTitle.innerText),scTitle&&scTitle.length>0){var aThis,bThis,cThis,a=document.querySelector("div.col-md-12.clearfix > div.col-md-8.clearfix > a:nth-child(3)"),b=document.querySelector("div.col-md-12.clearfix > div.col-md-8.clearfix > a:nth-child(2)"),c=document.querySelector("div.mobilelink-application-box div h4 a[href]");a&&(a.onclick=function(){aThis=$(this),viewprice()}),b&&(b.onclick=function(){bThis=$(this),viewdetails()}),c&&(c.onclick=function(){cThis=$(this),productused()})}
+</script><img style="display:none" alt="" aria-hidden="true" id="db_bw_pixel_ad" src="https://match.prod.bidr.io/cookie-sync/demandbase" width="0" height="0"><img style="display:none" alt="" aria-hidden="true" id="db_lr_pixel_ad" src="https://id.rlcdn.com/464526.gif" width="0" height="0"></body></html>

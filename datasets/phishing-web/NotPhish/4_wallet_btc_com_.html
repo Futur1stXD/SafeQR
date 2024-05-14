@@ -1,0 +1,395 @@
+<html><head><style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>BTC.com - Wallet for Bitcoin and Bitcoin Cash</title>
+        <meta name="description" content="Send, receive and securely store your Bitcoin and Bitcoin Cash. BTC.com wallet is available on web, iOS and Android">
+
+        <link rel="icon" href="v4-7-53/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="v4-7-53/favicon.ico" type="image/x-icon">
+
+        <link crossorigin="anonymous" integrity="sha256-ymg8mmHtu48g7jPHQIfkvB8+/XOeXeYXT3DWUhthuAw=" href="v4-7-53/css/app.css" rel="stylesheet">
+
+        <script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/2uoiJ4hP3NUoP9v_eBNfU6CR/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-8b1fYxkBQ82746OBigUxbC75ucNg784PJgJ0M7I194sqo+sBA6g1aOEfgOgqMfJ5"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script>
+            window.supportsIndexedDB = null;
+            (function checkSupportsIndexedDB() {
+                var bootstrapAngular = function() {
+                    // keep checking if we're ready to bootstrap (once supportsIndexedDB is set)
+                    //  and then bootstrap angular
+                    var check = setInterval(function() {
+                        if (window.supportsIndexedDB !== null) {
+                            clearInterval(check);
+                            angular.bootstrap(document, ['blocktrail.wallet']);
+                        }
+                    }, 5);
+                };
+
+                // attack onload handler to bootstrap angular once we're ready
+                if (window.attachEvent != null) {
+                    window.attachEvent('onload', bootstrapAngular);
+                } else {
+                    window.addEventListener('load', bootstrapAngular, false);
+                }
+                
+                // check if we can use indexedDB
+                var _supportsIndexedDB = null;
+                try {
+                    var indexedDB = indexedDB || this.indexedDB || this.webkitIndexedDB ||
+                        this.mozIndexedDB || this.OIndexedDB ||
+                        this.msIndexedDB;
+
+                    // attempt to open a test DB
+                    var test = indexedDB.open('_idb_spec_test', 1);
+
+                    // onsuccess we know for sure we can use it
+                    test.onsuccess = function() {
+                        _supportsIndexedDB = true;
+                    };
+                    // onerror we know for sure we can't use it
+                    test.onerror = function() {
+                        _supportsIndexedDB = false;
+                    };
+                } catch (e) {
+                    // if an error is thrown we know for sure we can't use it
+                    _supportsIndexedDB = false;
+                }
+
+                // keep checking if either the sucess or failure cases have set _supportsIndexedDB
+                //  and then set window.supportsIndexedDB
+                var check = setInterval(function() {
+                    if (_supportsIndexedDB !== null) {
+                        window.supportsIndexedDB = _supportsIndexedDB;
+                        clearInterval(check);
+                    }
+                }, 5);
+            })();
+        </script>
+
+        
+        <script type="text/javascript">
+            if (self === top) {
+                var antiClickjack = document.getElementById("antiClickjack");
+                antiClickjack.parentNode.removeChild(antiClickjack);
+            } else {
+                top.location = self.location;
+            }
+        </script>
+    </head>
+
+    <body ng-class="getBodyClasses()" class="network-btc modal-open state-app state-app_setup state-app_setup_register">
+        <!-- uiView:  --><div class="bodyViewContainer ng-scope" ui-view=""><!-- uiView:  --><div class="base-view ng-scope" ui-view=""><div class="ng-scope">
+    <header class="top-header ng-isolate-scope" mode="'loggedout'">
+  <div class="container" style="padding-left:0;">
+    <div class="logo pull-left">
+      <a ng-href="https://btc.com" target="_self" href="https://btc.com"><img src="v4-7-53/img/logo-btc-reverse.png"></a>
+    </div>
+
+    <div class="pull-right">
+      <!-- ngIf: mode == 'loggedout' --><ul class="nav navbar-nav ng-scope" ng-if="mode == 'loggedout'">
+        <li ng-class="{'active':$state.is('app.setup.login')}">
+          <a ui-sref="app.setup.login" class="ng-binding" href="#/setup/login">Sign In</a>
+        </li>
+      </ul><!-- end ngIf: mode == 'loggedout' -->
+
+      <!-- ngIf: mode == 'loggedin' -->
+
+      <!-- ngIf: mode == 'explorer' -->
+    </div>
+  </div>
+    <!-- ngIf: mode !== 'announcement' --><div class="col-xs-12 announcement ng-scope" ng-if="mode !== 'announcement'">
+       
+        <div class="container" style="padding-left:0;font-size:16px;">  
+                  <svg width="16px" height="16px" style="position: relative;top:1px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g id="提示bar" transform="translate(-120.000000, -82.000000)" fill="#503308" fill-rule="nonzero">
+                              <g id="形状-2" transform="translate(120.000000, 82.000000)">
+                                  <path d="M8.00035401,0 C5.14214498,0 2.5009968,1.52463724 1.07185577,3.9998978 C-0.357285257,6.47515835 -0.357285257,9.52484163 1.07185577,12.0001022 C2.5009968,14.4753627 5.14214498,16 8.00035401,16 C12.4184938,15.9998045 16,12.4181397 16,8 C16,3.58186024 12.4184938,0.000195507566 8.00035401,0 Z M8.00035401,4.82383272 C7.66754745,4.8240374 7.3599123,4.64667634 7.19333176,4.35855975 C7.02675122,4.07044315 7.02653283,3.71534277 7.19275886,3.4270215 C7.35898489,3.13870022 7.66640164,2.9609609 7.9992082,2.96075587 C8.51399897,2.96043982 8.93157585,3.3775037 8.93189261,3.89229447 C8.93220866,4.40708524 8.51514478,4.82466212 8.00035401,4.82497852 L8.00035401,4.82383272 Z M8.93418385,11.7800057 C8.93418385,12.2954293 8.51635047,12.7132626 8.0009269,12.7132626 C7.48550334,12.7132626 7.06766996,12.2954293 7.06766996,11.7800057 L7.06766996,7.43741048 C7.06766996,6.92294471 7.48474243,6.50701805 8.00035401,6.50701805 C8.51596559,6.50701805 8.93418385,6.92294471 8.93418385,7.43626468 L8.93418385,11.7800057 L8.93418385,11.7800057 Z" id="形状" transform="translate(8.000000, 8.000000) scale(1, -1) translate(-8.000000, -8.000000) "></path>
+                              </g>
+                          </g>
+                      </g>
+                  </svg>
+                   <span style="color:#503308;font-size:16px;font-weight:600;" class="ng-binding">BTC.com Wallet will officially stop service at 00:00 (UTC+0) on April 1, 2022, please complete the withdrawal ASAP.</span> <a href="/#/announcement" target="_blank" class="ng-binding"> Check details</a>   
+        </div>
+ 
+  
+</div><!-- end ngIf: mode !== 'announcement' -->
+</header>
+    
+    <!-- uiView:  --><div ui-view="" class="ng-scope"><landing-page class="ng-scope ng-isolate-scope"><div class="appWrapper landing-page">
+  <div class="login-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="login-block-description text-center">
+            <h1 class="ng-binding">Powerful Bitcoin and Bitcoin Cash wallet</h1>
+            <p class="ng-binding">Send, receive, and store your funds securely with BTC.com’s wallet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="login-block login-block-highlighted">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <img ng-src="v4-7-53/img/btc-showcase-devices.png" class="img-responsive" src="v4-7-53/img/btc-showcase-devices.png">
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <div class="block-content">
+            <h2 class="ng-binding">Stay In Control</h2>
+            <p class="ng-binding">Bitcoin empowers you to send and receive payments without trust or permission from any third-party.</p>
+            <p class="ng-binding">BTC.com never has access to your Bitcoin and Bitcoin Cash, staying true to Bitcoin's core values, and giving you the security, privacy and power to own your wealth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="login-block-parallax">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="block-content text-center">
+            <p class="ng-binding">Your Bitcoin. Your Control.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="login-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="block-content text-center">
+                <h2 class="ng-binding">One Wallet For Your Digital Life</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row iit-15">
+            <div class="col-sm-4 col-xs-12 text-center text-center">
+              <img class="login-icon" ng-src="v4-7-53/img/home-bitcoin-icon.png" src="v4-7-53/img/home-bitcoin-icon.png">
+              <p class="ng-binding">Send and receive bitcoin easily and securely</p>
+            </div>
+            <div class="col-sm-4 col-xs-12 text-center text-center">
+              <img class="login-icon" ng-src="v4-7-53/img/home-key-icon.png" src="v4-7-53/img/home-key-icon.png">
+              <p class="ng-binding">Maintain full control over your bitcoin private keys</p>
+            </div>
+            <div class="col-sm-4 col-xs-12 text-center text-center">
+              <img class="login-icon" ng-src="v4-7-53/img/home-qr-icon.png" src="v4-7-53/img/home-qr-icon.png">
+              <p class="ng-binding">Pay friends without QR codes or long addresses</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <img ng-src="v4-7-53/img/btc-perspective-screen-transparent.png" class="img-responsive" src="v4-7-53/img/btc-perspective-screen-transparent.png">
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-xs-12 text-center">
+          <a
+            class="btn login-btn-appstore"
+            href="https://play.google.com/store/apps/details?id=com.blocktrail.mywallet"
+            target="_blank"
+          >
+            <i class="bticon bticon-android"></i>
+            <span class="test">
+              <span>{{ 'APP_DOWNLOAD_ON' | translate }}</span>
+              <span class="brand">Android</span>
+            </span>
+          </a>
+          <a
+            class="btn login-btn-appstore"
+            href="https://itunes.apple.com/us/app/blocktrail-bitcoin-wallet/id1019614423"
+            target="_blank"
+          >
+            <i class="bticon bticon-apple"></i>
+            <span class="test">
+              <span>{{ 'APP_DOWNLOAD_ON' | translate }}</span>
+              <span class="brand">IOS</span>
+            </span>
+          </a>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+</landing-page>
+</div>
+
+    <!-- ngInclude: 'templates/common/footer.html' --><div ng-include="'templates/common/footer.html'" class="ng-scope"><footer class="footer ng-scope">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-3">
+                <div class="copyright">
+                    <div class="copyright-logo"></div>
+                    <div class="copyright-text">© Copyright BTC.COM 2021. All Rights Reserved.</div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-9 links">
+                <div class="row">
+                    <div class="col-xs-6 col-md-3">
+                        <div class="links-column">
+                            <div class="links-category ng-binding">Products</div>
+                            <ul class="links-list">
+                                <li class="links-list-item"><a target="_blank" href="https://pool.btc.com" class="ng-binding">BTC.com Pool</a></li>
+                                <li class="links-list-item"><a target="_blank" href="https://btc.com" class="ng-binding">BTC.com Explorer</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <div class="links-column">
+                            <div class="links-category ng-binding">Company</div>
+                            <ul class="links-list">
+                                <li class="links-list-item"><a target="_blank" href="https://btc.com/about" class="ng-binding">About us</a></li>
+                                <li class="links-list-item"><a target="_blank" href="https://help.pool.btc.com/hc/en-us/requests/new" class="ng-binding">Contact us</a></li>
+                                <li class="links-list-item"><a target="_blank" href="https://blog.btc.com/" class="ng-binding">Blog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <div class="links-column">
+                            <div class="links-category ng-binding">Media</div>
+                            <ul class="links-list">
+                                <li class="links-list-item"><a target="_blank" href="https://twitter.com/btccom_official" class="ng-binding">Twitter</a></li>
+                                <li class="links-list-item"><a target="_blank" href="https://www.facebook.com/btccom" class="ng-binding">Facebook</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <div class="links-column">
+                            <div class="links-category ng-binding">Developers</div>
+                            <ul class="links-list">
+                                <li class="links-list-item"><a href="https://btc.com/api-doc" class="ng-binding">API</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+
+        <script crossorigin="anonymous" integrity="sha256-epCC8FCwNumnB2Fy13FnxgA4CeeywBGpoINA8VeTGao=" src="v4-7-53/js/libs.js"></script>
+
+        <script crossorigin="anonymous" integrity="sha256-zjCuouFtyY/Az2UWIcIb+7L3UKTg4alh0F7QSelmM4E=" src="v4-7-53/js/asmcrypto.js"></script>
+        <script>
+            function onLoadWorkerLoadAsmCrypto(worker) {
+                worker.postMessage({
+                    method: 'importScripts',
+                    
+                    script: document.location.protocol + '//' + document.location.host + '/' + "v4-7-53/js/asmcrypto.js"
+                    
+                });
+            }
+        </script>
+
+        <script crossorigin="anonymous" integrity="sha256-2n0vPfZP3FFY2AzcLulecgmY1ufJtrLE4BKX6Rae+gE=" src="v4-7-53/js/sdk.js"></script>
+
+        <script crossorigin="anonymous" integrity="sha256-diblg77LfnazfpFSW24YGXSnOhJI3LaMZpTNmOaByuU=" src="v4-7-53/js/config.js"></script>
+
+        <script crossorigin="anonymous" integrity="sha256-Tp9q5bfyRP3O0TusVCqQVu9dspP80cK3lAybH1+Ag0Q=" src="v4-7-53/js/translations.js"></script>
+
+        
+        <script>
+            Raven
+                .config('https://a62c2cb63e34460793d068c459b92090@sentry.io/1433278', {release: 'v4.7.53', dataCallback: function(data) {
+                    data.request.url = data.request.url.replace(/([&?])token=.+?[&]/, "$1");
+                    if (data.stacktrace) {
+                        data.stacktrace.frames.forEach(function(frame) {
+                            frame.filename = frame.filename.replace(/([&?])token=.+?[&]/, "$1");
+                        });
+                    }
+                    return data;
+                }})
+                .addPlugin(Raven.Plugins.Angular)
+                .install();
+        </script>
+        
+
+        <script crossorigin="anonymous" integrity="sha256-usyOfc2eq8A1q3gPn55bWPaM0+7mbOnmbP1vVhM8Ab4=" src="v4-7-53/js/templates.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-OUXs2p3B6Lv9W5A4aT2xo0J1Sy6r+svaKiLe4NHwsQU=" src="v4-7-53/js/app.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-/MWGD3jlF3vse42IZZY8vk2V1A6OoLle6Xt6SI2nGT4=" src="v4-7-53/js/zxcvbn.js"></script>
+
+        
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-66176065-16', 'auto');
+            ga('create', 'UA-66176065-27', 'auto', {name: 'globalGA', cookieName: '_globalGA', allowLinker: true});
+            ga('require', 'linker');
+            ga('require', 'displayfeatures');
+            ga('linker:autoLink', ['wallet.btc.com']);
+        </script>
+        
+        
+        
+        
+        <script>
+            // print warning for Self-XSS
+            var consoleWarning = function() {
+                if (window.console || "console" in window) {
+                    console.log("%c WARNING!!!", "color: red; font-size: 50px;");
+                    console.log("%c This browser feature is for developers only. Please do not copy-paste any code or run any scripts here." , "color: orange; font-size: 16px;");
+                    console.log("%c If somebody is asking you to copy-paste any code here you're most likely being targeted by a malicious attacker!" , "color: orange; font-size: 16px;");
+                    console.log("%c For more information, see: http://en.wikipedia.org/wiki/Self-XSS", "color: orange; font-size: 16px;");
+                }
+            };
+
+            // repeat warning every 60s, incase other things are logging to console in the meantime
+            setInterval(consoleWarning, 60000);
+            // print first warning after 1s, just to let any initial console logging happen from other things
+            setTimeout(consoleWarning, 1000);
+        </script>
+        
+
+        <script src="https://www.recaptcha.net/recaptcha/api.js?render=6Lf6o7YZAAAAAHJu2vwVd-XQKZbTMxh0oA73pIa-" onload="grecaptcha.ready(function() {fetchCaptchaToken()});" defer=""></script>
+        <script>
+            function fetchCaptchaToken() {
+                if (grecaptcha) {
+                    grecaptcha.execute('6Lf6o7YZAAAAAHJu2vwVd-XQKZbTMxh0oA73pIa-', {action: 'homepage'}).then(function(token) {
+                        window.captchaToken = token;
+                    });
+                }
+            }
+        </script>
+    
+
+<div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" src="https://www.recaptcha.net/recaptcha/api2/anchor?ar=1&amp;k=6Lf6o7YZAAAAAHJu2vwVd-XQKZbTMxh0oA73pIa-&amp;co=aHR0cHM6Ly93YWxsZXQuYnRjLmNvbTo0NDM.&amp;hl=en&amp;v=2uoiJ4hP3NUoP9v_eBNfU6CR&amp;size=invisible&amp;cb=fiyxeap4feym" role="presentation" name="a-nbn5h0164237" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" width="256" height="60" frameborder="0"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div><div uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1040 + (index &amp;&amp; 1 || 0) + index*10}" uib-modal-backdrop="modal-backdrop" modal-animation="true" class="fade modal-backdrop in" style="z-index: 1040;"></div><div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" size="md" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">
+    <div class="modal-dialog modal-md" ng-class="size ? 'modal-' + size : ''"><div class="modal-content" uib-modal-transclude=""><div on-swipe-down="dismiss()" class="ng-scope">
+    <div class="modal-header" ng-class="message.header_class">
+        <h3 class="modal-title ng-binding">Announcement of Stopping Service</h3>
+    </div>
+
+    <div class="modal-body" ng-class="message.body_class">
+        <!-- ngIf: message.body -->
+        <!-- ngIf: message.bodyHtml --><p ng-if="message.bodyHtml" ng-bind-html="message.bodyHtml" class="ng-binding ng-scope">BTC.com Wallet will officially stop service at 00:00 (UTC+0) on April 1, 2022, please complete the withdrawal ASAP.<a href="/#/announcement" target="_blank">Check details</a></p><!-- end ngIf: message.bodyHtml -->
+
+        <!-- ngIf: message.showSpinner -->
+
+        <!-- ngIf: message.qr -->
+
+        <!-- ngIf: message.bodyExtra -->
+    </div>
+
+    <div class="modal-footer" ng-class="message.footer_class">
+        <!-- ngIf: message.cancel -->
+        <!-- ngIf: message.ok --><a ng-if="message.ok" class="btn btn-alt btn-success ng-binding ng-scope" ng-click="close()">
+            OK
+        </a><!-- end ngIf: message.ok -->
+    </div>
+</div>
+</div></div>
+</div></body></html>

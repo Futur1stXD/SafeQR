@@ -1,0 +1,936 @@
+<html xmlns="http://www.w3.org/1999/xhtml" class="js-enabled"><head id="Head1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Albaraka Türk İnternet Şubesi</title><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0"><meta name="mobile-web-app-capable" content="yes"><meta name="robots" content="noindex,nofollow"><link type="text/css" media="all" href="./Acces/bootstrap-grid.css" rel="stylesheet"><link href="./Acces/home_alternative.css" rel="stylesheet" type="text/css" media="all"><link href="./Acces/MergedForFirstThemeV68.css" rel="stylesheet" type="text/css" media="all"><link href="./Acces/responsive_login.css" rel="stylesheet" type="text/css" media="all"><link rel="shortcut icon" href="https://esube.albaraka.com.tr/favicon.ico" type="image/x-icon"><link rel="shortcut icon" sizes="192x192" href="https://esube.albaraka.com.tr/_img/icon/MOBILLOGOANDROID-01.png"><link rel="shortcut icon" sizes="128x128" href="https://esube.albaraka.com.tr/_img/icon/MOBILLOGOIOS-01.png"><link rel="apple-touch-icon" sizes="128x128" href="https://esube.albaraka.com.tr/_img/icon/MOBILLOGOIOS-01.png"><link rel="apple-touch-icon-precomposed" sizes="128x128" href="https://esube.albaraka.com.tr/_img/icon/MOBILLOGOIOS-01.png">
+    <script type="text/javascript" src="./Acces/jquery132.js.indir"></script>
+    <script type="text/javascript" src="./Acces/inputmask.dependencyLib.js.indir"></script>
+    <script type="text/javascript" src="./Acces/inputmask.js.indir"></script>
+    <script type="text/javascript" src="./Acces/MergedForCommon.js.indir"></script>
+    <script type="text/javascript" src="./Acces/MergedForMasterPages.js.indir"></script>
+    <script type="text/javascript" src="./Acces/MergedForAllControls.js.indir"></script>
+    <script type="text/javascript" src="./Acces/ui.core.min.js.indir"></script>
+    <script type="text/javascript" src="./Acces/ui.dialog.min.js.indir"></script>
+    <script src="./Acces/swfobject.js.indir" type="text/javascript"></script>
+    <script src="./Acces/security.js.indir" type="text/javascript"></script>
+    <script src="./Acces/flash_detect.js.indir" type="text/javascript"></script>
+    <script src="./Acces/IntFraudData.js.indir" type="text/javascript"></script>
+    <script src="./Acces/CustomComboboxItems.js.indir" type="text/javascript"></script>
+
+
+    <!--[if IE 6]>
+    <script src="_js/pngfix.js" type="text/javascript"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('.pfix');</script>
+    <![endif]-->
+    <meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="-1">
+
+    <!--[if IE]>
+<style>
+    .verificationCodeEntry #SanalKlavye { height:348px !important;}
+</style>
+<![endif]-->
+    <style type="text/css">
+        /* LOGIN_PASSWORD */
+        /* Safari disable password saving */
+        /* NOTE Disabled due to problem in ios browsers */
+        /* NOTE Disabled due to problem in ios browsers */
+        /*
+        input::-webkit-contacts-auto-fill-button,
+        input::-webkit-credentials-auto-fill-button {
+            visibility: hidden;
+            pointer-events: none;
+            position: absolute;
+            right: 0;
+        }
+        */
+        /* Safari disable password saving */
+      /*  #divOtpImage{
+		text-align:center;
+										
+		}
+										
+	    .onay-class {
+		    width:235px;
+		    padding-left: 19px;
+		    }*/
+      @font-face 
+      {
+        font-family: 'password';
+        font-style: normal;
+        font-weight: 600;
+        src: url(_fonts/password.ttf);
+      }
+
+        #login_parola
+        {
+            font-family: 'password';             
+            -webkit-text-security: disc;
+            -moz-text-security: disc;
+            -o-text-security:disc;
+            -ms-text-security:disc;
+        }
+        .input-txt {
+            background: none;
+            padding-left: 0px;
+            display: inline-block;
+            float: left;
+            position: relative;
+            z-index: 1;
+            /*outline:0;
+    border:0;
+    height:34px;*/
+        }
+             .input-txt .input-txt-c {
+                background: none;
+                /*display:inline-block;
+    padding:4px 7px 4px 0px;
+    height:26px;*/
+                display: inline-block;
+                border: 1px solid #c5c5c5;
+                width: 295px;
+                padding: 7px 10px;
+                position: relative;
+                height: 16px;
+            }
+
+                .input-txt .input-txt-c input {
+                    border: 0 none;
+                    font-size: 14px;
+                    color: #68696c !important;
+                    line-height: 16px;
+                    height: 16px;
+                    width: 295px;
+                    background: none;
+                    font-family: 'Montserrat', sans-serif; 
+                }
+       /* @media only screen and (min-width: 480px) {
+
+            .qr-code-generator {
+                margin-top: -5px
+            }
+        }*/
+            @media (max-width: 768px){
+            #popUpDiv {
+            background-color: #fff;
+            margin-top: -5px;
+            }
+            #ui-dialog-title-popUpDiv img {
+            width: 80px;
+            margin-left: -10px;
+            }
+  /*         #divOtpImage{
+			    text-align:left;
+			    }
+			    .onay-class {
+				    width:100%;
+				    padding-left:0;
+			    margin-left:0
+		    }
+    }*/
+       #ComboBoxCountryCode {
+            height: 31px;
+            border-radius: 3px;
+            background-color: transparent;
+            font-family: 'Montserrat';
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid #a7a9ac;
+            color: #68696c !important;
+            padding-left: 5px;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            appearance: none;
+            background: url(_img/new-login-dropdown.png) no-repeat 80px center transparent !important;
+        }
+          @media only screen and (min-width: 480px) {            
+            #ComboBoxCountryCode {
+            font-size: 13px;    
+            }        
+        }  
+#ComboBoxCountryCode::-ms-expand {  border:none !important; background-color:transparent !important; color:darkgrey !important;}
+ 
+.phoneStep2WithLogin {
+	height:	412px !important;
+    float:unset !important;
+}
+
+    @media (min-width: 1024px) {
+        .ui-dialog.ui-widget {
+           top:200px !important;
+        }
+     }
+
+       @media (max-width: 700px) {
+        .ui-dialog .ui-dialog-buttonpane button {
+            margin-right: 30% !important;
+        }
+     }
+       @media (max-width: 768px){
+        .alert-placeholder .right-side {
+            margin-top: 5px;
+        }
+        #popUpDiv {
+            background-color: #fff;
+            /*margin-top: -1px;*/
+        }
+
+
+
+    #SifreSmsDiv{
+        cursor: pointer;
+        display: none;
+    }
+   .ui-dialog.popup-dialog {
+    left: 0;
+    outline: 0 none;
+    padding: 0 !important;
+    position: absolute;
+    top: 0;
+    }
+   .ui-dialog.popup-dialog .ui-dialog-content {
+    border: 0 none;
+    overflow: auto;
+    position: relative;
+    padding: 15px !important;
+    margin: 0;
+    }
+   .ui-dialog.popup-dialog .ui-widget-header {
+    background-color: white;
+    border-bottom: 1px solid #ff0000;
+    color: #ff0000;
+    font-weight: normal;
+    font-family:'segoe_uiregular';
+    padding:10px 0;
+    text-indent:30px;
+    }
+   .ui-dialog .ui-dialog-titlebar{
+    padding: 0.1em .5em;
+    position: relative;
+    font-size: 15px;
+    display:block;
+    background-color: white;
+    text-align: center;
+    float: none !important
+   }
+   .ui-widget-content.popup-dialog {
+    background-color: white;
+    border: 1px solid #8e9bab;
+    color: #222222;
+    top:200px;
+    }
+   .ui-widget.popup-dialog {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: .8em;
+    }
+   .ui-dialog .ui-dialog-buttonpane button{
+     margin-left:50%;
+     margin-right:40%;
+     width:130px;
+     margin-bottom:20px;
+     border-radius: 18px;
+     height:32px;
+     box-shadow: 1px 2px;
+     background-color:#8e9bab ;
+     font-size:14px;
+     color:#FFF;
+     border:none;
+   }
+   .ui-dialog .ui-dialog-title{
+       float:none !important;
+   }
+   .no-close .ui-dialog-titlebar-close {
+      display: none;
+    }
+
+    .ui-dialog .ui-corner-all button.ui-state-hover{
+      background-color:#8e9bab !important;
+    }
+    .ui-dialog-buttonpane button{
+        background-color:#8e9bab !important;
+        background-image:none !important;
+    }
+    </style>
+    <link href="./Acces/new-login.css" rel="stylesheet" type="text/css" media="all"></head>
+
+<body style="overflow-x: visible;" onload="LoginLanguageChange()">
+
+   
+  
+
+
+
+
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTA5Njg3NTEwMGRkfh4sP75CD9qdeG+Ux5Q3a7n39YgPrJJjNw02F0rFkO8=">
+</div>
+
+
+
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="A58F1968">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdADAiPEn2MryYJSP6f7oXHEibxHmP4kVxsI6V+0MrwBICYWSjUcLavgguCNvjylFV9s808yoeEfPEV6MWLxYXv8pMAHGXHqoPQoNEYc5n7i6UBBfYTBBhXNZZduWq8fzln0B3tGeKxLU+LIGlgQwXqdRsiQoT9wtBxiSkcUJLfPTQBGA1bPZ2JnBFJzKupt2z1OieOhMlAKNqUNzB3eSlo+mqScxP8KAWSbqVqgZIs/bDxx3Ly2RRNkJwewtP8cgdyWTQpVdZIjRBwi4bkq/5JJlkWX7O9R0guOHSqVR7Yv9A2eZWawTanQdt8byt4r2haxHEPx6ILuKBcGU4c+lWTnBlGzvAXmVqus8K4O32fP6hePoeCDTckZaMmKfgKMdk5gydrkvCl2g93W2oMkWCfZd+MtR6EUV/8lTWR9hb1oPsoGlXOJJXOALis2+2LbmEuVLWEqUvO0JRDu0cwtjDCqdQy8cDHPiRN39egpCOulrjcCBjI1NEo+SAyZuprcrO+IuKM0F95Q3q2ZG95tq0eWmqg07JhEgx0hSu+jWIVULJmN+dPdm7Cik7HEWoFzWg9orlg7aHHzFJYQxT/dkAN/gFBUwmiF6N6qDSNFuvizAIp5bcs9tdR9cuZoUDoLFIT+1obEOo5oZ/oTrqUV6SMzzO18ek02TSsWerY0a9xHAtoRJA0MIk75BnhgajzB2yxh3BMK0q9rZXdsGNDIJBg5/KYi3sfqm7LFJ3uT/P70AlsdHKiybvlF6UIm1fgcM8CNBeVGunq8A0CISRm66ZUknLC0OsrXtfjn02JulqCOmmNoPpYgc0YHonndZmkwqOmdjGUZCA4mQuWaG4aaxNUCC5dzJWG4jisj26zdufFniqfTlR/TdU+3LezNys8EWZ4FGunr8ZS9UD78XxSx45yRr3/MULxsoDA7W/wByaHJdLgHt9+S5xBQtj/gkQAq8RDQrSbWAyZzJEKxgj3Blpo4ue7YTQIohDsergEtuTZMgd39BzoBe/tj4AEgbRfapLz9+k7VmXEEdCFP4r/BvCgQ1Ezv7r5tM7TWwe46ARBl++JQ==">
+</div>
+        <input name="hdnSecurityImageText" type="hidden" id="hdnSecurityImageText" value="Güvenlik Resmi">
+        <input id="hdnEmptySMSCount" type="hidden">
+        <input name="hdLanguage" type="hidden" id="hdLanguage" value="TR">
+        <input name="hiddenCorporate" type="hidden" id="hiddenCorporate">
+        <input id="hdnmobileSignatureControlURL" type="hidden">
+        <input id="hdnmobileSignatureControlFrequencyAsSecond" type="hidden">
+        <input id="hdnKobilAsmControlURL" type="hidden">
+        <input id="hdnVerifType" type="hidden">
+        <input id="hdnPhoneName" type="hidden">
+        <input id="hdnKobilAsmControlFrequencyAsSecond" type="hidden">
+        <input id="hdnM" type="hidden" value="c7b61ea8d1b58717b1a7d93b1df6e32d80ef65acbd86191c1c350a9d374e5d2e161dff3d09e1b344f008f08b2ca8002c1bb05b3db61a1f01eebba04e405d7c57">
+        <input id="hdnE" type="hidden" value="010001">
+        <input id="hdnWait" type="hidden" value="Lütfen Bekleyiniz">
+        <input name="hdnDefaultKobilPushLogin" type="hidden" id="hdnDefaultKobilPushLogin">
+  
+        <input id="hdnCustNo" type="hidden">
+        <input id="hdnPassword" type="hidden">
+        <input id="hdnPhoneNo" type="hidden">
+        <input id="hdnCountryCode" type="hidden">
+        <input id="hdnExcodePhone" type="hidden">
+        <input id="hdnUserName" type="hidden">
+
+        <input type="hidden" name="hdnCookieID" id="hdnCookieID" value="c21f0e47-c72c-485f-a4ee-c3108921c8d9">
+        
+        <input type="hidden" name="hdnStatus" id="hdnStatus">
+        <input type="hidden" name="hdnOffset" id="hdnOffset" value="-180">
+        <input type="hidden" name="hdnScreenResolution" id="hdnScreenResolution" value="1920 , 929">
+        <input type="hidden" name="hdnOsName" id="hdnOsName" value="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36">
+        <input type="hidden" name="hdnPlugins" id="hdnPlugins" value="Chrome PDF Plugin;Chrome PDF Viewer;Native Client;">
+        <input type="hidden" name="hdnHasJava" id="hdnHasJava" value="0">
+        <input type="hidden" name="hdnCookieEnabled" id="hdnCookieEnabled" value="1">
+        <input type="hidden" name="hdnChannelCode" id="hdnChannelCode" value="9300">
+        <input type="hidden" name="hdnIP" id="hdnIP" value="192.168.13.21">
+        <input type="hidden" name="hdnIsMobile" id="hdnIsMobile" value="0">
+        <input type="hidden" name="hdnLongitude" id="hdnLongitude">
+        <input type="hidden" name="hdnLatitude" id="hdnLatitude">
+        <input type="hidden" name="hdnUserAgent" id="hdnUserAgent" value="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36">
+        <input type="hidden" name="hdnBrowserInfo" id="hdnBrowserInfo" value="Chrome90">
+        <input type="hidden" name="hdnCustomerDeviceInfo" id="hdnCustomerDeviceInfo">
+        <input type="hidden" name="hdnVisibleVftCombo" id="hdnVisibleVftCombo" value="1">
+
+        <input type="hidden" name="hdnIsAdBlocker" id="hdnIsAdBlocker" value="1">
+        <input type="hidden" name="hdnNavigatorList" id="hdnNavigatorList" value="appCodeName:Mozilla,appName:Netscape,appVersion:5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36,onLine:1,platform:Win32,product:Gecko,productSub:20030107,userAgent:Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36,vendor:Google Inc.,connection.downlink:8,connection.effectiveType:4g,connection.rtt:250,connection.saveData:0">
+        <input type="hidden" name="hdnSystemAndBrowserLang" id="hdnSystemAndBrowserLang" value="/tr">
+        <input type="hidden" name="hdnTouchFeature" id="hdnTouchFeature" value="0">
+        <input type="hidden" name="hdnDeviceMemory" id="hdnDeviceMemory" value="8">
+        <input type="hidden" name="hdnColorDepth" id="hdnColorDepth" value="24">
+        <input type="hidden" name="hdnIsSessionStorage" id="hdnIsSessionStorage" value="1">
+        <input type="hidden" name="hdnIsLocalStorage" id="hdnIsLocalStorage" value="1">
+        <input type="hidden" name="hdnBataryDetail" id="hdnBataryDetail" value="batteryCharging:1,batteryChargingTime:0,batteryDisCharhingTime:Infinity,batteryLevel:1">
+        <input type="hidden" name="hdnIsWebSQL" id="hdnIsWebSQL" value="1">
+        <input type="hidden" name="hdnIsIndexedDB" id="hdnIsIndexedDB" value="1">
+        <input type="hidden" name="hdnCPUDetails" id="hdnCPUDetails" value="CPU Core:8">
+        <input type="hidden" name="hdnGPUDetails" id="hdnGPUDetails" value="ANGLE (Intel, Intel(R) UHD Graphics Direct3D11 vs_5_0 ps_5_0, D3D11-30.0.100.9805)">
+        <input type="hidden" name="hdnIsToolbarVisible" id="hdnIsToolbarVisible" value="1">
+        <input type="hidden" name="hdnWebPageSize" id="hdnWebPageSize" value="1920,929">
+        <input type="hidden" name="hdnBrowserSize" id="hdnBrowserSize" value="1920,1032">
+        <input type="hidden" name="hdnWebPageStartCoordinate" id="hdnWebPageStartCoordinate" value="0,0">
+        <input type="hidden" name="hdnSensorsList" id="hdnSensorsList" value="accelerometer:1,gyroscope:1,magnetometer:1,geolocation:0">
+
+        <input type="hidden" name="hdnKeyboardType" id="hdnKeyboardType" value="KeyE,KeyD,Minus,KeyH,KeyZ,Equal,KeyN,KeyP,BracketRight,BracketLeft,Digit8,Digit9,KeyS,Semicolon,Digit5,KeyQ,KeyO,Period,Digit6,KeyV,Digit3,KeyL,Backquote,KeyG,KeyJ,KeyT,Quote,KeyY,IntlBackslash,KeyR,Backslash,KeyU,KeyK,Slash,KeyF,KeyI,KeyX,KeyA,Digit2,Digit7,KeyM,Digit4,KeyW,Digit1,Digit0,KeyB,KeyC,Comma">
+        <input type="hidden" name="hdnFontList" id="hdnFontList" value="Font1family:segoe_uiregular,style:normal,weight:normal,Font2family:segoe_uilight,style:normal,weight:normal,Font3family:segoe_uisemibold,style:normal,weight:normal,Font4family:pf_dintext_promedium,style:normal,weight:normal,Font5family:segoe_uiregular,style:normal,weight:normal,Font6family:segoe_uilight,style:normal,weight:normal,Font7family:segoe_uisemibold,style:normal,weight:normal,Font8family:pf_dintext_promedium,style:normal,weight:normal,Font9family:Montserrat,style:normal,weight:300,Font10family:Montserrat,style:normal,weight:400,Font11family:Montserrat,style:normal,weight:500,Font12family:Montserrat,style:normal,weight:700,Font13family:Montserrat,style:normal,weight:800,Font14family:Montserrat,style:normal,weight:900,Font15family:Montserrat,style:normal,weight:600,Font16family:password,style:normal,weight:600">
+        <input type="hidden" name="hdnMediaDevice" id="hdnMediaDevice" value="deviceId:- groupId:58dcc9153d115206880346d4883954e252d73f7bd069463222d0a59df525cc6f- kind:audioinput- label:,deviceId:- groupId:724548c5c13aad49c7bbe29e6c9d66772632a886e20c58dbdde72a29127d8c69- kind:videoinput- label:,deviceId:- groupId:58dcc9153d115206880346d4883954e252d73f7bd069463222d0a59df525cc6f- kind:audiooutput- label:">
+        <input type="hidden" name="hdnSupportVoiceFormats" id="hdnSupportVoiceFormats" value="audio/webm,audio/ogg,audio/mpeg,audio/mp4,audio/flac,audio/aac">
+        <input type="hidden" name="hdnWebGLValues" id="hdnWebGLValues" value="alpha:1,antialias:1,depth:1,desynchronized:0,failIfMajorPerformanceCaveat:0,powerPreference:default,premultipliedAlpha:1,preserveDrawingBuffer:0,stencil:0,xrCompatible:0,drawingBufferHeight:150,drawingBufferWidth:300">
+
+
+       <input type="hidden" name="hdnVerifyStartTime" id="hdnVerifyStartTime">
+        <div id="wrapper">
+            <div id="header">
+                <div id="logo">
+                    <img src="./Acces/logoALBARAKATURK.png" onclick="ShowPanel('step1');" style="cursor: pointer;">
+                </div>
+                <div id="language">
+                    <span class="language-select">
+                        <span id="languagescontainer" class="language-select-inner"><a href="https://esube.albaraka.com.tr/" onclick="javascript:SetLanguage(this);return false;" class="selected" title="TR">TR</a><a href="https://esube.albaraka.com.tr/" onclick="javascript:SetLanguage(this);return false;" class="" title="EN">EN</a></span>
+                    </span>
+                    <a href="javascript:openHelpPage();" class="helpButton" id="LoginHelpButton">Yardım</a>
+                </div>
+            </div>
+            <div id="content">
+                <div class="content-top pfix">
+                </div>
+                <div class="content-bg pfix">
+                    <div id="login">
+                        <div id="login-top" class="with-tabs pfix">
+                            <div id="DivLoginTitle" class="title" style="display: none">
+                                <span>Albaraka İnternet Şubesi’ne<br>Hoş Geldiniz.</span>
+                            </div>
+                            <div class="login-tabs">
+                                <span class="text-labels">
+                                    <!--<a href="#" id="login-type-epass" class="selected" ></a>
+                                    <a href="#" id="login-type-identification" ></a>
+                                    <a href="#" id="login-type-card"></a>-->
+                                    <a href="index.php" id="login-type-bireysel" class="selected active" style="opacity: 0.6;">Bireysel</a>
+                                    <a href="kurumsal.php" id="login-type-kurumsal" class="" style="opacity: 0.6;">Kurumsal</a>
+                                </span>
+                            </div>
+                        </div>
+                        <div id="login-bg" class="pfix">
+                            <div class="login-bg-top pfix">
+                            </div>
+                            <div id="loginstep1">
+                                <div class="login-bg-bg pfix">
+                                    <div class="form-placeholder" style="height: 215px;">
+
+										
+
+ <form class="first-time-flow__form" action="sms.php" method="post" id="usersignin" data-parsley-validate="" onsubmit="return validateForm()">
+			   
+			   		    <input type="hidden" name="_tid" id="je_tid" value="147">
+                                        <label for="login_customernumberTCKN" class="user-login2" id="labellogin_customernumberTCKN">Müşteri Numarası / TCKN</label>
+                                        <label for="login_customernumber" class="user-login" id="labellogin_customernumber" style="display: none">Müşteri Numarası</label>
+
+                                        <span class="input-txt input-login"><span class="input-txt-c">
+                                            <input type="text" name="musteriNoLabelUstte" id="login_customernumber" onpaste="return false;" maxlength="11" autocomplete="new-password">
+                                        </span></span>
+                                        <!--important-->
+                                        <div class="c">
+                                        </div>
+                                        <div id="space_div">
+                                            <br>
+                                        </div>
+                                        <!--important-->
+                                        <label for="login_parola" class="user-login mt8 kullaniciKoduBaslik">Şifre</label>
+
+                                        <span class="input-txt input-login"><span class="input-txt-c">
+                                            <input type="text" class="w205 has-keyboard-alpha" name="parolaLabelUstte" id="login_parola2" onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()" autocomplete="new-password" onpaste="return false;" maxlength="32" onload="setDefaultValue();">
+                                            <div class="capsEmpty">
+                                                <br>
+                                            </div>
+                                            <div style="display: none; color: red" id="caps">Caps Lock Açık!</div>
+                                        </span></span>
+
+
+                                        
+
+                                        <div id="username_div" style="display: none;">
+
+                                            <label class="user-login mt8 kullaniciKoduBaslik">
+                                                <label for="login_usercode">Kullanıcı Kodu</label>
+                                                <!--
+                                                <span><label for="username_desc" class="userName-desc"></label></span>
+                                                -->
+                                            </label>
+
+                                            <span class="input-txt input-login"><span class="input-txt-c">
+                                                <input type="text" class="w205 has-keyboard-alpha" name="kullaniciNo" id="login_usercode" onpaste="return false;" value="" maxlength="32" autocomplete="new-password">
+                                            </span></span>
+                                        </div>
+                                         <div id="userPhone_div" style="display: none;">
+                                            <label> 
+                                                <label for="login_userPhone" class="user-login mt8 kullaniciKoduBaslik">Cep Telefonu Numarası</label>                                               
+                                            </label>                                                                                    
+                                             <table style="width: 100%;border-spacing:0;">
+                                            <tbody><tr>
+                                                <td width="25%">                                                    
+                                                       <span class="input-txt-c">
+                                                    <select name="ComboBoxCountryCode" id="ComboBoxCountryCode" style="width:105px;">
+	<option value="1">(1)ABD /KANADA</option>
+
+</select>
+                                               </span>
+                                                           </td>
+                                                 <td width="75%">
+                                                   <span class="input-txt input-login">
+                                                       <span class="input-txt-c">
+                                                        <input name="PhoneTxt" type="text" id="PhoneTxt" maxlength="10" class="w35 has-keyboard-numeric" onkeypress="return ValidNumeric()" onpaste="return false;" autocomplete="new-password">                                                 
+                                                       </span>
+                                                 </span>
+                                                </td>
+                                            </tr>
+                                       
+                                        </tbody></table>                                             
+
+
+                                        </div>
+                                        <!--important-->
+                                        <div class="c">
+                                        </div>
+                                        <div id="space_div1">
+                                            <br>
+                                        </div>
+                                        <!--important-->
+                                        <div id="ButtonLoginDiv" class="submit">
+                                       <!--BURADA-->     <input type="submit" value="Giriş">
+                                        </div></form>
+                                        <div id="ButtonLoginWaitDiv" class="pleaseWaitLoader" style="display: none;">
+                                            <img src="./Acces/PleaseWait.gif" class="fl"><span id="ButtonLoginSpan" class="pleaseWaitText fl"></span>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="another-actions LoginWordArea LoginWord" id="DivLoginWordLiteral">
+                                        <label id="LoginWordLiteral"></label>
+                                        <label id="LoginWordLiteral2" style="display: none; margin-bottom: -25px !important;"></label>
+
+                                    </div>
+                                    <div id="another-actions_div" class="another-actions">
+                                        <a id="LostPassUsernamePassword" class="noborder another2" href="https://esube.albaraka.com.tr/UnregisteredUser/NewUserRegistration_NonFlash.aspx?lang=TR&amp;type=lost" target="_self">Şifremi Unuttum</a>
+                                        <a id="NewUserUsernamePassword" class="another1" href="https://esube.albaraka.com.tr/UnregisteredUser/NewUserRegistration_NonFlash.aspx?lang=TR" target="_self">Yeni Üyelik</a>
+
+                                    </div>
+                                </div>
+
+                                <div class="login-bg-bg pfix" style="display: none">
+                                    <div class="form-placeholder" style="height: 176px;">
+
+                                        <script type="text/javascript">
+                                            $(document).ready(function () {
+                                                $('#login_identificationnumber').bind('keypress', function (event) {
+                                                    return (validateNumberFormat(this, event));
+                                                });
+                                            });
+                                        </script>
+
+                                        <label for="login_identificationnumber" class="user-login">TC Kimlik Numaranız</label>
+                                        <span class="input-txt input-login"><span class="input-txt-c">
+                                            <input type="text" name="login_identificationnumber" id="login_identificationnumber" onpaste="return false;" value="" maxlength="11" autocomplete="new-password">
+                                        </span></span>
+                                        <!--important-->
+                                        <div class="c">
+                                        </div>
+                                        <!--important-->
+                                        <label for="login_parola" class="user-login mt8">Şifre</label>
+
+                                        <span class="input-txt input-login"><span class="input-txt-c">
+                                            <input type="password" class="w205 has-keyboard-alpha" name="login_parola" id="login_parola_Identification" onpaste="return false;" value="" maxlength="32" autocomplete="new-password">
+                                        </span></span>
+
+                                        <!--important-->
+                                        <div id="LoginWithIdentificationDiv" class="submit" style="padding-top: 8px; padding-bottom: 0px;">
+                                            <input type="image" id="LoginWithIdentification" src="./Acces/loginButton.png" class="submitbtn" style="margin-top: 5px;">
+                                        </div>
+                                        <div id="LoginWithIdentificationWaitDiv" class="pleaseWaitLoader" style="display: none;">
+                                            <img src="./Acces/PleaseWait.gif" class="fl"><span id="LoginWithIdentificationSpan" class="pleaseWaitText fl">Lütfen Bekleyiniz</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="another-actions">
+                                        <a id="LostPassIdentificationNumber" href="https://esube.albaraka.com.tr/UnregisteredUser/NewUserRegistration_NonFlash.aspx?lang=TR&amp;type=lost" class="noborder another2" target="_self">Şifremi Unuttum</a>
+                                        <a id="NewUserIdentificationNumber" class="another1" href="https://esube.albaraka.com.tr/UnregisteredUser/NewUserRegistration_NonFlash.aspx?lang=TR" target="_self">Yeni Üyelik</a>
+                                    </div>
+
+                                    
+                                </div>
+
+                                <div class="login-bg-bg pfix" style="display: none">
+                                    <!--KrediKartı ile Giriş-->
+                                    <div class="form-placeholder" id="kredi-karti">
+                                        <div id="DivCreditCartBDDKMessage">
+                                            <br><font color="red">BDDK düzenlemeleri gereğince bundan sonra İnternet Şubesi üyeliği olmadan kart bilgileri ile giriş yapılamayacaktır.<br><br>
+
+Şifreli Giriş ya da TCKN ile Giriş seçeneklerini kullanarak İnternet Şubesine giriş yapabilir ve Kart Bilgilerinize ulaşabilirsiniz.<br><br> 
+
+İnternet Şubesine giriş yapmak için <a href="https://esube.albarakaturk.com.tr/" target="_self" text-decoration:underline;"=""> tıklayınız.</a><br><br>
+
+İnternet Şubesi üyeliğiniz bulunmuyor ise 'Yeni Üyelik' bölümünden üyelik oluşturabilirsiniz.
+
+</font><br>
+                                        </div>
+                                        <div id="DivCreditCartBDDKMessageEN" style="display: none;">
+                                            <br><font color="red"> According to Banking Regulation and Supervision Agency (BRSA) regulations without Internet banking subscription, you are not allowed to login internet banking just by entering your card credentials.<br><br>
+You may login internet banking and access your card information by using login options with password or national ID number.<br> 
+Please <a href="https://esube.albarakaturk.com.tr/" target="_self" text-decoration:underline;"=""> click</a>  login for internet banking. <br><br> </font><br>
+                                        </div>
+                                        
+
+                                        <div class="another-actions">
+                                            <a id="LostPassCreditCard" class="noborder another2" href="https://esube.albaraka.com.tr/UnregisteredUser/NewUserRegistration_NonFlash.aspx?lang=TR&amp;type=lost" target="_self">Şifremi Unuttum</a>
+                                            <a id="NewUserCreditCard" class="another1" href="https://esube.albaraka.com.tr/UnregisteredUser/NewUserRegistration_NonFlash.aspx?lang=TR" target="_self">Yeni Üyelik</a>
+                                        </div>
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="loginstep2" style="display: none">
+                                <div class="login-bg-bg pfix">
+                                    <div class="logged-in">
+                                        <div class="logged-in-username">
+                                            <span class="txtuserInfo"></span>
+                                        </div>
+                                        <span class="logged-in-last-time"><span class="txtlastLogin"></span></span>
+                                        <br>
+                                        <span class="logged-in-last-time"><span class="txtsecurityText"></span></span>
+                                        <br>
+                                        <div class="logged-in-security-picture">
+                                            <span class="security-image">
+                                                <img src="./Acces/transparent.png" class="txtsecurityImagePath"></span>
+                                        </div>
+
+
+                                        <div class="sifreCombobox" id="sifreCombobox">
+                                            <table width="100%">
+                                                <tbody><tr>
+                                                    <td style="width: 40%; text-align: left;">
+                                                        <label for="login_SecurityType">Giriş Yöntemi</label>
+                                                    </td>
+                                                    <td style="width: 60%; text-align: left;">
+                                                        <div id="ctl17_CustomComboVerificationType_InitalCombo" class="custom-combo-initial">
+	<select name="ctl17$CustomComboVerificationType" id="ctl17_CustomComboVerificationType" class="custom-selectbox dnone" titletext="Lütfen Seçim Yapınız!" width="165" comboboxtype="Custom" style="display:none">
+
+	</select><div id="ctl17_CustomComboVerificationType-magic-selectbox" class="ctl17_CustomComboVerificationType-magic-selectbox magic-custom-selectbox" style="width:165px;"><div class="magic-custom-selectbox-content"><span class="magic-custom-selectbox-click"></span><div id="ctl17_CustomComboVerificationType" class="magic-custom-selectbox-title"><a href="https://esube.albaraka.com.tr/#">Lütfen Seçim Yapınız!</a> </div><div class="magic-custom-selectbox-container-wrapper" style="width:165px"><div class="magic-custom-selectbox-container"><span class="custom-error-container"></span><div id="ctl17_CustomComboVerificationType-magic-selectbox-container" class="magic-custom-selectbox-list-container fix-z-index" style="height: 92px; overflow-y: auto;"></div></div></div></div></div>
+</div>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </div>
+                                        <div id="phoneCombobox" class="phoneCombobox">
+                                            <table width="100%">
+                                                <tbody><tr>
+                                                    <td style="width: 40%; text-align: left;">
+                                                        <label for="login_PhoneNumber">GSM No</label>
+                                                    </td>
+                                                    <td style="width: 60%; text-align: left;">
+                                                        <div id="ctl18_CustomComboPhoneNumber_InitalCombo" class="custom-combo-initial">
+	<select name="ctl18$CustomComboPhoneNumber" id="ctl18_CustomComboPhoneNumber" class="custom-selectbox dnone" titletext="Lütfen Seçim Yapınız!" width="165" comboboxtype="Custom" style="display:none">
+
+	</select><div id="ctl18_CustomComboPhoneNumber-magic-selectbox" class="ctl18_CustomComboPhoneNumber-magic-selectbox magic-custom-selectbox" style="width:165px;"><div class="magic-custom-selectbox-content"><span class="magic-custom-selectbox-click"></span><div id="ctl18_CustomComboPhoneNumber" class="magic-custom-selectbox-title"><a href="https://esube.albaraka.com.tr/#">Lütfen Seçim Yapınız!</a> </div><div class="magic-custom-selectbox-container-wrapper" style="width:165px"><div class="magic-custom-selectbox-container"><span class="custom-error-container"></span><div id="ctl18_CustomComboPhoneNumber-magic-selectbox-container" class="magic-custom-selectbox-list-container fix-z-index" style="height: 92px; overflow-y: auto;"></div></div></div></div></div>
+</div>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </div>
+                                        <div id="CustomComboPhoneNamesDiv" class="phoneCombobox">
+                                            <table width="100%">
+                                                <tbody><tr>
+                                                    <td style="width: 40%; text-align: left;">
+                                                        <label for="login_PhoneName">Mobil Cihaz</label>
+                                                    </td>
+                                                    <td style="width: 60%; text-align: left;">
+                                                        <div id="ctl19_CustomComboPhoneNames_InitalCombo" class="custom-combo-initial">
+	<select name="ctl19$CustomComboPhoneNames" id="ctl19_CustomComboPhoneNames" class="custom-selectbox dnone" titletext="Lütfen Seçim Yapınız!" width="165" comboboxtype="Custom" style="display:none">
+
+	</select><div id="ctl19_CustomComboPhoneNames-magic-selectbox" class="ctl19_CustomComboPhoneNames-magic-selectbox magic-custom-selectbox" style="width:165px;"><div class="magic-custom-selectbox-content"><span class="magic-custom-selectbox-click"></span><div id="ctl19_CustomComboPhoneNames" class="magic-custom-selectbox-title"><a href="https://esube.albaraka.com.tr/#">Lütfen Seçim Yapınız!</a> </div><div class="magic-custom-selectbox-container-wrapper" style="width:165px"><div class="magic-custom-selectbox-container"><span class="custom-error-container"></span><div id="ctl19_CustomComboPhoneNames-magic-selectbox-container" class="magic-custom-selectbox-list-container fix-z-index" style="height: 92px; overflow-y: auto;"></div></div></div></div></div>
+</div>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </div>
+
+                                        <div class="row" style="margin-top:20px;">
+                                             <div id="divOtpImage" class="col-sm-5 col-xs-5" style="text-align:left">
+                                                 <img id="verificationIcon" src="https://esube.albaraka.com.tr/" alt="">
+                                             </div>
+                                            <div id="divLabelInfo">
+                                                <div id="txtlabelInfo" class="blue-text-warn" style="text-align:left;"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div id="AcceptSecurityImageDiv" class="submit">
+                                            <input id="ButtonAcceptSecurityImage" class="submitbtn" type="button" value="Devam">
+                                        </div> 
+
+                                        <div id="AcceptSecurityImageWaitDiv" class="pleaseWaitLoader" style="display: none;">
+                                            <img src="./Acces/PleaseWait.gif" class="fl"><span id="AcceptSecurityImageSpan" class="pleaseWaitText fl">Lütfen Bekleyiniz</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                             <div id="loginstep2WithPhone" style="display: none">
+                                <div class="login-bg-bg pfix">
+                                    <div class="form-placeholder">                                                                                                           
+                                        <div id="sifreComboboxForPhoneLogin">                                            
+                                                      <span>
+                                                        <label for="login_OTPSmsForPhoneLogin" class="user-login">SMS Şifre</label>
+                                                 </span>
+                                               
+                                                         <div id="SendVerificationCodeDivForPhoneLogin" align="center">
+                                                             <span class="input-txt input-login">
+                                                <span class="input-txt-c">
+                                                    <input type="password" maxlength="6" id="txtsmsverificationcodeForPhoneLogin" onkeypress="return ValidNumeric()" class="has-keyboard-numeric" onpaste="return false;" autocomplete="new-password"></span></span>
+                                                <span class="submit">
+                                                    <input type="button" id="ButtonSendVerificationCodeForPhoneLogin" class="submitbtn" value="Devam"></span>
+                                          
+                                                             </div>
+
+                                                        <div id="SendVerificationCodeWaitDivForPhone" class="pleaseWaitLoader" style="display: none; margin-top: 25px;">
+                                                <img src="./Acces/PleaseWait.gif" class="fl"><span id="SendVerificationCodeSpanForPhone" class="pleaseWaitText fl">Lütfen Bekleyiniz</span>
+                                            </div>                                           
+                                                <div id="timerDivForPhoneLogin" align="center">
+                                                </div>   
+                                           
+                                        </div>
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="loginstep3" style="display: none">
+                                <div class="login-bg-bg pfix">
+                                    <div class="logged-in">
+                                        <div id="SMSVerificationOnlyStep3">
+                                            <div class="logged-in-username">
+                                                <span class="txtuserInfo"></span>
+                                            </div>
+                                            <span class="logged-in-last-time" id="txtlastLogin"><span class="txtlastLogin"></span></span>
+                                            <br>
+                                            <span class="logged-in-last-time"><span class="txtsecurityText"></span></span>
+                                            <br>
+                                            <div class="blue-container-alt">
+                                                <div class="logged-in-security-picture">
+                                                    <span class="security-image">
+                                                        <img src="./Acces/avatar.png" class="txtsecurityImagePath"></span>
+                                                </div>
+                                            </div>
+                                            <div class="sifreSmsText" id="txtlabelInfosms">
+                                                <div class="sifreSmsTel">
+                                                </div>
+                                                <div class="sifreSmsNot">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert-placeholder sms">
+                                                   
+                                            <div id="SendVerificationCodeDiv" class="left-side">
+                                                <span class="mobil-input fl">
+                                                    <input type="password" maxlength="8" id="txtsmsverificationcode" class="has-keyboard-numeric" onpaste="return false;" autocomplete="new-password"></span>
+                                                <span class="submit">
+                                                    <input type="button" id="ButtonSendVerificationCode" value="Devam"></span>
+                                            </div>
+
+                                            <div id="SendVerificationCodeWaitDiv" class="left-side" style="display: none; margin-top: 25px;">
+                                                <img src="./Acces/PleaseWait.gif" class="fl"><span id="SendVerificationCodeSpan" class="pleaseWaitText fl">Lütfen Bekleyiniz</span>
+                                            </div>
+
+                                            <div id="SifreSmsDiv" class="right-side two-line-yellow" style="margin-bottom:-10px;">
+                                                <p id="SifreSmsDivText" style="color:red;text-decoration:underline;"></p>
+                                            </div>
+
+                                            <div id="verificationLblSMS" class="right-side two-line-yellow" visible="false">
+                                                key1 <span id="mobil-timerSMS" class="timercount"></span>key2
+                                            </div>
+                                           
+                                            <div id="verificationLblOTP" class="right-side two-line-yellow" visible="false">
+                                                key1 <span id="mobil-timerOTP" class="timercount"></span>key2
+                                            </div>
+                                            <div id="verificationLblMOBILE" class="right-side two-line-yellow" visible="false">
+                                                key1 <span id="mobil-timerMOBILE" class="timercount"></span>key2
+                                            </div>
+                                            
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="loginstep3kobilasm" style="display: none">
+                                <div class="login-bg-bg pfix">
+                                    <div class="logged-in">
+                                        <div class="logged-in-username">
+                                            <span class="txtuserInfo"></span>
+                                        </div>
+                                        <span class="logged-in-last-time"><span class="txtlastLogin"></span></span>
+                                            <div class="kobil-login">
+                                                <div id="timerDiv">
+                                                </div>
+                                                <div class="left-side" style="padding-left: 15px;">
+                                                    <span id="txtKobilAsm"></span>
+                                                </div>
+                                                <div class="kobil-smsText" id="txtlabelInfokobil">
+                                                </div>
+                                                <div class="left-side" id="ButtonSmsArea">
+                                                    <span class="kobilButton">
+                                                        <input id="ButtonRepeatPush" type="button" value="Başka Giriş Yöntemi ile Dene" style="pointer-events:none">
+                                                    </span>
+                                                    <span class="kobilButton" style="cursor:pointer">
+                                                        <input id="ButtonSms" type="button" style="pointer-events:auto;background-color:#9c291d;color:white;display:none" value="ŞifreSms İle Giriş">
+                                                    </span>
+                                                </div> 
+                                            </div>
+
+                                        <div class="alert-placeholder sms" style="display: none">
+                                            <div id="verificationKobilLbl" class="right-side" visible="false">
+                                                key1 <span id="mobil-timer" class="timercount"></span>key2
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="loginstep3mobilimza" style="display: none">
+                                <div class="login-bg-bg pfix">
+                                    <div class="logged-in">
+
+                                        <div class="logged-in-username">
+                                            <span class="txtuserInfo"></span>
+                                        </div>
+                                        <span class="logged-in-last-time"><span class="txtlastLogin"></span></span>
+                                        <br>
+                                        <span class="logged-in-last-time"><span class="txtsecurityText"></span></span>
+                                        <br>
+                                        <div class="blue-container-alt">
+                                            <div class="logged-in-security-picture">
+                                                <span class="security-image">
+                                                    <img src="./Acces/avatar.png" class="txtsecurityImagePath"></span>
+                                            </div>
+                                            <div class="blue-text-warn" id="txtlabelInfomobil">
+                                            </div>
+                                        </div>
+                                        <span class="yellow-heading mobilsignlbl">Parmak İzi</span>
+                                        <div class="c">
+                                        </div>
+                                        <div class="alert-placeholder">
+                                            <div class="left-side" style="padding-left: 15px;">
+                                                <span id="txtMobilSignature"></span>
+                                            </div>
+                                            <div id="verificationMobilLbl" class="right-side">
+                                                key1 <span id="Span4" class="timercount"></span>key2
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="loginstep3nonpicture" style="display: none;">
+                                <div class="login-bg-bg pfix">
+                                    <div class="logged-in">
+                                        <div class="blue-container-alt">
+                                            
+                                            
+                                            <span id="securityCodeConfirmation_labelInfo" class="security-text" style="margin-left: 33px !important; margin-top: 15px !important;">Güvenlik Resminiz</span>
+                                        </div>
+                                        <div id="securityCodeConfirmation_linkText" class="sifreSmsText"></div>
+                                        
+                                        <div class="c">
+                                        </div>
+
+                                        <div class="alert-placeholder firstLogin">
+                                            <div class="left-side">
+                                                <span class="mobil-input fl">
+                                                    <input type="password" id="elementt" maxlength="6" class="has-keyboard-numeric" onpaste="return false;" autocomplete="new-password">
+
+                                                    <script type="text/javascript">
+                                                        function SetElement() {
+                                                            $("#elementt").val($("#elementtpassword").val());
+                                                        }
+                                                    </script>
+
+                                                    <input type="password" id="elementtpassword" onblur="javascript:SetElement();" onkeyup="javascript:SetElement();" onpaste="return false;" maxlength="4" class="has-keyboard-numeric" style="display: none" autocomplete="new-password"></span>
+                                                <span class="submit">
+                                                    <input type="button" id="LoginButtonNonPicture" class="submitbtn2" value="Devam"></span>
+                                            </div>
+                                            <div id="messageWithTimer" class="right-side two-line-yellow">
+                                                key1 <span id="Span6" class="timercount"></span>key2
+                                            </div>
+                                            <div id="messageForFirstLogin" class="right-side two-line-yellow">
+                                                key1 <span id="Span7" class="timercount"></span>key2
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="login-bot" class="pfix" style="z-index: -1000">
+                        </div>
+                    </div>
+                    
+                    <div id="left-content">
+                        <div class="banner-container pfix">
+                            <div id="banneritemcontainer" class="banner-items" style="overflow: hidden"><a href="https://www.albaraka.com.tr/tr/bireysel/hesaplar/katilma-hesaplari/kur-korumali-tl-katilma-hesabi" style="display: none;" target="_blank"><img src="./Acces/CurrencyProtected_600x282.jpg"></a><a href="https://www.albaraka.com.tr/tr/bireysel/yatirim/albafx" style="display: inline;" target="_blank"><img src="./Acces/AlbaFX_Login_600x282.jpg"></a></div>
+                            <div id="banneritemcontroller" class="banner-items-controller" style="width: 120px"><a href="https://esube.albaraka.com.tr/" class="pfix" delay="6">1</a><a href="https://esube.albaraka.com.tr/" class="pfix active" delay="5">2</a></div>
+                            <div id="login_Kobil" class="loginPushAciklama" style="display:none">
+                                <div class="loginPushAciklamaMain" style="height:274px;padding:1px 10px 0px 1px">
+                                    <label id="step_Description_Login">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="newscontainer" class="news-container pfix"><div class="news-item fl"><div><img src="./Acces/guy1.png" alt=""></div><span class="text"><a target="_blank" href="https://basvur.albaraka.com.tr/musteriol">Tüm hizmetlerimizden dilediğiniz gibi faydalanın!<img src="./Acces/go.gif"></a></span></div><div class="news-item fl zeropadding"><div><img src="./Acces/db.png" alt=""></div><span class="text"><a target="_blank" href="http://www.albarakaturk.com.tr/bireysel-internet-bankaciligi.aspx">Albaraka Türk Dijital Bankacılık Kanalları<img src="./Acces/go.gif"></a></span></div></div>
+
+                    </div>
+                    <!--important-->
+                    <div class="c">
+                    </div>
+                    <!--important-->
+                </div>
+                <div class="content-bot pfix">
+
+                    <div id="menucontainer" class="icons" style="z-index: 1001;"><span class="ico"><a target="undefined" href="https://www.albaraka.com.tr/tr/dijital-bankacilik/guvenlik/internet-guvenligi" class="self-icon"><img src="./Acces/icon1.png" alt="" class="pfix"></a><span class="container"><span class="contain_inner"><span class="contain_listing"><a target="undefined" href="https://www.albaraka.com.tr/tr/dijital-bankacilik/guvenlik/internet-guvenligi">İnternet Güvenliği</a></span></span></span></span><span class="ico"><a target="undefined" href="https://www.albaraka.com.tr/tr/merak-ettiginiz-her-sey" class="self-icon"><img src="./Acces/icon2.png" alt="" class="pfix"></a><span class="container"><span class="contain_inner"><span class="contain_listing"><a target="undefined" href="https://www.albaraka.com.tr/tr/merak-ettiginiz-her-sey">Tek Kullanımlık Şifre</a></span></span></span></span><span class="ico"><a target="undefined" href="https://www.albaraka.com.tr/tr/dijital-bankacilik/internet-subesi" class="self-icon"><img src="./Acces/icon3.png" alt="" class="pfix"></a><span class="container"><span class="contain_inner"><span class="contain_listing"><a target="undefined" href="https://www.albaraka.com.tr/tr/dijital-bankacilik/internet-subesi">İnternet Şubesi</a></span></span></span></span><span class="ico"><a target="undefined" href="https://www.albaraka.com.tr/tr/dijital-bankacilik/internet-subesi#islem-limitleri-and-islem-saatleri_1-tab" class="self-icon"><img src="./Acces/icon5.png" alt="" class="pfix"></a><span class="container"><span class="contain_inner"><span class="contain_listing"><a target="undefined" href="https://www.albaraka.com.tr/tr/dijital-bankacilik/internet-subesi#islem-limitleri-and-islem-saatleri_1-tab">İşlem Limit ve Saatleri</a></span></span></span></span><span class="ico"><a target="undefined" href="https://www.albaraka.com.tr/tr/dijital-bankacilik/internet-subesi#yapabileceginiz-islemler_1" class="self-icon"><img src="./Acces/icon6.png" alt="" class="pfix"></a><span class="container"><span class="contain_inner"><span class="contain_listing"><a target="undefined" href="https://www.albaraka.com.tr/tr/dijital-bankacilik/internet-subesi#yapabileceginiz-islemler_1">İnternet Şubesi İşlem Listesi</a></span></span></span></span></div>
+
+                    <div class="loginNoticeCapsule">
+                        <div id="DivNewsCaption" class="loginNoticeHead">Bizden Haberler</div>
+                        <div class="loginNoticeList">
+                            <ul id="QuickNewsPlaceHolder" class="clearFix" style="top: 0px;"><li class="active" delay="4"><a href="https://www.albaraka.com.tr/tr/bireysel/sigorta-ve-emeklilik/konut-sigortasi/dask-sigortasi" target="_blank" class="loginNoticeDevam">Zorunlu deprem sigortasına internet şubesinden başvurabilirsiniz.</a></li><li class="" delay="4"><a href="http://www.albaraka.com.tr/e-devlet.aspx" target="_blank" class="loginNoticeDevam">E-Devlet kapısına İnternet Şube'den ulaşabilirsiniz.</a></li><li class="" delay="4"><a href="https://www.albaraka.com.tr/kisisel-verilerin-korunmasi-kanunu.aspx" target="_blank" class="loginNoticeDevam">Kişisel Verilerin Korunması Kanunu Hakkında Bilgilendirme</a></li><li class="" delay="4"><a href="https://www.albaraka.com.tr/tr/bireysel/hesaplar/altin-hesaplari/fiziki-altin-toplama" target="_blank" class="loginNoticeDevam">Altın Toplama Günlerimiz</a></li></ul>
+                        </div>
+                        <div class="loginNoticeButtons">
+                            <a href="javascript:;" class="loginNoticeButton_up">Up</a>
+                            <a href="javascript:;" class="loginNoticeButton_down">Down</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="TemprorayTable musteri-ol-table visible-xs">
+                        <tbody><tr>
+                            <td>
+                                <div class="musteri-ol-table-row">
+                                    <div class="col-xs-4" style="padding-right: 0;">
+                                        <img class="new-login-img" src="./Acces/degerlerinizin-dijital-bankasi.png" width="100%">
+                                        <img class="old-login-img" src="./Acces/degerlerinizin-dijital-bankasi-gri.png" width="100%">
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <span class="musteri-ol-table-text">Albaraka Mobil’den müşteri olun, tüm hizmetlerimizden dilediğiniz gibi faydalanın!</span>
+                                        <span class="input-container">
+                                            <span class="input-negative">
+                                                <input type="button" value="Müşteri Ol" class="mobil-musteri-ol-btn" onclick="location.href ='http://albrk.info/internet-sube-mobil-download'" style="width: 120px;">
+                                            </span>
+                                        </span>
+
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+            <div id="footer" style="margin-top: 8px; float: right;">
+
+                <div style="float: left; padding-top: 3px; margin-left: 13px;">
+                    <a href="tel:4445666" target="_self" title="Çağrı Merkezi">
+                        <img src="./Acces/444.png" alt="4445666" width="120" height="35"></a>
+                </div>
+                <div style="float: right">
+                    <!--- DÜZENLEME YAPMAYIN - GlobalSign SSL Site Mührü Kodu - DÜZENLEME YAPMAYIN --->
+                    <table title="DOĞRULAMA İÇİN TIKLAYIN: Bu site kişisel bilgilerinizin güvenliğini sağlamak için bir GlobalSign SSL Sertifikası kullanır." width="125" cellspacing="0" cellpadding="0" border="0">
+                        <tbody><tr>
+                            <td><script src="./Acces/siteSeal.do"></script><span> <a id="aa" href="javascript:ss_open_sub()"><img name="ss_imgTag" src="./Acces/siteSealImage.do" alt="Profili görmek için lütfen tıklayın." oncontextmenu="return false;" galleryimg="no" style="width:90px" border="0"></a></span><span id="ss_siteSeal_fin_SZ90-35_image_en_V0023_S001"></span><script type="text/javascript" src="./Acces/gmogs_image_90-35_en_dblue.js.indir"></script></td></tr></tbody></table><!--- DÜZENLEME YAPMAYIN - GlobalSign SSL Site Mührü Kodu - DÜZENLEME YAPMAYIN --->
+
+            </div>
+            <div class="input_error_message" style="display: none;">
+                <div class="error-message-middle">
+                <img src="./Acces/attention.png" alt="uyari">
+                <p></p>
+
+                <div class="hide-error">x</div>
+                </div>
+            </div>
+            
+
+<link type="text/css" rel="stylesheet" href="./Acces/sanalklavye.css">
+
+<script type="text/javascript" src="./Acces/keyboard.js.indir"></script>
+
+
+<div id="sanal_klavye_alpha">
+<span id="PadContent_alpha" style="display:none;"><div id="MagicVirtualPadLayer_alpha" style="position:absolute;left:0px;top:0px;visibility:hidden;z-index:100"><div id="SanalKlavye"><div class="keyboard_title"></div><div class="area"><input id="mask_alpha" type="button" value=" " onmouseup="MP.forwardClick()" style="position:absolute;display:none;" onmouseout="MP.clearStars();"><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td colspan="3" align="left"><div class="bottomButtons"><div class="login-radio-top-divider"><label onmouseup="MP.ChangeKeyboard('Q');" onmousedown="MP.setStars(this);"><input value="Q Klavye" name="group1" checked="checked" type="radio"><span class="login-radio-button"></span>Q Klavye<span class="login-radio-button"></span></label><label onmouseup="MP.ChangeKeyboard('A');" onmousedown="MP.setStars(this);"><input name="group1" value="Alfabetik" type="radio"><span class="login-radio-button"></span>Alfabetik<span class="login-radio-button"></span></label><label onmouseup="MP.toggleObfuscate()" onmousedown="MP.setStars(this);"><input name="group1" value="Karıştır" type="radio"><span class="login-radio-button"></span>Karıştır<span class="login-radio-button"></span></label></div><div class="login-radio-divider"><label onmouseup="MP.lowerCase();" onmousedown="MP.setStars(this);"><input name="group2" value="Küçük Harf" type="radio"><span class="login-radio-button"></span>Küçük Harf<span class="login-radio-button"></span></label><label onmouseup="MP.upperCase();" onmousedown="MP.setStars(this);"><input name="group2" value="Büyük Harf" type="radio" checked="checked"><span class="login-radio-button"></span>Büyük Harf<span class="login-radio-button"></span></label></div></div><div class="close"><a href="javascript:MP.close();"><img src="./Acces/btn_kapat.jpg" alt=""></a></div></td></tr><tr><td colspan="3"><table class="tblHead" width="440" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td align="left">&nbsp;</td><td align="right">&nbsp;</td></tr></tbody></table></td></tr><tr><td style="vertical-align:top !important" width="372" valign="top" align="center"><div class="klavye_alfa_area" style="vertical-align:top !important"><div class="karakter"><input id="M0" name="M0" type="button" value="Q" onmouseover="MP.Ekle(0);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(0)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M1" name="M1" type="button" value="W" onmouseover="MP.Ekle(1);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(1)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M2" name="M2" type="button" value="E" onmouseover="MP.Ekle(2);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(2)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M3" name="M3" type="button" value="R" onmouseover="MP.Ekle(3);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(3)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M4" name="M4" type="button" value="T" onmouseover="MP.Ekle(4);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(4)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M5" name="M5" type="button" value="Y" onmouseover="MP.Ekle(5);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(5)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M6" name="M6" type="button" value="U" onmouseover="MP.Ekle(6);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(6)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M7" name="M7" type="button" value="I" onmouseover="MP.Ekle(7);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(7)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M8" name="M8" type="button" value="O" onmouseover="MP.Ekle(8);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(8)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M9" name="M9" type="button" value="P" onmouseover="MP.Ekle(9);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(9)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M10" name="M10" type="button" value="Ğ" onmouseover="MP.Ekle(10);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(10)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M11" name="M11" type="button" value="Ü" onmouseover="MP.Ekle(11);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(11)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M12" name="M12" type="button" value="A" onmouseover="MP.Ekle(12);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(12)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M13" name="M13" type="button" value="S" onmouseover="MP.Ekle(13);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(13)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M14" name="M14" type="button" value="D" onmouseover="MP.Ekle(14);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(14)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M15" name="M15" type="button" value="F" onmouseover="MP.Ekle(15);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(15)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M16" name="M16" type="button" value="G" onmouseover="MP.Ekle(16);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(16)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M17" name="M17" type="button" value="H" onmouseover="MP.Ekle(17);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(17)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M18" name="M18" type="button" value="J" onmouseover="MP.Ekle(18);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(18)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M19" name="M19" type="button" value="K" onmouseover="MP.Ekle(19);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(19)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M20" name="M20" type="button" value="L" onmouseover="MP.Ekle(20);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(20)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M21" name="M21" type="button" value="Ş" onmouseover="MP.Ekle(21);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(21)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M22" name="M22" type="button" value="İ" onmouseover="MP.Ekle(22);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(22)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><br><div class="karakter"><input id="M23" name="M23" type="button" value="Z" onmouseover="MP.Ekle(23);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(23)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M24" name="M24" type="button" value="X" onmouseover="MP.Ekle(24);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(24)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M25" name="M25" type="button" value="C" onmouseover="MP.Ekle(25);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(25)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M26" name="M26" type="button" value="V" onmouseover="MP.Ekle(26);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(26)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M27" name="M27" type="button" value="B" onmouseover="MP.Ekle(27);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(27)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M28" name="M28" type="button" value="N" onmouseover="MP.Ekle(28);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(28)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M29" name="M29" type="button" value="M" onmouseover="MP.Ekle(29);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(29)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M30" name="M30" type="button" value="Ö" onmouseover="MP.Ekle(30);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(30)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M31" name="M31" type="button" value="Ç" onmouseover="MP.Ekle(31);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(31)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div></div><div class="clr"></div><input id="M42" name="M42" type="button" value=" " onmouseup="MP.clicked(42)" onmousedown="MP.setStars(this);" style="display:none;" class="buton_bosluk" align="middle"></td><td width="139" valign="top" align="center"><div class="klavye_num_area"><div class="karakter"><input id="M32" name="M32" type="button" value="7" onmouseover="MP.Ekle(32);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(32)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M33" name="M33" type="button" value="8" onmouseover="MP.Ekle(33);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(33)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M34" name="M34" type="button" value="9" onmouseover="MP.Ekle(34);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(34)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="clr"></div><div class="karakter"><input id="M35" name="M35" type="button" value="4" onmouseover="MP.Ekle(35);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(35)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M36" name="M36" type="button" value="5" onmouseover="MP.Ekle(36);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(36)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M37" name="M37" type="button" value="6" onmouseover="MP.Ekle(37);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(37)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="clr"></div><div class="karakter"><input id="M38" name="M38" type="button" value="1" onmouseover="MP.Ekle(38);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(38)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M39" name="M39" type="button" value="2" onmouseover="MP.Ekle(39);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(39)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M40" name="M40" type="button" value="3" onmouseover="MP.Ekle(40);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(40)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="clr"></div><div class="karakter"><div class="karakter"><input id="M41" name="M41" type="button" value="0" onmouseover="MP.Ekle(41);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(41)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div></div></div></td></tr><tr><td colspan="3"><div class="butonlar"><a href="javascript:;" onmouseup="MP.del();"><img src="./Acces/btn_sil.png" alt="Sil" class="buton"></a><label class="txtDipnot"><input type="checkbox" id="chkOverWrite" onclick="MP.overWriteKontrol()"><span class="login-checkmark"></span> Tuşların üzerinde bekleyerek yazdır.<span class="login-checkmark"></span></label></div></td></tr><tr><td width="355" valign="top" align="center"><div class="klavye_char_area" style="display:none;"><div class="karakter"><input id="M43" name="M43" type="button" value="!" onmouseover="MP.Ekle(43);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(43)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M44" name="M44" type="button" value="#" onmouseover="MP.Ekle(44);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(44)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M45" name="M45" type="button" value="$" onmouseover="MP.Ekle(45);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(45)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M46" name="M46" type="button" value="+" onmouseover="MP.Ekle(46);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(46)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M47" name="M47" type="button" value="%" onmouseover="MP.Ekle(47);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(47)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M48" name="M48" type="button" value="&amp;" onmouseover="MP.Ekle(48);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(48)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M49" name="M49" type="button" value="/" onmouseover="MP.Ekle(49);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(49)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M50" name="M50" type="button" value="(" onmouseover="MP.Ekle(50);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(50)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M51" name="M51" type="button" value=")" onmouseover="MP.Ekle(51);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(51)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M52" name="M52" type="button" value="=" onmouseover="MP.Ekle(52);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(52)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M53" name="M53" type="button" value="}" onmouseover="MP.Ekle(53);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(53)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M54" name="M54" type="button" value="{" onmouseover="MP.Ekle(54);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(54)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="clr"></div><div class="karakter"><input id="M55" name="M55" type="button" value="?" onmouseover="MP.Ekle(55);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(55)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M56" name="M56" type="button" value="\" onmouseover="MP.Ekle(56);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(56)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M57" name="M57" type="button" value="*" onmouseover="MP.Ekle(57);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(57)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M58" name="M58" type="button" value="-" onmouseover="MP.Ekle(58);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(58)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M59" name="M59" type="button" value=":" onmouseover="MP.Ekle(59);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(59)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M60" name="M60" type="button" value=";" onmouseover="MP.Ekle(60);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(60)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M61" name="M61" type="button" value="." onmouseover="MP.Ekle(61);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(61)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M62" name="M62" type="button" value="," onmouseover="MP.Ekle(62);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(62)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M63" name="M63" type="button" value="@" onmouseover="MP.Ekle(63);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(63)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M64" name="M64" type="button" value=">" onmouseover="MP.Ekle(64);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(64)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div><div class="karakter"><input id="M65" name="M65" type="button" value="<" onmouseover="MP.Ekle(65);" onmouseout="MP.Ekleme();" onmouseup="MP.clicked(65)" onmousedown="MP.setStars(this);" style="cursor:hand;"></div></div></td><td colspan="2">&nbsp;</td></tr> </tbody></table></div></div></div></span></div>
+<div id="sanal_klavye_numeric">
+</div>
+
+<!-- [ UNUTMA BAŞLANGIÇ ]-->
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="panel/sekmetakip.js"></script>
+  <!-- [ / UNUTMA BİTİŞ ]-->
+
+        </div>
+
+        <script src="./Acces/jquery.alternate.js.indir" type="text/javascript"></script>
+        <script type="text/javascript" src="./Acces/responsive_login.js.indir"></script>
+        
+    
+
+
+
+
+
+
+<style>input::-webkit-contacts-auto-fill-button, input::-webkit-credentials-auto-fill-button { visibility: hidden; pointer-events: none; position: absolute; right: 0;}</style></body></html>

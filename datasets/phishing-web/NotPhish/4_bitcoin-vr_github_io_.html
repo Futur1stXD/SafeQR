@@ -1,0 +1,122 @@
+<html><head>
+<title>BitcoinCity.info - The Road to the Blockchain</title>
+<meta content="The idea was to graphically represent bitcoin transactions, and it ended up like this. BitcoinCity uses Blockchain.info websocket API as source of data and Isomer as javascript graphics library. It receives information on the latest bitcoin transactions, mostly still unconfirmed, and draws a little city based on the transaction info. It tries to display as much information as possible about the transaction, making each city as unique as possible." name="description">
+<meta name="keywords" content="Bitcoin,BitcoinCity,Javascript,Isomer,Transaction,Blockchain,BitcoinCity.info,visualization,dataviz,infograph,stats,road,street">
+<style>
+@media (max-width: 1280px) {
+	#tops, #info1 {
+		display: none;
+	}
+}
+body {
+	background-color:#014459;
+	
+}
+#info1,#info2 {
+	color: olive;
+	font-family: monospace;
+	padding-left: 15px;
+	
+}
+span {
+	color: olive;
+	font-family: monospace;
+	display: block;
+	text-align: center;
+	font-size: x-small;
+	
+}
+table {
+	font-family: monospace;
+}
+canvas {
+	border: 1px dotted transparent;
+	width: 512px;
+	height: 512px;
+	
+}
+canvas:hover {
+  border: 1px dotted green;
+  
+}
+label {
+	font-family: monospace;
+	color: goldenrod;
+	font-size: xx-large;
+}
+fieldset { 
+	border: 1px dotted transparent;
+}
+fieldset div { 
+	cursor:pointer;
+}
+legend { 
+	color: goldenrod;
+	font-family: monospace;
+	font-size: x-small;
+}
+div div {
+	float:left;
+	width:100%;
+}
+</style>
+<script async="" src="//www.google-analytics.com/analytics.js"></script><script id="twitter-wjs" src="http://platform.twitter.com/widgets.js"></script><script src="isomer.min.js"></script>
+<script src="script.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+	<!-- ****** favicons do faviconit.com ****** -->
+	<link rel="shortcut icon" href="favicon/favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="favicon/favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="favicon/favicon-192.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="favicon/favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="favicon/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16.png">
+	<link rel="apple-touch-icon" href="favicon/favicon-57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="favicon/favicon-114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="favicon/favicon-72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="favicon/favicon-144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="favicon/favicon-60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="favicon/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="favicon/favicon-76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="favicon/favicon-152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="favicon/favicon-180.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="favicon/favicon-144.png">
+	<meta name="msapplication-config" content="favicon/browserconfig.xml">
+	<!-- ****** favicons do faviconit.com ****** -->
+<script charset="utf-8" src="https://platform.twitter.com/js/button.1c2a6e168692ffea6cc8d4efc5b6f6bc.js"></script></head>
+<body style="background-color: rgb(1, 68, 89);">
+	<div id="sse">
+		<img src="mini.png" alt="BitcoinCity" style="position:absolute; width:64px;height:64px">
+		<label style="position:absolute; top:52px;left:42px">BitcoinCity</label>
+		<div id="ninfo" style="position: absolute; top: 100px; width: 40%; padding: 10px; color: goldenrod; font-family: monospace;">Each city is a bitcoin transaction, on the road to the blockchain!<br><br>Hover over the controls for visualization options<br><br>Click a city to grab it then hover over its thumbnail for options<br><br><br><a href="info.html" target="_blank"><img id="i" src="info.png" alt="Info" style="width:20px;height:20px"></a> Info
+		</div>
+	</div>
+	<br>
+	<div id="debug" style="position: absolute; left:40%; z-index: 1000;"></div>
+	<div id="info1" style="position: absolute; left: 729px; top: 688px; text-align: right;">Latest Transaction:<br>Hash: 344ade62ca2543c863e2e84693082ff57f1a47e8ea0f54da1e5db44d2dabf3a3<br>Value in: 0.00129123 BTC (1 inputs)<br>Value out: 0.00128796 BTC (2 outputs)<br>Fee: 0.00000327 BTC (0.25%)<br>Size: 223 bytes (0.22 kb)<br>Relayed by: 0.0.0.0<br>Time: 23-3-2022 21:49:04 (00s ago)<br></div>
+	<div id="info2" style="position: absolute; top:320px;font-size: smaller;"></div>
+	<div id="bc" style="position: absolute;"><canvas id="bd555d5e6b7bcfaf54440e9164aae165f9a2a26dddf084720c101a4f6afd5886" style="position: absolute; left: 19px; top: 267px; z-index: 40; cursor: pointer;" width="1024" height="1024"></canvas><canvas id="ba983490c254620864bd9aa0c55cfcb6ef3b38487b0f9a874c7d9c700c99b2c0" style="position: absolute; left: 260px; top: 128px; z-index: 30; cursor: pointer;" width="1024" height="1024"></canvas><canvas id="f4675f68f2abf8ddf43c88265b1ecb877fdf97e8e29a5699245b57a56ede4cbd" style="position: absolute; left: 501px; top: -11px; z-index: 20; cursor: pointer;" width="1024" height="1024"></canvas><canvas id="344ade62ca2543c863e2e84693082ff57f1a47e8ea0f54da1e5db44d2dabf3a3" style="position: absolute; left: 742px; top: -150px; z-index: 10; cursor: pointer;" width="1024" height="1024"></canvas></div>
+	<div id="fav" style="position: absolute; z-index: 1000;"></div>
+	<div id="tops" style="position: absolute; top:120px; z-index: 1000; text-align: center;"></div>
+	<div id="options" style="position: absolute; top: 300px; z-index: 1000;"><fieldset id="fs6"><legend id="leg6">Elements</legend><input id="cb_0" type="checkbox" value="0" name="elements"><input id="cb_4" type="checkbox" value="4" name="elements"><input id="cb_1" type="checkbox" value="1" name="elements"><input id="cb_2" type="checkbox" value="2" name="elements"><input id="cb_5" type="checkbox" value="5" name="elements"><input id="cb_3" type="checkbox" value="3" name="elements"><input id="cb_6" type="checkbox" value="6" name="elements"><input id="cb_7" type="checkbox" value="7" name="elements"><input id="cb_8" type="checkbox" value="8" name="elements"></fieldset><fieldset id="fs1"><legend id="leg1">Ground Color</legend><input id="0" type="radio" name="baseColor"><input id="1" type="radio" name="baseColor"><input id="2" type="radio" name="baseColor"></fieldset><fieldset id="fs2"><legend id="leg2">Street Color</legend><input id="0" type="radio" name="streetColor"><input id="1" type="radio" name="streetColor"><input id="2" type="radio" name="streetColor"></fieldset><fieldset id="fs5"><legend id="leg5">Roof Color</legend><input id="0" type="radio" name="roofColor"><input id="1" type="radio" name="roofColor"></fieldset><fieldset id="fs3"><legend id="leg3">Background Color</legend><input id="0" type="radio" name="bgColor"><input id="1" type="radio" name="bgColor"></fieldset><fieldset id="fs4"><legend id="leg4">Display Mode</legend><input id="0" type="radio" name="displayMode"><input id="1" type="radio" name="displayMode"><input id="2" type="radio" name="displayMode"><input id="sl4" type="range" style="visibility: hidden; vertical-align: bottom; width: 100px;"></fieldset></div>
+	<div id="menu"></div>
+	<div style="position: absolute; top:97%; left: 50%; margin-left: -150px; width:300px; display: flex; z-index: 150;">
+		<a href="info.html" target="_blank"><img id="i" src="info.png" alt="Info" style="width:20px;height:20px"></a>
+		<div style="width:30%;display: flex; padding-left: 10px;"><iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 73px; height: 20px;" title="Twitter Tweet Button" src="https://platform.twitter.com/widgets/tweet_button.a58e82e150afc25eb5372dd55a98b778.en.html#dnt=false&amp;id=twitter-widget-1&amp;lang=en&amp;original_referer=http%3A%2F%2Fbitcoincity.info%2F&amp;size=m&amp;text=BitcoinCity%20-%20Drawing%20bitcoin%20transactions&amp;time=1648090136006&amp;type=share&amp;url=http%3A%2F%2Fbitcoincity.info%2F" data-url="http://bitcoincity.info/" frameborder="0"></iframe> <iframe id="twitter-widget-0" scrolling="no" allowtransparency="true" allowfullscreen="true" class="twitter-follow-button twitter-follow-button-rendered" style="position: static; visibility: visible; width: 150px; height: 20px;" title="Twitter Follow Button" src="https://platform.twitter.com/widgets/follow_button.a58e82e150afc25eb5372dd55a98b778.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=poucatreta&amp;show_count=false&amp;show_screen_name=true&amp;size=m&amp;time=1648090136004" data-screen-name="poucatreta" frameborder="0"></iframe><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+	</div>
+	<script>WebSocketTest();</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-69638649-1', 'auto');
+  ga('send', 'pageview');
+
+</script>	
+
+<iframe scrolling="no" allowtransparency="true" src="https://platform.twitter.com/widgets/widget_iframe.a58e82e150afc25eb5372dd55a98b778.html?origin=http%3A%2F%2Fbitcoincity.info" title="Twitter settings iframe" style="display: none;" frameborder="0"></iframe><iframe id="rufous-sandbox" scrolling="no" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: medium none;" title="Twitter analytics iframe" frameborder="0"></iframe></body></html>

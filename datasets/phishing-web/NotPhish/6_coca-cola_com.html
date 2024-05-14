@@ -1,0 +1,4065 @@
+<html class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths xl" lang="en"><head>
+    
+
+    <meta charset="UTF-8">
+    
+    
+    
+    
+    <link rel="canonical" href="www.coca-cola.com">
+    
+    
+    <meta name="keywords" content="coca-cola,beverages,global">
+    <meta property="og:title" content="Coca-Cola Global">
+    <meta property="og:type" content="website">
+    
+    <meta property="og:image" content="https://www.coca-cola.com/content/dam/brands/global/coca-cola/images/og-image-coca-cola-siente-el-sabor-amigos-1200x627.jpg">
+    <meta property="og:site_name" content="Coca-Cola Global">
+    <meta property="og:url" content="www.coca-cola.com">
+    
+    <meta property="content-path" content="/content/brands/global/coca-cola/en/home">
+	
+    
+    <meta name="template" content="brands---home-page">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    
+        
+        <link rel="preconnect" href="https://shared.coke.com">
+        <link rel="preconnect" href="https://static.coke.com">
+        <link rel="preconnect" href="https://use.typekit.net">
+    
+    
+        <script>(function () {
+	var guid = 'b78fc39e-c572-25f0-afea-16c367f47fbd',
+		$container = $('[data-instance-id="' + guid + '"]'),
+		endDistanceFromTop = 600,
+		logoStartSize = 127,
+		logoEndSize = 79;
+
+	// Awaiting html to have its size class & the navigation to have rendered its html
+	var awaitRequirements = function (cb) {
+		if ($('html').hasClass('xs') || $('html').hasClass('sm') || $('html').hasClass('md') || $('html').hasClass('lg') || $('html').hasClass('xl') && $container.children.length > 0) {
+			cb();
+		} else {
+			setTimeout(function () {
+				awaitRequirements(cb);
+			}, 100);
+		}
+	};
+	awaitRequirements(function () {
+		setExternalLinks();
+
+		// Checking to see if Homepage PBO is set
+		if ($($container).hasClass('flexible-navbar-homepage') || $($container).parents().hasClass('flexible-navbar-homepage')) {
+
+			//Adding the navigation top hidden
+			$($container).addClass('navigation-bar-slideout__top--sticky');
+
+
+			//Check for size overrides
+
+
+			//Setting the Brand Logo Scroll Effect
+			var $brandLogo = $($container).find('.navigation-bar-slideout__brand-image');
+			_resizeBrandLogo($(window).scrollTop(), $brandLogo);
+			$(window).on('scroll resize', function () {
+				if ($(window).scrollTop() < endDistanceFromTop) {
+					if ($(window).scrollTop() > endDistanceFromTop / 2) {
+						$($container).addClass('navigation-bar-slideout__top--hidden');
+					} else {
+						$($container).addClass('navigation-bar-slideout__top--sticky');
+						$($container).removeClass('navigation-bar-slideout__top--hidden');
+					}
+					_resizeBrandLogo($(window).scrollTop(), $brandLogo);
+				} else {
+					$($container).removeClass('navigation-bar-slideout__top--hidden');
+					$($container).removeClass('navigation-bar-slideout__top--sticky');
+					$brandLogo.removeAttr('style');
+				}
+			});
+		}
+
+		var $langSelector = $container.find('.languageSelectorContainer');
+		if ($langSelector) {
+			// open language selector on click
+			$langSelector.find('button').click(function(e) {
+				if (!$langSelector.hasClass('locked')) {
+					// initial click
+					$langSelector.addClass('locked'); // to keep it open if clicked
+					openLangMenu($langSelector);
+				} else {
+					// click to close if open already
+					$langSelector.removeClass('locked');
+					closeLangMenu($langSelector);
+				}
+				e.preventDefault();
+				e.stopPropagation();
+			});
+
+			// close menu if open
+			$(document).click(function() {
+				$langSelector.removeClass('locked');
+				closeLangMenu($langSelector);
+			});
+
+			// open language selector on hover
+			$langSelector.mouseenter(function() {
+				openLangMenu($langSelector);
+			}).mouseleave(function() {
+				if (!$(this).hasClass('locked')) {
+					closeLangMenu($langSelector);
+				}
+			});
+		}
+	});
+
+	function openLangMenu($langSelector) {
+		$langSelector.addClass('show')
+			.find('.dropdown-menu').addClass('show');
+	}
+
+	function closeLangMenu($langSelector) {
+		$langSelector.removeClass('show')
+			.find('.dropdown-menu').removeClass('show');
+	}
+
+	//Resize Brand logo Function
+	function _resizeBrandLogo($distanceFromTop, $logo) {
+		if ($logo.length > 0) {
+			if ($('html').hasClass('xl')) {
+				logoStartSize = 200;
+				logoEndSize = 137;
+			} else if ($('html').hasClass('lg')) {
+				logoStartSize = 127;
+				logoEndSize = 79;
+			}
+			var newHeight = logoStartSize - ((logoStartSize - logoEndSize) * ($distanceFromTop / endDistanceFromTop));
+			$logo.height(newHeight + 'px');
+		}
+	}
+
+	function setExternalLinks() {
+		$container.find('.js-navigation-bar-slideout__list-item-link').each(function () {
+			var $thiz = $(this);
+			var href = $thiz.attr('href');
+
+			if (href.indexOf('http') == 0) {
+				$thiz.addClass('navigation-bar-slideout__list-item-link--next');
+			}
+		});
+	}
+
+	//Setting the click event to toggle the slideout menu
+	$($container).on('click', '.navigation-bar-slideout__menu-toggle, .navigation-bar-slideout__menu-toggle-close, .navigation-bar-slideout__list-item-link', function () {
+		$('body').toggleClass('navigation-bar-slideout--active');
+	});
+
+})();
+</script><script>(function() {
+    // require the require function
+
+	requirejs(['require','jqueryNoConflict'],
+
+        function(require, $) {
+
+            function initDefaultList() {
+                $("[data-component-name='list'][data-design-package='default']").each(function(i,obj){
+                    // eslint-disable-next-line prefer-const
+                    let uuid = $(obj).attr('data-instance-id');
+                    initList(uuid);
+                });
+            }
+
+            if(tccc.dpLoaded) {
+                initDefaultList();
+            } else {
+                $(window).on('NEXTGEN_DOM_READY', function () {
+                initDefaultList();
+                });
+            }
+
+	});
+
+    function initList(guid) {
+        var $container = $("[data-instance-id='" + guid + "']");
+
+        if ($container.length) {
+
+            setTimeout(function() {
+
+                // if show more paintbrush is selected 
+                if (($container).parent().hasClass("show-more")) {
+                    var $listItems = $container.find('.c-list__list .c-list__item'),
+                        $listWrapper = $container.find('.list'),
+                        listCount = ($listItems).length,
+                        firstGroup = 4,
+                        moreResultCount = listCount - firstGroup,
+                        $showMoreButton1 = $container.find('.showmore__button--singular'),
+                        $showMoreButton2 = $container.find('.showmore__button--plural'),
+                        $moreButton = $container.find('.showmore__button--container button');
+
+                    // if there are m
+                    if (moreResultCount === 1) {
+                        $showMoreButton1.show();
+                    } else {
+                        if (moreResultCount >= 2) {
+                            $showMoreButton2.prepend(moreResultCount);   
+                            $showMoreButton2.show();
+                        }
+                    }
+
+                    $moreButton.on("click", function() {
+                        $listItems.show();
+                        $moreButton.hide();
+                    });
+                }
+
+                // Related Topics Tags (comprehend tags)
+                if ($container.find('.responsive-background-image').hasClass('related-topics-list')) {
+                    var scfg;
+                    if (searchConfig && searchConfig.global) { // defined in page markup
+                        scfg = window.searchConfig.global; // authored path to search page on the site
+                    }
+                    if (scfg) {
+                        var links = $container.find('.c-list__link');
+                        links.each( function() {
+                            var url = $(this).attr('href').replace('/search', scfg); // "search/" set in .hbs & will be replaced by authored value
+                            $(this).attr('href', url);
+                        });
+                    }
+                }
+            }, 300); // set timeout
+        } // if container.length
+    }
+
+})();
+//# sourceURL=prototype/app/components/list/js/default-list.js</script><script>(function () {
+  define('defaultTabbedNav', function() {
+   function TabbedNav(guid) {
+	var main = null;
+	var left = null;
+	var right = null;
+	var items = [];
+
+	// GLOBAL PAINTBRUSH OPTIONS
+	var isHideAllEnabled = false; // when true, all content wrappers hidden on load
+	var clickToHide = false; // when true, clicking a list item a second time will hide active content wrapper
+	var accordionOn = false; // when true, clicking a list item a second time will hide active content wrapper
+	// var isAuthorMode = $('body').hasClass('authorMode');
+
+	var queries = {
+		cmp: '[data-instance-id="' + guid + '"]',
+		main: '[data-instance-id="' + guid + '"] ul',
+		left: '[data-instance-id="' + guid + '"] button.left',
+		right: '[data-instance-id="' + guid + '"] button.right',
+		items: '[data-instance-id="' + guid + '"] li',
+		active: '[data-instance-id="' + guid + '"] li.active',
+		except: function (id) {
+			return '[data-instance-id="' + guid + '"] li:not(#' + id + ')';
+		},
+		wrapper: function (id) {
+			return '[data-component-id="' + id + '"]';
+		}
+	};
+
+	function showScrollLeft() {
+		if (main.scrollLeft === 0) {
+			left.style.display = 'none';
+		} else {
+			left.style.height = main.clientHeight + 'px';
+			left.style.display = '';
+		}
+	}
+
+	function showScrollRight() {
+		if (maxScrollLeft() === 0 || main.scrollLeft === maxScrollLeft()) {
+			right.style.display = 'none';
+		} else {
+			right.style.height = main.clientHeight + 'px';
+			right.style.display = '';
+		}
+	}
+
+	function scrollLeft() {
+		var from = main.scrollLeft;
+		var to = main.scrollLeft - main.offsetWidth > 0 ? main.scrollLeft - main.offsetWidth : 0;
+
+		scroll(from, to);
+	}
+
+	function scrollRight() {
+		var from = main.scrollLeft;
+		var to = main.scrollLeft + main.offsetWidth < maxScrollLeft() ? main.scrollLeft + main.offsetWidth : maxScrollLeft();
+
+		scroll(from, to);
+	}
+
+	function maxScrollLeft() {
+		/* scrollLeftMax is now allowed in chrome */
+		return main.scrollWidth - main.clientWidth;
+	}
+
+	var ticking = false;
+	var scrollRatio = 20;
+
+	function scroll(from, to) {
+		if (!ticking) {
+			window.requestAnimationFrame(function () {
+				ticking = false;
+
+				var newPosition;
+				if (from > to) { /* Scroll to left */
+					newPosition = main.scrollLeft - scrollRatio > to ? main.scrollLeft - scrollRatio : to;
+				} else { /* Scroll to right */
+					newPosition = main.scrollLeft + scrollRatio < to ? main.scrollLeft + scrollRatio : to;
+				}
+				main.scrollLeft = newPosition;
+
+				if (newPosition !== to) {
+					scroll(from, to);
+				}
+			});
+		}
+		ticking = true;
+	}
+
+	function checkScrollers() {
+		showScrollLeft();
+		showScrollRight();
+	}
+
+	function hideOrShowWrapper(li, action) {
+		var wrapperId = li.dataset.component;
+		var wrapper = document.querySelector(queries.wrapper(wrapperId));
+		var body = document.querySelector('body');
+		var isAuthor = body.classList.contains('authorMode');
+
+		if (wrapper !== undefined && wrapper !== null && wrapper.parentNode !== undefined && wrapper.parentNode !== null && isAuthor === false) {
+			if (action === 'hide') {
+				$(wrapper.parentNode).addClass('d-none');
+			} else {
+				$(wrapper.parentNode).removeClass('d-none');
+			}
+		}
+	}
+
+	function accordionAction (index) {
+		var item = items[index];
+
+		$(item).focus();  //focus on li to be read out on NVDA - WCAG compliance
+
+		if (!item.classList.contains('active')) {
+			var active = document.querySelector(queries.active);
+			if (active) {
+				active.classList.remove('active');
+				hideOrShowWrapper(active, 'hide');
+			}
+			item.classList.add('active');
+			hideOrShowWrapper(item, 'show');
+
+		} else if (clickToHide) {
+			// active item was clicked and clickToHide is set
+			// hide clicked item
+			item.classList.remove('active');
+			hideOrShowWrapper(item, 'hide');
+		}
+
+		// accordion
+		if (item.classList.contains('expandAccordion')) {
+			item.classList.remove('expandAccordion');
+			item.classList.add('collapseAccordion');
+			$(item).attr('tabindex','0');
+			$(item).attr('aria-expanded','true');
+			hideOrShowWrapper(item, 'show');
+		}
+		else if (item.classList.contains('collapseAccordion')) {
+			item.classList.remove('collapseAccordion');
+			item.classList.add('expandAccordion');
+			$(item).attr('tabindex','-1');
+			$(item).attr('aria-expanded','false');
+			hideOrShowWrapper(item, 'hide');
+		}
+
+	}
+
+	function addKeydownEvents() {
+
+		main.addEventListener('keydown', function (event) {
+			const {key} = event;
+			let listIndex = main.children[0].attributes['data-index'].value;
+
+			if (event.which == 32  || key ==='Enter' ) {
+				accordionAction(listIndex);
+			}
+			event.preventDefault();
+		});
+	}
+
+	function addClickEvents() {
+		left = document.querySelector(queries.left);
+		right = document.querySelector(queries.right);
+
+		left.addEventListener('click', scrollLeft);
+		right.addEventListener('click', scrollRight);
+
+		items = Array.from(document.querySelectorAll(queries.items));
+
+		for (var i = 0; i < items.length; i++) {
+			if (i > 0 || isHideAllEnabled) {
+				if (accordionOn) {
+					items[i].classList.add('expandAccordion');
+				}				
+				hideOrShowWrapper(items[i], 'hide');
+			}
+
+			if (isHideAllEnabled && items[i].classList.contains('active')) {
+				items[i].classList.remove('active');
+			}
+
+			items[i].addEventListener('click', function (e) {
+				accordionAction(e.target.dataset.index);
+			});
+
+		}
+	}
+
+	this.init = function() {
+		var interval = setInterval(function () {
+			var cmp = document.body.querySelector(queries.cmp).parentNode;
+			var $cmp = $(queries.cmp);
+
+			isHideAllEnabled = ($cmp.hasClass('default-hide-all') || $cmp.parents('.default-hide-all').length) ? true : false; // The first item is not shown by default
+			clickToHide = ($cmp.hasClass('click-to-hide') || $cmp.parents('.click-to-hide').length) ? true : false;
+			accordionOn = ($cmp.hasClass('accordion-on') || $cmp.parents('.accordion-on').length) ? true : false;
+			
+			// Adding accordion Styling
+			if (cmp.classList.contains('tabbedNav_accordion')) {
+				items = Array.from(document.querySelectorAll(queries.items));
+				for (var i = 0; i < items.length; i++) {
+					items[i].classList.add('expandAccordion');
+				}
+			}
+
+			main = document.querySelector(queries.main);
+			if (main !== null) {
+				clearInterval(interval);
+				addKeydownEvents();
+				addClickEvents();
+				checkScrollers();
+				window.addEventListener('resize', checkScrollers);
+				main.addEventListener('scroll', checkScrollers);
+			}
+		}, 300);
+	};
+   }
+
+   return TabbedNav;
+  });
+
+	requirejs(['defaultTabbedNav'], function(Tabbednav) {
+		function initDefaultTabbedNavs() {
+			$("[data-component-name='tabbedNavigation'][data-design-package='default']").each(function(i, obj) {
+				let uuid = $(obj).attr('data-instance-id');
+				let defaultTabbedNav = new Tabbednav(uuid);
+				defaultTabbedNav.init();
+			});
+		}
+
+		if (tccc.dpLoaded) {
+			initDefaultTabbedNavs();
+		} else {
+			$(window).on('NEXTGEN_DOM_READY', function () {
+				initDefaultTabbedNavs();
+			});
+		}
+	});
+})();
+
+//# sourceURL=prototype/app/components/tabbedNavigation/js/default-tabbedNavigation.js</script><script>(function() {
+    // require the require function
+
+    // Global Paintbrush Options:
+    // carousel--autoscroll-on-hover     - when selected will not pause autoscrolling on mouse hover
+    // carousel__play-pause-enabled      - appends indicator to carousel-indicators controls to toggle play and pause for carousel
+    // carousel__indicators--rectangular - css styling only, no js applied
+    // carousel__indicators--animation   - animates carousel-indicators timed to slider
+
+    requirejs(['require'],
+        function(require) {
+            
+		function loadImageVideoCarousel() {
+			$("[data-component-name='imageVideoCarousel'][data-design-package='default'").each(function (i, obj) {
+				let uuid = $(obj).attr('data-instance-id');
+				initImageVideoCarousel(uuid);
+			});
+		}
+
+		if (tccc.dpLoaded) {
+			loadImageVideoCarousel();
+		} else {
+			$(window).on('NEXTGEN_DOM_READY', function () {
+				loadImageVideoCarousel();
+			});
+		}
+	});
+	// end requirejs
+
+	function initImageVideoCarousel(guid) {
+		var $container = $("[data-instance-id='" + guid + "']");
+
+                if ($container.length) {
+                    var datamodel = ($container.attr("data-model") !== undefined ? $container.attr("data-model") : $container.attr("data-model-url"));
+                
+                    if (datamodel) {
+                        var carouselID  = datamodel.carouselId;
+                        var $carousel   = $container.find(".carousel"); // default selector
+                        var autoScroll  = $carousel.data("autoscroll");
+                        var duration    = $carousel.data("duration");
+                        var assetSizing = $carousel.data("assetSizing");
+                        var hasVideo    = $carousel.find(".carousel-inner .carousel-item > div > iframe").length > 0;
+                        var playPause   = $carousel.parents('.carousel__play-pause-enabled').length;
+
+                        if (typeof(carouselId) !== 'undefined' && carouselId) {
+                            // if carouselId is authored use that
+                            $carousel = $container.find("#" + carouselId);
+                        }
+
+                        // determines if "autoscroll on hover" paintbrush is configured for carousel
+                        var isAutoscrollOnHover = $carousel.parents(".carousel--autoscroll-on-hover").length;
+                        if (isAutoscrollOnHover) {
+                            $carousel.attr("data-pause","false"); // disable pause on hover/mouseenter
+                        }
+
+                        if ($carousel.length) {
+                           
+                            $carousel.on("touchstart", function(event) {
+                                var xClick = event.originalEvent.touches[0].pageX;
+                                $(this).one("touchmove", function(event) {
+                                    var xMove = event.originalEvent.touches[0].pageX;
+                                    if (Math.floor(xClick - xMove) > 5) {
+                                        $(this).carousel('next');
+                                    } else if (Math.floor(xClick - xMove) <= -5) {
+                                        $(this).carousel('prev');
+                                    }
+                                });
+                                $carousel.on("touchend", function() {
+                                    $(this).off("touchmove");
+                                });
+                            });
+
+                            // remove carousel controls if only one slide
+                            if ($carousel.find('.carousel-inner > .carousel-item').length <= 1) {
+                                $carousel.find('.d-block').remove(); // left & right controls
+                                $carousel.find('.carousel-indicators').remove();
+                            }
+
+                            // pause youtube video if playing when sliding carousel
+                            if (hasVideo) {
+                                $carousel.on('slide.bs.carousel', function() {
+                                    $carousel.find('.embed-responsive-item').each( function() {
+                                        $(this)[0].contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*'); // requires enablejsapi=1 in url string
+                                    });
+                                });
+                            }
+
+                            // pause carousel when youtube video is playing
+                            if (hasVideo) {
+                                var tag = document.createElement('script');
+                                tag.src = "//www.youtube.com/iframe_api";
+                                var firstScriptTag = document.getElementsByTagName('script')[0];
+                                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+                                function onYouTubeIframeAPIReady() {
+                                    $carousel.find('.carousel-item .embed-responsive-item').each( function(i) {
+                                        $(this).attr('id', 'ytubeplayer'+i); // iframe id needed to track video state changes
+                                        player = new YT.Player('ytubeplayer'+i, {
+                                            events: {
+                                                'onStateChange': onPlayerStateChange
+                                            }
+                                        });
+                                    });
+                                }
+    
+                                // API loaded asynchronously, need to loop until ready then clear setInterval
+                                var myVar = setInterval( function() {
+                                    if (typeof(player) == 'undefined') {
+                                        onYouTubeIframeAPIReady();
+                                        clearInterval(myVar);
+                                    }
+                                }, 300);
+
+                                function onPlayerStateChange(event) {
+                                    switch (event.data) {
+                                        case YT.PlayerState.PLAYING:
+                                            $carousel
+                                                .carousel('pause')
+                                                .addClass('video-playing')
+                                                .addClass('carousel-paused');
+                                            break;
+                                        case YT.PlayerState.ENDED:
+                                            $carousel
+                                                .carousel('cycle')
+                                                .removeClass('video-playing')
+                                                .removeClass('carousel-paused');
+                                            break;
+                                        case YT.PlayerState.PAUSED:
+                                            $carousel
+                                                .carousel('pause')
+                                                .addClass('carousel-paused');
+                                            break;
+                                    }
+                                }
+                                // reset if slide changes
+                                $carousel.on('slide.bs.carousel', function() {
+                                    $carousel
+                                        .removeClass('carousel-paused')
+                                        .removeClass('video-playing');
+                                });
+                            }
+   
+                            if (autoScroll && duration > 0) {
+                                $carousel.carousel(); // needed for autoScroll to work properly
+                                // if the user is hovering on the carousel do not animate (unless isAutoscrollOnHover is enabled)
+                                if ($carousel.is(":hover") && !isAutoscrollOnHover) {
+                                    $(this).find(".circle-animation").stop();
+                                } else {
+                                    $carousel.find(".circle-animation").animate({"stroke-dashoffset": 125 }, duration); 
+                                }
+
+                                // reset animation on slide
+                                $carousel.on("slide.bs.carousel", function() {
+                                    $(this).find(".circle-animation").stop();
+                                    $(this).find(".circle-animation").removeAttr( "style" );
+                                    $(this).find(".circle-animation").animate({"stroke-dashoffset": 125 }, duration); 
+                                    if ($carousel.is(":hover") && !isAutoscrollOnHover) {
+                                        $(this).find(".circle-animation").stop();
+                                    }
+                                });
+                            }
+
+                            if (!isAutoscrollOnHover) {
+                                $carousel.hover( function(){ $(this).find(".circle-animation").stop(); }, function(){
+                                    //reset animation to match carousel timing
+                                    $(this).find(".circle-animation").removeAttr( "style" );
+                                    $(this).find(".circle-animation").animate({"stroke-dashoffset": 125 }, duration);
+                                });
+                            }
+
+                            // add play/pause button to carousel indicators
+                            if (playPause) {
+                                $carousel.find('.carousel-indicators').append('<li class="playpause"></li>'); // add new carousel button
+                                $carousel.find('.playpause').click( function() {
+                                    if ($(this).hasClass('paused')) {
+                                        $(this).removeClass('paused');
+                                        $carousel.removeClass('carousel-paused').carousel('cycle');
+                                    } else {
+                                        $(this).addClass('paused');
+                                        $carousel.addClass('carousel-paused').carousel('pause');
+                                    }
+                                }); 
+                            }
+
+                            // determines if "indicators should be animated" paintbrush is configured for carousel
+                            var animateIndFlag = $carousel.parents('.carousel__indicators--animation').length;
+                            if (autoScroll && animateIndFlag) {
+                                var percentTime;
+                                var tick;
+                                var time = 0;
+                                var progressBarIndex = 0;
+
+                                $carousel.find('.carousel-indicators li').each(function(i) {
+                                    $(this).append('<span data-slick-index="'+i+'" class="progressBar"><div class="inProgress inProgress'+i+'" /></div>');
+                                });
+
+                                function startProgressbar() {
+                                    resetProgressbar();
+                                    percentTime = 0;
+                                    tick = setInterval(interval, duration/1000);
+                                }
+
+                                function interval() {
+                                    if ( $carousel.find('.carousel-inner .carousel-item:eq("' + progressBarIndex + '")').hasClass('active') === false ) {
+                                        progressBarIndex = $carousel.find('.carousel-inner li.active').index();
+                                        startProgressbar();
+                                    } else {
+                                        if (!$carousel.hasClass('carousel-paused')) {
+                                            percentTime += 1 / (time + 5);
+                                            $('.inProgress' + progressBarIndex).css({
+                                                width: percentTime + "%"
+                                            });
+                                            if (percentTime >= 100) {
+                                                $carousel.carousel('next');
+                                                progressBarIndex++;
+                                                if (progressBarIndex > $carousel.find('.carousel-inner .carousel-item').length) { progressBarIndex = 0; }
+                                                startProgressbar();
+                                            }
+                                        }
+                                    }
+                                }
+
+                                function resetProgressbar() {
+                                    $('.inProgress').css({ width: 0 + '%' });
+                                    clearInterval(tick);
+                                }
+
+                                $carousel.find('.carousel-indicators li:not(".playpause")').click( function () {
+                                    $carousel.removeClass('carousel-paused');
+                                        
+                                    clearInterval(tick);
+                                    var goToThisIndex = $(this).find('span').data('slickIndex');
+                                    progressBarIndex = goToThisIndex;
+                                    $carousel.carousel(goToThisIndex);
+                                    startProgressbar();
+                                });
+
+                                // pause slider when hovering over active indicator, restart on hover off
+                                $carousel.find('.carousel-indicators li').hover (
+                                    function() { // hover on
+                                        if ($(this).hasClass('active')) {
+                                            $carousel.addClass('carousel-paused').carousel('pause');
+                                        }
+                                    },
+                                    function() { // hover off
+                                        if ($(this).hasClass('active') && !$carousel.hasClass('video-playing')) { // don't if video is playing
+                                            startProgressbar();
+                                            $carousel.removeClass('carousel-paused').carousel('cycle');
+                                        }
+                                    }
+                                )
+                                startProgressbar();
+                            }
+
+                            // adjust carousel height to accommodate the nav height
+                            if (assetSizing === 'full') {
+                                var $html = $("html");
+                                //  only published page and larger devices
+                                if ($('body.publishMode').length > 0) { 
+                                    if ( $html.hasClass("md") || $html.hasClass("lg") || $html.hasClass("xl") ){
+                                        var navHeight = $container.outerHeight();
+                                        var $carouselImages = $container.find(".image-video-carousel-full");
+                                        $carouselImages.each(function(k,v){
+                                            $(v).css('height', 'calc(100vh - ' + navHeight + 'px)');
+                                        });
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+    }
+})();
+//# sourceURL=prototype/app/components/imageVideoCarousel/js/default-imageVideoCarousel.js</script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-NBWPCZW"></script><script>
+            window.globalDataLayerObj = [{"tccc.attributes":{"tccc.dataLayer.version":"1.0","tccc.dataLayer.geoUnit":"","tccc.dataLayer.siteEnvironment":"must-set-per-environment"},"tccc.website":{"businessUnit":"","siteLanguage":"","baseUrl":"www.coca-cola.com","sitePlatform":"AEM","sitePlatformVersion":"6.4"},"tccc.page":{"tccc.page.platform":"AEM","tccc.page.page.uri":"http://tccc-prod-brands-global-cocacola-en.tccc-aem.com/home","tccc.page.country":"afganistan","tccc.page.language":"af","tccc.page.name":"Coca-Cola Global Home | Site Locator","tccc.page.category.content":"/content/brands/global/coca-cola/en/home","tccc.page.pagetype":"","tccc.page.tags":[]}}];
+        </script>
+    
+    
+    <!-- OneTrust JS snippet -->
+        
+    
+    
+        <!-- Google Tag Manager --> 
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': 
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], 
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); 
+})(window,document,'script','dataLayer','GTM-NBWPCZW');</script> 
+<!-- End Google Tag Manager -->
+    
+    
+    <!-- Test&Target JS snippet -->
+        
+    
+    
+
+    
+
+    
+<link rel="stylesheet" href="//shared.coke.com/etc.clientlibs/nextgen/clientlibs/clientlib-base.min.css" type="text/css">
+
+
+
+
+ 
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+<script type="text/javascript" src="//shared.coke.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+<script type="text/javascript" src="//shared.coke.com/etc.clientlibs/clientlibs/granite/utils.min.js"></script>
+
+
+         
+    
+
+    
+    	
+	<style type="text/css">.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] a.active {
+  pointer-events: none;
+  cursor: default;
+  background-color: inherit;
+  color: inherit;
+  opacity: 0.75;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top {
+  z-index: 12;
+  position: fixed;
+  display: block;
+  width: 100%;
+  transition: top 600ms;
+  padding: 28px 0;
+  background-color: rgba(234, 234, 234, 0.9);
+  top: 0;
+}
+html.lg .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top,
+html.xl .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top {
+  padding: 3.25vw 0;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_list_left {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  max-width: 50vw;
+  padding-left: 4vw;
+  padding-right: 6vw;
+  margin-bottom: 0;
+  float: left;
+}
+html[dir="rtl"] .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_list_left {
+  padding-right: 4vw;
+  padding-left: 6vw;
+  float: right;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_list_left .navigation-bar-slideout__top_item {
+  border-right: 1px solid #000;
+  list-style: none;
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 35px;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_list_left .navigation-bar-slideout__top_item .navigation-bar-slideout__menu-toggle-title {
+  cursor: pointer;
+}
+html.xs .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_list_left .navigation-bar-slideout__top_item,
+html.sm .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_list_left .navigation-bar-slideout__top_item {
+  width: 100%;
+  border-right: none !important;
+  border-left: none !important;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_list_left .navigation-bar-slideout__top_item:last-child {
+  border-right: none !important;
+  border-left: none !important;
+}
+html[dir="rtl"] .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_list_left .navigation-bar-slideout__top_item {
+  padding-right: 0;
+  padding-left: 35px;
+  border-right: none;
+  border-left: 1px solid #000;
+}
+html[dir="rtl"] .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_list_left .navigation-bar-slideout__top_item .navigation-bar-slideout__menu-toggle {
+  float: right;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_list_left .navigation-bar-slideout__menu-back-icon-svg {
+  display: none;
+}
+html.xs .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_list_left .navigation-bar-slideout__menu-back-icon-svg,
+html.sm .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_list_left .navigation-bar-slideout__menu-back-icon-svg {
+  display: block;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_list_left .navigation-bar-slideout__menu-home-icon-svg {
+  display: block;
+}
+html.xs .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_list_left .navigation-bar-slideout__menu-home-icon-svg,
+html.sm .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_list_left .navigation-bar-slideout__menu-home-icon-svg {
+  display: none;
+}
+.flexible-navbar-homepage .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_list_left .navigation-bar-slideout__home-icons {
+  display: none !important;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__menu-toggle {
+  padding-left: 20px;
+  cursor: pointer;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__menu-toggle:before {
+  font-family: 'cc-go';
+  content: '☰';
+  color: black;
+  padding-right: 5px;
+  font-size: 18px;
+}
+html.xs .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__menu-toggle,
+html.sm .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__menu-toggle {
+  padding-left: 0;
+}
+.navigation-bar-slideout--active .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top {
+  opacity: 0;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__brand {
+  position: fixed;
+  top: 0px;
+  z-index: 10000;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__brand .navigation-bar-slideout__brand-image {
+  height: 100px;
+}
+html.md .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__brand .navigation-bar-slideout__brand-image {
+  height: 80px;
+}
+html.lg .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__brand .navigation-bar-slideout__brand-image,
+html.xl .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__brand .navigation-bar-slideout__brand-image {
+  height: calc(27px + 6.25vw);
+}
+.flexible-navbar-homepage .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__brand .navigation-bar-slideout__brand-image {
+  height: 80px;
+}
+html.lg .flexible-navbar-homepage .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__brand .navigation-bar-slideout__brand-image,
+html.xl .flexible-navbar-homepage .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__brand .navigation-bar-slideout__brand-image {
+  height: calc(27px + 6.25vw);
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_language {
+  float: right;
+  margin-right: 4vw;
+}
+html[dir="rtl"] .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_language {
+  float: left;
+  margin-right: 0;
+  margin-left: 4vw;
+}
+html.xs .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_language {
+  display: none;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_language .languageSelectorContainer:after {
+  content: '';
+  position: absolute;
+  top: calc(100% - 7px);
+  left: 0;
+  width: 100%;
+  height: 15px;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_language .languageSelectorContainer button {
+  background-color: transparent;
+  border-color: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_language .languageSelectorContainer button .icon-cc-next {
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  display: inline-block;
+  font-size: 12px;
+  margin-left: 8px;
+  transform: rotate(90deg);
+  color: inherit;
+}
+html[dir="rtl"] .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_language .languageSelectorContainer button .icon-cc-next {
+  margin-left: 0;
+  margin-right: 8px;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_language .languageSelectorContainer.show button .icon-cc-next {
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_language .languageSelectorContainer .dropdown-menu.show {
+  transform: none !important;
+  top: 100% !important;
+  margin-top: 0.5rem;
+  min-width: 0;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_language .languageSelectorContainer .dropdown-menu.show .dropdown-item {
+  padding: 0.25rem 1.25rem;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_language .languageSelectorContainer .dropdown-menu.show .dropdown-item:hover,
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_language .languageSelectorContainer .dropdown-menu.show .dropdown-item:focus {
+  background-color: inherit;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_language .dropdown-menu-arrow {
+  top: -25px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  position: relative;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .navigation-bar-slideout__top_language .dropdown-menu-arrow::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-width: 7px 8px;
+  border-style: solid;
+  border-color: transparent;
+  z-index: 1001;
+  bottom: -18px;
+  left: 0;
+  border-bottom-color: #fff;
+  margin-left: -7px;
+}
+html[dir="rtl"] .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .language-wrapper {
+  float: left;
+  margin-left: 4vw;
+}
+html[dir="rtl"] .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .language-wrapper .languageSelectorContainer button::after {
+  margin-left: 0;
+  margin-right: 0.255em;
+}
+html[dir="rtl"] .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__top .language-wrapper .dropdown-menu-arrow::after {
+  margin-left: -10px;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'].navigation-bar-slideout__top--sticky .navigation-bar-slideout__top {
+  top: 0px;
+  position: absolute;
+  transition: top 600ms;
+  background: transparent !important;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'].navigation-bar-slideout__top--hidden .navigation-bar-slideout__top {
+  top: -500px;
+  transition: top 600ms;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'].flexible-navbar-homepage .navigation-bar-slideout__top h1.navigation-bar-slideout__brand .navigation-bar-slideout__home-icons {
+  display: none !important;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'].flexible-navbar-homepage .navigation-bar-slideout__top h1.navigation-bar-slideout__brand .navigation-bar-slideout__brand-image {
+  height: 80px;
+}
+html.lg .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'].flexible-navbar-homepage .navigation-bar-slideout__top h1.navigation-bar-slideout__brand .navigation-bar-slideout__brand-image,
+html.xl .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'].flexible-navbar-homepage .navigation-bar-slideout__top h1.navigation-bar-slideout__brand .navigation-bar-slideout__brand-image {
+  height: calc(27px + 6.25vw);
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'].flexible-navbar-homepage .navigation-bar-slideout__top .navigation-bar-slideout__home-icons {
+  display: none !important;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu {
+  background-color: #eee;
+  bottom: 0;
+  overflow-x: hidden;
+  position: fixed;
+  top: 0;
+  z-index: 20;
+  transition: all 300ms;
+  left: -80%;
+  width: 80%;
+}
+.xl .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu,
+.lg .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu {
+  max-width: 33%;
+  left: -33%;
+}
+.sm .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu,
+.md .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu {
+  max-width: 50%;
+  left: -50%;
+}
+html[dir="rtl"] .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu {
+  left: 0;
+  right: -80%;
+}
+html[dir="rtl"].xl .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu,
+html[dir="rtl"].lg .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu {
+  left: 0;
+  right: -33%;
+}
+html[dir="rtl"].sm .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu,
+html[dir="rtl"].md .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu {
+  left: 0;
+  right: -50%;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .nav-title {
+  text-align: center;
+  padding-bottom: 5px;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .nav-title span {
+  font-size: 12px;
+  color: #999;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-menu-item {
+  padding: 7px 20px 3px;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-menu-item .navigation-bar-slideout__list-item-link {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-menu-item.tier2 {
+  padding-left: 40px;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-menu-item.tier2 .navigation-bar-slideout__list-item-link {
+  font-weight: 400;
+}
+html[dir="rtl"] .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-menu-item.tier2 {
+  padding-left: 20px;
+  padding-right: 40px;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-menu-item.tier3 {
+  padding-left: 60px;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-menu-item.tier3 .navigation-bar-slideout__list-item-link {
+  font-weight: 400;
+}
+html[dir="rtl"] .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-menu-item.tier3 {
+  padding-left: 20px;
+  padding-right: 60px;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-language {
+  text-align: center;
+  padding: 0;
+  margin-top: 20px;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-language .navigation-bar-slideout__list-item {
+  border-bottom: none !important;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-language .navigation-bar-slideout__list-item a.active::before {
+  font-family: 'cc-go';
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  background-color: #cdcdcd;
+  border-radius: 1em;
+  color: #000;
+  content: '\e908';
+  display: block;
+  height: 1em;
+  left: 10px;
+  margin-top: -0.5em;
+  position: absolute;
+  top: 50%;
+  width: 1em;
+  z-index: 1;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-social {
+  text-align: center;
+  padding: 0;
+  margin-top: 20px;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-social .navigation-bar-slideout__list-social-item {
+  display: inline-block;
+  margin: 0 3%;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-social .navigation-bar-slideout__list-social-item .navigation-bar-slideout__list-social-link {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+.xl .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-social .navigation-bar-slideout__list-social-item .navigation-bar-slideout__list-social-link,
+.lg .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-social .navigation-bar-slideout__list-social-item .navigation-bar-slideout__list-social-link,
+.md .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-social .navigation-bar-slideout__list-social-item .navigation-bar-slideout__list-social-link {
+  width: 55px;
+  height: 55px;
+}
+.xl .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-social .navigation-bar-slideout__list-social-item .navigation-bar-slideout__list-social-link {
+  margin: 0 5%;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-social .navigation-bar-slideout__list-social-item .navigation-bar-slideout__list-social-link img {
+  height: 100%;
+  width: 100%;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list {
+  padding: 0;
+  width: 100%;
+  margin-bottom: 0;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-item {
+  border-bottom: #eaeaea;
+  list-style: none;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__list-item .navigation-bar-slideout__list-item-link {
+  display: block;
+  text-align: center;
+  padding: 23px 26px;
+  font-size: 22px;
+  line-height: 1em;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: normal;
+  -moz-osx-font-smoothing: grayscale;
+  text-decoration: none;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__menu-item-close {
+  padding-bottom: 40px;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__menu-item-close .navigation-bar-slideout__menu-toggle-close {
+  font-family: 'cc-go';
+  float: right;
+  display: block;
+  padding: 0 5px;
+  font-size: 35px;
+  cursor: pointer;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__menu-item-close .navigation-bar-slideout__menu-toggle-close:before {
+  content: "\e601";
+}
+html[dir="rtl"] .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu .navigation-bar-slideout__menu-item-close .navigation-bar-slideout__menu-toggle-close {
+  float: left;
+}
+.navigation-bar-slideout--active .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu {
+  transform: translateX(100%);
+}
+html[dir="rtl"] .navigation-bar-slideout--active .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__menu {
+  transform: translateX(-100%);
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__content-overlay {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background: url(https:// go.s.coke.com/2.5.15/etc/designs/projectux-appletiser/main/images/cta-button-bg@2x.png) repeat 0 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-size: 2px 2px;
+}
+.navigation-bar-slideout--active .tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__content-overlay {
+  display: block;
+  position: fixed;
+}
+.tccc-cmp-navigation[data-instance-id='b78fc39e-c572-25f0-afea-16c367f47fbd'] .navigation-bar-slideout__list-item-link--next:before {
+  font-family: 'cc-go';
+  content: "\e604";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 26px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.navigation-bar-slideout--active .root.responsivegrid {
+  position: absolute;
+  overflow: hidden;
+  transition: all 300ms;
+  width: 100%;
+  height: 100%;
+
+}
+.xl .navigation-bar-slideout--active .root.responsivegrid,
+.lg .navigation-bar-slideout--active .root.responsivegrid {
+  left: 33%;
+}
+.sm .navigation-bar-slideout--active .root.responsivegrid,
+.md .navigation-bar-slideout--active .root.responsivegrid {
+  left: 50%;
+}
+html[dir="rtl"] .navigation-bar-slideout--active .root.responsivegrid {
+  left: 0;
+}
+html[dir="rtl"].xl .navigation-bar-slideout--active .root.responsivegrid,
+html[dir="rtl"].lg .navigation-bar-slideout--active .root.responsivegrid {
+  left: 0;
+}
+html[dir="rtl"].sm .navigation-bar-slideout--active .root.responsivegrid,
+html[dir="rtl"].md .navigation-bar-slideout--active .root.responsivegrid {
+  left: 0;
+}
+.root.responsivegrid {
+  transition: all 300ms;
+  width: 100%;
+  left: 0%;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+}</style><style type="text/css">/* Styling should be scoped to component */
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] {
+  overflow: hidden;
+}
+body.authorMode .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel {
+  min-height: 300px;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-control-prev,
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-control-next {
+  max-height: 40px;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-control-icon {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel-item .response-background-image.cover {
+  height: 100%;
+}
+body.authorMode .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel-item .response-background-image.cover {
+  min-height: 300px;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel-item.secondary {
+  color: white;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel-item .carousel-caption {
+  height: auto;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel-item .carousel-caption a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel-item .carousel-caption .carousel_title_subheadline .carousel_subHeadline {
+  line-height: 1.2rem;
+}
+.carousel__headline--top .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel-item .carousel-caption {
+  top: 20%;
+}
+.carousel__headline--bottom .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel-item .carousel-caption {
+  top: 75%;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel-item .carousel-caption p,
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel-item .carousel-caption h2,
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel-item .carousel-caption h3,
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel-item .carousel-caption h4,
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel-item .carousel-caption h5,
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel-item .carousel-caption h6 {
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  top: 50%;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel-item .embed-responsive-16by9 + .carousel-caption {
+  pointer-events: none;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel-indicators {
+  padding-bottom: 0;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .carousel__headline--movable {
+  display: none;
+}
+html.xs .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .btn,
+html.sm .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-inner .btn {
+  min-width: 90%;
+}
+body.authorMode .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel.full {
+  min-height: 600px;
+}
+body.authorMode .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel.full .carousel-inner .carousel-item .response-background-image.cover {
+  min-height: 600px;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] #thumbcarousel {
+  margin: 12px 0 0;
+  padding: 0 45px;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] #thumbcarousel .item {
+  text-align: center;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] #thumbcarousel .item .thumb {
+  border: 4px solid #cecece;
+  width: 20%;
+  margin: 0 2%;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  max-width: 98px;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] #thumbcarousel .item .thumb img {
+  width: 100px;
+  height: 80px;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel_scrollWrapper {
+  display: none;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel-control-prev,
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel-control-next {
+  /*
+	html.xs &, html.sm & {
+	  display: none!important;
+	}
+	*/
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel-control-prev svg,
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel-control-next svg {
+  display: none;
+}
+body.publishMode .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel.full .carousel-item {
+  height: 100vh;
+}
+body.authorMode .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel.full .carousel-item {
+  height: 600px;
+}
+.tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel.full .carousel-item div.cover {
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  background-size: cover;
+}
+.carousel__indicators--animation .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-indicators,
+.carousel__indicators--rectangular .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-indicators {
+  bottom: auto;
+  right: auto;
+  left: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 6;
+  padding: 15px 0 25px 0;
+  text-align: center;
+  background: #fff;
+}
+.carousel__indicators--animation .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-indicators li,
+.carousel__indicators--rectangular .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-indicators li {
+  position: relative;
+  background: #ddd;
+  margin: 0 6px;
+  display: inline-block;
+  height: 10px;
+  zoom: 1;
+  *display: inline;
+  border-radius: 0;
+}
+.carousel__indicators--animation .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-indicators li .progressBar,
+.carousel__indicators--rectangular .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-indicators li .progressBar {
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+}
+.carousel__indicators--animation .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-indicators li:active .progressBar,
+.carousel__indicators--rectangular .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-indicators li:active .progressBar {
+  background-color: #464646;
+}
+.carousel__indicators--animation .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-indicators li span,
+.carousel__indicators--rectangular .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-indicators li span {
+  width: 100%;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  display: block;
+}
+.carousel__indicators--animation .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-indicators li span .inProgress,
+.carousel__indicators--rectangular .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-indicators li span .inProgress {
+  background-color: #464646;
+  width: 0%;
+  height: 10px;
+}
+.carousel__indicators--animation .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-indicators li .loadbar,
+.carousel__indicators--rectangular .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-indicators li .loadbar {
+  background: #333;
+}
+.carousel__indicators--rectangular .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel .carousel-indicators li {
+  width: 16%;
+}
+.indicator-bars .tccc-cmp.tccc-cmp-imageVideoCarousel[data-design-package='default'] .carousel-indicators li {
+  width: 60px;
+  height: 4px;
+  border-radius: initial;
+}
+</style><style type="text/css">.tccc-cmp-tabbedNavigation[data-design-package='default'] .tabbed-navigation-container {
+  position: relative;
+}
+.tccc-cmp-tabbedNavigation[data-design-package='default'] .tabbed-navigation-container .scrollers {
+  position: absolute;
+  z-index: 100;
+  cursor: pointer;
+  content: '';
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 1rem;
+  height: 1rem;
+  background-position-y: center;
+  border-width: 0px !important;
+}
+.tccc-cmp-tabbedNavigation[data-design-package='default'] ul {
+  overflow-x: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  width: 100%;
+  padding: 0px;
+  -ms-overflow-style: none;
+  /* hide scrollbar in IE and edge */
+  scrollbar-width: none;
+  /* hide scrollbar in FF */
+  position: relative;
+}
+.tccc-cmp-tabbedNavigation[data-design-package='default'] ul::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar in Chrome and Safari */
+}
+.tccc-cmp-tabbedNavigation[data-design-package='default'] ul li.item {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  cursor: pointer;
+}
+.tccc-cmp-tabbedNavigation[data-design-package='default'] ul li.item div {
+  display: inline-block;
+}
+.tccc-cmp-tabbedNavigation[data-design-package='default'] ul li.item div p {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 0px !important;
+}
+.tccc-cmp-tabbedNavigation[data-design-package='default'] ul li.item.active p,
+.tccc-cmp-tabbedNavigation[data-design-package='default'] ul li.item:hover p {
+  font-weight: bold;
+}
+.tccc-cmp-tabbedNavigation[data-design-package='default'] ul li.item.active p::after,
+.tccc-cmp-tabbedNavigation[data-design-package='default'] ul li.item:hover p::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  position: absolute;
+  bottom: 2px;
+  left: 0px;
+  border-bottom: 2px solid black;
+}
+</style><style type="text/css">/* Styling should be scoped to component */
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] {
+  overflow: hidden;
+}
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] a {
+  text-decoration: none;
+}
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] h1,
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] h2,
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] h3,
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] h4,
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] h5,
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] h6 {
+  margin-bottom: 0;
+}
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] .overlay {
+  position: relative;
+}
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] .overlay h1 {
+  overflow: hidden;
+}
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] .overlay h2 {
+  overflow: hidden;
+}
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] .overlay h3 {
+  overflow: hidden;
+}
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] .overlay h4 {
+  overflow: hidden;
+}
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] .overlay h5 {
+  overflow: hidden;
+}
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] .overlay h6 {
+  overflow: hidden;
+}
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] .overlay p {
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'] .triangle-down {
+  -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+          align-content: center;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% -webkit-calc(100% - 15px), -webkit-calc(50% + 10px) -webkit-calc(100% - 15px), 50% 100%, -webkit-calc(50% - 10px) -webkit-calc(100% - 15px), 0% -webkit-calc(100% - 15px));
+  clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 15px), calc(50% + 10px) calc(100% - 15px), 50% 100%, calc(50% - 10px) calc(100% - 15px), 0% calc(100% - 15px));
+}
+.tccc-cmp.tccc-cmp-divider[data-design-package='default'].enableBottomArrow {
+  margin-bottom: -15px;
+}
+</style><style type="text/css">/* Styling should be scoped to component */
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list {
+  counter-reset: section;
+}
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list .c-list__list {
+  padding: 0;
+}
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list .c-list__list .c-list__item {
+  margin-bottom: 0.3em;
+  list-style-type: none;
+}
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list .c-list__list .c-list__item .c-list__img {
+  width: 3rem;
+  display: table-cell;
+  vertical-align: middle;
+}
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list .c-list__list .c-list__item .c-list__img img {
+  display: block;
+  max-width: 100%;
+}
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list .c-list__list .c-list__item .c-list__text {
+  display: table-cell;
+  vertical-align: middle;
+  text-indent: -3.5rem;
+  padding-left: 3.5rem;
+}
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list .c-list__list .c-list__item .c-list__text:before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 1.5rem;
+}
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list .c-list__list .c-list__item .c-list__link {
+  text-decoration: none;
+  display: table;
+}
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list .c-list__list.c-list__list--nobullets .c-list__item .c-list__text {
+  padding-left: 1.5rem;
+  vertical-align: middle;
+  text-indent: 0;
+}
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list .c-list__list.c-list__list--nobullets .c-list__item .c-list__text:before {
+  display: none;
+}
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list ol {
+  padding: 0;
+}
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list ol .c-list__item {
+  list-style-type: none;
+  margin-bottom: 0.3em;
+}
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list ol .c-list__item .c-list__text {
+  display: table-cell;
+  vertical-align: middle;
+  text-indent: -3.5rem;
+  padding-left: 3.5rem;
+}
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list ol .c-list__item .c-list__text:before {
+  counter-increment: section;
+  content: counter(section) ".";
+  margin: 0 1.5rem;
+}
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list ol .c-list__item .c-list__img {
+  width: 3rem;
+  display: table-cell;
+  vertical-align: middle;
+}
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list ol .c-list__item .c-list__img img {
+  display: block;
+  max-width: 100%;
+}
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list ol .c-list__item .c-list__link {
+  text-decoration: none;
+  display: table;
+}
+/* global paintbrush option */
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .showmore__button--singular,
+.tccc-cmp.tccc-cmp-list[data-design-package='default'] .showmore__button--plural {
+  display: none;
+}
+.show-more .tccc-cmp.tccc-cmp-list[data-design-package='default'] .c-list__list .c-list__item:nth-child(n+4) {
+  display: none;
+}
+.list__formatted-history--anchorlinks  .c-list__list .c-list__item {
+  float: left;
+  margin-right: 1rem;
+}
+.list__formatted-history--anchorlinks  .c-list__list .c-list__item .c-list__text {
+  text-indent: 0;
+  padding-left: 0;
+}
+.list__formatted-history--anchorlinks  .c-list__list .c-list__item .c-list__text:before {
+  display: none;
+}
+.list__formatted-history--anchorlinks  div .history-page-timeline {
+  box-sizing: border-box;
+}
+@media (min-width: 0) {
+  .list__formatted-history--anchorlinks  .parallax-wrapper {
+    height: -webkit-calc(100vh - 80px);
+    height: calc(100vh - 80px);
+    top: 80px;
+    right: -35px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .list__formatted-history--anchorlinks  *[dir="rtl"] .parallax-wrapper {
+    right: auto;
+    left: 0;
+  }
+}
+@media (min-width: 481px) {
+  .list__formatted-history--anchorlinks  .parallax-wrapper {
+    height: -webkit-calc(100vh - 80px);
+    height: calc(100vh - 80px);
+    right: -35px;
+    overflow: hidden;
+  }
+  .list__formatted-history--anchorlinks  *[dir="rtl"] .parallax-wrapper {
+    right: auto;
+    left: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .list__formatted-history--anchorlinks  .parallax-wrapper {
+    height: -webkit-calc(100vh - 80px);
+    height: calc(100vh - 80px);
+    right: 20px;
+  }
+  .list__formatted-history--anchorlinks  *[dir="rtl"] .parallax-wrapper {
+    right: auto;
+    left: 20px;
+  }
+  .list__formatted-history--anchorlinks  *[dir="rtl"] .history-page-timeline {
+    left: 21px;
+  }
+  .list__formatted-history--anchorlinks  *[dir="rtl"] .history-page-timeline .timeline-item .activity {
+    width: 77%;
+  }
+}
+@media (min-width: 1024px) {
+  .list__formatted-history--anchorlinks  .parallax-wrapper {
+    height: -webkit-calc(100vh - 80px);
+    height: calc(100vh - 80px);
+    right: 0;
+  }
+  .list__formatted-history--anchorlinks  *[dir="rtl"] .parallax-wrapper {
+    right: auto;
+    left: 0;
+  }
+}
+@media (min-width: 768px) {
+  .list__formatted-history--anchorlinks  .parallax-wrapper {
+    height: -webkit-calc(100vh - 80px);
+    height: calc(100vh - 80px);
+    right: 0;
+  }
+  .list__formatted-history--anchorlinks  *[dir="rtl"] .parallax-wrapper {
+    right: auto;
+    left: 0;
+  }
+}
+.list__formatted-history--anchorlinks  .parallax-wrapper {
+  background: transparent;
+  width: 150px;
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  overflow-y: hidden;
+}
+.list__formatted-history--anchorlinks  .history-page-timeline {
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  right: -30px;
+  width: 150px;
+  z-index: 10;
+}
+.list__formatted-history--anchorlinks  .history-page-timeline .timeline-item {
+  color: #eeeeee;
+  display: block;
+  float: left;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  width: 94%;
+}
+.list__formatted-history--anchorlinks  .history-page-timeline .timeline-item .year {
+  color: #eeeeee;
+  display: block;
+  float: left;
+  font-size: 17px;
+  font-weight: bold;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  width: 59%;
+}
+.list__formatted-history--anchorlinks  .history-page-timeline .timeline-item .year a.active {
+  color: #000000;
+}
+.list__formatted-history--anchorlinks  .history-page-timeline .timeline-item a {
+  display: inline-block;
+  font-weight: normal;
+  opacity: 1;
+  position: relative;
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+.list__formatted-history--anchorlinks  .history-page-timeline .timeline-item a:hover .marker .dot {
+  background-color: #f00a0d;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+.list__formatted-history--anchorlinks  .history-page-timeline .timeline-item .activity {
+  border-left: 4px solid #cb0909;
+  font-size: 14px;
+  line-height: 20px;
+  margin-left: 85px;
+  padding: 0 0 0 35px;
+  width: 78%;
+}
+.list__formatted-history--anchorlinks  .history-page-timeline .timeline-item .marker {
+  background-color: #ffffff;
+  border-radius: 100px;
+  border: 4px solid #cb0909;
+  box-shadow: 0 0 10px white;
+  box-sizing: border-box;
+  display: block;
+  float: right;
+  height: 20px;
+  margin-right: -14px;
+  position: relative;
+  width: 20px;
+  z-index: 2000;
+}
+.list__formatted-history--anchorlinks  .history-page-timeline .timeline-item .marker .dot {
+  background-color: white;
+  border-radius: 100px;
+  border: 2px solid white;
+  box-sizing: border-box;
+  display: block;
+  float: right;
+  height: 12px;
+  position: relative;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  width: 12px;
+  z-index: 2000;
+}
+.list__formatted-history--anchorlinks  .history-page-timeline .timeline-item .year-text {
+  display: inline-block;
+  padding-left: 25px;
+  position: absolute;
+  right: 15px;
+  text-shadow: 0 0 1px white;
+  white-space: nowrap;
+}
+.list__formatted-history--anchorlinks  .history-page-timeline .timeline-item a.active .activity {
+  color: #444444;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.list__formatted-history--anchorlinks  .history-page-timeline .timeline-item a.active .year {
+  color: #9db668;
+}
+.list__formatted-history--anchorlinks  .history-page-timeline .timeline-item a.active .marker .dot {
+  background-color: #f00a0d;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.list__formatted-history--anchorlinks  .history-page-timeline .timeline-item.close .activity {
+  color: #cccccc;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.list__formatted-history--anchorlinks  .history-page-timeline .timeline-item.close .year {
+  color: #cccccc;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.list__formatted-history--anchorlinks  .no-touch .history-page-timeline .timeline-item a:hover .activity {
+  color: #444444;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.list__formatted-history--anchorlinks  .no-touch .history-page-timeline .timeline-item a:hover .year {
+  color: #9db668;
+}
+.list__formatted-history--anchorlinks  .no-touch .history-page-timeline .timeline-item a:hover .marker .dot {
+  background-color: #f00a0d;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.list__formatted-history--anchorlinks  *[dir="rtl"] .parallax-wrapper {
+  left: 20px;
+}
+.list__formatted-history--anchorlinks  *[dir="rtl"] .history-page-timeline {
+  right: -21px;
+  left: 21px;
+}
+.list__formatted-history--anchorlinks  *[dir="rtl"] .history-page-timeline .activity {
+  padding: 0 0 0 20px;
+}
+.list__formatted-history--anchorlinks  *[dir="rtl"] .history-page-timeline .year-text {
+  padding-left: 30px;
+  right: 5px;
+}
+.list__formatted-history--anchorlinks  *[dir="rtl"] .history-page-timeline .year {
+  width: 75px;
+}
+.list__formatted-history--anchorlinks  *[dir="rtl"] .history-page-timeline .marker {
+  margin-right: 55px;
+  margin-left: -75px;
+}
+@media (max-width: 449px) {
+  .list__formatted-history--anchorlinks  .history-page-timeline {
+    visibility: hidden;
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(255, 255, 255, 0)), color-stop(25%, white));
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, white 25%);
+    padding-top: 5px;
+    -webkit-transition: opacity 0.08s ease-in-out;
+    transition: opacity 0.08s ease-in-out;
+  }
+  .list__formatted-history--anchorlinks  .parallax-wrapper {
+    visibility: hidden;
+    right: 0;
+  }
+  .list__formatted-history--anchorlinks  *[dir="rtl"] .parallax-wrapper {
+    visibility: hidden;
+    left: 0;
+  }
+}
+</style><style type="text/css">/* Styling should be scoped to component */
+.tccc-cmp-footer[data-instance-id='1faefde5-9385-0e91-4933-636663d24cd6'] .footerText p {
+  font-size: inherit;
+  color: inherit;
+  line-height: 138%;
+}
+.tccc-cmp-footer[data-instance-id='1faefde5-9385-0e91-4933-636663d24cd6'] .footerText h1,
+.tccc-cmp-footer[data-instance-id='1faefde5-9385-0e91-4933-636663d24cd6'] .footerText h2,
+.tccc-cmp-footer[data-instance-id='1faefde5-9385-0e91-4933-636663d24cd6'] .footerText h3,
+.tccc-cmp-footer[data-instance-id='1faefde5-9385-0e91-4933-636663d24cd6'] .footerText li,
+.tccc-cmp-footer[data-instance-id='1faefde5-9385-0e91-4933-636663d24cd6'] .footerText a {
+  color: inherit;
+}
+.tccc-cmp-footer[data-instance-id='1faefde5-9385-0e91-4933-636663d24cd6'] .footerText .footer__content.flex-column {
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
+.tccc-cmp-footer[data-instance-id='1faefde5-9385-0e91-4933-636663d24cd6'] .container {
+  padding: 1rem;
+}
+.tccc-cmp-footer[data-instance-id='1faefde5-9385-0e91-4933-636663d24cd6'] .container p {
+  margin-bottom: 0;
+}
+.tccc-cmp-footer[data-instance-id='1faefde5-9385-0e91-4933-636663d24cd6'] .container ul {
+  list-style: none;
+  display: inline-block;
+  padding: 0px;
+  margin: 0;
+}
+.tccc-cmp-footer[data-instance-id='1faefde5-9385-0e91-4933-636663d24cd6'] .container ul li {
+  display: inline-block;
+  line-height: 75%;
+  border-right: 1px solid currentColor;
+}
+.tccc-cmp-footer[data-instance-id='1faefde5-9385-0e91-4933-636663d24cd6'] .container ul li:last-child {
+  border-right: none !important;
+}
+.tccc-cmp-footer[data-instance-id='1faefde5-9385-0e91-4933-636663d24cd6'] .container ul li a {
+  padding: 0.5rem 0.75rem;
+}
+</style><link class="page-theme" rel="stylesheet" href="https://shared.coke.com/content/dam/brands/themes/coca-cola/coca-cola.css" type="text/css">
+
+	<link rel="stylesheet" href="https://use.typekit.net/lau6tfn.css">
+	
+		
+	
+    <title>Coca-Cola Global Home | Site Locator Coca-Cola Global</title>
+    
+    
+	    <script>
+	    	var dictionaryName = "en.json";
+	    	if (dictionaryName.endsWith(".json")){
+	    		var splitted = dictionaryName.split(/\.(?=[^\.]+$)/);
+	    		dictionaryName = splitted[0];
+	    	}
+	        Granite.I18n.init({
+	            locale: dictionaryName,
+	            urlPrefix: "https://shared.coke.com/apps/nextgen/i18n/brands/"
+	        });
+	    </script>
+    
+    
+    
+    
+
+
+
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="app" src="https://shared.coke.com/etc.clientlibs/nextgen/clientlibs/ng-base/app.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="app/main" src="https://shared.coke.com/etc.clientlibs/nextgen/clientlibs/ng-base/app/main.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jqueryNoConflict" src="https://shared.coke.com/etc.clientlibs/nextgen/clientlibs/ng-base/app/lib/jquery-no-conflict.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jqueryInternal" src="https://shared.coke.com/etc.clientlibs/nextgen/clientlibs/ng-base/app/lib/jquery-3.5.1.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="dataLayerHandler" src="https://shared.coke.com/etc.clientlibs/nextgen/clientlibs/ng-base/app/main/modules/tccc-dataLayer.js"></script></head>
+
+<body class="page basicpage tccc-page publishMode " data-pricespider="false" data-date-format="dd/MM/yyyy" data-shared-root="https://shared.coke.com" data-static-root="https://static.coke.com" data-dbversions-enabled="false" data-extensionless="true" data-cdsconfig-cdsimplementation="global_cds" data-cdsconfig-cdsconfigprofile="/js/nextgen/cds-sdk-v3.6.1.min" data-datalayer-elements="[]" data-genericlocale="sq_AL" data-experience="brands" data-instance-id="58418a0d-a737-0a9f-522b-8cb351bf0f97">
+
+    
+        <!-- Google Tag Manager (noscript) --> 
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NBWPCZW" 
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> 
+<!-- End Google Tag Manager (noscript) -->
+    
+    
+    
+        
+
+
+
+        
+
+
+
+
+
+
+<a name="top_of_page"></a>
+<div class="root responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="navigation flexible-navbar-homepage nav-sticky-text-light nav-top-text-brand aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+
+
+
+
+
+
+<!-- Navigation Component -->
+<div class="tccc-cmp tccc-cmp-navigation       navigation-bar-slideout__top--sticky" data-component-name="navigation" data-logic-url="https://shared.coke.com/content/dam/brands/components/content/navigation/header_flexible_slideout/logic.js" data-model="{&quot;imageLinkTarget&quot;:&quot;_self&quot;,&quot;paddingMarginLeftRightMarginDisable&quot;:&quot;false&quot;,&quot;paddingMarginMobilePadding&quot;:&quot;p-0&quot;,&quot;imageLinkUrl&quot;:&quot;/home&quot;,&quot;textLinkTarget&quot;:&quot;_self&quot;,&quot;paddingMarginDeskPadding&quot;:&quot;p-md-0&quot;,&quot;paddingMarginDeskMargin&quot;:&quot;m-md-0&quot;,&quot;mobileMargin&quot;:&quot;m-0&quot;,&quot;imageOrText&quot;:&quot;image&quot;,&quot;logo&quot;:{&quot;src&quot;:&quot;/content/dam/brands/tw/coca-cola/image/coke-logo.png&quot;,&quot;mobileSrc&quot;:&quot;/content/dam/brands/tw/coca-cola/image/coke-logo.png&quot;},&quot;bgcolorimageDesktopImage&quot;:{},&quot;bgcolorimageMobileImage&quot;:{},&quot;mobileLinkItems&quot;:[{&quot;mobileLinkTarget&quot;:&quot;_blank&quot;,&quot;mobileLinkUrl&quot;:&quot;https://www.coca-colacompany.com/&quot;,&quot;mobileLinkName&quot;:&quot;Our Company&quot;,&quot;data&quot;:{}},{&quot;mobileLinkTarget&quot;:&quot;_blank&quot;,&quot;mobileLinkUrl&quot;:&quot;https://www.coca-colacompany.com/sustainable-business&quot;,&quot;mobileLinkName&quot;:&quot;Sustainability&quot;,&quot;data&quot;:{}},{&quot;mobileLinkTarget&quot;:&quot;_blank&quot;,&quot;mobileLinkUrl&quot;:&quot;https://www.coca-colacompany.com/brands&quot;,&quot;mobileLinkName&quot;:&quot;Brands&quot;,&quot;data&quot;:{}},{&quot;mobileLinkTarget&quot;:&quot;_blank&quot;,&quot;mobileLinkUrl&quot;:&quot;https://www.coca-colacompany.com/company/history&quot;,&quot;mobileLinkName&quot;:&quot;History&quot;,&quot;data&quot;:{}},{&quot;mobileLinkTarget&quot;:&quot;_blank&quot;,&quot;mobileLinkUrl&quot;:&quot;https://investors.coca-colacompany.com/&quot;,&quot;mobileLinkName&quot;:&quot;Investors&quot;,&quot;data&quot;:{}},{&quot;mobileLinkTarget&quot;:&quot;_blank&quot;,&quot;mobileLinkUrl&quot;:&quot;https://www.coca-colacompany.com/media-center&quot;,&quot;mobileLinkName&quot;:&quot;Media Center&quot;,&quot;data&quot;:{}},{&quot;mobileLinkTarget&quot;:&quot;_blank&quot;,&quot;mobileLinkUrl&quot;:&quot;https://www.coca-colacompany.com/careers&quot;,&quot;mobileLinkName&quot;:&quot;Careers&quot;,&quot;data&quot;:{}},{&quot;mobileLinkTarget&quot;:&quot;_blank&quot;,&quot;mobileLinkUrl&quot;:&quot;https://www.coca-colacompany.com/contact-us&quot;,&quot;mobileLinkName&quot;:&quot;Contact Us&quot;,&quot;data&quot;:{}}],&quot;navigationModel&quot;:{&quot;depth&quot;:0,&quot;navModelList&quot;:[{&quot;navigationPath&quot;:&quot;/home&quot;,&quot;pagetitle&quot;:&quot;Home&quot;,&quot;navigationTitle&quot;:&quot;&quot;,&quot;depth&quot;:6,&quot;navModelList&quot;:[]},{&quot;navigationPath&quot;:&quot;/reference-page&quot;,&quot;pagetitle&quot;:&quot;Coca-Cola Global Home | Site Locator&quot;,&quot;navigationTitle&quot;:&quot;&quot;,&quot;depth&quot;:6,&quot;navModelList&quot;:[]},{&quot;navigationPath&quot;:&quot;/error&quot;,&quot;pagetitle&quot;:&quot;Error&quot;,&quot;navigationTitle&quot;:&quot;&quot;,&quot;depth&quot;:6,&quot;navModelList&quot;:[]},{&quot;navigationPath&quot;:&quot;/robots&quot;,&quot;pagetitle&quot;:&quot;robots&quot;,&quot;navigationTitle&quot;:&quot;&quot;,&quot;depth&quot;:6,&quot;navModelList&quot;:[]}]}}" data-template-url="https://shared.coke.com/content/dam/brands/components/content/navigation/header_flexible_slideout/template.hbs" data-style-url="https://shared.coke.com/content/dam/brands/components/content/navigation/header_flexible_slideout/style.css" id="navigation-EN" data-component-id="navigation-EN" data-design-package="/content/dam/brands/components/content/navigation/header_flexible_slideout" data-allow-nesting="false" data-instance-id="b78fc39e-c572-25f0-afea-16c367f47fbd"><!-- Navigation Bar Flexible V2 -->
+<section id="navigation-b78fc39e-c572-25f0-afea-16c367f47fbd" class="navigation-bar-slideout">
+
+	<div class="navigation-bar-slideout__top">
+
+
+		<h1 role="banner" class="navigation-bar-slideout__brand">
+				<a href="/home">
+					<img class="navigation-bar-slideout__brand-image d-none d-lg-block" src="/content/dam/brands/tw/coca-cola/image/coke-logo.png" style="height: 200px;">
+					<img class="navigation-bar-slideout__brand-image d-lg-none" src="/content/dam/brands/tw/coca-cola/image/coke-logo.png" style="height: 200px;">
+				</a>
+		</h1>
+
+		<ul class="navigation-bar-slideout__top_list_left">
+			<li class="navigation-bar-slideout__top_item navigation-bar-slideout__home-icons">
+				<a href="/home" class="navigation-bar-slideout__menu-home-icon" aria-hidden="true">
+					<svg class="navigation-bar-slideout__menu-home-icon-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28" height="28" viewBox="0 0 22 22">
+						<path d="M13.66,15H9.58V10.37H7.06V15H2.83V5.74H0L8.25,0l8.25,5.74H13.66V15Zm-3.2-.89h2.31V4.85h0.89L8.25,1.08,2.83,4.85H3.72v9.26H6.17V9.48h4.3v4.63Z"></path>
+					</svg>
+					<svg class="navigation-bar-slideout__menu-back-icon-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="22" viewBox="0 0 1024 1024">
+						<path class="path1" d="M711.219 891.802c13.722 13.926 13.722 36.301 0 50.125s-35.891 13.875-49.613 0l-400.896-404.89c-13.722-13.824-13.722-36.198 0-50.125l400.896-404.89c13.722-13.824 35.891-13.824 49.613 0 13.722 13.875 13.722 36.301 0 50.125l-365.619 379.853 365.619 379.802z"></path>
+					</svg>
+				</a>
+			</li>
+			<li class="navigation-bar-slideout__top_item">
+				<a class="navigation-bar-slideout__menu-toggle">
+					<span class="navigation-bar-slideout__menu-toggle-title">MENU</span>
+				</a>
+			</li>
+		</ul>
+
+
+	</div>
+
+	<nav class="navigation-bar-slideout__menu">
+		<ul class="navigation-bar-slideout__list">
+			<li class="navigation-bar-slideout__menu-item-close">
+				<a aria-label="Close main navigation" class="navigation-bar-slideout__menu-toggle-close"></a>
+			</li>
+		</ul>
+
+
+
+			<ul class="navigation-bar-slideout__list navigation-bar-slideout__external-links">
+				<li class="navigation-bar-slideout__list-item" itemprop="name">
+					<a target="_blank" rel="noopener noreferrer" class="navigation-bar-slideout__list-item-link js-navigation-bar-slideout__list-item-link navigation-bar-slideout__list-item-link--next" href="https://www.coca-colacompany.com/">Our Company</a>
+				</li>
+				<li class="navigation-bar-slideout__list-item" itemprop="name">
+					<a target="_blank" rel="noopener noreferrer" class="navigation-bar-slideout__list-item-link js-navigation-bar-slideout__list-item-link navigation-bar-slideout__list-item-link--next" href="https://www.coca-colacompany.com/sustainable-business">Sustainability</a>
+				</li>
+				<li class="navigation-bar-slideout__list-item" itemprop="name">
+					<a target="_blank" rel="noopener noreferrer" class="navigation-bar-slideout__list-item-link js-navigation-bar-slideout__list-item-link navigation-bar-slideout__list-item-link--next" href="https://www.coca-colacompany.com/brands">Brands</a>
+				</li>
+				<li class="navigation-bar-slideout__list-item" itemprop="name">
+					<a target="_blank" rel="noopener noreferrer" class="navigation-bar-slideout__list-item-link js-navigation-bar-slideout__list-item-link navigation-bar-slideout__list-item-link--next" href="https://www.coca-colacompany.com/company/history">History</a>
+				</li>
+				<li class="navigation-bar-slideout__list-item" itemprop="name">
+					<a target="_blank" rel="noopener noreferrer" class="navigation-bar-slideout__list-item-link js-navigation-bar-slideout__list-item-link navigation-bar-slideout__list-item-link--next" href="https://investors.coca-colacompany.com/">Investors</a>
+				</li>
+				<li class="navigation-bar-slideout__list-item" itemprop="name">
+					<a target="_blank" rel="noopener noreferrer" class="navigation-bar-slideout__list-item-link js-navigation-bar-slideout__list-item-link navigation-bar-slideout__list-item-link--next" href="https://www.coca-colacompany.com/media-center">Media Center</a>
+				</li>
+				<li class="navigation-bar-slideout__list-item" itemprop="name">
+					<a target="_blank" rel="noopener noreferrer" class="navigation-bar-slideout__list-item-link js-navigation-bar-slideout__list-item-link navigation-bar-slideout__list-item-link--next" href="https://www.coca-colacompany.com/careers">Careers</a>
+				</li>
+				<li class="navigation-bar-slideout__list-item" itemprop="name">
+					<a target="_blank" rel="noopener noreferrer" class="navigation-bar-slideout__list-item-link js-navigation-bar-slideout__list-item-link navigation-bar-slideout__list-item-link--next" href="https://www.coca-colacompany.com/contact-us">Contact Us</a>
+				</li>
+			</ul>
+	</nav>
+
+	<div class="navigation-bar-slideout__content-overlay"></div>
+
+</section>
+</div>
+</div>
+<div class="imageVideoCarousel aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+
+
+
+<div class="tccc-cmp tccc-cmp-imageVideoCarousel  " data-template-url="https://shared.coke.com/content/dam/nextgen/components/content/imageVideoCarousel/default/template.hbs" data-style-url="https://shared.coke.com/content/dam/nextgen/components/content/imageVideoCarousel/default/style.css" data-logic-url="https://shared.coke.com/content/dam/nextgen/components/content/imageVideoCarousel/default/logic.js" data-model="{&quot;carouselId&quot;:&quot;carousel1&quot;,&quot;pagDotsMobile&quot;:&quot;false&quot;,&quot;prevNextMobile&quot;:&quot;false&quot;,&quot;autoScroll&quot;:&quot;false&quot;,&quot;prevNextDeskTablet&quot;:&quot;false&quot;,&quot;assetSizing&quot;:&quot;fixed&quot;,&quot;pagDotsDeskTablet&quot;:&quot;false&quot;,&quot;carouselItems&quot;:[{&quot;imageSrc&quot;:&quot;/content/dam/brands/global/coca-cola/images/coca-cola-siente-el-sabor-amigos-1800x700.jpg&quot;,&quot;useSecondaryStyle&quot;:&quot;false&quot;,&quot;mobileSrc&quot;:&quot;/content/dam/brands/global/coca-cola/images/coca-cola-siente-el-sabor-amigos-480x600.jpg&quot;,&quot;isDecorative&quot;:&quot;false&quot;,&quot;mediaType&quot;:&quot;image&quot;,&quot;data&quot;:{&quot;isDecorativeVideo&quot;:&quot;false&quot;,&quot;showAltTextVideo&quot;:&quot;false&quot;}}]}" data-component-name="imageVideoCarousel" data-design-package="default" data-allow-nesting="false" data-instance-id="dbf6dd7b-d13d-3915-3d35-d11c5951c3bd"><div id="carousel1" data-autoscroll="false" data-duration="NaN" data-assetsizing="fixed" class="carousel slide custom-min-height
+    
+     fixed 
+  " data-ride="false" data-interval="false">
+
+
+	<div class="carousel-inner">
+		<div class="image-video-carousel carousel-item 
+              
+               active ">
+
+
+				<img class="w-100 d-none d-md-block lazyloaded" data-src="/content/dam/brands/global/coca-cola/images/coca-cola-siente-el-sabor-amigos-1800x700.jpg" alt="" data-object-id="" src="/content/dam/brands/global/coca-cola/images/coca-cola-siente-el-sabor-amigos-1800x700.jpg">
+				
+				<img class="w-100 d-md-none lazyload" data-src="/content/dam/brands/global/coca-cola/images/coca-cola-siente-el-sabor-amigos-480x600.jpg" alt="" data-object-id="">
+				
+
+
+			<div class="carousel-caption   active">
+				<div class="carousel__headline--default">
+				</div>
+				<!-- this will be hidden on default and shown when moving the headline out of caption block -->
+				<div class="carousel__headline--movable">
+
+					<div class="carousel_buttonsWrapper">
+
+
+					</div> 
+				</div>
+
+					<div class="carousel_title_subheadline">
+
+					</div>
+
+				<div class="carousel_buttonsWrapper default">
+
+
+				</div> 
+			</div>
+
+			<div class="hide carousel_scrollWrapper">
+				<div class="carousel_scrollIndicator">
+
+					<svg width="12px" height="64px" viewBox="0 0 12 64">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+							<g class="carousel_scrollIndicator--stroke-color" transform="translate(-513.000000, -148.000000)" stroke="#ffffff">
+								<g transform="translate(513.000000, 148.000000)">
+									<g transform="translate(4.000000, 0.000000)">
+										<path class="animate-line" d="M1.5,0.5 L1.5,57.5087713"></path>
+									</g>
+									<polyline class="animate-arrow" points="0 60 5.90429688 63.3994141 11.8398438 60"></polyline>
+								</g>
+							</g>
+						</g>
+					</svg>
+
+				</div>
+				<div class="carousel_scrollLabel"></div>
+				<div class="carousel_scrollDown"></div>
+			</div>
+
+		</div>
+
+
+		
+
+	</div>
+
+
+	<!-- Prev Next arrows -->
+	<a class="carousel-control-prev
+         d-none 
+         d-md-none 
+    " href="#carousel1" role="button" data-slide="prev">
+		<div class="carousel_prev-animation">
+			<svg width="40px" height="40px" viewBox="0 0 40 40">
+				<circle id="circle-p1" cx="20" cy="20" r="17" stroke="2"></circle>
+				<circle id="circle-p2" cx="20" cy="20" r="17" stroke="2"></circle>
+				<g id="arrow-left" transform="translate(14.000000, 11.000000)">
+					<path d="M6.65652689,1.8698883 L11.1996727,6.24871297 C11.3972007,6.43909665 11.7527513,6.43909665 11.989785,6.24871297 C12.1873131,6.05832929 12.1873131,5.71563866 11.989785,5.48717824 L6.49850443,0.194511899 C6.30097635,0.00412821758 5.94542581,0.00412821758 5.70839212,0.194511899 L0.217111575,5.48717824 C0.0195834979,5.67756192 0.0195834979,6.02025255 0.217111575,6.24871297 C0.414639652,6.43909665 0.770190191,6.43909665 1.00722388,6.24871297 L5.55036966,1.8698883 L5.55036966,16.4152016 C5.55036966,16.7198154 5.78740335,16.9482759 6.10344828,16.9482759 C6.4194932,16.9482759 6.65652689,16.7198154 6.65652689,16.4152016 L6.65652689,1.8698883 Z"></path>
+				</g>
+			</svg>
+		</div>
+		<span class="carousel-control-icon carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next
+         d-none 
+         d-md-none 
+    " href="#carousel1" role="button" data-slide="next">
+		<div class="carousel_next-animation">
+			<svg width="40px" height="40px" viewBox="0 0 40 40">
+				<circle id="circle1" cx="20" cy="20" r="17" stroke="2"></circle>
+				<circle id="circle2" cx="20" cy="20" r="17" stroke="2"></circle>
+				<g id="arrow-right" transform="translate(14.000000, 11.000000)">
+					<path d="M6.65652689,1.8698883 L11.1996727,6.24871297 C11.3972007,6.43909665 11.7527513,6.43909665 11.989785,6.24871297 C12.1873131,6.05832929 12.1873131,5.71563866 11.989785,5.48717824 L6.49850443,0.194511899 C6.30097635,0.00412821758 5.94542581,0.00412821758 5.70839212,0.194511899 L0.217111575,5.48717824 C0.0195834979,5.67756192 0.0195834979,6.02025255 0.217111575,6.24871297 C0.414639652,6.43909665 0.770190191,6.43909665 1.00722388,6.24871297 L5.55036966,1.8698883 L5.55036966,16.4152016 C5.55036966,16.7198154 5.78740335,16.9482759 6.10344828,16.9482759 C6.4194932,16.9482759 6.65652689,16.7198154 6.65652689,16.4152016 L6.65652689,1.8698883 Z"></path>
+				</g>
+			</svg>
+		</div>
+
+		<span class="carousel-control-icon carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+
+
+</div> <!-- end div id="carousel1" -->
+
+<!-- For styling pagination dot color -->
+<style type="text/css">
+</style>
+</div>
+</div>
+<div class="reference parbase aem-GridColumn aem-GridColumn--default--12"><div class="cq-dd-paragraph"><div class="contentwrapper_32807_455052582 contentwrapper country-selector-container">
+    
+
+
+
+
+<div data-component-id="country-selector-en" class="tccc-htl-contentWrapper tccc-htl " id="country-selector-en" data-component-name="contentWrapper">
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  <div style="background-color: #fff; " class="m-0
+      m-md-0
+      p-0
+      p-md-0
+      
+      
+      
+      
+      
+      
+      
+      
+  ">
+    
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="tabbedNavigation click-to-hide arrow-collapse-icon aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+<div class="tccc-cmp tccc-cmp-tabbedNavigation " data-component-name="tabbedNavigation" data-logic-url="https://shared.coke.com/content/dam/nextgen/components/content/tabbedNavigation/default/logic.js" data-model="{&quot;navigationComponents&quot;:[{&quot;data&quot;:{&quot;linkImage&quot;:&quot;/content/dam/brands/global/coca-cola/en/images/country-picker-red.png&quot;,&quot;header&quot;:&quot;Global&quot;,&quot;componentId&quot;:&quot;countries-list&quot;}}]}" data-template-url="https://shared.coke.com/content/dam/nextgen/components/content/tabbedNavigation/default/template.hbs" data-style-url="https://shared.coke.com/content/dam/nextgen/components/content/tabbedNavigation/default/style.css" data-design-package="default" data-allow-nesting="false" data-instance-id="20b5190d-fcd8-44a9-a376-d5f424a169f5"><div class="tabbed-navigation-container">
+  <button class="scrollers left" style="display: none;"></button>
+  <ul tabindex="0">
+      <li class="item active" id="tabbedNavigation--item-0" role="tab" data-object-id="" data-index="0" data-component="countries-list" tabindex="-1" aria-expanded="false">
+        <div data-index="0">
+          
+            <img data-index="0" data-src="/content/dam/brands/global/coca-cola/en/images/country-picker-red.png" alt="" class=" lazyloaded" src="/content/dam/brands/global/coca-cola/en/images/country-picker-red.png">
+
+            <p data-index="0">
+              Global
+            </p>
+          
+        <svg data-index="0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="46.002px" id="country-selector-arrow" style="enable-background:new 0 0 86 46.002;" version="1.1" viewBox="0 0 86 46.002" width="86px" xml:space="preserve" class="arrow-svg" data-src-path="/content/dam/brands/platform/images/icons/ico-arrow-bottom.svg"><path data-index="0" d="M5.907,1.004c-1.352-1.338-3.542-1.338-4.894,0c-1.35,1.336-1.352,3.506,0,4.844l39.54,39.15  c1.352,1.338,3.542,1.338,4.894,0l39.54-39.15c1.351-1.338,1.352-3.506,0-4.844s-3.542-1.338-4.894-0.002L43,36.707L5.907,1.004z"></path><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></div>
+      </li>
+  </ul>
+  <button class="scrollers right" style="display: none;"></button>
+</div></div></div>
+<div class="contentwrapper aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+
+
+<div data-component-id="countries-list" class="tccc-htl-contentWrapper tccc-htl " id="countries-list" data-component-name="contentWrapper">
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  <div data-xs-bg-src="/content/dam/brands/platform/images/country-navigator-map-gray.png" data-md-bg-src="/content/dam/brands/platform/images/country-navigator-map-gray.png" class="m-0
+      m-md-0
+      p-0
+      p-md-0
+      
+      
+      
+      
+      
+      
+      
+      
+  ">
+    
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="divider aem-GridColumn aem-GridColumn--default--12">
+
+
+    
+
+<div class="tccc-cmp tccc-cmp-divider  " data-component-name="divider" data-model="{&quot;heightPaddingMarginMobileMarginPix&quot;:&quot;0&quot;,&quot;heightPaddingMarginDeskHeightPix&quot;:&quot;0&quot;,&quot;heightPaddingMarginDeskPaddingPix&quot;:&quot;0&quot;,&quot;heightPaddingMarginDeskMarginPix&quot;:&quot;0&quot;,&quot;heightPaddingMarginMobilePaddingPix&quot;:&quot;0&quot;,&quot;heightPaddingMarginDeskPadding&quot;:&quot;p-md-0&quot;,&quot;target&quot;:&quot;_self&quot;,&quot;heightPaddingMarginLeftRightMarginDisable&quot;:&quot;false&quot;,&quot;hideDividerMobile&quot;:&quot;false&quot;,&quot;type&quot;:&quot;h1&quot;,&quot;heightPaddingMarginDeskHeight&quot;:&quot;auto&quot;,&quot;heightPaddingMarginDeskMargin&quot;:&quot;m-md-0&quot;,&quot;heightPaddingMarginMobilePadding&quot;:&quot;p-0&quot;,&quot;enableBottomArrow&quot;:&quot;false&quot;,&quot;heightPaddingMarginMobileHeight&quot;:&quot;custom&quot;,&quot;heightPaddingMarginMobileMargin&quot;:&quot;m-0&quot;,&quot;enableParallax&quot;:&quot;false&quot;,&quot;heightPaddingMarginMobileHeightPix&quot;:&quot;25&quot;,&quot;alignment&quot;:&quot;center&quot;,&quot;bgcolorimageDesktopImage&quot;:{},&quot;bgcolorimageMobileImage&quot;:{}}" data-template-url="https://shared.coke.com/content/dam/nextgen/components/content/divider/default/template.hbs" data-style-url="https://shared.coke.com/content/dam/nextgen/components/content/divider/default/style.css" data-design-package="default" data-server-hbs-enabled="false" data-allow-nesting="false" data-instance-id="ee176247-d7cb-5d43-8d49-4e52a2911c6d">
+<div class="text-center">
+    <!-- tablet/desktop -->
+    <div class="d-none d-md-block 
+                 
+                m-md-0" style="
+                
+                
+                
+">    
+    
+       <div class="overlay" style="background-color: ;">
+
+             <p class="p-md-0" style="
+                    
+                    
+                    "> 
+                    
+                    
+
+            </p>
+
+            
+
+       </div>
+
+    
+    </div>
+
+    <!-- mobile  -->
+         
+    
+    <div class="d-block d-md-none                 
+                 
+                m-0" style="
+                
+                
+                
+"> 
+    
+
+       <div class="overlay" style="background-color: ;">
+
+           <p class="p-0" style="
+                    height:25px; 
+                    
+                    "> 
+                    
+                    
+
+            </p>
+                    
+            
+
+       </div>
+
+    
+    </div>
+</div>
+</div></div>
+<div class="contentwrapper aem-GridColumn--default--none aem-GridColumn aem-GridColumn--default--10 aem-GridColumn--offset--default--1">
+    
+
+
+
+<div class="tccc-htl-contentWrapper tccc-htl shadow-lg" data-component-name="contentWrapper">
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  <div style="background-color: ; " class="m-0
+      m-md-0
+      p-0
+      p-md-4
+      
+      
+      
+      
+      
+      
+      
+      
+  ">
+    
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 aem-Grid--phone--12 ">
+    
+    <div class="list aem-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--12 aem-GridColumn aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0 aem-GridColumn--default--2">
+    
+
+
+<div class="tccc-cmp tccc-cmp-list text-color-dark link-color-dark link-hover-color-dark line-height-14" data-logic-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/logic.js" data-model="{&quot;showModificationDate&quot;:&quot;false&quot;,&quot;linkItems&quot;:&quot;false&quot;,&quot;paddingMarginLeftRightMarginDisable&quot;:&quot;false&quot;,&quot;paddingMarginMobilePadding&quot;:&quot;p-0&quot;,&quot;showDescription&quot;:&quot;false&quot;,&quot;paddingMarginDeskPadding&quot;:&quot;p-md-0&quot;,&quot;bulletStyling&quot;:&quot;none&quot;,&quot;paddingMarginDeskMargin&quot;:&quot;m-md-0&quot;,&quot;mobileMargin&quot;:&quot;m-0&quot;,&quot;listLinkTitle&quot;:&quot;NORTH AMERICA&quot;,&quot;linkListItems&quot;:[{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://us.coca-cola.com/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;United States&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://coca-cola.ca/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Canada | English&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://fr.coca-cola.ca/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Canada | Français&quot;}}],&quot;listFrom&quot;:&quot;linkList&quot;,&quot;featuredItems&quot;:{}}" data-template-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/template.hbs" data-style-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/style.css" data-component-name="list" data-design-package="default" data-allow-nesting="false" data-instance-id="2caf8001-0146-5c42-9017-e16eda8cd1d6"><div class="responsive-background-image custom-margin-padding
+   m-0 
+   p-0 
+   m-md-0 
+   p-md-0 " style="">
+
+<div class="row">
+	<div class="c-list col-sm-12">
+			<h5 class="c-list__title">NORTH AMERICA</h5>
+
+
+		<div class="c-list-container">
+					<ul class="c-list__list c-list__list--nobullets" style="list-style-type: none;">
+
+
+
+
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://us.coca-cola.com/" target="_self">
+
+
+							<span class="c-list__text">United States</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://coca-cola.ca/" target="_self">
+
+
+							<span class="c-list__text">Canada | English</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://fr.coca-cola.ca/" target="_self">
+
+
+							<span class="c-list__text">Canada | Français</span>
+
+									</a>
+
+							
+							
+						</li>
+
+
+
+					</ul>
+		</div>
+			<div class="showmore__button--container">
+				<button class="btn btn-primary showmore__button showmore__button--singular">1 More Result <i class="icn-show-more"></i></button>
+				<button class="btn btn-primary showmore__button showmore__button--plural"> More Results <i class="icn-show-more"></i></button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<div class="list aem-GridColumn--default--none aem-GridColumn--phone--12 aem-GridColumn--phone--newline aem-GridColumn aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0 aem-GridColumn--default--2">
+    
+
+
+<div class="tccc-cmp tccc-cmp-list text-color-dark link-color-dark link-hover-color-dark line-height-14" data-logic-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/logic.js" data-model="{&quot;showModificationDate&quot;:&quot;false&quot;,&quot;linkItems&quot;:&quot;false&quot;,&quot;paddingMarginLeftRightMarginDisable&quot;:&quot;false&quot;,&quot;paddingMarginMobilePadding&quot;:&quot;p-0&quot;,&quot;showDescription&quot;:&quot;false&quot;,&quot;paddingMarginDeskPadding&quot;:&quot;p-md-0&quot;,&quot;bulletStyling&quot;:&quot;none&quot;,&quot;paddingMarginDeskMargin&quot;:&quot;m-md-0&quot;,&quot;mobileMargin&quot;:&quot;m-0&quot;,&quot;listLinkTitle&quot;:&quot;LATIN AMERICA&quot;,&quot;linkListItems&quot;:[{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.cocacoladeargentina.com.ar/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Argentina&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://journey.coca-cola.com/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Belize&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-coladebolivia.com.bo/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Bolivia&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.cocacolabrasil.com.br/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Brasil | Brazil&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://journey.coca-cola.com/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Caribbean&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.cocacoladechile.cl/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Chile&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://journey.coca-cola.com/inicio-co&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Colombia&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://journey.coca-cola.com/inicio-cr&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Costa Rica&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://journey.coca-cola.com/inicio-rd&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Dominican Republic | República Dominicana&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://journey.coca-cola.com/inicio-ec&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Ecuador&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://journey.coca-cola.com/inicio-sv&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;El Salvador&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://journey.coca-cola.com/inicio-gt&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Guatemala&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://journey.coca-cola.com/inicio-hn&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Honduras&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://journey.coca-cola.com/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Jamaica&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-colamexico.com.mx/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;México&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://journey.coca-cola.com/inicio-ng&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Nicaragua&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://journey.coca-cola.com/inicio-pn&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Panamá&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-coladeparaguay.com.py/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Paraguay&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://journey.coca-cola.com/inicio-pr&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Perú&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://journey.coca-cola.com/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Trinidad and Tobago&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-coladeuruguay.com.uy/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Uruguay&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://journey.coca-cola.com/inicio-vz&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Venezuela&quot;}}],&quot;listFrom&quot;:&quot;linkList&quot;,&quot;featuredItems&quot;:{}}" data-template-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/template.hbs" data-style-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/style.css" data-component-name="list" data-design-package="default" data-allow-nesting="false" data-instance-id="89744c77-41be-3c4d-5b57-c63223a5bbb3"><div class="responsive-background-image custom-margin-padding
+   m-0 
+   p-0 
+   m-md-0 
+   p-md-0 " style="">
+
+<div class="row">
+	<div class="c-list col-sm-12">
+			<h5 class="c-list__title">LATIN AMERICA</h5>
+
+
+		<div class="c-list-container">
+					<ul class="c-list__list c-list__list--nobullets" style="list-style-type: none;">
+
+
+
+
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.cocacoladeargentina.com.ar/" target="_self">
+
+
+							<span class="c-list__text">Argentina</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://journey.coca-cola.com/" target="_self">
+
+
+							<span class="c-list__text">Belize</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-coladebolivia.com.bo/" target="_self">
+
+
+							<span class="c-list__text">Bolivia</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.cocacolabrasil.com.br/" target="_self">
+
+
+							<span class="c-list__text">Brasil | Brazil</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://journey.coca-cola.com/" target="_self">
+
+
+							<span class="c-list__text">Caribbean</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.cocacoladechile.cl/" target="_self">
+
+
+							<span class="c-list__text">Chile</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://journey.coca-cola.com/inicio-co" target="_self">
+
+
+							<span class="c-list__text">Colombia</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://journey.coca-cola.com/inicio-cr" target="_self">
+
+
+							<span class="c-list__text">Costa Rica</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://journey.coca-cola.com/inicio-rd" target="_self">
+
+
+							<span class="c-list__text">Dominican Republic | República Dominicana</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://journey.coca-cola.com/inicio-ec" target="_self">
+
+
+							<span class="c-list__text">Ecuador</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://journey.coca-cola.com/inicio-sv" target="_self">
+
+
+							<span class="c-list__text">El Salvador</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://journey.coca-cola.com/inicio-gt" target="_self">
+
+
+							<span class="c-list__text">Guatemala</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://journey.coca-cola.com/inicio-hn" target="_self">
+
+
+							<span class="c-list__text">Honduras</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://journey.coca-cola.com/" target="_self">
+
+
+							<span class="c-list__text">Jamaica</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-colamexico.com.mx/" target="_self">
+
+
+							<span class="c-list__text">México</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://journey.coca-cola.com/inicio-ng" target="_self">
+
+
+							<span class="c-list__text">Nicaragua</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://journey.coca-cola.com/inicio-pn" target="_self">
+
+
+							<span class="c-list__text">Panamá</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-coladeparaguay.com.py/" target="_self">
+
+
+							<span class="c-list__text">Paraguay</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://journey.coca-cola.com/inicio-pr" target="_self">
+
+
+							<span class="c-list__text">Perú</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://journey.coca-cola.com/" target="_self">
+
+
+							<span class="c-list__text">Trinidad and Tobago</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-coladeuruguay.com.uy/" target="_self">
+
+
+							<span class="c-list__text">Uruguay</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://journey.coca-cola.com/inicio-vz" target="_self">
+
+
+							<span class="c-list__text">Venezuela</span>
+
+									</a>
+
+							
+							
+						</li>
+
+
+
+					</ul>
+		</div>
+			<div class="showmore__button--container">
+				<button class="btn btn-primary showmore__button showmore__button--singular">1 More Result <i class="icn-show-more"></i></button>
+				<button class="btn btn-primary showmore__button showmore__button--plural"> More Results <i class="icn-show-more"></i></button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<div class="list aem-GridColumn--default--none aem-GridColumn--phone--12 aem-GridColumn--phone--newline aem-GridColumn aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0 aem-GridColumn--default--2">
+    
+
+
+<div class="tccc-cmp tccc-cmp-list text-color-dark link-color-dark link-hover-color-dark" data-logic-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/logic.js" data-model="{&quot;showModificationDate&quot;:&quot;false&quot;,&quot;linkItems&quot;:&quot;false&quot;,&quot;paddingMarginLeftRightMarginDisable&quot;:&quot;false&quot;,&quot;paddingMarginMobilePadding&quot;:&quot;p-0&quot;,&quot;showDescription&quot;:&quot;false&quot;,&quot;paddingMarginDeskPadding&quot;:&quot;p-md-0&quot;,&quot;bulletStyling&quot;:&quot;none&quot;,&quot;paddingMarginDeskMargin&quot;:&quot;m-md-0&quot;,&quot;mobileMargin&quot;:&quot;m-0&quot;,&quot;listLinkTitle&quot;:&quot;EUROPE&quot;,&quot;linkListItems&quot;:[{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coke.at/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Austria | Österreich&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.cocacola.be/fr/home/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Belgium | Belgique&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.cocacola.be/nl/home/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Belgium | België&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.ba/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Bosnia | Bosna i Hercegovina&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.bg/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Bulgaria | България&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.hr/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Croatia | Hrvatska&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.cz/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Czech Republic | Česká Republika&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coke.dk/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Denmark | Danmark&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.ee/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Estonia | Eesti&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coke.fi/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Finland | Suomi&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.fr/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;France&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.de/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Germany | Deutschland&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coke.co.uk/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Great Britain&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.gr&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Greece | Ελλάδα&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coke.hu/hu/home/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Hungary | Magyarország&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coke.is/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Iceland | Ísland&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coke.ie/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Ireland&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.it/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Italy | Italia&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.lv/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Latvia | Latvija&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.lt/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Lithuania | Lietuva&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://fr.cocacolabelgium.be/notre-entreprise&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Luxembourg&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.cocacola.nl/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Netherlands | Nederland&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coke.no/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Norway | Norge&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.pl/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Poland | Polska&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.cocacola.pt/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Portugal&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.ro/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Romania | România&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.rs/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Serbia | Srbija&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.sk/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Slovakia | Slovensko&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.si/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Slovenia | Slovenija&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.cocacolaespana.es/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Spain | España&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coke.se/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Sweden | Sverige&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coke.ch/de/home/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Switzerland | Schweiz&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coke.ch/fr/home/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Switzerland | Suisse&quot;}}],&quot;listFrom&quot;:&quot;linkList&quot;,&quot;featuredItems&quot;:{}}" data-template-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/template.hbs" data-style-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/style.css" data-component-name="list" data-design-package="default" data-allow-nesting="false" data-instance-id="fab67984-8e30-4d60-c379-4077bf7ca2e5"><div class="responsive-background-image custom-margin-padding
+   m-0 
+   p-0 
+   m-md-0 
+   p-md-0 " style="">
+
+<div class="row">
+	<div class="c-list col-sm-12">
+			<h5 class="c-list__title">EUROPE</h5>
+
+
+		<div class="c-list-container">
+					<ul class="c-list__list c-list__list--nobullets" style="list-style-type: none;">
+
+
+
+
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coke.at/" target="_self">
+
+
+							<span class="c-list__text">Austria | Österreich</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.cocacola.be/fr/home/" target="_self">
+
+
+							<span class="c-list__text">Belgium | Belgique</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.cocacola.be/nl/home/" target="_self">
+
+
+							<span class="c-list__text">Belgium | België</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.ba/" target="_self">
+
+
+							<span class="c-list__text">Bosnia | Bosna i Hercegovina</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.bg/" target="_self">
+
+
+							<span class="c-list__text">Bulgaria | България</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.hr/" target="_self">
+
+
+							<span class="c-list__text">Croatia | Hrvatska</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.cz/" target="_self">
+
+
+							<span class="c-list__text">Czech Republic | Česká Republika</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coke.dk/" target="_self">
+
+
+							<span class="c-list__text">Denmark | Danmark</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.ee/" target="_self">
+
+
+							<span class="c-list__text">Estonia | Eesti</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coke.fi/" target="_self">
+
+
+							<span class="c-list__text">Finland | Suomi</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.fr/" target="_self">
+
+
+							<span class="c-list__text">France</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.de/" target="_self">
+
+
+							<span class="c-list__text">Germany | Deutschland</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coke.co.uk/" target="_self">
+
+
+							<span class="c-list__text">Great Britain</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.gr" target="_self">
+
+
+							<span class="c-list__text">Greece | Ελλάδα</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coke.hu/hu/home/" target="_self">
+
+
+							<span class="c-list__text">Hungary | Magyarország</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coke.is/" target="_self">
+
+
+							<span class="c-list__text">Iceland | Ísland</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coke.ie/" target="_self">
+
+
+							<span class="c-list__text">Ireland</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.it/" target="_self">
+
+
+							<span class="c-list__text">Italy | Italia</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.lv/" target="_self">
+
+
+							<span class="c-list__text">Latvia | Latvija</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.lt/" target="_self">
+
+
+							<span class="c-list__text">Lithuania | Lietuva</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://fr.cocacolabelgium.be/notre-entreprise" target="_self">
+
+
+							<span class="c-list__text">Luxembourg</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.cocacola.nl/" target="_self">
+
+
+							<span class="c-list__text">Netherlands | Nederland</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coke.no/" target="_self">
+
+
+							<span class="c-list__text">Norway | Norge</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.pl/" target="_self">
+
+
+							<span class="c-list__text">Poland | Polska</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.cocacola.pt/" target="_self">
+
+
+							<span class="c-list__text">Portugal</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.ro/" target="_self">
+
+
+							<span class="c-list__text">Romania | România</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.rs/" target="_self">
+
+
+							<span class="c-list__text">Serbia | Srbija</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.sk/" target="_self">
+
+
+							<span class="c-list__text">Slovakia | Slovensko</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.si/" target="_self">
+
+
+							<span class="c-list__text">Slovenia | Slovenija</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.cocacolaespana.es/" target="_self">
+
+
+							<span class="c-list__text">Spain | España</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coke.se/" target="_self">
+
+
+							<span class="c-list__text">Sweden | Sverige</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coke.ch/de/home/" target="_self">
+
+
+							<span class="c-list__text">Switzerland | Schweiz</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coke.ch/fr/home/" target="_self">
+
+
+							<span class="c-list__text">Switzerland | Suisse</span>
+
+									</a>
+
+							
+							
+						</li>
+
+
+
+					</ul>
+		</div>
+			<div class="showmore__button--container">
+				<button class="btn btn-primary showmore__button showmore__button--singular">1 More Result <i class="icn-show-more"></i></button>
+				<button class="btn btn-primary showmore__button showmore__button--plural"> More Results <i class="icn-show-more"></i></button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<div class="list aem-GridColumn--default--none aem-GridColumn--phone--12 aem-GridColumn--phone--newline aem-GridColumn aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0 aem-GridColumn--default--2">
+    
+
+
+<div class="tccc-cmp tccc-cmp-list text-color-dark link-color-dark link-hover-color-dark" data-logic-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/logic.js" data-model="{&quot;showModificationDate&quot;:&quot;false&quot;,&quot;linkItems&quot;:&quot;false&quot;,&quot;paddingMarginLeftRightMarginDisable&quot;:&quot;false&quot;,&quot;paddingMarginMobilePadding&quot;:&quot;p-0&quot;,&quot;showDescription&quot;:&quot;false&quot;,&quot;paddingMarginDeskPadding&quot;:&quot;p-md-0&quot;,&quot;bulletStyling&quot;:&quot;none&quot;,&quot;paddingMarginDeskMargin&quot;:&quot;m-md-0&quot;,&quot;mobileMargin&quot;:&quot;m-0&quot;,&quot;listLinkTitle&quot;:&quot;EURASIA&quot;,&quot;linkListItems&quot;:[{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.am/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Armenia&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.az/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Azerbaijan | Azərbaycan&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.com.qa/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Bahrain&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://coca-cola.by/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Belarus | Беларусь&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://ge.coca-cola.com/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Georgia&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.in/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;India&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://cocacola.co.il/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Israel | ישראל&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.kz/kk/home/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Kazakhstan | Казахстан&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.kz/ru/home/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Kazakhstan | Русский&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.com.pk/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Pakistan&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.ps/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Palestinian Territories&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.com.qa/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Qatar&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.ru/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Russia | Россия&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.com.tr/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Turkey | Türkiye&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.ua/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Ukraine | Україна&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.ae/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;United Arab Emirates&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://ru.coca-cola.uz/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Uzbekistan | Russian&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://uz.coca-cola.uz/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Uzbekistan | Uzbek&quot;}}],&quot;listFrom&quot;:&quot;linkList&quot;,&quot;featuredItems&quot;:{}}" data-template-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/template.hbs" data-style-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/style.css" data-component-name="list" data-design-package="default" data-allow-nesting="false" data-instance-id="033b8bac-3b57-a9c4-16d3-99420b76bffe"><div class="responsive-background-image custom-margin-padding
+   m-0 
+   p-0 
+   m-md-0 
+   p-md-0 " style="">
+
+<div class="row">
+	<div class="c-list col-sm-12">
+			<h5 class="c-list__title">EURASIA</h5>
+
+
+		<div class="c-list-container">
+					<ul class="c-list__list c-list__list--nobullets" style="list-style-type: none;">
+
+
+
+
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.am/" target="_self">
+
+
+							<span class="c-list__text">Armenia</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.az/" target="_self">
+
+
+							<span class="c-list__text">Azerbaijan | Azərbaycan</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.com.qa/" target="_self">
+
+
+							<span class="c-list__text">Bahrain</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://coca-cola.by/" target="_self">
+
+
+							<span class="c-list__text">Belarus | Беларусь</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://ge.coca-cola.com/" target="_self">
+
+
+							<span class="c-list__text">Georgia</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.in/" target="_self">
+
+
+							<span class="c-list__text">India</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://cocacola.co.il/" target="_self">
+
+
+							<span class="c-list__text">Israel | ישראל</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.kz/kk/home/" target="_self">
+
+
+							<span class="c-list__text">Kazakhstan | Казахстан</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.kz/ru/home/" target="_self">
+
+
+							<span class="c-list__text">Kazakhstan | Русский</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.com.pk/" target="_self">
+
+
+							<span class="c-list__text">Pakistan</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.ps/" target="_self">
+
+
+							<span class="c-list__text">Palestinian Territories</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.com.qa/" target="_self">
+
+
+							<span class="c-list__text">Qatar</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.ru/" target="_self">
+
+
+							<span class="c-list__text">Russia | Россия</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.com.tr/" target="_self">
+
+
+							<span class="c-list__text">Turkey | Türkiye</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.ua/" target="_self">
+
+
+							<span class="c-list__text">Ukraine | Україна</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.ae/" target="_self">
+
+
+							<span class="c-list__text">United Arab Emirates</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://ru.coca-cola.uz/" target="_self">
+
+
+							<span class="c-list__text">Uzbekistan | Russian</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://uz.coca-cola.uz/" target="_self">
+
+
+							<span class="c-list__text">Uzbekistan | Uzbek</span>
+
+									</a>
+
+							
+							
+						</li>
+
+
+
+					</ul>
+		</div>
+			<div class="showmore__button--container">
+				<button class="btn btn-primary showmore__button showmore__button--singular">1 More Result <i class="icn-show-more"></i></button>
+				<button class="btn btn-primary showmore__button showmore__button--plural"> More Results <i class="icn-show-more"></i></button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<div class="list aem-GridColumn--default--none aem-GridColumn--phone--12 aem-GridColumn--phone--newline aem-GridColumn aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0 aem-GridColumn--default--2">
+    
+
+
+<div class="tccc-cmp tccc-cmp-list text-color-dark link-color-dark link-hover-color-dark" data-logic-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/logic.js" data-model="{&quot;showModificationDate&quot;:&quot;false&quot;,&quot;linkItems&quot;:&quot;false&quot;,&quot;paddingMarginLeftRightMarginDisable&quot;:&quot;false&quot;,&quot;paddingMarginMobilePadding&quot;:&quot;p-0&quot;,&quot;showDescription&quot;:&quot;false&quot;,&quot;paddingMarginDeskPadding&quot;:&quot;p-md-0&quot;,&quot;bulletStyling&quot;:&quot;none&quot;,&quot;paddingMarginDeskMargin&quot;:&quot;m-md-0&quot;,&quot;mobileMargin&quot;:&quot;m-0&quot;,&quot;listLinkTitle&quot;:&quot;AFRICA&quot;,&quot;linkListItems&quot;:[{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://ar.coca-cola.dz/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Algeria | العربية&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-cola.dz/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Algeria | Français&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.co.bw&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Botswana&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coke.eg/en/home&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Egypt | English&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coke.eg/ar/home&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Egypt | مصر&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-cola.et/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Ethiopia&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.com.gh&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Ghana&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-cola.ci/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Ivory Coast&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.co.ke/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Kenya&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://en.coca-cola.mu/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Mauritius&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-colamaroc.ma/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Morocco&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-cola.co.mz/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Mozambique&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-cola.com.na/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Namibia&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-cola.com.ng/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Nigeria&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-cola.co.za&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;South Africa&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.co.tz/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Tanzania&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://tunisia.coca-cola.com/ar/home&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Tunisia | تونس&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://tunisia.coca-cola.com/fr/home&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Tunisia | Francais&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.co.ug/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Uganda&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-cola.co.zw/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Zimbabwe&quot;}}],&quot;listFrom&quot;:&quot;linkList&quot;,&quot;featuredItems&quot;:{}}" data-template-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/template.hbs" data-style-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/style.css" data-component-name="list" data-design-package="default" data-allow-nesting="false" data-instance-id="53885f22-f465-2234-4a4d-c033325b89c0"><div class="responsive-background-image custom-margin-padding
+   m-0 
+   p-0 
+   m-md-0 
+   p-md-0 " style="">
+
+<div class="row">
+	<div class="c-list col-sm-12">
+			<h5 class="c-list__title">AFRICA</h5>
+
+
+		<div class="c-list-container">
+					<ul class="c-list__list c-list__list--nobullets" style="list-style-type: none;">
+
+
+
+
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://ar.coca-cola.dz/" target="_self">
+
+
+							<span class="c-list__text">Algeria | العربية</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-cola.dz/" target="_self">
+
+
+							<span class="c-list__text">Algeria | Français</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.co.bw" target="_self">
+
+
+							<span class="c-list__text">Botswana</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coke.eg/en/home" target="_self">
+
+
+							<span class="c-list__text">Egypt | English</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coke.eg/ar/home" target="_self">
+
+
+							<span class="c-list__text">Egypt | مصر</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-cola.et/" target="_self">
+
+
+							<span class="c-list__text">Ethiopia</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.com.gh" target="_self">
+
+
+							<span class="c-list__text">Ghana</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-cola.ci/" target="_self">
+
+
+							<span class="c-list__text">Ivory Coast</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.co.ke/" target="_self">
+
+
+							<span class="c-list__text">Kenya</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://en.coca-cola.mu/" target="_self">
+
+
+							<span class="c-list__text">Mauritius</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-colamaroc.ma/" target="_self">
+
+
+							<span class="c-list__text">Morocco</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-cola.co.mz/" target="_self">
+
+
+							<span class="c-list__text">Mozambique</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-cola.com.na/" target="_self">
+
+
+							<span class="c-list__text">Namibia</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-cola.com.ng/" target="_self">
+
+
+							<span class="c-list__text">Nigeria</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-cola.co.za" target="_self">
+
+
+							<span class="c-list__text">South Africa</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.co.tz/" target="_self">
+
+
+							<span class="c-list__text">Tanzania</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://tunisia.coca-cola.com/ar/home" target="_self">
+
+
+							<span class="c-list__text">Tunisia | تونس</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://tunisia.coca-cola.com/fr/home" target="_self">
+
+
+							<span class="c-list__text">Tunisia | Francais</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.co.ug/" target="_self">
+
+
+							<span class="c-list__text">Uganda</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-cola.co.zw/" target="_self">
+
+
+							<span class="c-list__text">Zimbabwe</span>
+
+									</a>
+
+							
+							
+						</li>
+
+
+
+					</ul>
+		</div>
+			<div class="showmore__button--container">
+				<button class="btn btn-primary showmore__button showmore__button--singular">1 More Result <i class="icn-show-more"></i></button>
+				<button class="btn btn-primary showmore__button showmore__button--plural"> More Results <i class="icn-show-more"></i></button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<div class="list aem-GridColumn--default--none aem-GridColumn--phone--12 aem-GridColumn--phone--newline aem-GridColumn aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0 aem-GridColumn--default--2">
+    
+
+
+<div class="tccc-cmp tccc-cmp-list text-color-dark link-color-dark link-hover-color-dark" data-logic-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/logic.js" data-model="{&quot;showModificationDate&quot;:&quot;false&quot;,&quot;linkItems&quot;:&quot;false&quot;,&quot;paddingMarginLeftRightMarginDisable&quot;:&quot;false&quot;,&quot;paddingMarginMobilePadding&quot;:&quot;p-0&quot;,&quot;showDescription&quot;:&quot;false&quot;,&quot;paddingMarginDeskPadding&quot;:&quot;p-md-0&quot;,&quot;bulletStyling&quot;:&quot;none&quot;,&quot;paddingMarginDeskMargin&quot;:&quot;m-md-0&quot;,&quot;mobileMargin&quot;:&quot;m-0&quot;,&quot;listLinkTitle&quot;:&quot;ASIA PACIFIC&quot;,&quot;linkListItems&quot;:[{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-cola.com.au/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Australia&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.com.bd/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Bangladesh&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-cola.com.cn/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;China&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-cola.hk/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;China | Hong Kong&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.cocacola.co.id/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Indonesia | Bahasa&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://en.cocacola.co.id/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Indonesia | English&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.cocacola.co.jp/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Japan | 日本&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://bm.coca-cola.com.my/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Malaysia | Bahasa&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coke.com.my/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Malaysia | English&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://mv.coca-cola.com/en/home&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Maldives&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-colajourney.co.nz/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;New Zealand&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-cola.com.ph/en/home&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Philippines&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.cocacola.co.kr/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Republic of Korea | 대한민국&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://www.coca-cola.com.sg/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Republic of Singapore&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;http://lk.coca-cola.com/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Sri Lanka&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.coca-cola.co.th/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Thailand | ไทย&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://en.coca-cola.co.th/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Thailand | English&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://en.cocacolavietnam.com/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Vietnam | English&quot;}},{&quot;data&quot;:{&quot;linkConstructAddNoFollow&quot;:&quot;false&quot;,&quot;linkUrl&quot;:&quot;https://www.cocacolavietnam.com/&quot;,&quot;linkTarget&quot;:&quot;_self&quot;,&quot;linkTargetDownload&quot;:&quot;_self&quot;,&quot;linkType&quot;:&quot;pageURL&quot;,&quot;listText&quot;:&quot;Vietnam | Vietnamese&quot;}}],&quot;listFrom&quot;:&quot;linkList&quot;,&quot;featuredItems&quot;:{}}" data-template-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/template.hbs" data-style-url="https://shared.coke.com/content/dam/nextgen/components/content/list/default/style.css" data-component-name="list" data-design-package="default" data-allow-nesting="false" data-instance-id="89e6492b-8815-cc64-8735-d8f933d2c60f"><div class="responsive-background-image custom-margin-padding
+   m-0 
+   p-0 
+   m-md-0 
+   p-md-0 " style="">
+
+<div class="row">
+	<div class="c-list col-sm-12">
+			<h5 class="c-list__title">ASIA PACIFIC</h5>
+
+
+		<div class="c-list-container">
+					<ul class="c-list__list c-list__list--nobullets" style="list-style-type: none;">
+
+
+
+
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-cola.com.au/" target="_self">
+
+
+							<span class="c-list__text">Australia</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.com.bd/" target="_self">
+
+
+							<span class="c-list__text">Bangladesh</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-cola.com.cn/" target="_self">
+
+
+							<span class="c-list__text">China</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-cola.hk/" target="_self">
+
+
+							<span class="c-list__text">China | Hong Kong</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.cocacola.co.id/" target="_self">
+
+
+							<span class="c-list__text">Indonesia | Bahasa</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://en.cocacola.co.id/" target="_self">
+
+
+							<span class="c-list__text">Indonesia | English</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.cocacola.co.jp/" target="_self">
+
+
+							<span class="c-list__text">Japan | 日本</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://bm.coca-cola.com.my/" target="_self">
+
+
+							<span class="c-list__text">Malaysia | Bahasa</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coke.com.my/" target="_self">
+
+
+							<span class="c-list__text">Malaysia | English</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://mv.coca-cola.com/en/home" target="_self">
+
+
+							<span class="c-list__text">Maldives</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-colajourney.co.nz/" target="_self">
+
+
+							<span class="c-list__text">New Zealand</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-cola.com.ph/en/home" target="_self">
+
+
+							<span class="c-list__text">Philippines</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.cocacola.co.kr/" target="_self">
+
+
+							<span class="c-list__text">Republic of Korea | 대한민국</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://www.coca-cola.com.sg/" target="_self">
+
+
+							<span class="c-list__text">Republic of Singapore</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="http://lk.coca-cola.com/" target="_self">
+
+
+							<span class="c-list__text">Sri Lanka</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.coca-cola.co.th/" target="_self">
+
+
+							<span class="c-list__text">Thailand | ไทย</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://en.coca-cola.co.th/" target="_self">
+
+
+							<span class="c-list__text">Thailand | English</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://en.cocacolavietnam.com/" target="_self">
+
+
+							<span class="c-list__text">Vietnam | English</span>
+
+									</a>
+
+							
+							
+						</li>
+						<li class="c-list__item ">
+									<a class="c-list__link" data-object-id="" href="https://www.cocacolavietnam.com/" target="_self">
+
+
+							<span class="c-list__text">Vietnam | Vietnamese</span>
+
+									</a>
+
+							
+							
+						</li>
+
+
+
+					</ul>
+		</div>
+			<div class="showmore__button--container">
+				<button class="btn btn-primary showmore__button showmore__button--singular">1 More Result <i class="icn-show-more"></i></button>
+				<button class="btn btn-primary showmore__button showmore__button--plural"> More Results <i class="icn-show-more"></i></button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
+    
+</div>
+
+  </div>
+</div>
+
+
+</div>
+
+    
+</div>
+
+  </div>
+</div>
+
+</div>
+
+    
+</div>
+
+  </div>
+</div>
+
+</div>
+</div></div>
+<div class="divider aem-GridColumn aem-GridColumn--default--12">
+
+
+    
+
+<div class="tccc-cmp tccc-cmp-divider  " data-component-name="divider" data-model="{&quot;heightPaddingMarginMobileMarginPix&quot;:&quot;0&quot;,&quot;heightPaddingMarginDeskHeightPix&quot;:&quot;50&quot;,&quot;heightPaddingMarginDeskPaddingPix&quot;:&quot;0&quot;,&quot;heightPaddingMarginDeskMarginPix&quot;:&quot;0&quot;,&quot;heightPaddingMarginMobilePaddingPix&quot;:&quot;0&quot;,&quot;heightPaddingMarginDeskPadding&quot;:&quot;p-md-0&quot;,&quot;target&quot;:&quot;_self&quot;,&quot;heightPaddingMarginLeftRightMarginDisable&quot;:&quot;false&quot;,&quot;hideDividerMobile&quot;:&quot;false&quot;,&quot;type&quot;:&quot;h1&quot;,&quot;heightPaddingMarginDeskHeight&quot;:&quot;custom&quot;,&quot;heightPaddingMarginDeskMargin&quot;:&quot;m-md-0&quot;,&quot;heightPaddingMarginMobilePadding&quot;:&quot;p-0&quot;,&quot;enableBottomArrow&quot;:&quot;false&quot;,&quot;heightPaddingMarginMobileHeight&quot;:&quot;custom&quot;,&quot;heightPaddingMarginMobileMargin&quot;:&quot;m-0&quot;,&quot;enableParallax&quot;:&quot;false&quot;,&quot;heightPaddingMarginMobileHeightPix&quot;:&quot;25&quot;,&quot;alignment&quot;:&quot;center&quot;,&quot;bgcolorimageDesktopImage&quot;:{},&quot;bgcolorimageMobileImage&quot;:{}}" data-template-url="https://shared.coke.com/content/dam/nextgen/components/content/divider/default/template.hbs" data-style-url="https://shared.coke.com/content/dam/nextgen/components/content/divider/default/style.css" data-design-package="default" data-server-hbs-enabled="false" data-allow-nesting="false" data-instance-id="a08cb48d-b2dc-3b29-1b66-ddab75be2c2a">
+<div class="text-center">
+    <!-- tablet/desktop -->
+    <div class="d-none d-md-block 
+                 
+                m-md-0" style="
+                
+                
+                
+">    
+    
+       <div class="overlay" style="background-color: ;">
+
+             <p class="p-md-0" style="
+                    height:50px; 
+                    
+                    "> 
+                    
+                    
+
+            </p>
+
+            
+
+       </div>
+
+    
+    </div>
+
+    <!-- mobile  -->
+         
+    
+    <div class="d-block d-md-none                 
+                 
+                m-0" style="
+                
+                
+                
+"> 
+    
+
+       <div class="overlay" style="background-color: ;">
+
+           <p class="p-0" style="
+                    height:25px; 
+                    
+                    "> 
+                    
+                    
+
+            </p>
+                    
+            
+
+       </div>
+
+    
+    </div>
+</div>
+</div></div>
+<div class="reference parbase aem-GridColumn aem-GridColumn--default--12"><div class="cq-dd-paragraph"><div class="footer text-color-secondary">
+    
+
+
+
+
+
+
+
+
+<div class="tccc-cmp tccc-cmp-footer pt-0
+    " data-template-url="https://shared.coke.com/content/dam/brands/components/content/footer/links_bottom/template.hbs" data-style-url="https://shared.coke.com/content/dam/brands/components/content/footer/links_bottom/style.css" data-model="{&quot;imageTxt&quot;:&quot;none&quot;,&quot;paddingMarginLeftRightMarginDisable&quot;:&quot;false&quot;,&quot;paddingMarginMobilePadding&quot;:&quot;p-0&quot;,&quot;paddingMarginDeskPadding&quot;:&quot;p-md-0&quot;,&quot;backgroundColor&quot;:&quot;#000&quot;,&quot;rteText&quot;:&quot;\u003cp style\u003d\&quot;text-align: center;\&quot;\u003e© 2021 The Coca-Cola Company, all rights reserved. COCA-COLA®, \u0026quot;TASTE THE FEELING\u0026quot;, and the Contour Bottle are trademarks of The Coca-Cola Company.\u003c/p\u003e\r\n&quot;,&quot;paddingMarginDeskMargin&quot;:&quot;m-md-0&quot;,&quot;mobileMargin&quot;:&quot;m-0&quot;,&quot;logo&quot;:{}}" id="footer" data-component-id="footer" data-component-name="footer" data-design-package="/content/dam/brands/components/content/footer/links_bottom" data-allow-nesting="false" data-instance-id="1faefde5-9385-0e91-4933-636663d24cd6"><footer style="background-color: #000; " role="contentinfo">
+  <div class="footer__logo">
+
+
+    <div class="footer__logo-text"></div>
+
+  </div>
+  <div class="footer__text">
+    <div class="footer__content flex-column">
+      <div class="footer__row text-center" style="  ">
+        <p style="text-align: center;">© 2021 The Coca-Cola Company, all rights reserved. COCA-COLA®, "TASTE THE FEELING", and the Contour Bottle are trademarks of The Coca-Cola Company.</p>
+
+      </div>
+    </div>
+  </div>
+</footer></div>
+</div>
+</div></div>
+
+    
+</div>
+</div>
+
+        
+    
+    
+    <!-- <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+	    <sly data-sly-call=""/>
+	</sly> -->
+    
+    <script type="text/javascript" src="https://shared.coke.com/etc.clientlibs/nextgen/clientlibs/clientlib-base.js"></script>
+	
+	<!-- Load Requirejs and init app -->
+	<script data-main="https://shared.coke.com/etc.clientlibs/nextgen/clientlibs/ng-base/app" src="https://shared.coke.com/etc.clientlibs/nextgen/clientlibs/ng-base/app/require.js"></script>
+
+	
+	<script src="https://shared.coke.com/content/dam/brands/themes/coca-cola/coca-cola.js"></script>
+
+
+    
+
+    
+
+
+        
+
+    
+
+    <script type="text/javascript">var searchConfig = {};</script>
+    
+    
+    
+    
+
+
+<div class="responsive-bootstrap-toolkit"><div class="device-xs visible-xs visible-xs-block"></div><div class="device-sm visible-sm visible-sm-block"></div><div class="device-md visible-md visible-md-block"></div><div class="device-lg visible-lg visible-lg-block"></div><div class="d-xs-block d-sm-none d-md-none d-lg-none d-xl-none"></div><div class="d-none d-sm-block d-md-none d-lg-none d-xl-none"></div><div class="d-none d-md-block d-sm-none d-lg-none d-xl-none"></div><div class="d-none d-lg-block d-sm-none d-md-none d-xl-none"></div><div class="d-none d-xl-block d-sm-none d-md-none d-lg-none"></div><div class="d-xs-block d-sm-none d-md-none d-lg-none d-xl-none"></div><div class="d-none d-sm-block d-md-none d-lg-none d-xl-none"></div><div class="d-none d-md-block d-sm-none d-lg-none d-xl-none"></div><div class="d-none d-lg-block d-sm-none d-md-none d-xl-none"></div><div class="d-none d-xl-block d-sm-none d-md-none d-lg-none"></div></div><script type="text/javascript" id="">function fallbackConsentObject(){void 0==window.OnetrustActiveGroups&&dataLayer.push({event:"OneTrustGroupsUpdated",OnetrustActiveGroups:",1,2,3,4,",OnetrustSimulated:"true"})}fallbackConsentObject();</script></body></html>

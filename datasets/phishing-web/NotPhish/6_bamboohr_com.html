@@ -1,0 +1,1533 @@
+<html xml:lang="en" lang="en"><head><script type="text/javascript" async="" src="//munchkin.marketo.net/161/munchkin.js"></script><script src="https://x.clearbitjs.com/v2/pk_01c31a0cbc8c239c57700be7eab9505c/tracking.min.js" async=""></script><script src="https://x.clearbitjs.com/v2/pk_01c31a0cbc8c239c57700be7eab9505c/destinations.min.js" async=""></script><script async="" src="https://j.clarity.ms/s/0.6.33/clarity.js"></script> <script type="text/javascript" async="" src="https://cdn.bizible.com/xdc.js?_biz_u=9097a7624fc44342f5a05f77d19d9592&amp;_biz_h=1514319964&amp;cdn_o=a&amp;jsVer=4.22.02.16"></script>
+					<meta name="google-site-verification" content="wcd-ZZVpzqObShFbiW-i1j6y04hpXRaRfvyfdK8ZcRc">
+			<meta name="msvalidate.01" content="37D434DED62A44A919146ACCDF2431BD">
+		
+					<!-- Google Tag Manager -->
+			<script type="text/javascript" async="" src="https://snap.licdn.com/li.lms-analytics/insight.min.js"></script><script async="" src="https://x.clearbitjs.com/v1/pk_01c31a0cbc8c239c57700be7eab9505c/clearbit.min.js"></script><script async="" src="https://a.quora.com/qevents.js"></script><script async="" src="//static.ads-twitter.com/uwt.js"></script><script src="https://connect.facebook.net/signals/config/347807318677365?v=2.9.57&amp;r=stable" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script src="//bat.bing.com/bat.js" async=""></script><script type="text/javascript" async="" src="https://snap.licdn.com/li.lms-analytics/insight.min.js"></script><script type="text/javascript" async="" src="https://www.google.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-Y7W7F1DH16&amp;l=dataLayer&amp;cx=c"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-ZLCX"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-ZLCX');</script>
+			<!-- Sets the bhr_subscriber cookie for Google Tag Manager -->
+			<script>
+				var bhr_subscriber = false;
+				var bhr_admin = false;
+			</script>
+			<!-- End Google Tag Manager -->
+		
+		<script>
+	function ignoreRemoteUncaught(isUncaught, args, payload) {
+		try {
+			var filename = payload.body.trace.frames[0].filename;
+			if (isUncaught && !filename.match(/bamboohr/)) {
+				// Ignore uncaught errors that are not from any bamboohr domains
+				return true;
+			}
+		} catch (e) {
+			// Most likely there was no filename or the frame doesnt exist
+		}
+		return false;
+	}
+	
+	var isSupportedBrowser = true;
+	var enabledEnvironments = ['prod', 'stage'];
+	var isEnabled = isSupportedBrowser && enabledEnvironments.indexOf('prod') > -1;
+	var isMobile = false;
+
+	var _rollbarConfig = {
+		accessToken: "956069c7be6e48749db8b37cb1156fcf",
+		captureUncaught: isEnabled,
+		captureUnhandledRejections: isEnabled,
+		enabled: isEnabled,
+		payload: {
+			environment: 'prod' + '-' + (isMobile ? 'mobile' : 'desktop'),
+			client: {
+				javascript: {
+					source_map_enabled: true,
+					code_version: "22.0324.150235-1854154",
+					guess_uncaught_frames: true
+				}
+			}
+		},
+		ignoredMessages: ['Script error.', 'Script error'], // ignore CORS issues (confirmed by rollbarjs devs)	
+		checkIgnore: ignoreRemoteUncaught
+	};
+	// Rollbar Snippet
+	!function(r){function o(n){if(e[n])return e[n].exports;var t=e[n]={exports:{},id:n,loaded:!1};return r[n].call(t.exports,t,t.exports,o),t.loaded=!0,t.exports}var e={};return o.m=r,o.c=e,o.p="",o(0)}([function(r,o,e){"use strict";var n=e(1),t=e(4);_rollbarConfig=_rollbarConfig||{},_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://cdnjs.cloudflare.com/ajax/libs/rollbar.js/2.2.10/rollbar.min.js",_rollbarConfig.async=void 0===_rollbarConfig.async||_rollbarConfig.async;var a=n.setupShim(window,_rollbarConfig),l=t(_rollbarConfig);window.rollbar=n.Rollbar,a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,l)},function(r,o,e){"use strict";function n(r){return function(){try{return r.apply(this,arguments)}catch(r){try{console.error("[Rollbar]: Internal error",r)}catch(r){}}}}function t(r,o){this.options=r,this._rollbarOldOnError=null;var e=s++;this.shimId=function(){return e},window&&window._rollbarShims&&(window._rollbarShims[e]={handler:o,messages:[]})}function a(r,o){var e=o.globalAlias||"Rollbar";if("object"==typeof r[e])return r[e];r._rollbarShims={},r._rollbarWrappedError=null;var t=new p(o);return n(function(){o.captureUncaught&&(t._rollbarOldOnError=r.onerror,i.captureUncaughtExceptions(r,t,!0),i.wrapGlobals(r,t,!0)),o.captureUnhandledRejections&&i.captureUnhandledRejections(r,t,!0);var n=o.autoInstrument;return o.enabled!==!1&&(void 0===n||n===!0||"object"==typeof n&&n.network)&&r.addEventListener&&(r.addEventListener("load",t.captureLoad.bind(t)),r.addEventListener("DOMContentLoaded",t.captureDomContentLoaded.bind(t))),r[e]=t,t})()}function l(r){return n(function(){var o=this,e=Array.prototype.slice.call(arguments,0),n={shim:o,method:r,args:e,ts:new Date};window._rollbarShims[this.shimId()].messages.push(n)})}var i=e(2),s=0,d=e(3),c=function(r,o){return new t(r,o)},p=d.bind(null,c);t.prototype.loadFull=function(r,o,e,t,a){var l=function(){var o;if(void 0===r._rollbarDidLoad){o=new Error("rollbar.js did not load");for(var e,n,t,l,i=0;e=r._rollbarShims[i++];)for(e=e.messages||[];n=e.shift();)for(t=n.args||[],i=0;i<t.length;++i)if(l=t[i],"function"==typeof l){l(o);break}}"function"==typeof a&&a(o)},i=!1,s=o.createElement("script"),d=o.getElementsByTagName("script")[0],c=d.parentNode;s.crossOrigin="",s.src=t.rollbarJsUrl,e||(s.async=!0),s.onload=s.onreadystatechange=n(function(){if(!(i||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){s.onload=s.onreadystatechange=null;try{c.removeChild(s)}catch(r){}i=!0,l()}}),c.insertBefore(s,d)},t.prototype.wrap=function(r,o,e){try{var n;if(n="function"==typeof o?o:function(){return o||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._rollbar_wrapped&&(r._rollbar_wrapped=function(){e&&"function"==typeof e&&e.apply(this,arguments);try{return r.apply(this,arguments)}catch(e){var o=e;throw"string"==typeof o&&(o=new String(o)),o._rollbarContext=n()||{},o._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=o,o}},r._rollbar_wrapped._isWrap=!0,r.hasOwnProperty))for(var t in r)r.hasOwnProperty(t)&&(r._rollbar_wrapped[t]=r[t]);return r._rollbar_wrapped}catch(o){return r}};for(var u="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleUnhandledRejection,captureEvent,captureDomContentLoaded,captureLoad".split(","),f=0;f<u.length;++f)t.prototype[u[f]]=l(u[f]);r.exports={setupShim:a,Rollbar:p}},function(r,o){"use strict";function e(r,o,e){if(r){var t;"function"==typeof o._rollbarOldOnError?t=o._rollbarOldOnError:r.onerror&&!r.onerror.belongsToShim&&(t=r.onerror,o._rollbarOldOnError=t);var a=function(){var e=Array.prototype.slice.call(arguments,0);n(r,o,t,e)};a.belongsToShim=e,r.onerror=a}}function n(r,o,e,n){r._rollbarWrappedError&&(n[4]||(n[4]=r._rollbarWrappedError),n[5]||(n[5]=r._rollbarWrappedError._rollbarContext),r._rollbarWrappedError=null),o.handleUncaughtException.apply(o,n),e&&e.apply(r,n)}function t(r,o,e){if(r){"function"==typeof r._rollbarURH&&r._rollbarURH.belongsToShim&&r.removeEventListener("unhandledrejection",r._rollbarURH);var n=function(r){var e=r.reason,n=r.promise,t=r.detail;!e&&t&&(e=t.reason,n=t.promise),o&&o.handleUnhandledRejection&&o.handleUnhandledRejection(e,n)};n.belongsToShim=e,r._rollbarURH=n,r.addEventListener("unhandledrejection",n)}}function a(r,o,e){if(r){var n,t,a="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(n=0;n<a.length;++n)t=a[n],r[t]&&r[t].prototype&&l(o,r[t].prototype,e)}}function l(r,o,e){if(o.hasOwnProperty&&o.hasOwnProperty("addEventListener")){for(var n=o.addEventListener;n._rollbarOldAdd&&n.belongsToShim;)n=n._rollbarOldAdd;var t=function(o,e,t){n.call(this,o,r.wrap(e),t)};t._rollbarOldAdd=n,t.belongsToShim=e,o.addEventListener=t;for(var a=o.removeEventListener;a._rollbarOldRemove&&a.belongsToShim;)a=a._rollbarOldRemove;var l=function(r,o,e){a.call(this,r,o&&o._rollbar_wrapped||o,e)};l._rollbarOldRemove=a,l.belongsToShim=e,o.removeEventListener=l}}r.exports={captureUncaughtExceptions:e,captureUnhandledRejections:t,wrapGlobals:a}},function(r,o){"use strict";function e(r,o){this.impl=r(o,this),this.options=o,n(e.prototype)}function n(r){for(var o=function(r){return function(){var o=Array.prototype.slice.call(arguments,0);if(this.impl[r])return this.impl[r].apply(this.impl,o)}},e="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleUnhandledRejection,_createItem,wrap,loadFull,shimId,captureEvent,captureDomContentLoaded,captureLoad".split(","),n=0;n<e.length;n++)r[e[n]]=o(e[n])}e.prototype._swapAndProcessMessages=function(r,o){this.impl=r(this.options);for(var e,n,t;e=o.shift();)n=e.method,t=e.args,this[n]&&"function"==typeof this[n]&&("captureDomContentLoaded"===n||"captureLoad"===n?this[n].apply(this,[t[0],e.ts]):this[n].apply(this,t));return this},r.exports=e},function(r,o){"use strict";r.exports=function(r){return function(o){if(!o&&!window._rollbarInitialized){r=r||{};for(var e,n,t=r.globalAlias||"Rollbar",a=window.rollbar,l=function(r){return new a(r)},i=0;e=window._rollbarShims[i++];)n||(n=e.handler),e.handler._swapAndProcessMessages(l,e.messages);window[t]=n,window._rollbarInitialized=!0}}}}]);
+	// End Rollbar Snippet
+</script>
+					<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="canonical" href="https://www.bamboohr.com/">
+
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+		<!-- For iPhone -->
+		<link rel="apple-touch-icon-precomposed" href="/images/navbar/logo-icon-57x57-min.png">
+		<!-- For iPhone 4 Retina display -->
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/navbar/logo-icon-114x114-min.png">
+		<!-- For iPad -->
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/navbar/logo-icon-72x72-min.png">
+		<!-- For iPad Retina display -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/navbar/logo-icon-144x144-min.png">
+
+		<meta name="description" content="BambooHR is designed with small and medium sized businesses in mind. We set you free to focus on what matters most - your people">
+
+		
+						<link rel="stylesheet" href="/css/new/head.fd3559a9.dist.css">
+		
+	<link href="/css/new/home.6f9fbfb2.dist.css" rel="stylesheet">
+
+				
+					<script type="text/javascript" src="/js/new/head.59d32511.dist.js"></script>
+			<script>
+				window.hj=window.hj||function(){(hj.q=hj.q||[]).push(arguments)};
+
+				document.addEventListener('DOMContentLoaded', function() {
+					if (bhr_subscriber) {
+						hj('tagRecording', ['user']);
+					} else {
+						hj('tagRecording', ['non-user']);
+					}
+				});
+			</script>
+		
+				
+					<script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async=""></script>
+			<script>
+				// this script is use for defining Wistia
+				window.wistiaInitQueue = window.wistiaInitQueue || [];
+				window.wistiaInitQueue.push(function(W) {
+					console.log("Wistia library loaded and available in the W argument!");
+				});
+			</script>
+		
+		<title>HR Software with Heart. Focus on people, not processes | BambooHR</title>
+
+		<!-- begin Google Optimize code-->
+		<script src="https://www.googleoptimize.com/optimize.js?id=OPT-PXL7MPD"></script>
+		<!-- end Google Optimize code-->
+
+			
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@bamboohr">
+	<meta name="twitter:creator" content="@bamboohr">
+	<meta property="og:title" content="HR Software with Heart. Focus on people, not processes | BambooHR">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://www.bamboohr.com/">
+	<meta property="og:image" content="https://www.bamboohr.com/images/metadata/bamboohr-homepage.png">
+	<meta property="og:description" content="BambooHR is designed with small and medium sized businesses in mind. We set you free to focus on what matters most - your people">
+	<meta property="og:site_name" content="BambooHR">
+
+
+
+				
+				
+	<script async="" src="/cdn-cgi/bm/cv/669835187/api.js"></script><script async="" src="//static.hotjar.com/c/hotjar-37063.js?sv=5"></script><script type="application/javascript" src="https://tracking.g2crowd.com/attribution_tracking/conversions/451.js?p=https://www.bamboohr.com/&amp;e="></script><script type="text/javascript" async="" src="//munchkin.marketo.net/munchkin.js"></script><script></script><script src="https://bat.bing.com/p/action/5221130.js" type="text/javascript" async="" data-ueto="ueto_fe49ab2715"></script><script src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1021755306/?random=1648194784888&amp;cv=9&amp;fst=1648194784888&amp;num=1&amp;label=tFa-CNjevAIQqv-a5wM&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635470&amp;u_h=1600&amp;u_w=3840&amp;u_ah=1560&amp;u_aw=3840&amp;u_cd=24&amp;u_his=50&amp;u_tz=-300&amp;u_java=false&amp;u_nplug=0&amp;u_nmime=0&amp;gtm=2wg3e0&amp;sendb=1&amp;ig=0&amp;frm=0&amp;url=https%3A%2F%2Fwww.bamboohr.com%2F&amp;tiba=HR%20Software%20with%20Heart.%20Focus%20on%20people%2C%20not%20processes%20%7C%20BambooHR&amp;hn=www.google.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script><style>#mktoStyleLoaded {color:#123456;}</style><script async="" src="https://script.hotjar.com/modules.7d3f952308caf42c2b67.js" charset="utf-8"></script><style type="text/css">iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}</style></head>
+	<body class="" id="" data-abr="init" data-abr-indexed="Fri, 25 Mar 2022 07:53:07 GMT">
+					<!-- Google Tag Manager (noscript) -->
+			<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ZLCX"
+			height="0" width="0" style="display:none;visibility:hidden" aria-hidden="true"></iframe></noscript>
+			<!-- End Google Tag Manager (noscript) -->
+		
+					<!-- Web Insights Tag -->
+			<script type="text/javascript" src="https://secure.feed5mown.com/js/210369.js"></script><script type="text/javascript" id="" src="//cdn.bizible.com/_biz-a.js"></script><script type="text/javascript" id="">(function(b,c,e,f,d){b[d]=b[d]||[];var g=function(){var a={ti:"5221130"};a.q=b[d];b[d]=new UET(a);b[d].push("pageLoad")};var a=c.createElement(e);a.src=f;a.async=1;a.onload=a.onreadystatechange=function(){var b=this.readyState;b&&"loaded"!==b&&"complete"!==b||(g(),a.onload=a.onreadystatechange=null)};c=c.getElementsByTagName(e)[0];c.parentNode.insertBefore(a,c)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","347807318677365");fbq("track","PageView");</script>
+
+<script type="text/javascript" id="">(function(a,c,e,f,d,b){a.hj=a.hj||function(){(a.hj.q=a.hj.q||[]).push(arguments)};a._hjSettings={hjid:37063,hjsv:5};d=c.getElementsByTagName("head")[0];b=c.createElement("script");b.async=1;b.src=e+a._hjSettings.hjid+f+a._hjSettings.hjsv;d.appendChild(b)})(window,document,"//static.hotjar.com/c/hotjar-",".js?sv\x3d");</script><script type="text/javascript" id="">(function(d,e,f,b,c,a){c="";b="https://tracking.g2crowd.com/attribution_tracking/conversions/"+d+".js?p\x3d"+encodeURI(e)+"\x26e\x3d"+c;a=document.createElement("script");a.type="application/javascript";a.src=b;f.getElementsByTagName("head")[0].appendChild(a)})("451",document.location.href,document);</script><script type="text/javascript" id="" src="//cdn.bizible.com/_biz-a.js"></script><meta name="google-site-verification" content="wcd-ZZVpzqObShFbiW-i1j6y04hpXRaRfvyfdK8ZcRc">
+<script type="text/javascript" id="">!function(d,e,f,a,b,c){d.twq||(a=d.twq=function(){a.exe?a.exe.apply(a,arguments):a.queue.push(arguments)},a.version="1.1",a.queue=[],b=e.createElement(f),b.async=!0,b.src="//static.ads-twitter.com/uwt.js",c=e.getElementsByTagName(f)[0],c.parentNode.insertBefore(b,c))}(window,document,"script");twq("init","nyzjj");twq("track","PageView");</script>
+<script type="text/javascript" id="">(function(){function b(){!1===c&&(c=!0,Munchkin.init("195-LOZ-515"))}var c=!1,a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="//munchkin.marketo.net/munchkin.js";a.onreadystatechange=function(){"complete"!=this.readyState&&"loaded"!=this.readyState||b()};a.onload=b;document.getElementsByTagName("head")[0].appendChild(a)})();</script><script type="text/javascript" id="">var abr_id=334;</script><script type="text/javascript" id="" src="https://cdn.abrankings.com/js/client.js"></script>
+
+<script type="text/javascript" id="">!function(d,e,f,a,b,c){d.qp||(a=d.qp=function(){a.qp?a.qp.apply(a,arguments):a.queue.push(arguments)},a.queue=[],b=document.createElement(e),b.async=!0,b.src=f,c=document.getElementsByTagName(e)[0],c.parentNode.insertBefore(b,c))}(window,"script","https://a.quora.com/qevents.js");qp("init","c85dd198d5614c15a3eff2a0d6f87dbd");qp("track","ViewContent");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://q.quora.com/_/ad/c85dd198d5614c15a3eff2a0d6f87dbd/pixel?tag=ViewContent&amp;noscript=1"></noscript>
+
+
+<script type="text/javascript" id="">(function(){function e(){if(!f){f=!0;var d="https://a.crmtom.com/v1/sndm/ga",c=g("email");var b="clientId";if("undefined"!==typeof GoogleAnalyticsObject&&void 0!==window[GoogleAnalyticsObject])if("function"===typeof window[GoogleAnalyticsObject].getAll)b=window[GoogleAnalyticsObject].getAll()[0].get(b);else throw Error("Unable to access GA "+b);else throw Error("GA not found on page");c={s:c,a:b,c:"b9b24a0f-8a8d-41eb-b7cf-068e5aa5ee47"};b=new XMLHttpRequest;b.open("POST",d,!1);b.setRequestHeader("Content-Type",
+"application/json");b.send(JSON.stringify(c))}}function g(d){var c=[function(a){return a.value},function(a){return"true"!==a.value},function(a){return"false"!==a.value},function(a){return"radio"!==a.type},function(a){return"hidden"!==a.type}],b=[].slice.call(document.querySelectorAll("input"));b=b.filter(function(a){return c.every(function(b){return b(a)})});b=b.filter(function(a){var b=document.querySelector('[for\x3d"'+a.id+'"]')||{innerHTML:""};a=[a.placeholder,a.id,a.name,b.innerHTML];return a.join("|").match(new RegExp(d,
+"i"))});return b.map(function(a){return a.value})}var f=!1;document.addEventListener("submit",e);document.addEventListener("beforeunload",e)})();</script><img src="https://smart-pixl.com/12447/00016_bamboohr.com_SMART.GIF" style="display: none !important;" http-equiv="Content-Style-Type" content="image/gif"><script type="text/javascript" id="">(function(){var a=document.createElement("script");a.setAttribute("src","https://marketo.clearbit.com/assets/v1/marketo/forms.js");a.setAttribute("data-clearbit-publishable-key","pk_01c31a0cbc8c239c57700be7eab9505c");document.body.appendChild(a)})();</script><script src="https://marketo.clearbit.com/assets/v1/marketo/forms.js" data-clearbit-publishable-key="pk_01c31a0cbc8c239c57700be7eab9505c"></script><script type="text/javascript" id="">!function(b){var a=b.clearbit=b.clearbit||[];if(!a.initialize)if(a.invoked)b.console&&console.error&&console.error("Clearbit snippet included twice.");else{a.invoked=!0;a.methods="trackSubmit trackClick trackLink trackForm pageview identify reset group track ready alias page once off on".split(" ");a.factory=function(c){return function(){var d=Array.prototype.slice.call(arguments);d.unshift(c);a.push(d);return a}};for(b=0;b<a.methods.length;b++){var e=a.methods[b];a[e]=a.factory(e)}a.load=function(c){var d=
+document.createElement("script");d.async=!0;d.src=("https:"===document.location.protocol?"https://":"http://")+"x.clearbitjs.com/v1/"+c+"/clearbit.min.js";c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(d,c)};a.SNIPPET_VERSION="3.1.0";a.load("pk_01c31a0cbc8c239c57700be7eab9505c");a.page()}}(window);</script>
+<img src="https://data.adxcel-ec2.com/pixel/?ad_log=referer&amp;action=misc&amp;pixid=e2211e2b-9912-4c0e-af9a-87838b2a992f" style="display: none" width="1" height="1" border="0">
+
+
+
+<script type="text/javascript" src="https://dx.mountain.com/spx?dxver=4.0.0&amp;shaid=32273&amp;tdr=&amp;plh=https%3A%2F%2Fwww.bamboohr.com%2F&amp;cb=97711918485444220term=value"></script><script type="text/javascript" id="">(function(){var c="4.0.0",h="32273",k="term\x3dvalue";try{var f=""!==top.document.referer?encodeURIComponent(top.document.referrer.substring(0,2048)):""}catch(g){f=null!==document.referrer?document.referrer.toString().substring(0,2048):""}try{var a=window&&window.top&&document.location&&window.top.location===document.location?document.location:window&&window.top&&window.top.location&&""!==window.top.location?window.top.location:document.location}catch(g){a=document.location}try{var d=""!==parent.location.href?
+encodeURIComponent(parent.location.href.toString().substring(0,2048)):""}catch(g){try{d=null!==a?encodeURIComponent(a.toString().substring(0,2048)):""}catch(l){d=""}}var e;a=document.createElement("script");var b=document.getElementsByTagName("script");b=Number(b.length)-1;b=document.getElementsByTagName("script")[b];"undefined"===typeof e&&(e=Math.floor(1E17*Math.random()));c="dx.mountain.com/spx?dxver\x3d"+c+"\x26shaid\x3d"+h+"\x26tdr\x3d"+f+"\x26plh\x3d"+d+"\x26cb\x3d"+e+k;a.type="text/javascript";
+a.src=("https:"===document.location.protocol?"https://":"http://")+c;b.parentNode.insertBefore(a,b)})();</script><style id="wistia_22_style" type="text/css" class="wistia_injected_style">
+@font-face {
+font-family: 'WistiaPlayerInterNumbersSemiBold';
+font-feature-settings: 'tnum' 1;
+src: url(data:application/x-font-woff;charset=utf-8;base64,d09GMk9UVE8AAAaMAAwAAAAACgAAAAZBAAMD1wAAAAAAAAAAAAAAAAAAAAAAAAAADYpwGhQbIBwqBmAAgTIBNgIkAzAEBgWDGgcgGykJEZWkARP8KHCbm2tEznyIN98tPTUk9Ig3oiVV3pbDIzXa+f/fZgXpALFTZhBoMVFC9cp036dXvRKVmVnsxe+D+1NDQI5lG7ikZWEINIElTeBIdnxlhauQ5GQtoLHA/wN0riVdSx5xgbxF3KTbgnjVQ4B9P7YqCx7FpEZK+6ilx0AoopUh4aExJEKmkU+0ncdr4iFfKhdSFD9y91LCRaxNbVqvi0dND3rxI7ndUDR7EiwT3bhiua9krFA0oepCy2hCjwmjnjDjKjNTDz2ZuHtN8820Wfw/l8u4w4yV/f8/6uscs5rmiN00LcP4hAofyZUSyS3WinX0RGFFtnGrjj36x6dlNa57+PLTlrUisH2n9orfgd+R34XfDd0NsWDXwfwhvKHpbs3UBni37dBlPvO4KYn/PgylilcgSdw6sjsSSxsRGfIJgqhi14bKZCHcQvjUh/+3HMotTYrGLVYCxyMFjEnYC98yTAp6atAKVxaZ9eu2NMji8WTj4w/Y34elD60PPwb5bEywLqAX/amwmUo6TBCy14N/TL44jb3sE5JdUIPXXI0RBSoGt3BUObn4agKGIxxQhlyQacbstK4fS2mZoBtFNQ1bd+4zND2vQu6anl7gWFOj8MV2DVMtU44xMhpwElrrjA7zO5IqWojd/v1Vso6cqp91zC2YrGhDOy07Iqyza2q9smDIwUYek0AWbCt/8x78QmrzayQ6xtpmqfCYsLfgU9HdeP3UqutZTTNd/9Q8k08XzXzIxSdvLPda8YaeeZnkxUwql0nDKyUYdaWZjGAy7UDLHpVqBVHTxSV0wBy21El9u/491ik2J3YkdiP2LPZL41RBeeNUWtp97Bbn0Ee1g9wr9qqV/X+4R9nlPX03743dylnaXZyNp8v58yLOsFYCbUnCVQzjN+5QhlmKccO7aMkueWJggROd4qnw2x5LydUcg/NRamE3XMlkGovpRWPKWEavP74P2O1RANM/3gIIPJj7TX+lqU2geQuaBx4B/7cWAOx0ucTiEHYJU9y5DBuUMYNIHeHZz9tn+Fw2G5EBTqUlHRfRi4eB5wNlJsRsv5k4b6HyFkhIC6BO4LzPbWhW7rbCcxubeKHOc6UaBKZBMMd4j8XuRUynOCCa4EMfF9grkI1NcTaSAVtk1nrIOwFfeEBlQw4f4phb6zHzBOm0ZZ0dBcaZRVdYIo5xYiyOMEWONwQHmjKGE//VuRBgul1QrpyxmMvF4vGj0xfuuQrNt4tVTsRhEnjY9AuKa1FVLSEneQWzFd5WbO7hasX08ONUOVQgwQuVqACFXkSoIoUgK1hJEkAgbkG5CjqBS5wrRFuY2IfVwhRnLsVyZTZpatveGR4yEbYqbE6J80nM4aa+LD7Oqmr8PdSJFUQVynmgN4lerGQV1+uLdYzdOFWHPW/iK2gIQayhizQ0NMwyvBEBlrDczRfmU40CTtAHqLQGnjQG8MYkxm1MwJuTqjHwVCu9iRJ1C8ojWGHxUYowH0c5X57zpXquvlw0wzHHGMTfufxiJ1psFJTzq6nGeDvHF4LgmHHWCUViZBaInRn+cswnBi460RBPRYg9TRUQ0CZUC5LAT0qLLu50FpdTeBhjGf7/h4dg9hE0uqsBx/saOcYRDIfnOhfzGFBHyizcJK3p2edUjWrC0rn1aGjXtfVUCHMAKKhlxV8eTEIcV2jCOdKiqahv/MisrfRQVnxPJoOU62mR6pu2ZllIzo8zOZqQB7kWJXW2/c0aihata5PcIVJKfFRgHAETmEQVTCELptGMGcyigTnMJ1voUVN6uCZS9pV2hrwl7FYMvBwtUSd7L7E5qP9t7BIPRF7EcmA9ct2nIPHrxgWajtDltbXuBLuaY6qRZGa5ZlX5anfR0lYXaHUzVSFjZa8rfdhZ8rKXFZg21LVL5LFjI5TlDIbwnFGHE2dypHs6Q50N015dpOgLONEUlOqoiQgIaeCsjMq9gITDKwRMieQgKUy9UQY1BTFYZU2KpE2SkILMIjW8IdFwIKmMaK8oClJVssAEtFnz5dQ1s+w6EZoNGtPGQfzx+aoE8ikiP8GCYOWtgB+HBdWDaxACAZInVq14dZI85RRDvZGIghyONw59KV/BBEQ02P1ER8hmNGiURT2hQP8WfAY=);
+}
+</style>
+			<noscript><img alt="" src="https://secure.benn8bord.com/210369.png" style="display:none;" /></noscript>
+			<!-- End Web Insights Tag -->
+		
+			<a href="#skipToContent" class="acc-out-of-view" aria-label="Click to skip the navigation menu options and start at main page content.">Skip to main content</a>
+
+	<header class="bhrcolor-white-background Navbar js-nav" role="navigation">
+		<div class="Navbar__container js-nav-main">
+			<div class="NavbarMain">
+				<div class="NavbarMain__left NavbarMain__wrapper NavbarMain__wrapper--left js-nav-logo">
+					<a class="NavbarMain__logoWrapper" href="/"><img class="NavbarMain__logo" src="/images/global-logos/bamboohr-logo-main.svg" alt="BambooHR - Easy-to-Use HR Software"></a>
+				</div>
+				<div class="bhrcolor-gray7 NavbarMain__middle NavbarMain__wrapper NavbarMain__wrapper--middle">
+					<div class="NavbarMain__tabContainer">
+						<div class="NavbarMain__tabWrap js-nav-drop-opener">
+							<div class="NavbarMain__tab">Our Software</div>
+							<ul class="bhrcolor-gray1-background NavbarDrop NavbarDrop--1 js-nav-drop-block js-nav-drop-block-main js-aim-menu">
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--1 js-nav-drop2-block-opener js-aim-submenuSelector">
+									<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--default js-nav-info-block-default js-nav-info-block-default-small">
+										<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Our Software</h4>
+										<p class="bhrcolor-gray9 NavbarDrop2__info">Get a bird's-eye view or dive deep into every feature of BambooHR.</p>
+									</div>
+									<div class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--first">Overview</div>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--1 js-aim-row">
+										<ul class="NavbarDrop2__wrapper">
+											<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--default js-nav-info-block-default">
+												<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Overview</h4>
+												<p class="bhrcolor-gray9 NavbarDrop2__info">Read or watch a brief tour of BambooHR.</p>
+											</div>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--1 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/tour/">Product Overview</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Product Overview</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Find out how our five product pillars support what really matters: your people.</p>
+												</div>
+											</li>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--1 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/video-tour/">Video Tour</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Video Tour</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">See a full product overview or take a short video tour of our top eight features.</p>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--1 js-nav-drop2-block-opener js-aim-submenuSelector">
+									<div class="bhrcolor-gray8 NavbarDrop__link">People Data &amp; Analytics</div>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--1 js-aim-row">
+										<ul class="NavbarDrop2__wrapper">
+											<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--default js-nav-info-block-default">
+												<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">People Data &amp; Analytics</h4>
+												<p class="bhrcolor-gray9 NavbarDrop2__info">Isn't it time all that information you've been collecting started working for you?</p>
+											</div>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--1 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/employee-database-software/">Employee Records</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Employee Records</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Say goodbye to filing cabinets, and say hello to secure, centralized, and organized employee data.</p>
+												</div>
+											</li>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--1 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/custom-workflows/">Workflows &amp; Approvals</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Workflows &amp; Approvals</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Open up those bottlenecks with organized and streamlined processes.</p>
+												</div>
+											</li>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--1 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/hr-reporting/">Reporting &amp; Analytics</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Reporting &amp; Analytics</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Easy, beautiful reports in seconds? That's a good look.</p>
+												</div>
+											</li>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--1 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/mobile/">Mobile App</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Mobile App</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Put the entire BambooHR experience in the hand of every employee.</p>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--1 js-nav-drop2-block-opener js-aim-submenuSelector">
+									<div class="bhrcolor-gray8 NavbarDrop__link">Hiring</div>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--1 js-aim-row">
+										<ul class="NavbarDrop2__wrapper">
+											<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--default js-nav-info-block-default">
+												<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Hiring</h4>
+												<p class="bhrcolor-gray9 NavbarDrop2__info">A great candidate experience starts here.</p>
+											</div>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--1 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/applicant-tracking/">Applicant Tracking System (ATS)</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Applicant Tracking System (ATS)</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Never miss another awesome hire.</p>
+												</div>
+											</li>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--1 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/mobile-hiring-app/">Mobile Hiring App</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Mobile Hiring App</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Because great hires can happen anywhere and anytime.</p>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--1 js-nav-drop2-block-opener js-aim-submenuSelector">
+									<div class="bhrcolor-gray8 NavbarDrop__link">Onboarding</div>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--1 js-aim-row">
+										<ul class="NavbarDrop2__wrapper">
+											<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--default js-nav-info-block-default">
+												<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Onboarding</h4>
+												<p class="bhrcolor-gray9 NavbarDrop2__info">Make exceptional first days the rule.</p>
+											</div>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--1 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/employee-self-onboarding/">New-Hire Onboarding</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">New-Hire Onboarding</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Less paperwork, more person-to-person.</p>
+												</div>
+											</li>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--1 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/employee-offboarding-software/">Offboarding</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Offboarding</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Make the best of every goodbye.</p>
+												</div>
+											</li>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--1 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/electronic-signatures/">Electronic Signatures</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Electronic Signatures</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Save time, save trees, and track every signature down to the minute.</p>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--1 js-nav-drop2-block-opener js-aim-submenuSelector">
+									<div class="bhrcolor-gray8 NavbarDrop__link">Compensation</div>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--1 js-aim-row">
+										<ul class="NavbarDrop2__wrapper">
+											<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--default js-nav-info-block-default">
+												<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Compensation</h4>
+												<p class="bhrcolor-gray9 NavbarDrop2__info">Keep track of every penny, hour, and PTO request without breaking a sweat.</p>
+											</div>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--1 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/time-tracking-software/">Time Tracking</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Time Tracking</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Punch in and out without wanting to punch someone.</p>
+												</div>
+											</li>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--1 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/paid-time-off/">Paid Time Off (PTO)</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Paid Time Off (PTO)</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Mobile-enabled vacation requests and multiple approvals, PTO forecasting, and more.</p>
+												</div>
+											</li>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--1 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/payroll-software/">Payroll</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Payroll</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Everyone should feel good about payday.</p>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--1 js-nav-drop2-block-opener js-aim-submenuSelector">
+									<div class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--secondLast">Culture</div>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--1 js-aim-row">
+										<ul class="NavbarDrop2__wrapper">
+											<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--default js-nav-info-block-default">
+												<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Culture</h4>
+												<p class="bhrcolor-gray9 NavbarDrop2__info">Your people are your most valuable asset.</p>
+											</div>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--1 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/performance-management/">Performance Management</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Performance Management</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Start doing performance reviews that really improve performance.</p>
+												</div>
+											</li>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--1 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/employee-net-promoter-score-software/">Employee Satisfaction with eNPS</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Employee Satisfaction with eNPS</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Put your finger on the pulse of employee engagement.</p>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--1 js-nav-drop2-block-opener js-nav-drop2-block-opener-small js-aim-submenuSelector
+																			NavbarDrop__linkWrap--last
+																		">
+									<a class="bhrcolor-gray8 NavbarDrop__link
+																			NavbarDrop__link--last
+																			" href="/packaging/">Compare Packages</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--1 js-nav-drop2-block js-nav-drop2-block-small">
+										<div class="bhrcolor-gray1-background NavbarDrop2__infoWrap NavbarDrop2__infoWrap--default js-nav-info-block-default">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Compare Packages</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">Get the BambooHR that's right for you, no matter where you are in your journey.</p>
+										</div>
+									</div>
+								</li>
+															</ul>
+						</div>
+						<div class="NavbarMain__tabWrap js-nav-drop-opener">
+							<div class="NavbarMain__tab">Why BambooHR</div>
+							<ul class="bhrcolor-gray1-background NavbarDrop NavbarDrop--2 js-nav-drop-block-2 js-nav-drop-block-main-2 js-aim-menu">
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--first NavbarDrop__linkWrap--2 js-nav-drop2-block-opener js-nav-drop2-block-opener-small js-aim-submenuSelector">
+									<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--default js-nav-info-block-default js-nav-info-block-default-small">
+										<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Why BambooHR</h4>
+										<p class="bhrcolor-gray9 NavbarDrop2__info">A few good reasons to choose BambooHR for your business.</p>
+									</div>
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--noArrow NavbarDrop__link--first" href="/why-bamboohr/">We Set You Free</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--2 js-nav-drop2-block js-nav-drop2-block-small">
+										<div class="bhrcolor-gray1-background NavbarDrop2__infoWrap NavbarDrop2__infoWrap--default js-nav-info-block-default">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">We Set You Free</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">Learn how our software can make you more strategic and more available for your people.</p>
+										</div>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--2 js-nav-drop2-block-opener js-nav-drop2-block-opener-small js-aim-submenuSelector">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--noArrow" href="/services/">Award-Winning Service &amp; Support</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--2 js-nav-drop2-block js-nav-drop2-block-small">
+										<div class="bhrcolor-gray1-background NavbarDrop2__infoWrap NavbarDrop2__infoWrap--default js-nav-info-block-default">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Award-Winning Service &amp; Support</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">You'll love our implementation...and everything that comes after it, too.</p>
+										</div>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--2 js-nav-drop2-block-opener js-aim-submenuSelector">
+									<div class="bhrcolor-gray8 NavbarDrop__link">Industry Solutions</div>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--2 js-aim-row">
+										<ul class="NavbarDrop2__wrapper">
+											<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--default js-nav-info-block-default">
+												<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Industry Solutions</h4>
+												<p class="bhrcolor-gray9 NavbarDrop2__info">Whatever your industry, BambooHR offers the features, flexibility, and customization you need to handle HR tasks easily and efficiently.</p>
+											</div>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--2 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/industry/construction/">Construction</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Construction</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Conquer paperwork in the office and put tools like time tracking, PTO, and more on the job site with one easy-to-use, mobile-ready HR system.</p>
+												</div>
+											</li>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--2 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/industry/finance/">Finance</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Finance</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Science-backed performance management and award-winning applicant tracking are just two ways BambooHR keeps your firm competitive in a cutthroat market.</p>
+												</div>
+											</li>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--2 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/industry/healthcare/">Healthcare</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Healthcare</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Revitalize your HR practice with all-in-one HR software that helps you tackle paperwork and peoplework in one easy and secure system.</p>
+												</div>
+											</li>
+											<li class="NavbarDrop2__linkWrap NavbarDrop2__linkWrap--2 js-nav-info-opener">
+												<a class="bhrcolor-gray9 NavbarDrop2__link" href="/industry/tech/">Technology</a>
+												<div class="NavbarDrop2__infoWrap js-nav-info-block">
+													<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Technology</h4>
+													<p class="bhrcolor-gray9 NavbarDrop2__info">Become a top-talent magnet with PCMag’s Editors’ Choice for best all-around HR software in 2021—recruiting, onboarding, and performance tools, it’s all here.</p>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--2 js-nav-drop2-block-opener js-nav-drop2-block-opener-small js-aim-submenuSelector">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--noArrow" href="/customers/">Case Studies</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--2 js-nav-drop2-block js-nav-drop2-block-small">
+										<div class="bhrcolor-gray1-background NavbarDrop2__infoWrap NavbarDrop2__infoWrap--default js-nav-info-block-default">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Case Studies</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">Come see how customers are solving problems and revolutionizing their HR processes using BambooHR.</p>
+										</div>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--smallLast NavbarDrop__linkWrap--2 js-nav-drop2-block-opener js-nav-drop2-block-opener-small js-aim-submenuSelector">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--smallLast NavbarDrop__link--noArrow" href="https://marketplace.bamboohr.com/">BambooHR Marketplace</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--2 js-nav-drop2-block js-nav-drop2-block-small">
+										<div class="bhrcolor-gray1-background NavbarDrop2__infoWrap NavbarDrop2__infoWrap--default js-nav-info-block-default">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">BambooHR Marketplace</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">See how nicely BambooHR plays with everyone else in the neighborhood.</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="NavbarMain__tabWrap js-nav-drop-opener">
+							<div class="NavbarMain__tab">Resources</div>
+							<ul class="bhrcolor-gray1-background NavbarDrop NavbarDrop--3 js-nav-drop-block">
+								<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--small NavbarDrop2--default js-nav-drop2-block-default">
+									<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small NavbarDrop2__infoWrap--default js-nav-info-block-default">
+										<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Resources</h4>
+										<p class="bhrcolor-gray9 NavbarDrop2__info">Browse our HR content and webinar libraries, read the latest blog articles, or check out our HR Software Calculator.</p>
+									</div>
+								</div>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--3 js-nav-drop2-block-opener">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--first NavbarDrop__link--noArrow" href="/blog/">Blog</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--small js-nav-drop2-block">
+										<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small js-nav-info-block">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Blog</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">Get new and unique perspectives on HR tech, best practices, and current events every week.</p>
+										</div>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--3 js-nav-drop2-block-opener">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--noArrow" href="/the-era-podcast/">The Era Podcast</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--small js-nav-drop2-block">
+										<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small js-nav-info-block">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">The Era Podcast</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">A new podcast from BambooHR about putting your people first.</p>
+										</div>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--3 js-nav-drop2-block-opener">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--noArrow" href="/resources/">Content Library</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--small js-nav-drop2-block">
+										<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small js-nav-info-block">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Content Library</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">Browse our library of ebooks, infographics, how-to guides, and unique research.</p>
+										</div>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--3 js-nav-drop2-block-opener">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--noArrow" href="/webinars/">Webinar Library</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--small js-nav-drop2-block">
+										<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small js-nav-info-block">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Webinar Library</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">Stream HR insights right to your screen. Watch one of our 100+ partner webinars absolutely free.</p>
+										</div>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--3 js-nav-drop2-block-opener">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--noArrow" href="/hr-101-guide/chapter-1-introduction-and-overview/">HR 101 Guide</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--small js-nav-drop2-block">
+										<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small js-nav-info-block">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">HR 101 Guide</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">We wrote the book on everything HR.</p>
+										</div>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--3 js-nav-drop2-block-opener">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--noArrow" href="/hr-glossary/">HR Glossary</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--small js-nav-drop2-block">
+										<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small js-nav-info-block">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">HR Glossary</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">From Applicant Tracking System to Work/Life Balance, we can help you become a walking HR encyclopedia.</p>
+										</div>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--3 js-nav-drop2-block-opener">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--noArrow" href="/roi-calculator/">HR Software Calculator</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--small js-nav-drop2-block">
+										<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small js-nav-info-block">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">HR Software Calculator</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">Want to know how much your organization could save with the right HRIS? Start here.</p>
+										</div>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--3 NavbarDrop__linkWrap--smallLast js-nav-drop2-block-opener">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--noArrow" href="/hr-crisis-recovery/">HR Crisis Recovery</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--small js-nav-drop2-block">
+										<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small js-nav-info-block">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">HR Crisis Recovery</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">From hiring and onboarding remotely to supporting employee mental health, find relevant HR resources for helping your business recover from a crisis.</p>
+										</div>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--3 NavbarDrop__linkWrap--smallLast js-nav-drop2-block-opener">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--smallLast NavbarDrop__link--noArrow" href="/product-updates/">Product Updates</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--small js-nav-drop2-block">
+										<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small js-nav-info-block">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Product Updates</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">Learn about all of the exciting changes that are happening to our platform.</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="NavbarMain__tabWrap js-nav-drop-opener">
+							<div class="NavbarMain__tab">About BambooHR</div>
+							<ul class="bhrcolor-gray1-background NavbarDrop NavbarDrop--4 js-nav-drop-block">
+								<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--4 NavbarDrop2--default js-nav-drop2-block-default">
+									<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small NavbarDrop2__infoWrap--default js-nav-info-block-default">
+										<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">About BambooHR</h4>
+										<p class="bhrcolor-gray9 NavbarDrop2__info">Learn about the company, find press and media details, or apply to work with us!</p>
+									</div>
+								</div>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--4 js-nav-drop2-block-opener">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--first NavbarDrop__link--noArrow" href="/about/">Our Story</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--small js-nav-drop2-block">
+										<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small js-nav-info-block">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Our Story</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">Who we are, where we came from, and why we make HR software.</p>
+										</div>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--4 js-nav-drop2-block-opener">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--noArrow" href="/media/">Media</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--small js-nav-drop2-block">
+										<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small js-nav-info-block">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Media</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">This is where you’ll find the latest news and resources from BambooHR.</p>
+										</div>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--4 js-nav-drop2-block-opener">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--noArrow" href="/careers/">Careers</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--small js-nav-drop2-block">
+										<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small js-nav-info-block">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Careers</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">Are you awesome? Come work with us!</p>
+										</div>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--4 js-nav-drop2-block-opener">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--noArrow" href="/events-calendar/">Events</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--small js-nav-drop2-block">
+										<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small js-nav-info-block">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Events</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">Join us at all the virtual and non-virtual events we're throwing or attending.</p>
+										</div>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--4 js-nav-drop2-block-opener">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--noArrow" href="https://partners.bamboohr.com">Partner With Us</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--small js-nav-drop2-block">
+										<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small js-nav-info-block">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Partner With Us</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">Join one of our partner programs.</p>
+										</div>
+									</div>
+								</li>
+								<li class="bhrcolor-white-background NavbarDrop__linkWrap NavbarDrop__linkWrap--4 NavbarDrop__linkWrap--smallLast js-nav-drop2-block-opener">
+									<a class="bhrcolor-gray8 NavbarDrop__link NavbarDrop__link--smallLast NavbarDrop__link--noArrow" href="/contact/">Contact</a>
+									<div class="bhrcolor-gray1-background NavbarDrop2 NavbarDrop2--small js-nav-drop2-block">
+										<div class="NavbarDrop2__infoWrap NavbarDrop2__infoWrap--small js-nav-info-block">
+											<h4 class="bhrtyp-uppercase bhrcolor-gray9 NavbarDrop2__infoHeading">Contact</h4>
+											<p class="bhrcolor-gray9 NavbarDrop2__info">Get in touch with BambooHR.</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="NavbarSearch js-nav-search">
+					<div class="NavbarSearch__iconWrapper js-nav-search-icon-wrapper">
+						<img class="NavbarSearch__searchIcon js-nav-search-icon" src="/images/icons/search-icon-green-min.svg" alt="Search Icon" tabindex="0" role="button" aria-label="Search">
+					</div>
+					<div class="NavbarSearch__container js-nav-search-container">
+						<div class="NavbarSearch__wrapper">
+							<form class="NavbarSearch__form" action="/search/" method="get" aria-label="Try BambooHR free form" __bizdiag="113" __biza="WJ__">
+								<div class="NavbarSearch__inputWrapper">
+									<input type="search" name="q" class="NavbarSearch__input js-nav-search-input" placeholder="What can we help you find?" aria-label="Enter your search terms here" required="">
+								</div>
+								<div class="NavbarSearch__right">
+									<button type="submit" class="bhrcolor-color1-background NavbarSearch__submit js-nav-search-submit" disabled="" aria-label="Click here to submit the form">
+										<img class="NavbarSearch__submitIcon" src="/images/icons/search-icon-white-min.svg" alt="Search Icon">
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="NavbarMain__wrapper NavbarMain__wrapper--right">
+											<a class="bhrtyp-center Button Button--stroke Button--small NavbarMain__link js-nav-login" href="https://app.bamboohr.com/login/" aria-label="Click to login">Log In</a>
+																<a class="bhrtyp-center Button Button--small NavbarMain__link NavbarMain__link--button" href="/signup/">Try It Free</a>
+									</div>
+			</div>
+		</div>
+		<div class="NavbarMobileBar js-nav-mobile-bar">
+			<div class="NavbarMobileBar__container">
+				<a class="NavbarMobileBar__logoLink" href="/"><img class="NavbarMobileBar__logo" src="/images/global-logos/bamboohr-logo-main.svg" alt="BambooHR - Easy-to-Use HR Software"></a>
+				<div class="NavbarMobileBar__searchIcons">
+					<img class="NavbarMobileBar__searchIcon NavbarMobileBar__searchIcon--default js-nav-mobile-search-selector" src="/images/icons/search-icon-gray-min.svg" alt="">
+					<img class="NavbarMobileBar__searchIcon NavbarMobileBar__searchIcon--active js-nav-mobile-search-selector-active" src="/images/icons/search-icon-green-min.svg" alt="">
+				</div>
+				<img class="NavbarMobileBar__hamburgerIcon js-nav-mobile-opener" src="/images/navbar/menu-icon.svg" alt="Open Menu" tabindex="0">
+			</div>
+		</div>
+		<div class="NavbarMobileSearch js-nav-mobile-search">
+			<div class="NavbarMobileSearch__container">
+				<form class="NavbarMobileSearch__form" action="/search/" method="get" __bizdiag="113" __biza="WJ__">
+					<input class="typ-table-body NavbarMobileSearch__input js-nav-mobile-search-input" type="search" name="q" placeholder="What can we help you find?" required="">
+					<input class="typ-table-body NavbarMobileSearch__submit" type="submit">
+				</form>
+			</div>
+		</div>
+			</header>
+
+
+	<div class="NavbarMobile js-nav-mobile" aria-label="Mobile navigation" role="navigation">
+		<div class="NavbarMobile__topBar">
+			<a href="/"><img class="NavbarMobile__logo" src="/images/global-logos/bamboohr-logo-main-white.svg" alt="BambooHR - Easy-to-Use HR Software"></a>
+			<img class="NavbarMobile__closer js-nav-mobile-closer" src="/images/icons/close-navigation-min.png" alt="Close menu" tabindex="0">
+		</div>
+		<div class="NavbarMobile__wrapper">
+			<ul class="NavbarMobile__container">
+				<li class="NavbarMobile__linkWrap js-nav-level-1">
+					<a class="NavbarMobile__link NavbarMobile__link--expandArrow js-nav-level-2-opener">Our Software</a>
+				</li>
+				<div class="NavbarMobile__extend js-nav-level-2">
+					<ul class="NavbarMobile__links">
+						<li class="NavbarMobile__linkWrap js-nav-hide-on-level-3">
+							<a class="NavbarMobile__link NavbarMobile__link--backBtn js-nav-back-to-level-1">Back</a>
+						</li>
+						<li class="NavbarMobile__linkWrap js-nav-hide-on-level-3">
+							<a class="NavbarMobile__link NavbarMobile__link--extend NavbarMobile__link--expandArrow js-nav-level-3-opener">Overview</a>
+						</li>
+						<div class="NavbarMobile__extend js-nav-level-3">
+							<ul class="NavbarMobile__links">
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--backBtn js-nav-back-to-level-2">Back</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/tour/">Product Overview</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/video-tour/">Video Tour</a>
+								</li>
+							</ul>
+						</div>
+						<li class="NavbarMobile__linkWrap js-nav-hide-on-level-3">
+							<a class="NavbarMobile__link NavbarMobile__link--extend NavbarMobile__link--expandArrow js-nav-level-3-opener">People Data &amp; Analytics</a>
+						</li>
+						<div class="NavbarMobile__extend js-nav-level-3">
+							<ul class="NavbarMobile__links">
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--backBtn js-nav-back-to-level-2">Back</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/employee-database-software/">Employee Records</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/custom-workflows/">Workflows &amp; Approvals</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/hr-reporting/">Reporting &amp; Analytics</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/mobile/">Mobile App</a>
+								</li>
+							</ul>
+						</div>
+						<li class="NavbarMobile__linkWrap js-nav-hide-on-level-3">
+							<a class="NavbarMobile__link NavbarMobile__link--extend NavbarMobile__link--expandArrow js-nav-level-3-opener">Hiring</a>
+						</li>
+						<div class="NavbarMobile__extend js-nav-level-3">
+							<ul class="NavbarMobile__links">
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--backBtn js-nav-back-to-level-2">Back</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/applicant-tracking/">Applicant Tracking System (ATS)</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/mobile-hiring-app/">Mobile Hiring App</a>
+								</li>
+							</ul>
+						</div>
+						<li class="NavbarMobile__linkWrap js-nav-hide-on-level-3">
+							<a class="NavbarMobile__link NavbarMobile__link--extend NavbarMobile__link--expandArrow js-nav-level-3-opener">Onboarding</a>
+						</li>
+						<div class="NavbarMobile__extend js-nav-level-3">
+							<ul class="NavbarMobile__links">
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--backBtn js-nav-back-to-level-2">Back</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/employee-self-onboarding/">New-Hire Onboarding</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/employee-offboarding-software/">Offboarding</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/electronic-signatures/">Electronic Signatures</a>
+								</li>
+							</ul>
+						</div>
+						<li class="NavbarMobile__linkWrap js-nav-hide-on-level-3">
+							<a class="NavbarMobile__link NavbarMobile__link--extend NavbarMobile__link--expandArrow js-nav-level-3-opener">Compensation</a>
+						</li>
+						<div class="NavbarMobile__extend js-nav-level-3">
+							<ul class="NavbarMobile__links">
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--backBtn js-nav-back-to-level-2">Back</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/time-tracking-software/">Time Tracking</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/paid-time-off/">Paid Time Off (PTO)</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/payroll-software/">Payroll</a>
+								</li>
+							</ul>
+						</div>
+						<li class="NavbarMobile__linkWrap js-nav-hide-on-level-3">
+							<a class="NavbarMobile__link NavbarMobile__link--extend NavbarMobile__link--expandArrow js-nav-level-3-opener">Culture</a>
+						</li>
+						<div class="NavbarMobile__extend js-nav-level-3">
+							<ul class="NavbarMobile__links">
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--backBtn js-nav-back-to-level-2">Back</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/performance-management/">Performance Management</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/employee-net-promoter-score-software/">Employee Satisfaction with eNPS</a>
+								</li>
+							</ul>
+						</div>
+						<li class="NavbarMobile__linkWrap js-nav-hide-on-level-3">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/packaging/">Compare Packages</a>
+						</li>
+					</ul>
+				</div>
+				<li class="NavbarMobile__linkWrap js-nav-level-1">
+					<a class="NavbarMobile__link NavbarMobile__link--expandArrow js-nav-level-2-opener">Why BambooHR</a>
+				</li>
+				<div class="NavbarMobile__extend js-nav-level-2">
+					<ul class="NavbarMobile__links">
+						<li class="NavbarMobile__linkWrap js-nav-hide-on-level-3">
+							<a class="NavbarMobile__link NavbarMobile__link--backBtn js-nav-back-to-level-1">Back</a>
+						</li>
+						<li class="NavbarMobile__linkWrap js-nav-hide-on-level-3">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/why-bamboohr">We Set You Free</a>
+						</li>
+						<li class="NavbarMobile__linkWrap js-nav-hide-on-level-3">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/services/">Award Winning Service &amp; Support</a>
+						</li>
+						<li class="NavbarMobile__linkWrap js-nav-hide-on-level-3">
+							<a class="NavbarMobile__link NavbarMobile__link--extend NavbarMobile__link--expandArrow js-nav-level-3-opener">Industry Solutions</a>
+						</li>
+						<div class="NavbarMobile__extend js-nav-level-3">
+							<ul class="NavbarMobile__links">
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--backBtn js-nav-back-to-level-2">Back</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/industry/construction/">Construction</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/industry/finance/">Finance</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/industry/healthcare/">Healthcare</a>
+								</li>
+								<li class="NavbarMobile__linkWrap">
+									<a class="NavbarMobile__link NavbarMobile__link--extend" href="/industry/tech/">Technology</a>
+								</li>
+							</ul>
+						</div>
+						<li class="NavbarMobile__linkWrap js-nav-hide-on-level-3">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/customers/">Case Studies</a>
+						</li>
+						<li class="NavbarMobile__linkWrap js-nav-hide-on-level-3">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="https://marketplace.bamboohr.com/">BambooHR Marketplace</a>
+						</li>
+					</ul>
+				</div>
+				<li class="NavbarMobile__linkWrap js-nav-level-1">
+					<a class="NavbarMobile__link NavbarMobile__link--expandArrow js-nav-level-2-opener">Resources</a>
+				</li>
+				<div class="NavbarMobile__extend js-nav-level-2">
+					<ul class="NavbarMobile__links">
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--backBtn js-nav-back-to-level-1">Back</a>
+						</li>
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/blog/">Blog</a>
+						</li>
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/the-era-podcast/">The Era Podcast</a>
+						</li>
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/resources/">Content Library</a>
+						</li>
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/webinars/">Webinar Library</a>
+						</li>
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/hr-101-guide/chapter-1-introduction-and-overview/">HR 101 Guide</a>
+						</li>
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/hr-glossary/">HR Glossary</a>
+						</li>
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/roi-calculator/">HR Software Calculator</a>
+						</li>
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/hr-crisis-recovery/">HR Crisis Recovery</a>
+						</li>
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/product-updates/">Product Updates</a>
+						</li>
+					</ul>
+				</div>
+				<li class="NavbarMobile__linkWrap js-nav-level-1">
+					<a class="NavbarMobile__link NavbarMobile__link--expandArrow js-nav-level-2-opener">About BambooHR</a>
+				</li>
+				<div class="NavbarMobile__extend js-nav-level-2">
+					<ul class="NavbarMobile__links">
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--backBtn js-nav-back-to-level-1">Back</a>
+						</li>
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/about/">Our Story</a>
+						</li>
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/media">Media</a>
+						</li>
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/careers/">Careers</a>
+						</li>
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/events-calendar/">Events</a>
+						</li>
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="https://partners.bamboohr.com">Partner With Us</a>
+						</li>
+						<li class="NavbarMobile__linkWrap">
+							<a class="NavbarMobile__link NavbarMobile__link--extend" href="/contact/">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</ul>
+		</div>
+					<div class="NavbarMobile__bottom">
+				<a class="Button Button--stroke Button--small NavbarMobile__signupBtn" href="/signup/" role="button">Try it Free</a>
+			</div>
+			</div>
+
+	<span id="skipToContent"></span>
+
+
+
+<div class="fixed-nav-padding home">
+	<section class="homeDemoWebinar" aria-label="Weekly BambooHR Demo Webinar">
+		<div class="homeDemoWebinar__container">
+			<div class="homeDemoWebinar__left">
+				<div class="homeDemoWebinar__img"></div>
+			</div>
+			<div class="homeDemoWebinar__middle">
+				<div class="homeDemoWebinar__title"><span class="homeDemoWebinar__titleExtra">Register Today for the </span>Weekly BambooHR Demo Webinar.</div>
+			</div>
+			<div class="homeDemoWebinar__right">
+				<div class="homeDemoWebinar__cta">
+					<a class="homeDemoWebinar__ctaBtn" href="https://bamboohr.zoom.us/webinar/register/WN_zx1s0oXpTXGV9CRrR7Cznw" target="_blank" rel="noopener noreferrer nofollow" role="button" aria-label="Click here to register our weekly BambooHR demo webinar today - opens in a new tab">Register Now</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="homeSYFHero" aria-label="HR software with heart">
+	<div class="homeSYFHero__bgImg homeSYFHero__bgImg--mobile homeSYFHero__bgImg--mobile-l"></div>
+	<div class="homeSYFHero__bgImg homeSYFHero__bgImg--tablet homeSYFHero__bgImg--tablet-l"></div>
+	<div class="homeSYFHero__bgImg homeSYFHero__bgImg--laptop homeSYFHero__bgImg--laptop-l"></div>
+	<div class="homeSYFHero__bgImg homeSYFHero__bgImg--desktop homeSYFHero__bgImg--desktop-l"></div>
+	<div class="bhrsection-padding homeSYFHero__bigWrap">
+		<div class="bhrsection-container homeSYFHero__container">
+			<div class="homeSYFHero__container" role="main">
+				<div class="homeSYFHero__copyWrap">
+					<div class="homeSYFHero__titleImgWrap">
+						<img class="homeSYFHero__titleImg homeSYFHero__titleImg--mobile homeSYFHero__titleImg--mobile-l" src="/images/home/set-you-free/change-minds/change-minds-mobile.svg" alt="Feel free to change minds">
+						<img class="homeSYFHero__titleImg homeSYFHero__titleImg--tablet homeSYFHero__titleImg--tablet-l" src="/images/home/set-you-free/change-minds/change-minds-tablet.svg" alt="Feel free to change minds">
+						<img class="homeSYFHero__titleImg homeSYFHero__titleImg--laptop homeSYFHero__titleImg--laptop-l" src="/images/home/set-you-free/change-minds/change-minds-laptop.svg" alt="Feel free to change minds">
+					</div>
+					<h1 class="bhrcolor-white homeSYFHero__subtitle">BambooHR all-in-one HR software turns your team into superstars.</h1>
+				</div>
+				<div class="homeSYFHero__form">
+					<form class="bhrForm bhrForm--inline2 js-bhrForm" id="js-homepage-syf-signup" aria-label="Try BambooHR free form" novalidate="" __bizdiag="-884808952" __biza="WJ__">
+						<div class="bhrForm__left">
+							<div class="bhrForm__inputWrapper">
+								<input type="email" name="email" class="bhrForm__input homeSYFForm__input js-bhrForm-input js-bhrForm-email" id="bhrform-email" aria-label="Enter your email here to try BambooHR free">
+								<label for="bhrform-email" class="bhrForm__label homeSYFForm__label js-bhrForm-label">Email Address</label>
+								<input class="js-bhrForm-successUrl" type="hidden" name="successUrl" value="/fft/change-minds/">
+							</div>
+						</div>
+						<div class="bhrForm__right homeSYFForm__right">
+							<button type="submit" class="bhrcolor-color1-background bhrcolor-white bhrForm__submit homeSYFForm__submit" aria-label="Click here to submit the form">Get My Free Demo</button>
+						</div>
+					</form>
+				</div>
+				<div class="homeSYFHeroMobile">
+					<div class="bhrtyp-center homeSYFHeroMobile__container">
+						<div class="homeSYFHeroMobile__btnWrap">
+							<a class="homeSYFHeroMobile__btn Button Button--form" href="/fft/change-minds/">Sign Up for a Free Trial</a>
+						</div>
+						<div class="bhrtyp-center typ-table-body homeSYFHeroMobile__infoWrap">
+							<div class="bhrcolor-white bhrtyp-black homeSYFHeroMobile__info">Zak Coon</div>
+							<div class="bhrcolor-white homeSYFHeroMobile__info">Head of People</div>
+							<div class="bhrcolor-white homeSYFHeroMobile__info">eLuma</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="homeEyelashLeaf">
+		<div class="homeEyelashLeaf__container">
+			<div class="homeEyelashLeaf__wrapper">
+				<img class="homeEyelashLeaf__logo" src="/images/icons/microphone-active.svg" alt="">
+				<div class="homeEyelashLeaf__copyWrap">
+					<div class="typ-small-header bhrtyp-italic bhrtyp-black bhrcolor-white homeEyelashLeaf__heading">The Era:</div>
+					<p class="bhrcolor-white homeEyelashLeaf__description">A new podcast from BambooHR about putting your people first.</p>
+					<div class="homeEyelashLeaf__cta">
+						<a class="Button Button--small bhrcolor-color6 bhrcolor-white-background" href="/the-era-podcast/" role="button">Listen Now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<img class="bhrwidth-100 homeEyelashLeaf__leaf homeEyelashLeaf__leaf--mobile" src="/images/leaf/gray/leaf-top-1-gray-1-custom-mobile-min.png" alt="leaf image">
+		<img class="bhrwidth-100 homeEyelashLeaf__leaf homeEyelashLeaf__leaf--tablet" src="/images/leaf/gray/leaf-top-1-gray-1-custom-tablet-min.png" alt="leaf image">
+		<img class="bhrwidth-100 homeEyelashLeaf__leaf homeEyelashLeaf__leaf--laptop" src="/images/leaf/gray/leaf-top-1-gray-1-custom-laptop-min.png" alt="leaf image">
+		<img class="bhrwidth-100 homeEyelashLeaf__leaf homeEyelashLeaf__leaf--desktop" src="/images/leaf/gray/leaf-top-1-gray-1-custom-desktop-min.png" alt="leaf image">
+	</div>
+</section>
+	<!-- Customer logos -->
+	<!-- <section class="bhrcolor-gray1-background" arial-label="featured BambooHR family logos">
+		<div class="bhrcolor-gray1-background homeFeaturedLogos__bottom">
+			<div class="bhrsection-padding">
+				<div class="bhrsection-container-large homeFeaturedLogos__wrapper">
+					<div class="homeFeaturedLogos__container">
+						<div class="homeFeaturedLogos__title typ-subhead1 bhrcolor-gray9 bhrtyp-italic">A few of our 21,000+ customers</div>
+						<div class="homeFeaturedLogos__content">
+															<div class="homeFeaturedLogos__imgContainer">
+									<img src="//images.ctfassets.net/9gvb5n00xbqb/P6iBdjqCoTpXMJ78JLWOK/e1c5250814bfd4a19139ea2281b0ff4b/Grammarly-250.svg" class="homeFeaturedLogos__img" alt="Featured customer second genome logo" />
+								</div>
+															<div class="homeFeaturedLogos__imgContainer">
+									<img src="//images.ctfassets.net/9gvb5n00xbqb/2o7rtWSDqm9PxtwLQu4rjL/a161fad4057ac4ff96f592cf1ed2a66e/Postmates-250.svg" class="homeFeaturedLogos__img" alt="Featured customer second genome logo" />
+								</div>
+															<div class="homeFeaturedLogos__imgContainer">
+									<img src="//images.ctfassets.net/9gvb5n00xbqb/2pHyhetKYYi8NgR9y6ME5J/d0e6f58748a276602af2a03d248149c5/Jane-250.svg" class="homeFeaturedLogos__img" alt="Featured customer second genome logo" />
+								</div>
+															<div class="homeFeaturedLogos__imgContainer">
+									<img src="//images.ctfassets.net/9gvb5n00xbqb/3mbfvn83Ns2COjyT4z2XaK/e1003e6a06bec70ffabd80529bf5378d/Stance-250.svg" class="homeFeaturedLogos__img" alt="Featured customer second genome logo" />
+								</div>
+															<div class="homeFeaturedLogos__imgContainer">
+									<img src="//images.ctfassets.net/9gvb5n00xbqb/6y7kTvwtGDIKpsi8ZD407G/1ea200bb06fe061dfa6988eae8d14840/Jaguars-250.svg" class="homeFeaturedLogos__img" alt="Featured customer second genome logo" />
+								</div>
+															<div class="homeFeaturedLogos__imgContainer">
+									<img src="//images.ctfassets.net/9gvb5n00xbqb/2I8vmuV4YQGpeme6wq37xa/c788e736c9e0679ce02ed47ea6f37336/University-of-Maryland-250.svg" class="homeFeaturedLogos__img" alt="Featured customer second genome logo" />
+								</div>
+															<div class="homeFeaturedLogos__imgContainer">
+									<img src="//images.ctfassets.net/9gvb5n00xbqb/3vSJ6XHQWC5dHdjH2TJQNm/6e0d406ae18837cce4feffb6ad5bc18c/Zip-Recruiter-250.svg" class="homeFeaturedLogos__img" alt="Featured customer second genome logo" />
+								</div>
+															<div class="homeFeaturedLogos__imgContainer">
+									<img src="//images.ctfassets.net/9gvb5n00xbqb/26dlxQlAWL3ABg9blCCu12/b0d98df009b4df824ebfeaf22b952104/Change-org-250.svg" class="homeFeaturedLogos__img" alt="Featured customer second genome logo" />
+								</div>
+													</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> -->
+
+	<div class="homeRelative bhrcolor-white-background">
+		<section class="bhrcolor-gray1-background homeOverview" aria-label="What can BambooHR do for you?">
+			<div class="homeOverview__curveContainer">
+				<img class="homeOverview__curve lazyload" data-src="/images/leaf/gray/leaf-bottom-1-gray-1-min.png" alt="overview curve shape">
+			</div>
+			<div class="bhrsection-padding homeOverview__overflow">
+				<div class="bhrsection-container-large">
+					<div class="homeOverview__container js-in-viewport">
+						<h3 class="typ-section-header bhrtyp-italic bhrtyp-center bhrcolor-gray12">Let’s be great together.</h3>
+						<div class="typ-subhead1 bhrtyp-center bhrcolor-gray9">What can BambooHR<sup>®</sup> do for you?</div>
+						<div class="homeOverviewContent">
+							<div class="homeOverviewContent__right Animation__toLeft">
+								<a class="js-open-modal" href="#" data-modal="home-modal" data-wistiaid="j3noi0pebm" data-qualitymin="540">
+									<div class="homeOverviewContent__videoContainer homePlayBtn__container">
+										<div class="homeOverviewContent__videoPlayBtn homePlayBtn"></div>
+										<img class="homeOverviewContent__videoImg lazyloaded" data-src="/images/home/overview-video-thumb-smile-min.jpg" alt="BambooHR Overview" src="/images/home/overview-video-thumb-smile-min.jpg">
+									</div>
+								</a>
+							</div>
+							<div class="homeOverviewContent__left Animation__toRight">
+								<h2 class="typ-title1 bhrcolor-gray12">This is HR software with heart.</h2>
+								<p class="bhrcolor-gray9">Our HR software collects and organizes all the information you gather throughout the employee life cycle, then helps you use it to achieve great things. Whether you’re hiring, onboarding, preparing compensation, or building culture, BambooHR gives you the time and insights to focus on your most important asset—your people.</p>
+								<div class="homeOverviewContent__btnContainer">
+									<a href="#" class="Button Button--small homeOverviewContent__btn js-open-modal" aria-label="Click here to take a video tour" data-modal="home-modal" data-wistiaid="j3noi0pebm" data-qualitymin="540" role="button">Take a Video Tour</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="homeFeature homeFeature--people" aria-label="People Data &amp; Analytics">
+			<h2 class="homeFeatureHeader typ-section-header bhrtyp-italic bhrtyp-center bhrcolor-gray12 bhrsection-padding">All-In-One HR Software</h2>
+			<div class="typ-subhead1 bhrtyp-center bhrcolor-gray9 bhrsection-padding">BambooHR is made for small and medium businesses and the people who work in them—like you.</div>
+			<div class="bhrsection-container-large bhrsection-padding homeFeature__container">
+				<div class="homeFeatureTitle homeFeatureTitle--people">
+					<img class="homeFeatureTitle__image lazyload" data-src="/images/product/tour/pillar-people-data.svg" alt="People Data &amp; Analytics">
+					<h2 class="typ-stats bhrtyp-italic bhrcolor-color6">People Data &amp; Analytics</h2>
+				</div>
+				<div class="homeFeatureContent">
+					<div class="homeFeatureContent__screenshot">
+						<a class="js-open-modal" href="#" data-modal="home-modal" data-wistiaid="32giwvpjsu" data-qualitymin="720" aria-label="Click here to watch the People Data &amp; Analytics video">
+							<div class="homePlayBtn__container">
+								<div class="homePlayBtn"></div>
+								<img class="homeFeatureContent__thumbnail homeFeatureContent__thumbnail--people lazyload" data-src="/images/product/tour/employee-records-video-thumb-min.jpg" alt="Employee Records Video">
+							</div>
+						</a>
+					</div>
+					<div class="homeFeatureContentRight">
+						<p class="bhrcolor-color6 homeFeatureContentRight__copy">
+							Gathering, storing, and analyzing people data is a big part of HR, and many organizations depend on HR to manage employee information quickly and accurately. Unfortunately, the amount of time and effort it takes to collect, study, and report on sensitive data using simple spreadsheets and paper files is almost as big as the security risk.
+						</p>
+						<p class="bhrcolor-color6 homeFeatureContentRight__copy">
+							With BambooHR, all your employee information lives in a single, secure database, with powerful reporting tools and editing capabilities at your fingertips. Managing workforce data has never been easier, faster, or more fluid, and the road to exceptional HR has never been this clear.
+						</p>
+						<div class="homeFeatureContentRightLinks">
+							<a class="homeFeatureContentRightLinks__image" href="/employee-database-software/"><img class="lazyload" data-src="/images/product/tour/employee-records.svg" alt="Employee Records"></a>
+							<a class="homeFeatureContentRightLinks__image homeFeatureContentRightLinks__image--align" href="/mobile/"><img class="lazyload" data-src="/images/product/tour/mobile-app.svg" alt="Mobile App"></a>
+							<a class="homeFeatureContentRightLinks__image" href="/custom-workflows/"><img class="lazyload" data-src="/images/product/tour/workflows-approvals.svg" alt="Workflows &amp; Approvals"></a>
+							<a class="homeFeatureContentRightLinks__image homeFeatureContentRightLinks__image--last" href="/hr-reporting/"><img class="lazyload" data-src="/images/product/tour/reporting-analytics.svg" alt="Reporting &amp; Analytics"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<img class="homeFeature__image homeFeature__image--people lazyload" data-src="/images/product/tour/people-data-cropped-min.png" alt="People &amp; Data graph">
+		</section>
+
+		<div class="WaveTop">
+			<img class="WaveTop__image lazyload" data-src="/images/leaf/custom/product-top-yellow-min.png" alt="leaf">
+		</div>
+
+		<section class="homeFeature homeFeature--hiring" aria-label="Hiring">
+			<div class="bhrsection-container-large bhrsection-padding homeFeature__container">
+				<div class="homeFeatureTitle homeFeatureTitle--hiring">
+					<img class="homeFeatureTitle__image lazyload" data-src="/images/product/tour/pillar-hiring.svg" alt="Hiring">
+					<h2 class="typ-stats bhrtyp-italic bhrcolor-color4-shade10">Hiring</h2>
+				</div>
+				<div class="homeFeatureContent">
+					<div class="homeFeatureContent__screenshot">
+						<a class="js-open-modal" href="#" data-modal="home-modal" data-wistiaid="rzhtt212lw" data-qualitymin="720" aria-label="Click here to watch the hiring video">
+							<div class="homePlayBtn__container">
+								<div class="homePlayBtn"></div>
+								<img class="homeFeatureContent__thumbnail homeFeatureContent__thumbnail--hiring lazyload" data-src="/images/product/tour/ats-video-thumb-min.jpg" alt="BambooHR Hiring">
+							</div>
+						</a>
+					</div>
+					<div class="homeFeatureContentRight">
+						<p class="bhrcolor-color4-shade10 homeFeatureContentRight__copy">
+							Finding the right talent is hard enough, but if your hiring process is slow or inconsistent, making sure great candidates don’t slip through your fingers can be even harder. BambooHR brings a modern approach to hiring, with applicant tracking tools that improve every stage of hiring from applications to offer letters. With BambooHR, communication improves, bottlenecks disappear, and you hire the right people, faster than ever.
+						</p>
+						<div class="homeFeatureContentRightLinks">
+							<a class="homeFeatureContentRightLinks__image" href="/mobile-hiring-app/"><img class="lazyload" data-src="/images/product/tour/mobile-hiring-app.svg" alt="Mobile Hiring App"></a>
+							<a class="homeFeatureContentRightLinks__image homeFeatureContentRightLinks__image--last" href="/applicant-tracking/"><img class="lazyload" data-src="/images/product/tour/applicant-tracking-system.svg" alt="Applicant Tracking System"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<img class="homeFeatureBottom lazyload" data-src="/images/product/tour/hiring-background-min.png" alt="Hiring banner">
+		</section>
+
+		<div class="Wave WaveBottom WaveBottom--hiring">
+			<img class="WaveBottom__image lazyload" data-src="/images/leaf/custom/product-bottom-leaf-min.png" alt="leaf">
+		</div>
+
+		<section class="homeQuote" aria-label="BambooHR customer quote">
+			<div class="homeQuote__container bhrsection-padding">
+				<p class="bhrtyp-italic bhrcolor-gray9 typ-quote-reference homeQuote__copy">“BambooHR is how you do HR. My company was in need of software that dramatically cut down our paper usage, particularly for the onboarding process. Benefits, bonuses, raises, and a whole slew of other job-related information can be tracked in BambooHR, making it the most comprehensive, easy-to-use HR software that my company has ever used!”</p>
+				<p class="typ-title2 bhrcolor-gray9">Keyana Kutney, Internal Operations Administrator | IntuitSolutions</p>
+			</div>
+		</section>
+
+		<div class="WaveTop WaveTop--onboarding">
+			<img class="WaveTop__image lazyload" data-src="/images/leaf/custom/product-top-orange-min.png" alt="leaf">
+		</div>
+
+		<section class="homeFeature homeFeature--onboarding">
+			<div class="bhrsection-container-large bhrsection-padding homeFeature__container">
+				<div class="homeFeatureTitle homeFeatureTitle--onboarding">
+					<img class="homeFeatureTitle__image lazyload" data-src="/images/product/tour/pillar-onboarding.svg" alt="Onboarding">
+					<h2 class="typ-stats bhrtyp-italic bhrcolor-color3">Onboarding</h2>
+				</div>
+				<div class="homeFeatureContent">
+					<div class="homeFeatureContent__screenshot">
+						<a class="js-open-modal" href="#" data-modal="home-modal" data-wistiaid="xgxiyfv4rz" data-qualitymin="720" aria-label="Click here to watch the onboarding video">
+							<div class="homePlayBtn__container">
+								<div class="homePlayBtn"></div>
+								<img class="homeFeatureContent__thumbnail homeFeatureContent__thumbnail--onboarding lazyload" data-src="/images/product/tour/onboarding-video-thumb-min.jpg" alt="BambooHR Onboarding">
+							</div>
+						</a>
+					</div>
+					<div class="homeFeatureContentRight">
+						<p class="bhrcolor-color3 homeFeatureContentRight__copy">
+							After the interview, the onboarding process is the first real impression your organization makes on new employees. BambooHR makes you an onboarding all-star, adding personality and personal touches while making quick work of necessary forms and formalities. With fewer compliance concerns and the confidence of onboarding checklists, you can spend less time behind a screen and more time creating amazing first days for your talented hires.
+						</p>
+						<div class="homeFeatureContentRightLinks">
+							<a class="homeFeatureContentRightLinks__image" href="/employee-self-onboarding/"><img class="lazyload" data-src="/images/product/tour/onboarding.svg" alt="Onboarding"></a>
+							<a class="homeFeatureContentRightLinks__image" href="/electronic-signatures/"><img class="lazyload" data-src="/images/product/tour/e-signatures.svg" alt="E-Signatures"></a>
+							<a class="homeFeatureContentRightLinks__image homeFeatureContentRightLinks__image--last" href="/employee-offboarding-software/"><img class="lazyload" data-src="/images/product/tour/offboarding.svg" alt="E-Signatures"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="homeFeature__image homeFeature__image--center bhrsection-padding">
+				<img class="lazyload" data-src="/images/product/tour/onboarding-min.png" alt="Onboarding banner">
+			</div>
+		</section>
+
+		<div class="Wave WaveBottom WaveBottom--onboarding">
+			<img class="WaveBottom__image lazyload" data-src="/images/leaf/custom/product-bottom-leaf-min.png" alt="bottom leaf">
+		</div>
+
+		<section class="homeLearn" aria-label="Learn more about BambooHR">
+			<div class="homeLearn__container bhrsection-padding">
+				<h4 class="typ-section-header bhrcolor-gray12">Want to learn more about BambooHR?</h4>
+				<h5 class="typ-section-subhead bhrcolor-gray9">There’s no substitute for hands–on experience. Try it yourself—free for seven days.</h5>
+				<a class="homeLearn__button Button" href="/signup/">Start Your Free Trial Now</a>
+			</div>
+		</section>
+
+		<div class="WaveTop WaveTop--compensation">
+			<img class="WaveTop__image lazyload" data-src="/images/leaf/custom/product-top-green-min.png" alt="leaf">
+		</div>
+
+		<section class="homeFeature homeFeature--compensation" aria-label="Compensation">
+			<div class="bhrsection-container-large bhrsection-padding homeFeature__container">
+				<div class="homeFeatureTitle homeFeatureTitle--compensation">
+					<img class="homeFeatureTitle__image lazyload" data-src="/images/product/tour/pillar-compensation.svg" alt="Compensation">
+					<h2 class="typ-stats bhrtyp-italic bhrcolor-color1">Compensation</h2>
+				</div>
+				<div class="homeFeatureContent">
+					<div class="homeFeatureContent__screenshot">
+						<a class="js-open-modal" href="#" data-modal="home-modal" data-wistiaid="1kmkowwbb6" data-qualitymin="720" aria-label="Click here to watch the compensation video">
+							<div class="homePlayBtn__container">
+								<div class="homePlayBtn"></div>
+								<img class="homeFeatureContent__thumbnail lazyload" data-src="/images/product/tour/compensation-min.jpg" alt="Compensation">
+							</div>
+						</a>
+					</div>
+					<div class="homeFeatureContentRight">
+						<p class="bhrcolor-color1 homeFeatureContentRight__copy">Gathering and tracking payroll data plays a critical part in paying your employees on time and accurately. Many organizations still use unreliable methods to track hours and time-off requests, creating a compensation nightmare for finance and a liability issue for the entire company. Whether you’re tracking time, benefits, or PTO or running payroll, BambooHR makes paying your employees an easy and delightful experience.</p>
+						<div class="homeFeatureContentRightLinks">
+							<a class="homeFeatureContentRightLinks__image" href="/time-tracking-software/"><img class="lazyload" data-src="/images/product/tour/time-tracking.svg" alt="Time Tracking"></a>
+							<a class="homeFeatureContentRightLinks__image" href="/paid-time-off/"><img class="lazyload" data-src="/images/product/tour/paid-time-off.svg" alt="Paid Time Off"></a>
+							<a class="homeFeatureContentRightLinks__image homeFeatureContentRightLinks__image--last" href="/payroll-software/"><img class="lazyload" data-src="/images/product/tour/payroll-cta.svg" alt="Payroll"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<img class="homeFeature__image homeFeature__image--compensation lazyload" data-src="/images/product/tour/compensation-min.png" alt="Compensation banner">
+		</section>
+
+		<div class="WaveTop WaveTop--culture">
+			<img class="WaveTop__image lazyload" data-src="/images/leaf/custom/product-top-blue-min.png" alt="leaf">
+		</div>
+
+		<section class="homeFeature homeFeature--culture" aria-label="Culture">
+			<div class="bhrsection-container-large bhrsection-padding homeFeature__container">
+				<div class="homeFeatureTitle homeFeatureTitle--culture">
+					<img class="homeFeatureTitle__image lazyload" data-src="/images/product/tour/pillar-culture.svg" alt="BambooHR Culture">
+					<h2 class="typ-stats bhrtyp-italic bhrcolor-color5">Culture</h2>
+				</div>
+				<div class="homeFeatureContent">
+					<div class="homeFeatureContent__screenshot">
+						<a class="js-open-modal" href="#" data-modal="home-modal" data-wistiaid="br306ckxr4" data-qualitymin="720" aria-label="Click here to watch the culture video">
+							<div class="homePlayBtn__container">
+								<div class="homePlayBtn"></div>
+								<img class="homeFeatureContent__thumbnail lazyload" data-src="/images/product/tour/culture-min.jpg" alt="Culture">
+							</div>
+						</a>
+					</div>
+					<div class="homeFeatureContentRight">
+						<p class="bhrcolor-color5 homeFeatureContentRight__copy">
+							Creating a company culture where people feel valued and supported requires a deep understanding of the people who work there—how they feel, what they want, and where they need help. You need the ability to measure employee performance, gauge their overall satisfaction, and gain the kind of insights that help you create a plan of action. BambooHR can do all of the above, giving you what you need to strengthen culture and guide your organization forward.
+						</p>
+						<div class="homeFeatureContentRightLinks">
+							<a class="homeFeatureContentRightLinks__image" href="/employee-net-promoter-score-software/"><img class="lazyload" data-src="/images/product/tour/employee-satisfaction.svg" alt="Employee Satisfaction"></a>
+							<a class="homeFeatureContentRightLinks__image homeFeatureContentRightLinks__image--last" href="/performance-management/"><img class="lazyload" data-src="/images/product/tour/performance-management.svg" alt="Performance Management"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="homeFeature__image homeFeature__image--culture homeFeature__image--center bhrsection-padding">
+				<img class="lazyload" data-src="/images/product/tour/culture-pudgy-min.png">
+			</div>
+
+			<div class="homeLearn__container bhrsection-padding">
+				<h4 class="typ-section-header bhrcolor-color5">Want to learn more about BambooHR?</h4>
+				<h5 class="typ-section-subhead bhrcolor-color5">There’s no substitute for hands–on experience. Try it yourself—free for seven days.</h5>
+				<a class="homeLearn__button Button bhrcolor-color5-background" href="/signup/">Start Your Free Trial Now</a>
+			</div>
+		</section>
+	</div>
+	<div id="home-modal" class="Modal__overlay js-modal-overlay">
+		<div class="Modal js-modal Modal--video">
+			<div class="Modal__content">
+				<div class="js-embed-video"></div>
+			</div>
+		</div>
+	</div>
+	<div id="pricing-form-modal" class="Modal__overlay js-modal-overlay">
+		<div class="Modal js-modal">
+			<div class="Modal__close js-modal-close"></div>
+			<div class="Modal__content">
+				<div class="typ-title1 bhrtyp-center bhrtyp-italic bhrcolor-color1">Quote Me!</div>
+				<p class="bhrtyp-bold bhrtyp-center">Take a few seconds to tell us a little about yourself and we’ll be in touch shortly.</p>
+				<form id="mktoForm_1328" class="bhrForm--secondary mktoForm mktoHasWidth mktoLayoutLeft" __bizdiag="196354538" __biza="WJ__" novalidate="novalidate" style="display: block;"><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol"><div class="mktoFieldWrap mktoRequiredField"><label for="Email_14756" id="LblEmail" class="mktoLabel mktoHasWidth">Email Address</label><input id="Email_14756" name="Email" maxlength="255" aria-labelledby="LblEmail InstructEmail" type="email" class="mktoField mktoEmailField mktoHasWidth mktoRequired" aria-required="true"><span id="InstructEmail" tabindex="-1" class="mktoInstruction"></span></div></div></div><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol"><div class="mktoFieldWrap mktoRequiredField"><label for="Phone_14756" id="LblPhone" class="mktoLabel mktoHasWidth">Phone Number</label><input id="Phone_14756" name="Phone" maxlength="255" aria-labelledby="LblPhone InstructPhone" type="tel" class="mktoField mktoTelField mktoHasWidth mktoRequired" aria-required="true"><span id="InstructPhone" tabindex="-1" class="mktoInstruction"></span></div></div></div><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol"><div class="mktoFieldWrap mktoRequiredField"><label for="Employees_Text__c_14756" id="LblEmployees_Text__c" class="mktoLabel mktoHasWidth bhrForm__label--select">Number of Employees</label><select id="Employees_Text__c_14756" name="Employees_Text__c" aria-labelledby="LblEmployees_Text__c InstructEmployees_Text__c" class="mktoField mktoHasWidth mktoRequired bhrForm__input--select" aria-required="true"><option value="">Number of Employees</option><option value="1-24">1-24</option><option value="25-75">25-75</option><option value="76-150">76-150</option><option value="151-300">151-300</option><option value="300+">300+</option></select><span id="InstructEmployees_Text__c" tabindex="-1" class="mktoInstruction"></span></div></div></div><div class="mktoFormRow"><div class="mktoPlaceholder mktoPlaceholderFirstName"></div></div><div class="mktoFormRow"><div class="mktoPlaceholder mktoPlaceholderLastName"></div></div><div class="mktoFormRow"><div class="mktoPlaceholder mktoPlaceholderTitle"></div></div><div class="mktoFormRow"><div class="mktoPlaceholder mktoPlaceholderCompany"></div></div><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol"><div class="mktoFieldWrap mktoRequiredField"><label for="Country_14756" id="LblCountry" class="mktoLabel mktoHasWidth bhrForm__label--select">Country</label><select id="Country_14756" name="Country" aria-labelledby="LblCountry InstructCountry" class="mktoField mktoHasWidth mktoRequired bhrForm__input--select" aria-required="true"><option value="United States">United States </option><option value="United Kingdom">United Kingdom </option><option value="Canada">Canada </option><option value="Afghanistan">Afghanistan </option><option value="Aland Islands">Aland Islands </option><option value="Albania">Albania </option><option value="Algeria">Algeria </option><option value="American Samoa">American Samoa </option><option value="Andorra">Andorra </option><option value="Angola">Angola </option><option value="Anguilla">Anguilla </option><option value="Antarctica">Antarctica </option><option value="Antigua and Barbuda">Antigua and Barbuda </option><option value="Argentina">Argentina </option><option value="Armenia">Armenia </option><option value="Aruba">Aruba </option><option value="Australia">Australia </option><option value="Austria">Austria </option><option value="Azerbaijan">Azerbaijan </option><option value="Bahamas">Bahamas </option><option value="Bahrain">Bahrain </option><option value="Bangladesh">Bangladesh </option><option value="Barbados">Barbados </option><option value="Belarus">Belarus </option><option value="Belgium">Belgium </option><option value="Belize">Belize </option><option value="Benin">Benin </option><option value="Bermuda">Bermuda </option><option value="Bhutan">Bhutan </option><option value="Bolivia, Plurinational State of">Bolivia </option><option value="Bonaire, Sint Eustatius and Saba">Bonaire </option><option value="Bosnia and Herzegovina">Bosnia and Herzegovina </option><option value="Botswana">Botswana </option><option value="Bouvet Island">Bouvet Island </option><option value="Brazil">Brazil </option><option value="British Indian Ocean Territory">British Indian Ocean Territory </option><option value="Brunei Darussalam">Brunei Darussalam </option><option value="Bulgaria">Bulgaria </option><option value="Burkina Faso">Burkina Faso </option><option value="Burundi">Burundi </option><option value="Cambodia">Cambodia </option><option value="Cameroon">Cameroon </option><option value="Cape Verde">Cape Verde </option><option value="Cayman Islands">Cayman Islands </option><option value="Central African Republic">Central African Republic </option><option value="Chad">Chad </option><option value="Chile">Chile </option><option value="China">China </option><option value="Christmas Island">Christmas Island </option><option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands </option><option value="Colombia">Colombia </option><option value="Comoros">Comoros </option><option value="Congo">Congo </option><option value="Congo, the Democratic Republic of the">Congo, the Democratic Republic of the </option><option value="Cook Islands">Cook Islands </option><option value="Costa Rica">Costa Rica </option><option value="Cote d’Ivoire">Cote d’Ivoire </option><option value="Croatia">Croatia </option><option value="Cuba">Cuba </option><option value="Curaçao">Curaçao </option><option value="Cyprus">Cyprus </option><option value="Czech Republic">Czech Republic </option><option value="Denmark">Denmark </option><option value="Djibouti">Djibouti </option><option value="Dominica">Dominica </option><option value="Dominican Republic">Dominican Republic </option><option value="Ecuador">Ecuador </option><option value="Egypt">Egypt </option><option value="El Salvador">El Salvador </option><option value="Equatorial Guinea">Equatorial Guinea </option><option value="Eritrea">Eritrea </option><option value="Estonia">Estonia </option><option value="Ethiopia">Ethiopia </option><option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas) </option><option value="Faroe Islands">Faroe Islands </option><option value="Fiji">Fiji </option><option value="Finland">Finland </option><option value="France">France </option><option value="French Guiana">French Guiana </option><option value="French Polynesia">French Polynesia </option><option value="French Southern Territories">French Southern Territories </option><option value="Gabon">Gabon </option><option value="Gambia">Gambia </option><option value="Georgia">Georgia </option><option value="Germany">Germany </option><option value="Ghana">Ghana </option><option value="Gibraltar">Gibraltar </option><option value="Greece">Greece </option><option value="Greenland">Greenland </option><option value="Grenada">Grenada </option><option value="Guadeloupe">Guadeloupe </option><option value="Guatemala">Guatemala </option><option value="Guernsey">Guernsey </option><option value="Guinea">Guinea </option><option value="Guinea-Bissau">Guinea-Bissau </option><option value="Guyana">Guyana </option><option value="Haiti">Haiti </option><option value="Heard Island and McDonald Islands">Heard Island and McDonald Islands </option><option value="Holy See (Vatican City State)">Holy See (Vatican City State) </option><option value="Honduras">Honduras </option><option value="Hong Kong">Hong Kong </option><option value="Hungary">Hungary </option><option value="Iceland">Iceland </option><option value="India">India </option><option value="Indonesia">Indonesia </option><option value="Iran, Islamic Republic of">Iran, Islamic Republic of </option><option value="Iraq">Iraq </option><option value="Ireland">Ireland </option><option value="Isle of Man">Isle of Man </option><option value="Israel">Israel </option><option value="Italy">Italy </option><option value="Jamaica">Jamaica </option><option value="Japan">Japan </option><option value="Jersey">Jersey </option><option value="Jordan">Jordan </option><option value="Kazakhstan">Kazakhstan </option><option value="Kenya">Kenya </option><option value="Kiribati">Kiribati </option><option value="Korea, Democratic People's Republic of">North Korea </option><option value="Korea, Republic of">South Korea </option><option value="Kuwait">Kuwait </option><option value="Kyrgyzstan">Kyrgyzstan </option><option value="Lao People’s Democratic Republic">Lao People’s Democratic Republic </option><option value="Latvia">Latvia </option><option value="Lebanon">Lebanon </option><option value="Lesotho">Lesotho </option><option value="Liberia">Liberia </option><option value="Libya">Libya </option><option value="Liechtenstein">Liechtenstein </option><option value="Lithuania">Lithuania </option><option value="Luxembourg">Luxembourg </option><option value="Macao">Macao </option><option value="Macedonia, the former Yugoslav Republic of">Macedonia </option><option value="Madagascar">Madagascar </option><option value="Malawi">Malawi </option><option value="Malaysia">Malaysia </option><option value="Maldives">Maldives </option><option value="Mali">Mali </option><option value="Malta">Malta </option><option value="Marshall Islands">Marshall Islands </option><option value="Martinique">Martinique </option><option value="Mauritania">Mauritania </option><option value="Mauritius">Mauritius </option><option value="Mayotte">Mayotte </option><option value="Mexico">Mexico </option><option value="Moldova">Moldova, Republic of </option><option value="Monaco">Monaco </option><option value="Mongolia">Mongolia </option><option value="Montenegro">Montenegro </option><option value="Montserrat">Montserrat </option><option value="Morocco">Morocco </option><option value="Mozambique">Mozambique </option><option value="Myanmar">Myanmar </option><option value="Namibia">Namibia </option><option value="Nauru">Nauru </option><option value="Nepal">Nepal </option><option value="Netherlands">Netherlands </option><option value="Netherlands Antilles">Netherlands Antilles </option><option value="New Caledonia">New Caledonia </option><option value="New Zealand">New Zealand </option><option value="Nicaragua">Nicaragua </option><option value="Niger">Niger </option><option value="Nigeria">Nigeria </option><option value="Niue">Niue </option><option value="Norfolk Island">Norfolk Island </option><option value="Norway">Norway </option><option value="Oman">Oman </option><option value="Pakistan">Pakistan </option><option value="Palau">Palau </option><option value="Palestine">Palestine </option><option value="Panama">Panama </option><option value="Papua New Guinea">Papua New Guinea </option><option value="Paraguay">Paraguay </option><option value="Peru">Peru </option><option value="Philippines">Philippines </option><option value="Pitcairn">Pitcairn </option><option value="Poland">Poland </option><option value="Portugal">Portugal </option><option value="Qatar">Qatar </option><option value="Reunion">Reunion </option><option value="Romania">Romania </option><option value="Russian Federation">Russian Federation </option><option value="Rwanda">Rwanda </option><option value="Saint Barthélemy">Saint Barthélemy </option><option value="Saint Helena, Ascension and Tristan da Cunha">Saint Helena, Ascension and Tristan da Cunha </option><option value="Saint Kitts and Nevis">Saint Kitts and Nevis </option><option value="Saint Lucia">Saint Lucia </option><option value="Saint Martin (French part)">Saint Martin (French part) </option><option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon </option><option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines </option><option value="Samoa">Samoa </option><option value="San Marino">San Marino </option><option value="Sao Tome and Principe">Sao Tome and Principe </option><option value="Saudi Arabia">Saudi Arabia </option><option value="Senegal">Senegal </option><option value="Serbia">Serbia </option><option value="Seychelles">Seychelles </option><option value="Sierra Leone">Sierra Leone </option><option value="Singapore">Singapore </option><option value="Sint Maarten (Dutch part)">Sint Maarten (Dutch part) </option><option value="Slovakia">Slovakia </option><option value="Slovenia">Slovenia </option><option value="Solomon Islands">Solomon Islands </option><option value="Somalia">Somalia </option><option value="South Africa">South Africa </option><option value="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands </option><option value="South Sudan">South Sudan </option><option value="Spain">Spain </option><option value="Sri Lanka">Sri Lanka </option><option value="Sudan">Sudan </option><option value="Suriname">Suriname </option><option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen </option><option value="Swaziland">Swaziland </option><option value="Sweden">Sweden </option><option value="Switzerland">Switzerland </option><option value="Syrian Arab Republic">Syrian Arab Republic </option><option value="Taiwan">Taiwan </option><option value="Tajikistan">Tajikistan </option><option value="Tanzania, United Republic of">Tanzania </option><option value="Thailand">Thailand </option><option value="Timor-Leste">Timor-Leste </option><option value="Togo">Togo </option><option value="Tokelau">Tokelau </option><option value="Tonga">Tonga </option><option value="Trinidad and Tobago">Trinidad and Tobago </option><option value="Tunisia">Tunisia </option><option value="Turkey">Turkey </option><option value="Turkmenistan">Turkmenistan </option><option value="Turks and Caicos Islands">Turks and Caicos Islands </option><option value="Tuvalu">Tuvalu </option><option value="Uganda">Uganda </option><option value="Ukraine">Ukraine </option><option value="United Arab Emirates">United Arab Emirates </option><option value="Uruguay">Uruguay </option><option value="Uzbekistan">Uzbekistan </option><option value="Vanuatu">Vanuatu </option><option value="Venezuela, Bolivarian Republic of">Venezuela </option><option value="Vietnam">Vietnam </option><option value="Virgin Islands, British">Virgin Islands, British </option><option value="Wallis and Futuna">Wallis and Futuna </option><option value="Western Sahara">Western Sahara </option><option value="Yemen">Yemen </option><option value="Zambia">Zambia </option><option value="Zimbabwe">Zimbabwe </option></select><span id="InstructCountry" tabindex="-1" class="mktoInstruction"></span></div></div></div><div class="mktoFormRow"><div class="mktoFormCol"><div class="mktoFieldWrap"><div class="mktoHtmlText mktoHasWidth"><div class="bhrForm__partnerDisclaimer">By submitting this information,&nbsp;I am signing up to receive marketing communications (i.e. emails, calls, event invitations, etc.) from BambooHR. Please see our <a href="https://www.bamboohr.com/privacy-policy/" target="_blank">Privacy Policy</a> to understand how BambooHR handles your personal information – For California residents, please <a href="https://www.bamboohr.com/privacy-policy/#ccpa" target="_blank">click here</a>.</div></div></div></div></div><div class="mktoFormRow"><div class="mktoPlaceholder mktoPlaceholderDisclaimer__c"></div></div><div class="mktoFormRow"><input type="hidden" name="utm_source__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="utm_medium__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="utm_campaign__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="utm_content__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="utm_term__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Ad_Group_ID__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Ad_ID__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Ad_Group__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Campaign_ID__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Campaign__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Keyword_Target_Id__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Keyword__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_QM_ID__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Match_Type__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Device__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Placement__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Slot__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Extension__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Query_String__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="Sam_F_Client_ID__c" class="mktoField mktoFieldDescriptor mktoFormCol" value="GA1.1.1701741319.1648194785"></div><div class="mktoFormRow"><input type="hidden" name="Request_Type__c" class="mktoField mktoFieldDescriptor mktoFormCol" value="Pricing"></div><div class="mktoFormRow"><input type="hidden" name="GCLID__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="clearbitFormStatus" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoButtonRow"><span class="mktoButtonWrap mktoSimple"><button type="submit" class="mktoButton Button Button--form">Get a Price Quote</button></span></div><input type="hidden" name="formid" class="mktoField mktoFieldDescriptor" value="1328"><input type="hidden" name="munchkinId" class="mktoField mktoFieldDescriptor" value="195-LOZ-515"></form>
+			</div>
+		</div>
+	</div>
+	<div id="demo-form-modal" class="Modal__overlay js-modal-overlay">
+		<div class="Modal js-modal">
+			<div class="Modal__close js-modal-close"></div>
+			<div class="Modal__content">
+				<div class="typ-title1 bhrtyp-center bhrtyp-italic bhrcolor-color1">Tell us more about your organization:</div>
+				<p class="bhrtyp-bold bhrtyp-center">Just complete the form below</p>
+				<form id="mktoForm_1325" class="bhrForm--secondary mktoForm mktoHasWidth mktoLayoutLeft" __bizdiag="196354535" __biza="WJ__" novalidate="novalidate" style="display: block;"><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol"><div class="mktoFieldWrap mktoRequiredField"><label for="Email_74515" id="LblEmail" class="mktoLabel mktoHasWidth">Email Address</label><input id="Email_74515" name="Email" maxlength="255" aria-labelledby="LblEmail InstructEmail" type="email" class="mktoField mktoEmailField mktoHasWidth mktoRequired" aria-required="true"><span id="InstructEmail" tabindex="-1" class="mktoInstruction"></span></div></div></div><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol"><div class="mktoFieldWrap mktoRequiredField"><label for="Phone_74515" id="LblPhone" class="mktoLabel mktoHasWidth">Phone Number</label><input id="Phone_74515" name="Phone" maxlength="255" aria-labelledby="LblPhone InstructPhone" type="tel" class="mktoField mktoTelField mktoHasWidth mktoRequired" aria-required="true"><span id="InstructPhone" tabindex="-1" class="mktoInstruction"></span></div></div></div><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol"><div class="mktoFieldWrap mktoRequiredField"><label for="Employees_Text__c_74515" id="LblEmployees_Text__c" class="mktoLabel mktoHasWidth bhrForm__label--select">Number of Employees</label><select id="Employees_Text__c_74515" name="Employees_Text__c" aria-labelledby="LblEmployees_Text__c InstructEmployees_Text__c" class="mktoField mktoHasWidth mktoRequired bhrForm__input--select" aria-required="true"><option value="">Number of Employees</option><option value="1-24">1-24</option><option value="25-75">25-75</option><option value="76-150">76-150</option><option value="151-300">151-300</option><option value="300+">300+</option></select><span id="InstructEmployees_Text__c" tabindex="-1" class="mktoInstruction"></span></div></div></div><div class="mktoFormRow"><div class="mktoPlaceholder mktoPlaceholderFirstName"></div></div><div class="mktoFormRow"><div class="mktoPlaceholder mktoPlaceholderLastName"></div></div><div class="mktoFormRow"><div class="mktoPlaceholder mktoPlaceholderTitle"></div></div><div class="mktoFormRow"><div class="mktoPlaceholder mktoPlaceholderCompany"></div></div><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol"><div class="mktoFieldWrap mktoRequiredField"><label for="Country_74515" id="LblCountry" class="mktoLabel mktoHasWidth bhrForm__label--select">Country</label><select id="Country_74515" name="Country" aria-labelledby="LblCountry InstructCountry" class="mktoField mktoHasWidth mktoRequired bhrForm__input--select" aria-required="true"><option value="United States">United States </option><option value="United Kingdom">United Kingdom </option><option value="Canada">Canada </option><option value="Afghanistan">Afghanistan </option><option value="Aland Islands">Aland Islands </option><option value="Albania">Albania </option><option value="Algeria">Algeria </option><option value="American Samoa">American Samoa </option><option value="Andorra">Andorra </option><option value="Angola">Angola </option><option value="Anguilla">Anguilla </option><option value="Antarctica">Antarctica </option><option value="Antigua and Barbuda">Antigua and Barbuda </option><option value="Argentina">Argentina </option><option value="Armenia">Armenia </option><option value="Aruba">Aruba </option><option value="Australia">Australia </option><option value="Austria">Austria </option><option value="Azerbaijan">Azerbaijan </option><option value="Bahamas">Bahamas </option><option value="Bahrain">Bahrain </option><option value="Bangladesh">Bangladesh </option><option value="Barbados">Barbados </option><option value="Belarus">Belarus </option><option value="Belgium">Belgium </option><option value="Belize">Belize </option><option value="Benin">Benin </option><option value="Bermuda">Bermuda </option><option value="Bhutan">Bhutan </option><option value="Bolivia, Plurinational State of">Bolivia </option><option value="Bonaire, Sint Eustatius and Saba">Bonaire </option><option value="Bosnia and Herzegovina">Bosnia and Herzegovina </option><option value="Botswana">Botswana </option><option value="Bouvet Island">Bouvet Island </option><option value="Brazil">Brazil </option><option value="British Indian Ocean Territory">British Indian Ocean Territory </option><option value="Brunei Darussalam">Brunei Darussalam </option><option value="Bulgaria">Bulgaria </option><option value="Burkina Faso">Burkina Faso </option><option value="Burundi">Burundi </option><option value="Cambodia">Cambodia </option><option value="Cameroon">Cameroon </option><option value="Cape Verde">Cape Verde </option><option value="Cayman Islands">Cayman Islands </option><option value="Central African Republic">Central African Republic </option><option value="Chad">Chad </option><option value="Chile">Chile </option><option value="China">China </option><option value="Christmas Island">Christmas Island </option><option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands </option><option value="Colombia">Colombia </option><option value="Comoros">Comoros </option><option value="Congo">Congo </option><option value="Congo, the Democratic Republic of the">Congo, the Democratic Republic of the </option><option value="Cook Islands">Cook Islands </option><option value="Costa Rica">Costa Rica </option><option value="Cote d’Ivoire">Cote d’Ivoire </option><option value="Croatia">Croatia </option><option value="Cuba">Cuba </option><option value="Curaçao">Curaçao </option><option value="Cyprus">Cyprus </option><option value="Czech Republic">Czech Republic </option><option value="Denmark">Denmark </option><option value="Djibouti">Djibouti </option><option value="Dominica">Dominica </option><option value="Dominican Republic">Dominican Republic </option><option value="Ecuador">Ecuador </option><option value="Egypt">Egypt </option><option value="El Salvador">El Salvador </option><option value="Equatorial Guinea">Equatorial Guinea </option><option value="Eritrea">Eritrea </option><option value="Estonia">Estonia </option><option value="Ethiopia">Ethiopia </option><option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas) </option><option value="Faroe Islands">Faroe Islands </option><option value="Fiji">Fiji </option><option value="Finland">Finland </option><option value="France">France </option><option value="French Guiana">French Guiana </option><option value="French Polynesia">French Polynesia </option><option value="French Southern Territories">French Southern Territories </option><option value="Gabon">Gabon </option><option value="Gambia">Gambia </option><option value="Georgia">Georgia </option><option value="Germany">Germany </option><option value="Ghana">Ghana </option><option value="Gibraltar">Gibraltar </option><option value="Greece">Greece </option><option value="Greenland">Greenland </option><option value="Grenada">Grenada </option><option value="Guadeloupe">Guadeloupe </option><option value="Guatemala">Guatemala </option><option value="Guernsey">Guernsey </option><option value="Guinea">Guinea </option><option value="Guinea-Bissau">Guinea-Bissau </option><option value="Guyana">Guyana </option><option value="Haiti">Haiti </option><option value="Heard Island and McDonald Islands">Heard Island and McDonald Islands </option><option value="Holy See (Vatican City State)">Holy See (Vatican City State) </option><option value="Honduras">Honduras </option><option value="Hong Kong">Hong Kong </option><option value="Hungary">Hungary </option><option value="Iceland">Iceland </option><option value="India">India </option><option value="Indonesia">Indonesia </option><option value="Iran, Islamic Republic of">Iran, Islamic Republic of </option><option value="Iraq">Iraq </option><option value="Ireland">Ireland </option><option value="Isle of Man">Isle of Man </option><option value="Israel">Israel </option><option value="Italy">Italy </option><option value="Jamaica">Jamaica </option><option value="Japan">Japan </option><option value="Jersey">Jersey </option><option value="Jordan">Jordan </option><option value="Kazakhstan">Kazakhstan </option><option value="Kenya">Kenya </option><option value="Kiribati">Kiribati </option><option value="Korea, Democratic People's Republic of">North Korea </option><option value="Korea, Republic of">South Korea </option><option value="Kuwait">Kuwait </option><option value="Kyrgyzstan">Kyrgyzstan </option><option value="Lao People’s Democratic Republic">Lao People’s Democratic Republic </option><option value="Latvia">Latvia </option><option value="Lebanon">Lebanon </option><option value="Lesotho">Lesotho </option><option value="Liberia">Liberia </option><option value="Libya">Libya </option><option value="Liechtenstein">Liechtenstein </option><option value="Lithuania">Lithuania </option><option value="Luxembourg">Luxembourg </option><option value="Macao">Macao </option><option value="Macedonia, the former Yugoslav Republic of">Macedonia </option><option value="Madagascar">Madagascar </option><option value="Malawi">Malawi </option><option value="Malaysia">Malaysia </option><option value="Maldives">Maldives </option><option value="Mali">Mali </option><option value="Malta">Malta </option><option value="Marshall Islands">Marshall Islands </option><option value="Martinique">Martinique </option><option value="Mauritania">Mauritania </option><option value="Mauritius">Mauritius </option><option value="Mayotte">Mayotte </option><option value="Mexico">Mexico </option><option value="Moldova">Moldova, Republic of </option><option value="Monaco">Monaco </option><option value="Mongolia">Mongolia </option><option value="Montenegro">Montenegro </option><option value="Montserrat">Montserrat </option><option value="Morocco">Morocco </option><option value="Mozambique">Mozambique </option><option value="Myanmar">Myanmar </option><option value="Namibia">Namibia </option><option value="Nauru">Nauru </option><option value="Nepal">Nepal </option><option value="Netherlands">Netherlands </option><option value="Netherlands Antilles">Netherlands Antilles </option><option value="New Caledonia">New Caledonia </option><option value="New Zealand">New Zealand </option><option value="Nicaragua">Nicaragua </option><option value="Niger">Niger </option><option value="Nigeria">Nigeria </option><option value="Niue">Niue </option><option value="Norfolk Island">Norfolk Island </option><option value="Norway">Norway </option><option value="Oman">Oman </option><option value="Pakistan">Pakistan </option><option value="Palau">Palau </option><option value="Palestine">Palestine </option><option value="Panama">Panama </option><option value="Papua New Guinea">Papua New Guinea </option><option value="Paraguay">Paraguay </option><option value="Peru">Peru </option><option value="Philippines">Philippines </option><option value="Pitcairn">Pitcairn </option><option value="Poland">Poland </option><option value="Portugal">Portugal </option><option value="Qatar">Qatar </option><option value="Reunion">Reunion </option><option value="Romania">Romania </option><option value="Russian Federation">Russian Federation </option><option value="Rwanda">Rwanda </option><option value="Saint Barthélemy">Saint Barthélemy </option><option value="Saint Helena, Ascension and Tristan da Cunha">Saint Helena, Ascension and Tristan da Cunha </option><option value="Saint Kitts and Nevis">Saint Kitts and Nevis </option><option value="Saint Lucia">Saint Lucia </option><option value="Saint Martin (French part)">Saint Martin (French part) </option><option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon </option><option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines </option><option value="Samoa">Samoa </option><option value="San Marino">San Marino </option><option value="Sao Tome and Principe">Sao Tome and Principe </option><option value="Saudi Arabia">Saudi Arabia </option><option value="Senegal">Senegal </option><option value="Serbia">Serbia </option><option value="Seychelles">Seychelles </option><option value="Sierra Leone">Sierra Leone </option><option value="Singapore">Singapore </option><option value="Sint Maarten (Dutch part)">Sint Maarten (Dutch part) </option><option value="Slovakia">Slovakia </option><option value="Slovenia">Slovenia </option><option value="Solomon Islands">Solomon Islands </option><option value="Somalia">Somalia </option><option value="South Africa">South Africa </option><option value="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands </option><option value="South Sudan">South Sudan </option><option value="Spain">Spain </option><option value="Sri Lanka">Sri Lanka </option><option value="Sudan">Sudan </option><option value="Suriname">Suriname </option><option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen </option><option value="Swaziland">Swaziland </option><option value="Sweden">Sweden </option><option value="Switzerland">Switzerland </option><option value="Syrian Arab Republic">Syrian Arab Republic </option><option value="Taiwan">Taiwan </option><option value="Tajikistan">Tajikistan </option><option value="Tanzania, United Republic of">Tanzania </option><option value="Thailand">Thailand </option><option value="Timor-Leste">Timor-Leste </option><option value="Togo">Togo </option><option value="Tokelau">Tokelau </option><option value="Tonga">Tonga </option><option value="Trinidad and Tobago">Trinidad and Tobago </option><option value="Tunisia">Tunisia </option><option value="Turkey">Turkey </option><option value="Turkmenistan">Turkmenistan </option><option value="Turks and Caicos Islands">Turks and Caicos Islands </option><option value="Tuvalu">Tuvalu </option><option value="Uganda">Uganda </option><option value="Ukraine">Ukraine </option><option value="United Arab Emirates">United Arab Emirates </option><option value="Uruguay">Uruguay </option><option value="Uzbekistan">Uzbekistan </option><option value="Vanuatu">Vanuatu </option><option value="Venezuela, Bolivarian Republic of">Venezuela </option><option value="Vietnam">Vietnam </option><option value="Virgin Islands, British">Virgin Islands, British </option><option value="Wallis and Futuna">Wallis and Futuna </option><option value="Western Sahara">Western Sahara </option><option value="Yemen">Yemen </option><option value="Zambia">Zambia </option><option value="Zimbabwe">Zimbabwe </option></select><span id="InstructCountry" tabindex="-1" class="mktoInstruction"></span></div></div></div><div class="mktoFormRow"><div class="mktoFormCol"><div class="mktoFieldWrap"><div class="mktoHtmlText mktoHasWidth"><div class="bhrForm__partnerDisclaimer">By submitting this information,&nbsp;I am signing up to receive marketing communications (i.e. emails, calls, event invitations, etc.) from BambooHR. Please see our <a href="https://www.bamboohr.com/privacy-policy/" target="_blank">Privacy Policy</a> to understand how BambooHR handles your personal information – For California residents, please <a href="https://www.bamboohr.com/privacy-policy/#ccpa" target="_blank">click here</a>.</div></div></div></div></div><div class="mktoFormRow"><div class="mktoPlaceholder mktoPlaceholderDisclaimer__c"></div></div><div class="mktoFormRow"><input type="hidden" name="utm_source__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="utm_medium__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="utm_campaign__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="utm_content__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="utm_term__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Ad_Group_ID__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Ad_ID__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Ad_Group__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Campaign_ID__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Campaign__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Keyword_Target_Id__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Keyword__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_QM_ID__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Match_Type__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Device__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Placement__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Slot__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Extension__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="PSE_Query_String__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="Sam_F_Client_ID__c" class="mktoField mktoFieldDescriptor mktoFormCol" value="GA1.1.1701741319.1648194785"></div><div class="mktoFormRow"><input type="hidden" name="Request_Type__c" class="mktoField mktoFieldDescriptor mktoFormCol" value="Demo"></div><div class="mktoFormRow"><input type="hidden" name="Demo_Request_Checkbox__c" class="mktoField mktoFieldDescriptor mktoFormCol" value="True"></div><div class="mktoFormRow"><input type="hidden" name="GCLID__c" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoFormRow"><input type="hidden" name="clearbitFormStatus" class="mktoField mktoFieldDescriptor mktoFormCol" value=""></div><div class="mktoButtonRow"><span class="mktoButtonWrap mktoSimple"><button type="submit" class="mktoButton Button Button--form">Get Free Demo</button></span></div><input type="hidden" name="formid" class="mktoField mktoFieldDescriptor" value="1325"><input type="hidden" name="munchkinId" class="mktoField mktoFieldDescriptor" value="195-LOZ-515"></form>
+			</div>
+		</div>
+	</div>
+</div>
+
+	
+	<section class="Footer" aria-label="Page Footer" role="navigation">
+		<div class="Footer__container">
+			<div class="FooterSubscribe">
+				<div class="FooterSubscribe__title FooterSubscribe__title--lessSpace" id="">HR Insights delivered to your inbox.</div>
+				<div class="FooterSubscribe__copy">Be first in line to register for events, read exclusive interviews with HR experts, and watch tutorials on how to up your HR game every month. No spam, ever. Cross our hearts.</div>
+				<div class="FooterSubscribe__message js-footer-subscribe-success-msg" style="display:none;" id="js-footer-subscribe-success-msg">Thanks for signing up! You are now subscribed to our newsletter.</div>
+				<form action="/ajax/newsletter-form.php" method="post" id="js-footer-subscribe-form" name="js-footer-subscribe-form" class="FooterSubscribe__form js-footer-subscribe-form" novalidate="" __bizdiag="-736960210" __biza="WJ__">
+					<div class="FooterSubscribe__left">
+						<div class="FooterSubscribe__inputWrapper">
+							<input type="email" value="" name="email" class="FooterSubscribe__input js-footer-subscribe-input" id="mce-EMAIL" aria-label="Email address">
+							<label for="mce-EMAIL" class="FooterSubscribe__label js-footer-subscribe-label">Email Address</label>
+						</div>
+					</div>
+					<div class="FooterSubscribe__right">
+						<input type="submit" value="Submit" name="subscribe" id="mc-embedded-subscribe" class="FooterSubscribe__submit">
+					</div>
+				</form>
+			</div>
+			<div class="FooterContent" role="navigation">
+				<div class="FooterContent__title">Company</div>
+				<div class="FooterContent__wrapper">
+					<ul class="FooterContent__links">
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="/about/">About Us</a></li>
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="/careers/">Careers</a></li>
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="/why-bamboohr/">Why BambooHR</a></li>
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="/blog/">Blog</a></li>
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="/the-era-podcast/">The Era Podcast</a></li>
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="/contact/">Contact Us</a></li>
+					</ul>
+					<ul class="FooterContent__links">
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="/customers/">Customers</a></li>
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="/events-calendar/">Events Calendar</a></li>
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="/hr-glossary/">HR Glossary</a></li>
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="/small-business/">Small Business</a></li>
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="/hris-software/">HRIS</a></li>
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="/rewards/">Refer a Friend</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="FooterContent" role="navigation">
+				<div class="FooterContent__title">Support</div>
+				<div class="FooterContent__wrapper">
+					<ul class="FooterContent__links">
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="/resources/">Resources</a></li>
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="/webinars/">Webinars</a></li>
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="/services/">Services</a></li>
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="/faq/">FAQ</a></li>
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="https://partners.bamboohr.com">Partner with Us</a></li>
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="https://documentation.bamboohr.com/docs">API</a></li>
+					</ul>
+					<ul class="FooterContent__links">
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="https://marketplace.bamboohr.com">BambooHR Marketplace</a></li>
+						<li class="FooterContent__wrapLink"><a class="FooterContent__link" href="https://app.bamboohr.com/login/">Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="Footer__container">
+			<div class="FooterContent FooterContent--terms" role="navigation">
+				<div class="FooterContent__wrapper">
+					<ul class="FooterContent__links FooterContent__links--flex">
+						<li class="FooterContent__wrapLink FooterContent__wrapLink--noMargin FooterContent__wrapLink--legal"><a class="FooterContent__link" href="/site-map/">Site Map</a></li>
+						<li class="FooterContent__wrapLink FooterContent__wrapLink--legal"><a class="FooterContent__link" href="/security-and-privacy-surfacing/">Security &amp; Privacy</a></li>
+					</ul>
+					<ul class="FooterContent__links FooterContent__links--flex">
+						<li class="FooterContent__wrapLink FooterContent__wrapLink--noMargin FooterContent__wrapLink--legal"><a class="FooterContent__link" href="/terms-of-service/">Terms of Service</a></li>
+						<li class="FooterContent__wrapLink FooterContent__wrapLink--legal"><a class="FooterContent__link" href="/privacy-policy/" aria-label="Click to see our Privacy Policy">Privacy Policy</a></li>
+					</ul>
+					<ul class="FooterContent__links FooterContent__links--flex">
+						<li class="FooterContent__wrapLink FooterContent__wrapLink--noMargin FooterContent__wrapLink--legal"><a class="FooterContent__link"><div id="teconsent" consent="undefined"><a id="icon-id06173005232815703" tabindex="0" role="contentinfo" aria-label="Secondary" style="cursor: pointer;" lang="en">Cookie Preferences</a></div>
+						</a></li><a class="FooterContent__link">
+						</a><li class="FooterContent__wrapLink FooterContent__wrapLink--legal"><a class="FooterContent__link"></a><a class="FooterContent__link" href="/rewards-program-terms/" aria-label="Click to see our Rewards Program Terms">Rewards Program Terms</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="FooterContent FooterContent--socialLegal" role="navigation">
+				<div class="FooterContent__social">
+					<a class="FooterContent__wrapIcon social" href="https://www.facebook.com/bamboohr/" target="_blank" rel="noopener noreferrer nofollow" aria-label="Opens in a new window"><img class="FooterContent__icon" src="/images/icons/facebook.svg" alt="Facebook"></a>
+					<a class="FooterContent__wrapIcon social" href="https://twitter.com/bamboohr/" target="_blank" rel="noopener noreferrer nofollow" aria-label="Opens in a new window"><img class="FooterContent__icon" src="/images/icons/twitter.svg" alt="Twitter"></a>
+					<a class="FooterContent__wrapIcon social" href="https://www.instagram.com/bamboohr/" target="_blank" rel="noopener noreferrer nofollow" aria-label="Opens in a new window"><img class="FooterContent__icon" src="/images/icons/instagram.svg" alt="Instagram"></a>
+					<a class="FooterContent__wrapIcon social" href="http://www.linkedin.com/company/bamboohr/" target="_blank" rel="noopener noreferrer nofollow" aria-label="Opens in a new window"><img class="FooterContent__icon" src="/images/icons/linkedin.svg" alt="LinkedIn"></a>
+					<a class="FooterContent__wrapIcon FooterContent__wrapIcon--margin social" href="https://www.youtube.com/user/bamboohr/" target="_blank" rel="noopener noreferrer nofollow" aria-label="Opens in a new window"><img class="FooterContent__icon" src="/images/icons/youtube.svg" alt="YouTube"></a>
+				</div>
+				<div class="FooterContent__legal">
+					<div class="FooterContent__wrapLink FooterContent__wrapLink--noHover FooterContent__link--noHover">© 2022 Bamboo HR LLC. All Rights Reserved. BambooHR<sup>®</sup> is a registered trademark of Bamboo HR LLC</div>
+				</div>
+			</div>
+		</div>
+		<div class="Footer__container Footer__container--ccpa bhrtyp-italic bhrcolor-gray6">
+			California residents: To submit a right to know, delete, or opt-out (aka “Do Not Sell My Information”) request regarding your personal information, <a href="/ccpa" aria-label="Click for CCPA options">click here</a> or call toll-free: (888) 213-4233. To understand your right to opt-out and how we handle your personal information, please see our <a href="/privacy-policy/#ccpa" aria-label="Click to view our Privacy Policy">Privacy Policy</a>.
+		</div>
+	</section>
+
+<script type="text/javascript" src="/js/new/foot.1be434d1.dist.js"></script>
+
+	
+	<script type="text/javascript" src="//grow.bamboohr.com/js/forms2/js/forms2.min.js"></script>
+	<script type="text/javascript" src="/js/new/home.1c411cec.dist.js"></script>
+	<script type="application/ld+json">
+{
+  "@context": "http://www.schema.org",
+  "@type": "LocalBusiness",
+  "name": "BambooHR",
+  "url": "https://www.bamboohr.com",
+  "image": "https://www.bamboohr.com/images/home/lindon-map.jpg",
+  "logo": "https://www.bamboohr.com/images/global-logos/bamboohr-logo-main-white.svg",
+  "telephone": "+1-801-724-6600",
+  "priceRange": "$-$$$",
+  "description": "BambooHR is the leader in HR software for small to medium sized businesses",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "335 South 560 West",
+    "addressLocality": "Lindon",
+    "addressRegion": "UT",
+    "postalCode": "84042",
+    "addressCountry": "United States"
+  },
+  "founder": [
+  {"@type": "Person",
+  "name": "Ben Peterson"
+  },
+  {"@type": "Person",
+  "name": "Ryan Sanders"
+  }],
+  "foundingDate": "July, 2008",
+  "foundingLocation": "Provo, Utah",
+  "openingHoursSpecification":{
+  	"@type": "openingHoursSpecification",
+    "dayOfWeek":[
+    	"Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "17:00"
+       },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-801-724-6600",
+    "contactType": "Customer Service"
+  },
+  "sameAs": [
+    "https://www.facebook.com/bamboohr/",
+    "https://twitter.com/bamboohr/",
+    "https://www.instagram.com/bamboohr/",
+    "http://www.linkedin.com/company/bamboohr/",
+    "https://www.youtube.com/user/bamboohr/",
+    "https://en.wikipedia.org/wiki/BambooHR",
+    "https://www.glassdoor.com/Overview/Working-at-BambooHR-EI_IE676898.11,19.htm",
+    "https://www.greatplacetowork.com/certified-company/5003334"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+	"@context":"http://schema.org",
+	"@type":"ItemList",
+	"itemListElement":[
+		{
+			"@type":"ListItem",
+			"position":1,
+			"url":"https://www.bamboohr.com/employee-self-onboarding/"
+		},
+		{
+			"@type":"ListItem",
+			"position":2,
+			"url":"https://www.bamboohr.com/applicant-tracking/"
+		},
+		{
+			"@type":"ListItem",
+			"position":3,
+			"url":"https://www.bamboohr.com/paid-time-off/"
+		},
+		{
+			"@type":"ListItem",
+			"position":4,
+			"url":"https://www.bamboohr.com/employee-database-software/"
+		},
+		{
+			"@type":"ListItem",
+			"position":5,
+			"url":"https://www.bamboohr.com/performance-management/"
+		},
+		{
+			"@type":"ListItem",
+			"position":6,
+			"url":"https://www.bamboohr.com/hr-reporting/"
+		},
+		{
+			"@type":"ListItem",
+			"position":7,
+			"url":"https://www.bamboohr.com/custom-workflows/"
+		},
+		{
+			"@type":"ListItem",
+			"position":8,
+			"url":"https://www.bamboohr.com/electronic-signatures/"
+		},
+		{
+			"@type":"ListItem",
+			"position":9,
+			"url":"https://www.bamboohr.com/hris-software/"
+		},
+		{
+			"@type":"ListItem",
+			"position":10,
+			"url":"https://www.bamboohr.com/hrms-software/"
+		}
+	]
+}
+</script>
+
+<script type="text/javascript">
+_linkedin_partner_id = "9801";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9801&fmt=gif" />
+</noscript>
+
+<div id="consent-banner"><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet"><style>    .trustarc-banner-content {        display: -webkit-box;        display: -ms-flexbox;        display: flex;        -ms-flex-pack: distribute;        -webkit-box-pack: justify;        justify-content: space-between;        width: 100%;        position: relative;    }    .trustarc-banner-wrapper {        position: relative;        line-height: normal;        font-size: 100%;        -webkit-text-size-adjust: 100%;        text-rendering: optimizeLegibility;        -moz-osx-font-smoothing: grayscale;        font-smoothing: antialiased;        -webkit-font-smoothing: antialiased;        text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;        font-variant-ligatures: none;        -webkit-font-variant-ligatures: none;        width: 100%;        display: block;        -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);        overflow: hidden;        font-family: "Source Sans Pro", sans-serif;    }    .trustarc-banner-wrapper * {        box-sizing: content-box;    }      .trustarc-banner-wrapper *:active {        -webkit-box-shadow: none !important;        box-shadow: none !important;        outline: none !important;    }    .trustarc-banner-wrapper {        -webkit-box-shadow: none !important;        box-shadow: none !important;    }    .trustarc-client-logo {        padding: 30px;    }    .trustarc-client-logo img {        -o-object-fit:contain;        object-fit: contain;        max-width: 214px;        max-height: 100%;    }    .trustarc-logo-container {        display: -webkit-box;        display: -ms-flexbox;        display: flex;        -webkit-box-pack: center;        -ms-flex-pack: center;        justify-content: center;        height: 130px;        -webkit-box-align: center;        -ms-flex-align: center;        align-items: center;    }    .trustarc-banner-actions {        padding: 30px;        margin-right: 40px;    }    .trustarc-banner-actions > div {        width: 260px;    }    .trustarc-body-text, .trustarc-warning-text {        font-size: 16px;    }    .trustarc-secondary-btn, .trustarc-primary-btn, .trustarc-acceptall-btn, .trustarc-declineall-btn, .trustarc-banner-close {        padding: 0;    }    .trustarc-primary-btn:hover,    .trustarc-secondary-btn:hover,    .trustarc-acceptall-btn:hover,    .trustarc-declineall-btn:hover {        opacity: 0.8;    }    .trustarc-banner-details {        padding: 30px 0px;        -webkit-box-flex: 1;        -ms-flex-positive: 1;        flex-grow: 1;    }    .trustarc-info-show {        color: #fff;        font-size: 16px;        background-color: #0a7be9;        -webkit-box-pack: justify;        -ms-flex-pack: justify;        justify-content: space-between;        display: -webkit-box;        display: -ms-flexbox;        display: flex;        transition: opacity 400ms;    }    .trustarc-info-hide {        opacity: 0;        display: none;    }    .trustarc-info-img {        -ms-flex-item-align: center;        -ms-grid-row-align: center;        align-self: center;    }            .trustarc-banner-footer {        background-color: #f7f7f7;        min-height: 40px;        font-size: 10px;        border: none;        width: 100%;        display: -webkit-box;        display: -ms-flexbox;        display: flex;        -ms-flex-wrap: wrap;        flex-wrap: wrap;        -webkit-box-pack: justify;        -ms-flex-pack: justify;        justify-content: space-between;        line-height: 25px;        bottom: 0;    }    .trustarc-banner-right {        -ms-flex-item-align: center;        align-self: center;        padding-right: 20px;        justify-self: flex-end;        position: relative;        display: -webkit-box;        display: -ms-flexbox;        display: flex;        -webkit-box-sizing: unset;        box-sizing: unset;    }    .trustarc-banner-left {        color: #0061e4;        cursor: pointer;        -ms-flex-item-align: center;        -ms-grid-row-align: center;        align-self: center;        margin-right: 10px;        text-decoration: none;    }    .trustarc-banner-footer-left {        -ms-flex-item-align: center;        -ms-grid-row-align: center;        align-self: center;        text-align: left;        margin-left: 20px;        display: -webkit-box;        display: -ms-flexbox;        display: flex;        -ms-flex-wrap: wrap;        flex-wrap: wrap;        -webkit-box-flex: 1;        -ms-flex: 1;        flex: 1    }        .trustarc-btn-disabled {        opacity:0.6;        filter:alpha(opacity=60);        cursor: default;    }    .trustarc-btn-disabled:hover {        opacity:0.6;        filter:alpha(opacity=60);        cursor: default;    }    @media only screen and (min-width: 1px) and (max-width: 950px) {        .trustarc-banner-content {            -ms-flex-wrap: wrap;            flex-wrap: wrap;        }        .trustarc-banner-wrapper, .trustarc-banner-content, .trustarc-banner-details {            text-align: center;        }        .trustarc-banner-details {            padding: 0px 20px;        }        .trustarc-client-logo {            width: 100%;            padding: 50px 0px 20px;        }        .trustarc-banner-actions {            display: -webkit-box;            display: -ms-flexbox;            display: flex;            -webkit-box-pack: center;            -ms-flex-pack: center;            justify-content: center;            width: 100%;            margin: auto;            padding: 10px 20px 20px 20px;        }        .trustarc-header-text {            color: #000000;            padding-bottom: 10px;            font-size: 30px;        }        @media only screen and (min-width: 1px) and (max-width: 768px) {            .trustarc-secondary-btn, .trustarc-primary-btn, .trustarc-acceptall-btn, .trustarc-declineall-btn {                font-size: 18px !important;            }            .trustarc-banner-actions > div {                width: 100%;            }        }    }    .trustarc-background {  background-color: #FFFFFF;}.trustarc-header-text {  color: #464e3d;}.trustarc-body-text {  color: #6b7362;}.trustarc-banner-background {  background-color: #FFFFFF;}.trustarc-banner-header {  color: #464e3d;}.trustarc-banner-body {  color: #6b7362;}.trustarc-primary-btn {  color: #FFFFFF;  background-color: #73c31d;}.trustarc-secondary-btn {  color: #000000                                                              !important;  background-color: #ffffff;}.trustarc-optin-btn {  color: #ffffff;  background-color: #73c31d;}.trustarc-optout-btn {  color: #ffffff;  background-color: #73c31d;}.trustarc-back-btn {  color: #000000                                                              !important;  background-color: #FFFFFF;}.trustarc-acceptall-btn {  color: #FFFFFF;  background-color: #5EC323;}.trustarc-declineall-btn {  color: #000000;  background-color: #dcdcdc;}.trustarc-agree-btn {  color: #FFFFFF                                                              !important;  background-color: #73c31d;}.trustarc-reject-btn {  color: #ffffff           !important;  background-color: #73c31d;}#consent-banner {        position: fixed;        bottom: 0;        left: 0;        right: 0;        z-index: 100000;     }.logo-container {        display: none !important;      }.trustarc-banner-header {        display: none;      }.my-auto {        color: #3a8000;      }.trustarc-banner-footer {        background-color: #F7F7F4 !important;      }.trustarc-agree-btn {        font-size: 14px !important;        border-radius: 100px !important;        padding: 10px 25px;        font-weight: bold;        height: auto !important;        width: auto !important;        display: inline-block !important;        margin-top: 6px !important;    }.trustarc-reject-btn{        font-size: 14px !important;        border-radius: 100px !important;        padding: 10px 25px;        font-weight: bold;        height: auto !important;        width: auto !important;        display: inline-block !important;        margin-top: 6px !important;    }.trustarc-client-logo {        display: none;      }.trustarc-banner-right {        display: none;      }#truste-show-consent {        display: none;      }.trustarc-banner-details {        padding-left: 50px;      }#truste-privacy-button {        color: #3a8000;      }.trustarc-banner-actions {       padding: 15px !important;   }</style><div id="truste-consent-track" class="trustarc-banner-wrapper trustarc-banner-background trustarc-background" style="opacity: 1; display: block; transition: opacity 350ms ease 0s;" role="dialog" aria-modal="true" aria-label="Cookie Consent Banner">    <div id="trustarc-info" class="trustarc-info-hide">        <div class="trustarc-info-img" style="margin: 14px 6px 14px 26px;" aria-hidden="true">            <img src="https://consent.trustarc.com/v2/asset/ic-error.svg" alt="alert icon">        </div>        <div tabindex="0" id="truste-repop-msg" class="trustarc-warning-text" style="margin: 14px;"></div>        <div class="trustarc-info-img" style="margin: 14px 26px 14px 6px;">            <a id="truste-repop-msg-close" role="button" style="cursor: pointer;" tabindex="0" aria-label="alert message close">                <img src="https://consent.trustarc.com/v2/asset/ic-close-white.svg" alt="alert message close" style="width: 14px; height: 14px;">            </a>        </div>    </div>    <div id="trustarc-clear-cookie-info" class="trustarc-info-hide">        <div class="trustarc-info-img" style="margin: 14px 6px 14px 26px;" aria-hidden="true">            <img src="https://consent.trustarc.com/v2/asset/ic-error.svg" alt="alert icon">        </div>        <div tabindex="0" id="truste-clear-cookie-msg" class="trustarc-warning-text" style="margin: 14px;"></div>        <div class="trustarc-info-img" style="margin: 14px 26px 14px 6px;">            <a id="truste-clear-cookie-msg-close" role="button" style="cursor: pointer;" tabindex="0" aria-label="alert message close">                <img src="https://consent.trustarc.com/v2/asset/ic-close-white.svg" alt="alert message close" style="width: 14px; height: 14px;">            </a>        </div>    </div>    <div class="trustarc-banner-content" id="truste-consent-content">        <div class="trustarc-client-logo">          <div class="trustarc-logo-container" style="visibility: hidden;">            <img tabindex="0" alt="company logo" id="truste-banner-logo" style="height: 0px;">          </div>                    </div>        <div class="trustarc-banner-details">            <div tabindex="0" id="truste-header-text" class="trustarc-banner-header trustarc-header-text" style="font-size:42px;font-kerning:normal;font-weight:bold;" aria-readonly="true">                <span style="font-weight:bolder;">We value your privacy.</span>            </div>            <div tabindex="0" id="truste-consent-text" class="trustarc-banner-body trustarc-body-text">                We use cookies on our site. To opt out of non-essential cookies (i.e., tracking cookies) and continue using the site, click Reject All.            </div>        </div>        <div class="trustarc-banner-actions">            <div id="truste-consent-buttons">                <button tabindex="0" role="button" class="trustarc-secondary-btn" id="truste-show-consent" style="font-weight:600;margin-top:10px;height:50px;width:100%;font-size:22px;border: 1px solid #eee;border-radius:4px;cursor:pointer;color:#000;font-family:&quot;Source Sans Pro&quot;, sans-serif;">MANAGE CHOICES</button>                <button tabindex="0" role="button" class="trustarc-primary-btn trustarc-acceptall-btn trustarc-agree-btn" id="truste-consent-button" style="font-weight:600;margin-top:10px;height:50px;width:100%;font-size:22px;border: 1px solid #eee;border-radius:4px;cursor:pointer;color:#000;font-family:&quot;Source Sans Pro&quot;, sans-serif;">Okay, thanks!</button>                <button tabindex="0" role="button" class="trustarc-declineall-btn trustarc-reject-btn" id="truste-consent-required" style="display: block; opacity: 1; font-weight: 600; margin-top: 10px; height: 50px; width: 100%; font-size: 22px; border: 1px solid rgb(238, 238, 238); border-radius: 4px; cursor: pointer; color: rgb(0, 0, 0); font-family: &quot;Source Sans Pro&quot;, sans-serif; transition: opacity 350ms ease 0s;">Reject All</button>            </div>        </div>        <a tabindex="0" class="trustarc-banner-close" id="truste-consent-close" role="button" style="position:absolute;right:0;top:0;margin:26px;cursor:pointer;" aria-label="close banner">            <img src="https://consent.trustarc.com/v2/asset/ic-close.svg" alt="close banner">        </a>    </div>    <div class="trustarc-banner-footer">        <div class="trustarc-banner-footer-left" id="trustarc-footer-links-container">            <a tabindex="0" class="trustarc-banner-left" id="truste-privacy-button" target="_blank" aria-label="Privacy Policy">Privacy Policy</a>        </div>        <div class="trustarc-banner-right">            <span style="align-self: center;">Powered by:</span>            <a href="https://trustarc.com" target="_blank" id="truste-powered-by" tabindex="0" aria-label="powered by trustarc">                <img src="https://consent.trustarc.com/v2/asset/trustarc-logo-xs.svg" style="margin-bottom:7px;padding-left:5px;padding-top:10px;image-rendering:auto;image-rendering:crisp-edges;image-rendering:pixelated;width:70px;height:16px;" alt="cookie notice provider logo">            </a>        </div>    </div></div></div>
+<script type="text/javascript" async="async" src="https://consent.trustarc.com/v2/notice/qvlbs6"></script>
+
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6f161226be950f46',m:'QWhdweVrhYbAQtAHZYlq0eMFFkOyHtAQK2Xvt9QZvyw-1648194786-0-AZ6DaH5SJ6LcvlGDjtsKzEaKIkg6Z/JfC8ddH5q2hL5UlTFdV6QGdWGG4UvmRodRcr20xxMAhRPWAdTlrxmBCxjKr3wGtFOF/HI/nA9bJYi140mtIgpk2FWcXOoudcMgzA==',s:[0x06c7c40cf9,0x7ef6378c1d],}})();</script>
+
+
+<script type="text/javascript" id="" src="//cdn-3.convertexperiments.com/js/10004673-10005501.js"></script><img style="display: none;" alt="" src="https://cdn.bizible.com/m/ipv?_biz_r=&amp;_biz_h=1514319964&amp;_biz_u=9097a7624fc44342f5a05f77d19d9592&amp;_biz_s=46a4d1&amp;_biz_l=https%3A%2F%2Fwww.bamboohr.com%2F&amp;_biz_t=1648194784852&amp;_biz_i=HR%20Software%20with%20Heart.%20Focus%20on%20people%2C%20not%20processes%20%7C%20BambooHR&amp;_biz_n=0&amp;rnd=709401&amp;cdn_o=a&amp;_biz_z=1648194784864"><img style="display: none;" alt="" src="https://cdn.bizibly.com/u?_biz_u=9097a7624fc44342f5a05f77d19d9592&amp;_biz_s=46a4d1&amp;_biz_l=https%3A%2F%2Fwww.bamboohr.com%2F&amp;_biz_t=1648194784867&amp;_biz_i=HR%20Software%20with%20Heart.%20Focus%20on%20people%2C%20not%20processes%20%7C%20BambooHR&amp;rnd=401844&amp;cdn_o=a&amp;_biz_z=1648194784867"><div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon645188269871"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon55743965467" alt="" src="https://bat.bing.com/action/0?ti=5221130&amp;Ver=2&amp;mid=098ef32b-de40-4d85-9f58-35b33875202e&amp;sid=9a3c32a0ac1011ec8b77d73c92742bad&amp;vid=9a3c2c00ac1011ec9dc71d12a56f20d1&amp;vids=1&amp;pi=0&amp;lg=en-US&amp;sw=3840&amp;sh=1600&amp;sc=24&amp;tl=HR%20Software%20with%20Heart.%20Focus%20on%20people,%20not%20processes%20%7C%20BambooHR&amp;p=https%3A%2F%2Fwww.bamboohr.com%2F&amp;r=&amp;lt=841&amp;evt=pageLoad&amp;msclkid=N&amp;sv=1&amp;rn=821136" width="0" height="0"></div><img style="display: none;" alt="" src="https://cdn.bizible.com/m/muc?_biz_ou=9097a7624fc44342f5a05f77d19d9592&amp;_biz_u=9340239b25da439deeacf28b2fee0ae9&amp;_biz_s=46a4d1&amp;_biz_l=https%3A%2F%2Fwww.bamboohr.com%2F&amp;_biz_t=1648194785026&amp;_biz_i=HR%20Software%20with%20Heart.%20Focus%20on%20people%2C%20not%20processes%20%7C%20BambooHR&amp;_biz_n=1&amp;rnd=483588&amp;cdn_o=a&amp;_biz_z=1648194785027"><div id="mktoStyleLoaded" style="display: none; border-top-color: rgb(18, 52, 86);"></div><div id="mktoStyleLoaded" style="display: none; border-top-color: rgb(18, 52, 86);"></div><div style="display: none; visibility: hidden;"><img alt="" style="display: none;" src="https://match.adsrvr.org/track/cmf/generic?ttd_pid=steelhouse&amp;ttd_tpi=1&amp;ttd_puid=0ccc0c16-abfc-11ec-a8fb-118f3a7d8de1&amp;gdpr=&amp;gdpr_consent=" width="1" height="1" border="0"><img alt="" style="display: none;" src="https://insight.adsrvr.org/track/evnt/?adv=snbk4gc&amp;ct=0:ntyb0qn&amp;fmt=3" width="1" height="1" border="0"><script type="text/javascript" src="https://px.mountain.com/st?ga_tracking_id=UA-5806974-1&amp;ga_client_id=1701741319.1648194785&amp;shpt=HR%20Software%20with%20Heart.%20Focus%20on%20people%20not%20processes%20%7C%20BambooHR&amp;ga_info=%7B%22status%22%3A%22OK%22%2C%22ga_tracking_id%22%3A%22UA-5806974-1%22%2C%22ga_client_id%22%3A%221701741319.1648194785%22%2C%22shpt%22%3A%22HR%20Software%20with%20Heart.%20Focus%20on%20people%20not%20processes%20%7C%20BambooHR%22%2C%22dcm_cid%22%3A%221648194784.1%22%2C%22dcm_gid%22%3A%22631756590.1648194786%22%2C%22ga_gclid%22%3A%221701741319.1648194785%22%2C%22execution_workflow%22%3A%7B%22iteration%22%3A5%2C%22getClientIdByGA%22%3A%22OK%22%2C%22getClientIdByTracker%22%3A%22FAILED%22%2C%22getClientIdByGAData%22%3A%22FAILED%22%2C%22getClientIdByCookie%22%3A%22FAILED%22%2C%22shpt%22%3A%22OK%22%2C%22dcm_cid%22%3A%22OK%22%2C%22ga_gclid%22%3A%22OK%22%2C%22dcm_gid%22%3A%22OK%22%7D%2C%22message%22%3A%7B%7D%7D&amp;dcm_cid=1648194784.1&amp;dcm_gid=631756590.1648194786&amp;dxver=4.0.0&amp;shaid=32273&amp;plh=https%3A%2F%2Fwww.bamboohr.com%2F&amp;cb=97711918485444220term%3Dvalue&amp;shadditional=googletagmanager%3Dtrue%2C&amp;shoid=other_orders%20-%201701741319.1648194785"></script><script type="text/javascript">var setCookie=function(a,c,d){var b=new Date;b.setTime(b.getTime()+864E5*d);d="; expires\x3d"+b.toGMTString();b="."+window.location.hostname.substring(window.location.hostname.lastIndexOf(".",window.location.hostname.lastIndexOf(".")-1)+1);document.cookie=a+"\x3d"+c+d+"; domain\x3d"+b+";path\x3d/"},getCookie=function(a){return(name=(new RegExp("(?:^|;\\s*)"+a+"\x3d([^;]*)")).exec(document.cookie))?name.split(",")[1]:""},getParam=function(a){return(a=RegExp("[?\x26]"+a+"\x3d([^\x26]*)","i").exec(window.location.search))&&
+decodeURIComponent(a[1].replace(/\+/g," "))},setGclidCookie=function(){var a=getParam("gclid");if(a){var c=getParam("gclsrc");c&&-1===c.indexOf("aw")||setCookie("gclid",a,90)}},setFormField=function(a,c,d){a=document.forms;for(var b=0;b<a.length;b++){var e;void 0===a[b][c]?e=[]:e=[a[b][c]];0!==e.length&&(e[0].value=d)}},_id="gclid",_name="gclid";setGclidCookie();setFormField(_id,_name,getCookie("gclid"));setFormField("Campaign","Campaign",getParam("Campaign"));setFormField("AdGroup","AdGroup",getParam("AdGroup"));
+setFormField("Keyword","Keyword",getParam("Keyword"));setFormField("MatchType","MatchType",getParam("MatchType"));setFormField("Placement","Placement",getParam("Placement"));setFormField("Device","Device",getParam("Device"));setFormField("_bt","_bt",getParam("_bt"));setFormField("_bk","_bk",getParam("_bk"));setFormField("_bm","_bm",getParam("_bm"));setFormField("_bn","_bn",getParam("_bn"));setFormField("campaignid","campaignid",getParam("campaignid"));setFormField("adgroupid","adgroupid",getParam("adgroupid"));
+setFormField("targetid","targetid",getParam("targetid"));setFormField("loc_physical_ms","loc_physical_ms",getParam("loc_physical_ms"));setFormField("devicemodel","devicemodel",getParam("devicemodel"));setFormField("network","network",getParam("network"));setFormField("Target","Target",getParam("Target"));setFormField("feeditemid","feeditemid",getParam("feeditemid"));setFormField("adposition","adposition",getParam("adposition"));setFormField("adid","adid",getParam("adid"));
+setFormField("BidMatchType","BidMatchType",getParam("BidMatchType"));setFormField("querystring","querystring",getParam("querystring"));</script></div><form class="bhrForm--secondary mktoForm mktoHasWidth mktoLayoutLeft" __bizdiag="-949421896" __biza="WJ__" novalidate="novalidate" style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; color: rgb(51, 51, 51); visibility: hidden; position: absolute; top: -500px; left: -1000px; width: 1267px; display: block;"></form><form class="bhrForm--secondary mktoForm mktoHasWidth mktoLayoutLeft" __bizdiag="-949421896" __biza="WJ__" novalidate="novalidate" style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; color: rgb(51, 51, 51); visibility: hidden; position: absolute; top: -500px; left: -1000px; width: 1267px; display: block;"></form><iframe name="mktoFormsXDIframe0.4413404582574406" id="MktoForms2XDIframe" style="display: none;" src="https://grow.bamboohr.com/index.php/form/XDFrame"></iframe><img src="https://analytics.twitter.com/i/adsct?type=javascript&amp;version=2.0.13&amp;p_id=Twitter&amp;p_user_id=0&amp;txn_id=nyzjj&amp;events=%5B%5B%22pageview%22%2C%7B%7D%5D%5D&amp;tw_order_quantity=0&amp;tw_sale_amount=0&amp;tw_iframe_status=0&amp;event_id=90fc0422-0689-4c0c-967f-1d08657480b0&amp;tw_document_href=https%3A%2F%2Fwww.bamboohr.com%2F" style="display: none;" width="1" height="1"><img src="https://t.co/i/adsct?type=javascript&amp;version=2.0.13&amp;p_id=Twitter&amp;p_user_id=0&amp;txn_id=nyzjj&amp;events=%5B%5B%22pageview%22%2C%7B%7D%5D%5D&amp;tw_order_quantity=0&amp;tw_sale_amount=0&amp;tw_iframe_status=0&amp;event_id=90fc0422-0689-4c0c-967f-1d08657480b0&amp;tw_document_href=https%3A%2F%2Fwww.bamboohr.com%2F" style="display: none;" width="1" height="1"><iframe style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;" name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" src="https://vars.hotjar.com/box-acca23410e696f2ca3087d947271c3d0.html"></iframe></body></html>

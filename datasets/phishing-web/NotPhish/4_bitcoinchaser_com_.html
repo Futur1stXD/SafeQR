@@ -1,0 +1,894 @@
+<html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>BitcoinChaser | Bitcoin, Casinos, Gambling and News BitcoinChaser</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Poppins:wght@400;500&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Poppins:wght@400;500&amp;display=swap" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&#038;family=Poppins:wght@400;500&#038;display=swap" /></noscript>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="pingback" href="https://bitcoinchaser.com/xmlrpc.php">
+    
+    <script type="rocketlazyloadscript" src="https://kit.fontawesome.com/dd073971bd.js" crossorigin="anonymous" defer=""></script>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v18.4 - https://yoast.com/wordpress/plugins/seo/ -->
+	<meta name="description" content="BitcoinChaser is your first source for all things Bitcoin &amp; crypto: news, casinos, gambling, guides, gambling and betting.">
+	<link rel="canonical" href="https://bitcoinchaser.com">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="BitcoinChaser - Chasing the Bitcoin Dream....">
+	<meta property="og:description" content="Your FIRST source for Bitcoin casinos, reviews, cryptocurrency news and Bitcoin information. Get special offers and free coins exclusively on Bitcoin Chaser">
+	<meta property="og:url" content="https://bitcoinchaser.com">
+	<meta property="og:site_name" content="BitcoinChaser">
+	<meta property="article:publisher" content="https://www.facebook.com/BitcoinChaser">
+	<meta property="article:modified_time" content="2022-03-22T09:51:19+00:00">
+	<meta property="og:image" content="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2015/05/chaser.png">
+	<meta property="og:image:width" content="300">
+	<meta property="og:image:height" content="300">
+	<meta property="og:image:type" content="image/png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@BitcoinChaser">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://bitcoinchaser.com/#website","url":"https://bitcoinchaser.com/","name":"BitcoinChaser","description":"Chasing the Bitcoin Dream!","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://bitcoinchaser.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://bitcoinchaser.com#primaryimage","inLanguage":"en-US","url":"https://bitcoinchaser.com/wp-content/uploads/2015/05/chaser.png","contentUrl":"https://bitcoinchaser.com/wp-content/uploads/2015/05/chaser.png","width":300,"height":300,"caption":"bitcoin chaser"},{"@type":"WebPage","@id":"https://bitcoinchaser.com#webpage","url":"https://bitcoinchaser.com","name":"BitcoinChaser | Bitcoin, Casinos, Gambling and News","isPartOf":{"@id":"https://bitcoinchaser.com/#website"},"primaryImageOfPage":{"@id":"https://bitcoinchaser.com#primaryimage"},"datePublished":"2020-06-06T13:43:00+00:00","dateModified":"2022-03-22T09:51:19+00:00","description":"BitcoinChaser is your first source for all things Bitcoin & crypto: news, casinos, gambling, guides, gambling and betting.","breadcrumb":{"@id":"https://bitcoinchaser.com#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://bitcoinchaser.com"]}]},{"@type":"BreadcrumbList","@id":"https://bitcoinchaser.com#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]}]}</script>
+	<meta name="google-site-verification" content="f2zJoOflRbp6Tyz5aZoT9CAXU-c_MDllUQDsAhrx34o">
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//static.addtoany.com">
+<link rel="dns-prefetch" href="//code.jquery.com">
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="//stackpath.bootstrapcdn.com">
+<link rel="dns-prefetch" href="//a.omappapi.com">
+<link rel="dns-prefetch" href="//kit.fontawesome.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="BitcoinChaser » BitcoinChaser | Bitcoin, Casinos, Gambling and News Comments Feed" href="https://bitcoinchaser.com/bitcoinchaser-bitcoin-news-gambling-icos-events-press-release-guides-apps/feed/">
+		<!-- This site uses the Google Analytics by MonsterInsights plugin v8.4.0 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+							<script type="rocketlazyloadscript" src="//www.googletagmanager.com/gtag/js?id=UA-44445815-1" data-cfasync="false" data-wpfc-render="false" data-rocket-type="text/javascript" async=""></script>
+			<script type="rocketlazyloadscript" data-cfasync="false" data-wpfc-render="false" data-rocket-type="text/javascript">
+				var mi_version = '8.4.0';
+				var mi_track_user = true;
+				var mi_no_track_reason = '';
+				
+								var disableStrs = [
+															'ga-disable-UA-44445815-1',
+									];
+
+				/* Function to detect opted out users */
+				function __gtagTrackerIsOptedOut() {
+					for ( var index = 0; index < disableStrs.length; index++ ) {
+						if ( document.cookie.indexOf( disableStrs[ index ] + '=true' ) > -1 ) {
+							return true;
+						}
+					}
+
+					return false;
+				}
+
+				/* Disable tracking if the opt-out cookie exists. */
+				if ( __gtagTrackerIsOptedOut() ) {
+					for ( var index = 0; index < disableStrs.length; index++ ) {
+						window[ disableStrs[ index ] ] = true;
+					}
+				}
+
+				/* Opt-out function */
+				function __gtagTrackerOptout() {
+					for ( var index = 0; index < disableStrs.length; index++ ) {
+						document.cookie = disableStrs[ index ] + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+						window[ disableStrs[ index ] ] = true;
+					}
+				}
+
+				if ( 'undefined' === typeof gaOptout ) {
+					function gaOptout() {
+						__gtagTrackerOptout();
+					}
+				}
+								window.dataLayer = window.dataLayer || [];
+
+				window.MonsterInsightsDualTracker = {
+					helpers: {},
+					trackers: {},
+				};
+				if ( mi_track_user ) {
+					function __gtagDataLayer() {
+						dataLayer.push( arguments );
+					}
+
+					function __gtagTracker( type, name, parameters ) {
+						if (!parameters) {
+							parameters = {};
+						}
+
+						if (parameters.send_to) {
+							__gtagDataLayer.apply( null, arguments );
+							return;
+						}
+
+						if ( type === 'event' ) {
+							
+															parameters.send_to = monsterinsights_frontend.ua;
+								__gtagDataLayer( type, name, parameters );
+													} else {
+							__gtagDataLayer.apply( null, arguments );
+						}
+					}
+					__gtagTracker( 'js', new Date() );
+					__gtagTracker( 'set', {
+						'developer_id.dZGIzZG' : true,
+											} );
+															__gtagTracker( 'config', 'UA-44445815-1', {"forceSSL":"true"} );
+										window.gtag = __gtagTracker;											(function () {
+							/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+							/* ga and __gaTracker compatibility shim. */
+							var noopfn = function () {
+								return null;
+							};
+							var newtracker = function () {
+								return new Tracker();
+							};
+							var Tracker = function () {
+								return null;
+							};
+							var p = Tracker.prototype;
+							p.get = noopfn;
+							p.set = noopfn;
+							p.send = function (){
+								var args = Array.prototype.slice.call(arguments);
+								args.unshift( 'send' );
+								__gaTracker.apply(null, args);
+							};
+							var __gaTracker = function () {
+								var len = arguments.length;
+								if ( len === 0 ) {
+									return;
+								}
+								var f = arguments[len - 1];
+								if ( typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function' ) {
+									if ( 'send' === arguments[0] ) {
+										var hitConverted, hitObject = false, action;
+										if ( 'event' === arguments[1] ) {
+											if ( 'undefined' !== typeof arguments[3] ) {
+												hitObject = {
+													'eventAction': arguments[3],
+													'eventCategory': arguments[2],
+													'eventLabel': arguments[4],
+													'value': arguments[5] ? arguments[5] : 1,
+												}
+											}
+										}
+										if ( 'pageview' === arguments[1] ) {
+											if ( 'undefined' !== typeof arguments[2] ) {
+												hitObject = {
+													'eventAction': 'page_view',
+													'page_path' : arguments[2],
+												}
+											}
+										}
+										if ( typeof arguments[2] === 'object' ) {
+											hitObject = arguments[2];
+										}
+										if ( typeof arguments[5] === 'object' ) {
+											Object.assign( hitObject, arguments[5] );
+										}
+										if ( 'undefined' !== typeof arguments[1].hitType ) {
+											hitObject = arguments[1];
+											if ( 'pageview' === hitObject.hitType ) {
+												hitObject.eventAction = 'page_view';
+											}
+										}
+										if ( hitObject ) {
+											action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
+											hitConverted = mapArgs( hitObject );
+											__gtagTracker( 'event', action, hitConverted );
+										}
+									}
+									return;
+								}
+
+								function mapArgs( args ) {
+									var arg, hit = {};
+									var gaMap = {
+										'eventCategory': 'event_category',
+										'eventAction': 'event_action',
+										'eventLabel': 'event_label',
+										'eventValue': 'event_value',
+										'nonInteraction': 'non_interaction',
+										'timingCategory': 'event_category',
+										'timingVar': 'name',
+										'timingValue': 'value',
+										'timingLabel': 'event_label',
+										'page' : 'page_path',
+										'location' : 'page_location',
+										'title' : 'page_title',
+									};
+									for ( arg in args ) {
+																				if ( ! ( ! args.hasOwnProperty(arg) || ! gaMap.hasOwnProperty(arg) ) ) {
+											hit[gaMap[arg]] = args[arg];
+										} else {
+											hit[arg] = args[arg];
+										}
+									}
+									return hit;
+								}
+
+								try {
+									f.hitCallback();
+								} catch ( ex ) {
+								}
+							};
+							__gaTracker.create = newtracker;
+							__gaTracker.getByName = newtracker;
+							__gaTracker.getAll = function () {
+								return [];
+							};
+							__gaTracker.remove = noopfn;
+							__gaTracker.loaded = true;
+							window['__gaTracker'] = __gaTracker;
+						})();
+									} else {
+										console.log( "" );
+					( function () {
+							function __gtagTracker() {
+								return null;
+							}
+							window['__gtagTracker'] = __gtagTracker;
+							window['gtag'] = __gtagTracker;
+					} )();
+									}
+			</script>
+				<!-- / Google Analytics by MonsterInsights -->
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link data-minify="1" rel="stylesheet" id="wp-block-library-css" href="https://bitcoinchaser.com/wp-content/cache/min/1/wp-includes/css/dist/block-library/style.min.css?ver=1647449578" type="text/css" media="all">
+<style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link data-minify="1" rel="stylesheet" id="da_hm_log_style-css" href="https://bitcoinchaser.com/wp-content/cache/min/1/wp-content/plugins/hreflang-manager/css/log-style.css?ver=1647449578" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="bootstrap-css" href="https://bitcoinchaser.com/wp-content/cache/min/1/wp-content/themes/bs-theme/css/bootstrap.min.css?ver=1647449578" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="core-css" href="https://bitcoinchaser.com/wp-content/cache/min/1/wp-content/themes/bs-theme/style.css?ver=1647449578" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="cookie-notice-front-css" href="https://bitcoinchaser.com/wp-content/cache/min/1/wp-content/plugins/cookie-notice/css/front.min.css?ver=1647449578" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="addtoany-css" href="https://bitcoinchaser.com/wp-content/cache/min/1/wp-content/plugins/add-to-any/addtoany.min.css?ver=1647449578" type="text/css" media="all">
+<script type="text/javascript" id="monsterinsights-frontend-script-js-extra">
+/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[]","home_url":"https:\/\/bitcoinchaser.com","hash_tracking":"false","ua":"UA-44445815-1","v4_id":""};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://bitcoinchaser.com/wp-content/cache/min/1/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend-gtag.min.js?ver=1647449578" id="monsterinsights-frontend-script-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="addtoany-core-js-before">
+window.a2a_config=window.a2a_config||{};a2a_config.callbacks=[];a2a_config.overlays=[];a2a_config.templates={};
+a2a_config.onclick=1;
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" async="" src="https://bitcoinchaser.com/wp-content/cache/min/1/menu/page.js?ver=1647449578" id="addtoany-core-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://bitcoinchaser.com/wp-content/cache/min/1/jquery-3.4.1.min.js?ver=1647449578" id="jquery-3.4.1-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://bitcoinchaser.com/wp-content/cache/min/1/npm/popper.js@1.16.0/dist/umd/popper.min.js?ver=1647449578" id="popper-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://bitcoinchaser.com/wp-content/cache/min/1/bootstrap/4.4.1/js/bootstrap.min.js?ver=1647449578" id="bootstrap4-js" defer=""></script>
+<link rel="https://api.w.org/" href="https://bitcoinchaser.com/wp-json/"><link rel="alternate" type="application/json" href="https://bitcoinchaser.com/wp-json/wp/v2/pages/4508"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://bitcoinchaser.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://bitcoinchaser.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.9.2">
+<link rel="shortlink" href="https://bitcoinchaser.com/">
+<link rel="alternate" type="application/json+oembed" href="https://bitcoinchaser.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbitcoinchaser.com%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://bitcoinchaser.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbitcoinchaser.com%2F&amp;format=xml">
+<link rel="alternate" href="https://bitcoinchaser.com/" hreflang="en"><link rel="alternate" href="https://bitcoinchaser.com/es/" hreflang="es"><link rel="icon" href="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/08/cropped-bitcoin_chaser_small_logo-32x32.png" sizes="32x32">
+<link rel="icon" href="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/08/cropped-bitcoin_chaser_small_logo-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/08/cropped-bitcoin_chaser_small_logo-180x180.png">
+<meta name="msapplication-TileImage" content="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/08/cropped-bitcoin_chaser_small_logo-270x270.png">
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><link href="https://kit.fontawesome.com" rel="preconnect" crossorigin="anonymous"><link href="https://www.googletagmanager.com" rel="preconnect"><link href="https://a.omappapi.com" rel="preconnect"></head>
+<body class="home page-template-default page page-id-4508 cookies-not-set">
+
+<div class="mb-4"><!-- mb-4 was here -->
+  <div class="container"> 
+    
+    <nav class="navbar navbar-expand-lg navbar-light flex-wrap py-1">
+      <div class="col-10 col-lg-6 pl-0 py-3 d-flex" style="min-height: 66px;">
+        <!-- mobile menu --> 
+        <div class="d-lg-none mr-2">  
+          <button class="navbar-toggler btn-sm" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="d-flex align-items-center">
+          <a class="navbar-brand d-flex" href="/">
+            <img style="max-width: 260px; width: 100%; height: 100%" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2014/06/bitcoinchaser_logo-03.png" alt="BitcoinChaser" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2014/06/bitcoinchaser_logo-03.png" data-ll-status="loaded" class="entered lazyloaded" width="274" height="34"><noscript><img style="max-width: 260px; width: 100%; height: 100%" width="274" height="34" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2014/06/bitcoinchaser_logo-03.png" alt="BitcoinChaser"></noscript>
+          </a>
+        </div> 
+      </div><!-- .col --> 
+      <div class="col-2 col-lg-6 text-right pr-0 d-flex justify-content-end align-items-center">
+        <div class="mr-3 d-lg-inline-block d-none" id="ticker__prices"></div>
+        <!-- search button --> 
+        <div class="d-inline-block">
+          <button type="button" class="btn btn-cus-blue d-flex" data-toggle="modal" data-target="#staticBackdrop"><img src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2020/07/white-search-icon__75x75.png" alt="search" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2020/07/white-search-icon__75x75.png" data-ll-status="loaded" class="entered lazyloaded" width="20" height="20"><noscript><img src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2020/07/white-search-icon__75x75.png" height="20" width="20" alt="search"></noscript></button>
+        </div>
+      </div><!-- .col--> 
+      <div class="col-12 px-0 border-lg-top-none border-top border-bottom">
+          <div id="navbarNavAltMarkup" class="collapse navbar-collapse"><ul id="menu-primary-nav" class="navbar-nav cus-navbar"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-60261" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-60261 nav-item"><a title="Gambling" href="https://bitcoinchaser.com/category/gambling/" class="nav-link">Gambling</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-60434" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-60434 nav-item"><a title="Casinos" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="menu-item-dropdown-60434">Casinos</a>
+<ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-60434" role="menu">
+	<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-60437" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60437 nav-item"><a title="Bitcoin Casinos" href="https://bitcoinchaser.com/casino" class="dropdown-item">Bitcoin Casinos</a></li>
+	<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-66841" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-66841 nav-item"><a title="Litecoin Casinos" href="https://bitcoinchaser.com/litecoin-casinos" class="dropdown-item">Litecoin Casinos</a></li>
+	<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-65133" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-65133 nav-item"><a title="Ethereum Casinos" href="https://bitcoinchaser.com/ethereum-casinos/" class="dropdown-item">Ethereum Casinos</a></li>
+	<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-60435" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60435 nav-item"><a title="Crypto Casinos" href="https://bitcoinchaser.com/casino/crypto-casino" class="dropdown-item">Crypto Casinos</a></li>
+	<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-65132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-65132 nav-item"><a title="Casino Reviews" href="https://bitcoinchaser.com/casino/reviews/" class="dropdown-item">Casino Reviews</a></li>
+	<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-60267" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-60267 nav-item"><a title="Casino News" href="https://bitcoinchaser.com/category/casino-news/" class="dropdown-item">Casino News</a></li>
+</ul>
+</li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-60262" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-60262 nav-item"><a title="Bitcoin" href="https://bitcoinchaser.com/category/bitcoin/" class="nav-link">Bitcoin</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-60263" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-60263 nav-item"><a title="Cryptocurrency" href="https://bitcoinchaser.com/category/cryptocurrency/" class="nav-link">Cryptocurrency</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-60268" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60268 nav-item"><a title="Slots" href="https://bitcoinchaser.com/casino/slots/reviews/" class="nav-link">Slots</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-56389" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-56389 nav-item"><a title="Bonuses" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="menu-item-dropdown-56389">Bonuses</a>
+<ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-56389" role="menu">
+	<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-64048" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-64048 nav-item"><a title="Bitcoin Casino No Deposit Bonus" href="https://bitcoinchaser.com/bitcoin-casino-no-deposit-bonus/" class="dropdown-item">Bitcoin Casino No Deposit Bonus</a></li>
+	<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-66414" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-66414 nav-item"><a title="Bitcoin Casino Wager-Free Bonus" href="https://bitcoinchaser.com/bitcoin-casino-wager-free-bonus/" class="dropdown-item">Bitcoin Casino Wager-Free Bonus</a></li>
+	<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-64503" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-64503 nav-item"><a title="Bitcoin Casino Faucets" href="https://bitcoinchaser.com/best-bitcoin-casino-faucets" class="dropdown-item">Bitcoin Casino Faucets</a></li>
+	<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-64501" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-64501 nav-item"><a title="Bitcoin Casino Promotions" href="https://bitcoinchaser.com/promos" class="dropdown-item">Bitcoin Casino Promotions</a></li>
+</ul>
+</li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-66673" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-66673 nav-item"><a title="News" href="https://bitcoinchaser.com/category/news/" class="nav-link">News</a></li>
+</ul></div>      </div><!-- .col --> 
+    </nav>
+  </div><!-- .container --> 
+</div><!-- .bg --> 
+
+<!-- advert --> 
+<aside class="mb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col bg-cus-light py-2 d-flex justify-content-center">
+        <div class="ad">
+<figure class="wp-block-image size-full"><a href="https://bc.game/i-banners-n/" target="_blank" rel="nofollow"><img src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-940x140-1.jpg" alt="BC.Game advert" class="wp-image-67878 entered lazyloaded" data-lazy-srcset="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-940x140-1.jpg 940w, https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-940x140-1-300x45.jpg 300w, https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-940x140-1-768x114.jpg 768w" data-lazy-sizes="(max-width: 940px) 100vw, 940px" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-940x140-1.jpg" data-ll-status="loaded" sizes="(max-width: 940px) 100vw, 940px" srcset="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-940x140-1.jpg 940w, https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-940x140-1-300x45.jpg 300w, https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-940x140-1-768x114.jpg 768w" width="940" height="140"><noscript><img width="940" height="140" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-940x140-1.jpg" alt="BC.Game advert" class="wp-image-67878" srcset="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-940x140-1.jpg 940w, https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-940x140-1-300x45.jpg 300w, https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-940x140-1-768x114.jpg 768w" sizes="(max-width: 940px) 100vw, 940px" /></noscript></a></figure>
+</div>      </div>
+    </div>
+  </div>
+</aside>
+ 
+
+<!-- Above the Fold Section --> 
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-12 col-lg-8 mb-4 mb-lg-0">
+        <!-- COL --> 
+                      
+
+<div class="card rounded-0 border-0 h-100 mb-3 mb-md-4" style="background: transparent">
+  <a class="img-link" href="https://bitcoinchaser.com/stakes-100000-pragmatic-extravaganza-competition/">
+    <img src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/Screen-Shot-2022-03-23-at-11.51.20.jpg" class="card-img h-auto w-100 border rounded shadow-sm entered lazyloaded" alt="Stake’s $100,000 Pragmatic Extravaganza" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/Screen-Shot-2022-03-23-at-11.51.20.jpg" data-ll-status="loaded" width="800" height="480"><noscript><img src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/Screen-Shot-2022-03-23-at-11.51.20.jpg" width="800" height="480" class="card-img h-auto w-100 border rounded shadow-sm" alt="Stake&#8217;s $100,000 Pragmatic Extravaganza"></noscript>
+  </a>
+  <div class="card-body px-0 py-2 py-md-3">
+          <div class="d-inline-block mb-2 mb-md-3">
+      <a class="cat-link" href="/category/gambling/">
+        Gambling      </a>
+      </div>
+        <a href="https://bitcoinchaser.com/stakes-100000-pragmatic-extravaganza-competition/">
+            <h2 class="">
+        Stake’s $100,000 Pragmatic Extravaganza      </h2>
+          </a>
+    <!-- <p>Stake Casino and Pragmatic Play, a leading software developer, have joined forces to bring you the Extravaganza Competition with $100,000 in prize money available.</p>
+ -->
+  </div>
+</div>
+
+                </div>
+    <div class="col-12 col-lg-4">
+      <div class="d-flex align-items-center mb-4"><h2 class="m-0 pr-3">Casinos</h2><span class="heading--line flex-grow-1 ml-1"></span></div>
+            <style>
+  .casino-pill {
+    background: #f8f9fa;
+    transition: all 0.15s ease-in;
+  }
+
+  .casino-pill__link {
+    cursor: pointer; 
+    color: inherit;
+  }
+  .casino-pill__link:hover {
+    text-decoration: none;
+  }
+
+  .casino-pill__link:hover .casino-pill {
+    text-decoration: none;
+    background: #1d3557;
+  }
+
+  .casino-pill h5 {
+    transition: all 0.15s ease-in;
+  }
+ 
+  .casino-pill__link:hover .casino-pill h5 {
+    color: #fff;
+  }
+</style>
+
+          <a href="https://bitcoinchaser.com/casino/bitstarz-casino-review" class="casino-pill__link">
+      <div class="p-2 d-flex align-items-center mb-2 casino-pill shadow-sm rounded">
+        <div>
+          <img class="entered lazyloaded" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/09/bitstarz_casino_200x200.png" alt="BitStarz" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/09/bitstarz_casino_200x200.png" data-ll-status="loaded" width="70" height="70"><noscript><img class="" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/09/bitstarz_casino_200x200.png" alt="BitStarz" width="70" height="70"/></noscript>
+        </div>
+        <div class="flex-grow-1 pl-3">
+          <h5 class="mb-0">
+            BitStarz          </h5>
+        </div>
+      </div>
+    </a>
+          <a href="https://bitcoinchaser.com/casino/betchain-casino-review" class="casino-pill__link">
+      <div class="p-2 d-flex align-items-center mb-2 casino-pill shadow-sm rounded">
+        <div>
+          <img class="entered lazyloaded" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/09/Betchain_logo_200x200.png" alt="BetChain" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/09/Betchain_logo_200x200.png" data-ll-status="loaded" width="70" height="70"><noscript><img class="" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/09/Betchain_logo_200x200.png" alt="BetChain" width="70" height="70"/></noscript>
+        </div>
+        <div class="flex-grow-1 pl-3">
+          <h5 class="mb-0">
+            BetChain          </h5>
+        </div>
+      </div>
+    </a>
+          <a href="https://bitcoinchaser.com/casino/7bitcasino-review" class="casino-pill__link">
+      <div class="p-2 d-flex align-items-center mb-2 casino-pill shadow-sm rounded">
+        <div>
+          <img class="entered lazyloaded" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2019/06/7bit-casino-review__200x200.jpeg" alt="7Bit" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2019/06/7bit-casino-review__200x200.jpeg" data-ll-status="loaded" width="70" height="70"><noscript><img class="" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2019/06/7bit-casino-review__200x200.jpeg" alt="7Bit" width="70" height="70"/></noscript>
+        </div>
+        <div class="flex-grow-1 pl-3">
+          <h5 class="mb-0">
+            7Bit          </h5>
+        </div>
+      </div>
+    </a>
+          <a href="https://bitcoinchaser.com/casino/cryptowild-casino-review" class="casino-pill__link">
+      <div class="p-2 d-flex align-items-center mb-2 casino-pill shadow-sm rounded">
+        <div>
+          <img class="entered lazyloaded" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/11/cryptowild_casino-review_200x200-compressor.jpeg" alt="CryptoWild" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/11/cryptowild_casino-review_200x200-compressor.jpeg" data-ll-status="loaded" width="70" height="70"><noscript><img class="" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/11/cryptowild_casino-review_200x200-compressor.jpeg" alt="CryptoWild" width="70" height="70"/></noscript>
+        </div>
+        <div class="flex-grow-1 pl-3">
+          <h5 class="mb-0">
+            CryptoWild          </h5>
+        </div>
+      </div>
+    </a>
+          <a href="https://bitcoinchaser.com/casino/fortunejack-casino-review" class="casino-pill__link">
+      <div class="p-2 d-flex align-items-center mb-2 casino-pill shadow-sm rounded">
+        <div>
+          <img class="entered lazyloaded" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2019/06/FortuneJack-Logo.jpg" alt="FortuneJack" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2019/06/FortuneJack-Logo.jpg" data-ll-status="loaded" width="70" height="70"><noscript><img class="" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2019/06/FortuneJack-Logo.jpg" alt="FortuneJack" width="70" height="70"/></noscript>
+        </div>
+        <div class="flex-grow-1 pl-3">
+          <h5 class="mb-0">
+            FortuneJack          </h5>
+        </div>
+      </div>
+    </a>
+  
+    </div>
+  </div><!-- .row --> 
+</div><!-- .container --> 
+
+
+<div class="container mb-5">
+
+  <div class="d-flex align-items-center mb-4"><h2 class="m-0 pr-3">Promotions</h2><span class="heading--line flex-grow-1 ml-1"></span></div>  <!-- .new heading --> 
+
+  <div class="row">
+  
+        
+      <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+        <div class="promo-card bg-cus-light h-100 w-100 shadow-sm d-flex flex-column">
+
+          <div class="p-lg-5 py-3 px-3">
+            <div class="d-flex align-items-center pb-3">
+              <img style="border-radius: 50%;" class="mr-2 entered lazyloaded" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2020/04/bitdice-casino__200x200-compressor.png" alt="promo from BitDice" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2020/04/bitdice-casino__200x200-compressor.png" data-ll-status="loaded" width="40" height="40"><noscript><img style="border-radius: 50%;" class="mr-2" width="40" height="40" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2020/04/bitdice-casino__200x200-compressor.png" alt="promo from BitDice"></noscript>
+              <h5 class="mb-0">BitDice</h5>
+            </div>
+            <p><strong>100</strong> free spins on registration!</p>
+          </div><!-- .highlighted -->
+          <a class="border-top promo-card__link" href="https://bitdice.me/?r=82923" target="_blank">Claim Bonus</a>
+        </div>
+      </div>
+      
+
+      
+      <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+        <div class="promo-card bg-cus-light h-100 w-100 shadow-sm d-flex flex-column">
+
+          <div class="p-lg-5 py-3 px-3">
+            <div class="d-flex align-items-center pb-3">
+              <img style="border-radius: 50%;" class="mr-2 entered lazyloaded" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/09/mBit_casino_200x200.png" alt="promo from Mbit Casino" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/09/mBit_casino_200x200.png" data-ll-status="loaded" width="40" height="40"><noscript><img style="border-radius: 50%;" class="mr-2" width="40" height="40" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/09/mBit_casino_200x200.png" alt="promo from Mbit Casino"></noscript>
+              <h5 class="mb-0">Mbit Casino</h5>
+            </div>
+            <p>Up to <strong>5 BTC + 300</strong> free spins. </p>
+          </div><!-- .highlighted -->
+          <a class="border-top promo-card__link" href="https://mbitcasinopartners2.com/mbit-25-9958-CHsmBMailer" target="_blank">Claim Bonus</a>
+        </div>
+      </div>
+      
+
+      
+      <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+        <div class="promo-card bg-cus-light h-100 w-100 shadow-sm d-flex flex-column">
+
+          <div class="p-lg-5 py-3 px-3">
+            <div class="d-flex align-items-center pb-3">
+              <img style="border-radius: 50%;" class="mr-2 entered lazyloaded" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2020/02/duckdice-casino-logo__200x200-compressor.jpeg" alt="promo from DuckDice" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2020/02/duckdice-casino-logo__200x200-compressor.jpeg" data-ll-status="loaded" width="40" height="40"><noscript><img style="border-radius: 50%;" class="mr-2" width="40" height="40" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2020/02/duckdice-casino-logo__200x200-compressor.jpeg" alt="promo from DuckDice"></noscript>
+              <h5 class="mb-0">DuckDice</h5>
+            </div>
+            <p>Win a game of tic-tac-toe and claim from the <strong>crypto faucet</strong>.</p>
+          </div><!-- .highlighted -->
+          <a class="border-top promo-card__link" href="https://duckdice.com/btc-chaser" target="_blank">Claim Bonus</a>
+        </div>
+      </div>
+      
+
+  </div><!-- .row --> 
+</div>
+
+
+<div class="container mb-5">
+  <div class="d-flex align-items-center mb-4"><h2 class="m-0 pr-3">Latest</h2><span class="heading--line flex-grow-1 ml-1"></span></div>  <div class="row">
+    <div class="col-12 col-lg-12">
+
+       
+   
+                  <div class="row">
+                      <div class="col-12 col-lg-6">
+              
+<div class="card--long w-100 rounded-0 border-0 mt-4">
+  <a href="https://bitcoinchaser.com/stratis-casinos-and-gambling-sites/" class="img-link"> 
+  <div class="row no-gutters">
+
+    <div class="col-4">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20170%20103'%3E%3C/svg%3E" class="card-img h-auto w-100 border rounded" alt="The Best Stratis Casinos And Gambling Sites" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/Best-Stratis-Casinos-300x180.jpg" width="170" height="103"><noscript><img src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/Best-Stratis-Casinos-300x180.jpg" width="170" height="103" class="card-img h-auto w-100 border rounded" alt="The Best Stratis Casinos And Gambling Sites"></noscript>
+    </div><!-- .col --> 
+
+    <div class="col-8 d-flex flex-column justify-content-center">
+      <div class="p-0 pl-3">
+
+        
+          <!-- <div class="d-inline-block mb-2 mb-md-3">
+            <a class="cat-link" href="/category/gambling/">
+            Gambling            </a>
+          </div> -->
+
+         
+        
+        <h3 class="h5 font-weight-light">The Best Stratis Casinos And Gambling Sites</h3>
+      
+      </div><!-- .card-body -->
+    </div><!-- .col --> 
+  </div><!-- .row --> 
+  </a>
+</div><!-- .card -->
+            </div>
+                      <div class="col-12 col-lg-6">
+              
+<div class="card--long w-100 rounded-0 border-0 mt-4">
+  <a href="https://bitcoinchaser.com/bc-game-launches-sports-betting/" class="img-link"> 
+  <div class="row no-gutters">
+
+    <div class="col-4">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20170%20103'%3E%3C/svg%3E" class="card-img h-auto w-100 border rounded" alt="BC.Game Launches Sports Betting" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/BC.Game-Launches-Sports-Betting-300x180.jpg" width="170" height="103"><noscript><img src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/BC.Game-Launches-Sports-Betting-300x180.jpg" width="170" height="103" class="card-img h-auto w-100 border rounded" alt="BC.Game Launches Sports Betting"></noscript>
+    </div><!-- .col --> 
+
+    <div class="col-8 d-flex flex-column justify-content-center">
+      <div class="p-0 pl-3">
+
+        
+          <!-- <div class="d-inline-block mb-2 mb-md-3">
+            <a class="cat-link" href="/category/casino-news/">
+            Casino News            </a>
+          </div> -->
+
+         
+        
+        <h3 class="h5 font-weight-light">BC.Game Launches Sports Betting</h3>
+      
+      </div><!-- .card-body -->
+    </div><!-- .col --> 
+  </div><!-- .row --> 
+  </a>
+</div><!-- .card -->
+            </div>
+                      <div class="col-12 col-lg-6">
+              
+<div class="card--long w-100 rounded-0 border-0 mt-4">
+  <a href="https://bitcoinchaser.com/bitcoinchasers-ufc-london-top-picks/" class="img-link"> 
+  <div class="row no-gutters">
+
+    <div class="col-4">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20170%20103'%3E%3C/svg%3E" class="card-img h-auto w-100 border rounded" alt="BitcoinChaser’s UFC London Top Picks" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/UFC-London-top-picks__800x480-1-300x180.jpg" width="170" height="103"><noscript><img src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/UFC-London-top-picks__800x480-1-300x180.jpg" width="170" height="103" class="card-img h-auto w-100 border rounded" alt="BitcoinChaser&#8217;s UFC London Top Picks"></noscript>
+    </div><!-- .col --> 
+
+    <div class="col-8 d-flex flex-column justify-content-center">
+      <div class="p-0 pl-3">
+
+        
+          <!-- <div class="d-inline-block mb-2 mb-md-3">
+            <a class="cat-link" href="/category/gambling/">
+            Gambling            </a>
+          </div> -->
+
+         
+        
+        <h3 class="h5 font-weight-light">BitcoinChaser’s UFC London Top Picks</h3>
+      
+      </div><!-- .card-body -->
+    </div><!-- .col --> 
+  </div><!-- .row --> 
+  </a>
+</div><!-- .card -->
+            </div>
+                      <div class="col-12 col-lg-6">
+              
+<div class="card--long w-100 rounded-0 border-0 mt-4">
+  <a href="https://bitcoinchaser.com/stake-alternatives/" class="img-link"> 
+  <div class="row no-gutters">
+
+    <div class="col-4">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20170%20103'%3E%3C/svg%3E" class="card-img h-auto w-100 border rounded" alt="Stake Alternatives: 8 Crypto Casinos Like Stake" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/casinos-like-stake-alternatives__800x480-300x180.jpg" width="170" height="103"><noscript><img src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/casinos-like-stake-alternatives__800x480-300x180.jpg" width="170" height="103" class="card-img h-auto w-100 border rounded" alt="Stake Alternatives: 8 Crypto Casinos Like Stake"></noscript>
+    </div><!-- .col --> 
+
+    <div class="col-8 d-flex flex-column justify-content-center">
+      <div class="p-0 pl-3">
+
+        
+          <!-- <div class="d-inline-block mb-2 mb-md-3">
+            <a class="cat-link" href="/category/gambling/">
+            Gambling            </a>
+          </div> -->
+
+         
+        
+        <h3 class="h5 font-weight-light">Stake Alternatives: 8 Crypto Casinos Like Stake</h3>
+      
+      </div><!-- .card-body -->
+    </div><!-- .col --> 
+  </div><!-- .row --> 
+  </a>
+</div><!-- .card -->
+            </div>
+                      <div class="col-12 col-lg-6">
+              
+<div class="card--long w-100 rounded-0 border-0 mt-4">
+  <a href="https://bitcoinchaser.com/drake-and-stake-live-stream-coming-soon/" class="img-link"> 
+  <div class="row no-gutters">
+
+    <div class="col-4">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20170%20103'%3E%3C/svg%3E" class="card-img h-auto w-100 border rounded" alt="Drake and Stake.com Live Stream Coming Soon" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/stake-drake-live-stream-coming-soon__800x480-300x180.jpg" width="170" height="103"><noscript><img src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/stake-drake-live-stream-coming-soon__800x480-300x180.jpg" width="170" height="103" class="card-img h-auto w-100 border rounded" alt="Drake and Stake.com Live Stream Coming Soon"></noscript>
+    </div><!-- .col --> 
+
+    <div class="col-8 d-flex flex-column justify-content-center">
+      <div class="p-0 pl-3">
+
+        
+          <!-- <div class="d-inline-block mb-2 mb-md-3">
+            <a class="cat-link" href="/category/casino-news/">
+            Casino News            </a>
+          </div> -->
+
+         
+        
+        <h3 class="h5 font-weight-light">Drake and Stake.com Live Stream Coming Soon</h3>
+      
+      </div><!-- .card-body -->
+    </div><!-- .col --> 
+  </div><!-- .row --> 
+  </a>
+</div><!-- .card -->
+            </div>
+                      <div class="col-12 col-lg-6">
+              
+<div class="card--long w-100 rounded-0 border-0 mt-4">
+  <a href="https://bitcoinchaser.com/cardano-ada-gambling-available-at-bc-game/" class="img-link"> 
+  <div class="row no-gutters">
+
+    <div class="col-4">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20170%20103'%3E%3C/svg%3E" class="card-img h-auto w-100 border rounded" alt="Cardano (ADA) Gambling Now Available at BC.Game" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/cardano-ada-gambling-at-bc-game__800x480-300x180.jpg" width="170" height="103"><noscript><img src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/cardano-ada-gambling-at-bc-game__800x480-300x180.jpg" width="170" height="103" class="card-img h-auto w-100 border rounded" alt="Cardano (ADA) Gambling Now Available at BC.Game"></noscript>
+    </div><!-- .col --> 
+
+    <div class="col-8 d-flex flex-column justify-content-center">
+      <div class="p-0 pl-3">
+
+        
+          <!-- <div class="d-inline-block mb-2 mb-md-3">
+            <a class="cat-link" href="/category/casino-news/">
+            Casino News            </a>
+          </div> -->
+
+         
+        
+        <h3 class="h5 font-weight-light">Cardano (ADA) Gambling Now Available at BC.Game</h3>
+      
+      </div><!-- .card-body -->
+    </div><!-- .col --> 
+  </div><!-- .row --> 
+  </a>
+</div><!-- .card -->
+            </div>
+                    </div>
+            </div><!-- .col --> 
+   
+  </div><!-- .row --> 
+</div><!-- .container --> 
+
+<div class="container mb-5">
+  
+  <style>
+    .media-content {
+      background-color: transparent;
+      background-image: -webkit-linear-gradient(transparent,rgba(0,0,0,0.2));
+      background-image: linear-gradient(transparent,rgba(0,0,0,2));
+      background-position-y: -1px;
+      bottom: -1px;
+    }
+  </style>
+
+  <div class="d-flex align-items-center mb-4"><h2 class="m-0 pr-3">Bitcoin</h2><span class="heading--line flex-grow-1 ml-1"></span></div>  <div class="row flex-column flex-lg-row flex-column-reverse">
+
+    <div class="col-12 col-lg-4">
+        <div class="h-100 p-0 d-flex flex-column" style="list-style-type: none;">
+  
+          <div class="position-relative col m-0 p-4 rounded bg-cus-light mt-3 mt-lg-0">
+            <h5 class="font-weight-light">Earn Free Bitcoin and Cryptocurrency</h5>
+            <a href="https://bitcoinchaser.com/free-bitcoin?from=home" class="position-absolute" style="top: 0; bottom: 0; left: 0; right: 0;"></a>
+          </div>
+          <div class="position-relative col m-0 p-4 rounded bg-cus-light mt-2 mt-lg-3">
+            <h5 class="font-weight-light">Find The Best Bitcoin Wallet For You</h5>
+            <a href="https://bitcoinchaser.com/bitcoin-wallets/?from=home" class="position-absolute" style="top: 0; bottom: 0; left: 0; right: 0;"></a>
+          </div>
+          <div class="position-relative col m-0 p-4 rounded bg-cus-light mt-2 mt-lg-3">
+            <h5 class="font-weight-light">How To Send Bitcoin To Someone</h5>
+            <a href="https://bitcoinchaser.com/how-to-send-bitcoin/?from=home" class="position-absolute" style="top: 0; bottom: 0; left: 0; right: 0;"></a>
+          </div>
+        </div>
+    </div>
+
+  
+        
+   
+        <div class="col-12 col-lg-8">
+          <a href="https://bitcoinchaser.com/bitcoin-apps">
+            <div class="position-relative">
+              <div class="position-absolute top-0 start-0 bottom-0 right-0 end-0 p-4 media-content rounded">
+                <h2 class="text-white font-weight-light">The Best Free Bitcoin Apps of 2022</h2>
+                <div class="text-white d-none d-lg-block fs-large"><p>Discover the best free Bitcoin apps available on Google Play or App store.</p>
+</div>
+              </div>
+              <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20480'%3E%3C/svg%3E" class="w-100 h-auto rounded" alt="The Best Free Bitcoin Apps of 2022" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2018/12/bitcoin-guides_bitcoin-apps_800x480.jpg?from=home" width="800" height="480"><noscript><img src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2018/12/bitcoin-guides_bitcoin-apps_800x480.jpg?from=home" class="w-100 h-auto rounded" height="480" width="800" alt="The Best Free Bitcoin Apps of 2022"></noscript>
+            </div>
+          </a>
+        </div><!-- .col -->
+
+        
+      </div>
+</div>
+
+
+  <aside class="mb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col bg-cus-light py-2 d-flex justify-content-center">
+          <div class="ad">
+<figure class="wp-block-image size-full"><a href="https://bc.game/i-banners-n/" target="_blank" rel="nofollow"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20940%20250'%3E%3C/svg%3E" alt="BC.Game advert" class="wp-image-67879" data-lazy-srcset="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-970x250-1.jpg 940w, https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-970x250-1-300x80.jpg 300w, https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-970x250-1-768x204.jpg 768w" data-lazy-sizes="(max-width: 940px) 100vw, 940px" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-970x250-1.jpg" width="940" height="250"><noscript><img width="940" height="250" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-970x250-1.jpg" alt="BC.Game advert" class="wp-image-67879" srcset="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-970x250-1.jpg 940w, https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-970x250-1-300x80.jpg 300w, https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2022/03/bc.game-ad-970x250-1-768x204.jpg 768w" sizes="(max-width: 940px) 100vw, 940px" /></noscript></a></figure>
+</div>      </div>
+    </div>
+  </div>
+</aside>
+  <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" style="top: 30%;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-inline my-2 my-lg-0 w-100" role="search" method="get" id="searchform" action="https://bitcoinchaser.com/">
+          <div class="input-group input-group-lg w-100">
+          <input class="form-control mr-sm-2 rounded-0" type="search" placeholder="Search" aria-label="Search" value="" name="s" id="s">
+          <button id="searchsubmit" class="btn btn-cus-blue my-2 my-sm-0 rounded-0" value="Search" type="submit">Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div><!-- .modal  -->
+  <footer class="border-top"> 
+    <div style="background: #FAFAFA;">
+      <div class="container py-5">
+        <div class="row" style="font-size:1em">
+          
+          <div class="col-12 col-md-6 py-2 mb-4 mb-md-0">
+                          <div><div class="textwidget custom-html-widget"><div class="mb-4">
+<h6>Social</h6>
+<div style="min-height: 32px;">	
+<a class="mr-2" href="https://twitter.com/intent/follow?screen_name=bitcoinchaser" target="_blank" rel="noopener"><i class="fab fa-twitter fa-2x"></i></a>
+<a class="mr-2" href="https://www.facebook.com/BitcoinChaser/" target="_blank" rel="noopener"><i class="fab fa-facebook-f fa-2x"></i></a>
+<a class="mr-2" href="https://www.reddit.com/r/BitcoinChaser/" target="_blank" rel="noopener"><i class="fab fa-reddit fa-2x"></i></a>  
+<a class="mr-2" href="https://bitcoinchaser.com/feed/"><i class="fas fa-rss fa-2x"></i></a>
+</div>
+</div></div></div>                                      <div><div class="textwidget custom-html-widget"><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com -->
+<h6>Newsletter</h6>
+<div id="om-d3ylvhycz1l36nq8dd50-holder" style="min-height: 78px"></div>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://a.omappapi.com/app/js/api.min.js" data-campaign="d3ylvhycz1l36nq8dd50" data-user="57704" async=""></script>
+<!-- / https://optinmonster.com --></div></div>                      </div><!-- .col --> 
+            
+          <div class="col-12 col-md-3 py-2 mb-0">
+            <h5 class="h6">Sections</h5><div class="footer-list__container"><ul id="menu-footer-menu-center-left" class=""><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-59184" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-59184 nav-item"><a title="Bitcoin" href="https://bitcoinchaser.com/category/bitcoin/" class="nav-link">Bitcoin</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-59183" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-59183 nav-item"><a title="Gambling" href="https://bitcoinchaser.com/category/gambling/" class="nav-link">Gambling</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-59185" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-59185 nav-item"><a title="Cryptocurrency" href="https://bitcoinchaser.com/category/cryptocurrency/" class="nav-link">Cryptocurrency</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-59186" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-59186 nav-item"><a title="Casino News" href="https://bitcoinchaser.com/category/casino-news/" class="nav-link">Casino News</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-59187" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-59187 nav-item"><a title="Bitcoin News" href="https://bitcoinchaser.com/category/news/bitcoin-news/" class="nav-link">Bitcoin News</a></li>
+</ul></div>          </div>
+
+          <div class="col-12 col-md-3 py-2 mb-4 mb-md-0">
+            <!-- .footer-list__container in css --> 
+            <h5 class="h6">Site</h5><div class="footer-list__container"><ul id="menu-footer-menu-left" class=""><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-57282" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57282 nav-item"><a title="Contact Us" href="https://bitcoinchaser.com/contact-us" class="nav-link">Contact Us</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-57279" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57279 nav-item"><a title="Newsletter" href="https://bitcoinchaser.com/newsletter" class="nav-link">Newsletter</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-57280" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57280 nav-item"><a title="Blog" href="https://bitcoinchaser.com/bitcoin-blog/" class="nav-link">Blog</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-57278" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57278 nav-item"><a title="Privacy Policy" href="https://bitcoinchaser.com/privacy-policy" class="nav-link">Privacy Policy</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-57281" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-57281 nav-item"><a title="Sitemap" href="https://bitcoinchaser.com/sitemap_index.xml" class="nav-link">Sitemap</a></li>
+</ul></div>          </div>
+          
+        </div><!-- .row --> 
+      </div><!-- .container --> 
+      </div><!-- .color --->
+      <div class="border-top" style="background: #EFEFEF;"> 
+        <div class="container">
+          <div class="row">
+            <div class="col-12 d-flex align-items-center py-3" style="font-size: 0.85em;">
+              <img class="mr-2" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2022%2022'%3E%3C/svg%3E" alt="bitcoin chaser" data-lazy-src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/08/bitcoin_chaser_small_logo.png" width="22" height="22"><noscript><img width="22" height="22" class="mr-2" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/uploads/2017/08/bitcoin_chaser_small_logo.png" alt="bitcoin chaser"></noscript>
+              <div class="mr-2 chaser-footer-title">BitcoinChaser</div>
+              <div class="text-muted mr-2">© 2022</div>
+            </div><!-- .col --> 
+          </div><!-- .row --> 
+        </div><!-- .container --> 
+      </div><!-- .color --->
+    </footer>
+    <!-- disabled Google fonts and Font Awesome from loading with OptinMonster --> 
+    <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+    document.addEventListener('om.Scripts.init', function(event) {
+    event.detail.Scripts.enabled.fonts= false;
+    });
+    </script>
+    <!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: Slide-in Newsletter Signup  -->
+<script type="rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,57704,'jurepahezfedhmudygtq');</script>
+<!-- / OptinMonster --><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: Wheel Bonus (Mobile) -->
+<script type="rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,57704,'jypoepuvevew6yx4yws9');</script>
+<!-- / OptinMonster --><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: Newsletter Sign-up (Joe) -->
+<script type="rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,57704,'rqisktzh0nl8s2jbnpfj');</script>
+<!-- / OptinMonster -->		<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+		var jurepahezfedhmudygtq_shortcode = true;var jypoepuvevew6yx4yws9_shortcode = true;var rqisktzh0nl8s2jbnpfj_shortcode = true;		</script>
+		<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://bitcoinchaser.com/wp-content/cache/min/1/wp-content/themes/bs-theme/js/ticker.js?ver=1647449579" id="child-js-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://bitcoinchaser.com/wp-content/cache/min/1/wp-content/themes/bs-theme/js/loadMore.js?ver=1647449579" id="loadmore-js-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://bitcoinchaser.com/wp-content/cache/min/1/wp-content/themes/bs-theme/js/accordion.js?ver=1647449579" id="accordion-js-js" defer=""></script>
+<script type="text/javascript" id="cookie-notice-front-js-extra">
+/* <![CDATA[ */
+var cnArgs = {"ajaxUrl":"https:\/\/bitcoinchaser.com\/wp-admin\/admin-ajax.php","nonce":"2ac517270e","hideEffect":"fade","position":"bottom","onScroll":"0","onScrollOffset":"100","onClick":"0","cookieName":"cookie_notice_accepted","cookieTime":"7862400","cookieTimeRejected":"2592000","cookiePath":"\/","cookieDomain":"","redirection":"0","cache":"1","refuse":"0","revokeCookies":"0","revokeCookiesOpt":"automatic","secure":"1"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" async="" data-rocket-type="text/javascript" src="https://bitcoinchaser.com/wp-content/cache/min/1/wp-content/plugins/cookie-notice/js/front.min.js?ver=1647449579" id="cookie-notice-front-js"></script>
+<script type="rocketlazyloadscript">(function(d){var s=d.createElement("script");s.type="text/javascript";s.src="https://a.omappapi.com/app/js/api.min.js";s.async=true;s.id="omapi-script";d.getElementsByTagName("head")[0].appendChild(s);})(document);</script><script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://bitcoinchaser.com/wp-content/cache/min/1/wp-content/plugins/optinmonster/assets/js/helper.js?ver=1647449579" id="optinmonster-wp-helper-js" defer=""></script>
+
+		<!-- Cookie Notice plugin v2.2.3 by Hu-manity.co https://hu-manity.co/ -->
+		<div id="cookie-notice" role="dialog" class="cookie-notice-hidden cookie-revoke-hidden cn-position-bottom" aria-label="Cookie Notice" style="background-color: rgba(50,50,58,1);"><div class="cookie-notice-container" style="color: #fff;"><span id="cn-notice-text" class="cn-text-container">We use cookies to ensure that we give you the best experience on our website. For more information please refer to our <a href="/privacy-policy" target="_blank">Privacy Policy</a> </span><span id="cn-notice-buttons" class="cn-buttons-container"><a href="#" id="cn-accept-cookie" data-cookie-set="accept" class="cn-set-cookie cn-button" aria-label="Ok" style="background-color: #eba809">Ok</a></span><span id="cn-close-notice" data-cookie-set="accept" class="cn-close-icon" title="No"></span></div>
+			
+		</div>
+		<!-- / Cookie Notice plugin -->		<script type="rocketlazyloadscript" data-rocket-type="text/javascript">var omapi_localized = {
+			ajax: 'https://bitcoinchaser.com/wp-admin/admin-ajax.php?optin-monster-ajax-route=1',
+			nonce: '250397f522',
+			slugs: 
+			{"jurepahezfedhmudygtq":{"slug":"jurepahezfedhmudygtq","mailpoet":false},"jypoepuvevew6yx4yws9":{"slug":"jypoepuvevew6yx4yws9","mailpoet":false},"rqisktzh0nl8s2jbnpfj":{"slug":"rqisktzh0nl8s2jbnpfj","mailpoet":false}}		};</script>
+				<script type="rocketlazyloadscript" data-rocket-type="text/javascript">var omapi_data = {"wc_cart":[],"object_id":4508,"object_key":"page","object_type":"post","term_ids":[]};</script>
+		<script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://qolczpnfu7-flywheel.netdna-ssl.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script>  
+
+
+
+
+</body></html>

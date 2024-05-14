@@ -1,0 +1,263 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><!--<![endif]--><head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Sign-in - myGov</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- phone number format detection, turning it off -->
+  <meta name="format-detection" content="telephone=no">
+  <script type="text/javascript" src="/LoginServices/main/ruxitagentjs_ICA2Vfghjqrux_10231211201155045.js" data-dtconfig="app=5f15dc81410a75c1|ssc=1|rcdec=1209600000|featureHash=ICA2Vfghjqrux|vcv=2|rdnt=0|uxrgce=1|srmcrv=10|cuc=gpalpirq|mel=100000|md=mdcc1=ainput#user-id,mdcc2=adiv.error-msg-text span,mdcc3=aspan[data-home-welcome-message]|lastModification=1647281359634|dtVersion=10231211201155045|srmcrl=1|tp=500,50,0,1|uxdcw=1500|agentUri=/LoginServices/main/ruxitagentjs_ICA2Vfghjqrux_10231211201155045.js|reportUrl=/LoginServices/main/rb_6de8e2e9-6719-45b3-86be-7effcb9f6525|rid=RID_-1301946586|rpid=-1849173895|domain=my.gov.au"></script><link rel="shortcut icon" href="/mygov/content/mgv2/icons/favicon.ico">
+  <link href="/mygov/content/mgv2/css/mgv2-application.css" rel="stylesheet">
+</head>
+
+
+
+
+	
+	
+		<body class="unauth">
+	
+
+
+	<nav class="uikit-skip-link" aria-label="Skip Links"><a class="uikit-skip-link__link" id="va_skipToBot" href="#">Skip to Ask a question</a></nav>
+
+	<div class="beta-information" role="complementary" aria-label="Beta Invitation">
+		Shape the future of myGov. Visit <a id="mygov-beta" href="https://beta.my.gov.au">myGov Beta</a> and give us your feedback.
+	</div>
+  	
+	
+
+<header role="banner" class="unauth"><section class="wrapper"><div class="inner"><div class="unauth-grid"><div class="unauth-grid-row"><img id="unauth-govt-crest" src="/mygov/content/mgv2/icons/austgovt-inline-white.svg" alt="Australian Government Coat of Arms" role="img"><div class="header-logo unauth"><a href="/mygov"><img src="/mygov/content/mgv2/icons/mygov-logo.svg" class="header-logo-img" alt="myGov home" id="unauth-mygov-logo"></a></div></div></div></div></section></header><noscript><div class="outage"><div class="outage__inner"><div><span class="is-visuallyhidden">Warning message:</span><p>JavaScript is required for myGov to work correctly.</p></div></div></div></noscript>
+
+			 
+	
+
+
+
+
+
+
+
+<div class="wrapper"><div class="main-block" id="content" role="main">
+	<div class="unauth">
+
+		<div id="modal-zone">
+			<!-- first identity modal -->
+			<div tabindex="-1" open="false" aria-labelledby="initial-modal-header" aria-describedby="initial-modal-content" role="dialog" aria-modal="false" aria-expanded="false" aria-hidden="true" id="new-modal-content" class="generic-modal new-modal-content new-hide">
+				<section>
+					<form id="identity-display-form">
+						<div class="input-group">
+							<fieldset id="digital-id-selection">
+								<div class="identity-modal-header-group">
+									<h3 class="identity-question-header" aria-hidden="true">Have you connected your
+										Digital Identity in your myGov
+										Account settings?</h3>
+									<div>
+										<a id="first-dismiss" href="#" aria-label="Close" class="modal-action-dismiss" onclick="newHideIdentityModal()">
+											<img name="modal-dismiss" tabindex="-1" alt="Dismiss modal" class="modal-dismiss" src="/mygov/content/mgv2/icons/dismiss-x.svg">
+										</a>
+									</div>
+								</div>
+
+								<legend id="initial-modal-header" aria-hidden="false">Have you connected your Digital
+									Identity in your myGov Account settings?</legend>
+								<p id="initial-modal-content">You would have done this in your <strong>myGov Account
+										settings</strong>.</p>
+								<input onclick="enableProgressButton()" id="decline-digital-identity" value="decline" name="idstatus" type="radio"><label for="decline-digital-identity">I have not
+									connected yet</label>
+								<input onclick="enableProgressButton()" id="confirm-digital-identity" value="confirm" name="idstatus" type="radio"><label for="confirm-digital-identity">I have
+									connected</label>
+							</fieldset>
+
+						</div>
+					</form>
+					<div class="identity-modal-button-container">
+						<button data-kickoff-url="/LoginServices/main/login?execution=e1s1&amp;_eventId=digitalIdentity" name="digitalIdentity" aria-controls="new-modal-content" class="confirm-action" disabled="" id="identity-first-confirm-button">Continue</button>
+					</div>
+				</section>
+			</div>
+
+			<!-- secondary identity modal -->
+			<div tabindex="-1" open="false" aria-labelledby="secondary-modal-header" role="dialog" aria-modal="false" aria-expanded="false" aria-hidden="true" id="secondary-identity-modal" class="hidden generic-modal">
+				<div class="identity-modal-header-group">
+					<h3 class="explanatory-identity-header" id="secondary-modal-header">To connect your Digital
+						Identity:</h3>
+					<a id="second-dismiss" href="#" aria-label="Close" class="modal-action-dismiss" onclick="hideSecondaryModal()">
+						<img name="modal-dismiss" tabindex="-1" alt="Dismiss modal" class="modal-dismiss" src="/mygov/content/mgv2/icons/dismiss-x.svg">
+					</a>
+				</div>
+				<ol class="identity-link-process">
+					<li>Sign in to myGov with your username and password</li>
+					<li>Select Account settings</li>
+					<li>Select Digital Identity and follow the prompts</li>
+				</ol>
+				<div class="secondary-identity-modal-button-container">
+					<button id="identity-second-confirm-button" class="confirm-action" aria-controls="secondary-identity-modal" onclick="hideSecondaryModal()">Close</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- modal background -->
+		<div aria-hidden="true" id="digital-id-modal-background" class="new-modal new-hide">
+		</div>
+
+		<div class="login-grid-container">
+			<h1 class="sign-in-banner alternative">Sign in to myGov</h1>
+			<p class="login-instruction-text">Choose how to sign in from these 2 options</p>
+			<div class="login-grid-row alternative">
+				<div class="login-grid-column alternative">
+					<div class="digital-id-login-card-wrapper transparent-background">
+						<div class="digital-id-barrier">
+							<div class="digital-id-main-login-card alternative">
+								
+
+								
+
+								
+
+								
+								
+
+								
+
+								<h2 class="digital-id-header">Using your myGov sign in details</h2>
+
+								<form id="loginForm" action="/LoginServices/main/login?execution=e1s1" method="post" autocomplete="off">
+
+									<div class="input-group">
+										<label for="userId">Username or email</label>
+										<input id="userId" name="userId" data-username="data-username" type="text" value="" autocomplete="off">
+									</div>
+
+									<a href="/CredentialManager/recoverUserId.jsp?Origin=&amp;Return=/sps/auth&amp;Login=true">Forgot
+										username</a>
+
+									<div class="input-group">
+										<label for="password">Password</label>
+										<span class="help-text" id="password-text">Do not show others your
+											password</span>
+										<div class="password-group">
+											<button class="showPassword anchor" type="button" aria-describedby="show-hide-helpmsg" aria-label="Show password as plain text.">Show</button><p class="is-visuallyhidden" id="show-hide-helpmsg">Note: this will visually expose your password on the screen.</p><input id="password" name="password" aria-describedby="password-text" data-current-password="data-current-password" type="password" value="" autocomplete="off">
+										</div>
+									</div>
+
+									<a href="/CredentialManager/resetPassword.jsp?Origin=&amp;Return=/sps/auth&amp;Login=true">Forgot
+										password</a>
+
+									
+
+									<div class="button-digital-id-main-container">
+										<div class="digital-id-button-container">
+											<button type="submit" class="button-main" name="_eventId_Sign in">Sign
+												in</button>
+										</div>
+									</div>
+
+									<input type="hidden" name="credentialType" value="20">
+									<input type="hidden" id="digitalassistant-unauth" value="">
+									<input type="hidden" name="_flowExecutionKey" value="e1s1">
+									<input type="hidden" name="OWASP_CSRFTOKEN" value="YVX4-WCJ9-LT7E-E6DV-6XDY-6I82-PHX6-DK9I-WMBD-6UBY-FTNW-HS77-4JSQ-X3B1-Z62Q-EI60-YN8R-3BDK-VCQY-WMQ7-OJND-WVG5-7YX7-2SU2-VJNK-9MT4-9SFC-O7MQ-MSXM-5P52-35H3-ZIPW">
+
+
+								</form>
+
+							</div>
+						</div>
+						<div class="hr-divider">
+							<div class="rounded-border">or</div>
+						</div>
+
+						
+							
+								
+							
+							
+						
+
+						<div class="digital-id-login-card alternative">
+							<h2 class="digital-id-header">Using your myGovID Digital Identity</h2>
+							<div class="button-digital-id-container">
+								<!-- <a aria-controls="identity-modal" onclick="newShowIdentityModal()" role="button"
+									href="#" class="button-minor button">Continue with Digital Identity</a> -->
+								<a href="/LoginServices/main/login?execution=e1s1&amp;_eventId=digitalIdentity" class="button-minor" role="button">Continue with Digital Identity</a>
+							</div>		
+							<p>You need to <a href="/EnrolService/register.jsp?login=true&amp;Return=/">create a myGov account</a>, if you don't have one.</p>
+							<p class="external-links-zone">
+
+								<span class="identity">What is <a target="_blank" href="https://www.digitalidentity.gov.au/">Digital Identity
+										<img alt="Opens in a new window" class="link-external" src="/mygov/content/mgv2/icons/icon-external-link-blue.svg">
+
+</a>?</span>
+								<span class="mygovid">What is <a target="_blank" href="https://www.mygovid.gov.au/">myGovID
+										<img alt="Opens in a new window" class="link-external" src="/mygov/content/mgv2/icons/icon-external-link-blue.svg">
+
+</a>?</span>
+							</p>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="login-grid-column secondary">
+					<div class="product-description">
+						<div class="digital-id-inner">
+							<h2>What is myGov?</h2>
+							<p>myGov is a simple and secure way to access online government services.</p>
+							<p>
+								<a class="link-arrow" href="/EnrolService/register.jsp?login=true&amp;Return=/">Create
+									a myGov account</a>
+							</p>
+
+							<hr>
+
+							<h2>COVID-19 updates</h2>
+							<p>Go to <a target="_blank" href="https://australia.gov.au" rel="noopener noreferrer">australia.gov.au <img alt="Opens in a new window" class="link-external" src="/mygov/content/mgv2/icons/icon-external-link-blue.svg">
+
+</a>
+								for the latest:</p>
+							<ul>
+								<li>COVID-19 news</li>
+								<li>vaccine information </li>
+								<li>advice from Australian Government agencies.</li>
+							</ul>
+							
+							<h2>Proof of COVID-19 vaccination</h2>
+	  						<p>You can get proof of COVID-19 vaccinations by signing in to myGov.</p>
+	  										
+							<hr>
+														
+						</div>
+					</div>
+				</div>
+
+				<noscript>
+					<img alt="" src="/mygov/content/mgv2/icons/no-js.png" />
+				</noscript>
+
+			</div>
+		</div>
+	</div> <!-- end of unauth 'wrapper' div -->
+<input type="hidden" id="digitalassistant" value=""></div></div>
+
+
+	
+
+<footer role="contentinfo"><div class="wrapper"><div class="inner"><section class="footer-links"><nav aria-label="Footer Links"><ul><li><a href="/mygov/content/html/about.html">About myGov</a></li><li><a href="/mygov/content/html/contact.html">Contact us</a></li><li><a href="/mygov/content/html/terms.html">Terms of use</a></li><li><a href="/mygov/content/html/privacy.html">Privacy</a></li><li><a href="/mygov/content/html/copyright.html">Copyright</a></li><li><a href="/mygov/content/html/security.html">Security</a></li><li><a href="/mygov/content/html/accessibility.html">Accessibility</a></li><li><a href="/mygov/content/html/help.html">Help</a></li></ul></nav></section><section class="footer-logo"><img src="/mygov/content/mgv2/icons/austgovt-inline.svg" alt="Australian Government Coat of Arms" role="img" width="289" height="70"></section></div></div></footer>
+
+
+	
+	<script type="text/javascript" src="/mygov/content/mgv2/js/mgv2-vendor.js"></script>
+	<script type="text/javascript" src="/mygov/content/mgv2/js/mgv2-application.js"></script>
+	<script type="text/javascript" src="/mygov/content/mgv2/js/login.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.emergency-information').css({
+				height: 'auto',
+				padding: '17px 5px'
+			});
+		});
+	</script>
+
+
+<div id="va_chatAnchor" class="va_chatAnchor" role="complementary" aria-labelledby="va_chatTitle" style="display: block;"><div id="va_chatHeader" style="right:2%" aria-live="polite" title="Ask a question" aria-label="Ask a question"><div class="va_chatBorder"></div><header class="va_header va_clearfix" style="box-shadow:0 0 3px rgba(0,0,0,.3)"><h2 class="va_chatTitle" id="va_chatTitle" aria-live="polite">Ask a question</h2><div id="va_resizeIcon" class="va_resizeIcon" tabindex="0" aria-live="polite" title="View Ask a question in a larger window" aria-label="View Ask a question in a larger window" style="display: none"></div><div id="va_toggleIcon" class="va_toggleIcon" tabindex="0" aria-live="polite" title="Open Ask a question" aria-label="Open Ask a question"></div></header></div><iframe name="va_iframe" id="va_iframe" class="va_iframe" style="z-index: 9999; background: rgb(229, 229, 229) none repeat scroll 0% 0%; right: 2%; overflow: hidden;" aria-live="assertive" aria-relevant="additions" src="https://mygovv4-webchat.azurewebsites.net?Token=eyJhbGciOiJIUzI1NiJ9.eyJrZXkiOiIzZTljYjctZTZmLTNiZC1lYmItOTcxY2JkNmM1LTE2NDc4MjAzNTY1OTkiLCJpc3MiOiJNWUdPViIsImlhdCI6MTY0NzgyMDM1NiwiZXhwIjoxNjQ3ODIxMDc2LCJzdWIiOiJ1c2VyIiwiYXV0IjoiZmFsc2UiLCJwaWQiOiJudWxsIn0.hyi7u7LuUFoBiWadEefkGHkoHBTIujPpRKqKLDsSxyI#/wea"></iframe></div></body></html>

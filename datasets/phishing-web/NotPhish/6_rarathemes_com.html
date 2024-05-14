@@ -1,0 +1,1083 @@
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#" lang="en-US"><head itemscope="" itemtype="http://schema.org/WebSite"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(e){this.triggerEvents=e,this.eventOptions={passive:!0},this.userEventListener=this.triggerListener.bind(this),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventListener,e.eventOptions)))}_removeUserInteractionListener(e){this.triggerEvents.forEach((t=>window.removeEventListener(t,e.userEventListener,e.eventOptions)))}triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}async _loadEverythingNow(){this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async),await this._triggerDOMContentLoaded(),await this._triggerWindowLoad(),window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._requestAnimFrame(),new Promise((t=>{const n=document.createElement("script");let i;[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type",i=e.nodeValue),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")&&this._isValidScriptType(i)?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t()),e.parentNode.replaceChild(n,e)}))}_isValidScriptType(e){return!e||""===e||"string"==typeof e&&["text/javascript","text/x-javascript","text/ecmascript","text/jscript","application/javascript","application/x-javascript","application/ecmascript","application/jscript","module"].includes(e.toLowerCase())}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){var e=document.createDocumentFragment();[...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async].forEach((t=>{const n=t.getAttribute("src");if(n){const t=document.createElement("link");t.href=n,t.rel="preload",t.as="script",e.appendChild(t)}})),document.head.appendChild(e)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._requestAnimFrame(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-load")),await this._requestAnimFrame(),window.rocketonload&&window.rocketonload(),await this._requestAnimFrame(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),window.dispatchEvent(new Event("rocket-pageshow")),await this._requestAnimFrame(),window.rocketonpageshow&&window.rocketonpageshow()}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript;n||console.error("WPRocket unable to document.write this: "+t);const i=document.createRange(),r=n.parentElement;let a=e.get(n);void 0===a&&(a=n.nextSibling,e.set(n,a));const o=document.createDocumentFragment();i.setStart(o,0),o.appendChild(i.createContextualFragment(t)),r.insertBefore(o,a)}}async _requestAnimFrame(){return new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts(["keydown","mousemove","touchmove","touchstart","touchend","wheel"]);e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();
+</script>
+	    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    
+<!-- Search Engine Optimization by Rank Math - https://s.rankmath.com/home -->
+<title>Rara Themes: Easy to Use Mobile-Friendly WordPress Themes</title>
+<meta name="description" content="Easy to use free &amp; premium mobile-friendly WordPress Themes. Each theme comes with several features and awesome support.">
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+<link rel="canonical" href="https://rarathemes.com/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rara Themes: Easy to Use Mobile-Friendly WordPress Themes">
+<meta property="og:description" content="Easy to use free &amp; premium mobile-friendly WordPress Themes. Each theme comes with several features and awesome support.">
+<meta property="og:url" content="https://rarathemes.com/">
+<meta property="og:site_name" content="Rara Themes">
+<meta property="og:updated_time" content="2020-07-27T18:18:29+05:45">
+<meta property="article:published_time" content="2016-03-29T07:34:03+05:45">
+<meta property="article:modified_time" content="2020-07-27T18:18:29+05:45">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rara Themes: Easy to Use Mobile-Friendly WordPress Themes">
+<meta name="twitter:description" content="Easy to use free &amp; premium mobile-friendly WordPress Themes. Each theme comes with several features and awesome support.">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Raushan Jaiswal">
+<meta name="twitter:label2" content="Time to read">
+<meta name="twitter:data2" content="Less than a minute">
+<script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://rarathemes.com/#organization","name":"Rara Themes","url":"http://rarathemes.com"},{"@type":"WebSite","@id":"https://rarathemes.com/#website","url":"https://rarathemes.com","name":"Rara Themes","publisher":{"@id":"https://rarathemes.com/#organization"},"inLanguage":"en-US","potentialAction":{"@type":"SearchAction","target":"https://rarathemes.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"Person","@id":"https://rarathemes.com/author/raushanrara/","name":"Raushan Jaiswal","url":"https://rarathemes.com/author/raushanrara/","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/dcc00cd19b5e9f74ed8b30a727fc897a?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/dcc00cd19b5e9f74ed8b30a727fc897a?s=96&amp;d=mm&amp;r=g","caption":"Raushan Jaiswal","inLanguage":"en-US"},"worksFor":{"@id":"https://rarathemes.com/#organization"}},{"@type":"WebPage","@id":"https://rarathemes.com/#webpage","url":"https://rarathemes.com/","name":"Rara Themes: Easy to Use Mobile-Friendly WordPress Themes","datePublished":"2016-03-29T07:34:03+05:45","dateModified":"2020-07-27T18:18:29+05:45","author":{"@id":"https://rarathemes.com/author/raushanrara/"},"isPartOf":{"@id":"https://rarathemes.com/#website"},"inLanguage":"en-US"},{"@type":"Article","headline":"Rara Themes: Easy to Use Mobile-Friendly WordPress Themes","datePublished":"2016-03-29T07:34:03+05:45","dateModified":"2020-07-27T18:18:29+05:45","author":{"@id":"https://rarathemes.com/author/raushanrara/"},"publisher":{"@id":"https://rarathemes.com/#organization"},"description":"Easy to use free &amp; premium mobile-friendly WordPress Themes. Each theme comes with several features and awesome support.","name":"Rara Themes: Easy to Use Mobile-Friendly WordPress Themes","@id":"https://rarathemes.com/#richSnippet","isPartOf":{"@id":"https://rarathemes.com/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"https://rarathemes.com/#webpage"}}]}</script>
+<!-- /Rank Math WordPress SEO plugin -->
+
+<link rel="dns-prefetch" href="//raratheme-wbtneb0y4p.netdna-ssl.com">
+<link href="//raratheme-wbtneb0y4p.netdna-ssl.com" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="Rara Themes » Feed" href="https://rarathemes.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Rara Themes » Comments Feed" href="https://rarathemes.com/comments/feed/">
+<link rel="stylesheet" id="wp-block-library-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/css/dist/block-library/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="notificationx-block-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/notificationx/blocks/notificationx/style.css" type="text/css" media="all">
+<style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel="stylesheet" id="edd-styles-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/easy-digital-downloads/templates/edd.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="raratheme-companion-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/raratheme-companion/public/css/raratheme-companion-public.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="affwp-forms-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/affiliate-wp/assets/css/forms.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="edd-free-downloads-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/edd-free-downloads/assets/css/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="edd-recurring-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/edd-recurring/assets/css/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/css/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="edd-reviews-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/edd-reviews/assets/css/edd-reviews.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="rara-theme-font-awesome-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/themes/rara-theme/css/font-awesome.css" type="text/css" media="all">
+<link rel="stylesheet" id="rara-theme-meanmenu-style-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/themes/rara-theme/css/meanmenu.css" type="text/css" media="all">
+<link rel="stylesheet" id="raratheme-custom-fonts-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/themes/raratheme/css/fonts.css" type="text/css" media="all">
+<link rel="stylesheet" id="raratheme-style-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/themes/raratheme/css/style.min.css" type="text/css" media="all">
+<style id="raratheme-style-inline-css" type="text/css">
+
+        .custom-logo-link img{
+            width    : 130px;
+            max-width: 100%;
+        }
+</style>
+<link rel="stylesheet" id="jquery-rateyo-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/themes/raratheme/css/jquery.rateyo.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="cookie-notice-front-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/cookie-notice/includes/../css/front.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="notificationx-public-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/notificationx/assets/public/css/frontend.css" type="text/css" media="all">
+<link rel="stylesheet" id="notificationx-pro-public-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/notificationx-pro/assets/public/css/frontend.css" type="text/css" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/tablepress/css/default.min.css" type="text/css" media="all">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js" id="regenerator-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/vendor/wp-polyfill.min.js" id="wp-polyfill-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/vendor/react.min.js" id="react-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/vendor/react-dom.min.js" id="react-dom-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/vendor/lodash.min.js" id="lodash-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="lodash-js-after">
+window.lodash = _.noConflict();
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/autop.min.js" id="wp-autop-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/blob.min.js" id="wp-blob-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/block-serialization-default-parser.min.js" id="wp-block-serialization-default-parser-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/hooks.min.js" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/deprecated.min.js" id="wp-deprecated-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/dom.min.js" id="wp-dom-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/escape-html.min.js" id="wp-escape-html-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/element.min.js" id="wp-element-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/is-shallow-equal.min.js" id="wp-is-shallow-equal-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/i18n.min.js" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-keycodes-js-translations">
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", { "locale_data": { "messages": { "": {} } } } );
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/keycodes.min.js" id="wp-keycodes-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/priority-queue.min.js" id="wp-priority-queue-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/compose.min.js" id="wp-compose-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/redux-routine.min.js" id="wp-redux-routine-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/data.min.js" id="wp-data-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-data-js-after">
+( function() {
+	var userId = 0;
+	var storageKey = "WP_DATA_USER_" + userId;
+	wp.data
+		.use( wp.data.plugins.persistence, { storageKey: storageKey } );
+	wp.data.plugins.persistence.__unstableMigrate( { storageKey: storageKey } );
+} )();
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/html-entities.min.js" id="wp-html-entities-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/shortcode.min.js" id="wp-shortcode-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-blocks-js-translations">
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", { "locale_data": { "messages": { "": {} } } } );
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/blocks.min.js" id="wp-blocks-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/vendor/moment.min.js" id="moment-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="moment-js-after">
+moment.updateLocale( 'en_US', {"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthsShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"weekdaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"week":{"dow":1},"longDateFormat":{"LT":"g:i a","LTS":null,"L":null,"LL":"F j, Y","LLL":"F j, Y g:i a","LLLL":null}} );
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/dom-ready.min.js" id="wp-dom-ready-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-a11y-js-translations">
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", { "locale_data": { "messages": { "": {} } } } );
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/a11y.min.js" id="wp-a11y-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/date.min.js" id="wp-date-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-date-js-after">
+wp.date.setSettings( {"l10n":{"locale":"en_US","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthsShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"weekdaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"meridiem":{"am":"am","pm":"pm","AM":"AM","PM":"PM"},"relative":{"future":"%s from now","past":"%s ago"}},"formats":{"time":"g:i a","date":"F j, Y","datetime":"F j, Y g:i a","datetimeAbbreviated":"M j, Y g:i a"},"timezone":{"offset":"5.75","string":"","abbr":""}} );
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/primitives.min.js" id="wp-primitives-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-rich-text-js-translations">
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", { "locale_data": { "messages": { "": {} } } } );
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/rich-text.min.js" id="wp-rich-text-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/warning.min.js" id="wp-warning-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-components-js-translations">
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", { "locale_data": { "messages": { "": {} } } } );
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/components.min.js" id="wp-components-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/cache/min/1/wp-content/plugins/notificationx/blocks/controls/dist/index.js?ver=1648075415" id="notificationx-block-controls-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js" defer=""></script>
+<script type="text/javascript" id="crfw-js-extra">
+/* <![CDATA[ */
+var crfw_settings = {"ajax_url":"https:\/\/rarathemes.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/cart-recovery/js/cart-recovery-for-wordpress.min.js" id="crfw-js" defer=""></script>
+<script type="text/javascript" id="jquery-cookie-js-extra">
+/* <![CDATA[ */
+var affwp_scripts = {"ajaxurl":"https:\/\/rarathemes.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/affiliate-wp/assets/js/jquery.cookie.min.js" id="jquery-cookie-js" defer=""></script>
+<script type="text/javascript" id="affwp-tracking-js-extra">
+/* <![CDATA[ */
+var affwp_debug_vars = {"integrations":{"edd":"Easy Digital Downloads"},"version":"2.9.2","currency":"USD","ref_cookie":"affwp_ref","visit_cookie":"affwp_ref_visit_id","campaign_cookie":"affwp_campaign"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/affiliate-wp/assets/js/tracking.min.js" id="affwp-tracking-js" defer=""></script>
+<script type="text/javascript" id="edduh-tracking-js-extra">
+/* <![CDATA[ */
+var edduh = {"ajaxUrl":"https:\/\/rarathemes.com\/wp-admin\/admin-ajax.php","currentUrl":"https:\/\/rarathemes.com\/"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/cache/min/1/wp-content/plugins/edd-user-history/assets/js/tracking.js?ver=1645677566" id="edduh-tracking-js" defer=""></script>
+<link rel="https://api.w.org/" href="https://rarathemes.com/wp-json/"><link rel="alternate" type="application/json" href="https://rarathemes.com/wp-json/wp/v2/pages/9"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://rarathemes.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.9.2">
+<link rel="shortlink" href="https://rarathemes.com/">
+<meta name="generator" content="Easy Digital Downloads v2.11.6">
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+		var AFFWP = AFFWP || {};
+		AFFWP.referral_var = 'ref';
+		AFFWP.expiration = 60;
+		AFFWP.debug = 0;
+
+
+		AFFWP.referral_credit_last = 0;
+		</script>
+
+<link rel="preload" as="font" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/themes/raratheme/fonts/AvenirLTStd-Black.woff2" crossorigin="">
+<link rel="preload" as="font" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/themes/raratheme/fonts/AvenirLTStd-BookOblique.woff2" crossorigin="">
+<link rel="preload" as="font" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/themes/raratheme/fonts/AvenirLTStd-Roman.woff2" crossorigin="">
+<link rel="preload" as="font" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/themes/raratheme/fonts/AvenirLTStd-Book.woff2" crossorigin="">
+<link rel="preload" as="font" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/themes/raratheme/fonts/AvenirLTStd-Heavy.woff2" crossorigin="">
+<link rel="preload" as="font" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/themes/raratheme/fonts/AvenirLTStd-Light.woff2" crossorigin=""><meta property="og:title" content="Home Page">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2020/07/cropped-Rara-Themes-Favicon.jpg">
+<meta property="og:url" content="https://rarathemes.com/">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Rara Themes">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="article:published_time" content="2016-03-29T07:34:03+05:45">
+<meta property="article:modified_time" content="2020-07-27T18:18:29+05:45">
+<meta property="article:author" content="https://rarathemes.com/author/raushanrara/">
+    <meta name="p:domain_verify" content="29bdb81eab2492b0b43fd093d86c3bb7">
+    	<style type="text/css">
+			.site-title,
+		.site-description {
+			position: absolute;
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+		</style>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="rocketlazyloadscript" async="" src="https://www.googletagmanager.com/gtag/js?id=UA-143250456-1"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-143250456-1');
+</script>
+
+<meta name="ahrefs-site-verification" content="828fd52b0b89c350e5cb041cae516f3bf7fc0bde7bf6df658bebcfd6752d7f95">
+
+<meta name="google-site-verification" content="KBBEbZtbZA4sw9G0OWgFxyo8DiQqrXyZIWYrPEeDgRA"><link rel="icon" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2020/07/cropped-Rara-Themes-Favicon-32x32.jpg" sizes="32x32">
+<link rel="icon" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2020/07/cropped-Rara-Themes-Favicon-192x192.jpg" sizes="192x192">
+<link rel="apple-touch-icon" href="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2020/07/cropped-Rara-Themes-Favicon-180x180.jpg">
+<meta name="msapplication-TileImage" content="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2020/07/cropped-Rara-Themes-Favicon-270x270.jpg">
+		<style type="text/css" id="wp-custom-css">
+			/**Notification Bar **/
+.notification-bar-main-wrap .main-notification-bar{
+    background: #f5e337;
+}
+.main-notification-bar .notif-text{
+    font-weight: bold;
+}
+.main-notification-bar .get-it-now-btn{
+    background: #5081F5;
+    color: #fff;
+    line-height: 1.5;
+}
+.main-notification-bar .get-it-now-btn:hover{
+    background: #fff;
+    color: #5081F5;
+}
+/**End of Notification Bar **/
+
+.pea_cook_wrapper.pea_cook_bottomcenter
+{bottom: 0 !important;
+background: rgba(0,0,0,0.60) !important;
+}
+
+.mtsnb .couponcode {
+	font-size: 17px;
+	background: #88ced0;
+	padding: 5px;
+	border-radius: 3px;
+	letter-spacing: 1px;
+	margin-right: 5px;
+}
+.mtsnb .save25 {
+	font-size: 19px;
+	letter-spacing: 1px;
+		
+}
+
+.eddr-notice.eddr-cart-item-notice {
+    display: none;
+}
+
+/**Hide Discount Field on Checkout */
+#edd_checkout_form_wrap #edd_discount_code{
+    display: none;
+}
+
+
+/** Hiding Notification on Checkout **/
+.page-template-checkout .mtsnb-shown{
+	display: none;
+}
+.page-template-checkout{
+	padding-top: 0 !important;
+}
+
+/**Hide Input field on Customer Stories**/
+.customer-story-rating .ginput_container_text{
+	display: none;
+}
+.wp-block-image figcaption{
+    font-size: 0.778em;
+    text-align: center;
+}
+/** Download link as a button */
+.edd_download_file a {
+    background: #5081f5;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff !important;
+}
+
+/**Checkout page**/
+.edd-checkout #edd_secure_site_wrapper{
+    font-weight: normal;
+    font-size: 16px;
+    background: #f2f8ea;
+    padding: 10px;
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 20px;
+    
+}
+.edd-checkout #edd_secure_site_wrapper .padlock svg{
+    width: 15px;
+    height: 15px;
+    fill: #66a700;
+}
+#edd_checkout_form_wrap select.edd-select{
+    padding: 10px
+}
+#edd_checkout_form_wrap fieldset#edd_cc_fields{
+    margin-bottom: 50px;
+	  padding: 20px;
+}
+#edd_checkout_form_wrap span.edd-required-indicator {
+    color: #f6a71f;
+}
+.edd_download_purchase_form + a.btn-pro, .edd_download_purchase_form .edd_purchase_submit_wrapper a.add-to-cart{
+    background: #f5e338;
+    border-color: #f5e338;
+}
+
+#edd_checkout_form_wrap fieldset input.edd-input{
+    color: #25282e;
+    font-weight: 400;
+}
+.pricing-table .pricing-table-holder .col.basic-package .btn,
+.promo-section .text-holder .btn-try{
+    color: #fff;
+}
+.pricing-table .pricing-table-holder .col.basic-package .btn svg,
+.promo-section .text-holder .btn-try svg{
+    fill: #fff;
+}
+.edd-checkout #content table td.edd_cart_item_name{
+	padding: 10px 20px;
+}
+.edd-checkout .header-inside {
+    padding: 15px 4%;
+}
+.banner .banner-text .btn-viewall {
+    display: inline-block;
+    color: #25282e;
+    font-family: 'Avenir LT Std Medium';
+    background: #f5e338;
+    border: 1px solid #f5e338;
+    border-radius: 100px;
+    padding: 17px 40px;
+    -webkit-transition: ease .2s;
+    -moz-transition: ease .2s;
+    transition: ease .2s;
+}
+.banner .banner-text .btn-viewall:focus, .banner .banner-text .btn-viewall:hover {
+    text-decoration: none;
+    background: 0 0;
+    color: #f5e338;
+}
+.banner .banner-text .btn-viewall:focus svg, .banner .banner-text .btn-viewall:hover svg {
+    fill: #f5e338;
+}
+.edd_download_purchase_form .button.edd-free-download{
+    color: #fff;
+}
+.edd_download_purchase_form .button.edd-free-download svg path{
+    fill: #ffffff;
+}
+.edd-submit.button.blue {
+    background: #2670ff;
+}
+.edd_download_purchase_form .button.edd-free-download {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #5081f5;
+    padding: 18px 22px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    color: #5081f5;
+    font-size: 1.222em;
+    -webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    -ms-transition: all ease .3s;
+    -o-transition: all ease .3s;
+    transition: all ease .3s;
+    color: #fff;
+}
+#edd_sl_show_renewal_form{
+    color: #fff;
+    border-color: #2670ff;
+}
+.col.pricing-block.basic-package.featured .bottom a.btn{
+    color: #fff;
+    background: #F6A71F;
+    border-color: #F6A71F;
+}
+.col.pricing-block.basic-package.featured .bottom a.btn:hover{
+    color: #F6A71F;
+    background: transparent;
+}
+#demo-switcher .right .download .button{
+    color: #fff;
+}
+.gform_legacy_markup_wrapper ul.gfield_checkbox li input[type=checkbox]:checked{
+    background: #5081f5;
+}		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript></head>
+
+<body class="home page-template page-template-template-home page-template-template-home-php page page-id-9 wp-custom-logo full-width centered feature-themes-disabled cookies-not-set" itemscope="" itemtype="http://schema.org/WebPage">
+
+
+    <div id="page" class="site">
+        <header id="masthead" class="site-header" itemscope="" itemtype="http://schema.org/WPHeader">
+                <div class="notification-bar-main-wrap">
+            <div class="main-notification-bar">
+                <div class="notif-text">Get all our 34 premium themes worth $2006 at just $99! Limited time offer.</div><a href="https://rarathemes.com/theme-club/" class="get-it-now-btn">Get It Now</a>            </div>
+            <button class="notif-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20.656" height="21.099" viewBox="0 0 20.656 21.099"><g id="Group_1778" data-name="Group 1778" transform="translate(-1871.672 -19.189)"><g id="Group_1781" data-name="Group 1781" transform="translate(0 1)"><path id="Path_1209" data-name="Path 1209" d="M-21204.449-15338.482l7.5-7.5,7.5,7.5" transform="translate(23078.949 15367)" fill="none" stroke="#25282e" stroke-linecap="round" stroke-width="4"></path><path id="Path_1210" data-name="Path 1210" d="M1882,23.612V37.288" fill="none" stroke="#25282e" stroke-linecap="round" stroke-width="4"></path></g></g></svg>
+            </button>
+        </div>
+                <div class="header-holder">
+     
+    <div class="header-left">        
+            <div class="site-branding" itemscope="" itemtype="http://schema.org/Organization">
+        <a href="https://rarathemes.com/" class="custom-logo-link" rel="home" aria-current="page"><img src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2020/07/Rara-Theme-Logo-text.png" class="custom-logo lazyloaded" alt="Rara Theme Logo" sizes="(max-width: 576px) 100vw, 576px" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2020/07/Rara-Theme-Logo-text.png 576w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2020/07/Rara-Theme-Logo-text-300x55.png 300w" data-ll-status="loaded" width="576" height="105"><noscript><img width="576" height="105" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2020/07/Rara-Theme-Logo-text.png" class="custom-logo" alt="Rara Theme Logo" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2020/07/Rara-Theme-Logo-text.png 576w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2020/07/Rara-Theme-Logo-text-300x55.png 300w" sizes="(max-width: 576px) 100vw, 576px" /></noscript></a>            <h1 class="site-title" itemprop="name"><a href="https://rarathemes.com/" rel="home" itemprop="url">Rara Themes</a></h1>
+                </div><!-- .site-branding -->
+    <div class="happy-users"><div class="happyuserscount">169,583+</div><div class="happyuserstxt">Happy Customers!</div></div><!-- .happy-users -->        </div><!-- .header-left -->
+        <div class="menu-opener">
+        <div class="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="text">Menu</div>
+    </div><!-- .menu-opener -->
+    
+    <div class="right">
+        <nav id="site-navigation" class="main-navigation" role="navigation" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+            <div class="menu-temporary-container"><ul id="primary-menu" class="menu"><li id="menu-item-185" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-9 current_page_item menu-item-185"><a href="https://rarathemes.com/" aria-current="page">Home</a></li>
+<li id="menu-item-26131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-26131"><a href="https://rarathemes.com/wordpress-themes/">Themes</a>
+<ul class="sub-menu">
+	<li id="menu-item-88348" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88348"><a href="https://rarathemes.com/theme/premium-wordpress-themes/">Premium WordPress Themes</a></li>
+	<li id="menu-item-88344" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88344"><a href="https://rarathemes.com/theme/free-wordpress-themes/">Free WordPress Themes</a></li>
+	<li id="menu-item-88341" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88341"><a href="https://rarathemes.com/theme/business-wordpress-themes/">Business WordPress Themes</a></li>
+	<li id="menu-item-88343" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88343"><a href="https://rarathemes.com/theme/feminine-wordpress-themes/">Feminine WordPress Themes</a></li>
+	<li id="menu-item-88346" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88346"><a href="https://rarathemes.com/theme/magazine-wordpress-themes/">Magazine/Blog WordPress Themes</a></li>
+	<li id="menu-item-88351" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88351"><a href="https://rarathemes.com/theme/education-wordpress-themes/">Education WordPress Themes</a></li>
+	<li id="menu-item-88345" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88345"><a href="https://rarathemes.com/theme/landing-page-wordpress-themes/">Landing Page WordPress Themes</a></li>
+	<li id="menu-item-88347" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88347"><a href="https://rarathemes.com/theme/one-page-wordpress-themes/">One Page WordPress Themes</a></li>
+	<li id="menu-item-88352" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88352"><a href="https://rarathemes.com/theme/multilingual-wordpress-themes/">Multilingual WordPress Themes</a></li>
+</ul>
+</li>
+<li id="menu-item-17725" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17725"><a href="https://rarathemes.com/theme-club/">Theme Club</a></li>
+<li id="menu-item-6631" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6631"><a href="https://rarathemes.com/support-ticket/">Support</a>
+<ul class="sub-menu">
+	<li id="menu-item-680680" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-680680"><a href="https://docs.rarathemes.com/">Documentation</a></li>
+	<li id="menu-item-82998" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82998"><a href="https://www.youtube.com/channel/UCwxOsfD0P1zpfp2sWRmKMUg/playlists">Youtube Channel</a></li>
+	<li id="menu-item-6511" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6511"><a href="https://rarathemes.com/support-ticket/">Support Ticket</a></li>
+	<li id="menu-item-6519" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6519"><a href="https://rarathemes.com/customize-service/">Hire a Customizer</a></li>
+</ul>
+</li>
+<li id="menu-item-984708" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-984708"><a href="https://rarathemes.com/resources/">Resources</a></li>
+<li><a class="logged-out" href="https://rarathemes.com/my-account/">Login</a></li></ul></div>        </nav><!-- #site-navigation -->
+        <!-- <div class="btn-holder"> -->
+                    <!-- </div>.btn-holder -->
+    </div><!-- .right -->
+            </div><!-- .header-holder -->
+    </header><!-- .site-header -->
+    
+<div id="banner_section" class="banner">
+    <div class="banner-text">
+        <h2 class="title">Create Professional Websites <strong>Without Writing a Single Line of Code</strong></h2><div class="banner-content"><p>Quickly and easily create reliable, beautiful sites in minutes!</p>
+</div><form role="search" method="post" class="search-form" action="https://rarathemes.com/wordpress-themes/">
+                        <label>
+                            <span class="screen-reader-text">Search for:</span>
+                            <input type="search" class="search-field" placeholder="e.g Fashion" value="" name="download_search" autocomplete="off">
+                        </label>                
+                        <input type="submit" id="submit-field" class="search-submit" value="Search">               
+                    </form><span class="popular-search">Popular Searches: <a href="https://rarathemes.com/theme/education-wordpress-themes/">Education</a> <a href="https://rarathemes.com/theme/travel-wordpress-themes/">Travel</a> <a href="https://rarathemes.com/theme/landing-page-wordpress-themes/">Landing Page</a> </span><a href="https://rarathemes.com/wordpress-themes/" class="btn-viewall">View All Our Themes <svg xmlns="http://www.w3.org/2000/svg" viewBox="-21064 -18255 19 14"><path id="path" class="cls-1" d="M197.8,874l7,7-7,7-1.4-1.4L201,882H185.8v-2H201l-4.6-4.6Z" transform="translate(-21249.8 -19129)"></path></svg></a>    </div>
+</div>            <section id="theme_listing" class="theme-listing">
+                <div class="container">
+                    <header class="section-header">
+                        <div class="left"><h2 class="section-title">Premium WordPress Themes</h2><div class="section-header-content"><p>Check out our most popular Premium WordPress Themes.</p>
+</div></div><!-- .left -->                    </header><!-- .section-header -->
+                    
+                                                <div class="theme-listing-holder">
+                                                                        <div class="theme-holder">
+                                            <div class="img-holder">
+                                                <a href="https://rarathemes.com/wordpress-themes/travel-agency-pro/">
+                                                    <img src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/11/Travel-Agency-Preview.png" class="attachment-full size-full wp-post-image lazyloaded" alt="Travel Agency Preview" itemprop="image" loading="lazy" sizes="(max-width: 360px) 100vw, 360px" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/11/Travel-Agency-Preview.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/11/Travel-Agency-Preview-229x300.png 229w" data-ll-status="loaded" width="360" height="472"><noscript><img width="360" height="472" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/11/Travel-Agency-Preview.png" class="attachment-full size-full wp-post-image" alt="Travel Agency Preview" itemprop="image" loading="lazy" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/11/Travel-Agency-Preview.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/11/Travel-Agency-Preview-229x300.png 229w" sizes="(max-width: 360px) 100vw, 360px" /></noscript>                                                </a>
+                                            </div><!-- .img-holder -->
+                                            <div class="text-holder">
+                                                <div class="text">
+                                                    <h3 class="theme-title"><a href="https://rarathemes.com/wordpress-themes/travel-agency-pro/">Travel Agency Pro</a></h3>
+                                                            <div class="download-review">
+            <div class="star-holder">
+                <span id="review_rating_89855" class="review-rating"></span>
+            </div>
+            <div class="reviews-total-count">
+                 ( 23 Reviews )            </div>
+        </div><!-- .download-review -->
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#review_rating_89855").rateYo({
+                    rating: '5',
+                    starWidth: "13px",
+                    readOnly: true,
+                    starSvg : '<svg xmlns="http://www.w3.org/2000/svg" width="11.595" height="11.09" viewBox="0 0 11.595 11.09"><path id="star_1_" data-name="star (1)" d="M6.358,1.395l1.308,2.65a.624.624,0,0,0,.47.342l2.924.425a.624.624,0,0,1,.346,1.065L9.29,7.94a.625.625,0,0,0-.179.553l.5,2.913a.625.625,0,0,1-.906.658L6.089,10.688a.625.625,0,0,0-.581,0L2.892,12.064a.624.624,0,0,1-.906-.658l.5-2.913a.625.625,0,0,0-.179-.553L.19,5.877A.624.624,0,0,1,.536,4.812L3.46,4.387a.624.624,0,0,0,.47-.342l1.308-2.65A.624.624,0,0,1,6.358,1.395Z" transform="translate(-0.001 -1.047)" fill="#f4aa0b" opacity="0.9"/></svg>'
+                });            
+            });
+        </script>
+                                                        </div><!-- .text -->                                                
+                                                <div class="price"><span class="edd_price" id="edd_price_89855"><span class="currency">$</span>59</span></div><!-- .price -->                                            </div><!-- .text-holder -->
+                                        </div><!-- .theme-holder -->
+                                                                                <div class="theme-holder">
+                                            <div class="img-holder">
+                                                <a href="https://rarathemes.com/wordpress-themes/education-zone-pro/">
+                                                    <img src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/listing-page-image.png" class="attachment-full size-full wp-post-image lazyloaded" alt="Education zone pro WordPress theme" itemprop="image" loading="lazy" sizes="(max-width: 360px) 100vw, 360px" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/listing-page-image.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/listing-page-image-229x300.png 229w" data-ll-status="loaded" width="360" height="472"><noscript><img width="360" height="472" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/listing-page-image.png" class="attachment-full size-full wp-post-image" alt="Education zone pro WordPress theme" itemprop="image" loading="lazy" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/listing-page-image.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/listing-page-image-229x300.png 229w" sizes="(max-width: 360px) 100vw, 360px" /></noscript>                                                </a>
+                                            </div><!-- .img-holder -->
+                                            <div class="text-holder">
+                                                <div class="text">
+                                                    <h3 class="theme-title"><a href="https://rarathemes.com/wordpress-themes/education-zone-pro/">Education Zone Pro</a></h3>
+                                                            <div class="download-review">
+            <div class="star-holder">
+                <span id="review_rating_17677" class="review-rating"></span>
+            </div>
+            <div class="reviews-total-count">
+                 ( 13 Reviews )            </div>
+        </div><!-- .download-review -->
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#review_rating_17677").rateYo({
+                    rating: '5',
+                    starWidth: "13px",
+                    readOnly: true,
+                    starSvg : '<svg xmlns="http://www.w3.org/2000/svg" width="11.595" height="11.09" viewBox="0 0 11.595 11.09"><path id="star_1_" data-name="star (1)" d="M6.358,1.395l1.308,2.65a.624.624,0,0,0,.47.342l2.924.425a.624.624,0,0,1,.346,1.065L9.29,7.94a.625.625,0,0,0-.179.553l.5,2.913a.625.625,0,0,1-.906.658L6.089,10.688a.625.625,0,0,0-.581,0L2.892,12.064a.624.624,0,0,1-.906-.658l.5-2.913a.625.625,0,0,0-.179-.553L.19,5.877A.624.624,0,0,1,.536,4.812L3.46,4.387a.624.624,0,0,0,.47-.342l1.308-2.65A.624.624,0,0,1,6.358,1.395Z" transform="translate(-0.001 -1.047)" fill="#f4aa0b" opacity="0.9"/></svg>'
+                });            
+            });
+        </script>
+                                                        </div><!-- .text -->                                                
+                                                <div class="price"><span class="edd_price" id="edd_price_17677"><span class="currency">$</span>59</span></div><!-- .price -->                                            </div><!-- .text-holder -->
+                                        </div><!-- .theme-holder -->
+                                                                                <div class="theme-holder">
+                                            <div class="img-holder">
+                                                <a href="https://rarathemes.com/wordpress-themes/rara-business-pro/">
+                                                    <img src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2018/05/Rara-Business-free-WordPress-Theme.jpg" class="attachment-full size-full wp-post-image lazyloaded" alt="Rara Business free WordPress Theme" itemprop="image" loading="lazy" sizes="(max-width: 360px) 100vw, 360px" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2018/05/Rara-Business-free-WordPress-Theme.jpg 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2018/05/Rara-Business-free-WordPress-Theme-229x300.jpg 229w" data-ll-status="loaded" width="360" height="472"><noscript><img width="360" height="472" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2018/05/Rara-Business-free-WordPress-Theme.jpg" class="attachment-full size-full wp-post-image" alt="Rara Business free WordPress Theme" itemprop="image" loading="lazy" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2018/05/Rara-Business-free-WordPress-Theme.jpg 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2018/05/Rara-Business-free-WordPress-Theme-229x300.jpg 229w" sizes="(max-width: 360px) 100vw, 360px" /></noscript>                                                </a>
+                                            </div><!-- .img-holder -->
+                                            <div class="text-holder">
+                                                <div class="text">
+                                                    <h3 class="theme-title"><a href="https://rarathemes.com/wordpress-themes/rara-business-pro/">Rara Business Pro</a></h3>
+                                                            <div class="download-review">
+            <div class="star-holder">
+                <span id="review_rating_151640" class="review-rating"></span>
+            </div>
+            <div class="reviews-total-count">
+                 ( 8 Reviews )            </div>
+        </div><!-- .download-review -->
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#review_rating_151640").rateYo({
+                    rating: '5',
+                    starWidth: "13px",
+                    readOnly: true,
+                    starSvg : '<svg xmlns="http://www.w3.org/2000/svg" width="11.595" height="11.09" viewBox="0 0 11.595 11.09"><path id="star_1_" data-name="star (1)" d="M6.358,1.395l1.308,2.65a.624.624,0,0,0,.47.342l2.924.425a.624.624,0,0,1,.346,1.065L9.29,7.94a.625.625,0,0,0-.179.553l.5,2.913a.625.625,0,0,1-.906.658L6.089,10.688a.625.625,0,0,0-.581,0L2.892,12.064a.624.624,0,0,1-.906-.658l.5-2.913a.625.625,0,0,0-.179-.553L.19,5.877A.624.624,0,0,1,.536,4.812L3.46,4.387a.624.624,0,0,0,.47-.342l1.308-2.65A.624.624,0,0,1,6.358,1.395Z" transform="translate(-0.001 -1.047)" fill="#f4aa0b" opacity="0.9"/></svg>'
+                });            
+            });
+        </script>
+                                                        </div><!-- .text -->                                                
+                                                <div class="price"><span class="edd_price" id="edd_price_151640"><span class="currency">$</span>59</span></div><!-- .price -->                                            </div><!-- .text-holder -->
+                                        </div><!-- .theme-holder -->
+                                                                                <div class="theme-holder">
+                                            <div class="img-holder">
+                                                <a href="https://rarathemes.com/wordpress-themes/construction-landing-page-pro/">
+                                                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20472'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="Construction landing page pro WordPress theme" itemprop="image" loading="lazy" data-lazy-srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/02/featured-img-listing.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/02/featured-img-listing-229x300.png 229w" data-lazy-sizes="(max-width: 360px) 100vw, 360px" data-lazy-src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/02/featured-img-listing.png" width="360" height="472"><noscript><img width="360" height="472" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/02/featured-img-listing.png" class="attachment-full size-full wp-post-image" alt="Construction landing page pro WordPress theme" itemprop="image" loading="lazy" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/02/featured-img-listing.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/02/featured-img-listing-229x300.png 229w" sizes="(max-width: 360px) 100vw, 360px" /></noscript>                                                </a>
+                                            </div><!-- .img-holder -->
+                                            <div class="text-holder">
+                                                <div class="text">
+                                                    <h3 class="theme-title"><a href="https://rarathemes.com/wordpress-themes/construction-landing-page-pro/">Construction Landing Page Pro</a></h3>
+                                                            <div class="download-review">
+            <div class="star-holder">
+                <span id="review_rating_26333" class="review-rating"></span>
+            </div>
+            <div class="reviews-total-count">
+                 ( 1 Review )            </div>
+        </div><!-- .download-review -->
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#review_rating_26333").rateYo({
+                    rating: '5',
+                    starWidth: "13px",
+                    readOnly: true,
+                    starSvg : '<svg xmlns="http://www.w3.org/2000/svg" width="11.595" height="11.09" viewBox="0 0 11.595 11.09"><path id="star_1_" data-name="star (1)" d="M6.358,1.395l1.308,2.65a.624.624,0,0,0,.47.342l2.924.425a.624.624,0,0,1,.346,1.065L9.29,7.94a.625.625,0,0,0-.179.553l.5,2.913a.625.625,0,0,1-.906.658L6.089,10.688a.625.625,0,0,0-.581,0L2.892,12.064a.624.624,0,0,1-.906-.658l.5-2.913a.625.625,0,0,0-.179-.553L.19,5.877A.624.624,0,0,1,.536,4.812L3.46,4.387a.624.624,0,0,0,.47-.342l1.308-2.65A.624.624,0,0,1,6.358,1.395Z" transform="translate(-0.001 -1.047)" fill="#f4aa0b" opacity="0.9"/></svg>'
+                });            
+            });
+        </script>
+                                                        </div><!-- .text -->                                                
+                                                <div class="price"><span class="edd_price" id="edd_price_26333"><span class="currency">$</span>59</span></div><!-- .price -->                                            </div><!-- .text-holder -->
+                                        </div><!-- .theme-holder -->
+                                                                                <div class="theme-holder">
+                                            <div class="img-holder">
+                                                <a href="https://rarathemes.com/wordpress-themes/benevolent-pro/">
+                                                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20472'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="Benevolent Pro WordPress Theme" itemprop="image" loading="lazy" data-lazy-srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/10/benevolent-pro.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/10/benevolent-pro-229x300.png 229w" data-lazy-sizes="(max-width: 360px) 100vw, 360px" data-lazy-src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/10/benevolent-pro.png" width="360" height="472"><noscript><img width="360" height="472" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/10/benevolent-pro.png" class="attachment-full size-full wp-post-image" alt="Benevolent Pro WordPress Theme" itemprop="image" loading="lazy" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/10/benevolent-pro.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/10/benevolent-pro-229x300.png 229w" sizes="(max-width: 360px) 100vw, 360px" /></noscript>                                                </a>
+                                            </div><!-- .img-holder -->
+                                            <div class="text-holder">
+                                                <div class="text">
+                                                    <h3 class="theme-title"><a href="https://rarathemes.com/wordpress-themes/benevolent-pro/">Benevolent Pro</a></h3>
+                                                            <div class="download-review">
+            <div class="star-holder">
+                <span id="review_rating_10010" class="review-rating"></span>
+            </div>
+            <div class="reviews-total-count">
+                 ( 5 Reviews )            </div>
+        </div><!-- .download-review -->
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#review_rating_10010").rateYo({
+                    rating: '5',
+                    starWidth: "13px",
+                    readOnly: true,
+                    starSvg : '<svg xmlns="http://www.w3.org/2000/svg" width="11.595" height="11.09" viewBox="0 0 11.595 11.09"><path id="star_1_" data-name="star (1)" d="M6.358,1.395l1.308,2.65a.624.624,0,0,0,.47.342l2.924.425a.624.624,0,0,1,.346,1.065L9.29,7.94a.625.625,0,0,0-.179.553l.5,2.913a.625.625,0,0,1-.906.658L6.089,10.688a.625.625,0,0,0-.581,0L2.892,12.064a.624.624,0,0,1-.906-.658l.5-2.913a.625.625,0,0,0-.179-.553L.19,5.877A.624.624,0,0,1,.536,4.812L3.46,4.387a.624.624,0,0,0,.47-.342l1.308-2.65A.624.624,0,0,1,6.358,1.395Z" transform="translate(-0.001 -1.047)" fill="#f4aa0b" opacity="0.9"/></svg>'
+                });            
+            });
+        </script>
+                                                        </div><!-- .text -->                                                
+                                                <div class="price"><span class="edd_price" id="edd_price_10010"><span class="currency">$</span>59</span></div><!-- .price -->                                            </div><!-- .text-holder -->
+                                        </div><!-- .theme-holder -->
+                                                                                <div class="theme-holder">
+                                            <div class="img-holder">
+                                                <a href="https://rarathemes.com/wordpress-themes/spa-and-salon-pro/">
+                                                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20472'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="Spa and Salon Pro WordPress theme" itemprop="image" loading="lazy" data-lazy-srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/11/spasalon-pro-preview.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/11/spasalon-pro-preview-229x300.png 229w" data-lazy-sizes="(max-width: 360px) 100vw, 360px" data-lazy-src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/11/spasalon-pro-preview.png" width="360" height="472"><noscript><img width="360" height="472" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/11/spasalon-pro-preview.png" class="attachment-full size-full wp-post-image" alt="Spa and Salon Pro WordPress theme" itemprop="image" loading="lazy" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/11/spasalon-pro-preview.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/11/spasalon-pro-preview-229x300.png 229w" sizes="(max-width: 360px) 100vw, 360px" /></noscript>                                                </a>
+                                            </div><!-- .img-holder -->
+                                            <div class="text-holder">
+                                                <div class="text">
+                                                    <h3 class="theme-title"><a href="https://rarathemes.com/wordpress-themes/spa-and-salon-pro/">Spa and Salon Pro</a></h3>
+                                                            <div class="download-review">
+            <div class="star-holder">
+                <span id="review_rating_12965" class="review-rating"></span>
+            </div>
+            <div class="reviews-total-count">
+                 ( 2 Reviews )            </div>
+        </div><!-- .download-review -->
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#review_rating_12965").rateYo({
+                    rating: '5',
+                    starWidth: "13px",
+                    readOnly: true,
+                    starSvg : '<svg xmlns="http://www.w3.org/2000/svg" width="11.595" height="11.09" viewBox="0 0 11.595 11.09"><path id="star_1_" data-name="star (1)" d="M6.358,1.395l1.308,2.65a.624.624,0,0,0,.47.342l2.924.425a.624.624,0,0,1,.346,1.065L9.29,7.94a.625.625,0,0,0-.179.553l.5,2.913a.625.625,0,0,1-.906.658L6.089,10.688a.625.625,0,0,0-.581,0L2.892,12.064a.624.624,0,0,1-.906-.658l.5-2.913a.625.625,0,0,0-.179-.553L.19,5.877A.624.624,0,0,1,.536,4.812L3.46,4.387a.624.624,0,0,0,.47-.342l1.308-2.65A.624.624,0,0,1,6.358,1.395Z" transform="translate(-0.001 -1.047)" fill="#f4aa0b" opacity="0.9"/></svg>'
+                });            
+            });
+        </script>
+                                                        </div><!-- .text -->                                                
+                                                <div class="price"><span class="edd_price" id="edd_price_12965"><span class="currency">$</span>59</span></div><!-- .price -->                                            </div><!-- .text-holder -->
+                                        </div><!-- .theme-holder -->
+                                                                                <div class="theme-holder">
+                                            <div class="img-holder">
+                                                <a href="https://rarathemes.com/wordpress-themes/lawyer-landing-page-pro/">
+                                                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20472'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="Lawyer landing page pro WordPress Theme" itemprop="image" loading="lazy" data-lazy-srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/04/theme-preview.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/04/theme-preview-229x300.png 229w" data-lazy-sizes="(max-width: 360px) 100vw, 360px" data-lazy-src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/04/theme-preview.png" width="360" height="472"><noscript><img width="360" height="472" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/04/theme-preview.png" class="attachment-full size-full wp-post-image" alt="Lawyer landing page pro WordPress Theme" itemprop="image" loading="lazy" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/04/theme-preview.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/04/theme-preview-229x300.png 229w" sizes="(max-width: 360px) 100vw, 360px" /></noscript>                                                </a>
+                                            </div><!-- .img-holder -->
+                                            <div class="text-holder">
+                                                <div class="text">
+                                                    <h3 class="theme-title"><a href="https://rarathemes.com/wordpress-themes/lawyer-landing-page-pro/">Lawyer Landing Page Pro</a></h3>
+                                                            <div class="download-review">
+            <div class="star-holder">
+                <span id="review_rating_38400" class="review-rating"></span>
+            </div>
+            <div class="reviews-total-count">
+                 ( 1 Review )            </div>
+        </div><!-- .download-review -->
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#review_rating_38400").rateYo({
+                    rating: '5',
+                    starWidth: "13px",
+                    readOnly: true,
+                    starSvg : '<svg xmlns="http://www.w3.org/2000/svg" width="11.595" height="11.09" viewBox="0 0 11.595 11.09"><path id="star_1_" data-name="star (1)" d="M6.358,1.395l1.308,2.65a.624.624,0,0,0,.47.342l2.924.425a.624.624,0,0,1,.346,1.065L9.29,7.94a.625.625,0,0,0-.179.553l.5,2.913a.625.625,0,0,1-.906.658L6.089,10.688a.625.625,0,0,0-.581,0L2.892,12.064a.624.624,0,0,1-.906-.658l.5-2.913a.625.625,0,0,0-.179-.553L.19,5.877A.624.624,0,0,1,.536,4.812L3.46,4.387a.624.624,0,0,0,.47-.342l1.308-2.65A.624.624,0,0,1,6.358,1.395Z" transform="translate(-0.001 -1.047)" fill="#f4aa0b" opacity="0.9"/></svg>'
+                });            
+            });
+        </script>
+                                                        </div><!-- .text -->                                                
+                                                <div class="price"><span class="edd_price" id="edd_price_38400"><span class="currency">$</span>59</span></div><!-- .price -->                                            </div><!-- .text-holder -->
+                                        </div><!-- .theme-holder -->
+                                                                                <div class="theme-holder">
+                                            <div class="img-holder">
+                                                <a href="https://rarathemes.com/wordpress-themes/metro-magazine-pro/">
+                                                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20472'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="Metro Magazine Pro WordPress theme" itemprop="image" loading="lazy" data-lazy-srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/featured-image-2.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/featured-image-2-229x300.png 229w" data-lazy-sizes="(max-width: 360px) 100vw, 360px" data-lazy-src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/featured-image-2.png" width="360" height="472"><noscript><img width="360" height="472" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/featured-image-2.png" class="attachment-full size-full wp-post-image" alt="Metro Magazine Pro WordPress theme" itemprop="image" loading="lazy" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/featured-image-2.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/featured-image-2-229x300.png 229w" sizes="(max-width: 360px) 100vw, 360px" /></noscript>                                                </a>
+                                            </div><!-- .img-holder -->
+                                            <div class="text-holder">
+                                                <div class="text">
+                                                    <h3 class="theme-title"><a href="https://rarathemes.com/wordpress-themes/metro-magazine-pro/">Metro Magazine Pro</a></h3>
+                                                            <div class="download-review">
+            <div class="star-holder">
+                <span id="review_rating_20913" class="review-rating"></span>
+            </div>
+            <div class="reviews-total-count">
+                 ( 1 Review )            </div>
+        </div><!-- .download-review -->
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#review_rating_20913").rateYo({
+                    rating: '5',
+                    starWidth: "13px",
+                    readOnly: true,
+                    starSvg : '<svg xmlns="http://www.w3.org/2000/svg" width="11.595" height="11.09" viewBox="0 0 11.595 11.09"><path id="star_1_" data-name="star (1)" d="M6.358,1.395l1.308,2.65a.624.624,0,0,0,.47.342l2.924.425a.624.624,0,0,1,.346,1.065L9.29,7.94a.625.625,0,0,0-.179.553l.5,2.913a.625.625,0,0,1-.906.658L6.089,10.688a.625.625,0,0,0-.581,0L2.892,12.064a.624.624,0,0,1-.906-.658l.5-2.913a.625.625,0,0,0-.179-.553L.19,5.877A.624.624,0,0,1,.536,4.812L3.46,4.387a.624.624,0,0,0,.47-.342l1.308-2.65A.624.624,0,0,1,6.358,1.395Z" transform="translate(-0.001 -1.047)" fill="#f4aa0b" opacity="0.9"/></svg>'
+                });            
+            });
+        </script>
+                                                        </div><!-- .text -->                                                
+                                                <div class="price"><span class="edd_price" id="edd_price_20913"><span class="currency">$</span>59</span></div><!-- .price -->                                            </div><!-- .text-holder -->
+                                        </div><!-- .theme-holder -->
+                                                                                <div class="theme-holder">
+                                            <div class="img-holder">
+                                                <a href="https://rarathemes.com/wordpress-themes/preschool-and-kindergarten-pro/">
+                                                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20472'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="Preschool and Kindergarten Wordpress theme" itemprop="image" loading="lazy" data-lazy-srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/05/listing-page-featured-image.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/05/listing-page-featured-image-229x300.png 229w" data-lazy-sizes="(max-width: 360px) 100vw, 360px" data-lazy-src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/05/listing-page-featured-image.png" width="360" height="472"><noscript><img width="360" height="472" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/05/listing-page-featured-image.png" class="attachment-full size-full wp-post-image" alt="Preschool and Kindergarten Wordpress theme" itemprop="image" loading="lazy" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/05/listing-page-featured-image.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/05/listing-page-featured-image-229x300.png 229w" sizes="(max-width: 360px) 100vw, 360px" /></noscript>                                                </a>
+                                            </div><!-- .img-holder -->
+                                            <div class="text-holder">
+                                                <div class="text">
+                                                    <h3 class="theme-title"><a href="https://rarathemes.com/wordpress-themes/preschool-and-kindergarten-pro/">Preschool and Kindergarten Pro</a></h3>
+                                                            <div class="download-review">
+            <div class="star-holder">
+                <span id="review_rating_43212" class="review-rating"></span>
+            </div>
+            <div class="reviews-total-count">
+                 ( 5 Reviews )            </div>
+        </div><!-- .download-review -->
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#review_rating_43212").rateYo({
+                    rating: '5',
+                    starWidth: "13px",
+                    readOnly: true,
+                    starSvg : '<svg xmlns="http://www.w3.org/2000/svg" width="11.595" height="11.09" viewBox="0 0 11.595 11.09"><path id="star_1_" data-name="star (1)" d="M6.358,1.395l1.308,2.65a.624.624,0,0,0,.47.342l2.924.425a.624.624,0,0,1,.346,1.065L9.29,7.94a.625.625,0,0,0-.179.553l.5,2.913a.625.625,0,0,1-.906.658L6.089,10.688a.625.625,0,0,0-.581,0L2.892,12.064a.624.624,0,0,1-.906-.658l.5-2.913a.625.625,0,0,0-.179-.553L.19,5.877A.624.624,0,0,1,.536,4.812L3.46,4.387a.624.624,0,0,0,.47-.342l1.308-2.65A.624.624,0,0,1,6.358,1.395Z" transform="translate(-0.001 -1.047)" fill="#f4aa0b" opacity="0.9"/></svg>'
+                });            
+            });
+        </script>
+                                                        </div><!-- .text -->                                                
+                                                <div class="price"><span class="edd_price" id="edd_price_43212"><span class="currency">$</span>59</span></div><!-- .price -->                                            </div><!-- .text-holder -->
+                                        </div><!-- .theme-holder -->
+                                                                    </div><!-- .theme-listing-holder -->
+                                                        <div class="btn-holder">
+                                <a href="https://rarathemes.com/theme/premium-wordpress-themes/" class="btn-viewall">
+                                    Check Our Entire Collection of Premium Themes                                </a><!-- .btn-viewall -->
+                            </div><!-- .btn-holder -->
+                                            </div><!-- .container -->
+            </section><!-- .theme-listing -->
+                        <section id="free_theme_listing" class="theme-listing">
+                <div class="container">
+                    <header class="section-header">
+                        <div class="left"><h2 class="section-title">Free WordPress Themes</h2><div class="section-header-content"><p>Check out our most popular free WordPress Themes.</p>
+</div></div><!-- .left -->                    </header><!-- .section-header -->
+                    
+                                                <div class="theme-listing-holder">
+                                                                        <div class="theme-holder">
+                                            <div class="img-holder">
+                                                <a href="https://rarathemes.com/wordpress-themes/travel-agency/">
+                                                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20472'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="Travel Agency Preview" itemprop="image" loading="lazy" data-lazy-srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/11/Travel-Agency-Preview.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/11/Travel-Agency-Preview-229x300.png 229w" data-lazy-sizes="(max-width: 360px) 100vw, 360px" data-lazy-src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/11/Travel-Agency-Preview.png" width="360" height="472"><noscript><img width="360" height="472" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/11/Travel-Agency-Preview.png" class="attachment-full size-full wp-post-image" alt="Travel Agency Preview" itemprop="image" loading="lazy" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/11/Travel-Agency-Preview.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2017/11/Travel-Agency-Preview-229x300.png 229w" sizes="(max-width: 360px) 100vw, 360px" /></noscript>                                                </a>
+                                            </div><!-- .img-holder -->
+                                            <div class="text-holder">
+                                                <div class="text">
+                                                    <h3 class="theme-title"><a href="https://rarathemes.com/wordpress-themes/travel-agency/">Travel Agency</a></h3>
+                                                            <div class="download-review">
+            <div class="star-holder">
+                <span id="review_rating_87592" class="review-rating"></span>
+            </div>
+            <div class="reviews-total-count">
+                 ( 49 Reviews )            </div>
+        </div><!-- .download-review -->
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#review_rating_87592").rateYo({
+                    rating: '4.98',
+                    starWidth: "13px",
+                    readOnly: true,
+                    starSvg : '<svg xmlns="http://www.w3.org/2000/svg" width="11.595" height="11.09" viewBox="0 0 11.595 11.09"><path id="star_1_" data-name="star (1)" d="M6.358,1.395l1.308,2.65a.624.624,0,0,0,.47.342l2.924.425a.624.624,0,0,1,.346,1.065L9.29,7.94a.625.625,0,0,0-.179.553l.5,2.913a.625.625,0,0,1-.906.658L6.089,10.688a.625.625,0,0,0-.581,0L2.892,12.064a.624.624,0,0,1-.906-.658l.5-2.913a.625.625,0,0,0-.179-.553L.19,5.877A.624.624,0,0,1,.536,4.812L3.46,4.387a.624.624,0,0,0,.47-.342l1.308-2.65A.624.624,0,0,1,6.358,1.395Z" transform="translate(-0.001 -1.047)" fill="#f4aa0b" opacity="0.9"/></svg>'
+                });            
+            });
+        </script>
+                                                        </div><!-- .text -->                                                
+                                                                                            </div><!-- .text-holder -->
+                                        </div><!-- .theme-holder -->
+                                                                                <div class="theme-holder">
+                                            <div class="img-holder">
+                                                <a href="https://rarathemes.com/wordpress-themes/education-zone/">
+                                                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20472'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="Education zone pro WordPress theme" itemprop="image" loading="lazy" data-lazy-srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/theme-preview2.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/theme-preview2-229x300.png 229w" data-lazy-sizes="(max-width: 360px) 100vw, 360px" data-lazy-src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/theme-preview2.png" width="360" height="472"><noscript><img width="360" height="472" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/theme-preview2.png" class="attachment-full size-full wp-post-image" alt="Education zone pro WordPress theme" itemprop="image" loading="lazy" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/theme-preview2.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/edd/2017/01/theme-preview2-229x300.png 229w" sizes="(max-width: 360px) 100vw, 360px" /></noscript>                                                </a>
+                                            </div><!-- .img-holder -->
+                                            <div class="text-holder">
+                                                <div class="text">
+                                                    <h3 class="theme-title"><a href="https://rarathemes.com/wordpress-themes/education-zone/">Education Zone</a></h3>
+                                                            <div class="download-review">
+            <div class="star-holder">
+                <span id="review_rating_7744" class="review-rating"></span>
+            </div>
+            <div class="reviews-total-count">
+                 ( 35 Reviews )            </div>
+        </div><!-- .download-review -->
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#review_rating_7744").rateYo({
+                    rating: '4.97',
+                    starWidth: "13px",
+                    readOnly: true,
+                    starSvg : '<svg xmlns="http://www.w3.org/2000/svg" width="11.595" height="11.09" viewBox="0 0 11.595 11.09"><path id="star_1_" data-name="star (1)" d="M6.358,1.395l1.308,2.65a.624.624,0,0,0,.47.342l2.924.425a.624.624,0,0,1,.346,1.065L9.29,7.94a.625.625,0,0,0-.179.553l.5,2.913a.625.625,0,0,1-.906.658L6.089,10.688a.625.625,0,0,0-.581,0L2.892,12.064a.624.624,0,0,1-.906-.658l.5-2.913a.625.625,0,0,0-.179-.553L.19,5.877A.624.624,0,0,1,.536,4.812L3.46,4.387a.624.624,0,0,0,.47-.342l1.308-2.65A.624.624,0,0,1,6.358,1.395Z" transform="translate(-0.001 -1.047)" fill="#f4aa0b" opacity="0.9"/></svg>'
+                });            
+            });
+        </script>
+                                                        </div><!-- .text -->                                                
+                                                                                            </div><!-- .text-holder -->
+                                        </div><!-- .theme-holder -->
+                                                                                <div class="theme-holder">
+                                            <div class="img-holder">
+                                                <a href="https://rarathemes.com/wordpress-themes/construction-landing-page/">
+                                                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20472'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="Construction landing page pro WordPress theme" itemprop="image" loading="lazy" data-lazy-srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/09/theme-preview-construction.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/09/theme-preview-construction-229x300.png 229w" data-lazy-sizes="(max-width: 360px) 100vw, 360px" data-lazy-src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/09/theme-preview-construction.png" width="360" height="472"><noscript><img width="360" height="472" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/09/theme-preview-construction.png" class="attachment-full size-full wp-post-image" alt="Construction landing page pro WordPress theme" itemprop="image" loading="lazy" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/09/theme-preview-construction.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/09/theme-preview-construction-229x300.png 229w" sizes="(max-width: 360px) 100vw, 360px" /></noscript>                                                </a>
+                                            </div><!-- .img-holder -->
+                                            <div class="text-holder">
+                                                <div class="text">
+                                                    <h3 class="theme-title"><a href="https://rarathemes.com/wordpress-themes/construction-landing-page/">Construction Landing Page</a></h3>
+                                                            <div class="download-review">
+            <div class="star-holder">
+                <span id="review_rating_8012" class="review-rating"></span>
+            </div>
+            <div class="reviews-total-count">
+                 ( 16 Reviews )            </div>
+        </div><!-- .download-review -->
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#review_rating_8012").rateYo({
+                    rating: '5',
+                    starWidth: "13px",
+                    readOnly: true,
+                    starSvg : '<svg xmlns="http://www.w3.org/2000/svg" width="11.595" height="11.09" viewBox="0 0 11.595 11.09"><path id="star_1_" data-name="star (1)" d="M6.358,1.395l1.308,2.65a.624.624,0,0,0,.47.342l2.924.425a.624.624,0,0,1,.346,1.065L9.29,7.94a.625.625,0,0,0-.179.553l.5,2.913a.625.625,0,0,1-.906.658L6.089,10.688a.625.625,0,0,0-.581,0L2.892,12.064a.624.624,0,0,1-.906-.658l.5-2.913a.625.625,0,0,0-.179-.553L.19,5.877A.624.624,0,0,1,.536,4.812L3.46,4.387a.624.624,0,0,0,.47-.342l1.308-2.65A.624.624,0,0,1,6.358,1.395Z" transform="translate(-0.001 -1.047)" fill="#f4aa0b" opacity="0.9"/></svg>'
+                });            
+            });
+        </script>
+                                                        </div><!-- .text -->                                                
+                                                                                            </div><!-- .text-holder -->
+                                        </div><!-- .theme-holder -->
+                                                                                <div class="theme-holder">
+                                            <div class="img-holder">
+                                                <a href="https://rarathemes.com/wordpress-themes/spa-and-salon/">
+                                                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20472'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="Spa and Salon Pro WordPress theme" itemprop="image" loading="lazy" data-lazy-srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/11/spasalon-preview.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/11/spasalon-preview-229x300.png 229w" data-lazy-sizes="(max-width: 360px) 100vw, 360px" data-lazy-src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/11/spasalon-preview.png" width="360" height="472"><noscript><img width="360" height="472" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/11/spasalon-preview.png" class="attachment-full size-full wp-post-image" alt="Spa and Salon Pro WordPress theme" itemprop="image" loading="lazy" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/11/spasalon-preview.png 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/11/spasalon-preview-229x300.png 229w" sizes="(max-width: 360px) 100vw, 360px" /></noscript>                                                </a>
+                                            </div><!-- .img-holder -->
+                                            <div class="text-holder">
+                                                <div class="text">
+                                                    <h3 class="theme-title"><a href="https://rarathemes.com/wordpress-themes/spa-and-salon/">Spa and Salon</a></h3>
+                                                            <div class="download-review">
+            <div class="star-holder">
+                <span id="review_rating_7058" class="review-rating"></span>
+            </div>
+            <div class="reviews-total-count">
+                 ( 14 Reviews )            </div>
+        </div><!-- .download-review -->
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#review_rating_7058").rateYo({
+                    rating: '4.93',
+                    starWidth: "13px",
+                    readOnly: true,
+                    starSvg : '<svg xmlns="http://www.w3.org/2000/svg" width="11.595" height="11.09" viewBox="0 0 11.595 11.09"><path id="star_1_" data-name="star (1)" d="M6.358,1.395l1.308,2.65a.624.624,0,0,0,.47.342l2.924.425a.624.624,0,0,1,.346,1.065L9.29,7.94a.625.625,0,0,0-.179.553l.5,2.913a.625.625,0,0,1-.906.658L6.089,10.688a.625.625,0,0,0-.581,0L2.892,12.064a.624.624,0,0,1-.906-.658l.5-2.913a.625.625,0,0,0-.179-.553L.19,5.877A.624.624,0,0,1,.536,4.812L3.46,4.387a.624.624,0,0,0,.47-.342l1.308-2.65A.624.624,0,0,1,6.358,1.395Z" transform="translate(-0.001 -1.047)" fill="#f4aa0b" opacity="0.9"/></svg>'
+                });            
+            });
+        </script>
+                                                        </div><!-- .text -->                                                
+                                                                                            </div><!-- .text-holder -->
+                                        </div><!-- .theme-holder -->
+                                                                                <div class="theme-holder">
+                                            <div class="img-holder">
+                                                <a href="https://rarathemes.com/wordpress-themes/benevolent/">
+                                                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20472'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="Benevolent Pro WordPress Theme" itemprop="image" loading="lazy" data-lazy-srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/06/benevolent-WordPress-Theme.jpg 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/06/benevolent-WordPress-Theme-229x300.jpg 229w" data-lazy-sizes="(max-width: 360px) 100vw, 360px" data-lazy-src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/06/benevolent-WordPress-Theme.jpg" width="360" height="472"><noscript><img width="360" height="472" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/06/benevolent-WordPress-Theme.jpg" class="attachment-full size-full wp-post-image" alt="Benevolent Pro WordPress Theme" itemprop="image" loading="lazy" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/06/benevolent-WordPress-Theme.jpg 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2016/06/benevolent-WordPress-Theme-229x300.jpg 229w" sizes="(max-width: 360px) 100vw, 360px" /></noscript>                                                </a>
+                                            </div><!-- .img-holder -->
+                                            <div class="text-holder">
+                                                <div class="text">
+                                                    <h3 class="theme-title"><a href="https://rarathemes.com/wordpress-themes/benevolent/">Benevolent</a></h3>
+                                                            <div class="download-review">
+            <div class="star-holder">
+                <span id="review_rating_961" class="review-rating"></span>
+            </div>
+            <div class="reviews-total-count">
+                 ( 18 Reviews )            </div>
+        </div><!-- .download-review -->
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#review_rating_961").rateYo({
+                    rating: '5',
+                    starWidth: "13px",
+                    readOnly: true,
+                    starSvg : '<svg xmlns="http://www.w3.org/2000/svg" width="11.595" height="11.09" viewBox="0 0 11.595 11.09"><path id="star_1_" data-name="star (1)" d="M6.358,1.395l1.308,2.65a.624.624,0,0,0,.47.342l2.924.425a.624.624,0,0,1,.346,1.065L9.29,7.94a.625.625,0,0,0-.179.553l.5,2.913a.625.625,0,0,1-.906.658L6.089,10.688a.625.625,0,0,0-.581,0L2.892,12.064a.624.624,0,0,1-.906-.658l.5-2.913a.625.625,0,0,0-.179-.553L.19,5.877A.624.624,0,0,1,.536,4.812L3.46,4.387a.624.624,0,0,0,.47-.342l1.308-2.65A.624.624,0,0,1,6.358,1.395Z" transform="translate(-0.001 -1.047)" fill="#f4aa0b" opacity="0.9"/></svg>'
+                });            
+            });
+        </script>
+                                                        </div><!-- .text -->                                                
+                                                                                            </div><!-- .text-holder -->
+                                        </div><!-- .theme-holder -->
+                                                                                <div class="theme-holder">
+                                            <div class="img-holder">
+                                                <a href="https://rarathemes.com/wordpress-themes/rara-business/">
+                                                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20472'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="Rara Business free WordPress Theme" itemprop="image" loading="lazy" data-lazy-srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2018/05/Rara-Business-free-WordPress-Theme.jpg 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2018/05/Rara-Business-free-WordPress-Theme-229x300.jpg 229w" data-lazy-sizes="(max-width: 360px) 100vw, 360px" data-lazy-src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2018/05/Rara-Business-free-WordPress-Theme.jpg" width="360" height="472"><noscript><img width="360" height="472" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2018/05/Rara-Business-free-WordPress-Theme.jpg" class="attachment-full size-full wp-post-image" alt="Rara Business free WordPress Theme" itemprop="image" loading="lazy" srcset="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2018/05/Rara-Business-free-WordPress-Theme.jpg 360w, https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2018/05/Rara-Business-free-WordPress-Theme-229x300.jpg 229w" sizes="(max-width: 360px) 100vw, 360px" /></noscript>                                                </a>
+                                            </div><!-- .img-holder -->
+                                            <div class="text-holder">
+                                                <div class="text">
+                                                    <h3 class="theme-title"><a href="https://rarathemes.com/wordpress-themes/rara-business/">Rara Business</a></h3>
+                                                            <div class="download-review">
+            <div class="star-holder">
+                <span id="review_rating_151600" class="review-rating"></span>
+            </div>
+            <div class="reviews-total-count">
+                 ( 19 Reviews )            </div>
+        </div><!-- .download-review -->
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#review_rating_151600").rateYo({
+                    rating: '5',
+                    starWidth: "13px",
+                    readOnly: true,
+                    starSvg : '<svg xmlns="http://www.w3.org/2000/svg" width="11.595" height="11.09" viewBox="0 0 11.595 11.09"><path id="star_1_" data-name="star (1)" d="M6.358,1.395l1.308,2.65a.624.624,0,0,0,.47.342l2.924.425a.624.624,0,0,1,.346,1.065L9.29,7.94a.625.625,0,0,0-.179.553l.5,2.913a.625.625,0,0,1-.906.658L6.089,10.688a.625.625,0,0,0-.581,0L2.892,12.064a.624.624,0,0,1-.906-.658l.5-2.913a.625.625,0,0,0-.179-.553L.19,5.877A.624.624,0,0,1,.536,4.812L3.46,4.387a.624.624,0,0,0,.47-.342l1.308-2.65A.624.624,0,0,1,6.358,1.395Z" transform="translate(-0.001 -1.047)" fill="#f4aa0b" opacity="0.9"/></svg>'
+                });            
+            });
+        </script>
+                                                        </div><!-- .text -->                                                
+                                                                                            </div><!-- .text-holder -->
+                                        </div><!-- .theme-holder -->
+                                                                    </div><!-- .theme-listing-holder -->
+                                                        <div class="btn-holder">
+                                <a href="https://rarathemes.com/theme/free-wordpress-themes/" class="btn-viewall">
+                                    Check Our Entire Collection of Free Themes                                </a><!-- .btn-viewall -->
+                            </div><!-- .btn-holder -->
+                                            </div><!-- .container -->
+            </section><!-- .theme-listing -->
+                        <div class="promo-section">
+                <div class="container">
+                    <div class="holder">
+                        <div class="text-holder">
+                            <h2 class="title">Docs2Site</h2><h3 class="sub-title">Our App to Help Bloggers and Content Marketers</h3><p><strong>Export Google Docs Into Posts and Pages in WordPress in Seconds!</strong></p>
+<div class="banner-content">Stop wasting hours copying, pasting and reformatting the same content from Google Docs into WordPress. Export content into WordPress in seconds with all formatting intact. Save frustration, time and money.</div>
+<a href="https://www.docs2site.com/?utm_source=resources&amp;utm_medium=rarathemes&amp;utm_campaign=docs2site" class="btn-try" target="_blank">Try Docs2Site <svg xmlns="http://www.w3.org/2000/svg" viewBox="-21064 -18255 19 14"><path id="path" class="cls-1" d="M197.8,874l7,7-7,7-1.4-1.4L201,882H185.8v-2H201l-4.6-4.6Z" transform="translate(-21249.8 -19129)"></path></svg></a>                        </div>
+                        <div class="img-holder"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201019%20659'%3E%3C/svg%3E" alt="Docs2Site" data-lazy-src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2021/01/docs2site.png" width="1019" height="659"><noscript><img width="1019" height="659" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/uploads/2021/01/docs2site.png" alt="Docs2Site"></noscript></div>                    </div>
+                </div>
+            </div>
+                <footer id="colophon" class="site-footer" itemscope="" itemtype="http://schema.org/WPFooter">
+            <div class="footer-t">
+            <div class="container">
+                <div class="grid column-4">
+                                    <div class="col">
+                        <section id="nav_menu-3" class="widget widget_nav_menu"><h4 class="widget-title" itemprop="name">Customers</h4><div class="menu-customers-container"><ul id="menu-customers" class="menu"><li id="menu-item-15292" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15292"><a href="https://rarathemes.com/support-ticket/">Support Ticket</a></li>
+<li id="menu-item-748545" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-748545"><a href="https://docs.rarathemes.com/">Documentation</a></li>
+<li id="menu-item-15286" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15286"><a href="https://rarathemes.com/licensing-policy/">Licensing Policy</a></li>
+<li id="menu-item-15288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15288"><a href="https://rarathemes.com/help-support-policy/">Help and Support  Policy</a></li>
+<li id="menu-item-15287" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15287"><a href="https://rarathemes.com/refund-policy/">Refund Policy</a></li>
+<li id="menu-item-16682" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16682"><a href="https://rarathemes.com/translate-themes-language/">Translation</a></li>
+<li id="menu-item-15289" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15289"><a href="https://rarathemes.com/customize-service/">Hire a Customizer</a></li>
+<li id="menu-item-15291" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15291"><a href="https://rarathemes.com/terms-conditions/">Terms &amp; Conditions</a></li>
+</ul></div></section>	
+                    </div>
+                                    <div class="col">
+                        <section id="nav_menu-4" class="widget widget_nav_menu"><h4 class="widget-title" itemprop="name">Premium Themes</h4><div class="menu-premium-themes-container"><ul id="menu-premium-themes" class="menu"><li id="menu-item-1077699" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-1077699"><a href="https://rarathemes.com/wordpress-themes/travel-agency-pro/">Travel Agency Pro</a></li>
+<li id="menu-item-1077697" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-1077697"><a href="https://rarathemes.com/wordpress-themes/rara-business-pro/">Rara Business Pro</a></li>
+<li id="menu-item-1077693" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-1077693"><a href="https://rarathemes.com/wordpress-themes/education-zone-pro/">Education Zone Pro</a></li>
+<li id="menu-item-1077692" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-1077692"><a href="https://rarathemes.com/wordpress-themes/construction-landing-page-pro/">Construction Landing Page Pro</a></li>
+<li id="menu-item-1077691" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-1077691"><a href="https://rarathemes.com/wordpress-themes/business-one-page-pro/">Business One Page Pro</a></li>
+<li id="menu-item-1077690" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-1077690"><a href="https://rarathemes.com/wordpress-themes/benevolent-pro/">Benevolent Pro</a></li>
+<li id="menu-item-1077698" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-1077698"><a href="https://rarathemes.com/wordpress-themes/spa-and-salon-pro/">Spa and Salon Pro</a></li>
+<li id="menu-item-1077688" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-1077688"><a href="https://rarathemes.com/wordpress-themes/chic-pro/">Chic Pro</a></li>
+<li id="menu-item-1077689" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-1077689"><a href="https://rarathemes.com/wordpress-themes/ridhi-pro/">Ridhi Pro</a></li>
+<li id="menu-item-1077694" class="menu-item menu-item-type-post_type menu-item-object-download menu-item-1077694"><a href="https://rarathemes.com/wordpress-themes/lawyer-landing-page-pro/">Lawyer Landing Page Pro</a></li>
+</ul></div></section>	
+                    </div>
+                                    <div class="col">
+                        <section id="nav_menu-2" class="widget widget_nav_menu"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-162" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-162"><a href="https://rarathemes.com/terms-conditions/">Terms &amp; Conditions</a></li>
+<li id="menu-item-161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-161"><a href="https://rarathemes.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-161033" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-161033"><a href="https://rarathemes.com/cookie-policy/">Cookie Policy</a></li>
+</ul></div></section><section id="nav_menu-5" class="widget widget_nav_menu"><h4 class="widget-title" itemprop="name">Advertisement</h4><div class="menu-advertise-container"><ul id="menu-advertise" class="menu"><li id="menu-item-79567" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79567"><a href="https://rarathemes.com/blog/advertisement-wordpress-raratheme/">Advertise with Rara Theme</a></li>
+</ul></div></section>	
+                    </div>
+                                    <div class="col">
+                        <section id="nav_menu-6" class="widget widget_nav_menu"><h4 class="widget-title" itemprop="name">Affiliate</h4><div class="menu-affiliate-container"><ul id="menu-affiliate" class="menu"><li id="menu-item-984704" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-984704"><a href="https://rarathemes.com/affiliates/">Affiliates Program</a></li>
+<li id="menu-item-984705" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-984705"><a href="https://rarathemes.com/affiliate-login/">Affiliate Login</a></li>
+<li id="menu-item-984706" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-984706"><a href="https://rarathemes.com/affiliate-area/">Affiliate Area</a></li>
+</ul></div></section>	
+                    </div>
+                                </div>
+            </div>
+        </div>
+            <div class="footer-b">
+        <div class="container">
+            <div class="site-info">Copyright © 2015-2022 Rara Themes. All Rights Reserved.</div>        </div>
+    </div>
+        </footer><!-- #colophon -->
+        <div class="back-to-top"></div>
+        </div><!-- #page -->
+    <div class="edd-free-downloads-modal-wrapper edd-free-downloads"><span class="edd-loading"></span><div id="edd-free-downloads-modal" style="display:none"></div></div><div id="notificationx-frontend-root"><!-- This DIV for NotificationX, It is used to show the notifications by appending them here. For more details please visit: https://notificationx.com/docs --><div id="notificationx-frontend"></div>
+</div><script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/url.min.js" id="wp-url-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-api-fetch-js-translations">
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", { "locale_data": { "messages": { "": {} } } } );
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/dist/api-fetch.min.js" id="wp-api-fetch-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-api-fetch-js-after">
+wp.apiFetch.use( wp.apiFetch.createRootURLMiddleware( "https://rarathemes.com/wp-json/" ) );
+wp.apiFetch.nonceMiddleware = wp.apiFetch.createNonceMiddleware( "a8fd814b42" );
+wp.apiFetch.use( wp.apiFetch.nonceMiddleware );
+wp.apiFetch.use( wp.apiFetch.mediaUploadMiddleware );
+wp.apiFetch.nonceEndpoint = "https://rarathemes.com/wp-admin/admin-ajax.php?action=rest-nonce";
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/cache/min/1/wp-content/plugins/notificationx/blocks/notificationx/frontend.js?ver=1648075415" id="notificationx-block-frontend-js" defer=""></script>
+<script type="text/javascript" id="edd-ajax-js-extra">
+/* <![CDATA[ */
+var edd_scripts = {"ajaxurl":"https:\/\/rarathemes.com\/wp-admin\/admin-ajax.php","position_in_cart":"","has_purchase_links":"","already_in_cart_message":"You have already added this item to your cart","empty_cart_message":"Your cart is empty","loading":"Loading","select_option":"Please select an option","is_checkout":"0","default_gateway":"stripe","redirect_to_checkout":"1","checkout_page":"https:\/\/rarathemes.com\/checkout\/","permalinks":"1","quantities_enabled":"","taxes_enabled":"0"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/easy-digital-downloads/assets/js/edd-ajax.min.js" id="edd-ajax-js" defer=""></script>
+<script type="text/javascript" id="edd-cp-form-js-extra">
+/* <![CDATA[ */
+var edd_cp = {"currency":"<span class=\"currency\">$<\/span>","add_to_cart_text":"Get It Now!","ajax_enabled":"1","currency_position":"before","min_price_error":"Please enter a custom price higher than the minimum amount","thousandsSeparator":",","decimalSeparator":".","currencyDecimals":"2"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/cache/min/1/wp-content/plugins/edd-custom-prices/assets/build/js/edd-cp-form.js?ver=1645677566" id="edd-cp-form-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/raratheme-companion/public/js/isotope.pkgd.min.js" id="isotope-pkgd-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/imagesloaded.min.js" id="imagesloaded-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-includes/js/masonry.min.js" id="masonry-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/raratheme-companion/public/js/raratheme-companion-public.min.js" id="raratheme-companion-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/raratheme-companion/public/js/fontawesome/all.min.js" id="all-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/raratheme-companion/public/js/fontawesome/v4-shims.min.js" id="v4-shims-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/edd-free-downloads/assets/js/isMobile.min.js" id="edd-free-downloads-mobile-js" defer=""></script>
+<script type="text/javascript" id="edd-free-downloads-js-extra">
+/* <![CDATA[ */
+var edd_free_downloads_vars = {"close_button":"box","user_registration":"false","require_name":"true","download_loading":"Please Wait... ","download_label":"Download Now","modal_download_label":"Download Now","has_ajax":"1","ajaxurl":"https:\/\/rarathemes.com\/wp-admin\/admin-ajax.php","mobile_url":"\/?edd-free-download=true","form_class":"edd_purchase_submit_wrapper","bypass_logged_in":"false","is_download":"false","edd_is_mobile":"","success_page":"https:\/\/rarathemes.com\/purchase-confirmation-pro\/","guest_checkout_disabled":"","email_verification":"","on_complete_handler":"redirect","on_complete_delay":"2000"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/edd-free-downloads/assets/js/edd-free-downloads.min.js" id="edd-free-downloads-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/themes/raratheme/js/jquery.rateyo.min.js" id="jquery-rateyo-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/cache/min/1/wp-content/themes/rara-theme/js/scroll-nav.js?ver=1645677566" id="rara-theme-scrollnav-js" defer=""></script>
+<script type="text/javascript" id="raratheme-js-extra">
+/* <![CDATA[ */
+var rara_theme = {"ajax_url":"https:\/\/rarathemes.com\/wp-admin\/admin-ajax.php","club_nonce":"c6fa24619f","rara_theme_nonce":"275f9cd9a1","theme_club":"13123","club_upgrade":"https:\/\/rarathemes.com\/checkout\/?club_upgrade","home_url":"https:\/\/rarathemes.com","demo_page":"https:\/\/rarathemes.com\/previews\/","ed_timer":"","notification_time":" ","total_reviews":"443","no_of_review":"5","startPage":"1","maxPages":"0","nextLink":"https:\/\/rarathemes.com\/page\/2\/","loadmore":"Load More Posts","loading":"Loading...","nomore":"No More Post","review_flag":"1"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/themes/raratheme/js/custom.min.js" id="raratheme-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/cache/min/1/wp-content/themes/rara-theme/js/carousel.js?ver=1645677566" id="rara-theme-carousel-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/cache/min/1/wp-content/themes/rara-theme/js/jquery.meanmenu.js?ver=1645677566" id="rara-theme-meanmenu-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/cache/min/1/wp-content/themes/rara-theme/js/sticky-sidebar.js?ver=1645677566" id="rara-theme-sticky-sidebar-js" defer=""></script>
+<script type="text/javascript" id="cookie-notice-front-js-extra">
+/* <![CDATA[ */
+var cnArgs = {"ajaxUrl":"https:\/\/rarathemes.com\/wp-admin\/admin-ajax.php","nonce":"345de28e19","hideEffect":"fade","position":"bottom","onScroll":"0","onScrollOffset":"100","onClick":"0","cookieName":"cookie_notice_accepted","cookieTime":"31536000","cookieTimeRejected":"2592000","cookiePath":"\/","cookieDomain":"","redirection":"0","cache":"1","refuse":"0","revokeCookies":"0","revokeCookiesOpt":"automatic","secure":"1"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" async="" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/cookie-notice/includes/../js/front.min.js" id="cookie-notice-front-js"></script>
+<script type="text/javascript" id="notificationx-public-js-extra">
+/* <![CDATA[ */
+var notificationX = {"global":[],"active":["541891"],"pressbar":[],"total":"1","rest":{"root":"https:\/\/rarathemes.com\/wp-json\/","namespace":"notificationx\/v1","nonce":"fa69ff698e"},"assets":"https:\/\/rarathemes.com\/wp-content\/plugins\/notificationx\/assets\/public\/","is_pro":"1","pro_assets":"https:\/\/rarathemes.com\/wp-content\/plugins\/notificationx-pro\/assets\/public\/"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="notificationx-public-js-translations">
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "notificationx", { "locale_data": { "messages": { "": {} } } } );
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/cache/min/1/wp-content/plugins/notificationx/assets/public/js/frontend.js?ver=1645677566" id="notificationx-public-js" defer=""></script>
+
+		<!-- Cookie Notice plugin v2.2.3 by Hu-manity.co https://hu-manity.co/ -->
+		<div id="cookie-notice" role="dialog" class="cookie-notice-hidden cookie-revoke-hidden cn-position-bottom" aria-label="Cookie Notice" style="background-color: rgba(0,0,0,0.5);"><div class="cookie-notice-container" style="color: #fff;"><span id="cn-notice-text" class="cn-text-container">By continuing to use the site, you agree to the use of cookies.</span><span id="cn-notice-buttons" class="cn-buttons-container"><a href="#" id="cn-accept-cookie" data-cookie-set="accept" class="cn-set-cookie cn-button" aria-label="Accept" style="background-color: #00a99d">Accept</a></span><span id="cn-close-notice" data-cookie-set="accept" class="cn-close-icon" title="No"></span></div>
+			
+		</div>
+		<!-- / Cookie Notice plugin --><script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://raratheme-wbtneb0y4p.netdna-ssl.com/wp-content/plugins/wp-rocket/assets/js/lazyload/16.1/lazyload.min.js"></script>
+
+
+</body></html>

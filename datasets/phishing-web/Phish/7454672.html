@@ -1,0 +1,64 @@
+<html style="--status-bar-height: 0px; --top-window-height: 0px; --window-left: 0px; --window-right: 0px; --window-margin: 0px; font-size: 64.2px; --window-top: calc(var(--top-window-height) + 0px); --window-bottom: 0px;" lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><title>Login</title><script>document.addEventListener('DOMContentLoaded', function() {document.documentElement.style.fontSize = document.documentElement.clientWidth / 20 + 'px'})</script><link rel="stylesheet" href="/static/css/index.css"><link rel="stylesheet" href="/static/css/uniapp-common.css"><style type="text/css">        .lang[data-v-007fad0b]{-webkit-align-self:flex-end;align-self:flex-end;line-height:44px;padding:0 15px}
+        .login-wrapper[data-v-007fad0b]{padding-top:50px}
+        .logo-img[data-v-007fad0b]{width:200px;height:50px}
+        .login-list[data-v-007fad0b]{-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between}
+        .tips[data-v-007fad0b]{-webkit-box-pack:start;-webkit-justify-content:flex-start;justify-content:flex-start;line-height:normal;font-size:12px;color:#f33;margin-bottom:20px}
+    </style><link rel="stylesheet" href="http://ftx39.com/static/layer/skin/default/layer.css?v=3.0.11110" id="layuicss-skinlayercss"></head><body class="uni-body pages-personal-login-login"><noscript><strong>Please enable JavaScript to continue.</strong></noscript><uni-app class="uni-app--maxwidth"><uni-page data-page="pages/personal/login/login"><uni-page-wrapper><uni-page-body><uni-view data-v-007fad0b="" class="page--column" style="height: 812px;"><uni-view data-v-71f528b1="" data-v-007fad0b="" class="uni-status-bar" style="height: 0px;"></uni-view><li data-v-007fad0b="" class="login-list lang"><!--<uni-navigator data-v-007fad0b="" class="lang">切换线路</uni-navigator>--><uni-navigator data-v-007fad0b="" class="lang select_language">Select Language</uni-navigator></li><div data-v-007fad0b="" class="login-wrapper"><div data-v-007fad0b="" class="logo"><uni-image data-v-007fad0b="" class="logo-img"><div style="background-image: url(&quot;/static/img/titleicon.png&quot;); background-position: center center; background-size: contain; background-repeat: no-repeat;"></div><img src="/static/img/titleicon.png" draggable="true"></uni-image></div><div data-v-007fad0b=""><ul data-v-007fad0b="" class="login-main"><li data-v-007fad0b="" class="login-list"><uni-input data-v-007fad0b="" class="login-input" style="background: url(&quot;/static/img/login_ico_name.png&quot;) 12px center / 25px no-repeat;"><div class="uni-input-wrapper"><input maxlength="140" step="" id="username" enterkeyhint="done" autocomplete="off" type="" class="uni-input-input" placeholder="Username"></div></uni-input></li><li data-v-007fad0b="" class="login-list"><uni-input data-v-007fad0b="" class="login-input" style="background: url(&quot;/static/img/login_ico_password.png&quot;) 12px center / 25px no-repeat;"><div class="uni-input-wrapper"><input maxlength="140" step="" id="password" enterkeyhint="done" autocomplete="off" type="password" class="uni-input-input" placeholder="Password"></div></uni-input></li><li data-v-007fad0b="" class="login-list tips"></li><li data-v-007fad0b="" class="login-list"><uni-button data-v-007fad0b="" class="login-btn" type="primary">Login</uni-button></li><li data-v-007fad0b="" class="login-list"><uni-navigator data-v-007fad0b="" class="login-res">Register now</uni-navigator><uni-navigator data-v-007fad0b="" class="login-password forgot_password">Forgot Password</uni-navigator></li></ul></div></div></uni-view></uni-page-body></uni-page-wrapper></uni-page></uni-app><script src="/static/index/js/jquery-1.9.1.min.js"></script><script src="/static/layer/layer.js"></script><script src="/static/js/public.js"></script><script>    $(function(){
+        $("#username").val(getCookie('username'));
+        //login
+        $('.login-btn').click(function(){
+            var username = $("#username").val();
+            var password = $("#password").val();
+            if(!username){
+                layer.msg('Please enter your username',{time:3000});
+                return;
+            }
+            if(!password){
+                layer.msg('Please enter a password',{time:3000});
+                return;
+            }
+            var load1 = layer.load();
+            $.ajax({
+                url: "/index/login/login",
+                type: "post",
+                data: {'username': username, 'password': password },
+                success: function (res) {
+                    layer.close(load1);
+                    if(res.code==0){
+                        layer.msg('Success', {icon: 1,time: 3000},function(){
+                            window.location.href="/index/index.html";
+                            // location.href="/index/index";
+                        }); 
+                        return;
+                    }else{
+                        
+                        layer.msg(res.msg, {icon: 2,time:3000}); 
+                        return;
+                    }
+                },
+                error: function () {
+                    layer.close(load1);
+                    layer.msg('Network exception', {icon: 2,time:3000}); 
+                    return;
+                },
+                comptele: function () {
+                    layer.close(load1);
+                    layer.msg('Network exception', {icon: 2,time:3000}); 
+                    return;
+                }
+            })
+        })
+        //切换语言
+        $('.select_language').click(function(){
+            window.location.href="/index/login/language.html";
+        })
+        //跳转注册
+        $('.login-res').click(function(){
+            location.href = '/r';
+        })
+        //跳转忘记密码
+        $('.forgot_password').click(function(){
+            window.location="https://c.ftx39.com/customer-service/6190ce75b0bb3/6190cf379a744";
+        })
+    })  
+  </script></body></html>

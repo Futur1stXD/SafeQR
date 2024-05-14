@@ -1,0 +1,378 @@
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="0yYdbKxTRghPkAyzZ8QTVdfXthUEtcwAu78AsDrc0aM">
+  <title>How Does Bitcoin Work?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+  <link rel="stylesheet" type="text/css" href="/common/lib/tipped/tipped.css">
+<link rel="stylesheet" type="text/css" href="/common/lib/jquery-ui/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="/common/css/tachyons.min.css">
+<link rel="stylesheet" type="text/css" href="/common/css/style.css">
+<link rel="stylesheet" type="text/css" media="print" href="/common/css/print.css">
+
+<script type="text/javascript" src="/common/lib/jquery-3.3.1.min.js"></script>
+  
+</head>
+
+<body>
+<div class="wrap">
+
+<header>
+<style>
+
+</style>
+<div class="title">
+	<a href="/" id="logo">learn me a <span>bitcoin</span></a>
+	<p class="by">By <a href="/about">Greg Walker</a>
+		<a href="https://twitter.com/in3rsha" target="_blank" class="out"><img src="/common/images/icons/twitter.png" style="margin-left:2px;"></a>
+		<a href="https://www.youtube.com/channel/UCj9MFr-7a02d_qe4xVnZ1sA/videos" target="_blank" class="out"><img src="/common/images/icons/youtube.png" style="margin-left:2px;"></a>
+	</p>
+</div>
+
+<nav id="searchbox">
+		<input type="text" name="search" id="search" placeholder="Search: transaction, block, address, word (e.g. 'private key')" autofocus="" class="mp_input" aria-autocomplete="list" aria-owns="mp_search_list" autocomplete="off" role="combobox" aria-required="false"><ol class="mp_list" aria-atomic="true" aria-busy="false" aria-live="polite" id="mp_search_list" role="listbox" style="display: none;"></ol>
+	</nav>
+
+<nav id="tabs">
+<ul>
+	<li class="home active"><a href="/">Home</a></li>
+	<li class="beginners"><a href="/beginners/">Beginners</a></li>
+	<li class="technical"><a href="/technical/">Technical</a></li>
+	<li class="explorer"><a href="/explorer/">Explorer</a></li>
+	<!-- <li class="tools"><a href="/tools/">Tools</a>
+		<ul class="dropdown">
+			 <li><a href="/tools/sha256">SHA256</a></li>
+			 <li><a href="/tools/swapendian">Swap Endian</a></li>
+			 </ul>
+	</li> -->
+</ul>
+
+</nav>
+
+<div class="ticker"><strong><a href="/chart/" class="chart">$42,895.15</a></strong><small>/BTC</small> <a href="/visit/localbitcoins" target="_blank" rel="nofollow" class="buy affiliate">Buy</a></div>
+
+<style>
+div.toolbox {position:relative;}
+div.toolbox ul.toolboxmenu {display:none; width:180px; position:absolute; right:1px; top:38px; text-align: right;  font-family: "SVBasicManual"; z-index: 9999;}
+/* div.toolbox:hover ul#toolboxmenu {display: block;} */
+</style>
+
+<button id="subscribe" class="right">Subscribe</button>
+
+<div class="toolbox">
+	<button id="toolbox" class="right">Tools</button>
+	<ul class="toolboxmenu ui-menu ui-widget ui-widget-content" id="ui-id-14" role="menu" tabindex="0">
+	  <!-- <li class="ui-widget-header"><div>Hash Functions</div></li> -->
+	  <!-- <li class="sha256"><div>SHA256</div></li> -->
+		<li class="hash256 ui-menu-item"><div id="ui-id-15" tabindex="-1" role="menuitem" class="ui-menu-item-wrapper">Hash256</div></li>
+		<li class="hash160 ui-menu-item"><div id="ui-id-16" tabindex="-1" role="menuitem" class="ui-menu-item-wrapper">Hash160</div></li>
+		<!-- <li class="ripemd160"><div>RIPEMD160</div></li> -->
+		<li class="reversebytes ui-menu-item"><div id="ui-id-17" tabindex="-1" role="menuitem" class="ui-menu-item-wrapper">Reverse Bytes</div></li>
+		<li class="hexadecimal ui-menu-item"><div id="ui-id-18" tabindex="-1" role="menuitem" class="ui-menu-item-wrapper">Hexadecimal</div></li>
+		<li class="satoshis ui-menu-item"><div id="ui-id-19" tabindex="-1" role="menuitem" class="ui-menu-item-wrapper">Satoshis</div></li>
+	</ul>
+</div>
+
+</header>
+
+<article>
+<div class="wrapper"> <!-- this is so the nav ul li.active border-bottom works, setting position:relative; on <article> stops it from working  -->
+
+<h1 class="main" id="how-does-bitcoin-work">How does Bitcoin work?</h1>
+<p><img src="/common/images/learnmeabitcoin.png" style="margin-bottom:56px;"></p>
+<p>Bitcoin is an <strong>electronic payment system created in 2009</strong>. It allows you to send money to anyone in the world, and you don’t need to ask anyone’s permission to create an account.</p>
+<p>It was created as a solution to the modern financial system, where we have a small number of large banks that control who gets an account and which transactions get processed. This means the control of money is <em>centralized</em>, and we have to trust the banks to act responsibly.</p>
+<blockquote>
+<p>Banks must be trusted to hold our money and transfer it electronically, but they lend it out in waves of credit bubbles with barely a fraction in reserve. – <a href="https://satoshi.nakamotoinstitute.org/posts/p2pfoundation/1/" class="out">Satoshi Nakamoto</a></p>
+</blockquote>
+<p>The centralization of banking and the resulting financial crisis of 2007 inspired the development of Bitcoin. It’s a payment system, and it runs <em>without</em> a central point of control. It was designed anonymously by Satoshi Nakamoto, and was <a href="https://www.metzdowd.com/pipermail/cryptography/2009-January/014994.html" class="out">released in January 2009</a>.</p>
+<p>Anyone can run the program or use the system.</p>
+<!--
+Proof that Satoshi started working on Bitcoin shortly after the start of the financial crisis in 2007:
+
+"I believe I've worked through all those little details over the last year and a half while coding it, and there were a lot of them."
+  https://satoshi.nakamotoinstitute.org/emails/cryptography/15/ (2008-11-17 17:24:43 UTC)
+
+"The design and coding started in 2007."
+  https://bitcointalk.org/index.php?topic=13.msg46#msg46 (December 10, 2009, 08:49:02 PM)
+-->
+<p>The following is a simple explanation of how it works.</p>
+<h2 id="what-is-bitcoin">What is Bitcoin?</h2>
+<p>Bitcoin is just a <strong>computer program</strong>. You can download it and run it on your computer.</p>
+<figure>
+<img src="common/images/home/1_1_program.png" alt=""><figcaption>Go on, <a href="https://bitcoin.org/en/download" class="out">try it</a>.</figcaption>
+</figure>
+<p>When you run the program, it will connect to other computers who are also running this program, and they will <em>start sharing a file</em> with you. This file is called the <a href="/technical/blockchain"><strong>blockchain</strong></a>, and it is basically a big list of <a href="/technical/transaction-data"><em>transactions</em></a>.</p>
+<p><img src="common/images/home/1_2_network.png"></p>
+<p>When a new transaction enters the network, it gets <em>relayed</em> from computer to computer until everyone has a copy of the transaction. At roughly 10 minute intervals, a random computer (<a href="/beginners/nodes">node</a>) on the network will add the latest transactions they have received on to the blockchain, and share the updates with everyone else on the network.</p>
+<p><img src="common/images/home/1_3_network_transactions.png"></p>
+<p>As a result, the Bitcoin program creates a large <em><a href="/beginners/network">network</a> of computers</em> that communicate with each other to <strong>share a file and update it with new transactions</strong>.</p>
+<h2 id="what-problem-does-bitcoin-solve">What problem does Bitcoin solve?</h2>
+<p>It was possible to relay transactions across a network of computers before Bitcoin. However, the problem is that <strong>you can insert conflicting transactions in to a network of computers</strong>. For example, you could create two separate transactions that spend the <em>same</em> digital coin, and send both of these transactions in to the network at the same time.</p>
+<p>This is known as a “<strong>double-spend</strong>”.</p>
+<p><img src="common/images/home/2_1_why_double_spend.png"></p>
+<p>So if you’re creating an electronic payment system without a central point of control, you have the problem of figuring out which of these transactions came “first”, and this is a difficult thing to do when you have a network of computers all acting independently. Some computers will receive the <span class="bold green">green</span> transaction first, and some computers will receive the <span class="bold red">red</span> transaction first.</p>
+<p>Who’s to <em>decide</em> which one came “first” and should be the only one written to the file?</p>
+<p>Bitcoin solves this problem by forcing nodes to keep all the transactions they receive <em>in <a href="/technical/memory-pool">memory</a></em> before writing them to a file. Then, at 10-minute intervals, a <em>random node</em> on the network will add the transactions from their memory on to the file.</p>
+<p><img src="common/images/home/2_2_why_mining.png"></p>
+<p>This updated file is then shared with the network, and nodes will accept the transactions in the updated file as “correct”, removing any conflicting transactions from their memory. As a result, no double-spend transactions will ever be written to the file, and all nodes can update their files in agreement with one another.</p>
+<p><img src="common/images/home/2_3_why_solved.png"></p>
+<p>The process of adding transactions on to the file is called <a href="mining"><strong>mining</strong></a>, and it is basically a network-wide <em>competition</em> that cannot be controlled by a single node on the network.</p>
+<h2 id="how-does-mining-work">How does mining work?</h2>
+<!--
+Any computer on the network can compete to try and add transactions on to the blockchain. This process is known as **mining**.
+-->
+<p>To start with, each node stores the latest <a href="/technical/transaction-data">transactions</a> they have received in their <a href="/technical/memory-pool"><strong>memory pool</strong></a>, which is just temporary memory on their computer. Any node can then try and <em>mine</em> the transactions from their memory pool on to the file (the <a href="/technical/blockchain"><strong>blockchain</strong></a>).</p>
+<p>To do this, a node will gather the transactions from its memory pool in to a container called a <a href="/beginners/blocks"><strong>block</strong></a>, and then use <em>processing power</em> to try and add this block of transactions on to the blockchain.</p>
+<p><img src="common/images/home/3_1_mining.png"></p>
+<p>So where does this processing power come in? Well, to add this block to the blockchain, you must feed your block of transactions in to something called a <a href="/technical/hash-function"><strong>hash function</strong></a>. A hash function is basically a mini computer program that will take in any amount of data, scramble it, and spit out a completely random (yet unique) number.</p>
+<p><img src="common/images/home/3_2_hash_function.png"></p>
+<p>For your block to be successfully added on to the blockchain, this number (the <a href="/technical/block-hash"><strong>block hash</strong></a>) must be below the <a href="/technical/target"><strong>target</strong></a>, which is a threshold number that everyone on the network agrees upon.</p>
+<p><img src="common/images/home/3_3_mining_block_hash.png"></p>
+<p>If your resulting <strong>block hash</strong> is <em>not</em> below the target, you can make a small adjustment to the data inside the block and put it through the hash function again. This will produce a <em>completely different</em> number that will hopefully be below the target. If not, you adjust the block and try again.</p>
+<p><img src="common/images/home/3_4_mining_nonce.png"></p>
+<p>So in summary, the process of mining uses processing power to perform hash calculations as fast as you can to try and be the first computer on the network to get a block hash below the target. If you’re successful, you can add your block of transactions on to the blockchain and share it with the rest of the network.</p>
+<p class="note text">
+<strong>NOTE:</strong> Although it is still possible for anyone to try and mine blocks, it is no longer competitive to do so on a home computer. There is now specialized hardware that has been designed to perform hash calculations as fast (and as efficiently) as possible, which means that mining is now mostly performed by those with access to specialized hardware and cheap electricity.
+</p>
+<h3 id="where-do-bitcoins-come-from">Where do bitcoins come from?</h3>
+<p>As an incentive to use processing power to try and add new blocks of transactions on to the blockchain, each new block makes available a fixed amount of bitcoins that did not previously exist. Therefore, if you are able to successfully mine a block, you are able to “send” yourself these new bitcoins as a reward for your effort.</p>
+<p><img src="common/images/home/3_5_mining_block_reward.png"></p>
+<p>This reward of new bitcoins is called the <strong>block reward</strong>, and is the reason why the process is called “mining”.</p>
+<!--
+As a result, the use of the hash function in conjunction with a target value creates a network-wide competition that anyone can compete in. It also means that no single computer on the network has complete control over adding transactions on to the blockchain, which creates a file-sharing network with no central point of control.
+-->
+<h2 id="why-is-the-file-called-the-blockchain">Why is the file called the “blockchain”?</h2>
+<p>As we have seen, transactions are not added to the file individually – they are collected together and added in blocks. Each of these new blocks <em>builds on top of</em> an existing one, and so the file is made up of a <em>chain</em> of <strong>blocks</strong>; hence, <a href="/technical/blockchain"><strong>blockchain</strong></a>.</p>
+<p><img src="common/images/home/4_1_blockchain.png"></p>
+<p>Furthermore, every node on the network <strong>will always adopt the <a href="/technical/longest-chain">longest chain</a> of blocks they receive</strong> as the “official” version of the blockchain. This means that miners will always try to build on top of the “tip” of the longest known chain of blocks, as any blocks that are not part of the longest chain will not be considered valid by other nodes.</p>
+<p><img src="common/images/home/4_2_blockchain_longest.png"></p>
+<p>Therefore, if someone wanted to rewrite the history of transactions, they would need to rebuild a longer chain of blocks to create a new longest chain for other nodes to adopt. However, to achieve this, a single miner would need to have more computer processing power than the rest of the network combined.</p>
+<p><img src="common/images/home/4_3_blockchain_hashpower.png"></p>
+<p>As a result, the combined effort of the network makes it difficult for any individual to “outrun” the network and rewrite the blockchain.</p>
+<h2 id="how-do-transactions-work">How do transactions work?</h2>
+<p>You can think of the blockchain as being a storage facility for <em>safe deposit boxes</em>, which we call <a href="/technical/output"><strong>outputs</strong></a>. These outputs are just containers that hold various amounts of bitcoin.</p>
+<p><img src="common/images/home/5_1_outputs.png"></p>
+<p>When you make a bitcoin <a href="/technical/transaction-data"><strong>transaction</strong></a>, you select some outputs and <em>unlock</em> them, then create new outputs and put new <a href="/beginners/output_locks">locks</a> on them.</p>
+<p><img src="common/images/home/5_2_transaction.png"></p>
+<p>So when you “send” someone bitcoins, you are actually placing an amount of bitcoins in to a new safe deposit box, and putting a lock on it that only the person you are “sending” the bitcoins to can unlock.</p>
+<p>For example, if I wanted to send you some bitcoins, I would select some outputs from the blockchain that I can unlock, and create a new output from them that only <em>you</em> can unlock. Also, if I didn’t want to send you all of the bitcoins that I had unlocked, I would create an extra output as my “change” and lock it to myself.</p>
+<p><img src="common/images/home/5_3_transaction_change.png"></p>
+<p>Moving forward, if you want to send your bitcoins to someone else, you would repeat the process of selecting existing outputs (that you can unlock) and creating new outputs from them. As a result, bitcoin transactions form a graph-like structure, where the movement of bitcoins is connected by a series of transactions.</p>
+<p><img src="common/images/home/5_4_transaction_graph.png"></p>
+<p>Lastly, when a transaction gets mined on to the blockchain, the outputs that were used up (spent) in the transaction cannot be used in another transaction, and the newly created outputs will be available to be moved on in a future transaction.</p>
+<p><img src="common/images/home/5_5_transaction_blockchain_outputs.png"></p>
+<h2 id="how-do-you-own-bitcoins">How do you own bitcoins?</h2>
+<p>To be able to “receive” bitcoins, you need to have your own set of <a href="/beginners/keys_addresses"><strong>keys</strong></a>. This set of keys is like your <em>account number</em> and <em>password</em>, except in Bitcoin they’re called your <a href="/technical/public-key"><strong>public key</strong></a> and your <a href="/technical/private-key"><strong>private key</strong></a>.</p>
+<p>For example, if I wanted to send you some bitcoins, you would first need to give me your <strong>public key</strong>. When I create the transaction, I would place your public key <em>inside</em> the lock on the output (the safe deposit box). You would then use your <strong>private key</strong> to unlock this output when you want to send the bitcoins on to someone else.</p>
+<p><img src="common/images/home/6_1_keys.png"></p>
+<p>So where can you get a public and private key? Well, with the help of <strong>cryptography</strong> you can actually <em>generate them yourself</em>.</p>
+<p>In short, your private key is just a large <em>random number</em>, and your public key is a number <em>calculated from</em> this private key. But the clever part is; you can give your public key to someone else, but they cannot work out the private key from it.</p>
+<p><img src="common/images/home/6_2_keys_generate.png"></p>
+<p>Now, when you want to unlock bitcoins that are assigned to your public key, you use your private key to create what’s called a <a href="/beginners/digital_signatures"><strong>digital signature</strong></a>. This digital signature proves that you are the owner of the public key (and therefore can unlock the bitcoins), <em>without having to reveal your private key</em>. This digital signature is also only valid for the transaction it was created for, so it cannot be used to unlock other bitcoins locked to the same public key.</p>
+<p><img src="common/images/home/6_3_keys_digital_signature.png"></p>
+<p>This system is known as “Public Key Cryptography”, and has been available since 1978<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Bitcoin makes use of this system to allow anyone to create keys for sending and receiving bitcoins securely, without the need of a central authority to issue accounts and passwords.</p>
+<h2 id="putting-it-all-together.">Putting it all together.</h2>
+<p>To <a href="/beginners/getting-started">get started with bitcoin</a>, you generate your own <a href="/technical/private-key"><strong>private key</strong></a> and <a href="/technical/public-key"><strong>public key</strong></a>. Your private key is just a very large random number, and your public key is calculated from it. These keys can be easily generated on your computer, or even on something as simple as a calculator. Most people use a <a href="https://electrum.org" class="out">bitcoin wallet</a> to help generate and manage their keys.</p>
+<p>To receive bitcoins, you would need to give your <em>public key</em> to someone who wants to send you some. This person would create a <a href="/technical/transaction-data"><strong>transaction</strong></a> where they unlock bitcoins that they own, and create a new “safe deposit box” of bitcoins and put your public key inside the lock.</p>
+<p>This transaction is then sent to any <a href="/beginners/nodes"><strong>node</strong></a> on the bitcoin network, where it gets relayed from computer to computer until every node on the <a href="/beginners/network">network</a> has a copy of the transaction. From here, each node has the opportunity to try and <em>mine</em> the latest transactions they have received on to the blockchain.</p>
+<p>This process of <a href="mining"><strong>mining</strong></a> involves a node collecting transactions from its <a href="/technical/memory-pool">memory pool</a> in to a <a href="/beginners/blocks">block</a>, and repeatedly putting that block data through a <a href="/technical/hash-function">hash function</a> (with a minor adjustment each time) to try and get a <a href="/technical/block-hash">block hash</a> below the <a href="/technical/target">target</a> value.</p>
+<p>The first miner to find a block hash below the target will add the block to their <a href="/beginners/blockchain"><strong>blockchain</strong></a>, and broadcast this block to the other nodes on the network. Each node will also add this block to their blockchain (removing any conflicting transactions from their memory pool), and restart the mining process to try and build on top of this new block in the chain.</p>
+<p>Lastly, the miner who mined this block will have placed their own <a href="/technical/coinbase-transaction">special transaction</a> inside the block, which allows them to collect a set amount of bitcoins that did not already exist. This <strong>block reward</strong> acts as an incentive for nodes to continue to build the blockchain, whilst simultaneously distributing new coins across the bitcoin network.</p>
+<p><img src="common/images/home/7_1_bitcoin_system.png"></p>
+<h2 id="conclusion.">Conclusion.</h2>
+<p>Bitcoin is a computer program that shares a secure file with other computers around the world. This secure file is made up of transactions, and these transactions use cryptography to allow people to send and receive digital safe deposit boxes. As a result, this creates an electronic payment system that can be used by anyone, and runs without a central point of control.</p>
+<p>The Bitcoin network has been running uninterrupted since its release in January 2009. In 2019, the Bitcoin network processed over <strong>112 million transactions</strong>, moving a total of <strong>$15,577,763,114,629.34</strong> (15.58 trillion)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<p>The Bitcoin program itself is also under active development, with over <strong>600</strong> individuals contributing to the code since it’s release<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. This is due to the fact that the software is “open source”, which means that anyone can view the code and contribute to improving it.</p>
+<p style="text-align:center; margin:32px 0 8px;">
+<a href="https://bitcoin.org/bitcoin.pdf" class="article out">https://bitcoin.org/bitcoin.pdf</a> (whitepaper)
+</p>
+<p style="text-align:center; margin:0 0 24px;">
+<a href="https://github.com/bitcoin/bitcoin/" class="github out">https://github.com/bitcoin/bitcoin/</a> (source code)
+</p>
+<h2 id="section"><!--
+----------
+2020 Stats
+----------
+# Start Block = 610691 [01 Jan 2020, 00:03:05]
+# End Block   = 663912 [31 Dec 2020, 23:57:27]
+
+# 1. Get total number of transactions in 2020
+bitcoin-iterate --start 610691 --end 663912 -q --transaction=%th | wc -l # => 112553498 (112 million)
+
+# 2. Get total value of all outputs in 2020
+bitcoin-iterate --start 610691 --end 663912 -q --output=%oa > outputs.txt
+paste -sd+ outputs.txt | bc #=> 53691633809869666 (Total value of outputs)
+echo $((53691633809869666 / 100000000.0)) #=> 536916338.09869659 (BTC Amount)
+
+# 3. Bitcoin price 31 December 2020 = $29,013.39 (bitcoinaverage.com)
+echo $((536916338.09869659 * 29013.39)) #=> 15,577,763,114,629.342 (15.58 trillion)
+--></h2>
+<h2 id="want-to-learn-more">Want to learn more?</h2>
+<p>Good stuff. You’re in the right place.</p>
+<p>This website is full of <strong>simple explanations</strong> of <em>how bitcoin works</em>.</p>
+<ol type="1">
+<li><strong><a href="/beginners">Beginners Guide</a></strong> - Sometimes you just need a complete walkthrough of the basics. This is the shortest and simplest guide I could write; I wrote it in 2015 as I was learning how Bitcoin works for the first time.</li>
+<li><strong><a href="/technical">Technical Guide</a></strong> - A more complete and in-depth guide to how Bitcoin works. Good for programmers.</li>
+<li><strong><a href="/explorer">Blockchain Explorer</a></strong> - You can get a feel for how bitcoin works by just browsing the data and seeing how it all connects together. It’s like opening the <span data-tooltip="hood">bonnet</span> of a car and looking inside.</li>
+<li><strong><a href="https://www.youtube.com/channel/UCj9MFr-7a02d_qe4xVnZ1sA/videos" class="out">Videos (YouTube)</a></strong> - These are <em>deep explanations</em> of the mechanics of bitcoin from the perspective of a programmer. These video lessons will get you going if you want to <em>code stuff</em> with bitcoin.</li>
+<li><strong><a href="https://github.com/in3rsha/learnmeabitcoin-code" class="out">Code (GitHub)</a></strong> - Example code snippets for common bitcoin stuff.</li>
+</ol>
+<h2 id="why-should-i-trust-you">Why should I trust you?</h2>
+<p>I have no official qualification in Bitcoin. I’ve just read a lot of code, <a href="https://github.com/in3rsha" class="out">written a lot of code</a>, and <a href="https://bitcoin.stackexchange.com/users/24926/inersha" class="out">asked a lot of questions</a>. Everything I know about bitcoin comes from practice.</p>
+<p>Also, <a href="about">I am cool</a>.</p>
+<h2 id="why-is-all-this-information-free">Why is all this information free?</h2>
+<p>Because:</p>
+<ul>
+<li>Bitcoin is an <a href="https://github.com/bitcoin/bitcoin" class="out">open-source program</a> that you can run for free.</li>
+<li>I’ve learnt everything I know about <a href="https://bitcoin.stackexchange.com/" class="out">Bitcoin</a>, programming, and <a href="https://www.pokerseo.org/about/" class="out">writing</a> for free.</li>
+<li>This website is built entirely with <a href="/thanks#development">open-source tools</a> that are free.</li>
+</ul>
+<p>So why not free education?</p>
+<p>Nonetheless, donations are much appreciated: <a href="bitcoin:3Beer3irc1vgs76ENA4coqsEQpGZeM5CTd"><code class="address">3Beer3irc1vgs76ENA4coqsEQpGZeM5CTd</code></a></p>
+<h2 id="why-did-you-make-this-website">Why did you make this website?</h2>
+<p>Because I want other people to understand how bitcoin works too.</p>
+<p>Bitcoin allows you to transfer value to anyone else in the world, and I think this is important. If you understand how bitcoin works, you can create your own cool software that makes a difference.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1" role="doc-endnote"><p><a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)" class="uri out">https://en.wikipedia.org/wiki/RSA_(cryptosystem)</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>536,916,338 bitcoins were moved in 2020. The exchange rate on 31 December 2020 was $29,013.39/BTC.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="https://github.com/bitcoin/bitcoin/graphs/contributors" class="uri out">https://github.com/bitcoin/bitcoin/graphs/contributors</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</div>
+
+</article>
+
+<div class="backtotop" style="display: block;">
+	<a href="#">Back to Top <span>↑</span></a>
+</div>
+
+<footer>
+<nav>
+    <p style="margin-bottom:12px;"><a href="/about">About</a>, <a href="/thanks">Thanks</a>, <a href="/resources">Resources</a>, <a href="/testimonials">Testimonials</a>, <a href="/neo4j">Neo4j</a>, <a href="/faq">FAQ</a>, <a href="/talks">Talks</a>, <a href="/tools">Old Tools</a>, <a href="/code">Code</a></p>
+    <p style="margin-bottom:16px;"><span style="font-weight:bold;">Other Projects:</span> <a href="http://bitcoinrain.io" class="out">Bitcoin Rain</a>, <a href="http://bitcoinsheffield.co.uk" class="out">Bitcoin Sheffield</a></p>
+    <p class="links mobile"><a href="https://www.youtube.com/channel/UCj9MFr-7a02d_qe4xVnZ1sA/videos" class="youtube out">Youtube</a></p>
+    <p class="links mobile"><a href="https://twitter.com/in3rsha" class="twitter out">Twitter</a></p>
+    <!--<p class="links all"><a href="https://github.com/in3rsha" class="github">GitHub</a></p>-->
+</nav>
+
+<code class="loadtime">
+Load Time: 0.00313187</code>
+
+
+<div class="beer">
+  <p class="title">Buy <a href="/about">me</a> a beer</p>
+  <a href="/explorer/address/3Beer3irc1vgs76ENA4coqsEQpGZeM5CTd"><code class="address">3Beer3irc1vgs76ENA4coqsEQpGZeM5CTd</code></a>
+  <div style="margin:16px auto 0;">
+    <a href="bitcoin:3Beer3irc1vgs76ENA4coqsEQpGZeM5CTd?amount=0.00011656"><img src="/common/templates/beerqrcurrent.png"></a>
+  <div>
+</div>
+
+</div></div></footer>
+
+
+<style>
+.toolboxtool {display:none;}
+.toolboxtool form {padding:0;}
+.toolboxtool fieldset {}
+.toolboxtool form input {margin:auto; text-align:right;}
+.toolboxtool form input.hex {width:100%; font-family: courier, monospace;}
+.toolboxtool form textarea {width:100%; height:160px; font-family: courier, monospace;}
+.toolboxtool code.result {display:block; text-align: right; background-color:#fff; color:#333;} /* border:1px solid #ccc; padding:8px; */
+</style>
+
+
+
+
+
+
+
+<!-- <div class="toolboxtool ripemd160" title="RIPEMD160">
+	<form>
+	<fieldset style="border:none;">
+		<input name="hex" type="text" placeholder="" class="text ui-widget-content ui-corner-all hex">
+	</fieldset>
+	</form>
+  <code class="result"></code>
+</div> -->
+
+
+
+
+
+
+
+<!-- jquery included at top so pages with js inside can use it -->
+<script type="text/javascript" src="/common/lib/jquery-ui/jquery-ui.min.js"></script> <!-- 1.12.1 -->
+<script type="text/javascript" src="/common/lib/marcopolo/jquery.marcopolo.min.js"></script> <!-- Make sure this doesn't include stuff from the jQuery UI library again if we've already loaded it (it depends on it) -->
+<script type="text/javascript" src="/common/lib/tipped/tipped.js"></script>
+<script type="text/javascript" src="/common/js/style.js"></script>
+
+</div> <!-- wrap -->
+
+
+<div style="display: none; position: absolute;" tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-dialog-buttons ui-draggable ui-resizable" aria-describedby="subscribe-box" aria-labelledby="ui-id-1"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-1" class="ui-dialog-title">Email Subscribe</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button></div><div id="subscribe-box" style="display: block;" class="ui-dialog-content ui-widget-content">
+	<p>Hey there, it's <a href="/about">Greg</a>.</p>
+	<p>I'll let you know about cool <strong>website updates</strong>, or if something <em>seriously interesting</em> happens in bitcoin.</p>
+
+	<form>
+	<fieldset style="border:none;">
+		<!-- <label for="name">First Name:</label> -->
+		<input type="text" name="name" id="name" placeholder="First Name" class="text ui-widget-content ui-corner-all">
+    <br>
+		<!-- <label for="email">Email:</label> -->
+		<input type="text" name="email" id="email" placeholder="Email" class="text ui-widget-content ui-corner-all">
+
+		<!-- Allow form submission with keyboard without duplicating the dialog button -->
+		<!-- <input type="submit" tabindex="-1" style="position:absolute; top:-1000px"> -->
+	</fieldset>
+	</form>
+
+	<p id="response" style="text-align:center; font-size:16px;">Don't worry, it doesn't happen very often.</p>
+</div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-corner-all ui-widget">Subscribe</button></div></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div style="display: none; position: absolute;" tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-draggable ui-resizable" aria-describedby="ui-id-2" aria-labelledby="ui-id-3"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-3" class="ui-dialog-title">Hash256</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button></div><div class="toolboxtool hash256 ui-dialog-content ui-widget-content" id="ui-id-2" style="display: block;">
+	<form>
+	<fieldset style="border:none;">
+		<textarea name="hex" type="text" placeholder="hexadecimal data (e.g. transaction data, block header)" class="text ui-widget-content ui-corner-all hex"></textarea>
+	</fieldset>
+	</form>
+  <code class="result"></code>
+</div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div style="display: none; position: absolute;" tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-draggable ui-resizable" aria-describedby="ui-id-4" aria-labelledby="ui-id-5"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-5" class="ui-dialog-title">Hash160</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button></div><div class="toolboxtool hash160 ui-dialog-content ui-widget-content" id="ui-id-4" style="display: block;">
+	<form>
+	<fieldset style="border:none;">
+		<input name="hex" type="text" placeholder="hexadecimal data (e.g. public key or redeem script)" class="text ui-widget-content ui-corner-all hex">
+	</fieldset>
+	</form>
+  <code class="result"></code>
+</div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div style="display: none; position: absolute;" tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-draggable ui-resizable" aria-describedby="ui-id-6" aria-labelledby="ui-id-7"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-7" class="ui-dialog-title">Reverse Bytes</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button></div><div class="toolboxtool reversebytes ui-dialog-content ui-widget-content" id="ui-id-6" style="display: block;">
+	<form>
+	<fieldset style="border:none;">
+		<input name="hex" type="text" placeholder="hexadecimal number (e.g. txid, block hash)" class="text ui-widget-content ui-corner-all hex">
+	</fieldset>
+	</form>
+  <code class="result"></code>
+</div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div style="display: none; position: absolute;" tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-draggable ui-resizable" aria-describedby="ui-id-8" aria-labelledby="ui-id-9"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-9" class="ui-dialog-title">SHA256</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button></div><div class="toolboxtool sha256 ui-dialog-content ui-widget-content" id="ui-id-8" style="display: block;">
+	<form>
+	<fieldset style="border:none;">
+		<input name="hex" type="text" placeholder="" class="text ui-widget-content ui-corner-all hex">
+	</fieldset>
+	</form>
+  <code class="result"></code>
+</div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div style="display: none; position: absolute;" tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-draggable ui-resizable" aria-describedby="ui-id-10" aria-labelledby="ui-id-11"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-11" class="ui-dialog-title">Hexadecimal to Decimal Converter</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button></div><div class="toolboxtool hexadecimal ui-dialog-content ui-widget-content" id="ui-id-10" style="display: block;">
+	<form>
+	<fieldset style="border:none;">
+		<input name="hex" type="text" placeholder="hexadecimal number" class="text ui-widget-content ui-corner-all hex hexdec">
+		<input name="dec" type="text" placeholder="decimal number" class="text ui-widget-content ui-corner-all hex dechex">
+	</fieldset>
+	</form>
+</div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div style="display: none; position: absolute;" tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-draggable ui-resizable" aria-describedby="ui-id-12" aria-labelledby="ui-id-13"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-13" class="ui-dialog-title">BTC to Satoshis Converter</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button></div><div class="toolboxtool satoshis ui-dialog-content ui-widget-content" id="ui-id-12" style="display: block;">
+	<form>
+	<fieldset style="border:none;">
+		<input name="btc" type="text" placeholder="BTC" class="text ui-widget-content ui-corner-all hex btc">
+		<input name="satoshis" type="text" placeholder="Satoshis" class="text ui-widget-content ui-corner-all hex satoshis">
+	</fieldset>
+	</form>
+</div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div></body></html>

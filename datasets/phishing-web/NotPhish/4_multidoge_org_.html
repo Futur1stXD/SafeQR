@@ -1,0 +1,189 @@
+<html style=""><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>MultiDoge</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="stylesheets/slimbox2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <script src="javascripts/respond.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="javascripts/slimbox2.js"></script>
+    <script src="javascripts/jqsm.js"></script>
+    <script type="text/javascript">
+    	$( document ).ready(function() {
+    		$('#screenshots').click(function(e) {
+    			$.slimbox([
+    				["images/md1.png", "Send Dogecoin"],
+    				["images/md2.png", "Receive Dogecoin"],
+    				["images/md3.png", "Dogecoin transactions"],
+    				["images/md4.png", "Importing Dogecoin private keys"],
+    				["images/md5.png", "Exporting Dogecoin private keys"],
+    				["images/md6.png", "MultiDoge help"]],
+    				0,
+    				{loop: true});
+    			e.preventDefault();
+    		});
+	        $('#qr').click(function(e) {
+	          $.slimbox([
+	            ["images/donate.png", "Much thanks. Wow."]],
+	            0,
+	            {loop: true});
+	          e.preventDefault();
+	        });
+	        $('#win').click(function(e) {
+	          $.modal("\
+	          	<div>\
+		          	<h1>DISCLAIMER</h1>\
+		          	<p style='text-align:justify;'>\
+		          		It is important to know that MultiDoge is a so called light wallet. It is meant for your day to day transactions.\
+		          		If you are a miner, you should <b>NOT</b> use MultiDoge as your wallet. Receiving big transactions, such as pool or faucet payouts, can clog up a light wallet.\
+		          		This is a known issue with all light wallets and must be considered before usage.\
+		          		<br><br>\
+		          		The essence is: Do not use a light wallet to handle a big amount of transactions, mining being one example, faucets another. Use <a href='http://dogecoin.com/'>the reference client</a> instead.\
+		          		<br><br>\
+		          		The developers won't give any support in such cases and are not liable for your actions.\
+		          	</p>\
+		          	<p><a href='https://github.com/langerhans/multidoge/releases/download/v0.1.7/multidoge-0.1.7-windows-setup.exe'><h3 style='text-align:center; color:#ffcc00;'>I read and understood the disclaimer. Download now!<h3><a><p>\
+	          	</div>");
+	          e.preventDefault();
+	        });
+	        $('#osx').click(function(e) {
+	          $.modal("\
+	          	<div>\
+		          	<h1>DISCLAIMER</h1>\
+		          	<p style='text-align:justify;'>\
+		          		It is important to know that MultiDoge is a so called light wallet. It is meant for your day to day transactions.\
+		          		If you are a miner, you should <b>NOT</b> use MultiDoge as your wallet. Receiving big transactions, such as pool or faucet payouts, can clog up a light wallet.\
+		          		This is a known issue with all light wallets and must be considered before usage.\
+		          		<br><br>\
+		          		The essence is: Do not use a light wallet to handle a big amount of transactions, mining being one example, faucets another. Use <a href='http://dogecoin.com/'>the reference client</a> instead.\
+		          		<br><br>\
+		          		The developers won't give any support in such cases and are not liable for your actions.\
+		          	</p>\
+		          	<p><a href='https://github.com/langerhans/multidoge/releases/download/v0.1.7/multidoge-0.1.7.dmg'><h3 style='text-align:center; color:#ffcc00;'>I read and understood the disclaimer. Download now!<h3><a><p>\
+	          	</div>");
+	          e.preventDefault();
+	        });
+	        $('#lin').click(function(e) {
+	          $.modal("\
+	          	<div>\
+		          	<h1>DISCLAIMER</h1>\
+		          	<p style='text-align:justify;'>\
+		          		It is important to know that MultiDoge is a so called light wallet. It is meant for your day to day transactions.\
+		          		If you are a miner, you should <b>NOT</b> use MultiDoge as your wallet. Receiving big transactions, such as pool or faucet payouts, can clog up a light wallet.\
+		          		This is a known issue with all light wallets and must be considered before usage.\
+		          		<br><br>\
+		          		The essence is: Do not use a light wallet to handle a big amount of transactions, mining being one example, faucets another. Use <a href='http://dogecoin.com/'>the reference client</a> instead.\
+		          		<br><br>\
+		          		The developers won't give any support in such cases and are not liable for your actions.\
+		          	</p>\
+		          	<p><a href='https://github.com/langerhans/multidoge/releases/download/v0.1.7/multidoge-0.1.7-linux.jar'><h3 style='text-align:center; color:#ffcc00;'>I read and understood the disclaimer. Download now!<h3><a><p>\
+	          	</div>");
+	          e.preventDefault();
+	        });
+    		if (get_url_param("dl") == "win") {$("#win").trigger("click");} else{
+    		if (get_url_param("dl") == "osx") {$("#osx").trigger("click");} else{
+    		if (get_url_param("dl") == "lin") {$("#lin").trigger("click");}};};
+		});
+
+    	function get_url_param(name)
+		{
+		name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+
+		var regexS = "[\\?&]"+name+"=([^&#]*)";
+		var regex = new RegExp( regexS );
+		var results = regex.exec( window.location.href );
+
+		if ( results == null )
+			return "";
+		else
+			return results[1];
+		}
+    </script>
+
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/langerhans/multidoge">View On GitHub</a></li>
+          <li class="fork" style="margin-left:6px;"><a id="screenshots" href="#">Screenshots</a></li>
+
+          <li class="downloads"><a id="win" href="#">Windows</a></li>
+          <li class="downloads"><a id="osx" href="#">OS X</a></li>
+          <li class="downloads"><a id="lin" href="#">Linux</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>MultiDoge</h1>
+
+          <center><img src="images/MultiDoge.png" width="200" height="200">
+
+          <p>MultiDoge is a desktop Dogecoin client, powered by dogecoinj. Ported from the <a href="https://multibit.org/">MultiBit</a> Bitcoin client.</p>
+          <hr>
+          <span class="credits left" style="text-align:left;">
+            Project maintained by <a href="https://github.com/langerhans">langerhans</a> and <a href="https://github.com/kaloudis">kaloudis</a><br>
+            Logo design by <a href="http://richardbarrett.co">Richard Barrett</a>
+          </span>
+          <span class="credits right">Hosted on GitHub Pages — Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </center></div>
+
+        <h3>
+<a name="welcome-to-multidoge" class="anchor" href="#welcome-to-multidoge"><span class="octicon octicon-link"></span></a>Welcome to MultiDoge</h3>
+
+<p>MultiDoge is a thin client Dogecoin wallet. It's a port of the MultiBit client for Bitcoin.<br>
+The app is based on DogecoinJ, which in turn is a port of BitCoinJ (<a href="https://github.com/bitcoinj" class="user-mention">@bitcoinj</a>). You can find DogecoinJ <a href="https://github.com/langerhans/dogecoinj-new">here</a>. <a href="https://github.com/langerhans">langerhans</a> ported all the needed changes for Dogecoin compatibility over. This program uses a special branch of it, which can be found <a href="https://code.google.com/r/maxkeller90-dogecoinj-multibit/">here</a>.</p>
+
+<h3>
+<a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Release notes</h3>
+
+<p>You can find the release notes on <a href="release-notes.html">this page.</a></p>
+
+<h3>
+<a name="download" class="anchor" href="#download"><span class="octicon octicon-link"></span></a>Download</h3>
+
+<p>You can download the current version by clicking the icon corresponding to your operating system in the top right corner of this page.</p>
+
+<h3>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Installation</h3>
+
+<p>We have detailed installation instructions <a href="help/v0.1/help_installing.html">right here.</a> Note, that you need to have Java installed on your computer. To upgrade from an older version of MultiDoge, see <a href="help/v0.1/help_upgrading.html">this help document.</a></p>
+
+<h3>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h3>
+
+<p>Please contact us if you would like to contribute.</p>
+
+<h3>
+<a name="building" class="anchor" href="#building"><span class="octicon octicon-link"></span></a>Building</h3>
+
+<p>You can clone both this repo and DogecoinJ and compile it with Maven. More info is included in the README file.</p>
+
+<h3>
+<a name="building" class="anchor" href="#building"><span class="octicon octicon-link"></span></a>Donations</h3>
+
+<p>If you'd like to donate to the developers please send Doge to the following address: <a href="dogecoin:DSQ29ND47ui7EtvVrnWJXS99EXDM1Qoyhp">DSQ29ND47ui7EtvVrnWJXS99EXDM1Qoyhp</a> (<a href="#" id="qr">QR Code</a>). Thank you.</p>
+
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+  
+
+ 
+<div id="lbOverlay" style="display: none;"></div><div id="lbCenter" style="display: none;"><div id="lbImage"><div style="position: relative;"><a id="lbPrevLink" href="#"></a><a id="lbNextLink" href="#"></a></div></div></div><div id="lbBottomContainer" style="display: none;"><div id="lbBottom"><a id="lbCloseLink" href="#"></a><div id="lbCaption"></div><div id="lbNumber"></div><div style="clear: both;"></div></div></div></body></html>

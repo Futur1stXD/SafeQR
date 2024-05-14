@@ -1,0 +1,179 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<title>OXT</title>
+<meta name="Description" content="Exploratory Blockchain Analysis Tool for the Bitcoin Blockchain">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link type="text/css" href="/static/styles/jquery.jscrollpane.css" rel="stylesheet" media="all">
+<link href="/static/styles/bootstrap.css" rel="stylesheet">
+<link href="/static/styles/bootstrap-theme.min.css" rel="stylesheet">
+<link href="/static/styles/c3.css" rel="stylesheet">
+<link href="/static/styles/ariadne.css" rel="stylesheet">
+<link href="/static/styles/bootstrap-datetimepicker.css" rel="stylesheet">
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="app/boot/startup" src="/static/app/boot/startup.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="/static/libs/jquery/jquery-3.6.0.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="knockout" src="/static/libs/knockout/knockout-3.5.1.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="globals-utils" src="/static/app/commons/utils/globals.utils.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="cache-utils" src="/static/app/commons/utils/cache.utils.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="app/boot/router" src="/static/app/boot/router.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="crossroads" src="/static/libs/crossroads/crossroads.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="misc-utils" src="/static/app/commons/utils/misc.utils.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="historyjs" src="/static/libs/history/native.history.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="amplify" src="/static/libs/amplify/amplify.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="signals" src="/static/libs/crossroads/signals.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="text" src="/static/libs/require/text.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="app/pages/home/home" src="/static/app/pages/home/home.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ko-i18n-utils" src="/static/app/commons/utils/knockout.i18n.utils.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="auth-utils" src="/static/app/commons/utils/auth.utils.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap" src="/static/libs/bootstrap/bootstrap.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="moment" src="/static/libs/moment/moment-with-locales.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="i18next" src="/static/libs/i18next/i18next.amd.withJQuery-1.11.2.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="app/components/searchbox/searchbox" src="/static/app/components/searchbox/searchbox.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="app/components/footer/footer" src="/static/app/components/footer/footer.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="srvc-api" src="/static/app/services/apiclient13/apiclient.service.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="nav-utils" src="/static/app/commons/utils/nav.utils.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="format-utils" src="/static/app/commons/utils/format.utils.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="api-utils" src="/static/app/commons/utils/api.utils.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="search-utils" src="/static/app/commons/utils/search.utils.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="btc-utils" src="/static/app/commons/utils/bitcoin.utils.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="data-utils" src="/static/app/commons/utils/data.utils.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="format-utils-internals" src="/static/app/commons/utils/format.utils.internals.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="segwit-addr-utils" src="/static/app/commons/utils/segwit-addr.utils.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bech32-utils" src="/static/app/commons/utils/bech32.utils.js"></script></head>
+<body style="overflow-y: hidden;">
+<div id="devices" class="homepage">
+<div><logo-baseline-view><div>
+    <div>
+        <p class="logo">
+            <span class="logoO">O</span>
+            <span class="logoX">X</span>
+            <span class="logoT">T</span>
+        </p>
+    </div>
+    <p class="baseline">THE BLOCKCHAIN BY THE PEOPLE FOR THE PEOPLE</p>
+</div></logo-baseline-view></div>
+<br>
+<p class="subtitle">OXT IS A TOOL DESIGNED FOR DESKTOP COMPUTERS</p>
+<p class="subtitle">WITH A MINIMUM DISPLAY RESOLUTION OF 1280*520 PIXELS</p>
+</div>
+<div class="ccp" data-bind="component: { name: route().page, params: route }"><div id="home" class="homepage">
+    
+    <!-- HEADER -->
+    <div class="site-header">
+        <ul class="nav nav-pills pull-right">
+            <!-- LANDSCAPES -->
+	        <li>
+	            <a data-bind="text: ko.i18n('commons:header.landscapes_text'),
+	                          attr: { title: ko.i18n('commons:header.landscapes_title') }" href="/landscapes" title="Visualize the bitcoin blockchain in 3D">LANDSCAPES</a>
+	        </li>
+	        
+	        <!-- TOOLS DROPDOWN -->
+	        <li>
+	            <div class="dropdown">
+	                <button type="button" id="dropdownMenu1" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+	                    <span data-bind="text: ko.i18n('commons:header.charts_and_tools_text')">CHARTS AND RESOURCES</span>
+                        <span class="caret"></span>
+	                </button>
+	        
+	                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+	                    <!-- TEMPORAL CHARTS -->
+	                    <li>
+	                        <a data-bind="text: ko.i18n('commons:header.tprl_charts_text'),
+	                                      attr: { title: ko.i18n('commons:header.tprl_charts_title') }" href="/charts" title="Explore the bitcoin blockchain with a set of temporal charts">TEMPORAL CHARTS</a>
+	                    </li>
+	                    <!-- SCATTERPLOTS -->
+	                    <li>
+	                        <a data-bind="text: ko.i18n('commons:header.scatterplots_text'),
+	                                      attr: { title: ko.i18n('commons:header.scatterplots_title') }" href="/scatterplots" title="Explore the bitcoin blockchain with a set of scatter plots">SCATTER PLOTS</a>
+	                    </li>
+	                    <!-- REQUESTER -->
+	                    <li>
+	                        <a data-bind="text: ko.i18n('commons:header.requester_text'),
+	                                      attr: { title: ko.i18n('commons:header.requester_title') }" href="/requester" title="Search transactions or addresses with advanced queries">REQUESTER</a>
+	                    </li>
+	                    <!-- ARCHIVES -->
+	                    <!-- ko if: auth.isAuthenticated() && [auth.PROFILE_ADMIN, auth.PROFILE_ANALYST].indexOf(auth.getUserProfile().profile) != -1 --><!-- /ko -->
+                    
+	                    <li role="separator" class="divider"></li>
+	                    
+	                    <!-- DIRECTORY -->
+                        <li>
+                            <a data-bind="text: ko.i18n('commons:header.directory_text'),
+                                          attr: { title: ko.i18n('commons:header.directory_title') }" href="/directory" title="Entities Directory">DIRECTORY</a>
+                        </li>
+	                    <!-- RICH LIST -->
+	                    <li>
+	                        <a data-bind="text: ko.i18n('commons:header.richlist_text'),
+	                                      attr: { title: ko.i18n('commons:header.richlist_title') }" href="/bookmark/58b036726c45fa2f685360b3" title="A list of the &quot;richest&quot; bitcoin addresses">BITCOIN "RICH LIST"</a>
+	                    </li>
+	                    <!-- HISTORY -->
+	                    <li>
+	                        <a data-bind="text: ko.i18n('commons:header.history_text'),
+	                                      attr: { title: ko.i18n('commons:header.history_title') }" href="/history" title="A list of &quot;famous&quot; events and lesser-known facts illustrated with data extracted from the blockchain">BITCOIN HISTORY</a>
+	                    </li>
+	                    
+	                    <li role="separator" class="divider"></li>
+	                    
+	                    <!-- LATEST ANNOTATIONS -->
+	                    <li>
+	                        <a data-bind="text: ko.i18n('commons:header.latest_notes_text'),
+	                                      attr: { title: ko.i18n('commons:header.latest_notes_title') }" href="notes" title="See the latest annotations added by others users">LATEST ANNOTATIONS</a>
+	                    </li>
+	                </ul>
+	            </div>
+	        </li>
+	        
+            <!-- MY OXT -->
+	        <!-- ko if: isAuthenticated() --><!-- /ko -->
+	        
+	        <!-- ko if: !isAuthenticated() -->
+	        <li>
+	            <a data-bind="text: ko.i18n('commons:header.myoxt_text'),
+	                          attr: { title: ko.i18n('commons:header.myoxt_login_title') }" href="/auth" title="Sign in / Sign up">MY OXT</a>
+	        </li>
+	        <!-- /ko -->
+        </ul>
+    </div>
+    
+    <!-- LOGO AND SEARCH -->
+    <div class="container">
+        <div class="hsb">
+            <div class="hbb">
+                <div><logo-view><p class="logo">
+    <span class="logoO">O</span>
+    <span class="logoX">X</span>
+    <span class="logoT">T</span>
+</p></logo-view></div>
+                <p data-bind="text: ko.i18n('commons:baseline')" class="baseline">THE BLOCKCHAIN BY THE PEOPLE FOR THE PEOPLE</p>
+            </div>
+            <searchbox><form class="search-form" role="form">
+
+    <input data-bind="attr: { placeholder: ko.i18n('commons:actions.search_title') },
+                      textInput: searchInput" id="search-inp" class="form-control search-inp" type="text" placeholder="Search for a Block, Transaction or Address">
+           
+    <button data-bind="text: ko.i18n('commons:actions.search_text'),
+                       click: search" id="search-btn" class="btn btn-success search-btn search-btn-home" data-loading-text="searching">SEARCH</button>
+
+</form></searchbox></div>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer-home><div class="site-footer">
+    <!-- LEFT MENU -->
+    <ul class="nav nav-pills pull-left">
+        <!-- SAMOURAI -->
+        <li>
+            <a data-bind="attr: { title: ko.i18n('commons:footer.samourai_title') }" href="https://www.samourai.is/" target="_blank" title="Made with love by Samourai">
+                <img src="/static/img/samourai-logo-trans@2x.png" class="logo-samourai">
+            </a>
+        </li>
+        <!-- SAMOURAI WALLET -->
+        <li>
+            <a data-bind="text: ko.i18n('commons:footer.samourai_wallet_text'),
+                          attr: { title: ko.i18n('commons:footer.samourai_wallet_title') }" href="https://www.samouraiwallet.com/" target="_blank" title="Go to Samourai Wallet website">SAMOURAI WALLET</a>
+        </li>
+         <!-- ABOUT -->
+        <li>
+            <a data-bind="text: ko.i18n('commons:footer.about_text'),
+                          attr: { title: ko.i18n('commons:footer.about_title') }" href="/about" title="About OXT">ABOUT</a>
+        </li>
+        <!-- FAQ -->
+        <li>
+            <a data-bind="text: ko.i18n('commons:footer.faq_text'),
+                          attr: { title: ko.i18n('commons:footer.faq_title') }" href="/faq" title="FAQ">FAQ</a>
+        </li>
+        <!-- DONATION -->
+        <li>
+            <a data-bind="text: ko.i18n('commons:footer.donation_text'),
+                          attr: { title: ko.i18n('commons:footer.donation_title') }" href="/donation" title="Donation">DONATION</a>
+        </li>
+        <!-- TERMS -->
+        <li>
+            <a data-bind="text: ko.i18n('commons:footer.terms_text'),
+                          attr: { title: ko.i18n('commons:footer.terms_title') }" href="/terms" title="Terms &amp; Conditions">TERMS &amp; CONDITIONS</a>
+        </li>
+        <!-- LANGUAGE -->
+        <li>
+            <img src="/static/icons/ic_language_white_24dp.png" class="lang-icon">
+            <select class="select-lang" data-bind="options: ko.languages,
+                                optionsText: 'label',
+                                optionsValue: 'value',
+                                value: ko.language"><option value="en">ENGLISH</option><option value="fr">FRANÇAIS</option></select>
+        </li>
+    </ul>
+</div></footer-home></div>
+</div>
+<script src="/static/app/boot/require.config.js"></script>
+<script data-main="app/boot/startup" src="/static/libs/require/require.js"></script>
+
+
+</body></html>

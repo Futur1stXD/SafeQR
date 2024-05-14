@@ -1,0 +1,1191 @@
+<html lang="ja"><head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>国税庁</title>
+		<link href="/template/css/bootstrap.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="/template/js/html5shiv.min.js"></script>
+			<script src="/template/js/respond.min.js"></script>
+		<![endif]-->
+		<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script><script type="text/javascript" async="" src="https://cse.google.com/cse.js?cx=002894216937212238947:kpgnzwqbqmy"></script><script src="/template/js/jquery.min.js"></script>
+		<script src="/template/js/bootstrap.min.js"></script>
+		<link href="/template/css/common.css" rel="stylesheet">
+		<script src="/template/js/custom.js"></script>
+        <script src="emergency.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(function () {
+  var ksaddr = document.getElementById( 'ksaddr' );
+  ksaddr.onfocus = function(){
+    if( this.value == this.defaultValue ){
+      this.value = '';
+      this.style.color = '';
+    }
+  }
+
+  ksaddr.onblur = function(){
+    var defaultStr = "市区町村・町名を入力";
+    if( this.value == '' ){
+      this.value = this.defaultValue;
+      if(this.defaultValue == defaultStr){
+        this.style.color = 'gray';
+      } else {
+        this.defaultValue = "市区町村・町名を入力";
+        this.style.color = '';
+      }
+    } else if((this.value != '') && (this.value != this.defaultValue) ) {
+      this.style.color = 'black';
+    }
+  }
+
+  ksaddr.defaultValue = ksaddr.value;
+  ksaddr.value = '';
+  ksaddr.onblur();
+	
+	
+//0020002-017
+	// 新着情報・トピックス
+	var disp_cnt = 5;	// 表示する要素数
+	$('#tab1 table').after('<a href="javascript:void(0);" class="showall">表示件数を増やす</a>');
+	$('#tab1 table').after('<a href="javascript:void(0);" class="close_topics">閉じる</a>');
+	$('#tab1 table tr, .close_topics').hide();
+	for(i=0;i<disp_cnt;i++){
+		$('#tab1 table tr').eq(i).show();
+	}
+	$('.showall').on('click', function(){
+		$('#tab1 table tr').show();
+		$('.close_topics').show();
+		$('.showall').hide();
+		$('#tab1 table tr a').eq(disp_cnt).focus()
+	});
+	$('.close_topics').on('click', function(){
+		$('.showall').show();
+		$('#tab1 table tr, .close_topics').hide();
+		for(j=0;j<disp_cnt;j++){
+			$('#tab1 table tr').eq(j).show();
+		}
+	});
+//0020002-017まで
+<!--IFC_0020005-108-->
+$('.info-btn').click(function() {
+	var index = $('.info-btn').index(this);
+	var btn = $(this);
+	$('.info-item').eq(index).slideToggle("fast", function() {
+		$(btn).html(
+			$(this).is(':visible') ? '<img src="/img/close.png" alt="▲とじる" width="61" height="20" style="margin-left:3px">' : '<img src="/img/open.png" alt="▼ひらく" width="61" height="20" style="margin-left:3px">'
+		);
+	});
+});
+<!--IFC_0020005-108-->
+	
+});
+
+$(function(){$("#kszc1").keypress(function(event){return kszNumChk(event);});});
+$(function(){$("#kszc2").keypress(function(event){return kszNumChk(event);});});
+
+function kszNumChk(e) {
+  if ((e.which < 48 || 57 < e.which) && e.which != 0 && e.which != 8 && e.which != 9 && e.which != 13) {
+    return false;
+  } else if(e.which == 13) {
+    return SubmitKszForm();
+  } else {
+    return true;
+  }
+}
+
+function SubmitKszForm() {
+  var zipcode1 = document.knskForm.kszc1;
+  var zipcode2 = document.knskForm.kszc2;
+  var m = document.getElementById('kszMsg');
+
+  if ((zipcode1.value == "") || (zipcode2.value == "")) {
+    m.innerHTML = '<strong>郵便番号は必ず入力してください。</strong>';
+    m.style.display = 'block';
+    m.style.color = '#b00';
+  } else if ((zipcode1.value.match(/[^0-9]+/)) || (zipcode2.value.match(/[^0-9]+/))) {
+    m.innerHTML = '<strong>入力桁数誤りもしくは全角で入力しています。</strong>';
+    m.style.display = 'block';
+    m.style.color = '#b00';
+  } else if ((zipcode1.value.length != 3) || (zipcode2.value.length != 4)) {
+    m.innerHTML = '<strong>入力桁数誤りもしくは全角で入力しています。</strong>';
+    m.style.display = 'block';
+    m.style.color = '#b00';
+  } else {
+    document.knskForm.KSTYPE.value = "ksz";
+    document.knskForm.submit();
+    emulAcceptCharset(document.knskForm);
+    return true;
+  }
+  return false;
+}
+
+$(function(){$("#ksaddr").keypress(function(event){return ksaChk(event);});});
+
+function ksaChk(e) {
+  if(e.which == 13) {
+    return SubmitKsaForm();
+  }
+}
+
+function SubmitKsaForm() {
+  var todofuken = document.knskForm.ksaTodofuken;
+  var addr = document.knskForm.ksaddr;
+  var addrStr = "";
+
+  if(addr.value != ""){
+    addrStr = addr.value.replace("市区町村・町名を入力", "");
+  }
+
+  var m = document.getElementById('ksaMsg');
+
+  if ((todofuken.value == "")) {
+    if ((addrStr == "")) {
+      m.innerHTML = '<strong>再度住所を入力してください。</strong>';
+      m.style.display = 'block';
+      m.style.color = '#b00';
+    } else {
+      m.innerHTML = '<strong>都道府県を選択してください。</strong>';
+      m.style.display = 'block';
+      m.style.color = '#b00';
+    }
+  } else if((addrStr == "")) {
+    if ((todofuken.value == "")) {
+      m.innerHTML = '<strong>再度住所を入力してください。</strong>';
+      m.style.display = 'block';
+      m.style.color = '#b00';
+    } else {
+      m.innerHTML = '<strong>市区町村名等を入力してください。</strong>';
+      m.style.display = 'block';
+      m.style.color = '#b00';
+    }
+  } else if(!(addrStr.match(/^[^ -~｡-ﾟ]*$/))) {
+    m.innerHTML = '<strong>全角文字で入力してください。</strong>';
+    m.style.display = 'block';
+    m.style.color = '#b00';
+  } else {
+    document.knskForm.KSTYPE.value = "ksa";
+    var str_todofuken = convertToAscii(todofuken.value);
+    document.knskForm.TODOFUKEN_TO_ASCII.value = str_todofuken;
+    var str_addr = convertToAscii(addrStr);
+    document.knskForm.ADDR_TO_ASCII.value = str_addr;
+    document.knskForm.submit();
+    emulAcceptCharset(document.knskForm);
+    return true;
+  }
+  return false;
+}
+
+function SubmitKnskForm(prm) {
+  if(prm == "ksa"){
+    return SubmitKsaForm();
+  } else if(prm == "ksz") {
+    return SubmitKszForm();
+  } else {
+    return false;
+  }
+}
+
+function emulAcceptCharset(form) {
+  if (form.canHaveHTML) {
+    document.characterSet = form.acceptCharset;
+  }
+  return true;
+}
+
+function convertToAscii(str){
+  var strToAscii = "";
+  for(var i = 0; i < str.length; i++){
+    var c = str.charCodeAt(i);
+    if(i != 0){ strToAscii += " "; }
+    strToAscii += c;
+  }
+  return strToAscii;
+}
+//]]>
+</script>
+		<script src="/template/js/include.js"></script>
+        <style type="text/css">
+		.access-lank a:link {
+			text-decoration:underline;
+		}
+		</style>
+<!--0020002-017-->
+<!--確定申告バナー用/緊急のお知らせ-->
+<style>
+@media screen and (min-width:980px) {
+/*　画面サイズが980pxからはここを読み込む　*/
+	.kakushin_top{
+		display: none;
+	}
+	.kakushin_side{
+		display: block;
+	}
+
+}
+	
+@media screen and ( max-width:979px) {
+/*　画面サイズが979pxまではここを読み込む　*/
+
+	.kakushin_top{
+		display: block;
+	}
+	.kakushin_side{
+		display: none;
+	}
+
+}	
+</style>
+<!--//確定申告バナー用-->
+<!--分野メニュ--->
+<style>
+	div.zei {
+	width:435px;
+	margin-bottom:15px;
+	background-image:url("/template/img/template/bunyahaikei_01b.jpg");
+	background-repeat:no-repeat;
+	background-position: bottom;
+	padding-bottom: 80px;
+	background-size: 435px;
+	}
+
+	div.zei li{
+		width:50%;
+		float:left;
+	}
+	div.zei ul.right-list {
+		width:50%;
+		float:right;
+	}
+	
+	div.user {
+		margin-right:0;
+		margin-bottom:15px;
+		background-image:url("/template/img/template/bunyahaikei_02b.jpg");
+		background-repeat:no-repeat;
+		background-size: 210px;
+		background-position: bottom;
+		padding-bottom: 80px;
+
+	}
+	div.shinkoku {
+		background-image:url("/template/img/template/bunyahaikei_03b.jpg");
+		background-repeat:no-repeat;
+		background-size: 210px;
+		background-position: bottom;
+		padding-bottom: 80px;
+
+	}
+	div.nouzei {
+		background-image:url("/template/img/template/bunyahaikei_04b.jpg");
+		background-repeat:no-repeat;
+		background-size: 210px;
+		background-position: bottom;
+		padding-bottom: 80px;
+
+	}
+
+	div.kanren {
+		margin-right:0;
+		background-image:url("/template/img/template/bunyahaikei_05b.jpg");
+		background-repeat:no-repeat;
+		background-size: 210px;
+		background-position: bottom;
+		padding-bottom: 80px;
+
+	}
+	
+	
+		
+	
+@media screen and (max-width: 450px) {
+	
+	div.zei {
+		width:100%;
+		float:none;
+		background-image:none;
+		margin-bottom:0;
+		padding-bottom: 10px;
+	}
+	div.zei li {
+		width:100%;
+		float:none;
+	}
+	div.user {
+		margin-right:0;
+		margin-bottom:0;
+		background-image:none;
+		padding-bottom: 10px;
+	}
+	div.shinkoku {
+		background-image:none;
+		padding-bottom: 10px;
+	}
+	div.nouzei {
+		background-image:none;
+		padding-bottom: 10px;
+	}
+	div.kanren {
+		background-image:none;
+		padding-bottom: 10px;
+	}
+	
+	
+</style>
+<!--//分野メニュ--->
+<!--トピックアコーディオン-->
+		<style>
+		.showall{
+		display: inline-block;
+		color: #003366;
+		cursor : pointer;
+		padding-left: 1.3em;
+		padding-top: 1em;
+		text-decoration: underline;
+		}
+			
+		
+		.close_topics{
+		display: inline-block;
+		color: #003366;
+		cursor : pointer;
+		padding-left: 1.3em;
+		padding-top: 1em;
+		text-decoration: underline;
+		
+		}
+
+			
+		</style>
+<!--//-->
+<style>
+.index_news th{ width:9em; vertical-align:top; text-align:left; font-weight:normal;}
+</style>
+	<script src="https://www.google.com/cse/static/element/45f4e5efab1258be/cse_element__ja.js?usqp=CAI%3D" type="text/javascript"></script><link type="text/css" rel="stylesheet" href="https://www.google.com/cse/static/element/45f4e5efab1258be/default+ja.css"><link type="text/css" rel="stylesheet" href="https://www.google.com/cse/static/style/look/v4/default.css"><style type="text/css">.gsc-control-cse{font-family:arial, sans-serif}.gsc-control-cse .gsc-table-result{font-family:arial, sans-serif}.gsc-refinementsGradient{background:linear-gradient(to left,rgba(255,255,255,1),rgba(255,255,255,0))}.gsc-control-cse{border-color:#EEEEEE;background-color:#FFFFFF}input.gsc-input,.gsc-input-box,.gsc-input-box-hover,.gsc-input-box-focus{border-color:#EEEEEE}.gsc-search-button-v2,.gsc-search-button-v2:hover,.gsc-search-button-v2:focus{border-color:#EEEEEE;background-color:#CECECE;background-image:none;filter:none}.gsc-search-button-v2 svg{fill:#000000}.gsc-tabHeader.gsc-tabhActive,.gsc-refinementHeader.gsc-refinementhActive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-tabHeader.gsc-tabhInactive,.gsc-refinementHeader.gsc-refinementhInactive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-webResult.gsc-result,.gsc-results .gsc-imageResult{border-color:#FFFFFF;background-color:#FFFFFF}.gsc-webResult.gsc-result:hover{border-color:#FFFFFF;background-color:#FFFFFF}.gs-webResult.gs-result a.gs-title:link,.gs-webResult.gs-result a.gs-title:link b,.gs-imageResult a.gs-title:link,.gs-imageResult a.gs-title:link b{color:#0000CC}.gs-webResult.gs-result a.gs-title:visited,.gs-webResult.gs-result a.gs-title:visited b,.gs-imageResult a.gs-title:visited,.gs-imageResult a.gs-title:visited b{color:#0000CC}.gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b,.gs-imageResult a.gs-title:hover,.gs-imageResult a.gs-title:hover b{color:#0000CC}.gs-webResult.gs-result a.gs-title:active,.gs-webResult.gs-result a.gs-title:active b,.gs-imageResult a.gs-title:active,.gs-imageResult a.gs-title:active b{color:#0000CC}.gsc-cursor-page{color:#0000CC}a.gsc-trailing-more-results:link{color:#0000CC}.gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet,.gs-fileFormatType{color:#000000}.gs-webResult div.gs-visibleUrl{color:#008000}.gs-webResult div.gs-visibleUrl-short{color:#008000}.gsc-cursor-box{border-color:#FFFFFF}.gsc-results .gsc-cursor-box .gsc-cursor-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-results .gsc-cursor-box .gsc-cursor-current-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-webResult.gsc-result.gsc-promotion{border-color:#336699;background-color:#FFFFFF}.gsc-completion-title{color:#0000CC}.gsc-completion-snippet{color:#000000}.gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link{color:#0000CC}.gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited{color:#0000CC}.gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover{color:#0000CC}.gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active{color:#0000CC}.gs-promotion .gs-snippet,.gs-promotion .gs-title .gs-promotion-title-right,.gs-promotion .gs-title .gs-promotion-title-right *{color:#000000}.gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short{color:#008000}.gcsc-find-more-on-google{color:#0000CC}.gcsc-find-more-on-google-magnifier{fill:#0000CC}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-moz-user-select:none;white-space:nowrap}.gsst_e{vertical-align:middle;opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-moz-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-moz-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gssb_a{padding:0 9px}.gsib_a{padding:5px 9px 4px 9px}.gscb_a{line-height:27px}.gssb_e{border:0}.gssb_l{margin:5px 0}input.gsc-input::-webkit-input-placeholder{font-size:14px}input.gsc-input:-moz-placeholder{font-size:14px}input.gsc-input::-moz-placeholder{font-size:14px}input.gsc-input:-ms-input-placeholder{font-size:14px}input.gsc-input:focus::-webkit-input-placeholder{color:transparent}input.gsc-input:focus:-moz-placeholder{color:transparent}input.gsc-input:focus::-moz-placeholder{color:transparent}input.gsc-input:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+	<body>
+<noscript>すべての機能をご利用いただくにはJavascriptを有効にしてください。</noscript>
+
+		<div class="container">
+			<div id="header"><ul class="header_navi sp-header">
+	<li><a href="#page-top">本文へ</a></li>
+	<li><a href="/english/index.htm">English</a></li>
+	<li><a href="/accessibility/tool.htm">文字拡大・読み上げ</a></li>
+</ul>
+<header class="clearfix">
+	<div id="logo"><h1><img src="/template/img/template/logo.png" alt="国税庁 National Tax Agency 法人番号7000012050002"></h1></div>
+	<div id="header_link">
+		<div id="srchBox" class="google_search">
+		<script>
+		  (function() {
+			var cx = '002894216937212238947:kpgnzwqbqmy';
+			var gcse = document.createElement('script');
+			gcse.type = 'text/javascript';
+			gcse.async = true;
+			gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(gcse, s);
+		  })();
+		</script>
+		<div id="___gcse_0"><div class="gsc-control-searchbox-only gsc-control-searchbox-only-ja" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table class="gsc-search-box" cellspacing="0" cellpadding="0"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table style="width: 100%; padding: 0px;" id="gs_id50" class="gstl_50 gsc-input" cellspacing="0" cellpadding="0"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="検索" style="width: 100%; padding: 0px; border: medium none; margin: 0px; height: auto; background: rgb(255, 255, 255) url(&quot;https://www.google.com/cse/static/images/1x/ja/branding.png&quot;) no-repeat scroll left center; outline: currentcolor none medium;" id="gsc-i-id1" dir="ltr" spellcheck="false"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" style="display: none;" title="検索ボックスをクリア" role="button"><span class="gscb_a" id="gs_cb50" aria-hidden="true">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><button class="gsc-search-button gsc-search-button-v2" alt="検索" title="サイト内検索を実行"><svg width="13" height="13" viewBox="0 0 13 13"><title>検索</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg></button></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="結果をクリア">&nbsp;</div></td></tr></tbody></table></form></div></div>
+		</div>
+		<!-- /#srchBox -->
+		<ul class="header_navi">
+		<li><a href="#page-top">本文へ</a></li>
+		<li><a href="/english/index.htm" lang="en">English</a></li>
+		<li><a href="/accessibility/tool.htm">文字拡大・読み上げ</a></li>
+		<li><a href="/users/index.htm">利用者別に調べる</a></li>
+		<li><a href="/sitemap/index.htm">サイトマップ</a></li>
+		</ul>
+	</div>
+</header>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navi">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span class="navbar-brand">メインメニュー</span>
+		</div>
+		<div class="navbar-collapse collapse" id="main-navi">
+			<ul class="sp-sitemapnavi">
+			<li><a href="/users/index.htm">利用者別に調べる</a></li>
+			<li><a href="/sitemap/index.htm">サイトマップ</a></li>
+			</ul>
+			<ul class="nav navbar-nav">
+				<li><a href="/index.htm">ホーム</a></li>
+				<li class="dropdown">
+					<a href="/taxes/" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="dlink-menu">税の情報・手続・用紙</span><span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="/taxes/shiraberu/index.htm">税について調べる</a></li>
+						<li><a href="/taxes/tetsuzuki/index.htm">申告手続・用紙</a></li>
+						<li><a href="/taxes/nozei/index.htm">納税・納税証明書手続</a></li>
+						<li><a href="/taxes/zeirishi/index.htm">税理士に関する情報</a></li>
+						<li><a href="/taxes/sake/index.htm">お酒に関する情報</a></li>
+						<li><a href="/taxes/kids/index.htm">税の学習コーナー</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="/publication/" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="dlink-menu">刊行物等</span><span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="/publication/pamph/01.htm">パンフレット・手引</a></li>
+						<li><a href="/publication/webtaxtv/index.html">インターネット番組（Web-TAX-TV）</a></li>
+						<li><a href="/publication/book/index.htm">出版物</a></li>
+						<li><a href="/publication/statistics/index.htm">統計情報</a></li>
+						<li><a href="/publication/tenji/index.htm">点字広報誌「私たちの税金」</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="/law/" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="dlink-menu">法令等</span><span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a class="navi_title" href="https://elaws.e-gov.go.jp/search/elawsSearch/elaws_search/lsg0100/">税法（e-Govの「e-Gov法令検索」へリンク）</a></li>
+						<li><a class="navi_title" href="/law/tsutatsu/menu.htm">法令解釈通達</a></li>
+						<li><a class="navi_title" href="/law/joho-zeikaishaku/sonota/sonota.htm">その他法令解釈に関する情報</a></li>
+						<li><a class="navi_title" href="/law/jimu-unei/jimu.htm">事務運営指針</a></li>
+						<li><a class="navi_title" href="/law/kokuji/kokuji.htm">国税庁告示</a></li>
+						<li><a class="navi_title" href="/law/bunshokaito/01.htm">文書回答事例</a></li>
+						<li><a class="navi_title" href="/law/shitsugi/01.htm">質疑応答事例</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="/information/" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="dlink-menu">お知らせ</span><span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="/information/news/index.htm">トピックス一覧</a></li>
+						<li><a href="/information/release/index.htm">報道発表</a></li>
+						<li><a href="/information/consulation/sake_index.htm">パブリックコメント</a></li>
+						<li><a href="/information/procurement/index.htm">調達情報・公売情報</a></li>
+						<li><a href="/information/attention/attention.htm">不審な電話や振り込め詐欺にご注意を</a></li>
+						<li><a href="/information/other/shinkoku.htm">その他のお知らせ</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="/about/" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="dlink-menu">国税庁等について</span><span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="/about/introduction/index.htm">国税庁の概要</a></li>
+						<li><a href="/about/organization/index.htm">組織（国税局・税務署等）</a></li>
+						<li><a href="/about/recruitment/index.htm">採用情報</a></li>
+						<li><a href="/about/evaluation/01.htm">国税庁の実績評価</a></li>
+						<li><a href="/about/council/kenkyu.htm">審議会・研究会等</a></li>
+						<li><a href="/about/disclosure/01.htm">情報公開</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav></div>
+			<div class="wrap">
+				<div class="clearfix">
+					<div class="left-content" id="page-top">
+
+						
+<div id="emergency"></div>
+
+<!--//PC_新型コロナウイルス感染症に関する対応等について-->
+<div class="kakushin_side">
+<a href="/taxes/shiraberu/kansensho/index.htm" title="新型コロナウイルス感染症に関する対応等についてのページへ移動します"><img src="/banner/img/0020004-098.jpg" alt="新型コロナウイルス感染症に関する対応等についてまとめました（詳しくはこちら）" class="full" width="100%"></a>
+</div>
+<!--//PC_新型コロナウイルス感染症に関する対応等について-->
+
+<!--//SP_新型コロナウイルス感染症に関する対応等について-->
+<div class="kakushin_top">
+<a href="/taxes/shiraberu/kansensho/index.htm" title="新型コロナウイルス感染症に関する対応等についてのページへ移動します"><img src="/banner/img/0020004-112.png" alt="新型コロナウイルス感染症に関する対応等についてまとめました（詳しくはこちら）" class="full" width="100%"></a>
+</div>
+<!--//SP_新型コロナウイルス感染症に関する対応等について-->
+
+<!--SP_確定申告用-->
+<div class="kakushin_top">
+<div style="margin-bottom:2em; margin-top:1em"><a href="/taxes/shiraberu/shinkoku/tokushu/index.htm" title="令和３年分　確定申告特集のページへ移動します"><img src="/banner/img/bnr01-1.jpg" alt="令和３年分　確定申告特集" class="full" width="100%"></a></div>
+</div>
+<!--//SP_確定申告用-->
+
+						<h2>新着情報</h2>
+						<ul class="nav nav-tabs">
+							<li class="active"><a data-toggle="tab" href="#tab1">トピックス</a></li>
+							<li><a data-toggle="tab" href="#tab2">税の情報・手続・用紙</a></li>
+							<li><a data-toggle="tab" href="#tab3">刊行物等</a></li>
+							<li><a data-toggle="tab" href="#tab4">法令等</a></li>
+							<li><a data-toggle="tab" href="#tab5">お知らせ</a></li>
+							<li><a data-toggle="tab" href="#tab6">国税庁等について</a></li>
+						</ul>
+
+
+
+
+
+
+ 
+
+
+
+						<div class="tab-content">
+							<div id="tab1" class="tab-pane fade in active">
+<table class="index_news">
+<tbody><tr id="a0022003-026" style="display: table-row;">
+  <th scope="row">令和4年3月4日</th>
+  <td><a href="/taxes/sake/boshujoho/0022002-075.htm">国税庁主催「ジャパニーズウイスキーシンポジウム」の開催について</a></td>
+</tr>
+<tr id="a0022002-099" style="display: table-row;">
+  <th scope="row">令和4年2月25日</th>
+  <td><a href="/taxes/sake/koujikin/index.htm">「伝統的酒造り」がユネスコ無形文化遺産への提案候補として答申されました</a></td>
+</tr>
+<tr id="a0022002-058" style="display: table-row;">
+  <th scope="row">令和4年2月24日</th>
+  <td><a href="/taxes/sake/boshujoho/index.htm">【酒類事業者向け】「ＥｎｊｏｙＳＡＫＥ！プロジェクト」の公募を開始します（令和３年度補正予算）</a></td>
+</tr>
+<tr id="a0022001-187" style="display: table-row;">
+  <th scope="row">令和4年2月3日</th>
+  <td><a href="/taxes/shiraberu/kansensho/pdf/0022001-187_04.pdf">新型コロナウイルス感染症の影響により申告期限までの申告等が困難な方へ(PDF/1,422KB)</a></td>
+</tr>
+<tr id="a0021012-226" style="display: table-row;">
+  <th scope="row">令和4年2月3日</th>
+  <td><a href="/taxes/sake/boshujoho/index.htm#a06">【酒類事業者向け】「ブランド化・酒蔵ツーリズム補助金（令和４年度予算）」の公募を開始します</a></td>
+</tr>
+<tr id="a0021012-200" style="display: none;">
+  <th scope="row">令和4年1月11日</th>
+  <td><a href="/taxes/shiraberu/chatbot/index.htm">税務相談チャットボット（確定申告）が始まりました</a></td>
+</tr>
+<tr id="a0021011-022" style="display: none;">
+  <th scope="row">令和4年1月4日</th>
+  <td><a href="/information/other/data/r03/osp_center/index.htm">「税務署の内部事務のセンター化について」に「書面の申告書等の郵送による提出先となるセンターの所在地」を追加しました</a></td>
+</tr>
+<tr id="b0021011-114" style="display: none;">
+  <th scope="row">令和4年1月4日</th>
+  <td><a href="/taxes/shiraberu/taxanswer/index2.htm">「タックスアンサー（よくある税の質問）」をリニューアルしました</a></td>
+</tr>
+<tr id="a0021012-130" style="display: none;">
+  <th scope="row">令和4年1月4日</th>
+  <td><a href="/taxes/shiraberu/shinkoku/tokushu/index.htm">「令和３年分　確定申告特集」を開設しました</a></td>
+</tr>
+<tr id="b0021012-185" style="display: none;">
+  <th scope="row">令和3年12月28日</th>
+  <td><a href="/law/joho-zeikaishaku/sonota/jirei/12.htm">「電子帳簿保存法取扱通達」「電子帳簿保存法一問一答【電子取引関係】」「電子帳簿保存法関係パンフレット」等を改訂しました</a></td>
+</tr>
+<tr id="a0021011-127" style="display: none;">
+  <th scope="row">令和3年12月10日</th>
+  <td><a href="/taxes/shiraberu/shinkoku/syotoku/r03.htm">令和３年分所得税の確定申告関係書類を掲載しました</a></td>
+</tr>
+<tr id="a0021011-115" style="display: none;">
+  <th scope="row">令和3年12月3日</th>
+  <td><a href="/information/other/data/r03/kakushin_kaijo/index.htm">令和３年分確定申告期の確定申告会場のお知らせ</a></td>
+</tr>
+<tr id="b0021011-068" style="display: none;">
+  <th scope="row">令和3年11月17日</th>
+  <td><a href="/law/joho-zeikaishaku/sonota/jirei/08.htm">「電子帳簿保存法関係パンフレット・過去の主な改正」に制度の概要パンフレット（令和３年11月版）を掲載しました</a></td>
+</tr>
+<tr id="a0021010-200" style="display: none;">
+  <th scope="row">令和3年11月12日</th>
+  <td><a href="/law/joho-zeikaishaku/sonota/jirei/pdf/0021010-200.pdf">「電子帳簿保存法Ｑ＆Ａ（一問一答）～令和４年１月１日以後に保存等を開始する方～」に関する「お問合せの多いご質問（令和３年11月）」を掲載しました（PDF/234KB）</a></td>
+</tr>
+<tr id="a0021010-115" style="display: none;">
+  <th scope="row">令和3年11月1日</th>
+  <td><a href="/about/organization/ntc/kyodokenkyu/koubo/index.htm">税務大学校との共同研究に関する公募テーマを掲載しました</a></td>
+</tr>
+<tr id="a0021010-117" style="display: none;">
+  <th scope="row">令和3年10月28日</th>
+  <td><a href="/about/introduction/torikumi/week/index.htm">「税を考える週間」国税庁の取組紹介ページを更新しました</a></td>
+</tr>
+<tr id="a0021010-072" style="display: none;">
+  <th scope="row">令和3年10月15日</th>
+  <td><a href="/taxes/sake/koujikin/index.htm">「伝統的酒造り」の登録無形文化財への登録が答申されました</a></td>
+</tr>
+<tr id="a0021009-037" style="display: none;">
+  <th scope="row">令和3年10月8日</th>
+  <td><a href="/publication/pamph/gensen/0021009-037_01.pdf">「短期退職手当等Q&amp;A」を掲載しました（PDF/831KB）</a></td>
+</tr>
+<tr id="a0021010-069" style="display: none;">
+  <th scope="row">令和3年10月8日</th>
+  <td><a href="/taxes/shiraberu/saigai/index.htm">令和3年10月7日の千葉県北西部の地震により被害を受けられた皆様へ（災害関連情報）</a></td>
+</tr>
+<tr id="b0021009-079" style="display: none;">
+  <th scope="row">令和3年10月7日</th>
+  <td><a href="/taxes/shiraberu/chatbot/index.htm">税務相談チャットボット（年末調整）が始まりました</a></td>
+</tr>
+<tr id="a0021009-088" style="display: none;">
+  <th scope="row">令和3年10月7日</th>
+  <td><a href="/taxes/shiraberu/shinkoku/r3_smart_shinkoku/index.htm">国税庁ホームページでの所得税等の申告書作成・e-Taxがますます便利に！</a></td>
+</tr>
+<tr id="b0021009-084" style="display: none;">
+  <th scope="row">令和3年10月1日</th>
+  <td><a href="/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice.htm">適格請求書発行事業者の登録申請の受付を開始しました</a></td>
+</tr>
+<tr id="a0021009-112" style="display: none;">
+  <th scope="row">令和3年10月1日</th>
+  <td><a href="/users/gensen/nenmatsu/nencho.htm#soft_dl">「年調ソフト」を公開しました</a></td>
+</tr>
+<tr id="a0021009-042" style="display: none;">
+  <th scope="row">令和3年9月21日</th>
+  <td><a href="/taxes/nozei/nozei-shomei/0021009-042.htm">スマートフォンを使用した決済サービスによる納付手続の導入延期について</a></td>
+</tr>
+<tr id="a0021007-076" style="display: none;">
+  <th scope="row">令和3年9月17日</th>
+  <td><a href="/users/gensen/nencho/index.htm">「年末調整がよくわかるページ」を開設しました</a></td>
+</tr>
+<tr id="a0021008-076" style="display: none;">
+  <th scope="row">令和3年9月17日</th>
+  <td><a href="/users/gensen/index.htm">「令和3年分年末調整のための各種様式等」を掲載しました</a></td>
+</tr>
+<tr id="a0021008-042" style="display: none;">
+  <th scope="row">令和3年8月16日</th>
+  <td><a href="/taxes/shiraberu/saigai/index.htm">令和３年８月の大雨により被害を受けられた皆様へ（災害関連情報）</a></td>
+</tr>
+<tr id="a0021007-095" style="display: none;">
+  <th scope="row">令和3年7月30日</th>
+  <td><a href="/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice.htm">「インボイス制度特設サイト」に登録申請手続に係る詳細な情報等を掲載しました</a></td>
+</tr>
+<tr id="a0021007-039" style="display: none;">
+  <th scope="row">令和3年7月6日</th>
+  <td><a href="/taxes/shiraberu/saigai/index.htm">令和３年７月１日からの大雨により被害を受けられた皆様へ（災害関連情報）</a></td>
+</tr>
+<tr id="a0021007-038" style="display: none;">
+  <th scope="row">令和3年7月6日</th>
+  <td><a href="/taxes/nozei/nozei-shomei/index.htm">ＱＲコード付納税証明書確認コーナーの不具合の解消について</a></td>
+</tr>
+</tbody></table><a href="javascript:void(0);" class="close_topics" style="display: none;">閉じる</a><a href="javascript:void(0);" class="showall">表示件数を増やす</a>
+<p class="more-link"><a href="/information/news/index.htm">トピックス一覧へ</a></p>
+						  </div>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<div id="tab2" class="tab-pane fade">
+<table class="index_news">
+<tbody><tr id="a0022002-137">
+  <th scope="row">令和4年3月11日</th>
+  <td><a href="/taxes/sake/yushutsu/yushutsu_tokei/r04.htm">酒類の輸出動向(令和４年１月分)を掲載しました</a></td>
+</tr>
+<tr id="0022002-086">
+  <th scope="row">令和4年3月10日</th>
+  <td><a href="/taxes/sake/koseitorihiki/210831/index.htm">酒類の取引状況等実態調査実施状況の公表について（令和２事務年度分）を更新しました</a></td>
+</tr>
+<tr id="a0022001-140">
+  <th scope="row">令和4年2月25日</th>
+  <td><a href="/taxes/shiraberu/sodan/kobetsu/group_kobetsushoukai/index.htm">グループ通算制度に係る個別照会について</a></td>
+</tr>
+<tr id="a0022002-059">
+  <th scope="row">令和4年2月25日</th>
+  <td><a href="/taxes/tetsuzuki/shinsei/shinkoku/hojin/sanko/tk.htm">「申告書の自主点検と税務上の自主監査」に関する情報（調査課所管法人の皆様へ）の更新について</a></td>
+</tr>
+<tr id="a0022002-053">
+  <th scope="row">令和4年2月16日</th>
+  <td><a href="/taxes/shiraberu/kokusai/eoi/pdf/001.pdf">「日本との間における国別報告書の自動的情報交換の実施対象国・地域」を更新しました（PDF/289KB）</a></td>
+</tr>
+<tr id="a0022002-022">
+  <th scope="row">令和4年2月14日</th>
+  <td><a href="/taxes/shiraberu/kokusai/crs/pdf/faqteikyo.pdf">非居住者に係る金融口座情報の自動的交換のための報告制度（FAQ（報告事項の提供））を更新しました（PDF/949KB）</a></td>
+</tr>
+<tr id="a0022002-011">
+  <th scope="row">令和4年2月10日</th>
+  <td><a href="/taxes/sake/sonota/sokuteihoho/saiyo.htm">「国税庁所定分析法と異なる測定方法で合理的かつ正確であると認められる方法」の掲載について</a></td>
+</tr>
+<tr id="a0022001-162">
+  <th scope="row">令和4年2月10日</th>
+  <td><a href="/taxes/sake/anzen/radioactivity.htm">「放射性物質に対する酒類の安全性確保のための施策について」を更新しました</a></td>
+</tr>
+                              </tbody></table>
+							  <p class="more-link"><a href="/information/news/news.htm">新着情報一覧へ</a></p>
+	            </div>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<div id="tab3" class="tab-pane fade">
+<table class="index_news">
+<tbody><tr id="a0022001-165">
+<th scope="row">令和4年2月10日</th>
+<td><a href="/publication/pamph/koho/kouhou/month.htm">国税広報参考資料（令和4年4月広報用）を掲載しました</a></td>
+</tr>
+<tr id="a0021012-101">
+<th scope="row">令和4年1月7日</th>
+<td><a href="/publication/pamph/gensen/r04_shukyo.pdf">「令和４年版　宗教法人の税務」を掲載しました（PDF/5,377KB）</a></td>
+</tr>
+<tr id="a0021011-119">
+<th scope="row">令和3年12月23日</th>
+<td><a href="/publication/statistics/kokuzeicho/r03minkyu/index.htm">令和3年分民間給与実態統計調査の対象となられた事業所の皆様へ</a></td>
+</tr>
+<tr id="a0021011-189">
+<th scope="row">令和3年12月14日</th>
+<td><a href="/publication/pamph/gensen/aramashi2021/index.htm">「令和4年版 源泉徴収のあらまし」を掲載しました</a></td>
+</tr>
+<tr id="a0021011-182">
+<th scope="row">令和3年12月14日</th>
+<td><a href="/publication/pamph/koho/kouhou/month.htm">国税広報参考資料（令和4年3月広報用）を掲載しました</a></td>
+</tr>
+<tr id="a0021011-081">
+<th scope="row">令和3年12月6日</th>
+<td><a href="/publication/pamph/gensen/0021011-081.pdf">源泉所得税の改正のあらまし（日セルビア租税条約）を掲載しました（PDF/138KB）</a></td>
+</tr>
+<tr id="a0021009-026">
+  <th scope="row">令和3年9月30日</th>
+  <td><a href="/publication/pamph/hojin/renketsuhoujintebiki2021/01.htm">「令和３年版連結確定申告書等の記載の手引」を掲載しました（令和３年９月）</a></td>
+</tr>
+<tr id="a0021009-072">
+<th scope="row">令和3年9月30日</th>
+<td><a href="/publication/tenji/index.htm">令和３年度版　点字広報誌「私たちの税金」を掲載しました</a></td>
+</tr>
+
+</tbody></table>
+<p class="more-link"><a href="/information/news/news.htm">新着情報一覧へ</a></p>
+					    </div>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<div id="tab4" class="tab-pane fade">
+<table class="index_news">
+<tbody><tr id="a0022002-129">
+  <th scope="row">令和4年3月9日</th>
+  <td><a href="/law/bunshokaito/shohi/220309/index.htm">道路交通法の規定に基づき都道府県公安委員会の指定を受けた法人等が認定を受けて行う運転免許証の更新時等の教育及び検査の手数料に係る消費税の取扱いについて（文書回答事例）</a></td>
+</tr>
+<tr id="a0022003-002">
+  <th scope="row">令和4年3月8日</th>
+  <td><a href="/law/tsutatsu/kihon/sake/kaisei/220308/index.htm">酒税法及び酒類行政関係法令等解釈通達の一部改正について（法令解釈通達）</a></td>
+</tr>
+<tr id="a0022002-092">
+  <th scope="row">令和4年3月8日</th>
+  <td><a href="/law/kokuji/r0408/01.htm">酒類の保存のため物品を混和することができる酒類の品目等を定める等の件の一部を改正する件（国税庁告示第3号）</a></td>
+</tr>
+<tr id="a0021012-106">
+  <th scope="row">令和4年3月3日</th>
+  <td><a href="/law/kokuji/pdf/0021012-106.pdf">行政手続における特定の個人を識別するための番号の利用等に関する法律施行規則に基づく国税関係手続に係る個人番号利用事務実施者が適当と認める書類等を定める件の一部を改正する件（国税庁告示第34号）（PDF/82KB）</a></td>
+</tr>
+<tr id="a0022002-005">
+  <th scope="row">令和4年2月17日</th>
+  <td><a href="/law/jimu-unei/hojin/kaisei/2202xx/01.htm">「恒久的施設帰属所得に係る所得に関する調査等に係る事務運営要領」の一部改正について（事務運営指針）</a></td>
+</tr>
+<tr id="a0022002-004">
+  <th scope="row">令和4年2月17日</th>
+  <td><a href="/law/jimu-unei/hojin/kaisei/220216/01.htm">「移転価格事務運営要領」の一部改正について（事務運営指針）</a></td>
+</tr>
+<tr id="a0022001-081">
+  <th scope="row">令和4年1月21日</th>
+  <td><a href="https://search.e-gov.go.jp/servlet/Public">「酒類の公正な取引に関する基準」、「酒類の公正な取引に関する基準の取扱いについて(法令解釈通達)」及び「酒類に関する公正な取引のための指針」の一部改正（案）に対する意見募集について（e-Govへリンク）</a></td>
+</tr>
+<tr id="a0021012-186">
+  <th scope="row">令和4年1月20日</th>
+  <td><a href="/law/tsutatsu/kobetsu/hyoka/r03/2201_01/index.htm">「令和３年分の類似業種比準価額計算上の業種目及び業種目別株価等について」の一部改正について（法令解釈通達）</a></td>
+</tr>
+
+
+
+</tbody></table>
+                              <p class="more-link"><a href="/information/news/news.htm">新着情報一覧へ</a></p>
+						  </div>
+										
+							
+	<div id="tab5" class="tab-pane fade">
+<table class="index_news">
+<tbody><tr id="a0022002-114">
+ <th scope="row">令和4年3月10日</th>
+ <td><a href="https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCMMSTDETAIL&amp;id=410040009&amp;Mode=0">「清酒の製法品質表示基準」及び「酒税法及び酒類行政関係法令等解釈通達（法令解釈通達）」の一部改正（案）に対する意見募集手続の実施について（e-Govへリンク）</a></td>
+</tr>
+<tr id="a0022002-091">
+ <th scope="row">令和4年3月8日</th>
+ <td><a href="https://public-comment.e-gov.go.jp/servlet/Public">「酒類の保存のため物品を混和することができる酒類の品目等を定める等の件（平成９年国税庁告示第５号）」の一部を改正する告示案等に対する意見募集の結果について（e-Govへリンク）</a></td>
+</tr>
+<tr id="a0021012-219">
+ <th scope="row">令和4年3月1日</th>
+ <td><a href="/taxes/sake/yushutsu/system/index.htm">輸出証明書発給システムリニューアルのお知らせ</a></td>
+</tr>
+<tr id="a0022002-070">
+ <th scope="row">令和4年2月25日</th>
+ <td><a href="/information/other/data/r04/e-Tax_enquete/index.htm">e-Taxの改善意見（アンケート）の募集について</a></td>
+</tr>
+<tr id="a0022002-054">
+ <th scope="row">令和4年2月21日</th>
+ <td><a href="https://search.e-gov.go.jp/servlet/Public">「酒類の地理的表示として滋賀（清酒）を指定する件（案）」に対する意見募集について（e-Govへリンク）</a></td>
+</tr>
+<tr id="a0022002-034">
+ <th scope="row">令和4年2月18日</th>
+ <td><a href="/about/disclosure/kojinjoho/h29_koji/index.htm">令和３年度「行政機関非識別加工情報」に係る提案の募集等について</a></td>
+</tr>
+<tr id="a0022001-137">
+ <th scope="row">令和4年2月7日</th>
+ <td><a href="https://search.e-gov.go.jp/servlet/Public">「酒類の地理的表示として新潟（清酒）を指定する件（案）」に対する意見募集の結果について（e-Govへリンク）</a></td>
+</tr>
+<tr id="a0022001-085">
+ <th scope="row">令和4年2月1日</th>
+ <td><a href="/information/release/pdf/0022001-085.pdf">令和２年分の国外財産調書の提出状況について（令和4年2月）（PDF/167KB）</a></td>
+</tr>
+
+</tbody></table>
+<p class="more-link"><a href="/information/news/news.htm">新着情報一覧へ</a></p>
+		          </div>
+
+
+
+							<div id="tab6" class="tab-pane fade">
+							  <table class="index_news">
+<tbody><tr id="a0022002-060">
+  <th scope="row">令和4年3月1日</th>
+  <td><a href="/about/council/kenkyu.htm#kyodokenkyu">第２回「国税庁保有行政記録情報を用いた税務大学校との共同研究に関する有識者会議」配付資料等の掲載</a></td>
+</tr>
+                              <tr id="a0022002-062">
+  <th scope="row">令和4年2月16日</th>
+  <td><a href="/about/recruitment/gijyutsu/seminar/index.htm">総合職（技術系）　セミナー・説明会</a></td>
+</tr>
+							    <tr id="a0022002-056">
+							      <th scope="row">令和4年2月14日</th>
+							      <td><a href="/about/recruitment/kokusen/setsumeikai/guidance.htm">財務省一般職・専門職セミナーの開催について(令和4年3月16日)</a></td>
+						        </tr>
+							    <tr id="a0022001-186">
+							      <th scope="row">令和4年2月9日</th>
+							      <td><a href="/about/recruitment/gijyutsu/seminar/index.htm">総合職（技術系）　セミナー・説明会</a></td>
+						        </tr>
+							    <tr id="a0022001-035">
+							      <th scope="row">令和4年2月1日</th>
+							      <td><a href="/about/recruitment/kokusen/shiken/test_02.htm">【2022年度】国税専門官採用試験の試験概要のお知らせ[申込期間：３月18日(金)～４月４日（月）]</a></td>
+						        </tr>
+							    <tr id="a0022001-100">
+							      <th scope="row">令和4年1月27日</th>
+							      <td><a href="/about/introduction/torikumi/jimunenpo/70/index.htm">「第70回事務年報（令和２年度）」を掲載しました</a></td>
+						        </tr>
+							    <tr id="a0021012-165">
+							      <th scope="row">令和4年1月7日</th>
+							      <td><a href="/about/recruitment/part_time/index.htm">国税庁非常勤職員（アルバイト）の募集について（2022年1月7日）</a></td>
+						        </tr>
+							    <tr id="b0021012-165">
+							      <th scope="row">令和4年1月7日</th>
+							      <td><a href="/about/recruitment/part_time/shougaishakoyou/index.htm">国税庁非常勤職員（アルバイト）の募集について（障害者雇用）</a></td>
+						        </tr>
+						      </tbody></table>
+							  <p class="more-link"><a href="/information/news/news.htm">新着情報一覧へ</a></p>
+							</div>
+						
+					  </div>
+						<h2>分野別メニュー</h2>
+						<div class="bunya-menu">
+							<div class="flex zei">
+								<h3 style="margin-top: 0;">税について調べる</h3>
+								<ul>
+								<li><a href="/taxes/shiraberu/taxanswer/index2.htm">タックスアンサー<br>（よくある税の質問）</a></li>
+								<li><a href="/taxes/shiraberu/shinkoku/kakutei.htm">所得税の確定申告</a></li>
+								<li><a href="/taxes/shiraberu/sodan/index.htm">税の相談</a></li>
+								<li><a href="/taxes/shiraberu/kokusai/index.htm">国際税務関係情報</a></li>
+								<li><a href="/taxes/shiraberu/zeimokubetsu/index.htm">税目別情報</a></li>
+								<li><a href="/taxes/kids/index.htm">税の学習コーナー</a></li>
+                                <li id="b0020010-076"><a href="/taxes/shiraberu/chatbot/index.htm">チャットボットに質問する</a></li>
+								</ul>
+							</div>
+							<div class="flex user">
+								<h3 style="margin-top: 0;">利用者別情報</h3>
+								<ul>
+								<li><a href="/users/kojin/index.htm">個人の方</a></li>
+								<li><a href="/users/hojin/index.htm">法人の方</a></li>
+								<li><a href="/users/gensen/index.htm">源泉徴収義務者の方</a></li>
+								<li><a href="/taxes/zeirishi/index.htm">税理士に関する情報</a></li>
+								<li><a href="/taxes/sake/index.htm">お酒に関する情報</a></li>
+								</ul>
+							</div>
+							<div class="flex shinkoku">
+								<h3 style="margin-top: 0;">申告手続</h3>
+								<ul>
+								<li><a href="/taxes/tetsuzuki/shinsei/index.htm">申告・申請・届出等、用紙（手続の案内・様式）</a></li>
+                                <li><a href="https://www.keisan.nta.go.jp/" target="_blank">確定申告書等作成コーナー</a></li>
+								<li><a href="http://www.e-tax.nta.go.jp/">国税電子申告・納税システム(e-Tax)</a></li>
+								<li><a href="/taxes/tetsuzuki/mynumberinfo/index.htm">社会保障・税番号制度＜マイナンバー＞</a></li>
+								</ul>
+							</div>
+							<div class="flex nouzei">
+								<h3 style="margin-top: 0;">納税手続</h3>
+								<ul>
+								<li><a href="/taxes/nozei/nofu/01.htm">国税の納付手続</a></li>
+								<li><a href="/taxes/nozei/nozei-shomei/01.htm">納税証明書</a></li>
+								</ul>
+							</div>
+							<div class="flex kanren">
+								<h3 style="margin-top: 0;">関連サイト</h3>
+								<ul>
+								<li><a href="http://www.rosenka.nta.go.jp/">路線価図・評価倍率表</a></li>
+								<li><a href="http://www.koubai.nta.go.jp/auctionx/public/hp001.php">公売情報</a></li>
+								<li><a href="https://www.houjin-bangou.nta.go.jp/">法人番号公表サイト</a></li>
+                                <li><a href="https://www.invoice-kohyo.nta.go.jp/">適格請求書発行事業者公表サイト</a></li>
+								</ul>
+							</div>
+						</div>
+						<div id="sampleCarousel" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner" role="listbox">
+								<div class="item">
+									<div class="text-center"><a href="/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice.htm"><img src="/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/img/link-banner_invoice02.png" alt="インボイス制度について"></a></div>
+								</div>
+							  <div class="item active">
+									<div class="text-center"><a href="/taxes/tetsuzuki/mynumberinfo/index.htm"><img src="/template/img/slide_sample01.gif" alt="社会保障・税番号制度＜マイナンバー＞について"></a></div>
+							  </div>
+								<div class="item">
+									<div class="text-center"><a href="/taxes/nozei/nofu_konnan.htm"><img src="/shared/images/banner/nofu_konnan.png" alt="新型コロナウイルス感染症の影響により納税が困難な方へ　猶予制度があります"></a></div>
+							  </div>
+							  <div class="item">
+									<div class="text-center"><a href="/publication/pamph/jigyo-shokei/index.htm"><img src="/publication/pamph/jigyo-shokei/img/link-banner0705.gif" alt="事業承継税制特集はこちら"></a></div>
+							  </div>
+								<div class="item">
+									<div class="text-center"><a href="/taxes/shiraberu/sodan/denwa-sodan/index.htm"><img src="/taxes/shiraberu/sodan/denwa-sodan/img/link-banner_sodan.gif" alt="国税に関するご相談についてはこちら"></a></div>
+							  </div>
+								<div class="item">
+									<div class="text-center"><a href="/taxes/shiraberu/chatbot/index.htm"><img src="/shared/images/banner/chatbot_sodan2020.png" alt="チャットボットに質問する"></a></div>
+							  </div>
+                              <div class="item">
+									<div class="text-center"><a href="/about/organization/ntc/kyodokenkyu/index.htm"><img src="/shared/images/banner/kyodokenkyu.png" alt="税務大学校との共同研究に関するページ"></a></div>
+							  </div>
+								<div class="item">
+									<div class="text-center"><a href="/users/gensen/nencho/index.htm"><img src="/shared/images/banner/nencho.png" alt="年末調整がよくわかるページ"></a></div>
+							  </div>
+								
+							<a class="left carousel-control" href="#sampleCarousel" role="button" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								<span class="sr-only">前へ</span>
+							</a>
+							<a class="right carousel-control" href="#sampleCarousel" role="button" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								<span class="sr-only">次へ</span>
+							</a>
+						</div>
+						</div>
+						<p style="margin-top:5px;text-align:right;"> 
+						<button type="button" id="sampleCarouselPause" class="btn btn-default">停止</button> 
+						<button type="button" id="sampleCarouselCycle" class="btn btn-default">再開</button> 
+						</p>
+						
+						<br>
+						<p class="text-right"><a href="/banner/index.htm"><img src="/template/img/template/grey_yajirushi_s.png" alt=""> その他のバナー一覧</a></p>
+					</div>
+					
+<div class="right-menu">
+				
+<!--PC_確定申告用-->
+<div class="kakushin_side">
+<div style="margin-bottom:2em"><a href="/taxes/shiraberu/shinkoku/tokushu/index.htm" title="令和３年分　確定申告特集のページへ移動します"><img src="/banner/img/bnr01-1.jpg" alt="令和３年分　確定申告特集" class="full" width="100%"></a></div>
+</div>
+<!--//PC_確定申告用-->
+
+<!---->
+						
+<!--▼注目ワード▼-->
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2>注目ワード</h2>
+</div>
+<div class="panel-body">
+<ul style="padding-bottom: 0;">
+<li id="a0022001-144"><a href="/taxes/shiraberu/shinkoku/kakutei.htm">所得税の確定申告</a></li>
+<li id="b0022001-144"><a href="https://www.e-tax.nta.go.jp/">e-Tax</a></li>
+<li id="c0022001-144"><a href="/publication/pamph/pdf/0022001-098.pdf">消費税還付申告に関する国税当局の対応について</a></li>
+<li><a href="/taxes/nozei/nofu_konnan.htm">納税が困難な方へ</a></li>
+<li><a href="/taxes/shiraberu/sodan/denwa-sodan/index.htm">国税に関するご相談について</a></li>
+<li id="0021004-076"><a href="/taxes/shiraberu/kansensho/zitaku.htm">自宅からの手続方法</a></li>
+<li><a href="/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice.htm">消費税のインボイス制度</a></li>
+<li id="a0021005-092"><a href="/law/joho-zeikaishaku/sonota/jirei/index.htm">電子帳簿保存法</a></li>
+<li><a href="/taxes/sake/index.htm#topic">お酒に関する情報</a></li>
+<li><a href="/taxes/sake/yushutsu/01.htm">酒類の輸出促進</a></li>
+</ul>
+</div>
+</div>
+
+<!--▲注目ワード▲-->
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h2>税務署を検索</h2>
+							</div>
+							<div class="panel-body" style="font-size:90%;">
+								<form method="post" action="/cgi-bin/zeimusho/kensaku/kensakuprocess.php" id="knskForm" name="knskForm" accept-charset="EUC-JP">
+								<input name="KSTYPE" type="hidden" id="KSTYPE" value="">
+								<input name="TODOFUKEN_TO_ASCII" type="hidden" id="TODOFUKEN_TO_ASCII" value="">
+								<input name="ADDR_TO_ASCII" type="hidden" id="ADDR_TO_ASCII" value="">
+								<table id="kszTbl" style="width:100%;">
+								<tbody><tr><td class="hb_zc"><p class="indent1em">郵便番号から税務署を検索<br>（半角数字）</p></td></tr>
+								<tr><td class="hb"><input type="text" name="kszc1" size="4" maxlength="3" value="" title="検索郵便番号の前3桁を半角数字で入力してください" id="kszc1" style="font-size:85%;">&nbsp;-&nbsp;<input type="text" name="kszc2" size="5" maxlength="4" value="" title="検索郵便番号の後ろ4桁を半角数字で入力してください" id="kszc2" style="font-size:85%;">&nbsp;&nbsp;<input type="button" name="kszBtn" title="検索を実行します" value="検索" onclick="SubmitKnskForm('ksz');"></td></tr>
+								<tr><td id="kszMsg" style="display:none;" class="hb"><label>&nbsp;</label></td></tr>
+								<tr><td class="hb"><p class="indent1em">住所から税務署を検索</p></td></tr>
+								<tr>
+								<td class="hb">
+								<select name="ksaTodofuken" id="ksaTodofuken" title="都道府県を選択">
+								<option value="">都道府県を選択</option>
+								<option value="北海道">北海道</option>
+								<option value="青森県">青森県</option>
+								<option value="岩手県">岩手県</option>
+								<option value="宮城県">宮城県</option>
+								<option value="秋田県">秋田県</option>
+								<option value="山形県">山形県</option>
+								<option value="福島県">福島県</option>
+								<option value="茨城県">茨城県</option>
+								<option value="栃木県">栃木県</option>
+								<option value="群馬県">群馬県</option>
+								<option value="埼玉県">埼玉県</option>
+								<option value="千葉県">千葉県</option>
+								<option value="東京都">東京都</option>
+								<option value="神奈川県">神奈川県</option>
+								<option value="新潟県">新潟県</option>
+								<option value="富山県">富山県</option>
+								<option value="石川県">石川県</option>
+								<option value="福井県">福井県</option>
+								<option value="山梨県">山梨県</option>
+								<option value="長野県">長野県</option>
+								<option value="岐阜県">岐阜県</option>
+								<option value="静岡県">静岡県</option>
+								<option value="愛知県">愛知県</option>
+								<option value="三重県">三重県</option>
+								<option value="滋賀県">滋賀県</option>
+								<option value="京都府">京都府</option>
+								<option value="大阪府">大阪府</option>
+								<option value="兵庫県">兵庫県</option>
+								<option value="奈良県">奈良県</option>
+								<option value="和歌山県">和歌山県</option>
+								<option value="鳥取県">鳥取県</option>
+								<option value="島根県">島根県</option>
+								<option value="岡山県">岡山県</option>
+								<option value="広島県">広島県</option>
+								<option value="山口県">山口県</option>
+								<option value="徳島県">徳島県</option>
+								<option value="香川県">香川県</option>
+								<option value="愛媛県">愛媛県</option>
+								<option value="高知県">高知県</option>
+								<option value="福岡県">福岡県</option>
+								<option value="佐賀県">佐賀県</option>
+								<option value="長崎県">長崎県</option>
+								<option value="熊本県">熊本県</option>
+								<option value="大分県">大分県</option>
+								<option value="宮崎県">宮崎県</option>
+								<option value="鹿児島県">鹿児島県</option>
+								<option value="沖縄県">沖縄県</option>
+								</select><br>
+								</td>
+								</tr>
+								<tr>
+								<td class="hb">
+								<input type="text" name="ksaddr" maxlength="65" title="検索住所を入力" id="ksaddr" style="color: gray;width:100%;" value="市区町村・町名を入力"><br>
+								入力例：千代田区霞が関
+								</td>
+								</tr>
+								<tr>
+								<td class="hb">
+								<input type="button" name="ksaBtn" title="検索を実行します" value="検索" onclick="SubmitKnskForm('ksa');">
+								</td>
+								</tr>
+								<tr><td id="ksaMsg" style="display:none;" class="hb"><label>&nbsp;</label></td></tr>
+								</tbody></table>
+								</form>
+							</div>
+						</div>
+						<div class="side_bunner">
+						<ul>
+						<li><a href="https://twitter.com/NTA_Japan"><img src="/template/img/template/icon_tw.jpg" alt="" class="side_bunner_icon">Twitter</a></li>
+                        <li><a href="/line/index.htm"><img src="/template/img/template/icon_line.png" alt="" class="side_bunner_icon">LINE</a></li>
+						<li><a href="https://www.youtube.com/user/ntachannel"><img src="/template/img/template/icon_yt.jpg" alt="" class="side_bunner_icon">YouTube「国税庁動画チャンネル」</a></li>
+						<li><a href="/publication/webtaxtv/index.html"><img src="/template/img/template/icon_webtaxtv.jpg" alt="" class="side_bunner_icon">インターネット番組「Web-TAX-TV」</a></li>
+						<li><a href="/merumaga/index.htm"><img src="/template/img/template/icon_mail.jpg" alt="" class="side_bunner_icon">新着情報・メールマガジン</a></li>						</ul>
+						</div>
+	</div>
+				</div>
+			</div>
+			<footer>
+				<div id="footer"><div class="row">
+	<div class="col-md-4">
+		<h3><a href="/taxes/">税の情報・手続・用紙</a></h3>
+		<ul>
+			<li><a href="/taxes/shiraberu/index.htm">税について調べる</a></li>
+			<li><a href="/taxes/tetsuzuki/index.htm">申告手続・用紙</a></li>
+			<li><a href="/taxes/nozei/index.htm">納税・納税証明書手続</a></li>
+			<li><a href="/taxes/zeirishi/index.htm">税理士に関する情報</a></li>
+			<li><a href="/taxes/sake/index.htm">お酒に関する情報</a></li>
+			<li><a href="/taxes/kids/index.htm">税の学習コーナー</a></li>
+		</ul>
+		<h3><a href="/publication/">刊行物等</a></h3>
+		<ul>
+			<li><a href="/publication/pamph/01.htm">パンフレット・手引</a></li>
+			<li><a href="/publication/webtaxtv/index.html">インターネット番組「Web-TAX-TV」</a></li>
+			<li><a href="/publication/book/index.htm">出版物</a></li>
+			<li><a href="/publication/statistics/index.htm">統計情報</a></li>
+			<li><a href="/publication/tenji/index.htm">点字広報誌「私たちの税金」</a></li>
+		</ul>
+	</div>
+	<div class="col-md-4">
+		<h3><a href="/law/">法令等</a></h3>
+		<ul>
+			<li><a class="navi_title" href="https://elaws.e-gov.go.jp/search/elawsSearch/elaws_search/lsg0100/">税法（e-Govの「e-Gov法令検索」へリンク）</a></li>
+			<li><a class="navi_title" href="/law/tsutatsu/menu.htm">法令解釈通達</a></li>
+			<li><a class="navi_title" href="/law/joho-zeikaishaku/sonota/sonota.htm">その他法令解釈に関する情報</a></li>
+			<li><a class="navi_title" href="/law/jimu-unei/jimu.htm">事務運営指針</a></li>
+			<li><a class="navi_title" href="/law/kokuji/kokuji.htm">国税庁告示</a></li>
+			<li><a class="navi_title" href="/law/bunshokaito/01.htm">文書回答事例</a></li>
+			<li><a class="navi_title" href="/law/shitsugi/01.htm">質疑応答事例</a></li>
+		</ul>
+		<h3><a href="/information/">お知らせ</a></h3>
+		<ul>
+			<li><a href="/information/news/index.htm">トピックス一覧</a></li>
+			<li><a href="/information/release/index.htm">報道発表</a></li>
+			<li><a href="/information/consulation/sake_index.htm">パブリックコメント</a></li>
+			<li><a href="/information/procurement/index.htm">調達情報・公売情報</a></li>
+			<li><a href="/information/attention/attention.htm">不審な電話や振り込め詐欺にご注意を</a></li>
+			<li><a href="/information/other/shinkoku.htm">その他のお知らせ</a></li>
+		</ul>
+	</div>
+	<div class="col-md-4">
+		<h3><a href="/about/">国税庁等について</a></h3>
+		<ul>
+			<li><a href="/about/introduction/index.htm">国税庁の概要</a></li>
+			<li><a href="/about/organization/index.htm">組織（国税局・税務署等）</a></li>
+			<li><a href="/about/recruitment/index.htm">採用情報</a></li>
+			<li><a href="/about/evaluation/01.htm">国税庁の実績評価</a></li>
+			<li><a href="/about/council/kenkyu.htm">審議会・研究会等</a></li>
+			<li><a href="/about/disclosure/01.htm">情報公開</a></li>
+		</ul>
+		<h3><a href="/users/">利用者別情報</a></h3>
+		<ul>
+		<li><a href="/users/kojin/index.htm">個人の方</a></li>
+		<li><a href="/users/hojin/index.htm">法人の方</a></li>
+		<li><a href="/users/gensen/index.htm">源泉徴収義務者の方</a></li>
+		</ul>
+	</div>
+</div>
+<address>
+	<p class="address-text">国税庁　〒100-8978　東京都千代田区霞が関3-1-1　（法人番号7000012050002）</p>
+	<p class="address-info"><a href="/about/organization/access/location/map.htm"><img src="/template/img/template/syozai_icon.png" alt="" class="rmg10">所在地情報</a></p>
+</address>
+<div class="footer-navi">
+	<ul>
+		<li><a href="/iken/mail.htm">ご意見・ご要望</a></li>
+		<li><a href="/link/link.htm">関連リンク</a></li>
+		<li><a href="/accessibility/index.html">ウェブアクセシビリティ</a></li>
+		<li><a href="/chuijiko/copy.htm">利用規約・免責事項・著作権</a></li>
+		<li><a href="/privacy_policy/hogo.htm">プライバシーポリシー</a></li>
+	</ul>
+</div></div>
+			</footer>
+		</div>
+	
+<script> 
+$(function () { 
+                 $('#sampleCarouselCycle').click(function () { 
+                                  $('#sampleCarousel').carousel('cycle'); 
+                 }); 
+                 $('#sampleCarouselPause').click(function () { 
+                                  $('#sampleCarousel').carousel('pause'); 
+                 }); 
+                 $('.sampleCarouselNumber').click(function () { 
+                                  var $val = new Number($(this).val()).valueOf(); 
+                                  $('#sampleCarousel').carousel($val); 
+                 }); 
+}); 
+</script> 
+
+<table style="width: 224px; display: none; top: 51px; left: 869px; position: absolute;" class="gstl_50 gssb_c" cellspacing="0" cellpadding="0"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table></body></html>

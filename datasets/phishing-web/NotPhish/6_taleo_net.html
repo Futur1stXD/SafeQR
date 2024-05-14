@@ -1,0 +1,3900 @@
+<html class="js ishttps w11ready" lang="en-US"><!-- start : Framework/Redwood2 --><!-- start : ocom/common/global/components/framework/head --><head><style type="text/css">/* wrapper base state */
+.oda-chat-wrapper {
+    box-sizing: border-box;
+    height: 0;
+    position: fixed;
+    text-transform: none;
+    width: 0;
+    z-index: 10000;
+    transition: all 0.25s ease-in-out;
+}
+
+/* button base state */
+.oda-chat-button {
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: none;
+    bottom: 0;
+    cursor: pointer;
+    overflow: visible;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    z-index: 10000;
+    transition: height 0.25s ease-out, width 0.25s ease-out;
+}
+
+.oda-chat-expanded .oda-chat-button {
+    -webkit-animation: scale-out-center 0.25s cubic-bezier(0.550, 0.085, 0.680, 0.530) forwards;
+            animation: scale-out-center 0.25s cubic-bezier(0.550, 0.085, 0.680, 0.530) forwards;
+}
+
+.oda-chat-collapsed .oda-chat-button {
+    display: flex;
+    -webkit-animation: scale-in-center 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+            animation: scale-in-center 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+}
+
+.oda-chat-button img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.oda-chat-notification-badge {
+    align-items: center;
+    background: #e6081a;
+    border-radius: 24px;
+    color: #ffffff;
+    display: flex;
+    font-size: 14px;
+    height: 24px;
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    width: 32px;
+}
+
+/* Widget base state */
+.oda-chat-widget {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    text-decoration: none;
+    text-transform: none;
+    z-index: 10000;
+}
+
+.oda-chat-expanded .oda-chat-widget {
+    -webkit-animation: scale-in-br 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+            animation: scale-in-br 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+}
+
+.oda-chat-collapsed .oda-chat-widget {
+    -webkit-animation: scale-out-br 0.25s cubic-bezier(0.550, 0.085, 0.680, 0.530) forwards;
+	        animation: scale-out-br 0.25s cubic-bezier(0.550, 0.085, 0.680, 0.530) forwards;
+}
+
+.oda-chat-none {
+    display: none;
+}
+
+.oda-chat-conversation-pane {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
+
+.oda-chat-conversation-container {
+    padding: 10px 12px 0 12px;
+}
+
+.oda-chat-empty-conversation-div {
+    display: flex;
+    flex: auto;
+}
+
+.oda-chat-message-date {
+    font-size: 10px;
+    margin: 4px 4px 0;
+}
+
+.oda-chat-embed-sticky-top {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.oda-chat-embed-scroll-top {
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.oda-chat-embed-scroll-bottom {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.oda-chat-embed-sticky-bottom {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Chat responsive layouts */
+
+/* Mobile layout */
+.oda-chat-wrapper {
+    bottom: 20px;
+    right: 10px;
+}
+
+.oda-chat-button {
+    height: 48px;
+    width: 48px;
+}
+
+.oda-chat-button-icon {
+    max-height: 48px;
+    max-width: 48px;
+}
+
+.oda-chat-widget {
+    bottom: -20px;
+    height: 85vh;
+    max-height: calc(100vh - 60px);
+    max-width: 100vw;
+    right: -10px;
+    width: 100vw;
+    transition: all 0.25s ease-in-out;
+}
+
+/* Large mobile and tablet layout */
+@media screen and (min-width: 426px) {
+    .oda-chat-widget {
+        bottom: 0;
+        height: 85vh;
+        /* 20px compensation for bottom position of wrapper */
+        max-height: calc(100vh - 20px - 60px);
+        /* 10px compensation for right position of wrapper and next 10px for balanced look */
+        max-width: calc(100vw - 10px - 10px);
+        min-width: 300px;
+        right: 0;
+        width: 300px;
+    }
+}
+
+/* Desktop layout */
+@media screen and (min-width: 769px) {
+    .oda-chat-wrapper {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .oda-chat-button {
+        height: 64px;
+        width: 64px;
+    }
+
+    .oda-chat-button-icon {
+        max-height: 64px;
+        max-width: 64px;
+    }
+
+    .oda-chat-widget {
+        height: 70vh;
+        /* 20px compensation for bottom position of wrapper */
+        max-height: calc(100vh - 20px - 60px);
+        max-width: 512px;
+        width: 30vw;
+    }
+}
+
+/* Chat button entrance */
+@-webkit-keyframes scale-in-center {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(0);
+                transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+}
+
+@keyframes scale-in-center {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(0);
+                transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+}
+
+/* Chat button exit */
+@-webkit-keyframes scale-out-center {
+    0% {
+        display: flex;
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+    100% {
+        display: none;
+        opacity: 1;
+        -webkit-transform: scale(0);
+                transform: scale(0);
+    }
+}
+
+@keyframes scale-out-center {
+    0% {
+        display: flex;
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+    100% {
+        display: none;
+        opacity: 1;
+        -webkit-transform: scale(0);
+                transform: scale(0);
+    }
+}
+
+/* Chat widget entrance */
+@-webkit-keyframes scale-in-br {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        -webkit-transform-origin: 100% 100%;
+                transform-origin: 100% 100%;
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        -webkit-transform-origin: 100% 100%;
+                transform-origin: 100% 100%;
+    }
+}
+
+@keyframes scale-in-br {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        -webkit-transform-origin: 100% 100%;
+                transform-origin: 100% 100%;
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        -webkit-transform-origin: 100% 100%;
+                transform-origin: 100% 100%;
+    }
+}
+
+/* Chat widget exit */
+@-webkit-keyframes scale-out-br {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        -webkit-transform-origin: 100% 100%;
+                transform-origin: 100% 100%;
+    }
+    99% {
+        opacity: 1;
+        -webkit-transform: scale(0.01);
+                transform: scale(0.01);
+        -webkit-transform-origin: 100% 100%;
+                transform-origin: 100% 100%;
+    }
+    100% {
+        display: none;
+        opacity: 1;
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        -webkit-transform-origin: 100% 100%;
+                transform-origin: 100% 100%;
+    }
+}
+
+@keyframes scale-out-br {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        -webkit-transform-origin: 100% 100%;
+                transform-origin: 100% 100%;
+    }
+    99% {
+        opacity: 1;
+        -webkit-transform: scale(0.01);
+                transform: scale(0.01);
+        -webkit-transform-origin: 100% 100%;
+                transform-origin: 100% 100%;
+    }
+    100% {
+        display: none;
+        opacity: 1;
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        -webkit-transform-origin: 100% 100%;
+                transform-origin: 100% 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .oda-chat-button, .oda-chat-widget, .oda-chat-autocomplete-items, .oda-chat-status-message-wrapper, .oda-chat-share-popup-expand {
+        animation: none;
+    }
+
+    .oda-chat-conversation, .oda-chat-card-message-horizontal .oda-chat-card-message-cards {
+        scroll-behavior: auto;
+    }
+}
+.oda-chat-conversation {
+    background: #ffffff;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    overflow: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+.oda-chat-footer {
+    align-items: center;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    text-align: start;
+}
+
+.oda-chat-footer-mode-keyboard {
+    align-items: center;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    max-height: 78px;
+    padding: 8px 6px 8px 4px;
+}
+
+.oda-chat-footer-mode-voice {
+    flex-direction: column;
+    display: flex;
+    flex: 1;
+}
+
+.oda-chat-footer-visualizer-wrapper {
+    align-items:  center;
+    display: flex;
+    flex-direction: row;
+    height: 48px;
+    justify-content: center;
+    padding: 8px;
+    width: 100%;
+}
+
+.oda-chat-footer-recognition-wrapper {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    height: 48px;
+    padding: 8px 6px 8px 8px;
+    width: 100%;
+}
+
+.oda-chat-footer.oda-chat-mode-keyboard .oda-chat-footer-mode-keyboard {
+    display: flex;
+}
+
+.oda-chat-footer.oda-chat-mode-voice .oda-chat-footer-mode-keyboard {
+    display: none;
+}
+
+.oda-chat-footer.oda-chat-mode-keyboard .oda-chat-footer-mode-voice {
+    display: none;
+}
+
+.oda-chat-footer.oda-chat-mode-voice .oda-chat-footer-mode-voice {
+    display: flex;
+}
+
+.oda-chat-footer-button {
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    height: 32px;
+    -webkit-tap-highlight-color: transparent;
+    justify-content: center;
+    max-height: 32px;
+    max-width: 32px;
+    overflow: hidden;
+    padding: 4px;
+    width: 32px;
+    text-shadow: none;
+}
+
+.oda-chat-footer-button-icon {
+    background-size: 100%;
+    background-position: center;
+    height: 100%;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+}
+
+.oda-chat-footer-button-svg-icon {
+    height: 24px;
+    fill: #787570;
+    width: 24px;
+}
+
+.oda-chat-footer-button:disabled .oda-chat-footer-button-svg-icon,
+.oda-chat-footer-button:disabled .oda-chat-footer-button-svg-icon:active,
+.oda-chat-footer-button:disabled .oda-chat-footer-button-svg-icon:hover {
+    fill: #bbb6b2;
+}
+
+.oda-chat-button-upload {
+    margin-left: 2px;
+}
+
+.oda-chat-button-speech-active {
+    animation: mic-toggle 400ms ease 0s infinite normal none running;
+}
+
+@keyframes mic-toggle {
+    from {
+        fill: #ff8a80;
+    }
+
+    to {
+        fill: #d50000;
+    }
+}
+
+.oda-chat-user-input {
+    border: 1px solid #dadada;
+    border-radius: 16px;
+    box-sizing: border-box;
+    color: #333333;
+    flex: 1;
+    height: 32px;
+    margin-left: 6px;
+    margin-right: 6px;
+    min-height: 32px;
+    max-height: 61px;
+    outline: none;
+    padding: 6px 14px;
+    resize: none;
+}
+
+.oda-chat-user-input::placeholder {
+    color: #787570;
+}
+
+.oda-chat-user-input.oda-chat-disabled {
+    color: #737373;
+}
+
+.oda-chat-user-input.oda-chat-disabled::placeholder {
+    color: #bbb6b2;
+}
+
+.oda-chat-user-input.oda-chat-user-input-inline-send {
+    padding: 6px 40px 6px 14px;
+}
+
+.oda-chat-autocomplete-items {
+    border: 1px solid #bababa;
+    border-radius: 6px 6px 0 0;
+    bottom: 100%;
+    left: 0;
+    margin: 0 32px;
+    max-height: 240px;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    -webkit-animation: popup-suggestion .150s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: popup-suggestion .150s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.oda-chat-autocomplete-items div {
+    background-color: #fff;
+    color: #161513;
+    cursor: pointer;
+    font-size: 16px;
+    min-height: 44px;
+    padding: 10px;
+    text-align: start;
+}
+
+.oda-chat-autocomplete-items strong {
+    font-weight: 700;
+}
+
+.oda-chat-autocomplete-items div:hover {
+    background-color: #e9e9e9;
+}
+
+.oda-chat-autocomplete-items .oda-chat-autocomplete-active {
+    background-color: #85bbe7;
+}
+
+.oda-chat-autocomplete-items .oda-chat-autocomplete-active:hover {
+    background-color: #85bbe7;
+}
+
+.oda-chat-button-send-inline {
+    position: absolute;
+    right: 52px;
+}
+
+.oda-chat-recognition-text-view {
+    border: none;
+    flex: 1;
+    font-size: 16px;
+    margin: 0 8px;
+    pointer-events: none;
+}
+
+.oda-chat-share-popup {
+    background-color: #fcfbfa;
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    bottom: 90%;
+    display: none;
+    left: 8px;
+    padding: 8px;
+    position: absolute;
+    z-index: 2;
+}
+
+.oda-chat-share-popup::after {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #fcfbfa;
+    content: '';
+    height: 0;
+    left: 8px;
+    position: absolute;
+    top: 100%;
+    width: 0;
+}
+
+.oda-chat-share-popup-expand {
+    display: flex;
+    -webkit-animation: scale-in-bl 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+    animation: scale-in-bl 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+}
+
+.oda-chat-share-popup-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.oda-chat-share-popup-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.oda-chat-share-popup-list li {
+    border-bottom: 1px solid #dadada;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.oda-chat-share-popup-list li:last-of-type {
+    border-bottom: none;
+}
+
+.oda-chat-share-popup-item {
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex: 1;
+    font-size: 13.75px;
+    font-weight: bold;
+    height: 40px;
+    padding: 8px;
+    text-align: start;
+    width: 100%;
+}
+
+.oda-chat-share-popup-item:hover, .oda-chat-share-popup-item:focus {
+    background-color: #ffffff;
+}
+
+.oda-chat-share-popup-item-svg-icon {
+    height: 24px;
+    fill: #787570;
+    max-height: 24px;
+    max-width: 24px;
+    width: 24px;
+}
+
+.oda-chat-share-popup-item-text {
+    margin-left: 8px;
+}
+
+@-webkit-keyframes popup-suggestion {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+        -webkit-box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+        -webkit-transform: scaleY(0.4);
+        transform: scaleY(0.4);
+        -webkit-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+    }
+
+    100% {
+        box-shadow: 0 -12px 20px -12px rgba(0, 0, 0, 0.35);
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+        -webkit-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+    }
+}
+
+@keyframes popup-suggestion {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+        -webkit-transform: scaleY(0.4);
+        transform: scaleY(0.4);
+        -webkit-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+    }
+
+    100% {
+        box-shadow: 0 -12px 15px -12px rgba(0, 0, 0, 0.35);
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+        -webkit-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+    }
+}
+
+@-webkit-keyframes scale-in-bl {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        -webkit-transform-origin: 0% 100%;
+                transform-origin: 0% 100%;
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        -webkit-transform-origin: 0% 100%;
+                transform-origin: 0% 100%;
+    }
+}
+
+@keyframes scale-in-bl {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        -webkit-transform-origin: 0% 100%;
+                transform-origin: 0% 100%;
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        -webkit-transform-origin: 0% 100%;
+                transform-origin: 0% 100%;
+    }
+}
+.oda-chat-header {
+    align-items: center;
+    box-sizing: border-box;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    height: 48px;
+    padding-left: 10px;
+    padding-right: 8px;
+    text-align: start;
+}
+
+.oda-chat-logo {
+    flex: 0;
+    height: 24px;
+    max-height: 32px;
+    max-width: 32px;
+    min-height: 16px;
+    width: 24px;
+}
+
+.oda-chat-header-info-wrapper {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 0 8px;
+    min-width: 0;
+}
+
+.oda-chat-title {
+    color: #ffffff;
+    font-size: 18px;
+    justify-content: center;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.oda-chat-subtitle {
+    color: #ffffff;
+    font-size: 14px;
+    justify-content: center;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.oda-chat-connection-status {
+    font-weight: bold;
+    font-size: 10px;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.oda-chat-header-custom-element {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+}
+
+.oda-chat-header-actions {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.oda-chat-header-button {
+    align-items: center;
+    border: none;
+    border-radius: 2px;
+    display: flex;
+    height: 32px;
+    justify-content: center;
+    margin-left: 8px;
+    max-height: 32px;
+    max-width: 32px;
+    padding: 4px;
+    width: 32px;
+}
+
+.oda-chat-header-button svg {
+    fill: #ffffff;
+}
+
+.oda-chat-header-button:hover {
+    filter: brightness(1.2);
+}
+
+.oda-chat-header-button:active {
+    filter: brightness(0.875);
+}
+
+.oda-chat-header-button-icon {
+    height: 24px;
+    width: 24px;
+}
+
+.oda-chat-header-button-img-icon {
+    max-height: 100%;
+    max-width: 100%;
+}
+.oda-chat-message-actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.oda-chat-message-actions .oda-chat-action-postback {
+    align-items: center;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    font-size: 13.75px;
+    font-weight: bold;
+    flex: 1;
+    justify-content: center;
+    padding: 12px 24px;
+    margin: 4px;
+    text-decoration: none;
+}
+
+.oda-chat-message-actions .oda-chat-action-postback:focus, .oda-chat-message-actions a.oda-chat-action-postback:active {
+    background: #004d80;
+}
+
+.oda-chat-message-actions .oda-chat-action-postback.oda-chat-disabled {
+    background: #f8f8f8;
+    border-color: #c5c5c5;
+    color: #737373;
+}
+
+.oda-chat-message-actions .oda-chat-action-postback.oda-chat-disabled:hover {
+    background: #f8f8f8;
+}
+
+.oda-chat-message-actions .oda-chat-action-postback.oda-chat-disabled:focus, .oda-chat-message-actions a.oda-chat-action-postback.oda-chat-disabled:active {
+    background: #f8f8f8;
+}
+
+.oda-chat-message-global-actions {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+}
+
+.oda-chat-message-global-actions.oda-chat-has-message-icon {
+    margin-left: 40px;
+}
+
+.oda-chat-message-global-actions .oda-chat-action-postback {
+    align-items: center;
+    border: 1px solid #1b8fd2;
+    border-radius: 4px;
+    color: #1b8fd2;
+    cursor: pointer;
+    display: flex;
+    flex: 1;
+    font-size: 13.75px;
+    font-weight: bold;
+    justify-content: center;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 12px 24px;
+    text-decoration: none;
+}
+
+.oda-chat-message-global-actions .oda-chat-action-postback:first-of-type {
+    margin-top: 0;
+}
+
+.oda-chat-message-global-actions .oda-chat-action-postback:last-of-type {
+    margin-bottom: 0;
+}
+
+.oda-chat-message-global-actions .oda-chat-action-postback:hover {
+    background: #1b8fd2;
+    color: #fff;
+}
+
+.oda-chat-message-global-actions .oda-chat-action-postback:focus, .oda-chat-message-global-actions .oda-chat-action-postback:active {
+    background: #004d80;
+    color: #fff;
+}
+
+.oda-chat-message-global-actions .oda-chat-action-postback.oda-chat-disabled {
+    background: #f8f8f8;
+    border-color: #c5c5c5;
+    color: #737373;
+}
+
+.oda-chat-message-global-actions .oda-chat-action-postback.oda-chat-disabled:hover, .oda-chat-message-global-actions .oda-chat-action-postback.oda-chat-disabled:focus, .oda-chat-message-global-actions .oda-chat-action-postback.oda-chat-disabled:active {
+    background: #f8f8f8;
+    border-color: #c5c5c5;
+    color: #737373;
+}
+
+.oda-chat-action-image {
+    max-height: 24px;
+    max-width: 24px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+.oda-chat-attachment-image,
+.oda-chat-attachment-video{width: 100%;}
+.oda-chat-attachment-audio{width: 190px;}/* TODO: set by javascript */
+
+.oda-chat-attachment-message {
+    display: -webkit-flex; /* Safari */
+    display: flex;
+}
+
+.oda-chat-attachment-icon {
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    margin-right: 4px;
+    justify-content: center;
+    background-color: transparent;
+    background: no-repeat center center;
+    border: none;
+    align-items: center;
+}
+
+.oda-chat-attachment-fileName {
+    margin: auto 0;
+}
+.oda-chat-card-message-horizontal .oda-chat-message-bubble.oda-chat-message-header, .oda-chat-card-message-horizontal .oda-chat-message-bubble.oda-chat-message-footer {
+    margin-right: 0;
+}
+
+.oda-chat-card-message-horizontal .oda-chat-content-wrapper {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-x: visible;
+}
+
+.oda-chat-card-message-content {
+    line-height: 1.5;
+    max-width: 100%;
+    white-space: pre-wrap;
+}
+
+.oda-chat-card-message-horizontal .oda-chat-card-message-content {
+    position: relative;
+}
+
+.oda-chat-card-message-content a {
+    text-decoration: none;
+}
+
+.oda-chat-card-message-horizontal {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.oda-chat-card-message-horizontal.oda-chat-has-message-icon {
+    margin-left: 0;
+}
+
+.oda-chat-card-message-cards {
+    margin-right: 20px;
+    max-width: 100%;
+}
+
+.oda-chat-card-message-horizontal .oda-chat-card-message-cards {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    overflow-y: hidden;;
+    position: relative;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.oda-chat-card-message-horizontal .oda-chat-card-message-cards::-webkit-scrollbar {
+    display: none;
+}
+
+.oda-chat-card-message-vertical .oda-chat-card {
+    border-radius: 20px;
+    margin: 8px 0;
+}
+
+.oda-chat-card-message-vertical .oda-chat-card:first-of-type {
+    margin-top: 0;
+}
+
+.oda-chat-card-message-vertical .oda-chat-card:last-of-type {
+    margin-bottom: 0;
+}
+
+.oda-chat-card-message-vertical .oda-chat-message-wrapper {
+    flex-direction: column;
+}
+
+.oda-chat-card {
+    background: #fff;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 20px;
+    display: block;
+    max-width: 100%;
+    min-width: 75%;
+    overflow: hidden;
+    padding: 20px;
+    white-space: pre-wrap;
+}
+
+.oda-chat-card-message-horizontal .oda-chat-card {
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 8px;
+    scroll-snap-align: start;
+}
+
+.oda-chat-card-message-horizontal .oda-chat-card:first-of-type {
+    margin-left: 0;
+}
+
+.oda-chat-card-message-horizontal .oda-chat-card:last-of-type {
+    margin-right: 0;
+}
+
+.oda-chat-card-image {
+    height: 275px;
+    max-width: 100%;
+    width: 375px;
+}
+
+.oda-chat-card-content {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+}
+
+.oda-chat-card-title {
+    font-weight: 400;
+    margin: 4px;
+    max-width: 100%;
+    text-align: center;
+    white-space: pre-wrap;
+}
+
+.oda-chat-card-description {
+    font-weight: 400;
+    max-width: 100%;
+    margin: 4px;
+    text-align: start;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+}
+
+.oda-chat-card-actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.oda-chat-card-actions .oda-chat-action-postback {
+    align-items: center;
+    background: #0099ff;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    font-size: 13.75px;
+    font-weight: bold;
+    flex: 1;
+    justify-content: center;
+    padding: 12px 24px;
+    margin: 4px;
+    text-decoration: none;
+}
+
+.oda-chat-card-actions .oda-chat-action-postback:hover {
+    background: #eaeaea;
+}
+
+.oda-chat-card-actions button.oda-chat-disabled {
+    color: #737373;
+    background: #ffffff;
+    border-color: #c5c5c5;
+}
+
+.oda-chat-card-actions button.oda-chat-disabled:hover {
+    color: #737373;
+    background: #ffffff;
+}
+
+.oda-chat-round {
+    align-items: center;
+    background: #eaeaea;
+    border: none;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    color: #333333;
+    cursor: pointer;
+    display: flex;
+    height: 36px;
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    top: calc(50% - 18px);
+    width: 36px;
+    z-index: 1;
+}
+
+.oda-chat-round svg {
+    fill: #333333;
+}
+
+.oda-chat-round:hover {
+    background: #4a90e2;
+    color: #ffffff;
+}
+
+.oda-chat-round:hover svg {
+    fill: #ffffff;
+}
+
+.oda-chat-previous {
+    left: -18px;
+}
+
+.oda-chat-next {
+    right: -18px;
+}
+.oda-chat-loading-icon {
+    display: -webkit-flex; /* Safari */
+    display: flex;
+}
+.oda-chat-message-with-icon {
+    align-items: center;
+    display: -webkit-flex; /* Safari */
+    display: flex;
+}
+
+.oda-chat-error-icon {
+    margin-right: 5px;
+    max-width: 24px;
+    max-height: 24px;
+}
+
+.oda-chat-message-text {
+    margin: auto 0;
+    text-align: start;
+    white-space: pre-wrap;
+}
+.oda-chat-spinner{
+    position: relative;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin-right: 4px;
+}
+.oda-chat-spinner svg{
+    animation-duration: 750ms;
+    -webkit-animation: spinner-rotate 1s linear infinite;
+    animation: spinner-rotate 1s linear infinite;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.oda-chat-spinner circle{
+    stroke: #387ef5;
+    fill: transparent;
+    stroke-width: 4px;
+    stroke-dasharray: 128px;
+    stroke-dashoffset: 82px;
+}
+
+@-webkit-keyframes spinner-rotate {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes spinner-rotate {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+.oda-chat-message {
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.oda-chat-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: start;
+}
+
+.oda-chat-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.oda-chat-message-wrapper {
+    display: flex;
+    max-width: 100%;
+}
+
+.oda-chat-left .oda-chat-message-wrapper {
+    flex-direction: row;
+}
+
+.oda-chat-right .oda-chat-message-wrapper {
+    flex-direction: row-reverse;
+}
+
+.oda-chat-icon-wrapper {
+    align-self: flex-end;
+    align-items: flex-end;
+    border-radius: 4px;
+    display: flex;
+    height: 32px;
+    justify-content: center;
+    min-width: 32px;
+    overflow: hidden;
+    width: 32px;
+}
+
+.oda-chat-left .oda-chat-icon-wrapper {
+    margin-right: 8px;
+}
+
+.oda-chat-right .oda-chat-icon-wrapper {
+    margin-left: 8px;
+}
+
+.oda-chat-message-icon {
+    height: 32px;
+    max-height: 32px;
+    max-width: 32px;
+    width: 32px;
+}
+
+.oda-chat-content-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/*------------*/
+
+.oda-chat-message-profile-pic {
+    padding: 2px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgba(20, 0, 0, .12);
+    position: absolute;
+}
+
+.oda-chat-left .oda-chat-message-profile-pic {
+    bottom: 6px;
+    left: 6px;
+}
+
+.oda-chat-right .oda-chat-message-profile-pic {
+    bottom: 6px;
+    right: 6px;
+}
+
+/*------------*/
+
+.oda-chat-message-bubble {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    max-width: 350px;
+    padding: 20px;
+    position: relative;
+}
+
+.oda-chat-screen-reader-only {
+    height: 1px;
+    left: -20000px;
+    overflow: hidden;
+    position: absolute;
+    top: auto;
+    width: 1px;
+}
+
+.oda-chat-message-content {
+    line-height: 1.5;
+    margin: 4px;
+    overflow: hidden;
+    text-align: start;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.oda-chat-message-content a {
+    text-decoration: none;
+}
+
+.oda-chat-right .oda-chat-message-bubble {
+    margin-left: 20px;
+    border-radius: 24px 24px 0 24px;
+}
+
+.oda-chat-left .oda-chat-message-bubble {
+    margin-right: 20px;
+    border-radius: 24px 24px 24px 0;
+}
+
+.oda-chat-left .oda-chat-message-header {
+    border-radius: 24px 24px 0 0;
+    margin-bottom: 10px;
+}
+
+.oda-chat-left .oda-chat-message-footer {
+    border-radius: 0 0 24px 24px;
+    margin-top: 10px;
+}
+
+.oda-chat-left .oda-chat-has-header {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.oda-chat-left .oda-chat-has-footer {
+    border-bottom-right-radius: 0;
+}
+
+/*------------*/
+
+.oda-chat-attachment-image, .oda-chat-attachment-video {
+    width: 100%;
+}
+
+.oda-chat-attachment-audio {
+    width: 190px;
+}
+
+.oda-chat-bubble-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+.oda-chat-status-message-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.oda-chat-status-message-wrapper {
+    align-self: center;
+    align-items: center;
+    display: flex;
+    flex: 0 1 auto;
+    border-radius: 4px;
+    background-color: #f3f3f3;
+    max-width: 80%;
+    padding: 10px 24px;
+
+    animation: vibrate 0.5s linear both;
+}
+
+@keyframes vibrate {
+    0% {
+        -webkit-transform: translate(0);
+                transform: translate(0);
+    }
+    20% {
+        -webkit-transform: translate(-2px, 2px);
+                transform: translate(-2px, 2px);
+    }
+    40% {
+        -webkit-transform: translate(-2px, -2px);
+                transform: translate(-2px, -2px);
+    }
+    60% {
+        -webkit-transform: translate(2px, 2px);
+                transform: translate(2px, 2px);
+    }
+    80% {
+        -webkit-transform: translate(2px, -2px);
+                transform: translate(2px, -2px);
+    }
+    100% {
+        -webkit-transform: translate(0);
+                transform: translate(0);
+    }
+}
+
+.oda-chat-status-image {
+    max-width: 16px;
+    max-height: 16px;
+}
+
+.oda-chat-status-message {
+    color: #737373;
+    font-size: 14px;
+    margin-left: 8px;
+    text-align: start;
+}
+
+hr {
+    border-top: 1px solid #eee;
+    padding: 0;
+    margin: 10px 0;
+}
+.oda-chat-footer-button:focus:enabled {
+  outline-color: #c0533f;
+}
+
+.oda-chat-header-button:focus:enabled {
+  outline-color: #fff;
+}
+
+.oda-chat-wrapper {
+  color: #161513;
+  font: 14px "Oracle Sans";
+}
+
+.oda-chat-button {
+  background: #c0533f;
+}
+
+.oda-chat-notification-badge {
+  background: #312d2a;
+  color: #fff;
+  right: -5px;
+  top: -5px;
+}
+
+.oda-chat-header {
+  background: #312D2A;
+}
+
+.oda-chat-header-button {
+  background: #312D2A;
+}
+
+.oda-chat-header-button svg {
+  fill: #fff;
+}
+
+.oda-chat-header, .oda-chat-title, .oda-chat-subtitle {
+  color: #FFFFFF;
+}
+
+.oda-chat-conversation {
+  background: #201E1C;
+}
+
+.oda-chat-left .oda-chat-message-bubble, .oda-chat-left .oda-chat-message-header, .oda-chat-left .oda-chat-message-footer {
+  background: #D4CFCA;
+  color: #000000;
+  font: 14px "Oracle Sans";
+}
+
+.oda-chat-right .oda-chat-message-bubble {
+  background: #FFFFFF;
+  color: #000000;
+  font: 14px "Oracle Sans";
+}
+
+.oda-chat-message-actions .oda-chat-action-postback {
+  background: #655f5c;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
+  color: #fff;
+}
+
+.oda-chat-message-actions .oda-chat-action-postback:focus:enabled {
+  background: #1615137f;
+}
+
+.oda-chat-message-actions .oda-chat-action-postback:hover:enabled {
+  background: #1615134d;
+}
+
+.oda-chat-message-global-actions .oda-chat-action-postback {
+  background: #3a3631;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #fff;
+  color: #fff;
+}
+
+.oda-chat-message-global-actions .oda-chat-action-postback:focus:enabled {
+  background: #1615137f;
+}
+
+.oda-chat-message-global-actions .oda-chat-action-postback:hover:enabled {
+  background: #201e1c4d;
+}
+
+.oda-chat-card {
+  color: #000000;
+  background: #655f5c;
+}
+
+.oda-chat-card-description {
+  color: #fcfbfa;
+}
+
+.oda-chat-card-actions .oda-chat-action-postback {
+  background: #655f5c;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
+  color: #fff;
+}
+
+.oda-chat-card-actions .oda-chat-action-postback:focus:enabled {
+  background: #1615137f;
+}
+
+.oda-chat-card-actions .oda-chat-action-postback:hover:enabled {
+  background: #1615134d;
+}
+
+.oda-chat-round {
+  background: #d5b364;
+}
+
+.oda-chat-round:focus:enabled {
+  background: #f7e0a1;
+}
+
+.oda-chat-round:hover:enabled {
+  background: #b39554;
+}
+
+.oda-chat-message-content a {
+  color: #00688C;
+}
+
+.oda-chat-card-message-content a {
+  color: #00688C;
+}
+
+.oda-chat-status-message-wrapper {
+  background: #D4CFCA;
+}
+
+.oda-chat-status-message {
+  color: #000000;
+}
+
+.oda-chat-footer {
+  background: #312D2A;
+}
+
+.oda-chat-user-input {
+  caret-color: #c0533f;
+  background: #FFFFFF;
+  color: #000000;
+  font: 14px "Oracle Sans";
+}
+
+.oda-chat-footer-button svg {
+  fill: #312D2A;
+}
+
+.oda-chat-footer-button:hover:enabled .oda-chat-footer-button-svg-icon {
+  fill: #c0533f;
+}
+
+.oda-chat-share-popup-item:hover:enabled .oda-chat-share-popup-item-svg-icon {
+  fill: #c0533f;
+}
+
+.oda-chat-share-popup-item:focus:enabled .oda-chat-share-popup-item-svg-icon {
+  fill: #c0533f;
+}
+
+.oda-chat-footer-visualizer-wrapper {
+  background: #312d2a;
+}
+
+.oda-chat-footer-recognition-wrapper {
+  background: #312D2A;
+}
+
+.oda-chat-recognition-text-view {
+  background: #312D2A;
+  color: #fff;
+  font: 14px "Oracle Sans";
+}
+
+.oda-chat-footer-button.oda-chat-button-send-inline svg {
+  fill: #1a1816;
+}
+
+.oda-chat-button-switch-kbd .oda-chat-footer-button-svg-icon {
+  fill: #312D2A;
+}
+
+@media screen and (min-width: 426px) {
+.oda-chat-widget {
+  border-radius: 4px;
+  height: 620px;
+  width: 375px;
+}
+
+}
+</style><style type="text/css">.truste_caIcon_display {display: block !important;}</style><style type="text/css">.truste_cursor_pointer {cursor: pointer;}.truste_border_none {border: none;}</style>
+	<!-- start : ocom/common/global/components/head -->
+		<title>Taleo | Oracle</title>
+		<meta name="Title" content="Taleo | Oracle">
+	
+			<meta name="Description" content="Discover Taleo—the robust, standalone talent acquisition suite for sourcing, recruiting, and onboarding the best candidates, with no core HR required.
+">
+		
+	<meta name="Keywords" content="taleo, cloud talent, oracle, talent acquisition, talent management">
+	
+	<meta name="siteid" content="us">
+	<meta name="countryid" content="US">
+	<meta name="robots" content="index, follow">
+	<meta name="country" content="United States">
+	<meta name="Language" content="en">
+	<meta name="Updated Date" content="2022-03-14T18:45:42Z">
+	
+	<script type="text/javascript" async="" charset="utf-8" id="utag_14" src="https://www.googletagmanager.com/gtag/js?id=DC-3573281"></script><script type="text/javascript" async="" src="https://www.oracle.com/asset/web/analytics/infinity_click_tracking_ocom.js"></script><script type="text/javascript" async="" src="https://www.oracle.com/asset/web/analytics/infinity_common.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_5" src="//c.oracleinfinity.io/acs/account/wh3g12c3gg/js/oracle/odc.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_4" src="//img03.en25.com/i/elqCfg.min.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_12" src="//tags.bkrtx.com/js/bk-coretag.js"></script><script src="https://tms.oracle.com/main/prod/utag.js" type="text/javascript" async=""></script><script type="text/javascript">
+		var pageData = pageData || {};
+		//page info
+		pageData.pageInfo = pageData.pageInfo || {};
+		pageData.pageInfo.language = "en";
+		pageData.pageInfo.country = "United States";
+		pageData.pageInfo.pageTitle = "Taleo | Oracle";
+		pageData.pageInfo.description = "Discover Taleo—the robust, standalone talent acquisition suite for sourcing, recruiting, and onboarding the best candidates, with no core HR required.";
+		pageData.pageInfo.keywords = "taleo, cloud talent, oracle, talent acquisition, talent management";
+		pageData.pageInfo.siteId = "us";
+		pageData.pageInfo.countryId = "US";
+		pageData.pageInfo.updatedDate = "2022-03-14T18:45:42Z";
+	</script>
+	<!-- start : ocom/common/global/components/seo-taxonomy-meta-data-->
+	
+	<script type="text/javascript">
+		var pageData = pageData || {};
+		//taxonmy
+		pageData.taxonomy = pageData.taxonomy || {};
+		pageData.taxonomy.productServices = [];
+		pageData.taxonomy.industry = [];
+		pageData.taxonomy.region = [];
+		pageData.taxonomy.contentType = [];
+		pageData.taxonomy.buyersJourney = [];
+		pageData.taxonomy.revenue = [];
+		pageData.taxonomy.title = [];
+		pageData.taxonomy.audience = [];
+		pageData.taxonomy.persona = [];
+	</script>
+<!-- end : ocom/common/global/components/seo-taxonomy-meta-data-->
+<!-- start : ocom/common/global/components/social-media-meta-tags -->
+<!-- end : ocom/common/global/components/social-media-meta-tags -->
+<!-- start : ocom/common/global/components/seo-hreflang-meta-tags --><link rel="canonical" href="https://www.oracle.com/human-capital-management/taleo/">
+					<link rel="alternate" hreflang="en-AE" href="https://www.oracle.com/ae/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="es-AR" href="https://www.oracle.com/ar/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-AU" href="https://www.oracle.com/au/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-BE" href="https://www.oracle.com/be/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="pt-BR" href="https://www.oracle.com/br/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-CA" href="https://www.oracle.com/ca-en/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="fr-CA" href="https://www.oracle.com/ca-fr/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="de-CH" href="https://www.oracle.com/ch-de/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="fr-CH" href="https://www.oracle.com/ch-fr/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="es-CL" href="https://www.oracle.com/cl/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="zh-CN" href="https://www.oracle.com/cn/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="es-CO" href="https://www.oracle.com/co/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="cs-CZ" href="https://www.oracle.com/cz/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="de-DE" href="https://www.oracle.com/de/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-US" href="https://www.oracle.com/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-EG" href="https://www.oracle.com/eg/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="es-ES" href="https://www.oracle.com/es/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="fr-FR" href="https://www.oracle.com/fr/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-HK" href="https://www.oracle.com/hk/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-ID" href="https://www.oracle.com/id/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-IE" href="https://www.oracle.com/ie/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-IL" href="https://www.oracle.com/il-en/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-IN" href="https://www.oracle.com/in/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="it-IT" href="https://www.oracle.com/it/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="ja-JP" href="https://www.oracle.com/jp/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-KE" href="https://www.oracle.com/ke/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="ko-KR" href="https://www.oracle.com/kr/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="es-MX" href="https://www.oracle.com/mx/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-MY" href="https://www.oracle.com/my/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="nl-NL" href="https://www.oracle.com/nl/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="es-PE" href="https://www.oracle.com/pe/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-PH" href="https://www.oracle.com/ph/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="pl-PL" href="https://www.oracle.com/pl/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="pt-PT" href="https://www.oracle.com/pt/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="ro-RO" href="https://www.oracle.com/ro/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="ru-RU" href="https://www.oracle.com/ru/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-SA" href="https://www.oracle.com/sa/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="sv-SE" href="https://www.oracle.com/se/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-SG" href="https://www.oracle.com/sg/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="sk-SK" href="https://www.oracle.com/sk/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="tr-TR" href="https://www.oracle.com/tr/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="zh-TW" href="https://www.oracle.com/tw/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-GB" href="https://www.oracle.com/uk/human-capital-management/taleo/">
+					
+					<link rel="alternate" hreflang="en-ZA" href="https://www.oracle.com/za/human-capital-management/taleo/">
+					
+					<meta name="altpages" content="ae,ar,au,be,br,ca-en,ca-fr,ch-de,ch-fr,cl,cn,co,cz,de,eg,es,fr,hk,id,ie,il-en,in,it,jp,ke,kr,mx,my,nl,pe,ph,pl,pt,ro,ru,sa,se,sg,sk,tr,tw,uk,za">
+					<script type="text/javascript">
+						var pageData = pageData || {};
+						//page info
+						pageData.pageInfo = pageData.pageInfo || {};
+						pageData.pageInfo.altPages = "ae,ar,au,be,br,ca-en,ca-fr,ch-de,ch-fr,cl,cn,co,cz,de,eg,es,fr,hk,id,ie,il-en,in,it,jp,ke,kr,mx,my,nl,pe,ph,pl,pt,ro,ru,sa,se,sg,sk,tr,tw,uk,za";
+					</script>
+				<!-- end : ocom/common/global/components/seo-hreflang-meta-tags -->
+
+	<!-- end : ocom/common/global/components/head -->
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<!-- start : ocom/common/global/components/framework/layoutAssetHeadInfo -->
+<!-- Container/Display Start -->
+
+<!-- BEGIN: oWidget_C/_Raw-Text/Display -->
+	<!-- BEGIN CSS/JS -->
+	<style>
+		body{margin:0}
+		.f20w1 > section{opacity:0;filter:opacity(0%)}
+		.f20w1 > div{opacity:0;filter:opacity(0%)}
+		.f20w1 > nav{opacity:0;filter:opacity(0%)}
+	</style>
+	<script>
+		!function(){
+			var d=document.documentElement;d.className=d.className.replace(/no-js/,'js');
+			if(document.location.href.indexOf('betamode=') > -1) document.write('<script src="/asset/web/js/ocom-betamode.js"><\/script>');
+		}();
+	</script>
+
+	<link data-wscss="" href="/asset/web/css/redwood-base.css" rel="stylesheet" as="style" onload="this.rel='stylesheet';" onerror="this.rel='stylesheet'">
+	<link data-wscss="" href="/asset/web/css/redwood-styles.css" rel="stylesheet" as="style" onload="this.rel='stylesheet';" onerror="this.rel='stylesheet'">
+
+	<noscript>
+		<link href="/asset/web/css/redwood-base.css" rel="stylesheet">
+		<link href="/asset/web/css/redwood-styles.css" rel="stylesheet">
+	</noscript>
+
+	<script src="/asset/web/js/redwood-base.js"></script><link data-wsjs="" data-reqjq="" href="/asset/web/js/redwood-base.js" rel="preload" as="script">
+	<script src="/asset/web/js/redwood-lib.js"></script><link data-wsjs="" data-reqjq="" href="/asset/web/js/redwood-lib.js" rel="preload" as="script">
+	<script data-wsjs="" src="/asset/web/js/jquery-min.js" async="" onload="$('head link[data-reqjq][rel=preload]').each(function(){var a = document.createElement('script');a.async=false;a.src=$(this).attr('href');this.parentNode.insertBefore(a, this);});$(function(){$('script[data-reqjq][data-src]').each(function(){this.async=true;this.src=$(this).data('src');});});"></script>
+    <!-- END CSS/JS -->		
+
+
+
+<!-- END: oWidget_C/_Raw-Text/Display -->
+
+<!-- Container/Display end -->
+
+<!-- Container/Display Start -->
+
+<!-- BEGIN: oWidget_C/_Raw-Text/Display -->
+ <!-- www-us HeadAdminContainer -->
+<link rel="icon" href="https://www.oracle.com/asset/web/favicons/favicon-32.png" sizes="32x32">
+<link rel="icon" href="https://www.oracle.com/asset/web/favicons/favicon-128.png" sizes="128x128">
+<link rel="icon" href="https://www.oracle.com/asset/web/favicons/favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://www.oracle.com/asset/web/favicons/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="https://www.oracle.com/asset/web/favicons/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="https://www.oracle.com/asset/web/favicons/favicon-180.png" sizes="180x180">
+<meta name="msapplication-TileColor" content="#fcfbfa">
+<meta name="msapplication-square70x70logo" content="favicon-128.png">
+<meta name="msapplication-square150x150logo" content="favicon-270.png">
+<meta name="msapplication-TileImage" content="favicon-270.png">
+<meta name="msapplication-config" content="none">
+<meta name="referrer" content="no-referrer-when-downgrade">
+  <style>
+  #oReactiveChatContainer1 { display:none;}
+  </style>
+<!--Tealium embed code Start -->
+<script src="https://tms.oracle.com/main/prod/utag.sync.js"></script>
+<!-- Loading script asynchronously -->
+<script type="text/javascript">
+    (function(a,b,c,d){
+    if(location.href.indexOf("tealium=dev") == -1) {
+    a='https://tms.oracle.com/main/prod/utag.js';
+    } else {
+    a='https://tms.oracle.com/main/dev/utag.js';
+    }
+    b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+    a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+    })();
+</script>
+<!--Tealium embed code End-->
+
+
+
+
+<!-- END: oWidget_C/_Raw-Text/Display -->
+
+<!-- Container/Display end -->
+
+
+<!-- end : ocom/common/global/components/framework/layoutAssetHeadInfo -->
+
+
+
+<script>(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"rua.upush":"false","rua.cpush":"false","rua.upre":"false","rua.cpre":"false","rua.uprl":"false","rua.cprl":"false","rua.cprf":"false","rua.trans":"SJ-dc74b1c1-1621-4bec-9dc5-202601acb3f4","rua.cook":"true","rua.ims":"false","rua.ufprl":"false","rua.cfprl":"true","rua.isuxp":"false","rua.texp":"norulematch"}]);</script>
+                              <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="DXNLE-YBWWY-AR74T-WMD99-77VRA",function(){function e(){if(!o){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,i.parentNode.appendChild(e),o=!0}}function t(e){o=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(i.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",i.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"DXNLE-YBWWY-AR74T-WMD99-77VRA";var i=document.currentScript||document.getElementsByTagName("script")[0],o=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!o)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),i.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n="true"=="true"?1:0,t="cookiepresent",a="js4lsb5yd6i2wyr5kmcq-f-d6e9f72d1-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"32","ak.cp":"82485","ak.ai":parseInt("604074",10),"ak.ol":"0","ak.cr":19,"ak.ipv":4,"ak.proto":"h2","ak.rid":"4eea42cf","ak.r":43358,"ak.a2":n,"ak.m":"dscx","ak.n":"essl","ak.bpcip":"76.184.185.0","ak.cport":59044,"ak.gh":"23.198.13.74","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1648186117","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==WoHwBL1J/u8TR8sT/fNL7M+H+CwE2UjgUwP6Us5AhIeV+uDNZDCoDheJdBoeH0lzDxhvVb5LIFs4P3J8460oQB8nlDCtmPpJxVwCTSvPoD00qgOfmKZo0MB/LOqDizblfC8z1LavzQKaN203+D9pMX94Afw/DcGF+S+RDJPfceIzrI2MleN4B3/YFdGnLiMZOIssiK8XOt1h+IrRgAWd3rnMu87x22jlkMxT6CAt6C7PRIoA0eHNQdgG8cIS4gXbwZyLSaZV4YVRuqgGZT+9yp+/06cl0PGO7s6b3z7VtVKc014C4U0x8aXLyRygQTkl+/6ulkPyR9nDjNkqp4DE5z0aqZ1gqkFsNkTrrsaWCB2vfRKp9Ups2sPeLyD43i5OwWfwwzvDXOwBkzRllpfvPxSTcAEzwoX/s1uxgf2RrxE=","ak.pv":"290","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script><link href="https://s.go-mpulse.net/boomerang/DXNLE-YBWWY-AR74T-WMD99-77VRA" rel="preload" as="script"><script>bazadebezolkohpepadr="932461197"</script><script type="text/javascript" src="https://www.oracle.com/akam/13/37943b19" defer=""></script><script type="text/javascript" async="" charset="utf-8" id="tiqapp" src="https://tags.tiqcdn.com/utag/tiqapp/utag.v.js?a=oracle/main/202203222200&amp;cb=1648186115719"></script><script id="boomr-scr-as" src="https://s.go-mpulse.net/boomerang/DXNLE-YBWWY-AR74T-WMD99-77VRA" async=""></script><script type="text/javascript" async="" charset="utf-8" id="utag_oracle.main_5" src="//tms.oracle.com/main/prod/utag.5.js?utv=ut4.48.202203182324"></script><script type="text/javascript" async="" charset="utf-8" id="utag_oracle.main_14" src="//tms.oracle.com/main/prod/utag.14.js?utv=ut4.48.202203222200"></script><script type="text/javascript" async="" charset="utf-8" id="utag_oracle.main_42" src="//tms.oracle.com/main/prod/utag.42.js?utv=ut4.48.202203182312"></script><script type="text/javascript" async="" charset="utf-8" id="utag_oracle.main_65" src="//tms.oracle.com/main/prod/utag.65.js?utv=ut4.48.202203182312"></script><script src="/asset/web/js/handlebars-redwood.js" type="text/javascript"></script><style type="text/css">.oda-chat-button{display: none !important;}</style><script type="text/javascript" src="/asset/web/js/settings-v2.js" async=""></script><script type="text/javascript" src="/asset/web/js/web-sdk.js" async=""></script><link href="https://www.oracle.com/asset/web/css/oracle-chat.css" rel="stylesheet"><script type="text/javascript" src="https://d.oracleinfinity.io/infy/acs/common/js/1.3.44/common.js" async="true" defer="true"></script><script type="text/javascript" src="https://d.oracleinfinity.io/infy/acs/account/wh3g12c3gg/js/oracle/analytics-production/analytics.js" async="true" defer="true"></script><link id="dnsprefetchlink" rel="dns-prefetch" href="//js4lsb5yd6i2wyr5kmcq-f-d6e9f72d1-clientnsv4-s.akamaihd.net"><meta http-equiv="origin-trial" content="A3v9QjmVUCOO7YqFMKHP/NKbn6kY1G1pa2S1TfeXJZUD/tysMONTy6lV0Jkou3rrCjSKRGbqTrgTaZkm1XJ7pQUAAACKeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ21hbmFnZXIuY29tOjQ0MyIsImZlYXR1cmUiOiJDb252ZXJzaW9uTWVhc3VyZW1lbnQiLCJleHBpcnkiOjE2NDMxNTUxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"></head><!-- end : ocom/common/global/components/framework/head --><!-- start : ocom/common/global/components/redwood/layoutAssetStartBodyInfo -->
+	<body class="f20 f20v0 rwtheme-rose ochat_slideout_loaded ready">
+
+		
+<!-- Container/Display Start -->
+
+<!-- BEGIN: oWidget_C/_Raw-Text/Display -->
+<!-- www-us StartBodyAdminContainer -->
+
+
+
+<!-- END: oWidget_C/_Raw-Text/Display -->
+
+<!-- Container/Display end -->
+
+
+		<div id="u30skip2content" aria-expanded="false" tabindex="-1">
+		<ul>
+			<li><a id="u30acc" href="https://www.oracle.com/corporate/accessibility/">Click to view our Accessibility Policy</a></li>
+			<li><a id="u30skip2c" href="#maincontent">Skip to content</a></li>
+		</ul>
+	</div><div class="f20w1">
+
+			
+	<!-- Dispatcher:null -->
+	
+<!-- BEGIN: oWidget_C/_Raw-Text/Display -->
+<!-- U30v3 -->
+<style>
+	#u30{opacity:1 !important;filter:opacity(100%) !important;position:sticky;top:0}
+	.u30v3{background:#3a3632;height:50px;overflow:hidden;border-top:5px solid #3a3632;border-bottom:5px solid #3a3632}
+	#u30nav,#u30tools{visibility:hidden}
+	.u30v3 #u30logo {width:121px;height: 44px;display: inline-flex;justify-content: flex-start;}
+	#u30:not(.u30mobile) .u30-oicn-mobile,#u30.u30mobile .u30-oicn{display:none}
+	#u30logo svg{height:auto;align-self:center}
+	.u30brand{height:50px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;max-width:1344px;padding:0 48px;margin:0 auto}
+	.u30brandw1{display:flex;flex-direction:row;color:#fff;text-decoration:none;align-items:center}
+	@media (max-width:1024px){.u30brand{padding:0 24px}}
+	#u30skip2,#u30skip2content{transform:translateY(-100%);position:fixed}
+	.rtl #u30{direction:rtl}
+</style>
+
+<section id="u30" class="u30 u30v3 ws-sticky u30nonstick rw-sticky contentloaded" data-trackas="header" role="banner">
+
+	
+
+	<div class="u30w1 cwidth" id="u30w1">
+
+		<div id="u30brand" class="u30brand">
+			<div class="u30brandw1">
+
+				<a id="u30btitle" href="https://www.oracle.com/" data-lbl="logo" aria-label="Home">
+					<div id="u30logo">
+						<svg class="u30-oicn-mobile" xmlns="http://www.w3.org/2000/svg" width="32" height="21" viewBox="0 0 32 21"><path fill="#C74634" d="M9.9,20.1c-5.5,0-9.9-4.4-9.9-9.9c0-5.5,4.4-9.9,9.9-9.9h11.6c5.5,0,9.9,4.4,9.9,9.9c0,5.5-4.4,9.9-9.9,9.9H9.9 M21.2,16.6c3.6,0,6.4-2.9,6.4-6.4c0-3.6-2.9-6.4-6.4-6.4h-11c-3.6,0-6.4,2.9-6.4,6.4s2.9,6.4,6.4,6.4H21.2"></path></svg>
+<svg class="u30-oicn" xmlns="http://www.w3.org/2000/svg" width="231" height="30" viewBox="0 0 231 30" preserveAspectRatio="xMinYMid"><path fill="#C74634" d="M99.61,19.52h15.24l-8.05-13L92,30H85.27l18-28.17a4.29,4.29,0,0,1,7-.05L128.32,30h-6.73l-3.17-5.25H103l-3.36-5.23m69.93,5.23V0.28h-5.72V27.16a2.76,2.76,0,0,0,.85,2,2.89,2.89,0,0,0,2.08.87h26l3.39-5.25H169.54M75,20.38A10,10,0,0,0,75,.28H50V30h5.71V5.54H74.65a4.81,4.81,0,0,1,0,9.62H58.54L75.6,30h8.29L72.43,20.38H75M14.88,30H32.15a14.86,14.86,0,0,0,0-29.71H14.88a14.86,14.86,0,1,0,0,29.71m16.88-5.23H15.26a9.62,9.62,0,0,1,0-19.23h16.5a9.62,9.62,0,1,1,0,19.23M140.25,30h17.63l3.34-5.23H140.64a9.62,9.62,0,1,1,0-19.23h16.75l3.38-5.25H140.25a14.86,14.86,0,1,0,0,29.71m69.87-5.23a9.62,9.62,0,0,1-9.26-7h24.42l3.36-5.24H200.86a9.61,9.61,0,0,1,9.26-7h16.76l3.35-5.25h-20.5a14.86,14.86,0,0,0,0,29.71h17.63l3.35-5.23h-20.6" transform="translate(-0.02 0)"></path></svg>
+					</div>
+				</a>
+
+			</div>
+		</div>
+
+		<div id="u30nav" class="u30nav" data-closetxt="Close Menu" data-trackas="menu">
+			<nav id="u30navw1" aria-label="Main" class=""><ul class="u30navul">
+				<li><button data-navtarget="products" aria-controls="products" aria-expanded="false" class="u30navitem">Products</button><div data-dropdown="products" class="u30navw2"><div class="u30navw3 four-column-tworow-vertical">
+					<button class="closenav" aria-label="Close Menu">
+						<title>Close Menu</title>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<path d="M7,7 L17,17"></path>
+							<path d="M17,7 L7,17"></path>
+						</svg>
+					</button>
+				 <div id="products-nav" data-navcontent="products" data-navtype="four-column-tworow-vertical">
+		<ul class="tworow">
+			<li>
+				<span class="u30t1">Oracle Cloud Infrastructure</span>
+				<button aria-controls="cloud-infrastructure" aria-expanded="false">Oracle Cloud Infrastructure</button>
+				<ul class="fourclm divider" id="cloud-infrastructure">
+                	<li><a href="/cloud/" data-lbl="products:oci/overview">OCI Overview</a></li>
+                    <li><a href="/artificial-intelligence/" data-lbl="products:oci/ai-ml">AI and Machine Learning</a></li>
+                    <li><a href="/business-analytics/" data-lbl="products:oci/analytics-bi">Analytics and BI</a></li>
+                    <li><a href="/big-data/" data-lbl="products:oci/big-data">Big Data</a></li>
+                    <li><a href="/cloud/architecture-and-regions/" data-lbl="products:oci/cloud-regions">Cloud Regions</a></li>
+                    <li><a href="/corporate/cloud-compliance/" data-lbl="products:oci/compliance">Compliance</a></li>
+                    <li><a href="/cloud/compute/" data-lbl="products:oci/compute">Compute</a></li>
+                    <li><a href="/cloud-native/" data-lbl="products:oci/containers-functions">Containers and Functions</a></li>
+                    <li><a href="/data-lakehouse/" data-lbl="products:oci/data-lakehouse">Data Lakehouse</a></li>
+                    <li><a href="/database/" data-lbl="products:oci/db-services">Database Services</a></li>
+                    <li><a href="/application-development/" data-lbl="products:oci/dev-services">Developer Services</a></li>
+                    <li><a href="/devops/" data-lbl="products:oci/devops">DevOps</a></li>
+                    <li><a href="/industries/government/govcloud/" data-lbl="products:oci/gov-cloud">Government Cloud</a></li>
+                    <li><a href="/cloud/hybrid-cloud/" data-lbl="products:oci/hybrid-cloud">Hybrid Cloud</a></li>
+                    <li><a href="/integration/" data-lbl="products:oci/integration">Integration</a></li>
+                    <li><a href="/cloud/networking/" data-lbl="products:oci/networking">Networking</a></li>
+                    <li><a href="/manageability/" data-lbl="products:oci/observability-mgmt">Observability and Management</a></li>
+                    <li><a href="/security/" data-lbl="products:oci/security">Security</a></li>
+                    <li><a href="/cloud/storage/" data-lbl="products:oci/storage">Storage</a></li>
+                    <li><a href="/cloud/compute/vmware/" data-lbl="products:oci/vmware">VMware</a></li>
+				</ul>
+			</li>
+			<li>
+				<span class="u30t1">Oracle Cloud Applications</span>
+				<button aria-controls="cloud-applications" aria-expanded="false">Oracle Cloud Applications</button>
+				<ul class="fourclm divider" id="cloud-applications">
+                	<li><a href="/applications/" data-lbl="products:applications/overview">Cloud Applications Overview</a></li>
+                    <li><a href="/erp/" data-lbl="products:applications/erp">Enterprise Resource Planning (ERP)</a></li>
+                    <li><a href="/epm/" data-lbl="products:applications/epm">Enterprise Performance Management (EPM)</a></li>
+                    <li><a href="/human-capital-management/" data-lbl="products:applications/hcm">Human Capital Management (HCM)</a></li>
+                    <li><a href="/supply-chain-management/" data-lbl="products:applications/scm">Supply Chain and Manufacturing (SCM)</a></li>
+                    <li><a href="/cx/" class="single-column" data-lbl="products:applications/cx">Customer Experience (CX)</a>
+                    	<ul class="subul">
+                        	<li><a href="/cx/advertising/" data-lbl="products:applications/cx-advertising">Advertising</a></li>
+                            <li><a href="/cx/marketing/" data-lbl="products:applications/cx-marketing">Marketing</a></li>
+                            <li><a href="/cx/sales/" data-lbl="products:applications/cx-sales">Sales</a></li>
+                            <li><a href="/cx/service/" data-lbl="products:applications/cx-service">Service</a></li>
+                		</ul>
+              		</li>
+                    <li><a href="/content-management/" data-lbl="products:applications/content-mgmt">Content Management</a></li>
+                    <li><a href="/industries/" data-lbl="products:applications/industry-apps">Industry Applications</a></li>
+                    <li><a href="https://www.netsuite.com/" data-lbl="products:applications/netsuite">NetSuite</a></li>
+				</ul>
+			</li>
+			<li>
+				<span class="u30t1">Hardware and Software</span>
+				<button aria-controls="hardware-software" aria-expanded="false">Hardware and Software</button>
+				<ul class="fourclm" id="hardware-software">
+                	<li><a href="/java/" data-lbl="products:hardware-software/java">Java</a></li>
+                    <li><a href="/database/technologies/" data-lbl="products:hardware-software/database">Oracle Database</a></li>
+                    <li><a href="https://www.mysql.com/" data-lbl="products:hardware-software/mysql">MySQL</a></li>
+                    <li><a href="/linux/" data-lbl="products:hardware-software/linux">Linux</a></li>
+                    <li><a href="/applications/on-premise-products/" data-lbl="products:hardware-software/on-prem-apps">On-Premises Applications</a></li>
+                    <li><a href="/products/software.html" data-lbl="products:hardware-software/all-software">All Software</a></li>
+                    <li><a href="/it-infrastructure/" data-lbl="products:hardware-software/servers-storage">Servers and Storage</a></li>
+                    <li><a href="/engineered-systems/exadata/" data-lbl="products:hardware-software/exadata">Exadata</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div></div></div></li>
+				<li><button data-navtarget="industries" aria-controls="industries" aria-expanded="false" class="u30navitem">Industries</button><div data-dropdown="industries" class="u30navw2"><div class="u30navw3 four-column-vertical">
+					<button class="closenav" aria-label="Close Menu">
+						<title>Close Menu</title>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<path d="M7,7 L17,17"></path>
+							<path d="M17,7 L7,17"></path>
+						</svg>
+					</button>
+				 <div id="industries-nav" data-navcontent="industries" data-navtype="four-column-vertical">
+		<span class="u30t1" id="industries">Industries</span>
+		<ul aria-labelledby="industries">
+        	<li><a href="/industries/automotive/" data-lbl="industries:automotive">Automotive</a></li>
+            <li><a href="/industries/communications/" data-lbl="industries:communications">Communications</a></li>
+            <li><a href="/industries/construction-engineering/" data-lbl="industries:construction-and-engineering">Construction and Engineering</a></li>
+            <li><a href="/industries/consumer-goods/" data-lbl="industries:consumer-goods">Consumer Goods</a></li>
+            <li><a href="/industries/utilities/" data-lbl="industries:energy-water">Energy and Water</a></li>
+            <li><a href="/industries/financial-services/" data-lbl="industries:financial-services">Financial Services</a></li>
+            <li><a href="/industries/food-beverage/" data-lbl="industries:food-and-beverage">Food and Beverage</a></li>
+            <li><a href="/industries/government/" data-lbl="industries:government-and-education">Government and Education</a></li>
+            <li><a href="/industries/healthcare/" data-lbl="industries:healthcare">Healthcare</a></li>
+            <li><a href="/industries/high-tech/" data-lbl="industries:high-technology">High Technology</a></li>
+            <li><a href="/industries/hospitality/" data-lbl="industries:hospitality">Hospitality</a></li>
+            <li><a href="/industries/industrial-manufacturing/" data-lbl="industries:industrial-manufacturing">Industrial Manufacturing</a></li>
+            <li><a href="/industries/life-sciences/" data-lbl="industries:life-sciences">Life Sciences</a></li>
+            <li><a href="/industries/media-entertainment/" data-lbl="industries:media-and-entertainment">Media and Entertainment</a></li>
+            <li><a href="/industries/oil-gas/" data-lbl="industries:oil-and-gas">Oil and Gas</a></li>
+            <li><a href="/industries/professional-services/" data-lbl="industries:professional-services">Professional Services</a></li>
+            <li><a href="/industries/retail/" data-lbl="industries:retail">Retail</a></li>
+            <li><a href="/industries/travel-transportation/" data-lbl="industries:travel-transportation">Travel and Transportation</a></li>
+            <li><a href="/industries/wholesale-distribution/" data-lbl="industries:wholesale-distribution">Wholesale Distribution</a></li>
+		</ul>
+	</div></div></div></li>
+				<li><button data-navtarget="resources" aria-controls="resources" aria-expanded="false" class="u30navitem scroll">Resources</button><div data-dropdown="resources" class="u30navw2 vert-scroll"><div class="u30navw3 two-column-scroll-vertical">
+					<button class="closenav" aria-label="Close Menu">
+						<title>Close Menu</title>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<path d="M7,7 L17,17"></path>
+							<path d="M17,7 L7,17"></path>
+						</svg>
+					</button>
+				 <div id="resources-nav" data-navcontent="resources" data-navtype="two-column-scroll-vertical" role="tablist" aria-orientation="vertical">
+		<span class="u30t1">Resources</span>
+		<ul role="none">
+			<li role="none">
+				<button id="documentation-tab" class="active" role="tab" aria-selected="false" aria-controls="documentation-panel" aria-expanded="false" data-lbl="resources:documentation" data-default="">Documentation</button>
+				<div class="u30scontent active" role="tabpanel" id="documentation-panel" aria-labelledby="documentation-tab">
+					<ul class="tworow">
+						<li>
+							<div class="u30subhead" id="documentation-label">Documentation</div>
+							<ul class="twoclm align-threeclm divider" aria-labelledby="documentation-label">
+								<li><a href="https://docs.oracle.com/en/" data-lbl="resources:documentation/help-center">Oracle Help Center</a></li>
+								<li><a href="https://docs.oracle.com/solutions/" data-lbl="resources:documentation/architecture-center">Architecture Center</a></li>
+								<li><a href="https://docs.oracle.com/learn/" data-lbl="resources:documentation/tutorials">Tutorials</a></li>
+								<li><a href="https://www.youtube.com/user/OracleLearning" data-lbl="resources:documentation/step-by-step-videos">Step-by-Step Videos</a></li>
+                                <li><a href="https://pdpm.oracle.com/pls/apex/f?p=102:250" data-lbl="resources:documentation/preview-beta-testing">Preview/Beta testing opportunities</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="u30subhead" id="popular-product-label">Popular Product Documentation</div>
+							<button aria-haspopup="true" aria-expanded="false">Popular Product Documentation</button>
+							<ul class="threeclm" aria-labelledby="popular-product-label">
+								<li><a href="https://docs.oracle.com/en/database/index.html" data-lbl="resources:documentation/database">Database</a></li>
+								<li><a href="https://docs.oracle.com/en/java/index.html" data-lbl="resources:documentation/java">Java</a></li>
+								<li><a href="https://docs.cloud.oracle.com/iaas/Content/home.htm" data-lbl="resources:documentation/cloud-infrastructure">Cloud Infrastructure</a></li>
+								<li><a href="https://docs.oracle.com/en/middleware/index.html" data-lbl="resources:documentation/middleware">Middleware</a></li>
+								<li><a href="https://docs.oracle.com/en/hardware/index.html" data-lbl="resources:documentation/hardware">Hardware</a></li>
+								<li><a href="https://docs.oracle.com/en/operating-systems/index.html" data-lbl="resources:documentation/operating-systems">Operating Systems</a></li>
+								<li><a href="https://docs.oracle.com/en/engineered-systems/index.html" data-lbl="resources:documentation/engineered-systems">Engineered Systems</a></li>
+								<li><a href="https://docs.oracle.com/en/virtualization/index.html" data-lbl="resources:documentation/virtualization">Virtualization</a></li>
+								<li><a href="https://docs.oracle.com/en/cloud/saas/index.html" data-lbl="resources:documentation/fusion-cloud-apps">Fusion Cloud Applications</a></li>
+								<li><a href="https://docs.oracle.com/en/cloud/saas/netsuite/index.html" data-lbl="resources:documentation/netsuite-apps">NetSuite Applications</a></li>
+								<li><a href="https://docs.oracle.com/en/industries/index.html" data-lbl="resources:documentation/industry-apps">Industry Applications</a></li>
+								<li><a href="https://docs.oracle.com/en/applications/index.html" data-lbl="resources:documentation/on-premise-apps">On-Premises Applications</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li role="none">
+				<button id="downloads-tab" role="tab" aria-selected="false" aria-controls="downloads-panel" aria-expanded="false" data-lbl="resources:downloads">Downloads</button>
+				<div class="u30scontent" role="tabpanel" id="downloads-panel" aria-labelledby="downloads-tab">
+					<ul class="tworow">
+						<li>
+							<div class="u30subhead" id="downloads-label">Downloads</div>
+							<ul class="twoclm align-threeclm divider" aria-labelledby="downloads-label">
+								<li><a href="https://edelivery.oracle.com" data-lbl="resources:downloads/customer-downloads">Customer Downloads</a></li>
+								<li><a href="/security-alerts/" data-lbl="resources:downloads/critical-patch-updates">Critical Patch Updates</a></li>
+								<li><a href="/downloads/" data-lbl="resources:downloads/developer-downloads">Developer Downloads</a></li>
+								<li><a href="http://java.com/download" data-lbl="resources:downloads/java-runtime-jre">Java Runtime (JRE) Consumer Download</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="u30subhead" id="popular-developer-label">Popular Developer Downloads</div>
+							<button aria-haspopup="true" aria-expanded="false">Popular Developer Downloads</button>
+							<ul class="threeclm" aria-labelledby="popular-developer-label">
+								<li><a href="/java/technologies/downloads/" data-lbl="resources:downloads/java">Java</a></li>
+								<li><a href="/java/technologies/sdk-downloads.html" data-lbl="resources:downloads/java-sdk">Java SDK</a></li>
+								<li><a href="/java/technologies/javase-downloads.html" data-lbl="resources:downloads/java-se">Java SE</a></li>
+								<li><a href="/java/technologies/downloads/" data-lbl="resources:downloads/jdk">JDK</a></li>
+								<li><a href="/middleware/technologies/fusionmiddleware-downloads.html" data-lbl="resources:downloads/weblogic">WebLogic</a></li>
+								<li><a href="https://www.oracle.com/database/technologies/oracle-database-software-downloads.html" data-lbl="resources:downloads/database">Oracle Database</a></li>
+								<li><a href="/database/technologies/xe-downloads.html" data-lbl="resources:downloads/db-express">DB Express</a></li>
+								<li><a href="http://www.mysql.com/downloads/" data-lbl="resources:downloads/mysql">MySQL</a></li>
+								<li><a href="https://netbeans.org/downloads/" data-lbl="resources:downloads/netbeans-ide">NetBeans IDE</a></li>
+								<li><a href="/tools/downloads/sqldev-downloads.html" data-lbl="resources:downloads/sql-developer">SQL Developer</a></li>
+								<li><a href="/database/technologies/instant-client.html" data-lbl="resources:downloads/instant-client">Instant Client</a></li>
+								<li><a href="/virtualization/technologies/vm/downloads/virtualbox-downloads.html" data-lbl="resources:downloads/vm-virtualbox">VM Virtualbox</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li role="none">
+				<button id="support-tab" role="tab" aria-selected="false" aria-controls="support-panel" aria-expanded="false" data-lbl="resources:support">Support</button>
+				<div class="u30scontent" role="tabpanel" id="support-panel" aria-labelledby="support-tab">
+					<ul class="tworow">
+						<li>
+							<div class="u30subhead" id="support-label">Support Login</div>
+							<ul class="twoclm align-threeclm divider" aria-labelledby="support-label">
+								<li><a href="https://support.oracle.com/" data-lbl="resources:support/mos-login">My Oracle Support Login</a></li>
+								<li><a href="https://support.oracle.mobi/" data-lbl="resources:support/mobile-login">Mobile Login</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="u30subhead" id="support-main-label">Support</div>
+							<button aria-haspopup="true" aria-expanded="false">Support</button>
+							<ul class="threeclm" aria-labelledby="support-main-label">
+								<li><a href="/support/contact.html" data-lbl="resources:support/contact-support">Contact Oracle Support</a></li>
+								<li><a href="https://supportrenewals.oracle.com/" data-lbl="resources:support/my-support-renewals">My Support Renewals</a></li>
+								<li><a href="https://community.oracle.com/community/support" data-lbl="resources:support/mos-community">MOS Community</a></li>
+								<li><a href="https://community.oracle.com/customerconnect/" data-lbl="resources:support/cloud-customer-connect">Cloud Customer Connect</a></li>
+								<li><a href="/cloud/rewards/" data-lbl="resources:support/support-rewards">Oracle Support Rewards</a></li>
+								<li><a href="/support/" data-lbl="resources:support/support">Oracle Support</a></li>
+								<li><a href="/support/premier/" data-lbl="resources:support/premier-support">Oracle Premier Support</a></li>
+								<li><a href="/support/premier/best-practices.html" data-lbl="resources:support/proactive-support-program">Proactive Support Program</a></li>
+								<li><a href="/support/advanced-customer-services/" data-lbl="resources:support/advanced-customer-services">Oracle Advanced Customer Services</a></li>
+								<li><a href="/support/saas-services/" data-lbl="resources:support/saas-support-services">Oracle SaaS Support Services</a></li>
+								<li><a href="/support/lifetime-support/" data-lbl="resources:support/lifetime-support-policies">Lifetime Support Policies</a></li>
+								<li><a href="/support/policies.html" data-lbl="resources:support/technical-support-policies">Technical Support Policies</a></li>
+								<li><a href="/security-alerts/" data-lbl="resources:support/critical-patch-updates">Critical Patch Updates</a></li>
+								<li><a href="/consulting/" data-lbl="resources:support/consulting-services">Oracle Consulting Services</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li role="none">
+				<button id="education-tab" role="tab" aria-selected="false" aria-controls="education-panel" aria-expanded="false" data-lbl="resources:education">Education</button>
+				<div class="u30scontent" role="tabpanel" id="education-panel">
+					<div class="u30subhead" id="education">Education</div>
+					<ul class="threeclm" aria-labelledby="education">
+						<li><a href="https://education.oracle.com/" data-lbl="resources:oracle-university">Oracle University Home</a></li>
+						<li><a href="https://education.oracle.com/learning-explorer" data-lbl="resources:education/free-introductory-training">Free Introductory Training</a></li>
+						<li><a href="https://education.oracle.com/oracle-cloud-learning-subscriptions" data-lbl="resources:education/online-training">Online Training</a></li>
+						<li><a href="https://education.oracle.com/oracle-cloud-guided-learning" data-lbl="resources:education/guided-training">Guided Training</a></li>
+						<li><a href="https://education.oracle.com/certification" data-lbl="resources:education/certification">Certification</a></li>
+						<li><a href="https://education.oracle.com/oracle-learning-subscriptions" data-lbl="resources:education/learning-subscriptions">Learning Subscriptions</a></li>
+						<li><a href="https://blogs.oracle.com/oracleuniversity/" data-lbl="resources:education/education-blog">Education Blog</a></li>
+						<li><a href="https://education.oracle.com/OUcontactUs" data-lbl="resources:education/contact-ou">Contact Oracle University</a></li>
+					</ul>
+				</div>
+			</li>
+			<li role="none">
+				<button id="business-practices-tab" role="tab" aria-selected="false" aria-controls="business-practices-panel" aria-expanded="false" data-lbl="resources:bus-practices">Business Practices</button>
+				<div class="u30scontent" role="tabpanel" id="business-practices-panel">
+					<div class="u30subhead" id="business-practices">Business Practices</div>
+					<ul class="threeclm" aria-labelledby="business-practices">
+						<li><a href="https://supportrenewals.oracle.com/apex/f?p=supportrenewal:home:0" data-lbl="resources:bus-practices/buy-and-renew-online">Buy and Renew Online</a></li>
+						<li><a href="/corporate/contracts/" data-lbl="resources:bus-practices/contracts">Contracts</a></li>
+						<li><a href="/corporate/invoicing/" data-lbl="resources:bus-practices/invoicing">Invoicing</a></li>
+						<li><a href="/corporate/license-management-services/" data-lbl="resources:bus-practices/license-management">License Management</a></li>
+						<li><a href="/corporate/pricing/" data-lbl="resources:bus-practices/pricing-and-licensing">Pricing and Licensing</a></li>
+						<li><a href="https://supportrenewals.oracle.com/apex/f?p=supportrenewal:home:0" data-lbl="resources:bus-practices/support-renewals">Support Renewals</a></li>
+						<li><a href="/products/financing/" data-lbl="resources:bus-practices/financing">Financing</a></li>
+						<li><a href="/corporate/corporate-governance.html" data-lbl="resources:bus-practices/corporate-governance">Corporate Governance</a></li>
+						<li><a href="/corporate/software-investment-advisory.html" data-lbl="resources:software-investment-advisory">Software Investment Advisory</a></li>
+						<li><a href="/corporate/security-practices/" data-lbl="resources:bus-practices/security-practices">Security Practices</a></li>
+						<li><a href="/corporate/accessibility/" data-lbl="resources:bus-practices/accessibility-policies-standards">Accessibility Policies and Standards</a></li>
+						<li><a href="/support/lifetime-support/" data-lbl="resources:bus-practices/lifetime-support-policies">Lifetime Support Policies</a></li>
+						<li><a href="/support/policies.html" data-lbl="resources:bus-practices/technical-support-policies">Technical Support Policies</a></li>
+						<li><a href="/legal/privacy/privacy-policy.html" data-lbl="resources:bus-practices/privacy-policy">Privacy Policy</a></li>
+					</ul>
+				</div>
+			</li>
+			<li role="none">
+				<button id="about-tab" role="tab" aria-selected="false" aria-controls="about-panel" aria-expanded="false" data-lbl="resources:about">About</button>
+				<div class="u30scontent" role="tabpanel" id="about-panel">
+					<div class="u30subhead" id="about">About Oracle</div>
+					<ul class="threeclm" aria-labelledby="about">
+                    	<li><a href="/corporate/careers/" data-lbl="resources:about/careers">Careers</a></li>
+                        <li><a href="/corporate/executives/" data-lbl="resources:about/exec-leadership">Executive Leadership</a></li>
+                        <li><a href="https://investor.oracle.com/home/default.aspx" data-lbl="resources:about/investor-relations">Investor Relations</a></li>
+                        <li><a href="/corporate/analyst-reports.html" data-lbl="resources:about/analyst-reports">Analyst Reports</a></li>
+                        <li><a href="/corporate/citizenship/" data-lbl="resources:about/corp-responsibility">Corporate Responsibility</a></li>
+                        <li><a href="/corporate/covid-19.html" data-lbl="resources:about/covid-19-health-sciences">COVID-19 and Health Sciences</a></li>
+                        <li><a href="/corporate/careers/diversity-inclusion/" data-lbl="resources:about/diversity-inclusion">Diversity and Inclusion</a></li>
+                        <li><a href="/corporate/citizenship/sustainability/" data-lbl="resources:about/sustainability">Sustainability</a></li>
+                        <li><a href="https://blogs.oracle.com/" data-lbl="resources:about/blogs">Blogs</a></li>
+                        <li><a href="/news/" data-lbl="resources:about/new">News</a></li>
+                        <li><a href="/redbullracing/" data-lbl="resources:about/red-bull-racing">Oracle Red Bull Racing</a></li>
+                        <li><a href="/premier-league/" data-lbl="resources:about/premier-league">Premier League</a></li>
+                        <li><a href="/startup/" data-lbl="resources:about/startups">Oracle for Startups</a></li>
+                        <li><a href="/research/" data-lbl="resources:about/research">Research</a></li>
+                        <li><a href="https://academy.oracle.com/en/oa-web-overview.html" data-lbl="resources:about/academy">Oracle Academy</a></li>
+                        <li><a href="https://oraclefoundation.org/index.html" data-lbl="resources:about/education-foundation">Oracle Education Foundation</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div></div></div></li>
+				<li><button data-navtarget="customers" aria-controls="customers" aria-expanded="false" class="u30navitem">Customers</button><div data-dropdown="customers" class="u30navw2"><div class="u30navw3 four-column-tworow-vertical">
+					<button class="closenav" aria-label="Close Menu">
+						<title>Close Menu</title>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<path d="M7,7 L17,17"></path>
+							<path d="M17,7 L7,17"></path>
+						</svg>
+					</button>
+				 <div id="customers-nav" data-navcontent="customers" data-navtype="four-column-tworow-vertical">
+		<ul class="tworow">
+			<li>
+				<span class="u30t1">Customer Programs</span>
+				<button aria-controls="customer-programs" aria-expanded="false">Customer Programs</button>
+				<ul class="twoclm align-fourclm divider" id="customer-programs">
+                	<li><a href="/corporate/customers/references/" data-lbl="customers:programs/become-reference">Become a reference</a></li>
+                    <li><a href="https://cloudcustomerconnect.oracle.com/pages/home" data-lbl="customers:programs/join-community">Join the community</a></li>
+                    <li><a href="/corporate/customers/customer-reviews/" data-lbl="customers:programs/write-review">Write a review</a></li>
+                    <li><a href="/corporate/customers/awards/" data-lbl="customers:programs/customer-awards">Customer Awards</a></li>
+                    <li><a href="/cloud/rewards/" data-lbl="customers:programs/my-oracle-rewards">My Oracle Rewards</a></li>
+                    <li><a href="https://pdpm.oracle.com/pls/apex/f?p=102:250" data-lbl="customers:programs/preview-beta-testing">Preview/Beta testing opportunities</a></li>
+				</ul>
+			</li>
+			<li>
+				<span class="u30t1">Customer Success Stories</span>
+				<button aria-controls="customer-success-stories" aria-expanded="false">Customer Success Stories</button>
+				<ul class="twoclm align-fourclm" id="customer-success-stories">
+                	<li><a href="/customers/" data-lbl="customers:success-stories/explore-all">Explore all customer successes</a></li>
+                    <li><a href="/customers/earnings/" data-lbl="customers:success-stories/recent-wins">Recent customer wins</a></li>
+                    <li><a href="/cloud/oracle-at-oracle/" data-lbl="customers:success-stories/oracle-at-oracle">Oracle@Oracle</a></li>
+                    <li><a href="/customers/?product=mpd-cld-apps:fusion-suite:marketing~mpd-cld-apps:fusion-suite:sales~mpd-cld-apps:fusion-suite:service~mpd-cld-apps:adv-data-cloud" data-lbl="customers:success-stories/advertising-cx">Advertising and CX customer success</a></li>
+                    <li><a href="/customers/?product=mpd-cld-apps:fusion-suite:erp" data-lbl="customers:success-stories/erp">ERP customer success</a></li>
+                    <li><a href="/customers/?product=mpd-cld-apps:fusion-suite:hcm" data-lbl="customers:success-stories/hcm">HCM customer success</a></li>
+                    <li><a href="/customers/?product=mpd-cld-infra:auto-db" data-lbl="customers:success-stories/autonomous">Autonomous customer success</a></li>
+                    <li><a href="/customers/?product=mpd-cld-infra" data-lbl="customers:success-stories/cloud">Cloud customer success</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div></div></div></li>
+				<li><button data-navtarget="partners" aria-controls="partners" aria-expanded="false" class="u30navitem">Partners</button><div data-dropdown="partners" class="u30navw2"><div class="u30navw3 four-column-tworow-vertical">
+					<button class="closenav" aria-label="Close Menu">
+						<title>Close Menu</title>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<path d="M7,7 L17,17"></path>
+							<path d="M17,7 L7,17"></path>
+						</svg>
+					</button>
+				 <div id="partners-nav" data-navcontent="partners" data-navtype="four-column-tworow-vertical">
+		<ul class="tworow">
+			<li>
+				<span class="u30t1">Partner Resources for Customers</span>
+				<button aria-controls="resources-customers" aria-expanded="false">Partner Resources for Customers</button>
+				<ul class="twoclm align-fourclm divider" id="resources-customers">
+					<li><a href="/partner/" data-lbl="partners:for-customers/about-partner-ecosystem">About our partner ecosystem</a></li>
+					<li><a href="https://partner-finder.oracle.com/" data-lbl="partners:for-customers/find-partner">Find a Partner</a></li>
+					<li><a href="https://cloudmarketplace.oracle.com/" data-lbl="partners:for-customers/cloud-marketplace">Cloud Marketplace</a></li>
+				</ul>
+			</li>
+			<li>
+				<span class="u30t1">Resources for Partners</span>
+				<button aria-controls="resources-partners" aria-expanded="false">Resources for Partners</button>
+				<ul class="twoclm align-fourclm" id="resources-partners">
+					<li><a href="/partnernetwork/build/" data-lbl="partners:for-partners/build-on-oci">Build on Oracle Cloud Infrastructure</a></li>
+					<li><a href="/partnernetwork/integrate/" data-lbl="partners:for-partners/integrate-with-saas">Integrate with Oracle SaaS</a></li>
+					<li><a href="/partnernetwork/service-delivery/" data-lbl="partners:for-partners/expand-service-offerings">Expand services offerings on Oracle Cloud</a></li>
+					<li><a href="/partnernetwork/journey/" data-lbl="partners:for-partners/opn-journey-builder">Become a Partner: OPN Journey Builder</a></li>
+					<li><a href="/partnernetwork/program/" data-lbl="partners:for-partners/opn">Oracle PartnerNetwork</a></li>
+					<li><a href="/opn/index.html" data-lbl="partners:for-partners/log-in-opn-portal">Log in to the OPN Portal</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div></div></div></li>
+				<li><button data-navtarget="developers" aria-controls="developers" aria-expanded="false" class="u30navitem">Developers</button><div data-dropdown="developers" class="u30navw2"><div class="u30navw3 four-column-tworow-vertical">
+					<button class="closenav" aria-label="Close Menu">
+						<title>Close Menu</title>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<path d="M7,7 L17,17"></path>
+							<path d="M17,7 L7,17"></path>
+						</svg>
+					</button>
+				 <div id="developers-nav" data-navcontent="developers" data-navtype="four-column-tworow-vertical">
+		<span class="u30t1" id="developers">Developers</span>
+		<ul aria-labelledby="developers" class="tworow">
+			<li>
+				<ul class="twoclm align-fourclm divider">
+                	<li><a href="https://developer.oracle.com/" data-lbl="developers:resource-center">Developer Resource Center</a></li>
+                    <li><a href="https://community.oracle.com/tech/developers" data-lbl="developers:community">Developer Community</a></li>
+                    <li><a href="https://blogs.oracle.com/developers/" data-lbl="developers:blog">Developer Blog</a></li>
+                    <li><a href="https://developer.oracle.com/developer-live/" data-lbl="developers:developer-live">Developer Live</a></li>
+                    <li><a href="https://developer.oracle.com/events/" data-lbl="developers:events">Developer Events</a></li>
+				</ul>
+			</li>
+			<li>
+				<ul class="twoclm">
+					<li>
+						<aside class="u30cta u30a1 rw-neutral-10bg" data-u30bgsrc="/a/ocom/img/u28-bgimg-oci-2.jpg" aria-labelledby="oracledb3" style="background-image: url(&quot;/a/ocom/img/u28-bgimg-oci-2.jpg&quot;);">
+							<span id="oracledb3">Try Oracle Free Tier</span>
+							<p>Oracle Cloud Free Tier lets anyone build, test, and deploy applications on Oracle Cloud—for free.</p>
+							<div class="obttns">
+								<div class="obttn1">
+									<a href="/cloud/free/?source=:ow:o:sp:nav::DeveloperNav0121&amp;intcmp=:ow:o:sp:nav::DeveloperNav0121" class="u30acta" data-lbl="developers:promo/cloud-free-tier" aria-label="Try Oracle Cloud Free Tier">Try Oracle Cloud</a>
+								</div>
+							</div>
+						</aside>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div></div></div></li>
+				<li><button data-navtarget="events" aria-controls="events" aria-expanded="false" class="u30navitem">Events</button><div data-dropdown="events" class="u30navw2"><div class="u30navw3 four-column-vertical">
+					<button class="closenav" aria-label="Close Menu">
+						<title>Close Menu</title>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<path d="M7,7 L17,17"></path>
+							<path d="M17,7 L7,17"></path>
+						</svg>
+					</button>
+				 <div id="events-nav" data-navcontent="events" data-navtype="four-column-vertical">
+		<span class="u30t1" id="events">Events</span>
+		<ul aria-labelledby="events" class="twoclm align-fourclm">
+        	<li><a href="/cloudworld/" data-lbl="events:cloudworld">Oracle CloudWorld</a></li>
+        	<li><a href="/events/live/?source=:ow:o:h:nav::OracleLiveSeries_OcomHomepageDropdown&amp;intcmp=:ow:o:h:nav::OracleLiveSeries_OcomHomepageDropdown" data-lbl="events:oracle-live">Oracle Live</a></li>
+            <li><a href="https://developer.oracle.com/developer-live/?source=:ow:o:h:nav::DevLiveSeries_OcomHomepageEventsDropdown&amp;intcmp=:ow:o:h:nav::DevLiveSeries_OcomHomepageEventsDropdown" data-lbl="events:developer-live">Developer Live</a></li>
+            <li><a href="/events/customer-spotlight/?source=:ow:evp:cpo:::OcomT1EventIndex&amp;intcmp=:ow:evp:cpo:::OcomT1EventIndex" data-lbl="events:customer-spotlight">Customer Spotlight</a></li>
+            <li><a href="https://www.oracle.com/search/events?lang=en&amp;locid=WM176642" data-lbl="events:search-all-events">Search all events</a></li>
+            <li><a href="/cloud/events/" data-lbl="events:cloud">Cloud Infrastructure events</a></li>
+            <li><a href="/cx/events/" data-lbl="events:cx">CX events</a></li>
+            <li><a href="/erp/events/" data-lbl="events:erp">ERP events</a></li>
+            <li><a href="/human-capital-management/events/" data-lbl="events:hcm">HCM events</a></li>
+            <li><a href="/scm/events/" data-lbl="events:scm">SCM events</a></li>
+		</ul>
+	</div></div></div></li>
+			</ul></nav>
+		</div>
+
+		<div id="u30tools" class="u30tools">
+
+
+			<div id="u30search">
+				<div id="u30searchw1" style="width: 688px;">
+					<div id="u30searchw2">
+						<form name="u30searchForm" id="u30searchForm" data-contentpaths="/content/Web/Shared/Auto-Suggest Panel Event" method="get" action="/search">
+							<input type="hidden" name="Nty" value="1">
+							<input type="hidden" name="Dy" value="1">
+							<!--<input type="hidden" name="Ntk" value="SI-Global">-->
+							<input type="hidden" name="Ntk" value="SI-ALL5">
+							<input type="hidden" name="cty" value="us">
+							<input type="hidden" name="lang" value="en">
+							<input type="hidden" name="NoBstNoRec" value="no">
+							<div class="u30s1">
+								<button id="u30closesearch" aria-label="Close Search" type="button">
+									<span>Close Search</span>
+									<svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 13L2 7L8 1" stroke="#161513" stroke-width="2"></path></svg>
+								</button>
+								<span class="u30input">
+
+									<div class="u30inputw1">
+										<input id="u30input" name="Ntt" value="" type="text" placeholder="Search" autocomplete="off" aria-autocomplete="both" aria-activedescendant="" aria-label="Search Oracle.com" role="combobox" aria-expanded="false" aria-owns="u30autosuggest" aria-haspopup="listbox">
+									</div>
+
+									<div id="u30searchw3" style="margin-left: -198px; width: calc(-17px + 100vw); max-width: 1267px;">
+										<ul role="listbox" id="u30autosuggest" style="padding-left: 48px; padding-right: 48px;">
+
+										</ul>
+										<div id="u30results" style="padding-left: 48px; padding-right: 48px;">
+											<button id="u30closeresults" aria-label="Close Results" type="button">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+													<path d="M7,7 L17,17"></path>
+													<path d="M17,7 L7,17"></path>
+												</svg>
+												<span>Close</span>
+											</button>
+											<div id="u30resultsw1">
+
+											</div>
+											<div id="u30noresults">
+												<div class="u30result noresults">
+													<div>No results found</div>
+													<p>Your search did not match any results.</p>
+													<p>We suggest you try the following to help find what you're looking for:</p>
+													<ul class="u30nr1">
+														<li>Check the spelling of your keyword search.</li>
+														<li>Use synonyms for the keyword you typed, for example, try "application" instead of "software."</li>
+														<li>Start a new search.</li>
+													</ul>
+												</div>
+											</div>
+										<ul id="u30skel" style="left: 48px; right: 48px;"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></div>
+									</div>
+									<span class="u30submit">
+										<input class="u30searchbttn" type="submit" value="Submit Search">
+									</span>
+									<button id="u30clear" type="reset" aria-label="Clear Search">
+										<span>Clear Search</span>
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 7L13 13M7 13L13 7M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" stroke="#161513" stroke-width="2"></path></svg>
+									</button>
+								</span>
+							</div>
+						</form>
+						<div id="u30announce" data-alerttxt="suggestions found to navigate use up and down arrows" class="u30visually-hidden" aria-live="polite"></div>
+					</div>
+				</div>
+				<button class="u30searchBtn" id="u30searchBtn" type="button" aria-label="Open Search Field" aria-expanded="false">
+					<span>Search</span>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M15,15l6,6M17,10a7,7,0,1,1-7-7A7,7,0,0,1,17,10Z"></path></svg>
+				</button>
+			</div>
+
+			<div id="u30-profile" class="u30-profile">
+				<button id="u30-flyout" data-lbl="sign-in-account" aria-expanded="false" aria-labelledby="acctBtnLabel">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M17,19.51A3,3,0,0,0,14,17H10a3,3,0,0,0-3,2.51m9.92,0a9,9,0,1,0-9.92,0m9.92,0a9,9,0,0,1-9.92,0M15,10a3,3,0,1,1-3-3A3,3,0,0,1,15,10Z"></path></svg>
+					<span class="acttxt" id="acctBtnLabel">View Accounts</span>
+				</button>
+				<div id="u30-profilew1" style="">
+
+					<button id="u30actbck" aria-label="close account flyout"><span class="u30actbcktxt">Back</span></button>
+
+					<div class="u30-profilew2">
+						<span class="u30acttitle">Cloud Account</span>
+						<a href="/cloud/sign-in.html" class=" u30darkcta u30cloudbg" data-lbl="sign-in-to-cloud">Sign in to Cloud</a>
+						<a href="/cloud/free/?source=:ow:o:h:nav:OHP0625ViewAccountsButton&amp;intcmp=:ow:o:h:nav:OHP0625ViewAccountsButton" class="u30lightcta" data-lbl="try-free-cloud-trial">Sign Up for Free Cloud Tier</a>
+					</div>
+
+					<span class="u30acttitle">Oracle Account</span>
+					<ul class="u30l-out">
+						<li><a href="https://www.oracle.com/webapps/redirect/signon?nexturl=https%3A%2F%2Fwww.oracle.com%2Fhuman-capital-management%2Ftaleo%2F" data-lbl="profile:sign-in-account" class="u30darkcta">Sign-In</a></li>
+						<li><a href="https://profile.oracle.com/myprofile/account/create-account.jspx" data-lbl="profile:create-account" class="u30lightcta">Create an Account</a></li>
+					</ul>
+					<ul class="u30l-in">
+						<li><a href="/corporate/contact/help.html" data-lbl="help">Help</a></li>
+						<li><a href="javascript:sso_sign_out();" id="u30pfile-sout" data-lbl="signout">Sign Out</a></li>
+					</ul>
+
+				</div>
+			</div>
+
+			<div class="u30-contact">
+                 
+		
+				<a href="/corporate/contact/" data-lbl="contact-us" title="Contact Sales"><span>Contact Sales</span></a>
+			</div>
+
+			<a href="/global-menu-v2/" id="u30ham" role="button" aria-expanded="false" aria-haspopup="true" aria-controls="u30navw1">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+					<title>Menu</title>
+					<path d="M16,4 L2,4" class="p1"></path>
+					<path d="M2,12 L22,12" class="p2"></path>
+					<path d="M2,20 L16,20" class="p3"></path>
+					<path d="M0,12 L24,12" class="p4"></path>
+					<path d="M0,12 L24,12" class="p5"></path>
+				</svg>
+				<span>Menu</span>
+			</a>
+
+		</div>
+
+	</div>
+
+	<script>
+
+	var u30min = [722,352,0,0];
+	var u30brsz = new ResizeObserver(u30 => {
+
+		document.getElementById('u30').classList.remove('u30mobile','u30tablet','u30notitle');
+		let u30b = document.getElementById('u30brand').offsetWidth,
+			u30t = document.getElementById('u30tools').offsetWidth ;
+			u30v = document.getElementById('u30navw1');
+			u30w = document.getElementById('u30w1').offsetWidth - 48;
+		if((u30b + u30t) > u30min[0]){
+			u30min[2] = ((u30b + u30t) > 974) ? u30b + u30t + 96 : u30b + u30t + 48;
+		}else{
+			u30min[2] = u30min[0];
+		}
+		
+		u30min[3] = ((u30b + 112) > u30min[1]) ? u30min[3] = u30b + 112 : u30min[3] = u30min[1];
+
+		u30v.classList.add('u30navchk');
+		u30min[2] = (u30v.lastElementChild.getBoundingClientRect().right > u30min[2]) ? Math.ceil(u30v.lastElementChild.getBoundingClientRect().right) : u30min[2];
+		u30v.classList.remove('u30navchk');
+
+		if(u30w <= u30min[3]){
+			document.getElementById('u30').classList.add('u30notitle');
+		}
+		if(u30w <= u30min[2]){
+			document.getElementById('u30').classList.add('u30mobile');
+		}
+
+	});
+
+	var u30wrsz = new ResizeObserver(u30 => {
+		let u30n = document.getElementById('u30navw1').getBoundingClientRect().height,
+		u30h = u30[0].contentRect.height;
+		let u30c = document.getElementById('u30').classList,
+			u30w = document.getElementById('u30w1').offsetWidth - 48,
+			u30m = 'u30mobile',
+			u30t = 'u30tablet';
+		
+		if(u30c.contains('navexpand') && u30c.contains(u30m) && u30w > u30min[2]){
+			if(!document.querySelector('button.u30navitem.active')){
+				document.getElementById('u30ham').click();
+			}
+			u30c.remove(u30m);
+			if(document.getElementById('u30').getBoundingClientRect().height > 80){
+				u30c.add(u30t);
+			}else{
+				u30c.remove(u30t);
+			}
+		}else if(u30w <= u30min[2]){
+			if(getComputedStyle(document.getElementById('u30tools')).visibility != "hidden"){
+				u30c.add(u30m);
+				u30c.remove(u30t);
+			}
+		}else if(u30n < 30 && u30h > 80){
+			u30c.add(u30t);
+			u30c.remove(u30m);
+		}else if(u30n > 30){
+			u30c.add(u30m);
+			u30c.remove(u30t);
+		}else if(u30n < 30 && u30h <= 80){
+			u30c.remove(u30m);
+			if(document.getElementById('u30').getBoundingClientRect().height > 80){
+				u30c.add(u30t);
+			}else{
+				u30c.remove(u30t);
+			}
+		}
+	});
+	u30brsz.observe(document.getElementById('u30btitle'));
+	u30wrsz.observe(document.getElementById('u30'));
+	</script>
+
+<div id="u30navBg"><div id="u30navBgscroll" class="cwidth"><div></div></div></div><span id="u30pgOverlay"></span></section>
+<!-- /U30v3 -->
+
+
+
+
+<!-- END: oWidget_C/_Raw-Text/Display -->
+
+
+<!-- end : ocom/common/global/components/redwood/layoutAssetStartBodyInfo -->
+<!--  Start : ocom/common/global/components/ct12-content-tabs -->
+
+		<!-- CT12v0 -->
+		<nav class="ct12 ct12v0 ws-sticky rw-neutral-180bg" data-moretxt="More" data-ocomid="ct12" data-trackas="ct12">
+			<div class="ct12w1 cwidth ct12cta-none ct12loaded">
+				<div class="ct12w2 ct12hoverOn">
+					<ul role="menubar">
+					
+										<li class="ct12t1"><div tabindex="-1" role="none"><a href="/human-capital-management/" tabindex="0" role="menuitem" class="aria-a">Overview</a></div><span class="ct12bar"></span></li>
+										
+										<li class="ct12current ct12t2">
+										
+									<div tabindex="-1" role="none">
+										<span><span class="ct12w5 icn-cv-down-after aria-b" tabindex="0" role="menuitem">HCM Products</span></span>
+										<span class="ct12w6">
+											<ul role="menu">
+												
+														<li><span><a href="/human-capital-management/hr/" tabindex="0" role="menuitem">Human Resources</a></span></li>
+														
+														<li><span><a href="/human-capital-management/talent-management/" tabindex="0" role="menuitem">Talent Management</a></span></li>
+														
+														<li><span><a href="/human-capital-management/recruiting/" tabindex="0" role="menuitem">Recruiting</a></span></li>
+														
+														<li><span><a href="/human-capital-management/talent-management/learning/" tabindex="0" role="menuitem">Learning</a></span></li>
+														
+														<li><span><a href="/human-capital-management/workforce-management/" tabindex="0" role="menuitem">Workforce Management</a></span></li>
+														
+														<li><span><a href="/business-analytics/fusion-hcm-analytics/" tabindex="0" role="menuitem">HCM Analytics </a></span></li>
+														
+														<li><span><a href="/human-capital-management/payroll/" tabindex="0" role="menuitem">Payroll </a></span></li>
+														
+											</ul>
+										</span>
+									</div>
+									<span class="ct12bar"></span></li>
+									
+										<li class="ct12t3">
+										
+									<div tabindex="-1" role="none">
+										<span><span class="ct12w5 icn-cv-down-after aria-b" tabindex="0" role="menuitem">HCM Industries</span></span>
+										<span class="ct12w6">
+											<ul role="menu">
+												
+														<li><span><a href="/industries/communications/hcm/" tabindex="0" role="menuitem">Communications</a></span></li>
+														
+														<li><span><a href="/industries/utilities/hcm/" tabindex="0" role="menuitem">Energy and Water</a></span></li>
+														
+														<li><span><a href="/industries/financial-services/hcm/" tabindex="0" role="menuitem">Financial Services</a></span></li>
+														
+														<li><span><a href="/industries/food-beverage/hcm/" tabindex="0" role="menuitem">Food and Beverage</a></span></li>
+														
+														<li><span><a href="/industries/healthcare/hcm/" tabindex="0" role="menuitem">Healthcare</a></span></li>
+														
+														<li><span><a href="/industries/hospitality/hcm/" tabindex="0" role="menuitem">Hospitality</a></span></li>
+														
+														<li><span><a href="/industries/industrial-manufacturing/hcm/" tabindex="0" role="menuitem">Industrial Manufacturing</a></span></li>
+														
+														<li><span><a href="/industries/life-sciences/hcm/" tabindex="0" role="menuitem">Life Sciences</a></span></li>
+														
+														<li><span><a href="/industries/retail/hcm/" tabindex="0" role="menuitem">Retail</a></span></li>
+														
+											</ul>
+										</span>
+									</div>
+									<span class="ct12bar"></span></li>
+									
+										<li class="ct12t4">
+										
+									<div tabindex="-1" role="none">
+										<span><span class="ct12w5 icn-cv-down-after aria-b" tabindex="0" role="menuitem">Solutions</span></span>
+										<span class="ct12w6">
+											<ul role="menu">
+												
+														<li><span><a href="/human-capital-management/move-to-cloud/" tabindex="0" role="menuitem">The Move to Cloud HCM</a></span></li>
+														
+														<li><span><a href="/human-capital-management/ebs-to-cloud/" tabindex="0" role="menuitem">E-Business Suite to Cloud HCM</a></span></li>
+														
+														<li><span><a href="/human-capital-management/peoplesoft-to-cloud/" tabindex="0" role="menuitem">PeopleSoft to Cloud HCM</a></span></li>
+														
+														<li><span><a href="/human-capital-management/taleo/taleo-to-oracle-recruiting/" tabindex="0" role="menuitem">Taleo to Oracle Recruiting</a></span></li>
+														
+														<li><span><a href="/human-capital-management/cloud-expansion/" tabindex="0" role="menuitem">Cloud HCM Expansion</a></span></li>
+														
+														<li><span><a href="/human-capital-management/hcm-and-erp/" tabindex="0" role="menuitem">One Cloud for HR and Finance</a></span></li>
+														
+														<li><span><a href="/scm/scm-and-hr/" tabindex="0" role="menuitem">One Cloud for HR and Supply Chain</a></span></li>
+														
+											</ul>
+										</span>
+									</div>
+									<span class="ct12bar"></span></li>
+									
+										<li class="ct12t5">
+										
+									<div tabindex="-1" role="none">
+										<span><span class="ct12w5 icn-cv-down-after aria-b" tabindex="0" role="menuitem">Compare</span></span>
+										<span class="ct12w6">
+											<ul role="menu">
+												
+														<li><span><a href="/human-capital-management/oracle-vs-workday/" tabindex="0" role="menuitem">Oracle Cloud HCM vs. Workday </a></span></li>
+														
+														<li><span><a href="/human-capital-management/oracle-vs-sap-successfactors/" tabindex="0" role="menuitem">Oracle Cloud HCM vs. SAP SuccessFactors</a></span></li>
+														
+											</ul>
+										</span>
+									</div>
+									<span class="ct12bar"></span></li>
+									
+										<li class="ct12t6">
+										
+									<div tabindex="-1" role="none">
+										<span><span class="ct12w5 icn-cv-down-after aria-b" tabindex="0" role="menuitem">Customer Success</span></span>
+										<span class="ct12w6">
+											<ul role="menu">
+												
+														<li><span><a href="/human-capital-management/customers/" tabindex="0" role="menuitem">Customer Stories</a></span></li>
+														
+														<li><span><a href="/human-capital-management/hr-heroes/" tabindex="0" role="menuitem">Customer Awards</a></span></li>
+														
+											</ul>
+										</span>
+									</div>
+									<span class="ct12bar"></span></li>
+									
+										<li class="ct12t7">
+										
+									<div tabindex="-1" role="none">
+										<span><span class="ct12w5 icn-cv-down-after aria-b" tabindex="0" role="menuitem">What's new</span></span>
+										<span class="ct12w6">
+											<ul role="menu">
+												
+														<li><span><a href="/human-capital-management/whats-new/" tabindex="0" role="menuitem">HCM Updates</a></span></li>
+														
+														<li><span><a href="//blogs.oracle.com/oraclehcm/" tabindex="0" role="menuitem">Blogs</a></span></li>
+														
+											</ul>
+										</span>
+									</div>
+									<span class="ct12bar"></span></li>
+									
+				<li class="ct12w3 ct12t8" role="menu" tabindex="-1" style=""><div tabindex="-1" role="none"><span><span class="ct12w5 icn-cv-down-after aria-b" role="menuitem" tabindex="0">More</span></span><div class="ct12more" role="menu" aria-labelledby="menubutton1"><ul class="rw-neutral-00bg" style="left: -99100px; position: relative;">
+												
+														<li data-ref="ct12t7"><span><a href="/human-capital-management/whats-new/" tabindex="0" role="menuitem">HCM Updates</a></span></li>
+														
+														<li data-ref="ct12t7"><span><a href="//blogs.oracle.com/oraclehcm/" tabindex="0" role="menuitem">Blogs</a></span></li>
+														
+											
+												
+														<li data-ref="ct12t6"><span><a href="/human-capital-management/customers/" tabindex="0" role="menuitem">Customer Stories</a></span></li>
+														
+														<li data-ref="ct12t6"><span><a href="/human-capital-management/hr-heroes/" tabindex="0" role="menuitem">Customer Awards</a></span></li>
+														
+											
+												
+														<li data-ref="ct12t5"><span><a href="/human-capital-management/oracle-vs-workday/" tabindex="0" role="menuitem">Oracle Cloud HCM vs. Workday </a></span></li>
+														
+														<li data-ref="ct12t5"><span><a href="/human-capital-management/oracle-vs-sap-successfactors/" tabindex="0" role="menuitem">Oracle Cloud HCM vs. SAP SuccessFactors</a></span></li>
+														
+											
+												
+														<li data-ref="ct12t4"><span><a href="/human-capital-management/move-to-cloud/" tabindex="0" role="menuitem">The Move to Cloud HCM</a></span></li>
+														
+														<li data-ref="ct12t4"><span><a href="/human-capital-management/ebs-to-cloud/" tabindex="0" role="menuitem">E-Business Suite to Cloud HCM</a></span></li>
+														
+														<li data-ref="ct12t4"><span><a href="/human-capital-management/peoplesoft-to-cloud/" tabindex="0" role="menuitem">PeopleSoft to Cloud HCM</a></span></li>
+														
+														<li data-ref="ct12t4"><span><a href="/human-capital-management/taleo/taleo-to-oracle-recruiting/" tabindex="0" role="menuitem">Taleo to Oracle Recruiting</a></span></li>
+														
+														<li data-ref="ct12t4"><span><a href="/human-capital-management/cloud-expansion/" tabindex="0" role="menuitem">Cloud HCM Expansion</a></span></li>
+														
+														<li data-ref="ct12t4"><span><a href="/human-capital-management/hcm-and-erp/" tabindex="0" role="menuitem">One Cloud for HR and Finance</a></span></li>
+														
+														<li data-ref="ct12t4"><span><a href="/scm/scm-and-hr/" tabindex="0" role="menuitem">One Cloud for HR and Supply Chain</a></span></li>
+														
+											
+												
+														<li data-ref="ct12t3"><span><a href="/industries/communications/hcm/" tabindex="0" role="menuitem">Communications</a></span></li>
+														
+														<li data-ref="ct12t3"><span><a href="/industries/utilities/hcm/" tabindex="0" role="menuitem">Energy and Water</a></span></li>
+														
+														<li data-ref="ct12t3"><span><a href="/industries/financial-services/hcm/" tabindex="0" role="menuitem">Financial Services</a></span></li>
+														
+														<li data-ref="ct12t3"><span><a href="/industries/food-beverage/hcm/" tabindex="0" role="menuitem">Food and Beverage</a></span></li>
+														
+														<li data-ref="ct12t3"><span><a href="/industries/healthcare/hcm/" tabindex="0" role="menuitem">Healthcare</a></span></li>
+														
+														<li data-ref="ct12t3"><span><a href="/industries/hospitality/hcm/" tabindex="0" role="menuitem">Hospitality</a></span></li>
+														
+														<li data-ref="ct12t3"><span><a href="/industries/industrial-manufacturing/hcm/" tabindex="0" role="menuitem">Industrial Manufacturing</a></span></li>
+														
+														<li data-ref="ct12t3"><span><a href="/industries/life-sciences/hcm/" tabindex="0" role="menuitem">Life Sciences</a></span></li>
+														
+														<li data-ref="ct12t3"><span><a href="/industries/retail/hcm/" tabindex="0" role="menuitem">Retail</a></span></li>
+														
+											
+												
+														<li data-ref="ct12t2"><span><a href="/human-capital-management/hr/" tabindex="0" role="menuitem">Human Resources</a></span></li>
+														
+														<li data-ref="ct12t2"><span><a href="/human-capital-management/talent-management/" tabindex="0" role="menuitem">Talent Management</a></span></li>
+														
+														<li data-ref="ct12t2"><span><a href="/human-capital-management/recruiting/" tabindex="0" role="menuitem">Recruiting</a></span></li>
+														
+														<li data-ref="ct12t2"><span><a href="/human-capital-management/talent-management/learning/" tabindex="0" role="menuitem">Learning</a></span></li>
+														
+														<li data-ref="ct12t2"><span><a href="/human-capital-management/workforce-management/" tabindex="0" role="menuitem">Workforce Management</a></span></li>
+														
+														<li data-ref="ct12t2"><span><a href="/business-analytics/fusion-hcm-analytics/" tabindex="0" role="menuitem">HCM Analytics </a></span></li>
+														
+														<li data-ref="ct12t2"><span><a href="/human-capital-management/payroll/" tabindex="0" role="menuitem">Payroll </a></span></li>
+														
+											</ul></div></div><span class="ct12bar"></span></li></ul>
+			</div>
+
+			
+
+			</div>
+		</nav>
+		<!-- /CT12v0 -->
+		<!--  end : ocom/common/global/components/ct12-content-tabs -->
+
+
+<!-- widgetType = PageTitleBannerV2 -->
+<!-- ptbWidget = true -->
+		
+
+<!-- ptbWidget = true -->
+		
+
+<!-- BEGIN:  oWidget_C/PageTitleBannerV2/Display -->
+
+
+
+<!-- RH03v2 -->
+<section class="rh03 rh03v3 rw-theme-130bg bgimgw1" data-trackas="rh03" data-ocomid="rh03"><div style="background-image:url(/a/ocom/img/bgimg02-bgne-overlay-01.png)" class="bgimg bgimgw2 bgimg-rhalf bgimg-hsize bgimg-overlay"></div><div style="background-image:url(/a/ocom/img/bgimg02-bgsw-overlay-01.png)" class="bgimg bgimgw2 bgimg-lhalf bgimg-bottom bgimg-hsize bgimg-overlay"></div>
+  <div class="rh03w1 cwidth">
+
+	
+	<div class="rh03bc">
+			<!--BREADCRUMBS-->
+			<div class="rh03bc1">
+				<ol>
+	
+								<li><a href="/applications/">Applications</a></li>
+								
+								<li><a href="/human-capital-management/">Human Capital Management</a></li>
+								
+				</ol>
+			</div>
+	
+
+				<!--Call to action-->
+				<div class="rh03bc2">
+
+				
+	<!-- Dispatcher:null -->
+	
+<!-- BEGIN: oWidget_C/_Raw-Text/Display -->
+      <div class="rh03bc2">
+        <div class="obttns">
+          <div>
+            <a href="/human-capital-management/taleo/signin/" data-lbl="banner-callout:login">Taleo Login</a>
+          </div>
+        </div>
+      </div>
+
+
+
+
+<!-- END: oWidget_C/_Raw-Text/Display -->
+
+
+				</div>
+
+			
+	</div>
+	
+			<!-- Widget - 1 -->
+			
+	<!-- Dispatcher:null -->
+	
+<!-- BEGIN: oWidget_C/_Raw-Text/Display -->
+<!-- TITLE + INTRO --> 
+<div class="herotitle rh03twocol"> 
+<div class="rh03col1"><h1 class="oracleprefix rwaccent">Taleo</h1><p>Leverage a complete set of tools for sourcing, recruiting, and onboarding. Oracle Taleo is the most robust standalone talent acquisition suite for finding and hiring the best candidates.</p></div> 
+
+
+
+<div class="rh03vid"> 
+<div class="clickvideo"> <div class="ytembed ytvideo ytthumbnail vd03init" data-ytid="Hk1hBE5OTnA"><button class="vjs-big-play-button" data-lbl="yt-play-Hk1hBE5OTnA" undefined=""></button><img src="https://i.ytimg.com/vi/Hk1hBE5OTnA/hqdefault.jpg"></div>
+<p>Watch the Oracle Talent Acquisition Cloud video</p> 
+</div> 
+
+
+
+</div> 
+
+<!-- /TITLE + INTRO -->
+
+
+
+<!-- END: oWidget_C/_Raw-Text/Display -->
+
+
+  </div>
+</div></section>
+<!-- /RH03v2 -->
+
+<!-- END:  oWidget_C/PageTitleBannerV2/Display -->
+
+<!-- start : ocom/common/global/components/compass/related-widgets -->
+	<!-- Dispatcher:null -->
+	
+<!-- BEGIN: oWidget_C/_Raw-Text/Display -->
+<!-- RC11v0 -->
+<section class="rc11 rc11v0 bg-red" data-trackas="rc11" data-ocomid="rc11">
+    <div class="rc11w1 cwidth">
+        <div class="rc11w2">
+          <p>Considering moving to Oracle Recruiting from Taleo?</p>
+          <div class="obttns">
+            <div>
+<a href="/human-capital-management/taleo/taleo-to-oracle-recruiting/" data-lbl="taleo-hr">Learn more</a>
+            </div>
+          </div>
+        </div>
+    </div>
+</section>
+<!-- /RC11v0 -->
+
+
+
+
+
+<!-- END: oWidget_C/_Raw-Text/Display -->
+
+	<!-- Dispatcher:null -->
+	
+<!-- BEGIN: oWidget_C/_Raw-Text/Display -->
+<!-- RC30v1 -->
+<section class="rc30 rc30v1 cpad rw-theme-30bg rw-pattern-theme1w rw-pattern-8p rw-pattern-load" data-trackas="rc30" data-ocomid="rc30" data-lbl="products:taleo:" data-instance="0">
+    <div class="rc30w1 cwidth">
+        <h3 class="rwaccent">Taleo—Explore the Difference</h3>
+         <div class="rc30w2">
+            <form class="oform rc30mobnav oform-initialized">
+                <span class="oform-w1 ovalid">
+                    <span class="oselect">
+                        <span class="oinput"><select name="f4" placeholder=" ">
+            <option value="#rc30p1" selected="selected">Taleo Enterprise Edition</option>
+            <option value="#rc30p2">Taleo Business Edition</option>
+            <option value="#rc30p3">Taleo Business Edition Talent Management</option>
+          
+                        </select></span>
+                    </span>
+                </span>
+            </form>
+        <div class="rc30nav"><ul><li class="rc30active"><a href="#rc30p1" id="rc30t0_0" tabindex="0" role="tab" aria-selected="true" aria-controls="rc30p1"><span>Taleo Enterprise Edition</span></a></li><li><a href="#rc30p2" id="rc30t0_1" tabindex="0" role="tab" aria-selected="false" aria-controls="rc30p2"><span>Taleo Business Edition</span></a></li><li><a href="#rc30p3" id="rc30t0_2" tabindex="0" role="tab" aria-selected="false" aria-controls="rc30p3"><span>Taleo Business Edition Talent Management</span></a></li></ul></div></div>
+        <div class="rc30w3" style="min-height: 789.3px;">
+        
+        
+               <div class="rc30w4 rc30pane rc30pane-bleed rw-neutral-00bg rc30activepane" id="rc30p1" role="tabpanel" aria-labelledby="rc30t0_0" aria-hidden="false" style="width: 976px; min-height: 789.3px;"><h3 class="rc30mobtitle" style="background-color: rgb(49, 45, 42); color: rgb(255, 255, 255);">Taleo Enterprise Edition</h3>    
+               
+                <div class="col-framework col2 inview">
+                    <div class="col-w1">
+                                             
+                        <div class="col-item">
+                            <div class="col-item-w1 rc30w10">
+                                <div class="rc30w5">
+                                 
+                                <h4>Taleo Enterprise Edition</h4>
+                                   <h5>Redesigned experience</h5>
+                                    <p>Provide recruiters and candidates with a modern, intuitive experience to drive efficiency. Built for desktop, tablet, and mobile devices.</p>
+
+                                  <h5>Limitless configuration</h5>
+                                  <p>Tailor the solution to your unique organizational needs to help you quickly and efficiently get the talent you require at scale. </p>
+                                    
+                                    <h5>Advanced sourcing tools</h5>
+                                    <p>Transform your sourcing strategy with personalized and branded career sites, marketing campaigns, automated postings, and referral tools.</p>
+                                    
+                                                                 
+         							<h5>Conversational digital assistants</h5>
+									<p>Keep candidates engaged with an intelligent digital assistant, designed to provide quick answers to questions and guided experiences.</p>
+                                    
+           							<h5>Data-driven analytics</h5>
+									<p>Make smart decisions and improve hiring at every step by analyzing sourcing processes, talent assessments, candidate communication, and more.</p>         
+									
+									 <h5>Extensive partner ecosystem</h5>
+									<p>Gain access to Oracle’s immense partner network, featuring a multitude of Taleo-certified offerings and exclusive integrations with LinkedIn.</p>  
+
+   </div>
+           
+                                        
+                                
+                                   
+                                
+                            </div>
+                        </div>
+                        <div class="col-item">
+                            <div class="col-item-w1 rc30w11">
+<div alt="Taleo enterprise edition" class="bgimg" style="background-image: url(&quot;/a/ocom/img/rc30-taleo-enterprise-edition-2.png&quot;);"><br></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+                           <div class="rc30w4 rc30pane rc30pane-bleed rw-neutral-00bg" id="rc30p2" role="tabpanel" aria-labelledby="rc30t0_1" aria-hidden="true" style="width: 976px; min-height: 789.3px;"><h3 class="rc30mobtitle" style="background-color: rgb(49, 45, 42); color: rgb(255, 255, 255);">Taleo Business Edition</h3>    
+               
+                <div class="col-framework col2 inview">
+                    <div class="col-w1">
+                                             
+                        <div class="col-item">
+                            <div class="col-item-w1 rc30w10">
+                                <div class="rc30w5">
+                                 
+                            
+          
+                                     
+                                <h4>Taleo Business Edition</h4>
+                                    <h5>Multichannel sourcing</h5>
+                                    <p>Leverage job boards, social media sites,  and employee referrals to discover the right talent.</p>
+                                    
+                                    <h5>Easily configurable</h5>
+                                    <p>Easily customize data definitions, reporting, and recruiter workflows to gain superior strategic capabilities.</p>
+
+ 									<h5>Powerful automation features</h5>
+                                    <p>Automate common recruiting processes, such as communication and task assignment, with ease, streamlining recruiter productivity.</p>
+
+ 									<h5>Seamless onboarding </h5>
+                                    <p>Gain faster time to productivity and reduce paperwork with an onboarding experience that excites new employees and reflects your company’s culture.</p>
+                                    
+                                
+                                    <h5>Vast partner network</h5>
+                                    <p>Leverage hundreds of partner-sourced solutions, maintained and supported for Oracle Taleo.</p>
+                                    
+                                
+                                
+                                    </div>
+                              
+                                   
+                               
+                            </div>
+                        </div>
+                        <div class="col-item">
+                            <div class="col-item-w1 rc30w11">
+            <div alt="Taleo business edition" class="bgimg" style="background-image: url(&quot;/a/ocom/img/rc30-taleo-business-edition.png&quot;);"><br></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            
+ 
+  <div class="rc30w4 rc30pane rc30pane-bleed rw-neutral-00bg" id="rc30p3" role="tabpanel" aria-labelledby="rc30t0_2" aria-hidden="true" style="width: 976px; min-height: 789.3px;"><h3 class="rc30mobtitle" style="background-color: rgb(49, 45, 42); color: rgb(255, 255, 255);">Taleo Business Edition Talent Management</h3>    
+               
+                <div class="col-framework col2 inview">
+                    <div class="col-w1">
+                                             
+                        <div class="col-item">
+                            <div class="col-item-w1 rc30w10">
+                                <div class="rc30w5">
+                                 
+                            
+                                                                 
+                                   <h4>Taleo Business Edition Talent Management</h4>
+                                   <h5>Cultivate your talent </h5>
+                                   <p>Assess talent, increase bench strength, identify successors, build talent pools, and support the creation of high-impact employee career development plans.</p>
+                                 
+                                   
+                                   <h5>Enhance performance</h5>
+                                   <p>Modernize performance management and nurture talent with ongoing conversations and coaching. </p>
+
+                                 
+                               
+                                    
+                                	 </div>
+
+                              
+                            
+                               
+                            </div>
+                        </div>
+                        <div class="col-item">
+                            <div class="col-item-w1 rc30w11">
+      <div alt="Taleo talent mgmt" class="bgimg" style="background-image: url(&quot;/a/ocom/img/rc30-taleo-talent-mgmt.png&quot;);"><br></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+               
+                                
+            
+                                         
+
+       
+        </div>
+    </div>
+</section>
+<!-- /RC30v1 -->
+
+
+
+
+
+<!-- END: oWidget_C/_Raw-Text/Display -->
+
+	<!-- Dispatcher:null -->
+	
+<!-- BEGIN: oWidget_C/_Raw-Text/Display -->
+<!-- RC28v0 -->
+<section class="rc28 rc28v0 rw-neutral-150bg cpad cmp-overlap" data-ocomid="rc28" data-trackas="rc28" data-lbl="customer-success:">
+    <div class="rc28w1 cwidth">
+ <strong><a href="/customers/?product=mpd-cld-apps:fusion-suite:hcm">View all customer successes</a></strong>
+ 
+        <h2 class="rw-ptitle">Taleo customer successes</h2>
+        <p class="rw-intro">Discover how a wide variety of our customers use Oracle Taleo in their business.</p>
+        <div class="col-framework col4 col-2upmobile col-multi col-gutters">
+            <div class="col-w1">
+               
+                 <div class="col-item">
+                    <img alt="Autozone" src="/a/ocom/img/customerlogo-autozone.svg" class="srcloaded imgS">
+                </div>
+                
+               <div class="col-item">
+                    <img alt="COOP" src="/a/ocom/img/rc28-hmc-logo-the-co-op-r2.png" class="srcloaded imgW">
+                </div>
+				
+				
+		<div class="col-item">
+                    <img alt="Generali" src="/a/ocom/img/customerlogo-assicurazioni-generali.png" class="srcloaded imgW">
+                </div>
+                
+
+              <div class="col-item">
+                    <img data-src="/a/ocom/img/logo-pella-white.png" alt="Pella">
+                </div>   
+           	<div class="col-item">
+    <img data-src="/a/ocom/img/rc28-hmc-logo-providence-st-joseph-health-r1.png" alt="Providence">
+                </div>               
+                    
+               <div class="col-item">
+                    <img data-src=" /a/ocom/img/customerlogo-schroders-white.png" alt="Schroders">
+                </div>
+               <div class="col-item">
+                    <img data-src="/a/ocom/img/customerlogo-sainsbury-white.png" alt="Sainsbury">
+                </div>
+
+                   <div class="col-item">
+                    <img data-src="/a/ocom/img/rc28-vanderbilt-university-logo.png" alt="Vanderbuilt">
+                </div>
+                        
+      
+
+
+            </div>
+        </div>
+
+<p>&nbsp;</p>
+<!--     <div class="rc28w2 rw-neutral-180bg rw-pattern6w rw-pattern-20p">
+     <div class="rc28w3" data-bgimg="/a/ocom/img/rc28-hmc-video-persiher.jpg" alt="Video"></div>
+            <div class="rc28w4">
+             
+                <h3>Persiher enhances and automates recruiting with Oracle Taleo</h3>
+                <div class="obttns">
+                    <div><a href="?bcid=5631126591001" rel="vbox" class="icn-play" data-lbl="lightbox:view-customer:">Gain the industry edge (3:29)</a>
+                    </div>
+                    
+                </div>
+            </div>-->
+        </div>
+    </section></div>
+
+<!-- /RC28v0 -->
+
+
+
+
+<!-- END: oWidget_C/_Raw-Text/Display -->
+
+	<!-- Dispatcher:null -->
+	
+<!-- BEGIN: oWidget_C/_Raw-Text/Display -->
+<!-- RC36v0 -->
+<section class="rc36 rc36v0 cpad rw-neutral-10bg rw-pattern6 rw-pattern-10p" data-ocomid="rc36" data-trackas="rc36" data-lbl="key-benefits:">
+    <div class="rc36w1 cwidth">
+		<h2>Taleo Key benefits </h2>
+			<div class="rc36w2">
+				<ul>
+					<li>
+						<h3>Deliver engaging, easy-to-use experiences </h3>
+						<p>Boast more applications, improve efficiency, and get a faster time-to-hire with enhanced experiences for candidates, recruiters, and hiring managers.</p>
+					
+					</li>
+					
+		<li>
+						<h3>Make data-driven decisions</h3>
+						<p>Analyze and track sourcing channels, assessments, and candidate communications to optimize your recruiting efforts.</p>
+					</li>
+					<li>
+						<h3>Leverage mobile-first tools</h3>
+						<p>Connect with candidates and hiring managers wherever they are to access applications and make hiring decisions at the speed of business.</p>
+					</li>
+                    
+                    
+                    
+                    
+				</ul>
+			</div>
+			<!--<div class="rc36w3">
+				<img class="rc36img" data-src="/a/ocom/img/rc36v0-hr-use-case.png" alt="Key benefits">
+			</div>-->
+    </div>
+</section>
+<!-- /RC36v0 -->
+
+
+
+
+
+
+<!-- END: oWidget_C/_Raw-Text/Display -->
+
+	<!-- Dispatcher:null -->
+	
+<!-- BEGIN: oWidget_C/_Raw-Text/Display -->
+<!-- RC37v1 -->
+<section class="rc37 rc37v1 cpad rw-neutral-10bg rw-pattern4 rw-pattern-25p" data-ocomid="rc37" data-trackas="rc37" data-lbl="lorem-ipsum-related-products:">
+    <div class="rc37w1 cwidth">
+		<h2>Innovative solutions for Human Capital Management </h2>
+		<div class="col-framework col4 col-gutters inview">
+			<div class="col-w1">
+
+<div class="col-item rw-theme-150bg" data-bgimg="/a/ocom/img/rc37v1-overlay-texture-4.png">
+					<div class="col-item-w1"><h4>Recruiting</h4></div>
+	<div class="col-item-w2"><h5>Deliver human experiences in the workplace</h5></div>
+					<div class="col-item-w3">
+						<div class="obttns">
+							<div>
+					<a href="/human-capital-management/recruiting/">See product detail</a>
+							</div>
+						</div>
+					</div>
+                                   </div>
+
+
+
+<div class="col-item rw-theme-150bg" data-bgimg="/a/ocom/img/rc37v1-overlay-texture-1.png">
+					<div class="col-item-w1"><h4>Human resources</h4></div>
+					<div class="col-item-w2"><h5>Effectively manage a global workforce</h5></div>
+					<div class="col-item-w3">
+						<div class="obttns">
+							<div>
+			<a href="/human-capital-management/hr/" data-lbl="HR">See product details</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-item rw-theme-150bg" data-bgimg="/a/ocom/img/rc37v1-overlay-texture-2.png">
+					<div class="col-item-w1"><h4>Talent management</h4></div>
+					<div class="col-item-w2"><h5>Master every stage of the talent lifecycle</h5></div>
+
+					<div class="col-item-w3">
+						<div class="obttns">
+							<div>
+								<a href="/human-capital-management/talent-management/" data-lbl="hcm-tm">See product details</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-item rw-theme-150bg" data-bgimg="/a/ocom/img/bgimg02-bgne-overlay-03.png">
+					<div class="col-item-w1"><h4>Workforce management</h4></div>
+					<div class="col-item-w2"><h5>Align your workforce management with business strategy</h5></div>
+					<div class="col-item-w3">
+						<div class="obttns">
+							<div>
+	<a href="/human-capital-management/workforce-management/" data-lbl="hcm-workforce">See product details</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+	
+
+			</div>
+		</div>
+    </div>
+</section>
+<!-- /RC37v1 -->
+
+
+
+
+<!-- END: oWidget_C/_Raw-Text/Display -->
+
+	<!-- Dispatcher:null -->
+	
+<!-- BEGIN: oWidget_C/_Raw-Text/Display -->
+<!-- BEGIN: oWidget_C/_Raw-Text/Display -->
+
+<section class="rc30 rc30v0 cpad o-bgimg" data-trackas="rc30" data-lbl="hcm-resources:" data-ocomid="rc30" data-bgimg="/a/ocom/img/bgimg02-bgsw-50opacity-resources-01.png,/a/ocom/img/bgimg02-bgne-50opacity-resources-01.png" data-instance="1">
+
+
+    <div class="rc30w1 cwidth">
+        <h3>Resources</h3>
+        <div class="rc30w2">
+            <form class="oform rc30mobnav oform-initialized">
+                <span class="oform-w1 ovalid">
+                    <span class="oselect">
+                        <span class="oinput"><select name="f4" placeholder=" ">
+                            <option value="#rc30cloud" selected="selected">Cloud readiness</option>
+                            <option value="#rc30documentation">Documentation</option>
+                            <!--<option value="#rc30training">Customer community</option>
+                            <option value="#rc30services">Cloud learning</option>-->
+                            <option value="#rc30support">Related content</option>
+                         
+                        </select></span>
+                    </span>
+                </span>
+            </form>
+        <div class="rc30nav"><ul><li class="rc30active"><a href="#rc30cloud" id="rc30t1_0" tabindex="0" role="tab" aria-selected="true" aria-controls="rc30cloud"><span>Cloud readiness</span></a></li><li><a href="#rc30documentation" id="rc30t1_1" tabindex="0" role="tab" aria-selected="false" aria-controls="rc30documentation"><span>Documentation</span></a></li><li><a href="#rc30support" id="rc30t1_2" tabindex="0" role="tab" aria-selected="false" aria-controls="rc30support"><span>Related content</span></a></li></ul></div></div>
+        <div class="rc30w3" style="min-height: 329.367px;">
+            <div class="rc30w4 rc30pane rc30activepane" id="rc30cloud" role="tabpanel" aria-labelledby="rc30t1_0" aria-hidden="false"><h3 class="rc30mobtitle" style="background-color: rgb(49, 45, 42); color: rgb(255, 255, 255);">Cloud readiness</h3>
+                  <div class="col-framework col2">
+                    <div class="col-w1" style="min-height: 329.367px;">
+                        <div class="col-item rw-neutral-30bg">
+                            <div class="col-item-w1 rc30w10">
+                                <div class="rc30w5">
+                                    <div class="rc30w6"><img data-src="/a/ocom/img/rc30v0-readiness-sm-r1.jpg" alt="Cloud readiness"></div>
+                                </div>
+                                <div class="rc30w5">
+                                  <h4>Interested in moving to Oracle Recruiting?</h4>
+
+              <p>Discover how Oracle Recruiting (part of Oracle Cloud HCM) can help entice top talent, drive hiring efficiency, and unify recruiting with the rest of your HR ecosystem.</p>
+
+              <div><a href="/a/ocom/docs/oracle-5-reasons.pdf" data-lbl="product-update">Learn more (PDF)</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-item rw-neutral-40bg">
+                            <div class="col-item-w1 rc30w11">
+                                <h4>Additional information</h4>
+                                <ul class="icn-ulist">
+                <li class="icn-chevronright"><a href="https://docs.oracle.com/en/cloud/saas/human-resources/20d/index.html" data-lbl="latest release">Learn what's new in the latest release</a></li>
+                  <li class="icn-chevronright"><a href="https://docs.oracle.com/en/cloud/saas/human-resources/20a/index.html" data-lbl="get-started">Getting started</a></li>
+                    <li class="icn-chevronright"><a href="//docs.oracle.com/en/cloud/saas/human-resources/20b/implement.html" data-lbl="set-up">Implementation and setup </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rc30w4 rc30pane" id="rc30documentation" role="tabpanel" aria-labelledby="rc30t1_1" aria-hidden="true"><h3 class="rc30mobtitle" style="background-color: rgb(49, 45, 42); color: rgb(255, 255, 255);">Documentation</h3>
+                <div class="col-framework col2">
+                    <div class="col-w1" style="min-height: 329.367px;">
+                        <div class="col-item rw-neutral-30bg">
+                            <div class="col-item-w1 rc30w10">
+                                <div class="rc30w5">
+         <div class="rc30w6"><img data-src="/a/ocom/img/rc30v0-documentation-sm-r1.jpg" alt="Documentation"></div>
+                                </div>
+                                <div class="rc30w5">
+                                   <h4>What’s new in Oracle Taleo?</h4>
+
+                                    <p>Learn what makes Oracle Taleo unique and different in the market from the experts.</p>
+
+                <div><a href="/a/ocom/docs/taleo-enterprise-cloud-service-ep.pdf" data-lbl="data-sheet">View the datasheet  (PDF)</a></div>
+									
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-item rw-neutral-40bg">
+                            <div class="col-item-w1 rc30w11">
+                                <h4>Additional information</h4>
+                                <ul class="icn-ulist">
+                <li class="icn-filepdf"><a href="/a/ocom/docs/taleo-recruiting-cloud-service.pdf" data-lbl="data-sheet">Datasheet: Oracle Taleo Recruiting Cloud Service (PDF)</a></li>
+									
+                <li class="icn-filepdf"><a href="/a/ocom/docs/tbe-recruiting-cloud-service.pdf" data-lbl="data-sheet">Datasheet: Oracle Taleo Business Edition (PDF)</a></li>
+           
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rc30w4 rc30pane rc30pane2" id="rc30training">
+               <div class="col-framework col2">
+                    <div class="col-w1" style="min-height: 329.367px;">
+                        <div class="col-item rw-neutral-30bg">
+                            <div class="col-item-w1 rc30w12">
+                                <div><img data-src="/a/ocom/img/rc30v0-community-md-r1.jpg" alt="Community"></div>
+                            </div>
+                        </div>
+                        <div class="col-item rw-neutral-30bg">
+                            <div class="col-item-w1 rc30w13">
+                                <h4>Join a community of your peers</h4>
+
+                                <p>Cloud Customer Connect is Oracle's premier online cloud community. With more than 200,000 members, it's designed to promote peer-to-peer collaboration and sharing of best practices, product updates, and feedback.</p>
+
+                                <div><a href="//cloudcustomerconnect.oracle.com">Join today</a></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+       
+            <div class="rc30w4 rc30pane" id="rc30services">
+                <div class="col-framework col2">
+                    <div class="col-w1" style="min-height: 329.367px;">
+                        <div class="col-item rw-neutral-30bg">
+                            <div class="col-item-w1 rc30w10">
+                                <div class="rc30w5">
+                                    <div class="rc30w6"><img data-src="/a/ocom/img/rc30v0-learning-sm-r1.jpg" alt="Cloud Learning"></div>
+                                </div>
+                                <div class="rc30w5">
+                                    <h4>Develop your Cloud HCM skills</h4>
+
+      <p>Oracle University provides you with the training and certification you can rely on to ensure your organization’s success—delivered in the format you prefer. </p>
+
+                                    <div><a href="https://education.oracle.com/searchresults?Ntt=Oracle%20HCM%20Cloud&amp;Nty=1&amp;No=0&amp;Nrpp=12&amp;Rdm=918&amp;searchType=simple&amp;type=search" data-lbl="learning-for-free">Start learning for free</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-item rw-neutral-40bg">
+                            <div class="col-item-w1 rc30w11">
+                          <h4>Learning resources</h4>
+                                <ul class="icn-ulist">
+                                   <li class="icn-chevronright"><a href="https://docs.oracle.com/en/cloud/saas/human-resources/20b/videos.html" data-lbl="HCM Tutorials">Free Cloud HCM tutorials</a></li>
+									
+                                    <li class="icn-chevronright"><a href="https://education.oracle.com/oracle-certification-path/pFamily_668" data-lbl="Training">Global HR Training Subscriptions</a></li>
+									
+                                    <li class="icn-chevronright"><a href="https://education.oracle.com/oracle-certification-path/pPillar_645" data-lbl="Certification">Cloud HCM Certification</a></li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rc30w4 rc30pane" id="rc30support" role="tabpanel" aria-labelledby="rc30t1_2" aria-hidden="true"><h3 class="rc30mobtitle" style="background-color: rgb(49, 45, 42); color: rgb(255, 255, 255);">Related content</h3>
+                <div class="col-framework col2">
+                    <div class="col-w1" style="min-height: 329.367px;">
+                        <div class="col-item rw-neutral-30bg">
+                            <div class="col-item-w1 rc30w10">
+                                <div class="rc30w5">
+           <div class="rc30w6"><img data-src="/a/ocom/img/rc30v0-support-sm-r1.jpg" alt="Support and services"></div>
+                            
+                                </div>
+                                <div class="rc30w5">
+                                    <h4>Support</h4>
+                                    <ul>   
+                 <li><a href="//profile.oracle.com/myprofile/account/secure/update-account.jspx">My Oracle Support Login </a></li>
+                <li><a href="/support/policies.html">Support Policies and Practices</a></li>
+               <li><a href="/support/advanced-customer-services/">Advanced Customer Services </a></li>
+                                      
+                                           
+                                    </ul>
+                             </div>
+                            </div>
+                        </div>
+                        <div class="col-item rw-neutral-40bg">
+                            <div class="col-item-w1 rc30w11">
+                               <h4>Services</h4> 
+                               <ul class="icn-ulist">
+                               <li class="icn-chevronright"><a href="/consulting/soar/">Soar to Cloud migration services</a></li> 
+                               <li class="icn-chevronright"><a href="/consulting/">Consulting</a></li>
+                               <li class="icn-chevronright"><a href="/partnernetwork/">Find a Partner</a></li>     
+                                        
+           <li class="icn-chevronright"><a href="https://www.oracle.com/cloud/iaas/sla.html">Service Level Agreement </a></li> 
+			<li class="icn-chevronright"><a href="https://ocistatus.oraclecloud.com/">Service Health Dashboard </a></li>  
+								<li class="icn-chevronright"><a href="https://www.oracle.com/cloud/iaas/faq.html">Resiliency FAQ</a></li>    
+								   
+                                </ul>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+      <!--- 
+     <div class="rc30w4 rc30pane" id="rc30related" data-lbl="hcm-related:">
+                <div class="col-framework col2">
+                    <div class="col-w1">
+                        <div class="col-item rw-neutral-30bg">
+                            <div class="col-item-w1 rc30w10">
+                                <div class="rc30w5">
+                                    <h4>Pages</h4>
+                                    <ul>
+              <li><a href="/human-capital-management/solutions/move-to-cloud/" data-lbl="get-to-cloud">Get to Cloud</a></li>
+               <li><a href="/human-capital-management/what-is-hcm/" data-lbl="what-is-hcm">What is HCM?</a></li>
+                <li><a href="/hrms/" data-lbl="hrms">What is HRMS?</a></li>
+                                      
+                                      </ul>
+                                </div>
+                                <div class="rc30w5">
+                                    <h4>Trending</h4>
+                                    <ul>
+                                    
+                                    
+                                    
+                                    <li><a href="?bcid=5973344453001" rel="vbox" data-lbl="futuretalk">Video series: Oracle's Steve Miranda, EVP Oracle Applications Product Development, as he sits down with analyst Ray Wang</a></li>
+                                    <li><a href="/a/ocom/docs/applications/human-capital-management/top10reasons-hcm-cloud-ebook.pdf"  data-lbl="ebook">Ebook: Top 10 reasons customers select Oracle Cloud HCM (PDF)</a></li>
+                                    
+                                    <li><a href="/human-capital-management/oracle-vs-workday/?intcmp=:ow:o:h:po:Search&amp;source=:ow:o:h:po:Search" data-lbl="compare">Compare Oracle to alternative solutions</a></li>
+                                        <li><a href="/human-capital-management/news-and-opinion.html" data-lbl="news">News and opinion</a></li>
+                                         <li><a href="/human-capital-management/hcm-product-update.html" data-lbl="update">2020 Product Update</a></li>
+                                        
+                                           </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-item rw-neutral-30bg">
+                            <div class="col-item-w1 rc30w11">
+                                <h4>Awards</h4>
+                                <ul class="icn-ulist">
+                                    <li class="icn-chevronright"><a href="/human-capital-management/awards-nominate.html" data-lbl="customer-awards">HCM customer awards</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>--->
+            
+       
+       
+       
+       
+        </div>
+    </div>
+</section>
+<!-- /RC30v0 -->
+
+
+
+
+
+<!-- END: oWidget_C/_Raw-Text/Display -->
+
+	<!-- Dispatcher:null -->
+	
+<!-- BEGIN: oWidget_C/_Raw-Text/Display -->
+<!-- RC31v0 -->
+<section class="rc31 rc31v0 cpad rw-neutral-10bg rw-pattern13 rw-pattern-20p" data-ocomid="rc31" data-trackas="rc31" data-lbl="hcm-get-started:">
+    <div class="rc31w1 cwidth">
+        <h2>Get started</h2>
+        <div class="col-framework col-justified col4 col-gutters">
+            <div class="col-w1">
+            
+     
+            
+                <div class="col-item">
+                    <div class="col-item-w1 rw-yellow-40bg" style="height: 164px;">
+                     <div class="icn-img icn-desktop"><br></div>
+                       
+                        <h3>Request a demo</h3>
+                    </div>
+                    <div class="col-item-w2">
+                        <p>Take a walkthrough with one of our experts.</p>
+                        <div class="obttns">
+                            <div class="obttn1">
+          <a href="/elq-demo-form.html?qt=saas_hcm_fam&amp;source=:ow:o:p:gts:RC_NAMK180710P00009:&amp;intcmp=:ow:o:p:gts:RC_NAMK180710P00009:" width="640" rel="lightbox" title="Try an HCM demo" data-lbl="open-try-oracle-hcm-demo-lightbox-open-lightbox-open" data-trackas="rc31-lightbox">Try a demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             
+                <div class="col-item">
+                    <div class="col-item-w1 rw-yellow-40bg" style="height: 164px;">
+                    <div class="icn-img icn-touchdevice"><br></div>
+                        <h3>Take a tour</h3>
+                    </div>
+                    <div class="col-item-w2">
+                        <p>Explore the suite on your own.</p>
+                        <div class="obttns">
+                            <div class="obttn1">
+<a href="/human-capital-management/product-tours/">
+Browse tours</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                			               <div class="col-item">
+                    <div class="col-item-w1 rw-yellow-40bg" style="height: 164px;">
+                        <div class="icn-img icn-inboxadd">
+                            <br></div>
+                            <h3>Subscribe</h3>
+                        </div>
+                        <div class="col-item-w2">
+                            <p>Sign up for our monthly HR Matters newsletter featuring the latest HR industry buzz delivered straight to your inbox.</p>
+                            <div class="obttns">
+                                <div class="obttn1">
+   <a href="https://go.oracle.com/LP=112933?elqCampaignId=124071&amp;nsl=hrmatt" data-trackas="rc31-lightbox" rel="lightbox" data-width="640" title="Subscribe" data-lbl="lightbox-open-subscribe-cx-news-lightbox-open-lightbox-open" class="">Get the newsletter</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   <div class="col-item">
+                    <div class="col-item-w1 rw-yellow-40bg" style="height: 164px;">
+                        <div class="icn-img icn-message"><br></div>
+                        <h3>Contact sales</h3>
+                    </div>
+                    <div class="col-item-w2">
+                        <p>Talk to a team member about Oracle Cloud HCM.</p>
+                        <div class="obttns">
+                            <div class="obttn1">
+    <a href="/applications/human-capital-management/contact-form.html" rel="lightbox" data-width="640" title="Contact Oracle Cloud HCM" data-lbl="lightbox-open-contact-oracle-hcm-lightbox-open-lightbox-open" data-trackas="rc31-lightbox">Get in touch</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /RC31v0 -->
+
+
+
+
+
+
+<!-- END: oWidget_C/_Raw-Text/Display -->
+
+<!-- end : ocom/common/global/components/compass/related-widgets -->
+<!-- start : ocom/common/global/components/framework/layoutAssetEndBodyInfo -->
+	<!-- Dispatcher:null -->
+	
+<!-- BEGIN: oWidget_C/_Raw-Text/Display -->
+<!-- U10v0 -->
+<div class="u10 u10v6" data-trackas="ffooter" data-ocomid="u10">
+	<div class="u10w1">
+		
+<div class="u10w2">
+<div class="u10w3">
+<div class="u10ttl" id="resourcesfor">Resources for</div>
+<ul aria-labelledby="resourcesfor">
+<li><a data-lbl="resources-for:career" href="/corporate/careers/">Careers</a></li>
+<li><a data-lbl="resources-for:developers" href="https://developer.oracle.com/">Developers</a></li>
+<li><a data-lbl="resources-for:investors" href="https://investor.oracle.com/home/default.aspx">Investors</a></li>
+<li><a data-lbl="resources-for:partners" href="/partner/">Partners</a></li>
+<li><a data-lbl="resources-for:startups" href="/startup/">Startups</a></li>
+<li><a data-lbl="resources-for:students-educators" href="https://academy.oracle.com/en/oa-web-overview.html">Students and Educators</a></li>
+</ul>
+<a class="u10btn" role="none presentation"></a></div>
+</div>
+
+<div class="u10w2">
+<div class="u10w3">
+<div class="u10ttl" id="whyoracle">Why Oracle</div>
+<ul aria-labelledby="whyoracle">
+<li><a data-lbl="why-oracle:analyst-reports" href="/corporate/analyst-reports.html">Analyst Reports</a></li>
+<li><a data-lbl="why-oracle:gartner-mq-erp-cloud" href="/erp/what-is-erp/best-erp/">Gartner MQ for ERP Cloud</a></li>
+<li><a data-lbl="why-oracle:cloud-economics" href="/cloud/economics/">Cloud Economics</a></li>
+<li><a data-lbl="why-oracle:corporate-responsibility" href="/corporate/citizenship/">Corporate Responsibility</a></li>
+<li><a data-lbl="why-oracle:diversity-inclusion" href="/corporate/careers/diversity-inclusion/">Diversity and Inclusion</a></li>
+<li><a data-lbl="why-oracle:security-pracitices" href="/corporate/security-practices/">Security Practices</a></li>
+</ul>
+<a class="u10btn" role="none presentation"></a></div>
+</div>	
+
+<div class="u10w2">
+<div class="u10w3">
+<div class="u10ttl" id="learn">Learn</div>
+<ul aria-labelledby="learn">
+<li><a data-lbl="learn:cloud-computing" href="/cloud/what-is-cloud-computing/">What is cloud computing?</a></li>
+<li><a data-lbl="learn:crm" href="/cx/what-is-crm/">What is CRM?</a></li>
+<li><a data-lbl="learn:docker" href="/cloud-native/container-registry/what-is-docker/">What is Docker?</a></li>
+<li><a data-lbl="learn:kubernetes" href="/cloud-native/container-engine-kubernetes/what-is-kubernetes/">What is Kubernetes?</a></li>
+<li><a data-lbl="learn:python" href="https://developer.oracle.com/python/what-is-python/">What is Python?</a></li>
+<li><a data-lbl="learn:saas" href="/applications/what-is-saas/">What is SaaS?</a></li>
+</ul>
+<a class="u10btn" role="none presentation"></a></div>
+</div>
+
+<div class="u10w2">
+<div class="u10w3">
+<div class="u10ttl" id="what’snew">What’s New</div>
+<ul aria-labelledby="what’snew">
+<li><a data-lbl="whatsnew:oracle-supports-ukraine" href="/corporate/conflict-in-ukraine/">Oracle Supports Ukraine</a></li>
+<li><a data-lbl="whatsnew:cloud-trial" href="/cloud/free/?source=:ow:o:h:nav:050120SiteFooter&amp;intcmp=:ow:o:h:nav:050120SiteFooter">Try Oracle Cloud Free Tier</a></li>
+<li><a data-lbl="whatsnew:premier-league" href="/premier-league/">Oracle and Premier League</a></li>
+<li><a data-lbl="whatsnew:red-bull-racing" href="/redbullracing/">Oracle Red Bull Racing</a></li>
+<li><a data-lbl="whatsnew:employee-exp-platform" href="/human-capital-management/journeys/">Employee Experience Platform</a></li>
+<li><a data-lbl="whatsnew:cloud-rewards" href="/cloud/rewards/">Oracle Support Rewards</a></li>
+
+
+</ul>
+<a class="u10btn" role="none presentation"></a></div>
+</div>
+
+
+<div class="u10w2">
+<div class="u10w3">
+<div class="u10ttl" id="contactus">Contact Us</div>
+<ul aria-labelledby="contactus">
+<li><a href="tel:18006330738">US Sales: +1.800.633.0738</a></li>
+<li><a data-lbl="contact-us:how-can-we-help" href="/corporate/contact/">How can we help?</a></li>
+<li><a data-lbl="contact-us:subscribe-to-emails" href="https://go.oracle.com/subscriptions">Subscribe to emails</a></li>
+<li><a data-lbl="contact-us:events" href="/events/">Events</a></li>
+<li><a data-lbl="contact-us:news" href="/news/">News</a></li>
+<li><a data-lbl="contact-us:blogs" href="https://blogs.oracle.com/">Blogs</a></li>
+</ul>
+<a class="u10btn" role="none presentation" aria-owns="u10cmenu"></a></div>
+</div>
+
+<div class="u10w4">
+<hr>
+</div>
+<div class="u10w5 u10w10" data-trackas="footer">
+	<ul class="u10-cr">
+  <li class="u10mtool" id="u10cmenu" aria-owns="u10footer1">
+     <a data-lbl="country-region" class="u10ticon u10regn uu10ooverride" href="#u10countrymenu">Country/Region</a>
+  <div class="u10menupop u10toolpop"><div id="u10countrymenu">
+		<div class="u10countrymenu" data-lbl="country" role="tree">
+			<ul class="u10cmenu-l1" style="height: 287px;"><li class="u10pttl-li"><h5 class="u10pttl">Country/Region</h5></li>
+				<li class="u10currentcr u10currentdr">
+					<a class="u10clink" role="treeitem" aria-selected="true" aria-expanded="true" aria-labelledby="">Americas</a>
+					<!-- LVL 2 -->
+					<div class="u10cmenu-l2 selected-region" data-lbl="americas" style="height: 287px;">
+						<ul class="u10cmenuc1">
+							<li><a data-lbl="argentina" href="/ar/" role="treeitem">Argentina</a></li>
+							<li><a data-lbl="brasil" href="/br/" role="treeitem">Brasil</a></li>
+							<li><a data-lbl="canada-english" href="/ca-en/" role="treeitem">Canada-English</a></li>
+							<li><a data-lbl="canada-french" href="/ca-fr/" role="treeitem">Canada-Français</a></li>
+							<li><a data-lbl="chile" href="/cl/" role="treeitem">Chile</a></li>
+							<li><a data-lbl="columbia" href="/co/" role="treeitem">Colombia</a></li>
+							<li><a data-lbl="costa-rica" href="/cr/" role="treeitem">Costa Rica</a></li>
+						</ul>
+						<ul class="u10cmenuc1">
+							<li><a data-lbl="latin-america" href="/lad/" role="treeitem">Latinoamérica</a></li>
+							<li><a data-lbl="mexico" href="/mx/" role="treeitem">México</a></li>
+							<li><a data-lbl="peru" href="/pe/" role="treeitem">Perú</a></li>
+							<li><a data-lbl="puerto-rico" href="/pr/" role="treeitem">Puerto Rico</a></li>
+							<li><a class="u10currentcc" data-lbl="united-states" href="/" role="treeitem">United States</a></li>
+						</ul>
+					</div>
+					<!-- / LVL 2 -->
+				</li>
+				<li>
+					<a class="u10clink" role="treeitem" aria-selected="false" aria-expanded="false" aria-labelledby="">Asia Pacific</a>
+					<!-- LVL 2 -->
+					<div class="u10cmenu-l2" data-lbl="asia-pacific">
+						<ul class="u10cmenuc1">
+							<li><a data-lbl="asean" href="/asiasouth" role="treeitem">ASEAN</a></li>
+							<li><a data-lbl="australia" href="/au/" role="treeitem">Australia</a></li>
+							<li><a data-lbl="china" href="/cn/" role="treeitem">中国-简体中文</a></li>
+							<li><a data-lbl="hong-kong" href="/hk/" role="treeitem">Hong Kong SAR, PRC</a></li>
+							<li><a data-lbl="india" href="/in/" role="treeitem">India</a></li>
+							<li><a data-lbl="indonesia" href="/id/" role="treeitem">Indonesia</a></li>
+							<li><a data-lbl="japan" href="/jp/" role="treeitem">日本</a></li>
+							<li><a data-lbl="korea" href="/kr/" role="treeitem">대한민국</a></li>
+							<li><a data-lbl="malaysia" href="/my/" role="treeitem">Malaysia</a></li>
+						</ul>
+						<ul class="u10cmenuc1">
+							<li><a data-lbl="mongolia" href="/mn/" role="treeitem">Mongolia</a></li>
+							<li><a data-lbl="new-zealand" href="/nz/" role="treeitem">New Zealand</a></li>
+							<li><a data-lbl="pakistan" href="/pk/" role="treeitem">Pakistan</a></li>
+							<li><a data-lbl="philippines" href="/ph/" role="treeitem">Philippines</a></li>
+							<li><a data-lbl="singapore" href="/sg/" role="treeitem">Singapore</a></li>
+							<li><a data-lbl="sri-lanka" href="/lk/" role="treeitem">Sri Lanka</a></li>
+							<li><a data-lbl="taiwan" href="/tw/" role="treeitem">台灣-繁體中文</a></li>
+							<li><a data-lbl="thailand" href="/th/" role="treeitem">Thailand</a></li>
+							<li><a data-lbl="vietnam" href="/vn/" role="treeitem">Vietnam</a></li>
+						</ul>
+					</div>
+					<!-- / LVL 2 -->
+				</li>
+				<li>
+					<a class="u10clink" role="treeitem" aria-selected="false" aria-expanded="false" aria-labelledby="">Europe</a>
+					<!-- LVL 2 -->
+					<div class="u10cmenu-l2" data-lbl="europe">
+						<ul class="u10cmenuc1">
+							<li><a data-lbl="austria" href="/at/" role="treeitem">Österreich</a></li>
+							<li><a data-lbl="belgium" href="/be/" role="treeitem">Belgium</a></li>
+							<li><a data-lbl="bosnia-and-herzegovina" href="/ba/" role="treeitem">Bosna i Hercegovina</a></li>
+							<li><a data-lbl="bulgaria" href="/bg/" role="treeitem">Bulgaria</a></li>
+							<li><a data-lbl="croatia" href="/hr/" role="treeitem">Croatia</a></li>
+							<li><a data-lbl="cyprus" href="/cy/" role="treeitem">Cyprus</a></li>
+							<li><a data-lbl="czech-republic" href="/cz/" role="treeitem">Česká Republika</a></li>
+							<li><a data-lbl="denmark" href="/dk/" role="treeitem">Danmark</a></li>
+							<li><a data-lbl="estonia" href="/ee/" role="treeitem">Eesti</a></li>
+							<li><a data-lbl="finland" href="/fi/" role="treeitem">Suomi</a></li>
+							<li><a data-lbl="france" href="/fr/" role="treeitem">France</a></li>
+							<li><a data-lbl="germany" href="/de/" role="treeitem">Deutschland</a></li>
+							<li><a data-lbl="greece" href="/gr/" role="treeitem">Ελλάδα</a></li>
+							<li><a data-lbl="hungary" href="/hu/" role="treeitem">Magyarország</a></li>
+							<li><a data-lbl="ireland" href="/ie/" role="treeitem">Ireland</a></li>
+							<li><a data-lbl="italy" href="/it/" role="treeitem">Italia</a></li>
+							<li><a data-lbl="kazakhstan" href="/ru/" role="treeitem">Казахстан</a></li>
+							<li><a data-lbl="latvia" href="/lv/" role="treeitem">Latvija</a></li>
+							<li><a data-lbl="lithuania" href="/lt/" role="treeitem">Lietuva</a></li>
+						</ul>
+						<ul class="u10cmenuc1">
+							<li><a data-lbl="luxembourg" href="/lu/" role="treeitem">Luxembourg</a></li>
+							<li><a data-lbl="malta" href="/mt/" role="treeitem">Malta</a></li>
+							<li><a data-lbl="netherlands" href="/nl/" role="treeitem">Nederland</a></li>
+							<li><a data-lbl="norway" href="/no/" role="treeitem">Norge</a></li>
+							<li><a data-lbl="poland" href="/pl/" role="treeitem">Polska</a></li>
+							<li><a data-lbl="portugal" href="/pt/" role="treeitem">Portugal</a></li>
+							<li><a data-lbl="romania" href="/ro/" role="treeitem">România</a></li>
+							<li><a data-lbl="russia" href="/ru/" role="treeitem">Россия и СНГ</a></li>
+							<li><a data-lbl="serbia-and-montenegro" href="/rs/" role="treeitem">Srbija i Crna Gora</a></li>
+							<li><a data-lbl="slovakia" href="/sk/" role="treeitem">Slovensko</a></li>
+							<li><a data-lbl="slovena" href="/si/" role="treeitem">Slovenija</a></li>
+							<li><a data-lbl="spain" href="/es/" role="treeitem">España</a></li>
+							<li><a data-lbl="sweden" href="/se/" role="treeitem">Sverige</a></li>
+							<li><a data-lbl="switzerland-french" href="/ch-fr/" role="treeitem">Suisse-Français</a></li>
+							<li><a data-lbl="switzerland-german" href="/ch-de/" role="treeitem">Schweiz-Deutsch</a></li>
+							<li><a data-lbl="turkey" href="/tr/" role="treeitem">Türkiye</a></li>
+							<li><a data-lbl="ukraine" href="/ua/" role="treeitem">Україна</a></li>
+							<li><a data-lbl="united-kingdom" href="/uk/" role="treeitem">United Kingdom</a></li>
+						</ul>
+					</div>
+					<!-- / LVL 2 -->
+				</li>
+				<li>
+					<a class="u10clink" role="treeitem" aria-selected="false" aria-expanded="false" aria-labelledby="">Middle East and Africa</a>
+					<!-- LVL 2 -->
+					<div class="u10cmenu-l2" data-lbl="middle-east-and-africa">
+						<ul class="u10cmenuc1">
+							<li><a data-lbl="africa" href="/africa/" role="treeitem">Africa Region</a></li>
+							<li><a data-lbl="africa-fr" href="/africa-fr/" role="treeitem">Afrique</a></li>
+							<li><a data-lbl="algeria" href="/dz/" role="treeitem">Algéria</a></li>
+							<li><a data-lbl="bahrain" href="/bh/" role="treeitem">Bahrain</a></li>
+							<li><a data-lbl="egypt" href="/eg/" role="treeitem">Egypt</a></li>
+							<li><a data-lbl="ghana" href="/gh/" role="treeitem">Ghana</a></li>
+							<li><a data-lbl="israel" href="/il/" role="treeitem">ישראל</a></li>
+							<li><a data-lbl="israel-en" href="/il-en/" role="treeitem">Israel</a></li>
+							<li><a data-lbl="jordan" href="/jo/" role="treeitem">Jordan</a></li>
+							<li><a data-lbl="kenya" href="/ke/" role="treeitem">Кenya</a></li>
+							<li><a data-lbl="kuwait" href="/kw/" role="treeitem">Kuwait</a></li>
+							<li><a data-lbl="lebanon" href="/lb/" role="treeitem">Lebanon</a></li>
+						</ul>
+						<ul class="u10cmenuc1">
+							<li><a data-lbl="middle-east-arabic" href="/middleeast-ar/" role="treeitem">الشرق الأوسط</a></li>
+							<li><a data-lbl="middle-east-english" href="/middleeast/" role="treeitem">Middle East Region</a></li>
+							<li><a data-lbl="morocco" href="/ma/" role="treeitem">Maroc</a></li>
+							<li><a data-lbl="nigeria" href="/ng/" role="treeitem">Nigeria</a></li>
+							<li><a data-lbl="oman" href="/om/" role="treeitem">Oman</a></li>
+							<li><a data-lbl="qatar" href="/qa/" role="treeitem">Qatar</a></li>
+							<li><a data-lbl="saudi-arabia" href="/sa/" role="treeitem">Saudi Arabia</a></li>
+							<li><a data-lbl="saudi-arabia-arabic" href="/sa-ar/" role="treeitem">المملكة العربية السعودية</a></li>
+							<li><a data-lbl="senegal" href="/sn/" role="treeitem">Sénégal</a></li>
+							<li><a data-lbl="south-africa" href="/za/" role="treeitem">South Africa</a></li>
+							<li><a data-lbl="united-arab-emirates" href="/ae/" role="treeitem">United Arab Emirates</a></li>
+							<li><a data-lbl="united-arab-emirates-arabic" href="/ae-ar/" role="treeitem">الإمارات العربية المتحدة</a></li>
+						</ul>
+					</div>
+
+					<!-- / LVL 2 -->
+				</li>
+			</ul>
+		</div>
+	</div></div></li>
+</ul>
+
+
+<ul class="u10-links">
+<li><a data-lbl="copyright" href="/legal/copyright.html">© 2022 Oracle</a></li>
+<li><a data-lbl="site-map" href="/sitemap.html" id="u10footer1">Site Map</a></li>
+<li><a data-lbl="privacy" href="/legal/privacy/" id="u10footer2">Privacy</a><span>/</span><a data-lbl="do-not-sell-my-info" href="/legal/privacy/privacy-choices.html" id="u10footer3">Do Not Sell My Info</a></li>
+<li><div id="teconsent" consent="undefined" aria-label="Open Cookie Preferences Modal" class="truste_caIcon_display" role="complementary"><script async="async" type="text/javascript" crossorigin="" importance="high" src="https://consent.trustarc.com/asset/notice.js/v/v1.7-458"></script><a role="link" id="icon-id02855818298097069" tabindex="0" aria-label="Cookie Preferences" class="truste_cursor_pointer" lang="en">Cookie Preferences</a></div></li>
+<li><a data-lbl="ad-choices" href="/legal/privacy/marketing-cloud-data-cloud-privacy-policy.html#adchoices">Ad Choices</a></li>
+<li><a data-lbl="careers" href="/corporate/careers/">Careers</a></li>
+</ul>
+
+<ul class="scl-icons" id="scl-icons">
+<li class="scl-facebook"><a data-lbl="scl-icon:facebook" href="https://www.facebook.com/Oracle/" target="_blank" title="Oracle on Facebook"> </a></li>
+<li class="scl-twitter"><a data-lbl="scl-icon:twitter" href="https://twitter.com/oracle" target="_blank" title="Follow Oracle on Twitter"> </a></li>
+<li class="scl-linkedin"><a data-lbl="scl-icon:linkedin" href="https://www.linkedin.com/company/oracle/" target="_blank" title="Oracle on LinkedIn"> </a></li>
+<li class="scl-youtube"><a data-lbl="scl-icon:you-tube" href="https://www.youtube.com/oracle/" target="_blank" title="Watch Oracle on YouTube"> </a></li>
+</ul>
+	
+</div>
+</div>
+</div>
+<!-- /U10v0 -->
+
+
+
+<!-- END: oWidget_C/_Raw-Text/Display -->
+
+
+	
+
+	
+<!-- Container/Display Start -->
+
+<!-- BEGIN: oWidget_C/_Raw-Text/Display -->
+<!-- Start - End Body Admin Container -->
+<!-- Start SiteCatalyst code -->
+<script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_ocom.js"></script><script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_code_ocom.js"></script><script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_code.js"></script>
+<!-- End SiteCatalyst code -->
+<!-- End - End Body Admin Container -->
+
+
+
+<!-- END: oWidget_C/_Raw-Text/Display -->
+
+<!-- Container/Display end -->
+
+
+<!-- end : ocom/common/global/components/framework/layoutAssetEndBodyInfo -->
+
+
+	<noscript><img src="https://www.oracle.com/akam/13/pixel_37943b19?a=dD00MzIyNDVjMzZhMDJhZTEzODJkOTQ0YjNiNjhjMGM0ZThmMDA3MTM0JmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript>
+
+
+<script type="text/javascript" src="//consent.trustarc.com/notice?domain=oracle.com&amp;c=teconsent&amp;text=true&amp;gtm=1&amp;cdn=1&amp;pcookie" id="truste_0.5510251017590733"></script><script type="text/javascript" src="//www.oracle.com/asset/web/js/oracle-chatbot.js" async="" id="oracle_chat" data-path="/asset/web/json/chat-translation-data.json" data-scchannel="SC Ocom" data-reqjq=""></script><iframe style="display: none;" name="trustarc_notice" id="trustarcNoticeFrame" title="Trustarc Cross-Domain Consent Frame" src="https://consent.trustarc.com/get?name=crossdomain.html&amp;domain=oracle.com"></iframe><div class="ochat_slideout" data-trackas="ochat_slideout"><ul class="ochat_slidew2"><div class="ochat_flyout"><a href="#close" data-lbl="proactive:flyout-close" data-trackas="ochat-proactive-flyout" id="ochat-flyoutclose"></a><a href="#saleschat" data-lbl="proactive:chatcta" data-trackas="proactive-chat-cta" class="procta chatcta">Chat with sales</a><a href="https://www.oracle.com/corporate/contact/" class="callcta icn-callring">Contact or call</a></div><li class="ochaticon1"><a href="#" data-lbl="chatslideout" class="ochat"></a></li></ul></div><div class="ochat_modal" data-trackas="ochat-modal" id="ochat_modal"><div class="ochat_modalw1"><div class="ochat_modalw2"><div id="proactivewrap" class="chatwrap"></div><a href="#closemodal" data-lbl="callchat:modal-close" id="chatclose"></a><a href="#minimize" data-lbl="callchat:modal-minimize" id="chatmin"></a><section class="ochat_panel ochat_sales iframechatwrap"><strong class="ochattitle">Sales Chat<a data-type="ochat_sales" class="ochaticon iframechat icnclass icnchat" target="_window" href="#saleschat"></a></strong><a href="#saleschat" data-lbl="sales:chatcta" data-type="ochat_sales" class="subcta iframechat ochat_sales" target="_window"><p class="ochatsub">Considering a purchase?</p></a><a href="https://www.oracle.com/corporate/contact/" class="callcta">Call sales</a><a href="#saleschat" data-lbl="sales:chatcta" data-type="ochat_sales" class="chatcta iframechat ochat_sales" target="_window">Chat with sales</a></section><div id="ochat_sales" class="chatwrap"></div><section class="ochat_panel ochat_cloud iframechatwrap"><strong class="ochattitle">Cloud Support Chat<a data-type="ochat_cloud" class="ochaticon iframechat icnclass icnchat" target="_window" href="https://oc-cx-en.custhelp.com/app/chat/chat_launch/incidents.c$sc_country/170"></a></strong><a href="https://oc-cx-en.custhelp.com/app/chat/chat_launch/incidents.c$sc_country/170" data-lbl="cloud:chatcta" data-type="ochat_cloud" class="subcta iframechat ochat_cloud" target="_window"><p class="ochatsub">Account/Subscription, Promotions issues</p></a><a href="https://oc-cx-en.custhelp.com/app/chat/chat_launch/incidents.c$sc_country/170" data-lbl="cloud:chatcta" data-type="ochat_cloud" class="chatcta iframechat ochat_cloud" target="_window">Start chat</a></section><div id="ochat_cloud" class="chatwrap"></div><section class="ochat_panel ochat_support"><strong class="ochattitle">Oracle Support Options<a class="ochaticon icnclass icnsupport" target="_window" href="https://www.oracle.com/support/support-options.html"></a></strong><a href="https://www.oracle.com/support/support-options.html" data-lbl="support:chatcta" class="subcta" target="_window"><p class="ochatsub">Technical support, or other support requests?</p></a><a href="https://www.oracle.com/support/support-options.html" data-lbl="support:chatcta" class="chatcta" target="_window">View support options</a></section></div></div></div><div dir="auto" class="oda-chat-wrapper oda-chat-collapsed"><div dir="auto" class="oda-chat-widget oda-chat-none" role="region" aria-labelledby="oda-chat-title"><div dir="auto" class="oda-chat-header"><div dir="auto" class="oda-chat-header-info-wrapper"><div dir="auto" class="oda-chat-title" id="oda-chat-title" title="Oracle Sales Chatbot">Oracle Sales Chatbot</div><div dir="auto" class="oda-chat-connection-status oda-chat-connected">Connected</div></div><div dir="auto" class="oda-chat-header-actions"><button type="button" dir="auto" class="oda-chat-header-button oda-chat-button-close" title="Close widget" style="display: none;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="oda-chat-header-button-icon" role="img" aria-label="Close widget"><path d="M4 13h16v-2H4z"></path></svg></button><button type="button" id="close-button" class="oda-chat-header-button" data-lbl="modal-close" data-trackas="chatbot-modal" dir="auto" title="Close Chatbot"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 950 950"><path d="M730 792l62 -62l-231 -230l231 -230l-62 -62l-230 231l-230 -231l-62 62l231 230l-231 230l62 62l230 -231z"></path></svg></button></div></div><div dir="auto" class="oda-chat-conversation" id="chat_widget_main"><div dir="auto" class="oda-chat-conversation-pane"><div dir="auto"></div><div dir="auto" class="oda-chat-conversation-container" role="log" aria-live="polite" aria-atomic="false"><div dir="auto" class="oda-chat-message oda-chat-left" lang="en"><span dir="auto" class="oda-chat-screen-reader-only">Skill says</span><div dir="auto" class="oda-chat-message-wrapper"><div dir="auto" class="oda-chat-icon-wrapper"><img src="/asset/web/i/bot-icon.png" dir="auto" class="oda-chat-message-icon"></div><div dir="auto" class="oda-chat-content-wrapper"><div dir="auto" class="oda-chat-message-bubble"><div dir="auto" class="oda-chat-message-content"><div dir="auto">Hi! I’m your Oracle Sales Chatbot. In a few words, describe how I can help!<br><p style="font-size:10px;font-style:italic;">You understand and agree that the <a href="https://www.oracle.com/legal/privacy/privacy-policy.html#7" target="_blank">Chat Transcript</a> will be saved for 90 days.</p></div></div></div></div></div></div></div></div></div><div dir="auto" class="oda-chat-footer oda-chat-mode-keyboard"><div dir="auto" class="oda-chat-footer-mode-keyboard"><textarea dir="auto" class="oda-chat-user-input" aria-label="Type a message" placeholder="Type a message" autofocus="" rows="1"></textarea><button type="button" dir="auto" class="oda-chat-footer-button oda-chat-button-send" title="Send message" disabled=""><img src="/asset/web/i/send-icon.png" alt="Send message" dir="auto" class="oda-chat-footer-button-icon"></button></div></div></div><button type="button" dir="auto" class="oda-chat-button" title="Oracle Sales Chatbot"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 48 48" role="img" aria-label="Oracle Sales Chatbot" class="oda-chat-button-icon"><path d="M0 24a24 24 0 1 0 48 0 24 24 0 1 0-48 0" fill="#c0533f" opacity=".8"></path><path d="M32.25 31.084h-7.532L19.2 37.021a1.061 1.061 0 0 1-1.251-1.316l.031-4.622h-1.23C12.47 31.084 9 28.372 9 23.97A7.862 7.862 0 0 1 16.75 16h15.5A7.862 7.862 0 0 1 40 23.97c0 4.402-3.47 7.114-7.75 7.114zM16.531 20.938a2.594 2.594 0 1 0 2.594 2.594 2.594 2.594 0 0 0-2.594-2.594zm7.969-.031a2.594 2.594 0 1 0 2.594 2.593 2.594 2.594 0 0 0-2.594-2.594zm7.969.031a2.594 2.594 0 1 0 2.594 2.594 2.594 2.594 0 0 0-2.594-2.594z" fill="#fff" fill-rule="evenodd"></path></svg><div dir="auto" class="oda-chat-notification-badge">1</div></button><div id="form_container_oda" class="oda-chat-widget" style="z-index:11000; display:none; transition:all 0.25s ease-in-out;"><input type="button" value="Close" onclick="closeForm()"><iframe id="osvc_form" src="http://localhost/" onload="showIframe()" scrolling="auto" style="height:100%;"></iframe>  </div> </div><iframe style="display: none; visibility: hidden;" src="https://3573281.fls.doubleclick.net/activityi;src=3573281;type=ubert0;cat=awarn0;ord=1;num=528721142984;gtm=2od3e0;auiddc=771267379.1648186123;u1=ocom%3Aen-us%3A%2Fhuman-capital-management%2Ftaleo%2F;u2=ocom%3Aen;u3=New;u4=taleo%252C%2520cloud%2520talent%252C%2520oracle%252C%2520talent%2520acquisition%252C%2520talent%2520management;u5=not%20logged%20in;u6=%7BCOMPANY%5D;u7=%5BJOB%20TITLE%5D;u8=%5BCITY%5D;u9=%5BSTATE%5D;u10=%5BZIP%5D;u11=on%20load;u13=%5BCOMPANY%20SIZE%5D;u14=Not%20Available;u15=Not%20Available;u16=Not%20Available;u17=https%253A%252F%252Fwww.oracle.com%252Fhuman-capital-management%252Ftaleo%252F;gdid=dYmQxMT;~oref=https%3A%2F%2Fwww.oracle.com%2Fhuman-capital-management%2Ftaleo%2F?" width="0" height="0"></iframe><iframe name="__bkframe" id="__bkframe" title="bk" style="border: 0px none; width: 0px; height: 0px; display: none; position: absolute; clip: rect(0px, 0px, 0px, 0px);" src="about:blank"></iframe></body><!-- end : Framework/Redwood2 --></html>

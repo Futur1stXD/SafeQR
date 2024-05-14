@@ -1,0 +1,960 @@
+<html class="no-js" lang="en-US"><head><meta charset="UTF-8">
+<script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202203170101/reactive_library_fy2019.js"></script><script src="https://partner.googleadservices.com/gampad/cookie.js?domain=readwrite.com&amp;callback=_gfp_s_&amp;client=ca-pub-1183579825777021"></script><script src="https://rules.quantcount.com/rules-p-31iz6hfFutd16.js" async=""></script><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202203170101/show_ads_impl_fy2019.js" id="google_shimpl"></script><script src="https://secure.quantserve.com/quant.js" async="" type="text/javascript"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer="">var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}},fileLoaded:function(name,isComplete){this.name=name;this.path="";this.async=false;this.defer=false;this.isBlock=false;this.blockedBy=[];this.isInitialized=true;this.isError=false;this.isComplete=isComplete;this.proceedIfError=false;this.isTimeDelay=false;this.process=function(){};}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function markLoaded(filename){if(!filename||0===filename.length){return;}
+if(filename in items){var item=items[filename];if(item.isComplete===true){log(item.name+' '+filename+': error loaded duplicate')}else{item.isComplete=true;item.isInitialized=true;}}else{items[filename]=new obj.fileLoaded(filename,true);}
+log("markLoaded dummyfile: "+items[filename].name);}
+function logWhatsBlocked(){for(var i in items){if(items.hasOwnProperty(i)===false)continue;var item=items[i];isBlocked(item)}}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad,markLoaded:markLoaded,logWhatsBlocked:logWhatsBlocked,};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));__ez.dot.Fire(pixelURL);}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer="">__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+if(typeof isOrig==='undefined'){isOrig=false;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){if((impId!=="0"||isOrig===true)&&adUnit!==""){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}}
+function AddPixelById(impFullId,pixelData,isOrig,revenue){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];var pix={type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig};if(typeof revenue!=='undefined'){pix.revenue=revenue;}
+pixels.push(pix);}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+__ez.dot.Fire(pixelURL);}});}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false;}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();</script>
+<meta name="viewport" content="width=device-width">
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<link rel="pingback" href="https://readwrite.com/xmlrpc.php">
+<!--[if lt IE 9]>
+	<script src="https://readwrite.com/wp-content/themes/rw/js/html5.js"></script>
+	<![endif]-->
+<script data-cfasync="false" type="text/javascript">var ewww_webp_supported=!1;function check_webp_feature(A,e){if(e=void 0!==e?e:function(){},ewww_webp_supported)e(ewww_webp_supported);else{var w=new Image;w.onload=function(){ewww_webp_supported=0<w.width&&0<w.height,e&&e(ewww_webp_supported)},w.onerror=function(){e&&e(!1)},w.src="data:image/webp;base64,"+{alpha:"UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA=="}[A]}}check_webp_feature("alpha");</script><script data-cfasync="false" type="text/javascript">var Arrive=function(c,e,w){"use strict";if(c.MutationObserver&&"undefined"!=typeof HTMLElement){var r,t,a=0,u=(r=HTMLElement.prototype.matches||HTMLElement.prototype.webkitMatchesSelector||HTMLElement.prototype.mozMatchesSelector||HTMLElement.prototype.msMatchesSelector,{matchesSelector:function(e,t){return e instanceof HTMLElement&&r.call(e,t)},addMethod:function(e,t,r){var a=e[t];e[t]=function(){return r.length==arguments.length?r.apply(this,arguments):"function"==typeof a?a.apply(this,arguments):void 0}},callCallbacks:function(e,t){t&&t.options.onceOnly&&1==t.firedElems.length&&(e=[e[0]]);for(var r,a=0;r=e[a];a++)r&&r.callback&&r.callback.call(r.elem,r.elem);t&&t.options.onceOnly&&1==t.firedElems.length&&t.me.unbindEventWithSelectorAndCallback.call(t.target,t.selector,t.callback)},checkChildNodesRecursively:function(e,t,r,a){for(var i,n=0;i=e[n];n++)r(i,t,a)&&a.push({callback:t.callback,elem:i}),0<i.childNodes.length&&u.checkChildNodesRecursively(i.childNodes,t,r,a)},mergeArrays:function(e,t){var r,a={};for(r in e)e.hasOwnProperty(r)&&(a[r]=e[r]);for(r in t)t.hasOwnProperty(r)&&(a[r]=t[r]);return a},toElementsArray:function(e){return void 0===e||"number"==typeof e.length&&e!==c||(e=[e]),e}}),d=((t=function(){this._eventsBucket=[],this._beforeAdding=null,this._beforeRemoving=null}).prototype.addEvent=function(e,t,r,a){var i={target:e,selector:t,options:r,callback:a,firedElems:[]};return this._beforeAdding&&this._beforeAdding(i),this._eventsBucket.push(i),i},t.prototype.removeEvent=function(e){for(var t,r=this._eventsBucket.length-1;t=this._eventsBucket[r];r--)if(e(t)){this._beforeRemoving&&this._beforeRemoving(t);var a=this._eventsBucket.splice(r,1);a&&a.length&&(a[0].callback=null)}},t.prototype.beforeAdding=function(e){this._beforeAdding=e},t.prototype.beforeRemoving=function(e){this._beforeRemoving=e},t),o=function(i,n){var o=new d,l=this,s={fireOnAttributesModification:!1};return o.beforeAdding(function(t){var e,r=t.target;r!==c.document&&r!==c||(r=document.getElementsByTagName("html")[0]),e=new MutationObserver(function(e){n.call(this,e,t)});var a=i(t.options);e.observe(r,a),t.observer=e,t.me=l}),o.beforeRemoving(function(e){e.observer.disconnect()}),this.bindEvent=function(e,t,r){t=u.mergeArrays(s,t);for(var a=u.toElementsArray(this),i=0;i<a.length;i++)o.addEvent(a[i],e,t,r)},this.unbindEvent=function(){var r=u.toElementsArray(this);o.removeEvent(function(e){for(var t=0;t<r.length;t++)if(this===w||e.target===r[t])return!0;return!1})},this.unbindEventWithSelectorOrCallback=function(r){var e,a=u.toElementsArray(this),i=r;e="function"==typeof r?function(e){for(var t=0;t<a.length;t++)if((this===w||e.target===a[t])&&e.callback===i)return!0;return!1}:function(e){for(var t=0;t<a.length;t++)if((this===w||e.target===a[t])&&e.selector===r)return!0;return!1},o.removeEvent(e)},this.unbindEventWithSelectorAndCallback=function(r,a){var i=u.toElementsArray(this);o.removeEvent(function(e){for(var t=0;t<i.length;t++)if((this===w||e.target===i[t])&&e.selector===r&&e.callback===a)return!0;return!1})},this},i=new function(){var s={fireOnAttributesModification:!1,onceOnly:!1,existing:!1};function n(e,t,r){return!(!u.matchesSelector(e,t.selector)||(e._id===w&&(e._id=a++),-1!=t.firedElems.indexOf(e._id))||(t.firedElems.push(e._id),0))}var c=(i=new o(function(e){var t={attributes:!1,childList:!0,subtree:!0};return e.fireOnAttributesModification&&(t.attributes=!0),t},function(e,i){e.forEach(function(e){var t=e.addedNodes,r=e.target,a=[];null!==t&&0<t.length?u.checkChildNodesRecursively(t,i,n,a):"attributes"===e.type&&n(r,i)&&a.push({callback:i.callback,elem:r}),u.callCallbacks(a,i)})})).bindEvent;return i.bindEvent=function(e,t,r){t=void 0===r?(r=t,s):u.mergeArrays(s,t);var a=u.toElementsArray(this);if(t.existing){for(var i=[],n=0;n<a.length;n++)for(var o=a[n].querySelectorAll(e),l=0;l<o.length;l++)i.push({callback:r,elem:o[l]});if(t.onceOnly&&i.length)return r.call(i[0].elem,i[0].elem);setTimeout(u.callCallbacks,1,i)}c.call(this,e,t,r)},i},l=new function(){var a={};function i(e,t){return u.matchesSelector(e,t.selector)}var n=(l=new o(function(){return{childList:!0,subtree:!0}},function(e,a){e.forEach(function(e){var t=e.removedNodes,r=[];null!==t&&0<t.length&&u.checkChildNodesRecursively(t,a,i,r),u.callCallbacks(r,a)})})).bindEvent;return l.bindEvent=function(e,t,r){t=void 0===r?(r=t,a):u.mergeArrays(a,t),n.call(this,e,t,r)},l};e&&g(e.fn),g(HTMLElement.prototype),g(NodeList.prototype),g(HTMLCollection.prototype),g(HTMLDocument.prototype),g(Window.prototype);var n={};return s(i,n,"unbindAllArrive"),s(l,n,"unbindAllLeave"),n}function s(e,t,r){u.addMethod(t,r,e.unbindEvent),u.addMethod(t,r,e.unbindEventWithSelectorOrCallback),u.addMethod(t,r,e.unbindEventWithSelectorAndCallback)}function g(e){e.arrive=i.bindEvent,s(i,e,"unbindArrive"),e.leave=l.bindEvent,s(l,e,"unbindLeave")}}(window,"undefined"==typeof jQuery?null:jQuery,void 0),ewww_webp_supported=!1;function check_webp_feature(e,t){if(ewww_webp_supported)t(ewww_webp_supported);else{var r=new Image;r.onload=function(){ewww_webp_supported=0<r.width&&0<r.height,t(ewww_webp_supported)},r.onerror=function(){t(!1)},r.src="data:image/webp;base64,"+{alpha:"UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA==",animation:"UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA"}[e]}}function ewwwLoadImages(e){if(e){for(var t=document.querySelectorAll(".batch-image img, .image-wrapper a, .ngg-pro-masonry-item a, .ngg-galleria-offscreen-seo-wrapper a"),r=0,a=t.length;r<a;r++)ewwwAttr(t[r],"data-src",t[r].getAttribute("data-webp")),ewwwAttr(t[r],"data-thumbnail",t[r].getAttribute("data-webp-thumbnail"));for(r=0,a=(n=document.querySelectorAll(".rev_slider ul li")).length;r<a;r++){ewwwAttr(n[r],"data-thumb",n[r].getAttribute("data-webp-thumb"));for(var i=1;i<11;)ewwwAttr(n[r],"data-param"+i,n[r].getAttribute("data-webp-param"+i)),i++}var n;for(r=0,a=(n=document.querySelectorAll(".rev_slider img")).length;r<a;r++)ewwwAttr(n[r],"data-lazyload",n[r].getAttribute("data-webp-lazyload"));var o=document.querySelectorAll("div.woocommerce-product-gallery__image");for(r=0,a=o.length;r<a;r++)ewwwAttr(o[r],"data-thumb",o[r].getAttribute("data-webp-thumb"))}var l=document.querySelectorAll("video");for(r=0,a=l.length;r<a;r++)ewwwAttr(l[r],"poster",e?l[r].getAttribute("data-poster-webp"):l[r].getAttribute("data-poster-image"));var s=document.querySelectorAll("img.ewww_webp_lazy_load");for(r=0,a=s.length;r<a;r++){if(e){ewwwAttr(s[r],"data-lazy-srcset",s[r].getAttribute("data-lazy-srcset-webp")),ewwwAttr(s[r],"data-srcset",s[r].getAttribute("data-srcset-webp")),ewwwAttr(s[r],"data-lazy-src",s[r].getAttribute("data-lazy-src-webp")),ewwwAttr(s[r],"data-src",s[r].getAttribute("data-src-webp")),ewwwAttr(s[r],"data-orig-file",s[r].getAttribute("data-webp-orig-file")),ewwwAttr(s[r],"data-medium-file",s[r].getAttribute("data-webp-medium-file")),ewwwAttr(s[r],"data-large-file",s[r].getAttribute("data-webp-large-file"));var c=s[r].getAttribute("srcset");null!=c&&!1!==c&&c.includes("R0lGOD")&&ewwwAttr(s[r],"src",s[r].getAttribute("data-lazy-src-webp"))}s[r].className=s[r].className.replace(/\bewww_webp_lazy_load\b/,"")}var w=document.querySelectorAll(".ewww_webp");for(r=0,a=w.length;r<a;r++)e?(ewwwAttr(w[r],"srcset",w[r].getAttribute("data-srcset-webp")),ewwwAttr(w[r],"src",w[r].getAttribute("data-src-webp")),ewwwAttr(w[r],"data-orig-file",w[r].getAttribute("data-webp-orig-file")),ewwwAttr(w[r],"data-medium-file",w[r].getAttribute("data-webp-medium-file")),ewwwAttr(w[r],"data-large-file",w[r].getAttribute("data-webp-large-file")),ewwwAttr(w[r],"data-large_image",w[r].getAttribute("data-webp-large_image")),ewwwAttr(w[r],"data-src",w[r].getAttribute("data-webp-src"))):(ewwwAttr(w[r],"srcset",w[r].getAttribute("data-srcset-img")),ewwwAttr(w[r],"src",w[r].getAttribute("data-src-img"))),w[r].className=w[r].className.replace(/\bewww_webp\b/,"ewww_webp_loaded");window.jQuery&&jQuery.fn.isotope&&jQuery.fn.imagesLoaded&&(jQuery(".fusion-posts-container-infinite").imagesLoaded(function(){jQuery(".fusion-posts-container-infinite").hasClass("isotope")&&jQuery(".fusion-posts-container-infinite").isotope()}),jQuery(".fusion-portfolio:not(.fusion-recent-works) .fusion-portfolio-wrapper").imagesLoaded(function(){jQuery(".fusion-portfolio:not(.fusion-recent-works) .fusion-portfolio-wrapper").isotope()}))}function ewwwWebPInit(e){ewwwLoadImages(e),ewwwNggLoadGalleries(e),document.arrive(".ewww_webp",function(){ewwwLoadImages(e)}),document.arrive(".ewww_webp_lazy_load",function(){ewwwLoadImages(e)}),document.arrive("videos",function(){ewwwLoadImages(e)}),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",ewwwJSONParserInit):("undefined"!=typeof galleries&&ewwwNggParseGalleries(e),ewwwWooParseVariations(e))}function ewwwAttr(e,t,r){null!=r&&!1!==r&&e.setAttribute(t,r)}function ewwwJSONParserInit(){"undefined"!=typeof galleries&&check_webp_feature("alpha",ewwwNggParseGalleries),check_webp_feature("alpha",ewwwWooParseVariations)}function ewwwWooParseVariations(e){if(e)for(var t=document.querySelectorAll("form.variations_form"),r=0,a=t.length;r<a;r++){var i=t[r].getAttribute("data-product_variations"),n=!1;try{for(var o in i=JSON.parse(i))void 0!==i[o]&&void 0!==i[o].image&&(void 0!==i[o].image.src_webp&&(i[o].image.src=i[o].image.src_webp,n=!0),void 0!==i[o].image.srcset_webp&&(i[o].image.srcset=i[o].image.srcset_webp,n=!0),void 0!==i[o].image.full_src_webp&&(i[o].image.full_src=i[o].image.full_src_webp,n=!0),void 0!==i[o].image.gallery_thumbnail_src_webp&&(i[o].image.gallery_thumbnail_src=i[o].image.gallery_thumbnail_src_webp,n=!0),void 0!==i[o].image.thumb_src_webp&&(i[o].image.thumb_src=i[o].image.thumb_src_webp,n=!0));n&&ewwwAttr(t[r],"data-product_variations",JSON.stringify(i))}catch(e){}}}function ewwwNggParseGalleries(e){if(e)for(var t in galleries){var r=galleries[t];galleries[t].images_list=ewwwNggParseImageList(r.images_list)}}function ewwwNggLoadGalleries(e){e&&document.addEventListener("ngg.galleria.themeadded",function(e,t){window.ngg_galleria._create_backup=window.ngg_galleria.create,window.ngg_galleria.create=function(e,t){var r=$(e).data("id");return galleries["gallery_"+r].images_list=ewwwNggParseImageList(galleries["gallery_"+r].images_list),window.ngg_galleria._create_backup(e,t)}})}function ewwwNggParseImageList(e){for(var t in e){var r=e[t];if(void 0!==r["image-webp"]&&(e[t].image=r["image-webp"],delete e[t]["image-webp"]),void 0!==r["thumb-webp"]&&(e[t].thumb=r["thumb-webp"],delete e[t]["thumb-webp"]),void 0!==r.full_image_webp&&(e[t].full_image=r.full_image_webp,delete e[t].full_image_webp),void 0!==r.srcsets)for(var a in r.srcsets)nggSrcset=r.srcsets[a],void 0!==r.srcsets[a+"-webp"]&&(e[t].srcsets[a]=r.srcsets[a+"-webp"],delete e[t].srcsets[a+"-webp"]);if(void 0!==r.full_srcsets)for(var i in r.full_srcsets)nggFSrcset=r.full_srcsets[i],void 0!==r.full_srcsets[i+"-webp"]&&(e[t].full_srcsets[i]=r.full_srcsets[i+"-webp"],delete e[t].full_srcsets[i+"-webp"])}return e}check_webp_feature("alpha",ewwwWebPInit);</script><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+<title>ReadWrite - The Blog of Things</title>
+<meta name="description" content="The Blog of Things">
+<link rel="canonical" href="https://readwrite.com/">
+<link rel="next" href="https://readwrite.com/page/2/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ReadWrite - The Blog of Things">
+<meta property="og:description" content="The Blog of Things">
+<meta property="og:url" content="https://readwrite.com/">
+<meta property="og:site_name" content="ReadWrite">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@RWW">
+<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://readwrite.com/#organization","name":"ReadWrite","url":"https://readwrite.com/","sameAs":["https://www.facebook.com/ReadWrite","https://www.linkedin.com/company/readwrite","https://www.youtube.com/user/readwriteTV","https://twitter.com/RWW"],"logo":{"@type":"ImageObject","@id":"https://readwrite.com/#logo","inLanguage":"en-US","url":"https://images.readwrite.com/wp-content/uploads/2016/03/logo.png","contentUrl":"https://images.readwrite.com/wp-content/uploads/2016/03/logo.png","width":364,"height":64,"caption":"ReadWrite"},"image":{"@id":"https://readwrite.com/#logo"}},{"@type":"WebSite","@id":"https://readwrite.com/#website","url":"https://readwrite.com/","name":"ReadWrite","description":"The Blog of Things","publisher":{"@id":"https://readwrite.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":"https://readwrite.com/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https://readwrite.com/#webpage","url":"https://readwrite.com/","name":"ReadWrite - The Blog of Things","isPartOf":{"@id":"https://readwrite.com/#website"},"about":{"@id":"https://readwrite.com/#organization"},"description":"The Blog of Things","breadcrumb":{"@id":"https://readwrite.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://readwrite.com/"]}]},{"@type":"BreadcrumbList","@id":"https://readwrite.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://readwrite.com/","url":"https://readwrite.com/","name":"Home"}}]}]}</script>
+
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="alternate" type="application/rss+xml" title="ReadWrite » Feed" href="https://readwrite.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="ReadWrite » Comments Feed" href="https://readwrite.com/comments/feed/">
+<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/readwrite.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.7.6"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="https://readwrite.com/wp-includes/js/wp-emoji-release.min.js?ver=5.7.6" type="text/javascript" defer=""></script>
+<script>
+						advanced_ads_ready=function(){var fns=[],listener,doc=typeof document==="object"&&document,hack=doc&&doc.documentElement.doScroll,domContentLoaded="DOMContentLoaded",loaded=doc&&(hack?/^loaded|^c/:/^loaded|^i|^c/).test(doc.readyState);if(!loaded&&doc){listener=function(){doc.removeEventListener(domContentLoaded,listener);window.removeEventListener("load",listener);loaded=1;while(listener=fns.shift())listener()};doc.addEventListener(domContentLoaded,listener);window.addEventListener("load",listener)}return function(fn){loaded?setTimeout(fn,0):fns.push(fn)}}();
+						</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="https://readwrite.com/wp-includes/css/dist/block-library/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="unslider-css-css" href="https://readwrite.com/wp-content/uploads/706/881/public/assets/css/348.css" type="text/css" media="all">
+<link rel="stylesheet" id="slider-css-css" href="https://readwrite.com/wp-content/uploads/706/881/public/assets/css/914.css" type="text/css" media="all">
+<link rel="stylesheet" id="contact-form-7-css" href="https://readwrite.com/wp-content/plugins/contact-form-7/includes/css/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="wptheme-style-css" href="https://readwrite.com/wp-content/themes/rw/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="wppb_stylesheet-css" href="https://readwrite.com/wp-content/plugins/profile-builder-pro/assets/css/style-front-end.css" type="text/css" media="all">
+<script type="text/javascript" src="https://readwrite.com/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://readwrite.com/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="https://readwrite.com/wp-content/uploads/706/881/public/assets/js/823.js" id="unslider-js-js"></script>
+<script type="text/javascript" src="https://readwrite.com/wp-content/uploads/706/881/public/assets/js/428.js" id="unslider-move-js-js"></script>
+<script type="text/javascript" src="https://readwrite.com/wp-content/uploads/706/881/public/assets/js/227.js" id="unslider-swipe-js-js"></script>
+<script type="text/javascript" id="advanced-ads-advanced-js-js-extra">
+/* <![CDATA[ */
+var advads_options = {"blog_id":"1","privacy":{"enabled":false,"state":"not_needed"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://readwrite.com/wp-content/uploads/706/140/public/assets/js/737.js" id="advanced-ads-advanced-js-js"></script>
+<script type="text/javascript" id="advanced-ads-responsive-js-extra">
+/* <![CDATA[ */
+var advanced_ads_responsive = {"reload_on_resize":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://readwrite.com/wp-content/uploads/706/522/public/assets/js/165.js" id="advanced-ads-responsive-js"></script>
+<script type="text/javascript" src="https://readwrite.com/wp-content/uploads/706/693/54/39/assets/js/800.js" id="advanced-ads-pro/cfp-js"></script>
+<script type="text/javascript" src="https://readwrite.com/wp-content/themes/rw/scripts/jquery.js" id="script-lib-js"></script>
+<script type="text/javascript" src="https://readwrite.com/wp-content/themes/rw/scripts/jquery-migrate.js" id="script-mig-js"></script>
+<script type="text/javascript" src="https://readwrite.com/wp-content/themes/rw/scripts/bootstrap-carousal.js" id="carousal-script-js"></script>
+<script type="text/javascript" id="advanced-ads-pro/cache_busting-js-extra">
+/* <![CDATA[ */
+var advanced_ads_pro_ajax_object = {"ajax_url":"https:\/\/readwrite.com\/wp-admin\/admin-ajax.php","lazy_load_module_enabled":"1","lazy_load":{"default_offset":0,"offsets":[]}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://readwrite.com/wp-content/uploads/706/693/54/666/451/648.js" id="advanced-ads-pro/cache_busting-js"></script>
+<link rel="https://api.w.org/" href="https://readwrite.com/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://readwrite.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://readwrite.com/wp-includes/wlwmanifest.xml">
+<meta name="generator" content="WordPress 5.7.6">
+<script type="text/javascript">//<![CDATA[
+  function external_links_in_new_windows_loop() {
+    if (!document.links) {
+      document.links = document.getElementsByTagName('a');
+    }
+    var change_link = false;
+    var force = '';
+    var ignore = 'https://readwrite.com';
+
+    for (var t=0; t<document.links.length; t++) {
+      var all_links = document.links[t];
+      change_link = false;
+      
+      if(document.links[t].hasAttribute('onClick') == false) {
+        // forced if the address starts with http (or also https), but does not link to the current domain
+        if(all_links.href.search(/^http/) != -1 && all_links.href.search('readwrite.com') == -1 && all_links.href.search(/^#/) == -1) {
+          // console.log('Changed ' + all_links.href);
+          change_link = true;
+        }
+          
+        if(force != '' && all_links.href.search(force) != -1) {
+          // forced
+          // console.log('force ' + all_links.href);
+          change_link = true;
+        }
+        
+        if(ignore != '' && all_links.href.search(ignore) != -1) {
+          // console.log('ignore ' + all_links.href);
+          // ignored
+          change_link = false;
+        }
+
+        if(change_link == true) {
+          // console.log('Changed ' + all_links.href);
+          document.links[t].setAttribute('onClick', 'javascript:window.open(\''+all_links.href+'\'); return false;');
+          document.links[t].removeAttribute('target');
+        }
+      }
+    }
+  }
+  
+  // Load
+  function external_links_in_new_windows_load(func)
+  {  
+    var oldonload = window.onload;
+    if (typeof window.onload != 'function'){
+      window.onload = func;
+    } else {
+      window.onload = function(){
+        oldonload();
+        func();
+      }
+    }
+  }
+
+  external_links_in_new_windows_load(external_links_in_new_windows_loop);
+  //]]></script>
+<script>advads_items = { conditions: {}, display_callbacks: {}, display_effect_callbacks: {}, hide_callbacks: {}, backgrounds: {}, effect_durations: {}, close_functions: {}, showed: [] };</script><style type="text/css" id="advads-layer-custom-css"></style><script type="text/javascript">
+		;var advadsCfpQueue = [], advadsCfpExpHours = 3;
+		var advadsCfpClickLimit = 3;
+		;
+		var advadsCfpPath = '';
+		var advadsCfpDomain = '';
+		var advadsCfpAd = function( adID ){
+			if ( 'undefined' == typeof advadsProCfp ) { advadsCfpQueue.push( adID ) } else { advadsProCfp.addElement( adID ) }
+		};
+		</script><link rel="icon" href="https://images.readwrite.com/wp-content/uploads/2018/03/cropped-rw-32x32.jpg" sizes="32x32">
+<link rel="icon" href="https://images.readwrite.com/wp-content/uploads/2018/03/cropped-rw-192x192.jpg" sizes="192x192">
+<link rel="apple-touch-icon" href="https://images.readwrite.com/wp-content/uploads/2018/03/cropped-rw-180x180.jpg">
+<meta name="msapplication-TileImage" content="https://images.readwrite.com/wp-content/uploads/2018/03/cropped-rw-270x270.jpg">
+<script type="text/javascript">
+    window._mNHandle = window._mNHandle || {};
+    window._mNHandle.queue = window._mNHandle.queue || [];
+    medianet_versionId = "3121199";
+</script>
+<script src="https://contextual.media.net/dmedianet.js?cid=8CU8547CS" async="async"></script>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://readwrite.com/"><script type="text/javascript">
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script>
+<script data-ezscrex="false" type="text/javascript">
+var soc_app_id = '0';
+var did = 299878;
+var ezdomain = 'readwrite.com';
+var ezoicSearchable = 1;
+</script>
+
+
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"ad_load_version":0,"city":"Dallas","country":"US","days_since_last_visit":-1,"domain_id":299878,"engaged_time_visit":0,"ezcache_level":1,"ezcache_skip_code":4,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":623,"page_ad_positions":"","page_view_count":0,"page_view_id":"b746e560-6374-4cb3-536e-0ca973fe0330","position_selection_id":0,"postal_code":"75219","pv_event_count":0,"response_size_orig":94003,"response_time_orig":314,"serverid":"35.164.228.161:14215","state":"TX","t_epoch":1648199805,"template_id":126,"time_on_site_visit":0,"url":"https://readwrite.com/","user_id":0,"word_count":1594,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex="false" data-pagespeed-no-defer="" data-cfasync="false">
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_299878=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["b746e560-6374-4cb3-536e-0ca973fe0330", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script>
+<script type="text/javascript">var _audins_dom="readwrite_com",_audins_did=299878;__ez.queue.addFile('/detroitchicago/cmbv2.js', '/detroitchicago/cmbv2.js?gcb=195-0&cb=04-1y02-5y06-12y07-1y19-5y0b-5y0d-14y13-3y17-4y1c-2y21-3y55-1&cmbcb=33&sj=x04x02x06x07x19x0bx0dx13x17x1cx21x55', true, [], true, false, true, false);</script><script src="/detroitchicago/cmbv2.js?gcb=195-0&amp;cb=04-1y02-5y06-12y07-1y19-5y0b-5y0d-14y13-3y17-4y1c-2y21-3y55-1&amp;cmbcb=33&amp;sj=x04x02x06x07x19x0bx0dx13x17x1cx21x55" async=""></script>
+<script type="text/javascript" defer="">__ez.queue.addFile('/detroitchicago/cmbdv2.js', '/detroitchicago/cmbdv2.js?gcb=195-0&cb=03-5y0c-5y18-4&cmbcb=33&sj=x03x0cx18', true, ['/detroitchicago/cmbv2.js'], true, false, true, false);</script><script type="text/javascript" async="" src="https://static-tracking.klaviyo.com/onsite/js/fender_analytics.81b0bc719eacc9441e42.js"></script><script type="text/javascript" async="" src="https://static-tracking.klaviyo.com/onsite/js/static.c0d2862a8decbc479c58.js"></script><script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/sharedUtils.f75fc3387031fd899369.js"></script><script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/sentry.e9c13b4f41b96aec7b8a.js"></script><script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/vendors~signup_forms.3c4600ee62a990b4a5ee.js"></script><script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/signup_forms.a111ad4d2984cc3fba24.js"></script><script src="/detroitchicago/cmbdv2.js?gcb=195-0&amp;cb=03-5y0c-5y18-4&amp;cmbcb=33&amp;sj=x03x0cx18" async=""></script><style id="kl-custom-fonts">
+@import 'https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900&display=swap';
+
+.kl-private-quill-wrapper-Lkqws1.kl-private-quill-wrapper-Lkqws1.kl-private-quill-wrapper-Lkqws1 .ql-font-nunito-sans {font-family: 'Nunito Sans'}
+</style><script charset="utf-8" src="https://static.klaviyo.com/onsite/js/vendors~ClientStore.1be462668613f8c8a419.js"></script><script charset="utf-8" src="https://static.klaviyo.com/onsite/js/ClientStore.e5858fb7ea2bd3916dba.js"></script><link rel="stylesheet" type="text/css" href="https://static.klaviyo.com/onsite/js/11.a5540beb560761e98c07.css"><script charset="utf-8" src="https://static.klaviyo.com/onsite/js/styles.0fef2b0b8de5ee41343f.js"></script><script charset="utf-8" src="https://static.klaviyo.com/onsite/js/vendors~Render.ae7c900330a6320e27ec.js"></script><script charset="utf-8" src="https://static.klaviyo.com/onsite/js/Render.28698fdf5bef9ef17f67.js"></script><style id="_goober"> .go4127620576.go4127620576 > div{padding-bottom:8px;padding-top:8px;}.go2867909610.go2867909610.go2867909610.go2867909610.go2867909610.go2867909610::before{content:'';background-color:rgba(20, 20, 20, 0.5);height:100%;width:100%;left:0;top:0;bottom:0;right:0;position:fixed;z-index:90000;opacity:1;}.go130507333.go130507333.go130507333.go130507333.go130507333.go130507333::before{content:'';height:100%;background-color:#FFFFFF;top:-50%;width:100%;position:absolute;}.go2132490686.go2132490686.go2132490686.go2132490686.go2132490686.go2132490686::before{content:'';display:block;height:20px;width:100%;}.go2132490686.go2132490686.go2132490686.go2132490686.go2132490686.go2132490686::after{content:'';display:block;height:20px;width:100%;}.go1037190649.go1037190649.go1037190649.go1037190649.go1037190649.go1037190649::placeholder{color:#B4BBC3;font-family:'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;font-size:18px;font-weight:700;letter-spacing:0px;}.go1037190649.go1037190649.go1037190649.go1037190649.go1037190649.go1037190649::-moz-placeholder{line-height:50px;}.go1037190649.go1037190649.go1037190649.go1037190649.go1037190649.go1037190649:hover{border-color:#000000 !important;}.go354640364.go354640364.go354640364.go354640364.go354640364.go354640364:focus{box-shadow:0 0 5px #0064CD;}.go354640364.go354640364.go354640364.go354640364.go354640364.go354640364:hover{background-color:#303B43 !important;color:rgba(255,255,255,1) !important;}</style><meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A8FHS1NmdCwGqD9DwOicnHHY+y27kdWfxKa0YHSGDfv0CSpDKRHTQdQmZVPDUdaFWUsxdgVxlwAd6o+dhJykPA0AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A8zdXi6dr1hwXEUjQrYiyYQGlU3557y5QWDnN0Lwgj9ePt66XMEvNkVWOEOWPd7TP9sBQ25X0Q15Lr1Nn4oGFQkAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A4/Htern2udN9w3yJK9QgWQxQFruxOXsXL7cW60DyCl0EZFGCSme/J33Q/WzF7bBkVvhEWDlcBiUyZaim5CpFQwAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A8FHS1NmdCwGqD9DwOicnHHY+y27kdWfxKa0YHSGDfv0CSpDKRHTQdQmZVPDUdaFWUsxdgVxlwAd6o+dhJykPA0AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A8zdXi6dr1hwXEUjQrYiyYQGlU3557y5QWDnN0Lwgj9ePt66XMEvNkVWOEOWPd7TP9sBQ25X0Q15Lr1Nn4oGFQkAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A4/Htern2udN9w3yJK9QgWQxQFruxOXsXL7cW60DyCl0EZFGCSme/J33Q/WzF7bBkVvhEWDlcBiUyZaim5CpFQwAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=readwrite.com" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=readwrite.com"></script></head>
+<body class="home blog wp-custom-logo webp-support" aria-hidden="false">
+<script data-cfasync="false">if(ewww_webp_supported){document.body.classList.add("webp-support");}</script>
+<div id="mySidenav" class="sidenav col-md-2">
+<div id="mySidenav-inner">
+<div class="site-branding">
+<a href="https://readwrite.com/" class="custom-logo-link" rel="home" aria-current="page"><img src="https://images.readwrite.com/wp-content/uploads/2020/01/rw-logo.svg" class="custom-logo" alt="ReadWrite" width="2500" height="434"></a> </div>
+<a href="javascript:void(0)" class="closebtn">×</a>
+<div class="clearfix"></div>
+<div class="row">
+<div class="col-md-12">
+<h4>Grow</h4>
+<ul>
+<li><a href="https://readwrite.com/category/sales/">Sales</a></li>
+<li><a href="https://readwrite.com/category/marketing/">Marketing</a></li>
+<li><a href="https://readwrite.com/category/customer-service/">Customer Service</a></li>
+<li><a href="https://readwrite.com/category/iot/">IoT</a></li>
+<li><a href="https://readwrite.com/category/arvr/">AR/VR</a></li>
+<li><a href="https://readwrite.com/category/code/">Code</a></li>
+<li><a href="https://readwrite.com/category/data-and-security/">Data and Security</a></li>
+<li><a href="https://readwrite.com/category/energy/">Energy</a></li>
+<li><a href="https://readwrite.com/category/hack/">Hack</a></li>
+<li><a href="https://readwrite.com/category/web/">Web</a></li>
+<ul>
+</ul></ul></div>
+<div class="col-md-12">
+<h4>Lead</h4>
+<ul>
+<li><a href="https://readwrite.com/category/productivity/">Productivity</a></li>
+<li><a href="https://readwrite.com/category/culture/">Culture</a></li>
+<li><a href="https://readwrite.com/category/branding/">Branding</a></li>
+<li><a href="https://readwrite.com/category/tech/">Tech</a></li>
+<li><a href="https://readwrite.com/category/cloud/">Cloud</a></li>
+<li><a href="https://readwrite.com/category/connect/">Connect</a></li>
+<li><a href="https://readwrite.com/category/deals/">Deals</a></li>
+<li><a href="https://readwrite.com/category/fund/">Fund</a></li>
+<li><a href="https://readwrite.com/category/health/">Health</a></li>
+<li><a href="https://readwrite.com/category/startups/">Startups</a></li>
+<ul>
+</ul></ul></div>
+<div class="col-md-12">
+<h4>Site Links</h4>
+<ul>
+<li><a href="/about/">About</a></li>
+<li><a href="/advertise/">Advertise</a></li>
+<li><a href="/events/">Events</a></li>
+<li><a href="/contributor-guidelines/">Guest Post</a></li>
+<li><a href="/contact/">Contact</a></li>
+<li><a href="/privacy/">Privacy</a></li>
+<ul>
+</ul></ul></div>
+</div>
+</div>
+</div>
+<div id="page" class="hfeed container-fluid" style="height: auto !important;">
+<div class="row" style="height: auto !important;">
+<div id="sidebar" class="sidebar col-md-2" style="top: 0px;">
+<div id="leftsidebar" class="col-md-2">
+<header id="masthead" class="site-header" role="banner">
+<div class="site-branding">
+<a href="https://readwrite.com/" class="custom-logo-link" rel="home" aria-current="page"><img src="https://images.readwrite.com/wp-content/uploads/2020/01/rw-logo.svg" class="custom-logo" alt="ReadWrite" width="2500" height="434"></a> </div>
+<!-- -->
+<div class="navbar-header">
+<div class="mobile-search">
+<span class="search-icon">&nbsp;</span>
+<div id="widget-area" class="widget-area" role="complementary">
+<aside id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://readwrite.com/">
+<label>
+<span class="screen-reader-text">Search for:</span>
+<input type="search" class="search-field" placeholder="Search …" value="" name="s">
+</label>
+<input type="submit" class="search-submit" value="Search">
+</form></aside> <a href="javascript:void(0)" class="closesearch" onclick="closeNav()">×</a>
+</div>
+</div>
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+<span class="icon-bar"><img src="https://readwrite.com/wp-content/themes/rw/images/mobile-menu.png" alt="Mobile menu"></span>
+</button>
+</div>
+</header>
+<div id="secondary" class="secondary">
+<nav id="site-navigation" class="main-navigation navigation" role="navigation">
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+<div class="menu-main-menu-container"><ul id="menu-main-menu" class="nav navbar-nav"><li id="menu-item-125069" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-125069"><a href="https://readwrite.com/category/ai/">AI</a></li>
+<li id="menu-item-125070" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-125070"><a href="https://readwrite.com/category/blockchain/">Blockchain</a></li>
+<li id="menu-item-134432" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-134432"><a href="https://readwrite.com/category/connected-devices/">Connected Devices</a></li>
+<li id="menu-item-125071" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-125071"><a href="https://readwrite.com/category/fintech/">Fintech</a></li>
+<li id="menu-item-134448" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-134448"><a href="https://readwrite.com/category/industrial/">Industrial</a></li>
+<li id="menu-item-143441" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-143441"><a href="https://readwrite.com/category/startups/">Startups</a></li>
+<li id="menu-item-134447" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-134447"><a href="https://readwrite.com/category/smart-cities/">Smart Cities</a></li>
+<li id="menu-item-167661" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-167661"><a href="https://readwrite.com/category/product-reviews/">Product Reviews</a></li>
+<li id="menu-item-167662" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-167662"><a href="https://readwrite.com/category/lifestyle/">Lifestyle</a></li>
+<li id="menu-item-168423" class="guest-po menu-item menu-item-type-post_type menu-item-object-page menu-item-168423"><a href="https://readwrite.com/contributor-guidelines/">Guest Post</a></li>
+<li id="menu-item-125076" class="menu-popup menu-item menu-item-type-custom menu-item-object-custom menu-item-125076"><a href="#">More</a></li>
+</ul></div> </div>
+</nav>
+<div id="widget-area" class="widget-area" role="complementary">
+<aside id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://readwrite.com/">
+<label>
+<span class="screen-reader-text">Search for:</span>
+<input type="search" class="search-field" placeholder="Search …" value="" name="s">
+</label>
+<input type="submit" class="search-submit" value="Search">
+</form></aside> </div>
+<nav id="social-navigation" class="social-navigation" role="navigation">
+<div class="menu-social-media-container"><ul id="menu-social-media" class="menu"><li id="menu-item-125046" class="fb menu-item menu-item-type-custom menu-item-object-custom menu-item-125046"><a rel="noopener" href="https://www.facebook.com/ReadWrite" onclick="javascript:window.open('https://www.facebook.com/ReadWrite'); return false;"><span class="screen-reader-text">Facebook</span></a></li>
+<li id="menu-item-125047" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-125047"><a rel="noopener" href="https://twitter.com/RWW" onclick="javascript:window.open('https://twitter.com/RWW'); return false;"><span class="screen-reader-text">Twitter</span></a></li>
+<li id="menu-item-125048" class="insta menu-item menu-item-type-custom menu-item-object-custom menu-item-125048"><a rel="noopener" href="https://www.instagram.com/readwritedotcom/" onclick="javascript:window.open('https://www.instagram.com/readwritedotcom/'); return false;"><span class="screen-reader-text">Instagram</span></a></li>
+<li id="menu-item-125051" class="ytube menu-item menu-item-type-custom menu-item-object-custom menu-item-125051"><a rel="noopener" href="https://www.youtube.com/channel/UClMPvTStrcn829w34OWNEPw" onclick="javascript:window.open('https://www.youtube.com/channel/UClMPvTStrcn829w34OWNEPw'); return false;"><span class="screen-reader-text">Youtube</span></a></li>
+<li id="menu-item-171462" class="linkedin menu-item menu-item-type-custom menu-item-object-custom menu-item-171462"><a href="https://www.linkedin.com/company/readwrite/" onclick="javascript:window.open('https://www.linkedin.com/company/readwrite/'); return false;"><span class="screen-reader-text">Linkedin</span></a></li>
+<li id="menu-item-171464" class="medium menu-item menu-item-type-custom menu-item-object-custom menu-item-171464"><a href="https://medium.com/readwrite" onclick="javascript:window.open('https://medium.com/readwrite'); return false;"><span class="screen-reader-text">Medium</span></a></li>
+</ul></div> </nav>
+<div id="sidebar_badge">
+<a href="#" target="_blank"><img src="https://readwrite.com/wp-content/themes/rw/images/badge.jpg" alt="Badge"></a>
+</div>
+</div>
+</div>
+</div>
+<div id="content" class="site-content col-md-10" style="height: auto !important; min-height: 0px !important;">
+<div class="header-ad-wrap">
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1183579825777021" data-ad-slot="9306669958" data-adsbygoogle-status="done" data-ad-status="filled"><ins id="aswift_0_expand" style="border: medium none; height: 90px; width: 728px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_0_anchor" style="border: medium none; height: 90px; width: 728px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:728px;height:90px" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1183579825777021&amp;output=html&amp;h=90&amp;slotname=9306669958&amp;adk=8631880&amp;adf=3812176963&amp;pi=t.ma~as.9306669958&amp;w=728&amp;lmt=1648197728&amp;psa=0&amp;format=728x90&amp;url=https%3A%2F%2Freadwrite.com%2F&amp;wgl=1&amp;adsid=ChAI8ND1kQYQvNTR1LnNmqAJEi8Am0QMprdqoVg9zqMMLm5ywYRqENR-76BAZf9JzaDHX75gyXfAxYRP_V0JmO9Zfg&amp;dt=1648199807880&amp;bpp=1&amp;bdt=1538&amp;idt=146&amp;shv=r20220323&amp;mjsv=m202203170101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;correlator=321662503464&amp;frm=20&amp;pv=2&amp;ga_vid=1392450503.1648199808&amp;ga_sid=1648199808&amp;ga_hid=492289597&amp;ga_fc=1&amp;u_tz=-300&amp;u_his=50&amp;u_h=1600&amp;u_w=3840&amp;u_ah=1560&amp;u_aw=3840&amp;u_cd=24&amp;u_sd=1&amp;adx=375&amp;ady=32&amp;biw=1267&amp;bih=988&amp;scr_x=0&amp;scr_y=0&amp;eid=44759876%2C44759927%2C44759837%2C31064019&amp;oid=2&amp;pvsid=817517627544664&amp;pem=519&amp;tmod=1166795395&amp;nvt=1&amp;eae=0&amp;fc=896&amp;brdim=1957%2C91%2C1957%2C91%2C3840%2C0%2C1296%2C1079%2C1284%2C988&amp;vis=1&amp;rsz=%7C%7CpeE%7C&amp;abl=CS&amp;pfx=0&amp;fu=0&amp;bc=31&amp;jar=2022-03-25-05&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;xpc=5C2XbmLf4k&amp;p=https%3A//readwrite.com&amp;dtd=292" data-google-container-id="a!1" data-google-query-id="CPvn3-D24PYCFT-XAAAdBQMKng" data-load-complete="true" width="728" height="90" frameborder="0"></iframe></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div id="primary" class="content-area" style="height: auto !important;">
+<main id="main" class="site-main" role="main" style="height: auto !important;">
+<div class="row trending-posts-wrap">
+<div class="col-md-12 trending-posts">
+<h2 class="section-title">Trending</h2>
+<div class="col-md-6 most-rending">
+<a href="https://readwrite.com/train-online-for-a-new-career/" title="How to Train Online for a New Career&nbsp;"><img src="https://images.readwrite.com/wp-content/uploads/2022/03/Train-Online-for-Career-768x719.jpg" class="attachment-featured-post-large size-featured-post-large wp-post-image" alt="Train Online for Career" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/03/Train-Online-for-Career-768x719.jpg 768w, https://images.readwrite.com/wp-content/uploads/2022/03/Train-Online-for-Career-240x225.jpg 240w" sizes="(max-width: 768px) 100vw, 768px" width="768" height="719"></a>
+<div class="col-md-12 trending-post-msg">
+<header class="entry-header">
+<span class="featured-lable">Featured</span>
+<h2 class="entry-title"><a href="https://readwrite.com/train-online-for-a-new-career/" rel="bookmark">How to Train Online for a New Career&nbsp;</a></h2> </header>
+<div class="entry-meta">
+<span class="author"><a href="https://readwrite.com/author/deanna/">Deanna Ritchie</a></span><span class="seperator">/</span><span class="post-cat"><a href="https://readwrite.com/category/learn/" rel="category tag">Learn</a>, <a href="https://readwrite.com/category/tutorials/" rel="category tag">Tutorials</a></span>
+</div>
+</div>
+</div>
+<div class="col-md-6 trending-posts-column">
+<div class="row trending-posts-row">
+<div class="trending-post-thumb col-md-4">
+<a href="https://readwrite.com/how-to-deal-with-late-employees/" title="How To Deal With Late Employees"><img src="https://images.readwrite.com/wp-content/uploads/2021/02/How-Blockchain-Can-Help-Employees-Get-Back-to-the-Office-240x225.jpg" class="attachment-trending-post size-trending-post wp-post-image" alt="blockchain" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2021/02/How-Blockchain-Can-Help-Employees-Get-Back-to-the-Office-240x225.jpg 240w, https://images.readwrite.com/wp-content/uploads/2021/02/How-Blockchain-Can-Help-Employees-Get-Back-to-the-Office-768x719.jpg 768w" sizes="(max-width: 240px) 100vw, 240px" width="240" height="225"></a> </div>
+<div class="trending-post-desc col-md-8">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/how-to-deal-with-late-employees/" rel="bookmark">How To Deal With Late Employees</a></h2>
+</header>
+<div class="entry-content">
+Circumstances may justify causing an employee’s delay. However, if&nbsp;tardiness&nbsp;persists, management must act to guarantee and… </div>
+<div class="entry-meta">
+<span class="author"><a href="https://readwrite.com/author/calendar/">Calendar</a></span><span class="seperator">/</span><span class="post-cat"><a href="https://readwrite.com/category/productivity/" rel="category tag">Productivity</a></span>
+</div>
+</div>
+</div>
+<div class="row trending-posts-row">
+<div class="trending-post-thumb col-md-4">
+<a href="https://readwrite.com/zero-trust-the-silver-lining-to-cloud-cyber-attacks/" title="Zero Trust – The Silver Lining to Cloud Cyber Attacks"><img src="https://images.readwrite.com/wp-content/uploads/2022/02/Zero-Trust-Technology-240x225.jpeg" class="attachment-trending-post size-trending-post wp-post-image" alt="Zero Trust Technology" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/02/Zero-Trust-Technology-240x225.jpeg 240w, https://images.readwrite.com/wp-content/uploads/2022/02/Zero-Trust-Technology-768x719.jpeg 768w" sizes="(max-width: 240px) 100vw, 240px" width="240" height="225"></a> </div>
+<div class="trending-post-desc col-md-8">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/zero-trust-the-silver-lining-to-cloud-cyber-attacks/" rel="bookmark">Zero Trust – The Silver Lining to Cloud Cyber Attacks</a></h2>
+</header>
+<div class="entry-content">
+The recent increase in the severity and sophistication of cyberattacks in recent years may just…
+</div>
+<div class="entry-meta">
+<span class="author"><a href="https://readwrite.com/author/michael-usiagwu/">Michael Usiagwu</a></span><span class="seperator">/</span><span class="post-cat"><a href="https://readwrite.com/category/data-and-security/" rel="category tag">Data and Security</a></span>
+</div>
+</div>
+</div>
+<div class="row trending-posts-row">
+<div class="trending-post-thumb col-md-4">
+<a href="https://readwrite.com/adapting-conversion-funnels-to-suit-consumer-behavior-in-the-new-normal/" title="Adapting Conversion Funnels to Suit Consumer Behavior in the New Normal"><img src="https://images.readwrite.com/wp-content/uploads/2022/02/Conversion-Funnel-240x225.jpg" class="attachment-trending-post size-trending-post wp-post-image" alt="Conversion Funnel" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/02/Conversion-Funnel-240x225.jpg 240w, https://images.readwrite.com/wp-content/uploads/2022/02/Conversion-Funnel-768x719.jpg 768w" sizes="(max-width: 240px) 100vw, 240px" width="240" height="225"></a> </div>
+<div class="trending-post-desc col-md-8">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/adapting-conversion-funnels-to-suit-consumer-behavior-in-the-new-normal/" rel="bookmark">Adapting Conversion Funnels to Suit Consumer Behavior in the New… </a></h2>
+</header>
+<div class="entry-content">
+From a marketing perspective, digital acceleration has been accompanied by noticeable changes in the purchasing…
+</div>
+<div class="entry-meta">
+<span class="author"><a href="https://readwrite.com/author/dmytro-spilka/">Dmytro Spilka</a></span><span class="seperator">/</span><span class="post-cat"><a href="https://readwrite.com/category/marketing/" rel="category tag">Marketing</a></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="home-posts-wrap" style="height: auto !important;">
+<h2 class="section-title">Latest Articles</h2>
+<article id="post-207188" class="post-207188 post type-post status-publish format-standard has-post-thumbnail hentry category-hack">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/7-ways-to-protect-your-financial-investments-from-theft/" title="7 Ways To Protect Your Financial Investments From Theft"><img src="https://images.readwrite.com/wp-content/uploads/2018/03/iStock-506476912-e1490595891607-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2018/03/iStock-506476912-e1490595891607-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2018/03/iStock-506476912-e1490595891607-825x510.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/7-ways-to-protect-your-financial-investments-from-theft/" rel="bookmark">7 Ways To Protect Your Financial Investments From Theft</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/due/">Due</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/hack/" rel="category tag">Hack</a></span>
+</div>
+<div class="entry-content">
+<p>Cybersecurity is a growing concern in all areas of life. Businesses and political entities were put on high alert when the SolarWinds hack took place back in 2019. Individuals have also suffered from countless numbers of data breaches in recent years, including big-wig names like Yahoo and Target. Even the rise of supposedly safe cryptocurrency […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-197479" class="post-197479 post type-post status-publish format-standard has-post-thumbnail hentry category-readwrite">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/facebook-and-microsoft-want-to-own-the-metaverse/" title="Facebook and Microsoft Want to Own the Metaverse"><img src="https://images.readwrite.com/wp-content/uploads/2022/03/Facebook-and-Microsoft-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="want to own metaverse" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/03/Facebook-and-Microsoft-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2022/03/Facebook-and-Microsoft-300x185.jpg 300w, https://images.readwrite.com/wp-content/uploads/2022/03/Facebook-and-Microsoft.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/facebook-and-microsoft-want-to-own-the-metaverse/" rel="bookmark">Facebook and Microsoft Want to Own the Metaverse</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/deanna/">Deanna Ritchie</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/readwrite/" rel="category tag">ReadWrite</a></span>
+</div>
+<div class="entry-content">
+<p>There has been a lot of big talk about the metaverse lately. Of course, it’s a big issue with Facebook and Microsoft claiming ownership. But what is it? How does it work? Will it work? When Will the Metaverse Arrive? In his 1992 science fiction novel “Snow Crash,” Neal Stephenson imagined lifelike avatars meeting in […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-208079" class="post-208079 post type-post status-publish format-standard has-post-thumbnail hentry category-software category-tech">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/basic-devops-principles-and-practices/" title="8 Basic DevOps Principles and Practices"><img src="https://images.readwrite.com/wp-content/uploads/2022/03/DevOps-Principles-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="DevOps Principles" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/03/DevOps-Principles-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2022/03/DevOps-Principles-825x510.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/basic-devops-principles-and-practices/" rel="bookmark">8 Basic DevOps Principles and Practices</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/amit-gupta/">Amit Gupta</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/software/" rel="category tag">Software</a>, <a href="https://readwrite.com/category/tech/" rel="category tag">Tech</a></span>
+</div>
+<div class="entry-content">
+<p>For years the company administrators were the ones responsible for operations, integration, and development — and developers only had to write code. Before that — all specialists worked separately on projects as there was little communication between the two silos. Recently, DevOps has been one of the most famous and widely discussed software development processes. […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-208179" class="post-208179 post type-post status-publish format-standard has-post-thumbnail hentry category-ai category-data-and-security category-news category-tech tag-artificial-intelligence-and-machine-learning tag-current-supply-chain-crisis tag-predictive-modeling tag-sophisticated-predictive-models">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/how-modeling-must-evolve-to-account-for-complex-environments/" title="How Modeling Must Evolve to Account for Complex Environments"><img src="https://images.readwrite.com/wp-content/uploads/2022/03/Modeling-Must-Evolve-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="Modeling Must Evolve" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/03/Modeling-Must-Evolve-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2022/03/Modeling-Must-Evolve-300x185.jpg 300w, https://images.readwrite.com/wp-content/uploads/2022/03/Modeling-Must-Evolve.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/how-modeling-must-evolve-to-account-for-complex-environments/" rel="bookmark">How Modeling Must Evolve to Account for Complex Environments</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/sean-beard/">Sean Beard</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/ai/" rel="category tag">AI</a>, <a href="https://readwrite.com/category/data-and-security/" rel="category tag">Data and Security</a>, <a href="https://readwrite.com/category/news/" rel="category tag">News</a>, <a href="https://readwrite.com/category/tech/" rel="category tag">Tech</a></span>
+</div>
+<div class="entry-content">
+<p>A growing number of companies are deploying sophisticated predictive models powered by artificial intelligence and machine learning, and many are using them to inform critical decisions. Yet even the most advanced models couldn’t predict the arrival of the COVID-19 pandemic or Russia’s invasion of Ukraine — which serve as ongoing reminders of the limitations that […]</p>
+</div>
+</div>
+</div>
+</article> <div class="adwrap" style="height: auto !important;">
+<div class="adwrap-inner" style="height: auto !important;">
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display: block; height: 350px;" data-ad-client="ca-pub-1183579825777021" data-ad-slot="9278749790" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done" data-ad-status="filled"><ins id="aswift_1_expand" style="border: medium none; height: 350px; width: 992px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_1_anchor" style="border: medium none; height: 350px; width: 992px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block; overflow: hidden;"><iframe id="aswift_1" name="aswift_1" style="left: 0px; position: absolute; top: 0px; border: 0px none; width: 992px; height: 350px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1183579825777021&amp;output=html&amp;h=280&amp;slotname=9278749790&amp;adk=3528094409&amp;adf=2125905470&amp;pi=t.ma~as.9278749790&amp;w=992&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1648197728&amp;rafmt=1&amp;psa=0&amp;format=992x280&amp;url=https%3A%2F%2Freadwrite.com%2F&amp;fwr=0&amp;fwrattr=true&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;adsid=ChAI8ND1kQYQvNTR1LnNmqAJEi8Am0QMprdqoVg9zqMMLm5ywYRqENR-76BAZf9JzaDHX75gyXfAxYRP_V0JmO9Zfg&amp;dt=1648199807880&amp;bpp=1&amp;bdt=1538&amp;idt=192&amp;shv=r20220323&amp;mjsv=m202203170101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;prev_fmts=728x90&amp;correlator=321662503464&amp;frm=20&amp;pv=1&amp;ga_vid=1392450503.1648199808&amp;ga_sid=1648199808&amp;ga_hid=492289597&amp;ga_fc=1&amp;u_tz=-300&amp;u_his=50&amp;u_h=1600&amp;u_w=3840&amp;u_ah=1560&amp;u_aw=3840&amp;u_cd=24&amp;u_sd=1&amp;adx=243&amp;ady=1949&amp;biw=1267&amp;bih=988&amp;scr_x=0&amp;scr_y=0&amp;eid=44759876%2C44759927%2C44759837%2C31064019&amp;oid=2&amp;pvsid=817517627544664&amp;pem=519&amp;tmod=1166795395&amp;nvt=1&amp;eae=0&amp;fc=896&amp;brdim=1957%2C91%2C1957%2C91%2C3840%2C0%2C1296%2C1079%2C1284%2C988&amp;vis=1&amp;rsz=%7C%7CpeEbr%7C&amp;abl=CS&amp;pfx=0&amp;fu=128&amp;bc=31&amp;jar=2022-03-25-05&amp;ifi=2&amp;uci=a!2&amp;btvi=1&amp;fsb=1&amp;xpc=hdFsPBu744&amp;p=https%3A//readwrite.com&amp;dtd=297" data-google-container-id="a!2" data-google-query-id="CN-j4OD24PYCFf-aAAAdh0sNhQ" data-load-complete="true" width="992" height="350" frameborder="0"></iframe></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div>
+</div>
+<div class="clearfix"></div>
+<article id="post-206749" class="post-206749 post type-post status-publish format-standard has-post-thumbnail hentry category-customer-service category-data-and-security category-readwrite tag-cms tag-content tag-rankings tag-seo tag-ux">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/things-web-designers-want-to-tell-seos/" title="10 Things Web Designers Want to Tell SEOs"><img src="https://images.readwrite.com/wp-content/uploads/2022/03/Designers-Want-to-Tell-SEOs-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="Designers tell SEOs" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/03/Designers-Want-to-Tell-SEOs-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2022/03/Designers-Want-to-Tell-SEOs-825x510.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/things-web-designers-want-to-tell-seos/" rel="bookmark">10 Things Web Designers Want to Tell SEOs</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/charu-mitra-dubey/">Charu Mitra Dubey</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/customer-service/" rel="category tag">Customer Service</a>, <a href="https://readwrite.com/category/data-and-security/" rel="category tag">Data and Security</a>, <a href="https://readwrite.com/category/readwrite/" rel="category tag">ReadWrite</a></span>
+</div>
+<div class="entry-content">
+<p>Building a website is easy but building a website that stands out is NOT easy. There are many things that a great website needs. And the most important of those things are — design and SEO. That’s why web designers and SEOs need to work together. If you’re a web designer who needs to start […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-197534" class="post-197534 post type-post status-publish format-standard has-post-thumbnail hentry category-readwrite tag-outsourcing tag-outsourcing-pr">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/five-ways-pr-personnel-generate-new-business/" title="Five Ways PR Personnel Generate New Business"><img src="https://images.readwrite.com/wp-content/uploads/2021/11/PR-Personnel-Generate-Business-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="PR Personnel Generate Business" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2021/11/PR-Personnel-Generate-Business-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2021/11/PR-Personnel-Generate-Business-300x185.jpg 300w, https://images.readwrite.com/wp-content/uploads/2021/11/PR-Personnel-Generate-Business.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/five-ways-pr-personnel-generate-new-business/" rel="bookmark">Five Ways PR Personnel Generate New Business</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/deanna/">Deanna Ritchie</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/readwrite/" rel="category tag">ReadWrite</a></span>
+</div>
+<div class="entry-content">
+<p>When your business is fresh, your main objective is to keep the lights on. Charting a course for future development but get the word out — use your PR for effectively generating new business. How to get the word out to the public about your brand. As they endeavor to gain a footing in the […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-208180" class="post-208180 post type-post status-publish format-standard has-post-thumbnail hentry category-sales tag-b2b-sales tag-business-success tag-return-on-investment tag-revenue tag-sales-coaching">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/b2b-sales-consultant/" title="B2B Sales Consultant: When Should You Hire One?"><img src="https://images.readwrite.com/wp-content/uploads/2022/03/B2B-Sales-Consultant-1-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="B2B Sales Consultant" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/03/B2B-Sales-Consultant-1-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2022/03/B2B-Sales-Consultant-1-300x185.jpg 300w, https://images.readwrite.com/wp-content/uploads/2022/03/B2B-Sales-Consultant-1.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/b2b-sales-consultant/" rel="bookmark">B2B Sales Consultant: When Should You Hire One?</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/brad-anderson/">Brad Anderson</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/sales/" rel="category tag">Sales</a></span>
+</div>
+<div class="entry-content">
+<p>If your business is struggling to get the bottom-line results you want, you might consider hiring a B2B sales consultant. Hypothetically, this consultant could provide you with the insights, resources, and direction necessary to transform your business and see better sales. But is this an essential investment? Is it worth the money? And are there […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-208109" class="post-208109 post type-post status-publish format-standard has-post-thumbnail hentry category-readwrite tag-ev-stocks tag-investorplace tag-stocks">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/ev-stocks-have-been-crushed-why-its-time-to-buy-the-dip/" title="EV Stocks Have Been Crushed. Why It’s Time to Buy the Dip."><img src="https://images.readwrite.com/wp-content/uploads/2022/03/EV-Stocks-Have-Been-Crushed-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="EV Stocks Have Been Crushed" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/03/EV-Stocks-Have-Been-Crushed-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2022/03/EV-Stocks-Have-Been-Crushed-825x510.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/ev-stocks-have-been-crushed-why-its-time-to-buy-the-dip/" rel="bookmark">EV Stocks Have Been Crushed. Why It’s Time to Buy the Dip.</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/investor-place/">InvestorPlace</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/readwrite/" rel="category tag">ReadWrite</a></span>
+</div>
+<div class="entry-content">
+<p>Within the next 1,500 words, I’m going to convince you to&nbsp;buy the dip in the best EV stocks&nbsp;with both hands. And I’m going to start by talking about your favorite cereal. Ready? OK, here goes nothing. When you’re rolling down the aisle of your local grocery store and see your favorite cereal — normally priced […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-207339" class="post-207339 post type-post status-publish format-standard has-post-thumbnail hentry category-data-and-security tag-cybersecurity-strategy tag-data-security tag-security-breach tag-zero-trust-policy">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/zero-trust-the-silver-lining-to-cloud-cyber-attacks/" title="Zero Trust – The Silver Lining to Cloud Cyber Attacks"><img src="https://images.readwrite.com/wp-content/uploads/2022/02/Zero-Trust-Technology-260x160.jpeg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="Zero Trust Technology" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/02/Zero-Trust-Technology-260x160.jpeg 260w, https://images.readwrite.com/wp-content/uploads/2022/02/Zero-Trust-Technology-300x185.jpeg 300w, https://images.readwrite.com/wp-content/uploads/2022/02/Zero-Trust-Technology.jpeg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/zero-trust-the-silver-lining-to-cloud-cyber-attacks/" rel="bookmark">Zero Trust – The Silver Lining to Cloud Cyber Attacks</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/michael-usiagwu/">Michael Usiagwu</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/data-and-security/" rel="category tag">Data and Security</a></span>
+</div>
+<div class="entry-content">
+<p>The recent increase in the severity and sophistication of cyberattacks in recent years may just signal an essential, albeit overdue, turning point in cybersecurity. The clamor by security practitioners concerning the securing of cloud technology by use of technology like Zero Trust by enterprises and organizations has never been louder, and it’s not hard to […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-206965" class="post-206965 post type-post status-publish format-standard has-post-thumbnail hentry category-marketing tag-conversion-funnel tag-funnels tag-marketing">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/adapting-conversion-funnels-to-suit-consumer-behavior-in-the-new-normal/" title="Adapting Conversion Funnels to Suit Consumer Behavior in the New Normal"><img src="https://images.readwrite.com/wp-content/uploads/2022/02/Conversion-Funnel-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="Conversion Funnel" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/02/Conversion-Funnel-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2022/02/Conversion-Funnel-825x510.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/adapting-conversion-funnels-to-suit-consumer-behavior-in-the-new-normal/" rel="bookmark">Adapting Conversion Funnels to Suit Consumer Behavior in the New Normal</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/dmytro-spilka/">Dmytro Spilka</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/marketing/" rel="category tag">Marketing</a></span>
+</div>
+<div class="entry-content">
+<p>From a marketing perspective, digital acceleration has been accompanied by noticeable changes in the purchasing behavior of consumers. Data shows that consumers across several global institutions are shifting to more value-based purchasing – with a greater emphasis on value for the consumer in return for the money they spend.&nbsp; Most significantly of all, marketers have […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-207871" class="post-207871 post type-post status-publish format-standard has-post-thumbnail hentry category-learn category-tutorials tag-career-advancement tag-online-education tag-upskilling">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/train-online-for-a-new-career/" title="How to Train Online for a New Career&nbsp;"><img src="https://images.readwrite.com/wp-content/uploads/2022/03/Train-Online-for-Career-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="Train Online for Career" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/03/Train-Online-for-Career-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2022/03/Train-Online-for-Career-300x185.jpg 300w, https://images.readwrite.com/wp-content/uploads/2022/03/Train-Online-for-Career.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/train-online-for-a-new-career/" rel="bookmark">How to Train Online for a New Career&nbsp;</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/deanna/">Deanna Ritchie</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/learn/" rel="category tag">Learn</a>, <a href="https://readwrite.com/category/tutorials/" rel="category tag">Tutorials</a></span>
+</div>
+<div class="entry-content">
+<p>Changing your career used to be a complicated endeavor. Not only would you be giving up a potential retirement fund end of workplace you’re intimately familiar with, but you would also be forced to jump through hoops to learn new skills and build yourself up from the ground. However, our collective ability to train online […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-207186" class="post-207186 post type-post status-publish format-standard has-post-thumbnail hentry category-productivity">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/how-to-deal-with-late-employees/" title="How To Deal With Late Employees"><img src="https://images.readwrite.com/wp-content/uploads/2021/02/How-Blockchain-Can-Help-Employees-Get-Back-to-the-Office-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="blockchain" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2021/02/How-Blockchain-Can-Help-Employees-Get-Back-to-the-Office-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2021/02/How-Blockchain-Can-Help-Employees-Get-Back-to-the-Office-300x185.jpg 300w, https://images.readwrite.com/wp-content/uploads/2021/02/How-Blockchain-Can-Help-Employees-Get-Back-to-the-Office.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/how-to-deal-with-late-employees/" rel="bookmark">How To Deal With Late Employees</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/calendar/">Calendar</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/productivity/" rel="category tag">Productivity</a></span>
+</div>
+<div class="entry-content">
+<p>Circumstances may justify causing an employee’s delay. However, if&nbsp;tardiness&nbsp;persists, management must act to guarantee and promote timeliness across the team. What happens if workers are late? However, unexpected circumstances, blunders, or personal difficulties might lead a staff member to be late. These are usually isolated instances that don’t affect colleagues or management. For example, an […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-197274" class="post-197274 post type-post status-publish format-standard has-post-thumbnail hentry category-blockchain tag-bitcoin tag-blockchain tag-connectivity">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/blockchain-limitations-to-consider-today/" title="Blockchain Limitations to Consider Today"><img src="https://images.readwrite.com/wp-content/uploads/2021/11/Blockchain-Limitations-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="Blockchain Limitations" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2021/11/Blockchain-Limitations-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2021/11/Blockchain-Limitations-300x185.jpg 300w, https://images.readwrite.com/wp-content/uploads/2021/11/Blockchain-Limitations.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/blockchain-limitations-to-consider-today/" rel="bookmark">Blockchain Limitations to Consider Today</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/deanna/">Deanna Ritchie</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/blockchain/" rel="category tag">Blockchain</a></span>
+</div>
+<div class="entry-content">
+<p>Blockchain is here to stay, but in what form? Who will blockchain benefit most? And who will it inconvenience the most? Let’s take a look. Some have said that blockchain is a network that is “trustless.” However, this statement doesn’t imply that the parties participating in the economic transaction do not trust one another. Of […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-207271" class="post-207271 post type-post status-publish format-standard has-post-thumbnail hentry category-readwrite">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/it-staff-augmentation-as-an-answer-to-your-next-project/" title="IT Staff Augmentation as an Answer to Your Next Project"><img src="https://images.readwrite.com/wp-content/uploads/2022/03/IT-Staff-Augmentation-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="IT Staff Augmentation" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/03/IT-Staff-Augmentation-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2022/03/IT-Staff-Augmentation-825x510.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/it-staff-augmentation-as-an-answer-to-your-next-project/" rel="bookmark">IT Staff Augmentation as an Answer to Your Next Project</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/vlada-tselomudrova/">Vlada Tselomudrova</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/readwrite/" rel="category tag">ReadWrite</a></span>
+</div>
+<div class="entry-content">
+<p>Today, most businesses benefit immensely from IT staff augmentation, enabling them to accomplish complex projects with top-notch technical staff from all parts of the world. Did you know that big-tech companies, including Microsoft and Apple, outstaff most of their projects to Eastern Europe? The Eastern European countries have an estimated more than 210 000 IT […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-207766" class="post-207766 post type-post status-publish format-standard has-post-thumbnail hentry category-productivity category-small-business tag-company-culture tag-efficiency-and-productivity tag-onboarding">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/new-hires-obvious-questions/" title="New Hires: Stop Forcing Them to Ask Obvious Questions"><img src="https://images.readwrite.com/wp-content/uploads/2022/03/New-Hires-Questions-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="New Hires Questions" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/03/New-Hires-Questions-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2022/03/New-Hires-Questions-300x185.jpg 300w, https://images.readwrite.com/wp-content/uploads/2022/03/New-Hires-Questions.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/new-hires-obvious-questions/" rel="bookmark">New Hires: Stop Forcing Them to Ask Obvious Questions</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/brad-anderson/">Brad Anderson</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/productivity/" rel="category tag">Productivity</a>, <a href="https://readwrite.com/category/small-business/" rel="category tag">Small Business</a></span>
+</div>
+<div class="entry-content">
+<p>Employee recruitment is tough enough. But, once you have an employment agreement for your hard-won talent, the rest of getting your new hires ready is easy, right? Not so fast! In reality, the challenge of onboarding qualified talent is only beginning. In today’s tight labor market, there’s no guarantee you’ll retain your recent hires for […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-207197" class="post-207197 post type-post status-publish format-standard has-post-thumbnail hentry category-build">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/keeping-your-money-safe-from-shady-advisors/" title="Keeping Your Money Safe from Shady Advisors"><img src="https://images.readwrite.com/wp-content/uploads/2022/01/Cloud-Costs-are-the-New-Danger-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="Cloud Costs are the New Danger" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/01/Cloud-Costs-are-the-New-Danger-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2022/01/Cloud-Costs-are-the-New-Danger-825x510.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/keeping-your-money-safe-from-shady-advisors/" rel="bookmark">Keeping Your Money Safe from Shady Advisors</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/due/">Due</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/build/" rel="category tag">Build</a></span>
+</div>
+<div class="entry-content">
+<p>Don’t be stunned when I tell you this. But, you can’t trust every&nbsp;financial advisor&nbsp;out there. I mean there really are people out there like Matthew McConaughey’s character in “The Wolf of Wall Street” conducting some really dirty business. In fact, according to one study, 7.3% of financial advisors in the United States have been cited […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-208099" class="post-208099 post type-post status-publish format-standard has-post-thumbnail hentry category-readwrite">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/ibm-stock-belongs-on-your-watchlist-after-latest-slide/" title="IBM Stock Belongs On Your Watchlist After Latest Slide"><img src="https://images.readwrite.com/wp-content/uploads/2022/03/IBM-Stock-Belongs-on-Your-Watchlist-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="IBM Stock Belongs on Your Watchlist" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/03/IBM-Stock-Belongs-on-Your-Watchlist-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2022/03/IBM-Stock-Belongs-on-Your-Watchlist-825x510.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/ibm-stock-belongs-on-your-watchlist-after-latest-slide/" rel="bookmark">IBM Stock Belongs On Your Watchlist After Latest Slide</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/investor-place/">InvestorPlace</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/readwrite/" rel="category tag">ReadWrite</a></span>
+</div>
+<div class="entry-content">
+<p>Market volatility has stymied a recovery for&nbsp;IBM&nbsp;(NYSE:IBM) stock. As you may recall, back in December, when most tech stocks were trending lower, shares of IBM were soaring. The stock even held up well during the late January selloff.&nbsp;Yet with the big dive driven by Russia’s invasion of Ukraine, it pulled back. That brings us to […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-208025" class="post-208025 post type-post status-publish format-standard has-post-thumbnail hentry category-sales category-software tag-automation tag-sales tag-software-platform tag-walnut">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/walnut-for-teams/" title="Walnut for Teams Lets Revenue Teams Scale Better, Together&nbsp;"><img src="https://images.readwrite.com/wp-content/uploads/2022/03/walnut-for-teams-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="Walnut for Teams" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/03/walnut-for-teams-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2022/03/walnut-for-teams-825x510.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/walnut-for-teams/" rel="bookmark">Walnut for Teams Lets Revenue Teams Scale Better, Together&nbsp;</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/brad-anderson/">Brad Anderson</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/sales/" rel="category tag">Sales</a>, <a href="https://readwrite.com/category/software/" rel="category tag">Software</a></span>
+</div>
+<div class="entry-content">
+<p>The sales world is a high-pressure space. Everywhere you turn, competition is intense. Only the most convincing salespeople with the best products and services find lasting success. In this kind of intimidating professional atmosphere, the last thing you want is for your tools to hold you back — especially something as critical as a product […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-208011" class="post-208011 post type-post status-publish format-standard has-post-thumbnail hentry category-readwrite tag-content tag-headlines">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/your-content-is-useless-without-good-headlines-heres-why/" title="Your Content is Useless Without Good Headlines. Here’s Why"><img src="https://images.readwrite.com/wp-content/uploads/2022/03/Good-Headlines-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="Good Headlines" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/03/Good-Headlines-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2022/03/Good-Headlines-825x510.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/your-content-is-useless-without-good-headlines-heres-why/" rel="bookmark">Your Content is Useless Without Good Headlines. Here’s Why</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/timothy-carter/">Timothy Carter</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/readwrite/" rel="category tag">ReadWrite</a></span>
+</div>
+<div class="entry-content">
+<p>What do you do first when you think of a good idea clear content marketing strategy, such as an idea for a new eBook or whitepaper? If you’re like most content creators, you immediately plunge yourself into research or start outlining the piece with an idea of what you want to present to your audience. […]</p>
+</div>
+</div>
+</div>
+</article>
+<article id="post-207693" class="post-207693 post type-post status-publish format-standard has-post-thumbnail hentry category-marketing category-sales tag-entrepreneurship tag-marketing tag-marketing-experts tag-marketing-reads tag-marketing-strategy">
+<div class="row posts-inner">
+<div class="col-md-3 post-thumb">
+<a href="https://readwrite.com/marketing-books-guide-strategy/" title="4 Marketing Books to Guide Your Strategy in 2022"><img src="https://images.readwrite.com/wp-content/uploads/2022/03/Marketing-Books-260x160.jpg" class="attachment-article-thumb-small size-article-thumb-small wp-post-image" alt="Marketing Books" loading="lazy" srcset="https://images.readwrite.com/wp-content/uploads/2022/03/Marketing-Books-260x160.jpg 260w, https://images.readwrite.com/wp-content/uploads/2022/03/Marketing-Books-825x510.jpg 825w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="160"></a> </div>
+<div class="col-md-9">
+<header class="entry-header">
+<h2 class="entry-title"><a href="https://readwrite.com/marketing-books-guide-strategy/" rel="bookmark">4 Marketing Books to Guide Your Strategy in 2022</a></h2> </header>
+<div class="entry-meta">
+<span class="author">
+<a href="https://readwrite.com/author/deanna/">Deanna Ritchie</a>
+</span>
+<span class="seperator">/</span>
+<span class="post-cat"><a href="https://readwrite.com/category/marketing/" rel="category tag">Marketing</a>, <a href="https://readwrite.com/category/sales/" rel="category tag">Sales</a></span>
+</div>
+<div class="entry-content">
+<p>It’s 2022. Welcome to the changed — and changing — landscape of post-pandemic marketing. Yet even if you boast the most robust marketing tech stack on the block, you can still find yourself struggling for wins. One natural response is to turn to newer marketing books — and that’s a wise instinct, especially in 2022. […]</p>
+</div>
+</div>
+</div>
+</article><div class="post-navigation"><ul>
+<li class="active"><a href="https://readwrite.com/">1</a></li>
+<li><a href="https://readwrite.com/page/2/">2</a></li>
+<li><a href="https://readwrite.com/page/3/">3</a></li>
+<li>…</li>
+<li><a href="https://readwrite.com/page/2147/">2147</a></li>
+<li><a href="https://readwrite.com/page/2/">Next Page »</a></li>
+</ul></div>
+</div>
+</main>
+</div>
+</div>
+<footer id="colophon" class="site-footer col-md-10 offset-2" role="contentinfo">
+<div class="site-info">
+<div class="site-branding">
+<a href="https://readwrite.com/" class="custom-logo-link" rel="home" aria-current="page"><img src="https://images.readwrite.com/wp-content/uploads/2020/01/rw-logo.svg" class="custom-logo" alt="ReadWrite" width="2500" height="434"></a> </div>
+</div>
+<div class="row footer-nav-links">
+<div class="col-md-8 foot-nav">
+<nav id="site-navigation" class="main-navigation" role="navigation">
+<div class="menu-foot-menu-container"><ul id="menu-foot-menu" class="nav-menu"><li id="menu-item-125079" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-125079"><a href="https://readwrite.com/about/">About</a></li>
+<li id="menu-item-125080" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-125080"><a href="https://readwrite.com/advertise/">Advertise</a></li>
+<li id="menu-item-125081" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-125081"><a href="https://readwrite.com/contact/">Contact</a></li>
+<li id="menu-item-125082" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-125082"><a href="https://readwrite.com/events/">Events</a></li>
+<li id="menu-item-125083" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-125083"><a href="https://readwrite.com/privacy/">Privacy</a></li>
+<li id="menu-item-125638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-125638"><a href="/contributor-guidelines/">Guest Post</a></li>
+<li id="menu-item-125084" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-125084"><a href="https://readwrite.com/subscribe/">Subscribe</a></li>
+</ul></div> </nav>
+</div>
+<div class="col-md-4 foot-nav email-subscription">
+</div>
+</div>
+<div class="row footer-links">
+<div class="col-md-6 site-terms">
+<div class="menu-site-terms-container"><ul id="menu-site-terms" class="terms-nav"><li id="menu-item-125056" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-125056"><a href="https://readwrite.com/privacy/">Privacy</a></li>
+</ul></div>
+<div class="copyright"></div>
+</div>
+<div class="col-md-6 footer-social-nav">
+<nav id="footer-social-navigation" class="social-navigation" role="navigation">
+<div class="menu-footer-social-menu-container"><ul id="menu-footer-social-menu" class="menu"><li id="menu-item-125059" class="fb menu-item menu-item-type-custom menu-item-object-custom menu-item-125059"><a rel="noopener" href="https://www.facebook.com/ReadWrite" onclick="javascript:window.open('https://www.facebook.com/ReadWrite'); return false;"><span class="screen-reader-text">Facebook</span></a></li>
+<li id="menu-item-125060" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-125060"><a rel="noopener" href="https://twitter.com/RWW" onclick="javascript:window.open('https://twitter.com/RWW'); return false;"><span class="screen-reader-text">Twitter</span></a></li>
+<li id="menu-item-125061" class="insta menu-item menu-item-type-custom menu-item-object-custom menu-item-125061"><a rel="noopener" href="https://www.instagram.com/readwritedotcom/" onclick="javascript:window.open('https://www.instagram.com/readwritedotcom/'); return false;"><span class="screen-reader-text">Instagram</span></a></li>
+<li id="menu-item-125066" class="ytube menu-item menu-item-type-custom menu-item-object-custom menu-item-125066"><a rel="noopener" href="https://www.youtube.com/channel/UClMPvTStrcn829w34OWNEPw" onclick="javascript:window.open('https://www.youtube.com/channel/UClMPvTStrcn829w34OWNEPw'); return false;"><span class="screen-reader-text">Youtube</span></a></li>
+</ul></div> </nav>
+</div>
+</div>
+</footer>
+</div>
+</div>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-421291-1', 'auto');
+  ga('send', 'pageview');
+  ga('set', 'anonymizeIp', true);
+  </script>
+<script>
+		var advanced_ads_ga_UID = false;
+		var advanced_ads_ga_anonymIP = true;
+advanced_ads_check_adblocker=function(t){function e(t){(window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||function(t){return setTimeout(t,16)}).call(window,t)}var n=[],a=null;return e(function(){var t=document.createElement("div");t.innerHTML="&nbsp;",t.setAttribute("class","ad_unit ad-unit text-ad text_ad pub_300x250"),t.setAttribute("style","width: 1px !important; height: 1px !important; position: absolute !important; left: 0px !important; top: 0px !important; overflow: hidden !important;"),document.body.appendChild(t),e(function(){var e=window.getComputedStyle&&window.getComputedStyle(t),o=e&&e.getPropertyValue("-moz-binding");a=e&&"none"===e.getPropertyValue("display")||"string"==typeof o&&-1!==o.indexOf("about:");for(var i=0;i<n.length;i++)n[i](a);n=[]})}),function(t){if(null===a)return void n.push(t);t(a)}}(),function(){var t=function(t,e){this.name=t,this.UID=e,this.analyticsObject=null;var n=this,a={hitType:"event",eventCategory:"Advanced Ads",eventAction:"AdBlock",eventLabel:"Yes",nonInteraction:!0,transport:"beacon"};this.analyticsObject="string"==typeof GoogleAnalyticsObject&&"function"==typeof window[GoogleAnalyticsObject]&&window[GoogleAnalyticsObject],!1===this.analyticsObject?(!function(t,e,n,a,o,i,d){t.GoogleAnalyticsObject=o,t[o]=t[o]||function(){(t[o].q=t[o].q||[]).push(arguments)},t[o].l=1*new Date,i=e.createElement(n),d=e.getElementsByTagName(n)[0],i.async=1,i.src="https://www.google-analytics.com/analytics.js",d.parentNode.insertBefore(i,d)}(window,document,"script",0,"_advads_ga"),_advads_ga("create",n.UID,"auto",this.name),advanced_ads_ga_anonymIP&&_advads_ga("set","anonymizeIp",!0),_advads_ga(n.name+".send",a)):(window.console&&window.console.log("Advanced Ads Analytics >> using other's variable named `"+GoogleAnalyticsObject+"`"),window[GoogleAnalyticsObject]("create",n.UID,"auto",this.name),window[GoogleAnalyticsObject]("set","anonymizeIp",!0),window[GoogleAnalyticsObject](n.name+".send",a))};advanced_ads_check_adblocker(function(e){e&&"string"==typeof advanced_ads_ga_UID&&advanced_ads_ga_UID&&new t("advadsTracker",advanced_ads_ga_UID)})}();</script><link rel="stylesheet" id="typekit-lib-css" href="https://use.typekit.net/nzt0afb.css?ver=5.7.6" type="text/css" media="all">
+<script type="text/javascript" src="https://readwrite.com/wp-includes/js/dist/vendor/wp-polyfill.min.js" id="wp-polyfill-js"></script><div class="ad_unit ad-unit text-ad text_ad pub_300x250" style="width: 1px !important; height: 1px !important; position: absolute !important; left: 0px !important; top: 0px !important; overflow: hidden !important;">&nbsp;</div>
+<script type="text/javascript" id="wp-polyfill-js-after">
+( 'fetch' in window ) || document.write( '<script src="https://readwrite.com/wp-includes/js/dist/vendor/wp-polyfill-fetch.min.js"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="https://readwrite.com/wp-includes/js/dist/vendor/wp-polyfill-node-contains.min.js"></scr' + 'ipt>' );( window.DOMRect ) || document.write( '<script src="https://readwrite.com/wp-includes/js/dist/vendor/wp-polyfill-dom-rect.min.js"></scr' + 'ipt>' );( window.URL && window.URL.prototype && window.URLSearchParams ) || document.write( '<script src="https://readwrite.com/wp-includes/js/dist/vendor/wp-polyfill-url.min.js"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="https://readwrite.com/wp-includes/js/dist/vendor/wp-polyfill-formdata.min.js"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="https://readwrite.com/wp-includes/js/dist/vendor/wp-polyfill-element-closest.min.js"></scr' + 'ipt>' );( 'objectFit' in document.documentElement.style ) || document.write( '<script src="https://readwrite.com/wp-includes/js/dist/vendor/wp-polyfill-object-fit.min.js"></scr' + 'ipt>' );
+</script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/readwrite.com\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://readwrite.com/wp-content/plugins/contact-form-7/includes/js/index.js" id="contact-form-7-js"></script>
+<script type="text/javascript" src="https://readwrite.com/wp-content/uploads/706/25/public/assets/js/497.js" id="advanced-ads-layer-footer-js-js"></script>
+<script type="text/javascript" id="advanced-ads-sticky-footer-js-js-extra">
+/* <![CDATA[ */
+var advanced_ads_sticky_settings = {"check_position_fixed":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://readwrite.com/wp-content/uploads/706/410/public/assets/js/782.js" id="advanced-ads-sticky-footer-js-js"></script>
+<script type="text/javascript" id="advadsTrackingHandle-js-extra">
+/* <![CDATA[ */
+var advadsTracking = {"ajaxurl":"https:\/\/readwrite.com\/wp-admin\/admin-ajax.php?action=advanced-ads-tracking-track","method":"frontend","blogId":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://readwrite.com/wp-content/uploads/706/421/public/assets/js/165.js" id="advadsTrackingHandle-js"></script>
+<script type="text/javascript" src="https://readwrite.com/wp-includes/js/wp-embed.min.js" id="wp-embed-js"></script>
+<script type="text/javascript" id="menu-script-js-extra">
+/* <![CDATA[ */
+var screenReaderText = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://readwrite.com/wp-content/themes/rw/scripts/functions.js" id="menu-script-js"></script>
+<script>var advads_placement_tests = [];
+var advads_passive_ads = {};
+var advads_passive_groups = {};
+var advads_passive_placements = {};
+var advads_ajax_queries = [];
+var advads_has_ads = [];
+( window.advanced_ads_ready || jQuery( document ).ready ).call( null, function() {if ( window.advanced_ads_pro ) {advanced_ads_pro.process_passive_cb();} else if ( window.console && window.console.log ) {console.log('Advanced Ads Pro: cache-busting can not be initialized');}});</script><script type="text/javascript">var advads_tracking_ads = {};var advads_tracking_urls = [];var advads_gatracking_uids = [];var advads_tracking_methods = [];var advads_tracking_parallel = [];var advads_tracking_linkbases = [];var advads_gatracking_allads = [];var advads_gatracking_anonym = true;</script><script async="" type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=R9MdKm"></script>
+<script type="text/javascript" style="display:none;" async="">
+</script>
+<script type="text/javascript" data-cfasync="false"></script><div id="dynamic-react-root"></div><div><div class="needsclick  kl-private-reset-css-Xuajs1" style="display: flex; z-index: 90000; position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; justify-content: center; align-items: center; overflow: auto; background-color: rgba(20, 20, 20, 0.6); animation-duration: 0.35s; animation-timing-function: ease; animation-play-state: running; animation-delay: 0s; animation-iteration-count: 1; animation-fill-mode: forwards; animation-name: klaviyo-fadein;"><div role="dialog" aria-modal="true" style="overflow: visible; transform: scale(1); transform-origin: center center 0px; max-height: 100%; border-radius: 6px; position: relative; outline: currentcolor none 0px; display: flex; justify-content: center; flex: 0 0 auto; align-self: center;" data-testid="desktop" class="needsclick  kl-private-reset-css-Xuajs1"><div data-testid="POPUP" style="" class="needsclick  kl-private-reset-css-Xuajs1"><div class="needsclick go2132490686 kl-private-reset-css-Xuajs1" style="position: relative; flex-direction: column; display: flex; margin-left: 20px; margin-right: 20px;"><div class="needsclick  kl-private-reset-css-Xuajs1" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 30px; border-radius: 6px;"><div style="position: relative; display: flex;" class="needsclick  kl-private-reset-css-Xuajs1"><button tabindex="0" class="needsclick klaviyo-close-form kl-private-reset-css-Xuajs1" style="right: 0px; top: 0px; position: absolute; z-index: 6; cursor: pointer; height: 35px; width: 35px; margin-right: 8px; margin-top: 8px;"><svg role="img" width="35" height="35" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-describedby="close-form" class="needsclick  kl-private-reset-css-Xuajs1"><title id="close-form">Close form</title><circle style="cursor: pointer;" cx="10" cy="10" r="9.5" fill="rgba(180,187,195,0)" stroke="rgba(255,255,255,0)"></circle><path style="cursor: pointer;" d="M6 6L14 14M6 14L14 6L6 14Z" stroke="#373F47" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path></svg></button><form style="display: flex; flex-direction: row; box-sizing: border-box; overflow: hidden; width: 450px; min-width: 200px; max-width: 1000px; border-radius: 6px; border-style: none; border-width: 0px; border-color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); background-repeat: no-repeat; background-position-y: center; padding: 40px 16px 20px;" class="needsclick klaviyo-form klaviyo-form-version-cid_1 kl-private-reset-css-Xuajs1" data-testid="klaviyo-form-Y3PEUE" novalidate="" tabindex="-1"><div style="display: flex; flex-direction: column; width: 100%; margin: 0px; padding: 0px; min-height: 410px; justify-content: center;" class="needsclick  kl-private-reset-css-Xuajs1"><div data-testid="form-row" style="display: flex; flex-direction: row; align-items: stretch; position: relative;" class="needsclick  kl-private-reset-css-Xuajs1"><div style="display: flex; justify-content: flex-start; padding: 10px 6px 0px; position: relative; flex: 1 0 0px;" component="[object Object]" data-testid="form-component" class="needsclick  kl-private-reset-css-Xuajs1"><div style="width: 100%;" class="kl-private-reset-css-Xuajs1 kl-private-quill-wrapper-Lkqws1"><div class="ql-snow ql-container ql-disabled"><div class="ql-editor" data-gramm="false" contenteditable="false"><p style="text-align: center;"><strong style="font-size: 28px; color: rgb(55, 63, 71);" class="ql-font-nunito-sans">Readwrite Daily Newsletter</strong></p></div><div class="ql-clipboard" tabindex="-1" contenteditable="true"></div></div></div></div></div><div data-testid="form-row" style="display: flex; flex-direction: row; align-items: stretch; position: relative;" class="needsclick  kl-private-reset-css-Xuajs1"><div style="display: flex; justify-content: flex-start; padding: 10px 6px; position: relative; flex: 1 0 0px;" component="[object Object]" data-testid="form-component" class="needsclick  kl-private-reset-css-Xuajs1"><div style="width: 100%;" class="kl-private-reset-css-Xuajs1 kl-private-quill-wrapper-Lkqws1"><div class="ql-snow ql-container ql-disabled"><div class="ql-editor" data-gramm="false" contenteditable="false"><p style="text-align: center;"><span style="color: rgb(65, 65, 65); font-size: 18px;" class="ql-font-nunito-sans">Sign up for ReadWrite newsletters to get our trusted news and analysis directly to your inbox.</span></p></div><div class="ql-clipboard" tabindex="-1" contenteditable="true"></div></div></div></div></div><div data-testid="form-row" style="display: flex; flex-direction: row; align-items: stretch; position: relative;" class="needsclick  kl-private-reset-css-Xuajs1"><div style="display: flex; justify-content: flex-start; padding: 10px 6px; position: relative; flex: 1 0 0px;" component="[object Object]" data-testid="form-component" class="needsclick  kl-private-reset-css-Xuajs1"><div style="display: flex; flex-grow: 1; flex-direction: column; align-self: flex-end;" class="needsclick  kl-private-reset-css-Xuajs1"><input class="needsclick go1037190649 kl-private-reset-css-Xuajs1" style="box-sizing: border-box; border-radius: 2px; padding: 0px 0px 0px 16px; height: 50px; text-align: left; color: rgb(0, 0, 0); font-family: &quot;Nunito Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 0px; background-color: rgb(255, 255, 255); border: 1px solid rgb(96, 106, 114);" type="text" tabindex="0" placeholder="Name" aria-label="Name" aria-invalid="false" options="[object Object]"><div style="width: 100%; position: relative;" class="needsclick  kl-private-reset-css-Xuajs1"></div></div></div></div><div data-testid="form-row" style="display: flex; flex-direction: row; align-items: stretch; position: relative;" class="needsclick  kl-private-reset-css-Xuajs1"><div style="display: flex; justify-content: flex-start; padding: 0px 6px 15px; position: relative; flex: 1 0 0px;" component="[object Object]" data-testid="form-component" class="needsclick  kl-private-reset-css-Xuajs1"><div style="display: flex; flex-grow: 1; flex-direction: column; align-self: flex-end;" class="needsclick  kl-private-reset-css-Xuajs1"><input class="needsclick go1037190649 kl-private-reset-css-Xuajs1" style="box-sizing: border-box; border-radius: 2px; padding: 0px 0px 0px 16px; height: 50px; text-align: left; color: rgb(0, 0, 0); font-family: &quot;Nunito Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 0px; background-color: rgb(255, 255, 255); border: 1px solid rgb(96, 106, 114);" type="email" name="email" tabindex="0" placeholder="Email" aria-label="Email" aria-invalid="false" options="[object Object]"><div style="width: 100%; position: relative;" class="needsclick  kl-private-reset-css-Xuajs1"></div></div></div></div><div data-testid="form-row" style="display: flex; flex-direction: row; align-items: stretch; position: relative;" class="needsclick  kl-private-reset-css-Xuajs1"><div style="display: flex; justify-content: flex-start; padding: 0px 6px 10px; position: relative; flex: 1 0 0px;" component="[object Object]" data-testid="form-component" class="needsclick  kl-private-reset-css-Xuajs1"><button class="needsclick go354640364 kl-private-reset-css-Xuajs1" style="background: rgb(61, 75, 199) none repeat scroll 0% 0%; border-radius: 6px; border-style: solid; border-color: rgb(61, 75, 199); border-width: 8px; color: rgb(255, 255, 255); font-family: Nunito Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 800; letter-spacing: 0px; line-height: 1; white-space: normal; padding-top: 11px; padding-bottom: 11px; text-align: center; word-break: break-word; align-self: flex-end; cursor: pointer; height: auto; width: 100%;" type="button" tabindex="0">SUBSCRIBE</button></div></div></div><input style="display: none;" type="submit" tabindex="-1" value="Submit"></form></div></div></div></div></div></div></div><ins class="adsbygoogle adsbygoogle-noablate" style="display: none !important;" data-adsbygoogle-status="done" data-ad-status="unfilled"><ins id="aswift_2_expand" style="border: medium none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_2_anchor" style="border: medium none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1183579825777021&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1648197728&amp;plat=1%3A16777216%2C2%3A16777216%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32&amp;format=0x0&amp;url=https%3A%2F%2Freadwrite.com%2F&amp;ea=0&amp;pra=7&amp;wgl=1&amp;adsid=ChAI8ND1kQYQvNTR1LnNmqAJEi8Am0QMprdqoVg9zqMMLm5ywYRqENR-76BAZf9JzaDHX75gyXfAxYRP_V0JmO9Zfg&amp;dt=1648199807880&amp;bpp=1&amp;bdt=1538&amp;idt=193&amp;shv=r20220323&amp;mjsv=m202203170101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;prev_fmts=728x90%2C992x280&amp;nras=1&amp;correlator=321662503464&amp;frm=20&amp;pv=1&amp;ga_vid=1392450503.1648199808&amp;ga_sid=1648199808&amp;ga_hid=492289597&amp;ga_fc=1&amp;u_tz=-300&amp;u_his=50&amp;u_h=1600&amp;u_w=3840&amp;u_ah=1560&amp;u_aw=3840&amp;u_cd=24&amp;u_sd=1&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1267&amp;bih=988&amp;scr_x=0&amp;scr_y=0&amp;eid=44759876%2C44759927%2C44759837%2C31064019&amp;oid=2&amp;pvsid=817517627544664&amp;pem=519&amp;tmod=1166795395&amp;nvt=1&amp;eae=2&amp;fc=896&amp;brdim=1957%2C91%2C1957%2C91%2C3840%2C0%2C1296%2C1079%2C1284%2C988&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;jar=2022-03-25-05&amp;ifi=3&amp;uci=a!3&amp;fsb=1&amp;dtd=300" data-google-container-id="a!3" data-load-complete="true" frameborder="0"></iframe></ins></ins></ins><iframe src="https://www.google.com/recaptcha/api2/aframe" style="display: none;" width="0" height="0"></iframe><div><div class="needsclick  kl-private-reset-css-Xuajs1" style="display: flex; z-index: 90000; max-height: 100%; position: fixed; transform: scale(1); transform-origin: right bottom 0px; overflow: visible; bottom: 0px; right: 0px;"><div role="dialog" aria-modal="true" style="border-radius: 6px; position: relative; outline: currentcolor none 0px; display: flex; justify-content: center; flex: 0 0 auto;" data-testid="desktop" class="needsclick  kl-private-reset-css-Xuajs1"><div data-testid="FLYOUT" style="animation: 1s ease 0s 1 normal forwards running klaviyo-slideinright;" class="needsclick  kl-private-reset-css-Xuajs1"><div class="needsclick go2132490686 kl-private-reset-css-Xuajs1" style="position: relative; flex-direction: column; display: flex; margin-left: 20px; margin-right: 20px;"><div class="needsclick  kl-private-reset-css-Xuajs1" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 30px; border-radius: 6px;"><div style="position: relative; display: flex;" class="needsclick  kl-private-reset-css-Xuajs1"><button tabindex="0" class="needsclick klaviyo-close-form kl-private-reset-css-Xuajs1" style="right: 0px; top: 0px; position: absolute; z-index: 6; cursor: pointer; height: 35px; width: 35px; margin-right: 8px; margin-top: 8px;"><svg role="img" width="35" height="35" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-describedby="close-form" class="needsclick  kl-private-reset-css-Xuajs1"><title id="close-form">Close form</title><circle style="cursor: pointer;" cx="10" cy="10" r="9.5" fill="rgba(180,187,195,0)" stroke="rgba(255,255,255,0)"></circle><path style="cursor: pointer;" d="M6 6L14 14M6 14L14 6L6 14Z" stroke="#373F47" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path></svg></button><form style="display: flex; flex-direction: row; box-sizing: border-box; overflow: hidden; width: 320px; min-width: 200px; max-width: 1000px; border-radius: 6px; border-style: none; border-width: 0px; border-color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); background-repeat: no-repeat; background-position-y: center; padding: 40px 16px 20px;" class="needsclick klaviyo-form klaviyo-form-version-cid_17 kl-private-reset-css-Xuajs1" data-testid="klaviyo-form-XJ4pfh" novalidate="" tabindex="-1"><div style="display: flex; flex-direction: column; width: 100%; margin: 0px; padding: 0px; min-height: 410px; justify-content: center;" class="needsclick  kl-private-reset-css-Xuajs1"><div data-testid="form-row" style="display: flex; flex-direction: row; align-items: stretch; position: relative;" class="needsclick  kl-private-reset-css-Xuajs1"><div style="display: flex; justify-content: flex-start; padding: 10px 6px 0px; position: relative; flex: 1 0 0px;" component="[object Object]" data-testid="form-component" class="needsclick  kl-private-reset-css-Xuajs1"><div style="width: 100%;" class="kl-private-reset-css-Xuajs1 kl-private-quill-wrapper-Lkqws1"><div class="ql-snow ql-container ql-disabled"><div class="ql-editor" data-gramm="false" contenteditable="false"><p style="text-align: center;"><strong style="font-size: 36px; color: rgb(55, 63, 71);" class="ql-font-nunito-sans">Stay Informed</strong><strong style="font-size: 36px; color: rgb(55, 63, 71);">!</strong></p></div><div class="ql-clipboard" tabindex="-1" contenteditable="true"></div></div></div></div></div><div data-testid="form-row" style="display: flex; flex-direction: row; align-items: stretch; position: relative;" class="needsclick  kl-private-reset-css-Xuajs1"><div style="display: flex; justify-content: flex-start; padding: 10px 6px; position: relative; flex: 1 0 0px;" component="[object Object]" data-testid="form-component" class="needsclick  kl-private-reset-css-Xuajs1"><div style="width: 100%;" class="kl-private-reset-css-Xuajs1 kl-private-quill-wrapper-Lkqws1"><div class="ql-snow ql-container ql-disabled"><div class="ql-editor" data-gramm="false" contenteditable="false"><p style="text-align: center;"><span style="font-size: 18px; color: rgb(65, 65, 65);" class="ql-font-nunito-sans">Get Top Content Delivered To Your Inbox </span></p></div><div class="ql-clipboard" tabindex="-1" contenteditable="true"></div></div></div></div></div><div data-testid="form-row" style="display: flex; flex-direction: row; align-items: stretch; position: relative;" class="needsclick  kl-private-reset-css-Xuajs1"><div style="display: flex; justify-content: flex-start; padding: 10px 6px; position: relative; flex: 1 0 0px;" component="[object Object]" data-testid="form-component" class="needsclick  kl-private-reset-css-Xuajs1"><div style="display: flex; flex-grow: 1; flex-direction: column; align-self: flex-end;" class="needsclick  kl-private-reset-css-Xuajs1"><input class="needsclick go1037190649 kl-private-reset-css-Xuajs1" style="box-sizing: border-box; border-radius: 2px; padding: 0px 0px 0px 16px; height: 50px; text-align: left; color: rgb(0, 0, 0); font-family: &quot;Nunito Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 0px; background-color: rgb(255, 255, 255); border: 1px solid rgb(96, 106, 114);" type="text" tabindex="0" placeholder="Name" aria-label="Name" aria-invalid="false" options="[object Object]"><div style="width: 100%; position: relative;" class="needsclick  kl-private-reset-css-Xuajs1"></div></div></div></div><div data-testid="form-row" style="display: flex; flex-direction: row; align-items: stretch; position: relative;" class="needsclick  kl-private-reset-css-Xuajs1"><div style="display: flex; justify-content: flex-start; padding: 0px 6px 15px; position: relative; flex: 1 0 0px;" component="[object Object]" data-testid="form-component" class="needsclick  kl-private-reset-css-Xuajs1"><div style="display: flex; flex-grow: 1; flex-direction: column; align-self: flex-end;" class="needsclick  kl-private-reset-css-Xuajs1"><input class="needsclick go1037190649 kl-private-reset-css-Xuajs1" style="box-sizing: border-box; border-radius: 2px; padding: 0px 0px 0px 16px; height: 50px; text-align: left; color: rgb(0, 0, 0); font-family: &quot;Nunito Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 0px; background-color: rgb(255, 255, 255); border: 1px solid rgb(96, 106, 114);" type="email" name="email" tabindex="0" placeholder="Email" aria-label="Email" aria-invalid="false" options="[object Object]"><div style="width: 100%; position: relative;" class="needsclick  kl-private-reset-css-Xuajs1"></div></div></div></div><div data-testid="form-row" style="display: flex; flex-direction: row; align-items: stretch; position: relative;" class="needsclick  kl-private-reset-css-Xuajs1"><div style="display: flex; justify-content: flex-start; padding: 0px 6px 10px; position: relative; flex: 1 0 0px;" component="[object Object]" data-testid="form-component" class="needsclick  kl-private-reset-css-Xuajs1"><button class="needsclick go354640364 kl-private-reset-css-Xuajs1" style="background: rgb(71, 79, 144) none repeat scroll 0% 0%; border-radius: 6px; border-style: solid; border-color: rgb(71, 79, 144); border-width: 8px; color: rgb(255, 255, 255); font-family: Nunito Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 800; letter-spacing: 0px; line-height: 1; white-space: normal; padding-top: 11px; padding-bottom: 11px; text-align: center; word-break: break-word; align-self: flex-end; cursor: pointer; height: auto; width: 100%;" type="button" tabindex="0">Submit</button></div></div></div><input style="display: none;" type="submit" tabindex="-1" value="Submit"></form></div></div></div></div></div></div></div></body><iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20220323/r20190131/zrt_lookup.html" style="display: none;"></iframe><ins class="adsbygoogle adsbygoogle-noablate" style="display: none !important; width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; clear: none !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: fixed !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647 !important; background: transparent none repeat scroll 0% 0% !important;" data-adsbygoogle-status="done" aria-hidden="true" data-ad-status="filled" data-vignette-loaded="true"><ins id="aswift_3_expand" style="border: medium none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-table !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_3_anchor" style="border: medium none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_3" name="aswift_3" style="width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; position: absolute !important; clear: none !important; display: inline !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; vertical-align: baseline !important; visibility: visible !important; z-index: auto !important;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/html/r20220323/r20110914/zrt_lookup.html?fsb=1#RS-0-&amp;adk=1812271808&amp;client=ca-pub-1183579825777021&amp;fa=8&amp;ifi=4&amp;uci=a!4&amp;xpc=b6JChvO08F&amp;p=https%3A//readwrite.com" data-google-container-id="a!4" data-google-query-id="CLmg4eD24PYCFRS7AAAd9l4Lgg" data-load-complete="true" width="" height="" frameborder="0"></iframe></ins></ins></ins></html>

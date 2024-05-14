@@ -1,0 +1,1276 @@
+<html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="facebook-domain-verification" content="ljp3s7o4itkfmwih46qb7fi128crcb">
+<link rel="canonical" href="https://zebpay.com/blog/">
+<link rel="manifest" href="/manifest.json">
+<link rel="preload" as="font" href="https://zebpay.com/wp-content/themes/zebpay-child/assets/fonts/ProximaNovaRegular.woff2">
+<link rel="preload" as="font" href="https://zebpay.com/wp-content/themes/zebpay-child/assets/fonts/proximanovasemibold.woff2">
+<link rel="preload" as="font" href="https://zebpay.com/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-brands-400.woff2">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:title" content="Blog">
+<meta property="og:description" content="The Z Blog">
+<meta property="og:image" content="https://zebpay.com/wp-content/uploads/2020/08/USDT_INR_NO_FEE-1.png">
+<meta property="og:image:width" content="314">
+<meta property="og:image:height" content="142">
+<meta property="og:image:type" content="image/png">
+<meta property="og:type" content="article">
+<meta property="og:article:published_time" content="2020-09-10 13:25:49">
+<meta property="og:article:modified_time" content="2021-12-10 11:54:34">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Blog">
+<meta name="twitter:description" content="The Z Blog">
+<meta name="twitter:image" content="https://zebpay.com/wp-content/uploads/2020/08/USDT_INR_NO_FEE-1.png">
+<meta name="author" content="Vikram">
+
+<title>Cryptocurrency, Bitcoin, Blockchain Technology Blog | ZebPay</title><link rel="stylesheet" href="https://zebpay.com/wp-content/cache/min/1/0e266f05320e17ef37d65afca8430657.css" media="all" data-minify="1">
+<meta name="description" content="ZebPay cryptocurrency blog: Latest Blogs and articles on Bitcoin, Ethereum and other cryptos. Learn everything about blockchain technology and stay updated with the trends in the crypto world.">
+<meta property="og:url" content="https://zebpay.com/blog/">
+<meta property="og:site_name" content="ZebPay | Buy Bitcoin &amp; Crypto">
+<meta property="article:publisher" content="https://www.facebook.com/zebpay">
+<meta property="article:modified_time" content="2021-12-10T06:24:34+00:00">
+<meta property="og:image" content="https://zebpay.com/wp-content/uploads/2020/08/USDT_INR_NO_FEE-1.png">
+<meta name="twitter:site" content="@zebpay">
+<meta name="twitter:label1" content="Est. reading time">
+<meta name="twitter:data1" content="16 minutes">
+<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://zebpay.com/#organization","name":"ZebPay","url":"https://zebpay.com/","sameAs":["https://www.facebook.com/zebpay","https://www.instagram.com/zebpayofficial/","https://www.linkedin.com/company/zebpay","https://www.youtube.com/user/ZebpayTube","https://twitter.com/zebpay"],"logo":{"@type":"ImageObject","@id":"https://zebpay.com/#logo","inLanguage":"en-US","url":"https://zebpay.com/wp-content/uploads/2020/06/logo.png","contentUrl":"https://zebpay.com/wp-content/uploads/2020/06/logo.png","width":170,"height":38,"caption":"ZebPay"},"image":{"@id":"https://zebpay.com/#logo"}},{"@type":"WebSite","@id":"https://zebpay.com/#website","url":"https://zebpay.com/","name":"ZebPay | Buy Bitcoin &amp; Crypto","description":"Simple · Secure · Bitcoin","publisher":{"@id":"https://zebpay.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://zebpay.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://zebpay.com/blog/#primaryimage","inLanguage":"en-US","url":"https://zebpay.com/wp-content/uploads/2020/08/USDT_INR_NO_FEE-1.png","contentUrl":"https://zebpay.com/wp-content/uploads/2020/08/USDT_INR_NO_FEE-1.png","width":314,"height":142,"caption":"USDT to INR without Fee"},{"@type":"WebPage","@id":"https://zebpay.com/blog/#webpage","url":"https://zebpay.com/blog/","name":"Cryptocurrency, Bitcoin, Blockchain Technology Blog | ZebPay","isPartOf":{"@id":"https://zebpay.com/#website"},"primaryImageOfPage":{"@id":"https://zebpay.com/blog/#primaryimage"},"datePublished":"2020-09-10T07:55:49+00:00","dateModified":"2021-12-10T06:24:34+00:00","description":"ZebPay cryptocurrency blog: Latest Blogs and articles on Bitcoin, Ethereum and other cryptos. Learn everything about blockchain technology and stay updated with the trends in the crypto world.","breadcrumb":{"@id":"https://zebpay.com/blog/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://zebpay.com/blog/"]}]},{"@type":"BreadcrumbList","@id":"https://zebpay.com/blog/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zebpay.com/"},{"@type":"ListItem","position":2,"name":"Blog"}]}]}</script>
+
+<link rel="alternate" type="application/rss+xml" title="ZebPay | Buy Bitcoin &amp; Crypto » Feed" href="https://zebpay.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="ZebPay | Buy Bitcoin &amp; Crypto » Comments Feed" href="https://zebpay.com/comments/feed/">
+<link rel="next" href="https://zebpay.com/blog/2/"><link rel="stylesheet" type="text/css" href="https://use.typekit.net/ipd6nrq.css">
+<style id="wp-block-library-inline-css">
+.has-text-align-justify{text-align:justify;}
+</style>
+<style id="wp-block-library-theme-inline-css">
+.wp-block-audio figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio figcaption{color:hsla(0,0%,100%,.65)}.wp-block-code>code{font-family:Menlo,Consolas,monaco,monospace;color:#1e1e1e;padding:.8em 1em;border:1px solid #ddd;border-radius:4px}.wp-block-embed figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed figcaption{color:hsla(0,0%,100%,.65)}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:hsla(0,0%,100%,.65)}.wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:hsla(0,0%,100%,.65)}.wp-block-pullquote{border-top:4px solid;border-bottom:4px solid;margin-bottom:1.75em;color:currentColor}.wp-block-pullquote__citation,.wp-block-pullquote cite,.wp-block-pullquote footer{color:currentColor;text-transform:uppercase;font-size:.8125em;font-style:normal}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;position:relative;font-style:normal}.wp-block-quote.has-text-align-right{border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote.has-text-align-center{border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large,.wp-block-quote.is-style-plain{border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-group:where(.has-background){padding:1.25em 2.375em}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto;opacity:.4}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table thead{border-bottom:3px solid}.wp-block-table tfoot{border-top:3px solid}.wp-block-table td,.wp-block-table th{padding:.5em;border:1px solid;word-break:normal}.wp-block-table figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video figcaption{color:hsla(0,0%,100%,.65)}.wp-block-template-part.has-background{padding:1.25em 2.375em;margin-top:0;margin-bottom:0}
+</style>
+<style id="global-styles-inline-css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #FFF;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--primary: #0073a8;--wp--preset--color--secondary: #005075;--wp--preset--color--dark-gray: #111;--wp--preset--color--light-gray: #767676;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 19.5px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36.5px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--normal: 22px;--wp--preset--font-size--huge: 49.5px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel="stylesheet" id="twentynineteen-print-style-css" href="https://zebpay.com/wp-content/themes/zebpay/print.css" media="print">
+<style id="elementor-icons-inline-css">
+
+		.elementor-add-new-section .elementor-add-templately-promo-button{
+            background-color: #5d4fff;
+            background-image: url(https://zebpay.com/wp-content/plugins/essential-addons-for-elementor-lite/assets/admin/images/templately/logo-icon.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin-left: 5px;
+            position: relative;
+            bottom: 5px;
+        }
+</style>
+<link rel="stylesheet" id="elementor-post-2696-css" href="https://zebpay.com/wp-content/uploads/elementor/css/post-2696.css" media="all">
+<link rel="stylesheet" id="elementor-post-4418-css" href="https://zebpay.com/wp-content/uploads/elementor/css/post-4418.css" media="all">
+<link rel="https://api.w.org/" href="https://zebpay.com/wp-json/"><link rel="alternate" type="application/json" href="https://zebpay.com/wp-json/wp/v2/pages/4418"><link rel="alternate" type="application/json+oembed" href="https://zebpay.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fzebpay.com%2Fblog%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://zebpay.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fzebpay.com%2Fblog%2F&amp;format=xml">
+<style type="text/css">img#wpstats{display:none}</style>
+<link rel="icon" href="https://zebpay.com/wp-content/uploads/2020/07/logo-on-blue-BG-36x36.jpg" sizes="32x32">
+<link rel="icon" href="https://zebpay.com/wp-content/uploads/2020/07/logo-on-blue-BG.jpg" sizes="192x192">
+<link rel="apple-touch-icon" href="https://zebpay.com/wp-content/uploads/2020/07/logo-on-blue-BG.jpg">
+<meta name="msapplication-TileImage" content="https://zebpay.com/wp-content/uploads/2020/07/logo-on-blue-BG.jpg">
+
+<style type="text/css">
+h2 { font-family: "proxima-nova-1","proxima-nova-2",sans-serif; }</style>
+
+<style id="wp-custom-css">
+			.header.fixed { padding: 10px 0; }
+p.about-inner-info.lefttopspace_2 { display: none; }
+p.about-inner-info.lefttopspace_6 { display: none; }
+p.about-inner-info.righttopspace_3 { display: none; }
+p.about-inner-info.righttopspace_5 { display: none; }
+ul.sub-menu li.big-para p.light-para {
+    font-size: 16px;
+    margin-bottom: 0px;
+    color: #b0bfd1;
+    line-height: 20px;
+}
+
+ul.sub-menu li.big-para a span {
+    font-size: 20px;
+    margin-bottom: 9px;
+    color: #4f5868;
+    line-height: 20px;
+}
+
+.page-id-216 .globel_detail ul li.active1 a {
+    color: #2072ef;
+}
+
+.page-id-3 .globel_detail ul li.active2 a {
+    color: #2072ef;
+}
+
+.page-id-343 .globel_detail ul li.active5 a {
+    color: #2072ef;
+}
+.page-id-345 .globel_detail ul li.active4 a {
+    color: #2072ef;
+}
+.page-id-347 .globel_detail ul li.active6 a {
+    color: #2072ef;
+}
+.page-id-327 .top-sec-langu,.page-id-327 .header,.page-id-327 .footer{
+	display:none;
+}		</style>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+    var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
+ // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
+clevertap.account.push({"id": "69R-Z5K-945Z"});
+clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
+clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agrees to share their IP data
+(function () {
+        var wzrk = document.createElement('script');
+        wzrk.type = 'text/javascript';
+        wzrk.async = true;
+        wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js?v=0';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wzrk, s);
+})();
+</script>
+
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W4M6DX7');</script>
+
+
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+  window._tfa = window._tfa || [];
+  window._tfa.push({notify: 'event', name: 'page_view', id: 1425781});
+  !function (t, f, a, x) {
+         if (!document.getElementById(x)) {
+            t.async = 1;t.src = a;t.id=x;f.parentNode.insertBefore(t, f);
+         }
+  }(document.createElement('script'),
+  document.getElementsByTagName('script')[0],
+  '//cdn.taboola.com/libtrc/unip/1425781/tfa.js',
+  'tb_tfa_script');
+</script>
+
+</head>
+<body class="page-template-default page page-id-4418 wp-custom-logo wp-embed-responsive singular image-filters-enabled elementor-default elementor-kit-2696 elementor-page elementor-page-4418 elementor-page-2989 elementor-page-2883">
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W4M6DX7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 0.49803921568627"></feFuncR><feFuncG type="table" tableValues="0 0.49803921568627"></feFuncG><feFuncB type="table" tableValues="0 0.49803921568627"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 1"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0 1"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 1"></feFuncR><feFuncG type="table" tableValues="0 0.27843137254902"></feFuncG><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 0"></feFuncR><feFuncG type="table" tableValues="0 0.64705882352941"></feFuncG><feFuncB type="table" tableValues="0 1"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.78039215686275 1"></feFuncR><feFuncG type="table" tableValues="0 0.94901960784314"></feFuncG><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0.44705882352941 0.4"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.098039215686275 1"></feFuncR><feFuncG type="table" tableValues="0 0.66274509803922"></feFuncG><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg>
+<div class="top-sec-langu">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<p>Choose another country or region to see content specific to your location.</p>
+<div class="static-dropdown">
+<span class="selected selected-gb">Global</span>
+<ul>
+<li><a class="au" href="/au/">Australia</a></li>
+<li><a class="in" href="/in/">India</a></li>
+<li><a class="sg" href="/sg/">Singapore</a></li>
+</ul>
+</div>
+<button type="button" class="close-btn"><span aria-hidden="true">×</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="header">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+
+<a href="https://zebpay.com/" class="custom-logo-link" rel="home"><img src="https://zebpay.com/wp-content/uploads/2020/06/logo.png" class="custom-logo entered lazyloaded" alt="ZebPay logo" data-lazy-srcset="https://zebpay.com/wp-content/uploads/2020/06/logo.png 170w, https://zebpay.com/wp-content/uploads/2020/06/logo-24x5.png 24w, https://zebpay.com/wp-content/uploads/2020/06/logo-36x8.png 36w, https://zebpay.com/wp-content/uploads/2020/06/logo-48x11.png 48w" data-lazy-sizes="(max-width: 170px) 100vw, 170px" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/06/logo.png" data-ll-status="loaded" sizes="(max-width: 170px) 100vw, 170px" srcset="https://zebpay.com/wp-content/uploads/2020/06/logo.png 170w, https://zebpay.com/wp-content/uploads/2020/06/logo-24x5.png 24w, https://zebpay.com/wp-content/uploads/2020/06/logo-36x8.png 36w, https://zebpay.com/wp-content/uploads/2020/06/logo-48x11.png 48w" width="170" height="38"><noscript><img width="170" height="38" src="https://zebpay.com/wp-content/uploads/2020/06/logo.png" class="custom-logo" alt="ZebPay logo" srcset="https://zebpay.com/wp-content/uploads/2020/06/logo.png 170w, https://zebpay.com/wp-content/uploads/2020/06/logo-24x5.png 24w, https://zebpay.com/wp-content/uploads/2020/06/logo-36x8.png 36w, https://zebpay.com/wp-content/uploads/2020/06/logo-48x11.png 48w" sizes="(max-width: 170px) 100vw, 170px" /></noscript></a>
+<div class="mobile-menu">
+<div class="bar1"></div>
+<div class="bar2"></div>
+<div class="bar3"></div>
+</div>
+<div class="navigation" id="mySidenav">
+<div class="menu-header-menu-container"><ul><li></li><li id="menu-item-8751" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8751"><a href="https://zebpay.com/in/zebra/"><strong>$ZEBRA</strong><img class="blink entered lazyloaded" src="https://zebpay.com/wp-content/uploads/2020/11/image__1_-removebg-preview-e1605011278529.png" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/11/image__1_-removebg-preview-e1605011278529.png" data-ll-status="loaded"><noscript><img class="blink" src="https://zebpay.com/wp-content/uploads/2020/11/image__1_-removebg-preview-e1605011278529.png"></noscript></a></li>
+<li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-13"><a href="#" aria-haspopup="true" aria-expanded="false">Product <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+<ul class="sub-menu">
+<li id="menu-item-14" class="big-para menu-item menu-item-type-custom menu-item-object-custom menu-item-14"><a href="/exchange/" class="menu-image-title-after menu-image-not-hovered"><img src="https://zebpay.com/wp-content/uploads/2020/06/exchange-logo.png" class="menu-image menu-image-title-after entered lazyloaded" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/06/exchange-logo.png" data-ll-status="loaded" width="36" height="36"><noscript><img width="36" height="36" src="https://zebpay.com/wp-content/uploads/2020/06/exchange-logo.png" class="menu-image menu-image-title-after" alt="" /></noscript><span class="menu-image-title-after menu-image-title">Exchange<p class="light-para">Crypto Trading Platform</p></span></a></li>
+<li id="menu-item-15" class="big-para menu-item menu-item-type-custom menu-item-object-custom menu-item-15"><a target="_blank" rel="noopener" href="https://connect.zebpay.com/account/login?returnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Deee7baaa-9d6c-43f1-9eb6-8174f62cd244%26redirect_uri%3Dhttps%253A%252F%252Fweb.zebpay.com%252Fsignin-oidc%26response_type%3Did_token%2520token%26scope%3Dopenid%2520profile%2520wallet%253Atransactions%253Aread%2520wallet%253Aaddress%253Aread%2520wallet%253Aaddress%253Acreate%2520wallet%253Atransactions%253Asend%2520trade%253Aread%2520trade%253Acreate%2520payment%253Aget%253Adata%26response_mode%3Dform_post%26nonce%3D637275566978856447.MzE3OGY3MTgtMzkxYy00M2NmLWIyZGMtNGQyMjA0ODY4MjA5ZGIxNjFlYjItODUxZi00MzQ0LTg1Y2ItYjUxMzc3ZmQxMTc4%26state%3DCfDJ8LSfp77JUZJFubL8CPvzMPSsqEIGvRsnke1lPAHdsY9jEQ5Iah2OCZwJP9I9xTv4XWQbmMAQClvL2mSySG9wNKuF8RC4-B8Q9FgPdhzkhvxkhDIOtLJE2uZ2qpCcL0xajvBDRtIIpgY6FnRjmB_u-LPWo8GcRzrkVeFlSjUFZB2x7wdJ7L82yR3ReCNggWZPj7N-t9KJYpGbeKVjS3awFUWXTWKPdfPrplGge5jIHOgZaLwwLm3QuxCo4fQSDI-9BanAtHCAYVPUq5L4XOmQdusbLOgvUvKFtAzO2jdpjxOexm8ukcjbVHkbi-gxEvlUUA%26x-client-SKU%3DID_NETSTANDARD1_4%26x-client-ver%3D5.2.0.0" class="menu-image-title-after menu-image-not-hovered"><img src="https://zebpay.com/wp-content/uploads/2020/06/wallet.png" class="menu-image menu-image-title-after entered lazyloaded" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/06/wallet.png" data-ll-status="loaded" width="36" height="36"><noscript><img width="36" height="36" src="https://zebpay.com/wp-content/uploads/2020/06/wallet.png" class="menu-image menu-image-title-after" alt="" /></noscript><span class="menu-image-title-after menu-image-title">Wallet<p class="light-para">Send/Receive Crypto Securely</p></span></a></li>
+<li id="menu-item-19" class="big-para menu-item menu-item-type-custom menu-item-object-custom menu-item-19"><a target="_blank" rel="noopener" href="https://build.zebpay.com/" class="menu-image-title-after menu-image-not-hovered"><img src="https://zebpay.com/wp-content/uploads/2020/06/build.png" class="menu-image menu-image-title-after entered lazyloaded" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/06/build.png" data-ll-status="loaded" width="36" height="36"><noscript><img width="36" height="36" src="https://zebpay.com/wp-content/uploads/2020/06/build.png" class="menu-image menu-image-title-after" alt="" /></noscript><span class="menu-image-title-after menu-image-title">Build<p class="light-para">Connect with zebpay app</p></span></a></li>
+</ul>
+</li>
+<li id="menu-item-12553" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12553"><a href="https://zebpay.com/in/learn/">Learn</a></li>
+<li id="menu-item-25" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25"><a href="https://zebpay.com/about-us/">About us</a></li>
+<li id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27"><a target="_blank" rel="noopener" href="https://web.zebpay.com">Sign In</a></li>
+<li id="menu-item-28" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28"><a target="_blank" rel="noopener" href="https://connect.zebpay.com/account/RegisterUser?returnUrl=/Account/CampaignRegister?">Sign Up</a></li>
+</ul></div>
+</div>
+<div class="ios">
+<ul>
+<li><a href="https://play.google.com/store/apps/details?id=zebpay.Application&amp;utm_campaign=download-android&amp;utm_medium=website&amp;utm_source=zebpay.com" target="_blank"><img src="https://zebpay.com/wp-content/uploads/2020/06/android.png" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/06/android.png" data-ll-status="loaded" class="entered lazyloaded" width="21px" height="24px"><noscript><img src="https://zebpay.com/wp-content/uploads/2020/06/android.png" width="21px" height="24px" alt=""></noscript></a></li>
+<li><a href="https://apps.apple.com/in/app/zebpay-bitcoin-wallet/id944854686?utm_campaign=download-iphone&amp;utm_medium=website&amp;utm_source=zebpay.com" target="_blank"><img src="https://zebpay.com/wp-content/uploads/2020/06/ios.png" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/06/ios.png" data-ll-status="loaded" class="entered lazyloaded" width="21px" height="24px"><noscript><img src="https://zebpay.com/wp-content/uploads/2020/06/ios.png" width="21px" height="24px" alt=""></noscript></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="primary" class="content-area">
+<main id="main" class="site-main">
+<article id="post-4418" class="post-4418 page type-page status-publish hentry entry">
+<header class="entry-header">
+<h1 class="entry-title">Blog</h1>
+</header>
+<div class="entry-content">
+<div data-elementor-type="wp-page" data-elementor-id="4418" class="elementor elementor-4418" data-elementor-settings="[]">
+<div class="elementor-inner">
+<div class="elementor-section-wrap">
+<section data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-section elementor-top-section elementor-element elementor-element-230a372 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="230a372" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-88c7ec1" data-id="88c7ec1" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-9216aa7 elementor-widget elementor-widget-heading" data-id="9216aa7" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h1 class="elementor-heading-title elementor-size-default">The Z Blog</h1> </div>
+</div>
+<div class="elementor-element elementor-element-86f5893 elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-html" data-id="86f5893" data-element_type="widget" data-widget_type="html.default">
+<div class="elementor-widget-container">
+<div class="banner-ad">
+<div class="container">
+<div class="ad-box">
+<div class="row">
+<div class="col-lg-5 col-md-5">
+<div class="ad_img">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/08/USDT_INR_NO_FEE-1.png"><noscript><img src="https://zebpay.com/wp-content/uploads/2020/08/USDT_INR_NO_FEE-1.png" alt=""></noscript>
+</div>
+</div>
+<div class="col-lg-7 col-md-7">
+<div class="ad_info">
+<h2>FREE PAIR : USDT - INR</h2>
+<p>Enjoy 0% maker, taker &amp; intraday fee on USDT-INR pair for the month of July'21</p>
+<p><a href="https://web.zebpay.com/"><u>Start Trading</u></a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-section elementor-top-section elementor-element elementor-element-22d9b8a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="22d9b8a" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ce3e24f" data-id="ce3e24f" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-da632af elementor-grid-3 elementor-grid-tablet-2 elementor-grid-mobile-1 elementor-posts--thumbnail-top elementor-card-shadow-yes elementor-posts__hover-gradient elementor-widget elementor-widget-posts" data-id="da632af" data-element_type="widget" data-settings="{&quot;pagination_type&quot;:&quot;numbers&quot;,&quot;cards_columns&quot;:&quot;3&quot;,&quot;cards_columns_tablet&quot;:&quot;2&quot;,&quot;cards_columns_mobile&quot;:&quot;1&quot;,&quot;cards_row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:35,&quot;sizes&quot;:[]},&quot;cards_row_gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;cards_row_gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="posts.cards">
+<div class="elementor-widget-container">
+<div class="elementor-posts-container elementor-posts elementor-posts--skin-cards elementor-grid">
+<article class="elementor-post elementor-grid-item post-14642 post type-post status-publish format-standard has-post-thumbnail hentry category-crypto entry">
+<div class="elementor-post__card">
+<a class="elementor-post__thumbnail__link" href="https://zebpay.com/blog/a-profile-of-10-crypto-assets-other-than-bitcoin/"><div class="elementor-post__thumbnail"><img src="https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-300x158.jpg" class="attachment-medium size-medium entered lazyloaded" alt="" data-lazy-srcset="https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-300x158.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-1024x538.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01.jpg 1200w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-300x158.jpg" data-ll-status="loaded" sizes="(max-width: 300px) 100vw, 300px" srcset="https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-300x158.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-1024x538.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01.jpg 1200w" width="300" height="158"><noscript><img width="300" height="158" src="https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-300x158.jpg" class="attachment-medium size-medium" alt="" srcset="https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-300x158.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-1024x538.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01.jpg 1200w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+<div class="elementor-post__text">
+<h3 class="elementor-post__title">
+<a href="https://zebpay.com/blog/a-profile-of-10-crypto-assets-other-than-bitcoin/">
+A Profile Of 10 Crypto Assets Other Than Bitcoin </a>
+</h3>
+<div class="elementor-post__excerpt">
+<p>The Bitcoin Frenzy When Bitcoin was created in 2009, it promised lower transaction fees than most online payment gateways. The digital currency runs on a</p>
+</div>
+<a class="elementor-post__read-more" href="https://zebpay.com/blog/a-profile-of-10-crypto-assets-other-than-bitcoin/">
+Read More » </a>
+</div>
+<div class="elementor-post__meta-data">
+<span class="elementor-post-date">
+March 16, 2022 </span>
+</div>
+</div>
+</article>
+<article class="elementor-post elementor-grid-item post-14640 post type-post status-publish format-standard has-post-thumbnail hentry category-crypto entry">
+<div class="elementor-post__card">
+<a class="elementor-post__thumbnail__link" href="https://zebpay.com/blog/5-reasons-you-need-to-get-started-with-defi/"><div class="elementor-post__thumbnail"><img src="https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-300x158.jpg" class="attachment-medium size-medium entered lazyloaded" alt="" data-lazy-srcset="https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-300x158.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-1024x538.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi.jpg 1200w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-300x158.jpg" data-ll-status="loaded" sizes="(max-width: 300px) 100vw, 300px" srcset="https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-300x158.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-1024x538.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi.jpg 1200w" width="300" height="158"><noscript><img width="300" height="158" src="https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-300x158.jpg" class="attachment-medium size-medium" alt="" srcset="https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-300x158.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-1024x538.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi.jpg 1200w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+<div class="elementor-post__text">
+<h3 class="elementor-post__title">
+<a href="https://zebpay.com/blog/5-reasons-you-need-to-get-started-with-defi/">
+5 Reasons You Need To Get Started With DeFi </a>
+</h3>
+<div class="elementor-post__excerpt">
+<p>Let’s look at how banks function in our current financial setup. Banks make money by borrowing funds at a lower interest rate and lending at</p>
+</div>
+<a class="elementor-post__read-more" href="https://zebpay.com/blog/5-reasons-you-need-to-get-started-with-defi/">
+Read More » </a>
+</div>
+<div class="elementor-post__meta-data">
+<span class="elementor-post-date">
+March 16, 2022 </span>
+</div>
+</div>
+</article>
+<article class="elementor-post elementor-grid-item post-14638 post type-post status-publish format-standard has-post-thumbnail hentry category-crypto entry">
+<div class="elementor-post__card">
+<a class="elementor-post__thumbnail__link" href="https://zebpay.com/blog/ukraine-government-received-donations-of-50-mn-dollar-crypto-assets-and-spent-15-mn-dollars-of-these-crypto-assets-on-military-supplies/"><div class="elementor-post__thumbnail"><img src="https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-300x158.jpg" class="attachment-medium size-medium entered lazyloaded" alt="" data-lazy-srcset="https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-300x158.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-1024x538.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations.jpg 1200w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-300x158.jpg" data-ll-status="loaded" sizes="(max-width: 300px) 100vw, 300px" srcset="https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-300x158.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-1024x538.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations.jpg 1200w" width="300" height="158"><noscript><img width="300" height="158" src="https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-300x158.jpg" class="attachment-medium size-medium" alt="" srcset="https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-300x158.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-1024x538.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations.jpg 1200w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+<div class="elementor-post__text">
+<h3 class="elementor-post__title">
+<a href="https://zebpay.com/blog/ukraine-government-received-donations-of-50-mn-dollar-crypto-assets-and-spent-15-mn-dollars-of-these-crypto-assets-on-military-supplies/">
+Ukraine Government Received Donations Of 50 Mn Dollar Crypto Assets And Spent 15 Mn Dollars Of These Crypto Assets On Military Supplies </a>
+</h3>
+<div class="elementor-post__excerpt">
+<p>On February 26th, Twitter accounts of Ukraine’s Government posted a plea for donations in crypto assets. According to Elliptic, a blockchain analytics platform, a total</p>
+</div>
+<a class="elementor-post__read-more" href="https://zebpay.com/blog/ukraine-government-received-donations-of-50-mn-dollar-crypto-assets-and-spent-15-mn-dollars-of-these-crypto-assets-on-military-supplies/">
+Read More » </a>
+</div>
+<div class="elementor-post__meta-data">
+<span class="elementor-post-date">
+March 16, 2022 </span>
+</div>
+</div>
+</article>
+<article class="elementor-post elementor-grid-item post-14637 post type-post status-publish format-standard has-post-thumbnail hentry category-crypto entry">
+<div class="elementor-post__card">
+<a class="elementor-post__thumbnail__link" href="https://zebpay.com/blog/biggest-crypto-heist-of-all-time/"><div class="elementor-post__thumbnail"><img src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png" class="attachment-medium size-medium entered lazyloaded" alt="" data-lazy-srcset="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png 300w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png 1024w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-768x403.png 768w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-24x13.png 24w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-36x19.png 36w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-48x25.png 48w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis.png 1200w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png" data-ll-status="loaded" sizes="(max-width: 300px) 100vw, 300px" srcset="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png 300w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png 1024w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-768x403.png 768w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-24x13.png 24w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-36x19.png 36w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-48x25.png 48w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis.png 1200w" width="300" height="158"><noscript><img width="300" height="158" src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png" class="attachment-medium size-medium" alt="" srcset="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png 300w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png 1024w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-768x403.png 768w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-24x13.png 24w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-36x19.png 36w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-48x25.png 48w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis.png 1200w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+<div class="elementor-post__text">
+<h3 class="elementor-post__title">
+<a href="https://zebpay.com/blog/biggest-crypto-heist-of-all-time/">
+Biggest Crypto Heist of All Time </a>
+</h3>
+<div class="elementor-post__excerpt">
+<p>16 March 2022 | ZebPay Trade-Desk Bitcoin (BTC) came into the picture during the worldwide monetary Crisis of 2008-09 to forestall the planet from financial</p>
+</div>
+<a class="elementor-post__read-more" href="https://zebpay.com/blog/biggest-crypto-heist-of-all-time/">
+Read More » </a>
+</div>
+<div class="elementor-post__meta-data">
+<span class="elementor-post-date">
+March 16, 2022 </span>
+</div>
+</div>
+</article>
+<article class="elementor-post elementor-grid-item post-14635 post type-post status-publish format-standard has-post-thumbnail hentry category-crypto entry">
+<div class="elementor-post__card">
+<a class="elementor-post__thumbnail__link" href="https://zebpay.com/blog/how-does-kava-crypto-work/"><div class="elementor-post__thumbnail"><img src="https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-300x157.jpg" class="attachment-medium size-medium entered lazyloaded" alt="" data-lazy-srcset="https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-300x157.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-1024x537.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01.jpg 1201w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-300x157.jpg" data-ll-status="loaded" sizes="(max-width: 300px) 100vw, 300px" srcset="https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-300x157.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-1024x537.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01.jpg 1201w" width="300" height="157"><noscript><img width="300" height="157" src="https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-300x157.jpg" class="attachment-medium size-medium" alt="" srcset="https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-300x157.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-1024x537.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01.jpg 1201w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+<div class="elementor-post__text">
+<h3 class="elementor-post__title">
+<a href="https://zebpay.com/blog/how-does-kava-crypto-work/">
+How does Kava crypto work? </a>
+</h3>
+<div class="elementor-post__excerpt">
+<p>Kava is a software protocol and it enables in borrowing and lending assets without the need for a traditional financial intermediary. In this way, Kava</p>
+</div>
+<a class="elementor-post__read-more" href="https://zebpay.com/blog/how-does-kava-crypto-work/">
+Read More » </a>
+</div>
+<div class="elementor-post__meta-data">
+<span class="elementor-post-date">
+March 15, 2022 </span>
+</div>
+</div>
+</article>
+<article class="elementor-post elementor-grid-item post-14633 post type-post status-publish format-standard has-post-thumbnail hentry category-crypto entry">
+<div class="elementor-post__card">
+<a class="elementor-post__thumbnail__link" href="https://zebpay.com/blog/what-is-facebooks-libra-crypto-asset/"><div class="elementor-post__thumbnail"><img src="https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-300x158.jpg" class="attachment-medium size-medium entered lazyloaded" alt="" data-lazy-srcset="https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-300x158.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-1024x538.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets.jpg 1200w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-300x158.jpg" data-ll-status="loaded" sizes="(max-width: 300px) 100vw, 300px" srcset="https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-300x158.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-1024x538.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets.jpg 1200w" width="300" height="158"><noscript><img width="300" height="158" src="https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-300x158.jpg" class="attachment-medium size-medium" alt="" srcset="https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-300x158.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-1024x538.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets.jpg 1200w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+<div class="elementor-post__text">
+<h3 class="elementor-post__title">
+<a href="https://zebpay.com/blog/what-is-facebooks-libra-crypto-asset/">
+What Is Facebook’s Libra Crypto asset? </a>
+</h3>
+<div class="elementor-post__excerpt">
+<p>Facebook announced its “crypto asset” Libra in June 2019. It had the vision of making Libra a global asset and making financial systems accessible to</p>
+</div>
+<a class="elementor-post__read-more" href="https://zebpay.com/blog/what-is-facebooks-libra-crypto-asset/">
+Read More » </a>
+</div>
+<div class="elementor-post__meta-data">
+<span class="elementor-post-date">
+March 15, 2022 </span>
+</div>
+</div>
+</article>
+<article class="elementor-post elementor-grid-item post-14631 post type-post status-publish format-standard has-post-thumbnail hentry category-crypto entry">
+<div class="elementor-post__card">
+<a class="elementor-post__thumbnail__link" href="https://zebpay.com/blog/what-is-nvidia-omniverse/"><div class="elementor-post__thumbnail"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20158'%3E%3C/svg%3E" class="attachment-medium size-medium" alt="" data-lazy-srcset="https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse-300x158.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse-1024x538.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse.jpg 1200w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse-300x158.jpg" width="300" height="158"><noscript><img width="300" height="158" src="https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse-300x158.jpg" class="attachment-medium size-medium" alt="" srcset="https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse-300x158.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse-1024x538.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse.jpg 1200w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+<div class="elementor-post__text">
+<h3 class="elementor-post__title">
+<a href="https://zebpay.com/blog/what-is-nvidia-omniverse/">
+What is Nvidia Omniverse? </a>
+</h3>
+<div class="elementor-post__excerpt">
+<p>Nvidia has jumped the Metaverse game by launching a 3D design collaboration and virtual simulation platform. NVIDIA Omniverse™ is a scalable, real-time reference development platform</p>
+</div>
+<a class="elementor-post__read-more" href="https://zebpay.com/blog/what-is-nvidia-omniverse/">
+Read More » </a>
+</div>
+<div class="elementor-post__meta-data">
+<span class="elementor-post-date">
+March 15, 2022 </span>
+</div>
+</div>
+</article>
+<article class="elementor-post elementor-grid-item post-14629 post type-post status-publish format-standard has-post-thumbnail hentry category-crypto entry">
+<div class="elementor-post__card">
+<a class="elementor-post__thumbnail__link" href="https://zebpay.com/blog/ethereum-technical-analysis/"><div class="elementor-post__thumbnail"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20158'%3E%3C/svg%3E" class="attachment-medium size-medium" alt="" data-lazy-srcset="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png 300w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png 1024w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-768x403.png 768w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-24x13.png 24w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-36x19.png 36w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-48x25.png 48w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis.png 1200w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png" width="300" height="158"><noscript><img width="300" height="158" src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png" class="attachment-medium size-medium" alt="" srcset="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png 300w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png 1024w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-768x403.png 768w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-24x13.png 24w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-36x19.png 36w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-48x25.png 48w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis.png 1200w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+<div class="elementor-post__text">
+<h3 class="elementor-post__title">
+<a href="https://zebpay.com/blog/ethereum-technical-analysis/">
+Ethereum Technical Analysis </a>
+</h3>
+<div class="elementor-post__excerpt">
+<p>15th March 2022 | ZebPay Trade-Desk ETH – BEARS IN DEFENCE MODE ETH, needs a strong bounce off the current level, to push the asset</p>
+</div>
+<a class="elementor-post__read-more" href="https://zebpay.com/blog/ethereum-technical-analysis/">
+Read More » </a>
+</div>
+<div class="elementor-post__meta-data">
+<span class="elementor-post-date">
+March 15, 2022 </span>
+</div>
+</div>
+</article>
+<article class="elementor-post elementor-grid-item post-14622 post type-post status-publish format-standard has-post-thumbnail hentry category-crypto entry">
+<div class="elementor-post__card">
+<a class="elementor-post__thumbnail__link" href="https://zebpay.com/blog/upcoming-icos-a-low-down/"><div class="elementor-post__thumbnail"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20157'%3E%3C/svg%3E" class="attachment-medium size-medium" alt="" data-lazy-srcset="https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01-300x157.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01-1024x537.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01.jpg 1201w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01-300x157.jpg" width="300" height="157"><noscript><img width="300" height="157" src="https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01-300x157.jpg" class="attachment-medium size-medium" alt="" srcset="https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01-300x157.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01-1024x537.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01.jpg 1201w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+<div class="elementor-post__text">
+<h3 class="elementor-post__title">
+<a href="https://zebpay.com/blog/upcoming-icos-a-low-down/">
+Upcoming ICOs: a low-down </a>
+</h3>
+<div class="elementor-post__excerpt">
+<p>The craze behind crypto is increasing, and more and more investors are entering the market for short-term and long-term gains.&nbsp; So, if you’re willing to</p>
+</div>
+<a class="elementor-post__read-more" href="https://zebpay.com/blog/upcoming-icos-a-low-down/">
+Read More » </a>
+</div>
+<div class="elementor-post__meta-data">
+<span class="elementor-post-date">
+March 15, 2022 </span>
+</div>
+</div>
+</article>
+<article class="elementor-post elementor-grid-item post-14621 post type-post status-publish format-standard has-post-thumbnail hentry category-crypto entry">
+<div class="elementor-post__card">
+<a class="elementor-post__thumbnail__link" href="https://zebpay.com/blog/bitcoin-technical-analysis-2/"><div class="elementor-post__thumbnail"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20158'%3E%3C/svg%3E" class="attachment-medium size-medium" alt="" data-lazy-srcset="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png 300w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png 1024w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-768x403.png 768w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-24x13.png 24w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-36x19.png 36w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-48x25.png 48w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis.png 1200w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png" width="300" height="158"><noscript><img width="300" height="158" src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png" class="attachment-medium size-medium" alt="" srcset="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png 300w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png 1024w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-768x403.png 768w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-24x13.png 24w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-36x19.png 36w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-48x25.png 48w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis.png 1200w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+<div class="elementor-post__text">
+<h3 class="elementor-post__title">
+<a href="https://zebpay.com/blog/bitcoin-technical-analysis-2/">
+Bitcoin Technical Analysis </a>
+</h3>
+<div class="elementor-post__excerpt">
+<p>14 March 2022 | ZebPay Trade-Desk Over the weekend BTC was holding strong around the $38k mark. In fact, the asset has been range bound,</p>
+</div>
+<a class="elementor-post__read-more" href="https://zebpay.com/blog/bitcoin-technical-analysis-2/">
+Read More » </a>
+</div>
+<div class="elementor-post__meta-data">
+<span class="elementor-post-date">
+March 15, 2022 </span>
+</div>
+</div>
+</article>
+<article class="elementor-post elementor-grid-item post-14620 post type-post status-publish format-standard has-post-thumbnail hentry category-crypto entry">
+<div class="elementor-post__card">
+<a class="elementor-post__thumbnail__link" href="https://zebpay.com/blog/cryptocurrency-technical-analysis-report/"><div class="elementor-post__thumbnail"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20158'%3E%3C/svg%3E" class="attachment-medium size-medium" alt="" data-lazy-srcset="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png 300w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png 1024w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-768x403.png 768w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-24x13.png 24w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-36x19.png 36w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-48x25.png 48w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis.png 1200w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png" width="300" height="158"><noscript><img width="300" height="158" src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png" class="attachment-medium size-medium" alt="" srcset="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-300x158.png 300w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png 1024w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-768x403.png 768w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-24x13.png 24w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-36x19.png 36w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-48x25.png 48w, https://zebpay.com/wp-content/uploads/2020/12/technical-analysis.png 1200w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+<div class="elementor-post__text">
+<h3 class="elementor-post__title">
+<a href="https://zebpay.com/blog/cryptocurrency-technical-analysis-report/">
+Cryptocurrency Technical Analysis Report </a>
+</h3>
+<div class="elementor-post__excerpt">
+<p>11 March 2022 | ZebPay Trade-Desk Bitcoin and other major altcoins are showing early signs that the bear trend is coming to an end, but</p>
+</div>
+<a class="elementor-post__read-more" href="https://zebpay.com/blog/cryptocurrency-technical-analysis-report/">
+Read More » </a>
+</div>
+<div class="elementor-post__meta-data">
+<span class="elementor-post-date">
+March 15, 2022 </span>
+</div>
+</div>
+</article>
+<article class="elementor-post elementor-grid-item post-14618 post type-post status-publish format-standard has-post-thumbnail hentry category-crypto entry">
+<div class="elementor-post__card">
+<a class="elementor-post__thumbnail__link" href="https://zebpay.com/blog/build-your-crypto-portfolio-in-5-steps/"><div class="elementor-post__thumbnail"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20157'%3E%3C/svg%3E" class="attachment-medium size-medium" alt="" data-lazy-srcset="https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01-300x157.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01-1024x537.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01.jpg 1201w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01-300x157.jpg" width="300" height="157"><noscript><img width="300" height="157" src="https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01-300x157.jpg" class="attachment-medium size-medium" alt="" srcset="https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01-300x157.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01-1024x537.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01.jpg 1201w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+<div class="elementor-post__text">
+<h3 class="elementor-post__title">
+<a href="https://zebpay.com/blog/build-your-crypto-portfolio-in-5-steps/">
+Build Your Crypto Portfolio In 5 Steps </a>
+</h3>
+<div class="elementor-post__excerpt">
+<p>If you want to get good returns on your financial assets, then it definitely calls for a great amount of strategic planning. And the first</p>
+</div>
+<a class="elementor-post__read-more" href="https://zebpay.com/blog/build-your-crypto-portfolio-in-5-steps/">
+Read More » </a>
+</div>
+<div class="elementor-post__meta-data">
+<span class="elementor-post-date">
+March 11, 2022 </span>
+</div>
+</div>
+</article>
+<article class="elementor-post elementor-grid-item post-14616 post type-post status-publish format-standard has-post-thumbnail hentry category-crypto entry">
+<div class="elementor-post__card">
+<a class="elementor-post__thumbnail__link" href="https://zebpay.com/blog/joe-bidens-executive-order-on-ensuring-responsible-development-of-digital-assets/"><div class="elementor-post__thumbnail"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20158'%3E%3C/svg%3E" class="attachment-medium size-medium" alt="" data-lazy-srcset="https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets-300x158.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets-1024x538.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets.jpg 1200w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets-300x158.jpg" width="300" height="158"><noscript><img width="300" height="158" src="https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets-300x158.jpg" class="attachment-medium size-medium" alt="" srcset="https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets-300x158.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets-1024x538.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets.jpg 1200w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+<div class="elementor-post__text">
+<h3 class="elementor-post__title">
+<a href="https://zebpay.com/blog/joe-bidens-executive-order-on-ensuring-responsible-development-of-digital-assets/">
+Joe Biden’s Executive Order on Ensuring Responsible Development of Digital Assets </a>
+</h3>
+<div class="elementor-post__excerpt">
+<p>The White House, on Wednesday, 9th March, announced Joe Biden’s highly anticipated executive order regarding a whole-of-government’s approach to digital assets.&nbsp; The order seeks to</p>
+</div>
+<a class="elementor-post__read-more" href="https://zebpay.com/blog/joe-bidens-executive-order-on-ensuring-responsible-development-of-digital-assets/">
+Read More » </a>
+</div>
+<div class="elementor-post__meta-data">
+<span class="elementor-post-date">
+March 11, 2022 </span>
+</div>
+</div>
+</article>
+<article class="elementor-post elementor-grid-item post-14614 post type-post status-publish format-standard has-post-thumbnail hentry category-crypto entry">
+<div class="elementor-post__card">
+<a class="elementor-post__thumbnail__link" href="https://zebpay.com/blog/crypto-whales-explained/"><div class="elementor-post__thumbnail"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20157'%3E%3C/svg%3E" class="attachment-medium size-medium" alt="" data-lazy-srcset="https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01-300x157.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01-1024x537.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01.jpg 1201w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01-300x157.jpg" width="300" height="157"><noscript><img width="300" height="157" src="https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01-300x157.jpg" class="attachment-medium size-medium" alt="" srcset="https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01-300x157.jpg 300w, https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01-1024x537.jpg 1024w, https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01-768x403.jpg 768w, https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01-24x13.jpg 24w, https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01-36x19.jpg 36w, https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01-48x25.jpg 48w, https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01.jpg 1201w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+<div class="elementor-post__text">
+<h3 class="elementor-post__title">
+<a href="https://zebpay.com/blog/crypto-whales-explained/">
+Crypto Whales explained </a>
+</h3>
+<div class="elementor-post__excerpt">
+<p>Cryptos are inherently volatile and Crypto Whales further accentuate crypto’s volatility. So who are Crypto Whales? The answer: they are individuals who hold large swathes</p>
+</div>
+<a class="elementor-post__read-more" href="https://zebpay.com/blog/crypto-whales-explained/">
+Read More » </a>
+</div>
+<div class="elementor-post__meta-data">
+<span class="elementor-post-date">
+March 11, 2022	 </span>
+</div>
+</div>
+</article>
+<article class="elementor-post elementor-grid-item post-14613 post type-post status-publish format-standard has-post-thumbnail hentry category-crypto entry">
+<div class="elementor-post__card">
+<a class="elementor-post__thumbnail__link" href="https://zebpay.com/blog/quicktrade-takes-centre-stage-in-zebpays-latest-app-update/"><div class="elementor-post__thumbnail"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20170'%3E%3C/svg%3E" class="attachment-medium size-medium" alt="" data-lazy-srcset="https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14-300x170.png 300w, https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14-1024x580.png 1024w, https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14-768x435.png 768w, https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14-24x14.png 24w, https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14-36x20.png 36w, https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14-48x27.png 48w, https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14.png 1200w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14-300x170.png" width="300" height="170"><noscript><img width="300" height="170" src="https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14-300x170.png" class="attachment-medium size-medium" alt="" srcset="https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14-300x170.png 300w, https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14-1024x580.png 1024w, https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14-768x435.png 768w, https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14-24x14.png 24w, https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14-36x20.png 36w, https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14-48x27.png 48w, https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14.png 1200w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+<div class="elementor-post__text">
+<h3 class="elementor-post__title">
+<a href="https://zebpay.com/blog/quicktrade-takes-centre-stage-in-zebpays-latest-app-update/">
+QuickTrade Takes Centre Stage in ZebPay’s Latest App Update </a>
+</h3>
+<div class="elementor-post__excerpt">
+<p>Our latest app update is here and we’re excited to roll out a change in UI that makes trading your favourite cryptos faster and simpler.</p>
+</div>
+<a class="elementor-post__read-more" href="https://zebpay.com/blog/quicktrade-takes-centre-stage-in-zebpays-latest-app-update/">
+Read More » </a>
+</div>
+<div class="elementor-post__meta-data">
+<span class="elementor-post-date">
+March 10, 2022 </span>
+</div>
+</div>
+</article>
+</div>
+<div class="e-load-more-anchor" data-page="1" data-max-page="36" data-next-page="https://zebpay.com/blog/2/"></div>
+<nav class="elementor-pagination" role="navigation" aria-label="Pagination">
+<span aria-current="page" class="page-numbers current"><span class="elementor-screen-only">Page</span>1</span>
+<a class="page-numbers" href="https://zebpay.com/blog/2/"><span class="elementor-screen-only">Page</span>2</a>
+<a class="page-numbers" href="https://zebpay.com/blog/3/"><span class="elementor-screen-only">Page</span>3</a>
+<a class="page-numbers" href="https://zebpay.com/blog/4/"><span class="elementor-screen-only">Page</span>4</a>
+<a class="page-numbers" href="https://zebpay.com/blog/5/"><span class="elementor-screen-only">Page</span>5</a>
+<a class="page-numbers" href="https://zebpay.com/blog/6/"><span class="elementor-screen-only">Page</span>6</a>
+<a class="page-numbers" href="https://zebpay.com/blog/7/"><span class="elementor-screen-only">Page</span>7</a>
+<a class="page-numbers" href="https://zebpay.com/blog/8/"><span class="elementor-screen-only">Page</span>8</a>
+<a class="page-numbers" href="https://zebpay.com/blog/9/"><span class="elementor-screen-only">Page</span>9</a>
+<a class="page-numbers" href="https://zebpay.com/blog/10/"><span class="elementor-screen-only">Page</span>10</a>
+<a class="page-numbers" href="https://zebpay.com/blog/11/"><span class="elementor-screen-only">Page</span>11</a>
+<a class="page-numbers" href="https://zebpay.com/blog/12/"><span class="elementor-screen-only">Page</span>12</a>
+<a class="page-numbers" href="https://zebpay.com/blog/13/"><span class="elementor-screen-only">Page</span>13</a>
+<a class="page-numbers" href="https://zebpay.com/blog/14/"><span class="elementor-screen-only">Page</span>14</a>
+<a class="page-numbers" href="https://zebpay.com/blog/15/"><span class="elementor-screen-only">Page</span>15</a>
+<a class="page-numbers" href="https://zebpay.com/blog/16/"><span class="elementor-screen-only">Page</span>16</a>
+<a class="page-numbers" href="https://zebpay.com/blog/17/"><span class="elementor-screen-only">Page</span>17</a>
+<a class="page-numbers" href="https://zebpay.com/blog/18/"><span class="elementor-screen-only">Page</span>18</a>
+<a class="page-numbers" href="https://zebpay.com/blog/19/"><span class="elementor-screen-only">Page</span>19</a>
+<a class="page-numbers" href="https://zebpay.com/blog/20/"><span class="elementor-screen-only">Page</span>20</a>
+<a class="page-numbers" href="https://zebpay.com/blog/21/"><span class="elementor-screen-only">Page</span>21</a>
+<a class="page-numbers" href="https://zebpay.com/blog/22/"><span class="elementor-screen-only">Page</span>22</a>
+<a class="page-numbers" href="https://zebpay.com/blog/23/"><span class="elementor-screen-only">Page</span>23</a>
+<a class="page-numbers" href="https://zebpay.com/blog/24/"><span class="elementor-screen-only">Page</span>24</a>
+<a class="page-numbers" href="https://zebpay.com/blog/25/"><span class="elementor-screen-only">Page</span>25</a>
+<a class="page-numbers" href="https://zebpay.com/blog/26/"><span class="elementor-screen-only">Page</span>26</a>
+<a class="page-numbers" href="https://zebpay.com/blog/27/"><span class="elementor-screen-only">Page</span>27</a>
+<a class="page-numbers" href="https://zebpay.com/blog/28/"><span class="elementor-screen-only">Page</span>28</a>
+<a class="page-numbers" href="https://zebpay.com/blog/29/"><span class="elementor-screen-only">Page</span>29</a>
+<a class="page-numbers" href="https://zebpay.com/blog/30/"><span class="elementor-screen-only">Page</span>30</a>
+<a class="page-numbers" href="https://zebpay.com/blog/31/"><span class="elementor-screen-only">Page</span>31</a>
+<a class="page-numbers" href="https://zebpay.com/blog/32/"><span class="elementor-screen-only">Page</span>32</a>
+<a class="page-numbers" href="https://zebpay.com/blog/33/"><span class="elementor-screen-only">Page</span>33</a>
+<a class="page-numbers" href="https://zebpay.com/blog/34/"><span class="elementor-screen-only">Page</span>34</a>
+<a class="page-numbers" href="https://zebpay.com/blog/35/"><span class="elementor-screen-only">Page</span>35</a>
+<a class="page-numbers" href="https://zebpay.com/blog/36/"><span class="elementor-screen-only">Page</span>36</a> </nav>
+</div>
+</div>
+<div class="elementor-element elementor-element-55c9ff3 eael-post-list-col-3 elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-eael-post-list" data-id="55c9ff3" data-element_type="widget" data-widget_type="eael-post-list.default">
+<div class="elementor-widget-container">
+<div class="eael-post-list-container advanced layout-advanced"><div class="eael-post-list-header"><div class="post-categories" data-nonce="5d11e56164" data-page-id="4418" data-widget-id="55c9ff3" data-template="{&quot;dir&quot;:&quot;pro&quot;,&quot;file_name&quot;:&quot;advanced.php&quot;,&quot;name&quot;:&quot;Post-List&quot;}" data-widget="55c9ff3" data-class="Essential_Addons_Elementor\Pro\Elements\Post_List" data-args="orderby=date&amp;order=desc&amp;ignore_sticky_posts=1&amp;post_status=publish&amp;posts_per_page=30&amp;offset=0&amp;post_type=post&amp;tax_query%5B0%5D%5Btaxonomy%5D=category&amp;tax_query%5B0%5D%5Bfield%5D=term_id&amp;tax_query%5B0%5D%5Bterms%5D%5B0%5D=10&amp;tax_query%5B0%5D%5Bterms%5D%5B1%5D=421&amp;tax_query%5B0%5D%5Bterms%5D%5B2%5D=6&amp;tax_query%5B0%5D%5Bterms%5D%5B3%5D=19&amp;tax_query%5B0%5D%5Bterms%5D%5B4%5D=398&amp;tax_query%5Brelation%5D=AND" data-settings="eael_post_list_post_feature_image=yes&amp;eael_post_list_post_meta=yes&amp;eael_post_list_post_title=yes&amp;eael_post_list_post_excerpt=yes&amp;eael_post_list_post_excerpt_length=20&amp;eael_post_list_pagination=yes&amp;eael_post_list_layout_type=advanced&amp;eael_post_list_post_cat=&amp;eael_post_list_author_meta=&amp;eael_post_list_title_tag=h2&amp;eael_show_read_more_button=yes&amp;eael_post_list_read_more_text=Read+More&amp;eael_post_list_excerpt_expanison_indicator=...&amp;eael_post_featured_image_size=large" data-page="1">
+<a href="javascript:;" data-taxonomy="all" data-id="" class="active post-list-filter-item post-list-cat-55c9ff3">All</a><a href="javascript:;" data-taxonomy="category" data-id="10" class="post-list-filter-item post-list-cat-55c9ff3">Market Analysis</a><a href="javascript:;" data-taxonomy="category" data-id="421" class="post-list-filter-item post-list-cat-55c9ff3">What's New?</a><a href="javascript:;" data-taxonomy="category" data-id="6" class="post-list-filter-item post-list-cat-55c9ff3">ZebPay Security</a><a href="javascript:;" data-taxonomy="category" data-id="19" class="post-list-filter-item post-list-cat-55c9ff3">Crypto</a><a href="javascript:;" data-taxonomy="category" data-id="398" class="post-list-filter-item post-list-cat-55c9ff3">Others</a></div></div><div class="eael-post-list-wrap"><div class="eael-post-list-posts-wrap eael-post-appender eael-post-appender-55c9ff3"><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-1024x538.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/17.-Profile-of-top-10-crypto-assets-other-than-Bitcoin-01-1024x538.jpg" alt=""></noscript><a href="https://zebpay.com/blog/a-profile-of-10-crypto-assets-other-than-bitcoin/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/a-profile-of-10-crypto-assets-other-than-bitcoin/">A Profile Of 10 Crypto Assets Other Than Bitcoin</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 16, 2022</span>
+</div><p>The Bitcoin Frenzy When Bitcoin was created in 2009, it promised lower transaction fees than most online payment gateways. The...</p><a href="https://zebpay.com/blog/a-profile-of-10-crypto-assets-other-than-bitcoin/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-1024x538.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/14.-5-Reasons-You-Need-To-Get-Started-With-DeFi-1024x538.jpg" alt=""></noscript><a href="https://zebpay.com/blog/5-reasons-you-need-to-get-started-with-defi/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/5-reasons-you-need-to-get-started-with-defi/">5 Reasons You Need To Get Started With DeFi</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 16, 2022</span>
+</div><p>Let’s look at how banks function in our current financial setup. Banks make money by borrowing funds at a lower...</p><a href="https://zebpay.com/blog/5-reasons-you-need-to-get-started-with-defi/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-1024x538.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/15.-Ukraine-Government-Received-Donations-1024x538.jpg" alt=""></noscript><a href="https://zebpay.com/blog/ukraine-government-received-donations-of-50-mn-dollar-crypto-assets-and-spent-15-mn-dollars-of-these-crypto-assets-on-military-supplies/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/ukraine-government-received-donations-of-50-mn-dollar-crypto-assets-and-spent-15-mn-dollars-of-these-crypto-assets-on-military-supplies/">Ukraine Government Received Donations Of 50 Mn Dollar Crypto Assets And Spent 15 Mn Dollars Of These Crypto Assets On Military Supplies</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 16, 2022</span>
+</div><p>On February 26th, Twitter accounts of Ukraine’s Government posted a plea for donations in crypto assets. According to Elliptic, a...</p><a href="https://zebpay.com/blog/ukraine-government-received-donations-of-50-mn-dollar-crypto-assets-and-spent-15-mn-dollars-of-these-crypto-assets-on-military-supplies/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png"><noscript><img src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png" alt=""></noscript><a href="https://zebpay.com/blog/biggest-crypto-heist-of-all-time/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/biggest-crypto-heist-of-all-time/">Biggest Crypto Heist of All Time</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 16, 2022</span>
+</div><p>16 March 2022 | ZebPay Trade-Desk Bitcoin (BTC) came into the picture during the worldwide monetary Crisis of 2008-09 to...</p><a href="https://zebpay.com/blog/biggest-crypto-heist-of-all-time/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-1024x537.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/13.-how-does-Kava-work-01-1024x537.jpg" alt=""></noscript><a href="https://zebpay.com/blog/how-does-kava-crypto-work/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/how-does-kava-crypto-work/">How does Kava crypto work?</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 15, 2022</span>
+</div><p>Kava is a software protocol and it enables in borrowing and lending assets without the need for a traditional financial...</p><a href="https://zebpay.com/blog/how-does-kava-crypto-work/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-1024x538.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/12.-What-is-Facebooks-Libra-Crypto-Assets-1024x538.jpg" alt=""></noscript><a href="https://zebpay.com/blog/what-is-facebooks-libra-crypto-asset/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/what-is-facebooks-libra-crypto-asset/">What Is Facebook’s Libra Crypto asset?</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 15, 2022</span>
+</div><p>Facebook announced its “crypto asset” Libra in June 2019. It had the vision of making Libra a global asset and...</p><a href="https://zebpay.com/blog/what-is-facebooks-libra-crypto-asset/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse-1024x538.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/11.-what-is-Nvidia-omniverse-1024x538.jpg" alt=""></noscript><a href="https://zebpay.com/blog/what-is-nvidia-omniverse/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/what-is-nvidia-omniverse/">What is Nvidia Omniverse?</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 15, 2022</span>
+</div><p>Nvidia has jumped the Metaverse game by launching a 3D design collaboration and virtual simulation platform. NVIDIA Omniverse™ is a...</p><a href="https://zebpay.com/blog/what-is-nvidia-omniverse/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png"><noscript><img src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png" alt=""></noscript><a href="https://zebpay.com/blog/ethereum-technical-analysis/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/ethereum-technical-analysis/">Ethereum Technical Analysis</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 15, 2022</span>
+</div><p>15th March 2022 | ZebPay Trade-Desk ETH – BEARS IN DEFENCE MODE ETH, needs a strong bounce off the current...</p><a href="https://zebpay.com/blog/ethereum-technical-analysis/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01-1024x537.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/1.-A-Glimpse-into-Some-of-the-Fastest-Growing-Cryptocurrencies-in-2022-01-1024x537.jpg" alt=""></noscript><a href="https://zebpay.com/blog/upcoming-icos-a-low-down/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/upcoming-icos-a-low-down/">Upcoming ICOs: a low-down</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 15, 2022</span>
+</div><p>The craze behind crypto is increasing, and more and more investors are entering the market for short-term and long-term gains.&nbsp;...</p><a href="https://zebpay.com/blog/upcoming-icos-a-low-down/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png"><noscript><img src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png" alt=""></noscript><a href="https://zebpay.com/blog/bitcoin-technical-analysis-2/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/bitcoin-technical-analysis-2/">Bitcoin Technical Analysis</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 15, 2022</span>
+</div><p>14 March 2022 | ZebPay Trade-Desk Over the weekend BTC was holding strong around the $38k mark. In fact, the...</p><a href="https://zebpay.com/blog/bitcoin-technical-analysis-2/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png"><noscript><img src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png" alt=""></noscript><a href="https://zebpay.com/blog/cryptocurrency-technical-analysis-report/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/cryptocurrency-technical-analysis-report/">Cryptocurrency Technical Analysis Report</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 15, 2022</span>
+</div><p>11 March 2022 | ZebPay Trade-Desk Bitcoin and other major altcoins are showing early signs that the bear trend is...</p><a href="https://zebpay.com/blog/cryptocurrency-technical-analysis-report/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01-1024x537.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/8.-Build-Your-Crypto-Portfolio-In-5-Steps-01-1024x537.jpg" alt=""></noscript><a href="https://zebpay.com/blog/build-your-crypto-portfolio-in-5-steps/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/build-your-crypto-portfolio-in-5-steps/">Build Your Crypto Portfolio In 5 Steps</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 11, 2022</span>
+</div><p>If you want to get good returns on your financial assets, then it definitely calls for a great amount of...</p><a href="https://zebpay.com/blog/build-your-crypto-portfolio-in-5-steps/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets-1024x538.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/9.-Joe-Bidens-Executive-Order-on-Ensuring-Responsible-Development-of-Digital-Assets-1024x538.jpg" alt=""></noscript><a href="https://zebpay.com/blog/joe-bidens-executive-order-on-ensuring-responsible-development-of-digital-assets/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/joe-bidens-executive-order-on-ensuring-responsible-development-of-digital-assets/">Joe Biden’s Executive Order on Ensuring Responsible Development of Digital Assets</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 11, 2022</span>
+</div><p>The White House, on Wednesday, 9th March, announced Joe Biden’s highly anticipated executive order regarding a whole-of-government’s approach to digital...</p><a href="https://zebpay.com/blog/joe-bidens-executive-order-on-ensuring-responsible-development-of-digital-assets/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01-1024x537.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/10.-What-is-a-Crypto-Whale-01-1024x537.jpg" alt=""></noscript><a href="https://zebpay.com/blog/crypto-whales-explained/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/crypto-whales-explained/">Crypto Whales explained</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 11, 2022</span>
+</div><p>Cryptos are inherently volatile and Crypto Whales further accentuate crypto’s volatility. So who are Crypto Whales? The answer: they are...</p><a href="https://zebpay.com/blog/crypto-whales-explained/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14-1024x580.png"><noscript><img src="https://zebpay.com/wp-content/uploads/2021/05/Blog-featured-images-14-1024x580.png" alt=""></noscript><a href="https://zebpay.com/blog/quicktrade-takes-centre-stage-in-zebpays-latest-app-update/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/quicktrade-takes-centre-stage-in-zebpays-latest-app-update/">QuickTrade Takes Centre Stage in ZebPay’s Latest App Update</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 10, 2022</span>
+</div><p>Our latest app update is here and we’re excited to roll out a change in UI that makes trading your...</p><a href="https://zebpay.com/blog/quicktrade-takes-centre-stage-in-zebpays-latest-app-update/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png"><noscript><img src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png" alt=""></noscript><a href="https://zebpay.com/blog/solana-technical-analysis/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/solana-technical-analysis/">Solana Technical Analysis</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 10, 2022</span>
+</div><p>10 MARCH 2022 | ZebPay Trade-Desk Solana is down ~15% week on week and is down 4.5% over the past...</p><a href="https://zebpay.com/blog/solana-technical-analysis/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Cryptocurrency Trading" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/8.-5-common-mistakes-in-Crypto-trading-1024x538.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/8.-5-common-mistakes-in-Crypto-trading-1024x538.jpg" alt="Cryptocurrency Trading"></noscript><a href="https://zebpay.com/blog/5-common-mistakes-in-crypto-trading/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/5-common-mistakes-in-crypto-trading/">5 Common Mistakes in Crypto Trading</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 10, 2022</span>
+</div><p>Investors tend to make numerous mistakes before buying crypto assets in India.So, are you new to purchasing crypto assets in...</p><a href="https://zebpay.com/blog/5-common-mistakes-in-crypto-trading/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/image-44-1024x538.png"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/image-44-1024x538.png" alt=""></noscript><a href="https://zebpay.com/blog/documenting-gender-equality-in-crypto/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/documenting-gender-equality-in-crypto/">Documenting Gender Equality in Crypto</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 10, 2022</span>
+</div><p>09 March 2022 | ZebPay Trade-Desk Crypto’s popularity as a boy is no longer a surprise: it sits at the&nbsp;...</p><a href="https://zebpay.com/blog/documenting-gender-equality-in-crypto/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/image-45-1024x538.png"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/image-45-1024x538.png" alt=""></noscript><a href="https://zebpay.com/blog/russia-to-regulate-crypto-like-foreign-currencies-report/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/russia-to-regulate-crypto-like-foreign-currencies-report/">Russia To Regulate Crypto- like Foreign Currencies: Report</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 10, 2022</span>
+</div><p>Thanks to the ever-increasing popularity of cryptocurrencies worldwide, Russia is finally expected to regulate digital assets by treating them like...</p><a href="https://zebpay.com/blog/russia-to-regulate-crypto-like-foreign-currencies-report/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png"><noscript><img src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png" alt=""></noscript><a href="https://zebpay.com/blog/ethereum-price-analysis/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/ethereum-price-analysis/">Ethereum Price Analysis</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 8, 2022</span>
+</div><p>8th March 2022 | ZebPay Trade-Desk ETH is down by 14% week on week, and has been fairly range bound...</p><a href="https://zebpay.com/blog/ethereum-price-analysis/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png"><noscript><img src="https://zebpay.com/wp-content/uploads/2020/12/technical-analysis-1024x538.png" alt=""></noscript><a href="https://zebpay.com/blog/bitcoin-price-analysis/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/bitcoin-price-analysis/">Bitcoin Price Analysis</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 8, 2022</span>
+</div><p>7th March 2022 | ZebPay Trade-Desk Over the weekend BTC was holding strong around the $39k mark. In fact, the...</p><a href="https://zebpay.com/blog/bitcoin-price-analysis/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/7.-Satoshi-Nakamoto-the-founder-of-Bitcoin-01-1024x537.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/7.-Satoshi-Nakamoto-the-founder-of-Bitcoin-01-1024x537.jpg" alt=""></noscript><a href="https://zebpay.com/blog/satoshi-nakamoto-the-founder-of-bitcoin/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/satoshi-nakamoto-the-founder-of-bitcoin/">Satoshi Nakamoto – the founder of Bitcoin</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 8, 2022</span>
+</div><p>Everything You Should Know About Satoshi Nakamoto – The Mysterious Founder of Bitcoin Over time, Bitcoin has become synonymous with...</p><a href="https://zebpay.com/blog/satoshi-nakamoto-the-founder-of-bitcoin/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/6.-CryptoPunks-Ethereum-NFT-Sell-About-Rs-24-Million-Double-Record-01-1024x537.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/6.-CryptoPunks-Ethereum-NFT-Sell-About-Rs-24-Million-Double-Record-01-1024x537.jpg" alt=""></noscript><a href="https://zebpay.com/blog/cryptopunks-ethereum-nft-sell-about-rs-24-million-double-record/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/cryptopunks-ethereum-nft-sell-about-rs-24-million-double-record/">CryptoPunks Ethereum NFT Sell About Rs 24 Million, Double Record</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 8, 2022</span>
+</div><p>Adding to the waves made by the adoption of digital assets worldwide, a rare CrytoPunks alien avatar Non-Fungible Token (NFT)...</p><a href="https://zebpay.com/blog/cryptopunks-ethereum-nft-sell-about-rs-24-million-double-record/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/5.-how-to-pick-crypto-for-day-trading-01-1024x537.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/5.-how-to-pick-crypto-for-day-trading-01-1024x537.jpg" alt=""></noscript><a href="https://zebpay.com/blog/how-to-pick-crypto-for-day-trading/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/how-to-pick-crypto-for-day-trading/">How To Pick Crypto For Day Trading?</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 8, 2022</span>
+</div><p>Fairly similar to stock trading, day trading in crypto is purchasing and selling digital assets on the same day. It...</p><a href="https://zebpay.com/blog/how-to-pick-crypto-for-day-trading/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/4.-Apple-iPhone-Soon-To-Enable-Tap-To-Pay-Allows-Crypto-Payments-01-1024x537.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/4.-Apple-iPhone-Soon-To-Enable-Tap-To-Pay-Allows-Crypto-Payments-01-1024x537.jpg" alt=""></noscript><a href="https://zebpay.com/blog/apple-iphone-soon-to-enable-tap-to-pay-allows-crypto-payments/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/apple-iphone-soon-to-enable-tap-to-pay-allows-crypto-payments/">Apple iPhone Soon To Enable Tap To Pay Allows Crypto Payments</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 4, 2022</span>
+</div><p>Apple iPhone soon to enable Tap To Pay allows Crypto Payments This year, cryptocurrencies appear to be getting significant popularity...</p><a href="https://zebpay.com/blog/apple-iphone-soon-to-enable-tap-to-pay-allows-crypto-payments/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/3.-Introduction-and-Benefits-of-Smart-contract-in-Blockchain-01-1024x537.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/3.-Introduction-and-Benefits-of-Smart-contract-in-Blockchain-01-1024x537.jpg" alt=""></noscript><a href="https://zebpay.com/blog/introduction-and-benefits-of-smart-contract-in-blockchain/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/introduction-and-benefits-of-smart-contract-in-blockchain/">Introduction and Benefits of Smart contract in Blockchain</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 4, 2022</span>
+</div><p>Smart Contract in Blockchain and Its Benefits A certain set of programs stored in the blockchain is known as smart...</p><a href="https://zebpay.com/blog/introduction-and-benefits-of-smart-contract-in-blockchain/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/2.-What-is-the-DUSK-token-and-how-does-it-work-01-1024x537.jpg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/2.-What-is-the-DUSK-token-and-how-does-it-work-01-1024x537.jpg" alt=""></noscript><a href="https://zebpay.com/blog/what-is-the-dusk-token-and-how-does-it-work/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/what-is-the-dusk-token-and-how-does-it-work/">What is the DUSK token and how does it work?</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 4, 2022</span>
+</div><p>DUSK tokens are digital tokens that are generated into the Dusk Network. Transactions can be initiated by using the DUSK...</p><a href="https://zebpay.com/blog/what-is-the-dusk-token-and-how-does-it-work/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/03/bitcoin.jpeg"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/03/bitcoin.jpeg" alt=""></noscript><a href="https://zebpay.com/blog/bitcoins-hard-cap/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/bitcoins-hard-cap/">Bitcoin’s Hard Cap&nbsp;</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> March 2, 2022</span>
+</div><p>02 March 2022| ZebPay Trade-Desk A hard cap is essentially a limit set by the code of a blockchain that...</p><a href="https://zebpay.com/blog/bitcoins-hard-cap/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/02/Vikrant-Graphics-10-1.png"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/02/Vikrant-Graphics-10-1.png" alt=""></noscript><a href="https://zebpay.com/blog/everything-you-need-to-know-about-the-moonbeam-network/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/everything-you-need-to-know-about-the-moonbeam-network/">Everything you need to know about the Moonbeam Network</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> February 25, 2022</span>
+</div><p>Why was Moonbeam needed? High transaction fees have troubled crypto traders for the longest time. Many attempts are underway to...</p><a href="https://zebpay.com/blog/everything-you-need-to-know-about-the-moonbeam-network/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div><div class="eael-post-list-post "><div class="eael-post-list-post-inner"><div class="eael-post-list-thumbnail "><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://zebpay.com/wp-content/uploads/2022/02/Vikrant-Graphics-9.png"><noscript><img src="https://zebpay.com/wp-content/uploads/2022/02/Vikrant-Graphics-9.png" alt=""></noscript><a href="https://zebpay.com/blog/what-is-celer-network/"></a>
+</div><div class="eael-post-list-content"><h2 class="eael-post-list-title"><a href="https://zebpay.com/blog/what-is-celer-network/">What is Celer Network?</a></h2><div class="meta">
+<span><i class="far fa-calendar-alt"></i> February 24, 2022</span>
+</div><p>Celer is a layer-2 platform built along with the objectives of operating across many top decentralized finance (DeFi) networks. Celer...</p><a href="https://zebpay.com/blog/what-is-celer-network/" class="eael-post-elements-readmore-btn">Read More</a><div class="boxed-meta"></div></div></div></div></div></div>
+</div><div class="post-list-pagination" data-nonce="5d11e56164" data-page-id="4418" data-widget-id="55c9ff3" data-template="{&quot;dir&quot;:&quot;pro&quot;,&quot;file_name&quot;:&quot;advanced.php&quot;,&quot;name&quot;:&quot;Post-List&quot;}" data-widget="55c9ff3" data-class="Essential_Addons_Elementor\Pro\Elements\Post_List" data-args="orderby=date&amp;order=desc&amp;ignore_sticky_posts=1&amp;post_status=publish&amp;posts_per_page=30&amp;offset=0&amp;post_type=post&amp;tax_query%5B0%5D%5Btaxonomy%5D=category&amp;tax_query%5B0%5D%5Bfield%5D=term_id&amp;tax_query%5B0%5D%5Bterms%5D%5B0%5D=10&amp;tax_query%5B0%5D%5Bterms%5D%5B1%5D=421&amp;tax_query%5B0%5D%5Bterms%5D%5B2%5D=6&amp;tax_query%5B0%5D%5Bterms%5D%5B3%5D=19&amp;tax_query%5B0%5D%5Bterms%5D%5B4%5D=398&amp;tax_query%5Brelation%5D=AND" data-settings="eael_post_list_post_feature_image=yes&amp;eael_post_list_post_meta=yes&amp;eael_post_list_post_title=yes&amp;eael_post_list_post_excerpt=yes&amp;eael_post_list_post_excerpt_length=20&amp;eael_post_list_pagination=yes&amp;eael_post_list_layout_type=advanced&amp;eael_post_list_post_cat=&amp;eael_post_list_author_meta=&amp;eael_post_list_title_tag=h2&amp;eael_show_read_more_button=yes&amp;eael_post_list_read_more_text=Read+More&amp;eael_post_list_excerpt_expanison_indicator=...&amp;eael_post_featured_image_size=large" data-page="1">
+<button class="btn btn-prev-post" id="post-nav-prev-55c9ff3" disabled="true"><i aria-hidden="true" class="fas fa-angle-left"></i></button><button class="btn btn-next-post" id="post-nav-next-55c9ff3"><i aria-hidden="true" class="fas fa-angle-right"></i></button>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<div class="footer">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div class="start_main">
+<div class="start_tranding">
+<h2>Start trading now</h2>
+</div>
+<div class="f-enter wow fadeInUp">
+<form class="sign_up" action="">
+<input type="tel" class="form-control intlTelInput" id="footer_signup" name="footer_signup" placeholder="Enter mobile no." required="">
+
+<button type="submit" name="footer_submit" class="footer-signup" id="footerSignup">Sign Up</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="row mt-100 wow fadeInUp">
+<div class="col-lg-2 col-md-2">
+<div class="footer_main">
+<section id="custom_html-12" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div class="f-logo">
+<a href="/"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="/wp-content/uploads/2020/06/f-logo.png"><noscript><img src="/wp-content/uploads/2020/06/f-logo.png" alt=""></noscript></a>
+<p>©2021 ZebPay</p>
+</div>
+<div class="f_info">
+<h4>Support</h4>
+<ul>
+<li><a href="https://help.zebpay.com/support/home" target="_blank" rel="noopener">help.zebpay.com</a></li>
+</ul>
+</div>
+<div class="f_info">
+<h4>Media &amp; Press</h4>
+<ul>
+<li><a href="/media-press/">Media Enquiries</a></li>
+</ul>
+</div></div></section></div>
+</div>
+<div class="col-lg-2 col-md-2">
+<div class="footer_main">
+<section id="custom_html-5" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div class="f_info">
+<h4>Products</h4>
+<ul>
+<li><a href="/exchange/">Exchange</a></li>
+<li><a href="https://build.zebpay.com/" target="_blank" rel="noopener">Build</a></li>
+</ul>
+</div>
+<div class="f_info">
+<h4>Learning</h4>
+<ul>
+<li><a href="/videos/">Video</a></li>
+</ul>
+</div>
+<div class="f_info">
+<h4>Blog</h4>
+<ul>
+<li><a href="https://zebpay.com/blog/" target="_blank" rel="noopener">zebpay.com/blog</a></li>
+</ul>
+</div>
+<div class="f_info">
+<a href="https://zebpay.com/careers/"><h4>Careers</h4></a>
+</div></div></section></div>
+</div>
+<div class="col-lg-2 col-md-2">
+<div class="footer_main">
+<div class="f_info">
+<section id="custom_html-6" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div class="f_info">
+<h4>Why ZebPay?</h4>
+<ul>
+<li><a href="/features/">Features</a></li>
+<li><a href="/security/">Security</a></li>
+<li><a href="/fees/">Fees</a></li>
+<li><a href="/features/#section_1">Instant Buy / Sell</a></li>
+</ul>
+</div></div></section></div>
+</div>
+</div>
+<div class="col-lg-2 col-md-2">
+<div class="footer_main">
+<div class="f_info">
+<section id="custom_html-7" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><h4>Cryptos</h4>
+<ul>
+<li><a href="/buy-cryptos/">Buy Crypto</a></li>
+<li><a href="/buy-bitcoin/">Bitcoin</a></li>
+<li><a href="/buy-litecoin/">Litecoin</a></li>
+<li><a href="/buy-bch/">Bitcoin Cash</a></li>
+<li><a href="/buy-ether/">Ether</a></li>
+<li><a href="/buy-ripple/">XRP</a></li>
+<li><a href="/buy-eos/">EOS</a></li>
+</ul></div></section></div>
+</div>
+</div>
+<div class="col-lg-2 col-md-2">
+<div class="footer_main">
+<div class="f_info">
+<section id="custom_html-8" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><h4>Company</h4>
+<ul>
+<li><a href="/about-us/">About Us</a></li>
+<li><a href="/privacy-policy/">Legal &amp; Privacy</a></li>
+<li><a href="/terms-of-use/">Terms of Use</a></li>
+<li><a href="/phishing-safety-and-security/">Stay Safe</a></li>
+<li><a href="/bug-bounty-program/">Bug Bounty Program</a></li>
+<li><a href="/supported-countries/">Supported Countries</a></li>
+<li><a href="/mining-schemes/">Mining Schemes</a></li>
+<li><a href="/sitemap/">Sitemap</a></li>
+</ul></div></section></div>
+</div>
+</div>
+<div class="col-lg-2 col-md-2">
+<div class="footer_main">
+<div class="f_info">
+<section id="custom_html-9" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><h4>Social</h4>
+<ul>
+<li><a href="https://www.facebook.com/zebpay/" target="_blank" rel="noopener">Facebook</a></li>
+<li><a href="https://twitter.com/zebpay" target="_blank" rel="noopener">Twitter</a></li>
+<li><a href="https://www.youtube.com/user/ZebpayTube" target="_blank" rel="noopener">YouTube</a></li>
+<li><a href="https://www.instagram.com/zebpayofficial/" target="_blank" rel="noopener">Instagram</a></li>
+<li><a href="https://www.linkedin.com/company/zebpay/" target="_blank" rel="noopener"> LinkedIn</a></li>
+<li><a href="https://t.me/zebpayofficial" target="_blank" rel="noopener">Telegram</a></li>
+<li><a href="https://in.pinterest.com/zebpayofficial/" target="_blank" rel="noopener">Pinterest</a></li>
+<li><a href="https://t.me/ZebPayOfficialChat" target="_blank" rel="noopener">Telegram Chat</a></li>
+</ul></div></section></div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<div class="disclaimer learn-disclaimer wow fadeInUp">
+<section id="custom_html-10" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><p><span>Disclaimer</span> : Trading in cryptocurrencies is subject to market and legal risks. Prices in one country may differ from prices in <br>other countries. ZebPay does not guarantee any returns. Use ZebPay's services at your own risk.</p></div></section></div>
+<div class="disclaimer learn-address wow fadeInUp" style="visibility: hidden; animation-name: none;">
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<div class="outer-box">
+<section id="custom_html-11" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><ul>
+<p>Proud members of</p>
+<li><a href="https://cryptovalley.swiss/" target="_blank" rel="noopener"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="/wp-content/uploads/2020/06/member-2.png"><noscript><img src="/wp-content/uploads/2020/06/member-2.png" alt=""></noscript></a></li>
+<li><a href="https://www.bitcoinassociation.ch/" target="_blank" rel="noopener"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="/wp-content/uploads/2020/06/member-3.png"><noscript><img src="/wp-content/uploads/2020/06/member-3.png" alt=""></noscript></a></li>
+</ul></div></section><div class="static-dropdown footer-static_drop">
+<span class="selected selected-gb">Global</span>
+<ul>
+<li><a class="au" href="/au">Australia</a></li>
+<li><a class="in" href="/in">India</a></li>
+<li><a class="sg" href="/sg">Singapore</a></li>
+</ul>
+<a href="#" class="go-country-btn">Go</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://zebpay.com/wp-content/cache/min/1/wp-content/themes/zebpay-child/assets/js/jquery.js?ver=1647432982"></script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://zebpay.com/wp-content/cache/min/1/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js?ver=1647432982" crossorigin="anonymous"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://zebpay.com/wp-content/cache/min/1/wp-content/themes/zebpay-child/assets/js/bootstrap.js?ver=1647432982"></script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://zebpay.com/wp-content/cache/min/1/wp-content/themes/zebpay-child/assets/js/owl.carousel.js?ver=1647432982"></script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://zebpay.com/wp-content/cache/min/1/wp-content/themes/zebpay-child/assets/js/wow.js?ver=1647432982"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-content/themes/zebpay-child/assets/js/intlTelInput.min.js"></script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://zebpay.com/wp-content/cache/min/1/wp-content/themes/zebpay-child/assets/js/deepstream.js?ver=1647432982"></script>
+<script type="rocketlazyloadscript">
+$(window).scroll(function(){
+var sticky = $('.header'),
+scroll = $(window).scrollTop();
+
+if (scroll >= 200) sticky.addClass('fixed');
+else sticky.removeClass('fixed');
+});
+</script>
+<script type="rocketlazyloadscript">
+$(document).ready(function() {
+$(".mobile-menu").on("click", function(){
+$(".mobile-menu").toggleClass("change");
+$("#mySidenav").toggleClass("menu_show");
+});
+});
+</script>
+<script type="rocketlazyloadscript">  
+$(".static-dropdown").on('click',function(){
+$(this).toggleClass("active");
+});
+</script>
+<script type="rocketlazyloadscript">
+wow = new WOW(
+{
+animateClass: 'animated',
+offset:    150,
+callback:     function(box) {
+//console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+}
+}
+);
+wow.init();
+
+</script>
+<script type="rocketlazyloadscript">
+$('#live_slide').owlCarousel({
+loop:true,
+margin:0,
+nav:true,
+responsive:{
+0:{
+items:2
+},
+600:{
+items:3
+},
+1000:{
+items:5
+}
+}
+})
+</script>
+<script type="rocketlazyloadscript">
+$('#tranding').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplayHoverPause: true,
+animateOut: 'slideOutUp',
+animateIn: 'slideInUp',
+slideSpeed: 10000,
+paginationSpeed: 10000,
+responsive:{
+0:{
+items:1
+},
+600:{
+items:1
+},
+1000:{
+items:1
+}
+}
+})
+</script>
+<script type="rocketlazyloadscript">
+jQuery('.close-btn').on('click',function(){
+jQuery('.top-sec-langu').addClass('hide-sec');
+});
+jQuery(document).ready(function(){
+ jQuery('a.custom-logo-link').addClass('logo');
+});
+</script>
+<script type="rocketlazyloadscript">
+//jQuery(document).ready(function(){
+  var telInput = jQuery('.intlTelInput');
+    jQuery.getJSON('https://www.zebapi.com/api/v1/country/config', function (data) {
+		var defaultCountry = data.data.defaultCountry;
+        if(window.localStorage.getItem('user_redirected') == null) {
+		if(window.location.pathname == '/' && ['IN','AU','SG'].includes(defaultCountry)){
+			window.localStorage.setItem('user_redirected', true);
+	    		window.location = 'https://zebpay.com/'+defaultCountry.toLowerCase();		
+	    	}
+	    }
+  telInput.intlTelInput({
+            utilsScript: "https://zebpay.com/wp-content/themes/zebpay-child/assets/js/utils.js",
+           initialCountry: defaultCountry,
+           currentCountry: defaultCountry,
+            separateDialCode: true,
+            autoPlaceholder: "polite",
+            formatOnDisplay: true,
+           excludeCountries: data.data.restrictedCountries
+        });
+	});
+		telInput.on("open:countrydropdown", function (e, countryData) {
+        jQuery("#residencyInput").remove();
+        jQuery('.country-list li').show();
+        if (jQuery(window).width() > 767) {
+            jQuery(this).parent().find('.country-list').before('<input type="text" id="residencyInput" placeholder="Search for Country">');
+        } else {
+            jQuery('.country-list').before('<input type="text" id="residencyInput" placeholder="Search for Country">');
+        }
+        jQuery('#residencyInput').focus();
+        jQuery('#residencyInput').click(function (event) {
+            event.stopPropagation();
+        });
+
+        jQuery('#residencyInput').on('keyup', function (event) {
+            //alert(event.key);
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("residencyInput");
+            if ((event.keyCode >= 65 && event.keyCode <= 90) || event.keyCode == 32) {
+                if (input.value != '' || input.value != null) {
+                    input.value = input.value + event.key;
+                } else {
+                    input.value = event.key;
+                }
+            } else if (event.keyCode == 8) {
+                input.value = input.value.substring(0, input.value.length - 1);
+            }
+            filter = input.value.toUpperCase();
+            ul = document.getElementsByClassName("country-list");
+            li = ul[0].getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByClassName("country-name");
+                if (a.length > 0) {
+                    txtValue = a[0].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
+                    }
+                }
+            }
+
+            jQuery('#residencyInput').css('width', jQuery('.country-list').innerWidth());
+
+        });
+
+
+    });
+
+    telInput.on("close:countrydropdown", function (e, countryData) {
+        jQuery("#residencyInput").remove();
+    });
+	
+		
+/*submit form*/
+var redirect = 'https://connect.zebpay.com/account/RegisterUser?returnUrl=/Account/CampaignRegister=26';
+jQuery('.sign_up').on("submit", function (e) {
+	e.preventDefault();
+	var phone = jQuery('#footer_signup').val();
+	var code = jQuery('.sign_up .country-list .active').data("country-code");
+	window.location = redirect + encodeURIComponent('&countrycode=' + code + '&mobilenumber=' + phone);
+});
+jQuery('.header_form').on("submit", function (e) {
+	e.preventDefault();
+	var phone = jQuery('#header_signup').val();
+	var code = jQuery('.header_form .country-list .active').data("country-code");
+	window.location = redirect + encodeURIComponent('&countrycode=' + code + '&mobilenumber=' + phone);
+});
+//})
+</script>
+<script type="rocketlazyloadscript">
+$(document).ready(function () {
+    var coinName = ['BTC', 'ETH', 'BCH', 'LTC', 'XRP', 'EOS', 'BAT'];
+    var coinFullName = ['Bitcoin', 'Ether', 'Bitcoin Cash', 'Litecoin', 'XRP', 'EOS', 'BAT'];
+    deepstream_client = deepstream('wss://data.zebapi.com');
+    deepstream_client.login({username: 'zebpay', password: 'zebpay'}, function (success, data) {
+    });
+    for (var i = 0; i < coinName.length; i++) {
+        var selectedCoin = coinName[i];
+        var userFiatCurrency = "EUR";
+        var currentPath = window.location.pathname;
+		console.log(currentPath);
+        if (currentPath == '/au' ||  currentPath == '/au/' ) {
+            userFiatCurrency = "AUD";
+        }
+         if(currentPath == '/sg' || currentPath == '/sg/'){
+             userFiatCurrency = "SGD";
+         }
+        if(currentPath == '/in'||  currentPath == '/in/'){
+            userFiatCurrency = "INR";
+        }
+
+        var currencyName = coinFullName[i];
+        subscribeDeepstream(selectedCoin, userFiatCurrency, currencyName);
+    }
+});
+
+function subscribeDeepstream(tradeCurrency, quoteCurrency, currencyFullName) {
+    var currentPath = window.location.pathname;
+    if (currentPath == '/in' || currentPath == '/in/') {
+        var deepstreamPath = "ticker_singapore/" + tradeCurrency + "-" + quoteCurrency;
+
+    }
+    else{
+        var deepstreamPath = "traderates/" + tradeCurrency + "-" + quoteCurrency;
+
+    }
+
+    deepstream_record = deepstream_client.record.getRecord(deepstreamPath);
+    deepstream_record.subscribe(function (result) {
+        deepstream_price = result;
+
+        var cls = tradeCurrency.toLowerCase();
+ var digit = 2;
+        if (cls == 'xrp') {
+            digit = 6;
+        }
+        if (currentPath == '/au'  || currentPath == '/au/') {
+
+            $('.' + cls + '-sell').text("A$" + deepstream_price.SellRate.toFixed(digit));
+            $('.' + cls + '-buy').text("A$" + deepstream_price.BuyRate.toFixed(digit));
+        } 
+        else if(currentPath == '/sg'  || currentPath == '/sg/'){
+            $('.' + cls + '-sell').text("S$" + deepstream_price.SellRate.toFixed(digit));
+            $('.' + cls + '-buy').text("S$" + deepstream_price.BuyRate.toFixed(digit));
+        } else if(currentPath == '/in'   || currentPath == '/in/' ) {
+            if(deepstream_price.topBuy == 0) {
+                $('.' + cls + '-sell').text("₹" + deepstream_price.topSell);
+                $('.' + cls + '-buy').text("-");
+            } else if(deepstream_price.topSell == 0){
+                $('.' + cls + '-sell').text("-");
+                $('.' + cls + '-buy').text("₹" + deepstream_price.topBuy);
+            }
+            else{
+                $('.' + cls + '-sell').text("₹" + deepstream_price.topSell);
+                $('.' + cls + '-buy').text("₹" + deepstream_price.topBuy);
+            }
+        } else {
+            $('.' + cls + '-sell').text("€" + deepstream_price.SellRate.toFixed(digit));
+            $('.' + cls + '-buy').text("€" + deepstream_price.BuyRate.toFixed(digit));
+        }
+
+
+    });
+}
+$(document).ready(function () {
+$( ".navigation li:last-child" ).addClass( "signup-btn" );
+var registerUrl = '//connect.zebpay.com/account/RegisterUser?returnUrl=/Account/CampaignRegister?';
+var referralBaseURL = "//link.zebpay.com/ref/";
+var url = window.location.href;
+var field = 'ref';
+
+function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	var regex = new RegExp("[\\?&amp;]" + name + "=([^&amp;#]*)"),
+	results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+if(url.indexOf('?' + field + '=') != -1 || url.indexOf('&' + field + '=') != -1)
+{
+   	var referral = getParameterByName('ref');
+    if($.cookie('ref') == null || $.cookie('ref') == "") {
+    	var date = new Date();
+ 		date.setTime(date.getTime() + (12 * 3600 * 1000));
+		$.cookie('ref', referral, { expires: date });
+	}
+}
+$('.sign_up').on("submit", function (e) {
+	e.preventDefault();
+    var phone = jQuery('#footer_signup').val();
+	var code = jQuery('.sign_up .country-list .active').data("country-code");
+    if ($.cookie('ref') == null || $.cookie('ref') == "") {
+            	window.location = registerUrl + encodeURIComponent('&countrycode=' + country_code + '&mobilenumber=' + telephone_no);
+    } else {
+            window.location = referralBaseURL + referral;
+    } 
+});
+
+$('.header_form').on("submit", function (e) {
+	e.preventDefault();
+	var phone = jQuery('#header_signup').val();
+	var code = jQuery('.header_form .country-list .active').data("country-code");
+	if ($.cookie('ref') == null || $.cookie('ref') == "") {
+            	window.location = registerUrl + encodeURIComponent('&countrycode=' + country_code + '&mobilenumber=' + telephone_no);
+    } else {
+            window.location = referralBaseURL + referral;
+    } 
+});
+$('.signup-btn').on("click", function (e) {
+	e.preventDefault();
+	if ($.cookie('ref') == null || $.cookie('ref') == "") {
+            	window.location = registerUrl;
+    } else {
+            window.location = referralBaseURL + referral;
+    } 
+});
+$( "#menu-item-28 a" ).addClass( "nav-signup" );
+$( "#menu-item-28 a" ).attr("id","navSignup");
+$( "#menu-item-27 a" ).addClass( "nav-signin" );
+$( "#menu-item-27 a" ).attr("id","navSignin");
+$( ".ios li:first-child a" ).addClass( "nav-android" );
+$( ".ios li:last-child a" ).addClass( "nav-ios" );
+$( ".ios li:first-child a" ).attr("id","navAndroid");
+$( ".ios li:last-child a" ).attr("id","navIos");
+});
+</script>
+<script type="rocketlazyloadscript">
+jQuery('.blink').each(function() {
+    var elem = jQuery(this);
+    setInterval(function() {
+        if (elem.css('visibility') == 'hidden') {
+            elem.css('visibility', 'visible');
+        } else {
+            elem.css('visibility', 'hidden');
+        }    
+    }, 500);
+});
+  
+</script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-includes/js/jquery/jquery.min.js" id="jquery-js"></script>
+<script id="29c3dc3cf-js-extra">
+var localize = {"ajaxurl":"https:\/\/zebpay.com\/wp-admin\/admin-ajax.php","nonce":"252a3cb725","i18n":{"added":"Added ","compare":"Compare","loading":"Loading..."},"page_permalink":"https:\/\/zebpay.com\/blog\/","ParticleThemesData":{"default":"{\"particles\":{\"number\":{\"value\":160,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":false,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":true,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":6,\"direction\":\"none\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"repulse\"},\"onclick\":{\"enable\":true,\"mode\":\"push\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","nasa":"{\"particles\":{\"number\":{\"value\":250,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":1,\"random\":true,\"anim\":{\"enable\":true,\"speed\":1,\"opacity_min\":0,\"sync\":false}},\"size\":{\"value\":3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":4,\"size_min\":0.3,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":1,\"direction\":\"none\",\"random\":true,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":600}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"bubble\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":250,\"size\":0,\"duration\":2,\"opacity\":0,\"speed\":3},\"repulse\":{\"distance\":400,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","bubble":"{\"particles\":{\"number\":{\"value\":15,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#1b1e34\"},\"shape\":{\"type\":\"polygon\",\"stroke\":{\"width\":0,\"color\":\"#000\"},\"polygon\":{\"nb_sides\":6},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":50,\"random\":false,\"anim\":{\"enable\":true,\"speed\":10,\"size_min\":40,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":200,\"color\":\"#ffffff\",\"opacity\":1,\"width\":2},\"move\":{\"enable\":true,\"speed\":8,\"direction\":\"none\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":false,\"mode\":\"grab\"},\"onclick\":{\"enable\":false,\"mode\":\"push\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","snow":"{\"particles\":{\"number\":{\"value\":450,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#fff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":true,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":5,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":500,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":2},\"move\":{\"enable\":true,\"speed\":6,\"direction\":\"bottom\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"bubble\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":0.5}},\"bubble\":{\"distance\":400,\"size\":4,\"duration\":0.3,\"opacity\":1,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","nyan_cat":"{\"particles\":{\"number\":{\"value\":150,\"density\":{\"enable\":false,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"star\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"http:\/\/wiki.lexisnexis.com\/academic\/images\/f\/fb\/Itunes_podcast_icon_300.jpg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":false,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":4,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":14,\"direction\":\"left\",\"random\":false,\"straight\":true,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":false,\"mode\":\"grab\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":200,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}"},"eael_translate_text":{"required_text":"is a required field","invalid_text":"Invalid","billing_text":"Billing"},"eael_login_nonce":"a19e63a954","eael_register_nonce":"84696ad506"};
+</script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-content/uploads/essential-addons-elementor/29c3dc3cf.min.js" id="29c3dc3cf-js"></script>
+<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/wp-admin\/|\/logout\/|\/wp-login.php|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|php|pdf|html|htm","siteUrl":"https:\/\/zebpay.com","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://zebpay.com/wp-content/cache/min/1/wp-content/themes/zebpay/js/priority-menu.js?ver=1647432982" id="twentynineteen-priority-menu-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-includes/js/imagesloaded.min.js" id="imagesloaded-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js" id="font-awesome-4-shim-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js" id="elementor-pro-webpack-runtime-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js" id="elementor-webpack-runtime-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js" id="elementor-frontend-modules-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js" id="regenerator-runtime-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-includes/js/dist/vendor/wp-polyfill.min.js" id="wp-polyfill-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-includes/js/dist/hooks.min.js" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-includes/js/dist/i18n.min.js" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-translations">
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "elementor-pro", { "locale_data": { "messages": { "": {} } } } );
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/zebpay.com\/wp-admin\/admin-ajax.php","nonce":"000949c4c6","urls":{"assets":"https:\/\/zebpay.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/zebpay.com\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/zebpay.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js" id="elementor-pro-frontend-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js" id="elementor-waypoints-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-includes/js/jquery/ui/core.min.js" id="jquery-ui-core-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js" id="swiper-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js" id="share-link-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js" id="elementor-dialog-js"></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Extra","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Extra","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.5.6","is_static":false,"experimentalFeatures":{"e_import_export":true,"e_hidden_wordpress_widgets":true,"theme_builder_v2":true,"landing-pages":true,"elements-color-picker":true,"favorite-widgets":true,"admin-top-bar":true,"page-transitions":true,"form-submissions":true,"e_scroll_snap":true},"urls":{"assets":"https:\/\/zebpay.com\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":4418,"title":"Cryptocurrency%2C%20Bitcoin%2C%20Blockchain%20Technology%20Blog%20%7C%20ZebPay","excerpt":"","featuredImage":false}};
+</script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-content/plugins/elementor/assets/js/frontend.min.js" id="elementor-frontend-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-content/plugins/elementor-pro/assets/js/preloaded-elements-handlers.min.js" id="pro-preloaded-elements-handlers-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-content/plugins/elementor/assets/js/preloaded-modules.min.js" id="preloaded-modules-js"></script>
+<script type="rocketlazyloadscript" src="https://zebpay.com/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js" id="e-sticky-js"></script>
+<script type="rocketlazyloadscript">
+	/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
+	</script>
+<script src="https://stats.wp.com/e-202211.js" defer=""></script>
+<script>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:10.7',blog:'188291747',post:'4418',tz:'5.5',srv:'zebpay.com'} ]);
+	_stq.push([ 'clickTrackerInit', '188291747', '4418' ]);
+</script>
+<script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://zebpay.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script>
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+
+<img src="https://pixel.wp.com/g.gif?v=ext&amp;j=1%3A10.7&amp;blog=188291747&amp;post=4418&amp;tz=5.5&amp;srv=zebpay.com&amp;host=zebpay.com&amp;ref=&amp;fcp=0&amp;rand=0.3856216645508126" alt="" id="wpstats" width="6" height="5"><span id="elementor-device-mode" class="elementor-screen-only"></span></body></html>

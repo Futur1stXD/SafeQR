@@ -1,0 +1,458 @@
+<html><head>
+  <link rel="Stylesheet" type="text/css" href="/css/style.css">
+  <title>welcome home : vim online</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="KEYWORDS" content="Vim, Vi IMproved, text editor, home, documentation, tips, scripts, news">
+  <meta name="viewport" content="width=1000, initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/vim_shortcut.ico">
+  <link rel="alternate" type="application/atom+xml" title="welcome home (Atom 1.0)" href="http://feed43.com/vim-scripts.xml">
+<meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A8FHS1NmdCwGqD9DwOicnHHY+y27kdWfxKa0YHSGDfv0CSpDKRHTQdQmZVPDUdaFWUsxdgVxlwAd6o+dhJykPA0AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A8zdXi6dr1hwXEUjQrYiyYQGlU3557y5QWDnN0Lwgj9ePt66XMEvNkVWOEOWPd7TP9sBQ25X0Q15Lr1Nn4oGFQkAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A4/Htern2udN9w3yJK9QgWQxQFruxOXsXL7cW60DyCl0EZFGCSme/J33Q/WzF7bBkVvhEWDlcBiUyZaim5CpFQwAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.vim.org" as="script"><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=www.vim.org"></script><meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A8FHS1NmdCwGqD9DwOicnHHY+y27kdWfxKa0YHSGDfv0CSpDKRHTQdQmZVPDUdaFWUsxdgVxlwAd6o+dhJykPA0AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A8zdXi6dr1hwXEUjQrYiyYQGlU3557y5QWDnN0Lwgj9ePt66XMEvNkVWOEOWPd7TP9sBQ25X0Q15Lr1Nn4oGFQkAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A4/Htern2udN9w3yJK9QgWQxQFruxOXsXL7cW60DyCl0EZFGCSme/J33Q/WzF7bBkVvhEWDlcBiUyZaim5CpFQwAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"></head>
+
+<body topmargin="0" marginwidth="0" marginheight="0" leftmargin="0" bgcolor="#ffffff"> 
+
+<!-- HEADER, SPONSOR IMAGE, VIM IMAGE AND BOOK AD -->
+<table width="100%" cellspacing="0" cellpadding="0" bordercolor="red" border="0">
+  <tbody><tr>
+    <td colspan="4" class="lightbg" style="background-color: #0057b7"><img src="/images/spacer.gif" alt="" width="1" height="5"></td>
+  </tr>
+  <tr>
+  <td class="lightbg" style="background-color: #0057b7">&nbsp;&nbsp;&nbsp;</td>
+  <td class="lightbg" style="background-color: #0057b7" align="left"><a href="https://www.vim.org/sponsor/index.php"><img src="/images/sponsorvim.gif" alt="sponsor Vim development" border="0"></a></td>
+  <td class="lightbg" style="background-color: #0057b7" align="center">
+	 <a href="/"><img src="/images/vim_header.gif" alt="Vim logo" class="align-middle" border="0"></a>
+	  </td>
+  <td class="lightbg" style="background-color: #0057b7" align="right"><a href="http://iccf-holland.org/click5.html"><img src="/images/buyhelplearn.gif" alt="Vim Book Ad" border="0"></a></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="lightbg" style="background-color: #ffd700"><img src="/images/spacer.gif" alt="" width="1" height="5"></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="darkbg" style="background-color: #ffd700"><img src="/images/spacer.gif" alt="" width="1" height="40"></td>
+  </tr>
+</tbody></table>
+<!-- THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+  <colgroup><col width="180">
+  <col width="1">
+
+  </colgroup><tbody><tr valign="top">
+    <td class="sidebar">
+      <table width="180" cellspacing="0" cellpadding="4" border="0">
+        <tbody><tr valign="top">
+          <td class="sidebar">
+
+<!-- INCLUDE THE PAGE NAVIGATION -->
+<table width="100%" cellspacing="0" cellpadding="0" bordercolor="red" border="0">
+    <tbody><tr>
+        <td><small>not logged in (<a href="https://www.vim.org/login.php">login</a>)</small></td>
+    </tr>
+    <tr><td>
+<small>&nbsp;</small>
+<form action="https://www.google.com/cse" id="cse-search-box">
+  <div>
+    <input type="hidden" name="cx" value="partner-pub-3005259998294962:bvyni59kjr1">
+    <input type="hidden" name="ie" value="ISO-8859-1">
+    <input type="text" name="q" size="20" style="background: rgb(255, 255, 255) url(&quot;https://www.google.com/cse/static/images/1x/en/branding.png&quot;) no-repeat scroll left 9px top 50%;" placeholder="">
+    <br>
+    <input type="submit" name="sa" value="Search">
+  </div>
+<input name="siteurl" value="www.vim.org/" type="hidden"><input name="ref" value="" type="hidden"><input name="ss" value="" type="hidden"></form>
+<script src="https://partner.googleadservices.com/gampad/cookie.js?domain=www.vim.org&amp;callback=_gfp_s_&amp;client=ca-pub-3005259998294962"></script><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202203220101/show_ads_impl_fy2019.js?bust=31065815" id="google_shimpl"></script><script type="text/javascript" src="https://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+    </td></tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" width="1" height="1" border="0"></td>
+    </tr>
+    <tr>
+        <td class="darkbg"><img src="/images/spacer.gif" alt="" height="3" border="0"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" width="1" height="2" border="0"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader">Home</td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="https://www.vim.org/search.php">Advanced search</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" width="1" height="7" border="0"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt="" height="1" border="0"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" width="1" height="7" border="0"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="https://www.vim.org/about.php">About Vim</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="https://www.vim.org/community.php">Community</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="https://www.vim.org/news/news.php">News</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="https://www.vim.org/sponsor/index.php">Sponsoring</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="https://www.vim.org/trivia.php">Trivia</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="https://www.vim.org/docs.php">Documentation</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader download"><a href="https://www.vim.org/download.php">Download</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" width="1" height="7" border="0"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt="" height="1" border="0"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" width="1" height="7" border="0"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="https://www.vim.org/scripts/index.php">Scripts</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="https://www.vim.org/tips/index.php">Tips</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="https://www.vim.org/account/index.php">My Account</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" width="1" height="7" border="0"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt="" height="1" border="0"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" width="1" height="7" border="0"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="https://www.vim.org/huh.php">Site Help</a></td>
+        </tr>
+</tbody></table>
+<br>
+<g:plusone></g:plusone>
+
+            <table width="172" cellspacing="0" cellpadding="0" border="0">
+              <tbody><tr><td><img src="/images/spacer.gif" alt="" width="1" height="8" border="0"></td></tr>
+              <tr><td class="darkbg"><img src="/images/spacer.gif" alt="" width="1" height="3"></td></tr>
+            </tbody></table>
+            <br>
+
+<!-- INCLUDE THE PAGE SIDEBAR TEXT -->
+
+<span class="sidebarheader"><a href="huh.php">What is Vim online?</a></span>
+<p>
+Vim online is a central place for the Vim community to store useful Vim tips
+and tools.
+Vim has a scripting language that allows for plugin like extensions to enable
+IDE behavior, syntax highlighting, colorization as well as other advanced
+features.
+These scripts can be uploaded and maintained using Vim online.
+</p><p>
+<span class="sidebarheader"><a href="https://iccf-holland.org/">Why those ads?</a></span>
+</p><p>
+The profits made from ads and links on vim.org go to ICCF Holland to help poor
+children in Uganda.
+</p><p>
+<b>Vim and ICCF Holland supporters:</b>
+<br>
+<br>
+<a href="https://www.theblogstarter.com">The Blog Starter</a> is proud to
+support the work of Vim and ICCF.
+<br>
+<br>
+Daytrading.com supports ICCF and recommends Vim for developing
+<a href="https://www.daytrading.com/automated#programming-the-software-yourself">automated trading software</a>
+<br>
+<br>
+<a href="https://www.realtimecommunicationsworld.com">Real Time Communications World</a> supports <a href="https://www.realtimecommunicationsworld.com/attend-a-vim-conference/">VimConf</a>.
+<br>
+<br>
+<a href="https://www.4kdownload.com/products/product-videodownloader">YouTube Video Downloader</a> is proud to support Vim.
+<br>
+<br>
+Investing.co.uk is a proud sponsor of ICCF and strives to educate people
+about stocks,
+<a href="https://www.investing.co.uk/developing-copy-trading-software-with-vim/">copy trading software</a>
+and other types of investing.
+
+          </p></td>
+        </tr>
+      </tbody></table>
+    </td>
+
+    <td class="darkbg"><img src="/images/spacer.gif" alt="" width="1" height="1" border="0"><br></td>
+    <td>
+      <table width="100%" cellspacing="0" cellpadding="10" bordercolor="red" border="0">
+        <tbody><tr>
+          <td valign="top">
+
+
+
+<h1>Vim - the ubiquitous text editor</h1>
+Vim is a highly configurable text editor built to make creating and
+changing any kind of text very efficient.
+It is included as "vi" with most UNIX systems and with Apple OS X.
+<br>
+<br>
+Vim is rock stable and is continuously being developed to become even better.
+Among its features are:
+<ul style="margin-top: 0;">
+<li>persistent, multi-level undo tree</li>
+<li>extensive plugin system</li>
+<li>support for hundreds of programming languages and file formats</li>
+<li>powerful search and replace</li>
+<li>integrates with many tools</li>
+</ul>
+<p>
+
+<table width="100%" cellspacing="0" cellpadding="3" border="0">
+<tbody><tr>
+    <td class="lightbg"><span class="txth1">&nbsp;&nbsp;News</span></td>
+    <td class="lightbg" nowrap="" align="right"><small>&nbsp;Vim
+8.2.4621
+    is the current version&nbsp;</small></td>
+</tr>
+</tbody></table>
+
+
+    </p><h1>Sven Guckes has passed away</h1>
+    <p>
+    <span class="newsdate">[2022-02-22]</span> 
+    I'm sad to announce that a member of the Vim community is no longer here.
+See this message: <a href="https://groups.google.com/g/vim_announce/c/MJBKVd-xrEE">https://groups.google.com/g/vim_announce/c/MJBKVd-xrEE</a>
+This is what vim.org looked like when Sven was still maintaining it: <a href="https://web.archive.org/web/20010301154434/http://www.vim.org/">vim.org in 2001</a>.     (<i>Bram Moolenaar</i>) 
+    <br clear="all">
+    </p>
+    <h1>Interview with Bram</h1>
+    <p>
+    <span class="newsdate">[2022-01-21]</span> 
+     Evrone interviewed me about my work on Vim. 
+You can read it <a href="https://evrone.com/bram-moolenaar-interview">here</a>     (<i>Bram Moolenaar</i>) 
+    <br clear="all">
+    </p>
+    <h1>Vim turns 30</h1>
+    <p>
+    <span class="newsdate">[2021-11-19]</span> 
+    How time flies, another year has passed with lots of activity.
+Issues are reported, bugs are fixed, pull requests are opened and closed.
+Vim 9 is still under development, slow progress at the moment, it should catch up soon.
+Thanks everybody for making Vim even better!     (<i>Bram Moolenaar</i>) 
+    <br clear="all">
+    </p>
+
+<table width="100%" cellspacing="0" cellpadding="3" border="0">
+<tbody><tr>
+<td><a href="https://www.vim.org/news/news.php">more news...</a></td>
+<td align="center">
+Get a Vim T-shirt from <a href="http://www.freewear.org/?org=Vim">FreeWear</a>
+</td>
+<td align="center">
+<a href="https://www.vim.org/stickers.php">Get a Vim sticker or button</a>
+</td>
+<td align="center">
+<a href="https://suzuri.jp/kmdsbng">Vim items from Japan</a>
+</td>
+</tr>
+</tbody></table>
+
+
+<table width="100%" cellspacing="0" cellpadding="3" border="0">
+<tbody><tr><td rowspan="2">
+<a href="http://www.iccf.nl/news.html"><img src="/images/vim_drill_small.JPG" alt="Vim power tool" style="margin-top:10px" width="518" height="376"></a>
+</td>
+<td>
+<p style="min-width:120px">
+<b>Vim: The power tool for everyone!</b>
+</p><p>
+See pictures of Bram's latest visit to Uganda on
+<a href="https://photos.app.goo.gl/B5rKBPcEr8P6emde8">Google Photos</a>.
+</p><p>
+Read the visit report on the <a href="http://iccf.nl/news.html">ICCF website</a>.
+</p></td></tr>
+
+</tbody></table>
+
+<table width="100%" cellspacing="0" cellpadding="3" border="0">
+<tbody><tr><td colspan="2"><img src="/images/spacer.gif" alt="" width="1" height="10"></td></tr>
+<tr>
+    <td class="lightbg"><span class="txth1">&nbsp;&nbsp;Recent Script Updates</span></td>
+    <td class="lightbg" nowrap="" align="right"><small>&nbsp;5,851 scripts, 16,837,350 downloads&nbsp;</small></td>
+</tr>
+<tr><td colspan="2"><img src="/images/spacer.gif" alt="" width="1" height="10"></td></tr>
+</tbody></table>
+<table cellspacing="0" cellpadding="0" border="0">
+<tbody><tr>
+    <td class="newsdate" valign="top" nowrap="">[2022-03-25]</td>
+    <td>&nbsp;<a href="https://www.vim.org/scripts/script.php?script_id=5984">enfocado</a> : How themes should be.</td>
+</tr>
+<tr>
+    <td><img src="/images/spacer.gif" alt="" width="1" height="1"></td>
+    <td>(5.3.1) <a target="_blank" href="https://github.com/wuelnerdotexe/vim-enfocado/blob/main/CHANGELOG.md#531---2022-03-23">https://github.com/wuelnerdotexe/vim-enfocado/blob/main/CHANGELOG.md#531---2022-03-23</a> - <i>Wuelner Martínez</i></td>
+</tr>
+<tr>
+    <td class="newsdate" valign="top" nowrap="">[2022-03-24]</td>
+    <td>&nbsp;<a href="https://www.vim.org/scripts/script.php?script_id=2386">endwise.vim</a> : Wisely add </td>
+</tr>
+<tr>
+    <td><img src="/images/spacer.gif" alt="" width="1" height="1"></td>
+    <td>(1.3) Better support for automatically combining with other &lt;CR&gt; maps.
+Better support for manually creating combined &lt;CR&gt; maps.
+Add support for filetype=crystal.
+Add support for filetype=htmldjango.
+Add support for filetype=jinja.html and filetype=htmijinja.
+Add support for filetype=make.
+Add support for filetype=verilog.
+Add support for filetype=bash (alias for sh).
+Add support for filetype=has... - <i>Tim Pope</i></td>
+</tr>
+<tr>
+    <td class="newsdate" valign="top" nowrap="">[2022-03-24]</td>
+    <td>&nbsp;<a href="https://www.vim.org/scripts/script.php?script_id=4503">vim-xkbswitch</a> : Automatic Keyboard Layout Switcher</td>
+</tr>
+<tr>
+    <td><img src="/images/spacer.gif" alt="" width="1" height="1"></td>
+    <td>(0.15.2) - In default g:XkbSwitchIMappingsTr the Ukrainian ('uk') keyboard layout translation map was added (thanks to kukushkawi).
+- Fixed wrong behavior of dynamic keymap assistance in Normal mode. - <i>Alexey Radkov</i></td>
+</tr>
+<tr>
+    <td class="newsdate" valign="top" nowrap="">[2022-03-17]</td>
+    <td>&nbsp;<a href="https://www.vim.org/scripts/script.php?script_id=5953">vim-highlighter</a> : Highlight words and expressions</td>
+</tr>
+<tr>
+    <td><img src="/images/spacer.gif" alt="" width="1" height="1"></td>
+    <td>(1.38) Add highlighting using expression&nbsp;&nbsp;
+&nbsp;&nbsp;:Hi + pattern - <i>Azabiong  </i></td>
+</tr>
+<tr>
+    <td class="newsdate" valign="top" nowrap="">[2022-03-15]</td>
+    <td>&nbsp;<a href="https://www.vim.org/scripts/script.php?script_id=5010">json-formatter.vim</a> : A Vim plugin for formatting saved JSON file.</td>
+</tr>
+<tr>
+    <td><img src="/images/spacer.gif" alt="" width="1" height="1"></td>
+    <td>(1.1.2) Support quickfix list. - <i>Chu Khaidi</i></td>
+</tr>
+<tr><td colspan="2"><img src="/images/spacer.gif" alt="" width="1" height="10"></td></tr>
+<tr><td colspan="2"><a href="https://www.vim.org/scripts/index.php">more recent</a> | 
+                    <a href="https://www.vim.org/scripts/script_search_results.php?order_by=downloads">most downloaded</a> | 
+                    <a href="https://www.vim.org/scripts/script_search_results.php?order_by=rating">top rated</a></td></tr>
+<tr><td colspan="2"><img src="/images/spacer.gif" alt="" width="1" height="10"></td></tr>
+</tbody></table>
+
+
+<table width="100%" cellspacing="0" cellpadding="3" border="0">
+<tbody><tr><td colspan="2"><img src="/images/spacer.gif" alt="" width="1" height="10"></td></tr>
+<tr>
+    <td class="lightbg"><span class="txth1">&nbsp;&nbsp;Vim Tips</span></td>
+</tr>
+<tr><td colspan="2"><img src="/images/spacer.gif" alt="" width="1" height="10"></td></tr>
+</tbody></table>
+
+The tips are located on the
+<a href="http://vim.wikia.com/wiki/Vim_Tips_Wiki">Vim Tips wiki</a>.
+ This is a platform to exchange tips and tricks from and for Vim users.
+<p>
+
+<!-- finish off the framework -->
+          </p></td>
+        </tr>
+      </tbody></table>
+    </td>
+    <td class="darkbg"><img src="/images/spacer.gif" alt="" width="1" height="1" border="0"><br></td>
+
+    <td class="sidebar">
+      <table width="128" cellspacing="0" cellpadding="4" border="0">
+        <tbody><tr valign="top">
+          <td class="sidebar">
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3005259998294962";
+/* 120x600, created 7/25/08 */
+google_ad_slot = "7276811434";
+google_ad_width = 120;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><ins id="aswift_0_expand" style="display:inline-table;border:none;margin:0;padding:0;position:relative;visibility:visible;background-color:transparent;width:120px;height:600px;" data-ad-slot="7276811434" tabindex="0" title="Advertisement" aria-label="Advertisement" data-ad-status="filled"><ins id="aswift_0_anchor" style="display:block;border:none;margin:0;padding:0;position:relative;visibility:visible;background-color:transparent;width:120px;height:600px;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:120px;height:600px" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-3005259998294962&amp;output=html&amp;h=600&amp;slotname=7276811434&amp;adk=2168573726&amp;adf=2237046086&amp;pi=t.ma~as.7276811434&amp;w=120&amp;lmt=1648197850&amp;url=https%3A%2F%2Fwww.vim.org%2F&amp;wgl=1&amp;adsid=ChAI8ND1kQYQvNTR1LnNmqAJEi8Am0QMpv1ne1rC7ut8O92VjeSuCkr1IjdR-VAL98NdBGlI6z3dzviKDHtVuNUqmA&amp;dt=1648197850338&amp;bpp=11&amp;bdt=314&amp;idt=384&amp;shv=r20220323&amp;mjsv=m202203220101&amp;ptt=5&amp;saldr=sa&amp;abxe=1&amp;correlator=1128033441691&amp;frm=20&amp;pv=2&amp;ga_vid=1850038301.1648197851&amp;ga_sid=1648197851&amp;ga_hid=382178611&amp;ga_fc=0&amp;u_tz=-300&amp;u_his=50&amp;u_h=1600&amp;u_w=3840&amp;u_ah=1560&amp;u_aw=3840&amp;u_cd=24&amp;u_sd=1&amp;adx=1138&amp;ady=99&amp;biw=1267&amp;bih=988&amp;scr_x=0&amp;scr_y=0&amp;eid=44759875%2C44759926%2C44759842%2C31065815&amp;oid=2&amp;pvsid=2445952685459891&amp;pem=159&amp;nvt=1&amp;eae=0&amp;fc=640&amp;brdim=1957%2C91%2C1957%2C91%2C3840%2C0%2C1296%2C1079%2C1284%2C988&amp;vis=1&amp;rsz=%7C%7CeE%7C&amp;abl=CS&amp;pfx=0&amp;fu=0&amp;bc=31&amp;jar=2022-03-25-05&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;xpc=85SgtUAosK&amp;p=https%3A//www.vim.org&amp;dtd=554" data-google-container-id="a!1" data-google-query-id="CLfGu7vv4PYCFQQsAQodJYoHtQ" data-load-complete="true" width="120" height="600" frameborder="0"></iframe></ins></ins>
+
+
+	  </td>
+	</tr>
+        <tr valign="top">
+          <td class="sidebar" style="padding-top: 16px" align="center">
+            Help Uganda
+	  </td>
+	</tr>
+        <tr valign="top">
+          <td class="sidebar" align="center">
+             &nbsp;<br>
+	     <a href="https://iccf-holland.org/clickkindle.html"><img src="/images/kindle-fire-125x125.jpg" alt="Buy a book, help Uganda, learn Vim"></a>
+	     <br>
+	     <a href="http://iccf-holland.org/click1.html">Buy at Amazon</a>
+          </td>
+        </tr>
+<!-- INCLUDE THE RIGHT SIDE SPONSOR LINKS if present -->
+<tr valign="top">
+  <td class="sidebar">
+    &nbsp;<br>
+    Hosting Advice is proud to champion Vim's mission and to spread the 
+    <a href="https://www.hostingadvice.com/blog/vim-creator-champions-charityware/">story of Vim's creation</a>
+    to the site's millions of web hosting enthusiasts.
+  </td>
+</tr>
+      </tbody></table>
+    </td>
+
+  </tr>
+</tbody></table>
+
+<!-- END OF THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table width="100%" cellspacing="0" cellpadding="0" bordercolor="red" border="0">
+  <tbody><tr><td colspan="4"><img src="/images/spacer.gif" alt="" width="1" height="5"></td></tr>
+  <tr><td colspan="4" bgcolor="#000000"><img src="/images/spacer.gif" alt="" width="1" height="2"></td></tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" alt="" width="1" height="5"></td></tr>
+  <tr>
+    <td><img src="/images/spacer.gif" alt="" width="5" height="1"></td>
+
+    <td valign="top" align="left"><small>
+      If you have questions or remarks about this site, visit the
+      <a href="http://vimonline.sf.net">vimonline development</a> pages.
+      Please use this site responsibly.
+      <br> 
+      
+      Questions about <a href="http://www.vim.org/about.php">Vim</a> should go
+      to the <a href="http://www.vim.org/maillist.php">maillist</a>.
+      Help Bram <a href="http://iccf-holland.org/">help Uganda</a>.
+      </small>
+	&nbsp;
+	&nbsp;
+
+    </td>
+
+    <td valign="top" align="right">
+      	<a href="https://osdn.net/projects/vim" rel="nofollow">OSDN</a>
+    </td>
+
+    <td><img src="/images/spacer.gif" alt="" width="5" height="1"></td>
+  </tr>
+
+    
+  <tr><td colspan="4"><img src="/images/spacer.gif" alt="" width="1" height="5"></td>
+  
+  </tr>
+</tbody></table>
+
+
+
+
+<iframe src="https://www.google.com/recaptcha/api2/aframe" style="display: none;" width="0" height="0"></iframe><ins class="adsbygoogle adsbygoogle-noablate" style="display: none !important;" data-adsbygoogle-status="done" data-ad-status="unfilled"><ins id="aswift_1_expand" style="border: medium none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_1_anchor" style="border: medium none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-3005259998294962&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1648197852&amp;plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fwww.vim.org%2F&amp;ea=0&amp;pra=7&amp;wgl=1&amp;adsid=ChAI8ND1kQYQvNTR1LnNmqAJEi8Am0QMpv1ne1rC7ut8O92VjeSuCkr1IjdR-VAL98NdBGlI6z3dzviKDHtVuNUqmA&amp;dt=1648197852512&amp;bpp=1&amp;bdt=2488&amp;idt=0&amp;shv=r20220323&amp;mjsv=m202203220101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3Dc2e80a4231ef37c5-228c1aa85bd10078%3AT%3D1648197851%3ART%3D1648197851%3AS%3DALNI_MZKTha8uOVzb9lTxyl0cn-SLECvkQ&amp;prev_slotnames=7276811434&amp;nras=1&amp;correlator=1128033441691&amp;frm=20&amp;pv=1&amp;ga_vid=1850038301.1648197851&amp;ga_sid=1648197851&amp;ga_hid=382178611&amp;ga_fc=0&amp;u_tz=-300&amp;u_his=50&amp;u_h=1600&amp;u_w=3840&amp;u_ah=1560&amp;u_aw=3840&amp;u_cd=24&amp;u_sd=1&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1267&amp;bih=988&amp;scr_x=0&amp;scr_y=0&amp;eid=44759875%2C44759926%2C44759842%2C31065815&amp;oid=2&amp;psts=AGkb-H-msHxCYbNEK_bn9QPMAeyj0wQT58hvB1hFxzkQ-ytjf2UIy95miMzVvjMXpaSxi-LzUic7GFB4XyxJWw&amp;pvsid=2445952685459891&amp;pem=159&amp;tmod=2107655536&amp;nvt=1&amp;eae=2&amp;fc=1920&amp;brdim=1957%2C91%2C1957%2C91%2C3840%2C0%2C1296%2C1079%2C1284%2C988&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;jar=2022-03-25-05&amp;ifi=2&amp;uci=a!2&amp;fsb=1&amp;dtd=5" data-google-container-id="a!2" data-load-complete="true" frameborder="0"></iframe></ins></ins></ins></body><iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20220323/r20190131/zrt_lookup.html" style="display: none;"></iframe></html>

@@ -1,0 +1,319 @@
+<html lang="en"><head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+<meta http-equiv="expires" content="0">
+<title>DTIC Sign In</title>
+<link rel="shortcut icon" href="images/dtic.ico" type="image/x-icon">
+<link type="text/css" href="css/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<link type="text/css" href="css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link type="text/css" href="css/login.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-3.4.1/js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap-4.3.1/js/bootstrap.bundle.js"></script>
+<script type="text/javascript" src="js/dtic-login.js"></script>
+<!--[if IE]>
+			<style>
+				main { min-height:100vh; }
+			</style>
+		<![endif]-->
+
+</head>
+<body class="site" onload="checkBrowser()">
+
+	<noscript>
+		<div class="alert alert-danger">
+			JavaScript is turned off in your web browser.<br> Turn on
+			JavaScript, then refresh the page to continue.
+		</div>
+	</noscript>
+	
+
+
+
+
+
+
+
+
+<header class="site-header dticBG" id="top-content">
+	<nav class="p-3 d-flex">
+		<a href="index.jsp" aria-label="DTIC main"> <img class="hdr-max" src="/l/images/svg/DTIC.svg" alt="DTIC Seal"></a>
+		<div class="pl-3">
+			<div class="heading ml-2" id="Nav">
+				<a href="index.jsp" aria-label="DTIC main">Defense Technical
+					Information Center</a>
+			</div>
+			<div class="ml-2 d-none d-sm-block">
+				<span class="subheadingW">PRESERVING</span> <span class="mr-2 subheadingY">KNOWLEDGE</span> <span class="subheadingW">CONNECTING</span>
+				<span class="mr-2 subheadingY">PEOPLE</span> <span class="subheadingW">INSPIRING</span> <span class="mr-2 subheadingY">INNOVATION</span>
+			</div>
+		</div>
+	</nav>
+</header>
+
+	<main role="main" class="site-content">
+        <div class="container-fluid mt-1 mx-1 pt-lg-2 pt-xl-0">
+            <div class="ie-msg" id="ie-msg" style="display: none;">
+                    <strong>Internet Explorer Users:</strong> It is recommended that you use the Google
+                    Chrome or Microsoft Edge browser for an optimal experience with this application as
+                    Microsoft's support for Internet Explorer is ending.
+                    <div class="ie-msg-dismiss">
+                        <button onclick="ieMsgDismiss();">DISMISS</button>
+                    </div>
+            </div>
+            <div class="row mb-lg-3 d-block d-lg-none">
+                <div class="col-12 pl-4 pt-2" id="status">
+                    
+                        
+                        
+                            <h2 class="pb-2 hdrAnnounce">
+                                System Status: <span style="color: green;">Operational</span>
+                            </h2>
+                        
+                    
+                </div>
+            </div>
+            <div class="row" style="margin-right: -5px;">
+                <div class="col-12 col-lg-5 col-xl-4">
+                    <div class="row px-2 pt-4 mb-2 border rounded">
+                        <div class="col-12 text-center">
+                            <div class="row justify-content-center">
+                                <div class="d-inline text-center">
+                                    <img src="images/svg/CAC.svg" alt="generic image of a DOD CAC" style="width: 65px;">
+                                </div>
+                                <div class="ml-3 d-inline pt-3">
+                                    <h1 class="font-weight-normal pt-3 d-inline">
+                                            Smart Card</h1>
+                                    <p class="text-center pb-2">CAC | ECA | PIV</p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="d-inline text-center mt-4">
+                                    CAC Users select Authentication Certificate <a href="info.jsp" tabindex="0" data-toggle="tooltip" title="" data-original-title="For additional information view Frequently Asked Questions"><i class="fa fa-question-circle fa-lg pr-3" aria-hidden="true"></i><span class="sr-only">For additional
+                                                    information view
+                                                    Frequently Asked
+                                                    Questions</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center my-auto pt-2">
+                            <form name="CACLogin" method="POST" style="display: inline;" accept-charset="utf-8" action="consent">
+                                <input type="hidden" name="csrfToken" value="Y4EJDT82CZ5LR2ALPLGZ462VC2XFZN"> <input type="hidden" name="service" value="cac">
+                                
+                                        <input type="hidden" name="goto" value="https://www.dtic.mil:443/agent/custom-login-response?state=8fb5c90a-8838-3587-ff20-21027c53b865&amp;registration=https%3A%2F%2Freg.dtic.mil%3A443%2FDTICRegistration%2F">
+                                
+                                
+                                        <input type="hidden" name="original_request_url" value="https://www.dtic.mil:443/">
+                                
+                                <input type="hidden" name="cac_url" value="">
+                                <input type="submit" id="submit" value="Sign In" class="btn btn-primary btn-block mb-2" title="Sign in or register using your DoD-recognized smart card">
+                            </form>
+
+                                
+                                <hr class="my-4">
+                                <h2 class="infoSection">New to DTIC?</h2>
+                                
+                                    
+                                        <a href="https://reg.dtic.mil:443/DTICRegistration/" class="btn btn-secondary btn-block mt-3 mb-4">Create
+                                                your DTIC Account</a>
+                                    
+                                    
+                                
+
+                                <h2 class="infoSection">Need Assistance?</h2>
+                                <p class="mb-3 pb-2">Email: <a href="mailto:dtic.belvoir.us.mbx.dtic-access@mail.mil">dtic.belvoir.us.mbx.dtic-access@mail.mil</a> <br>
+                                        Phone: <a href="tel:1-800-225-3842">800-225-3842</a>
+                                </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-7 col-xl-8 px-lg-4">
+                    <div class="row mb-lg-3 d-none d-lg-block" style="margin-right: -25px;">
+                        <div class="col-12" id="announce">
+                            
+                                
+                                
+                                    <h2 class="pb-2 hdrAnnounce">
+                                        System Status: <span style="color: green;">Operational</span>
+                                    </h2>
+                                
+                            
+                        </div>
+                    </div>
+                    <div class="row d-flex mb-3 mt-4" style="margin-right: -25px;">
+                        <div class="col-md-4 optionsPos mb-4">
+                            <div class="options options-box h-100">
+                                <img src="images/svg/Submit-blue.svg" alt="" aria-hidden="true">
+                                <h2 class="options-heading">Submit Your S&amp;T</h2>
+                                <p class="options-body mb-5">Preserve today's research for
+                                        future scientists and engineers and accelerate
+                                        innovation.
+                                        Increase visibility, cooperative efforts, and
+                                        interoperability.
+                                        Save costs and reduce duplication effort.</p>
+
+                                <div class="options-button">
+                                    <a href="https://discover.dtic.mil/submit-documents/" target="_blank" rel="noopener noreferrer">Submit to
+                                            DTIC</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 optionsPos mb-4">
+                            <div class="options options-box h-100">
+                                <img src="images/svg/ProductsandServices-blue.svg" alt="" aria-hidden="true">
+                                <h2 class="options-heading">Explore DoD S&amp;T</h2>
+                                <p class="options-body">Search and analyze 4.6M+ records
+                                        including technical documents and budget data.
+                                        Share information
+                                        on secure collaboration applications.</p>
+                                <div class="options-button">
+                                        <a href="https://discover.dtic.mil/products-services/" target="_blank" rel="noopener noreferrer">Explore</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 optionsPos mb-1 mb-md-4">
+                            <div class="options options-box h-100">
+                                <img src="images/svg/FAQ-blue.svg" alt="" aria-hidden="true">
+                                <h2 class="options-heading">Frequently Asked Questions
+                                </h2>
+                                <p class="options-body">Find answers to the most common
+                                        questions about DTIC registration.</p>
+                                <div class="options-button">
+                                        <a href="info.jsp">View FAQ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+	
+
+
+
+
+
+
+<footer class="site-footer">
+        <div class="container-fluid mt-lg-3">
+                <div class="row">
+                        <div class="col-12 text-right my-2">
+                                <a href="" id="rtnTop" class="btn btn-primary">Return to top</a>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-12 py-2 dticFooter dticBG footer text-white d-block d-md-none">
+                                <ul class="fLinks">
+                                        <li class="list-group-item">
+                                                <a href="https://discover.dtic.mil/mission-statement/" target="_blank" rel="noopener noreferrer">Mission</a></li>
+                                        <li class="list-group-item"><a href="https://discover.dtic.mil/wp-content/uploads/pdfs/dtic_strategic_plan.pdf" target="_blank" rel="noopener noreferrer">Strategic Plan</a>
+                                        </li>
+                                        <li class="list-group-item"><a href="https://www.cto.mil/" target="_blank" rel="noopener noreferrer">USD(R&amp;E)</a></li>
+                                        <li class="list-group-item"><a href="https://discover.dtic.mil/legal/" target="_blank" rel="noopener noreferrer">Legal</a></li>
+                                        <li class="list-group-item"><a href="https://discover.dtic.mil/privacy-security-copyright/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                                        </li>
+                                        <li class="list-group-item"><a href="https://www.defense.gov/privacy" target="_blank" rel="noopener noreferrer">DoD Privacy
+                                                        Program</a></li>
+                                        <li class="list-group-item"><a href="https://discover.dtic.mil/foia/" target="_blank" rel="noopener noreferrer">FOIA</a></li>
+                                        <li class="list-group-item"><a href="https://discover.dtic.mil/no-fear-act/" target="_blank" rel="noopener noreferrer">No FEAR Act</a></li>
+                                        <li class="list-group-item"><a href="https://open.defense.gov" target="_blank" rel="noopener noreferrer">Open Government</a></li>
+                                        <li class="list-group-item"><a href="https://dod.defense.gov/Resources/DoD-Information-Quality-Guidelines/" target="_blank" rel="noopener noreferrer">Information
+                                                        Quality</a></li>
+                                        <li class="list-group-item"><a href="http://www.esd.whs.mil/DD/plainlanguage/" target="_blank" rel="noopener noreferrer">Plain Language</a></li>
+                                        <li class="list-group-item"><a href="https://www.usa.gov/" target="_blank" rel="noopener noreferrer">USA.gov</a></li>
+                                        <li class="list-group-item"><a href="https://dodiac.dtic.mil/" target="_blank" rel="noopener noreferrer">Information Analysis
+                                                        Centers</a></li>
+                                </ul>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-12 py-2 dticFooter dticBG footer text-white d-none d-md-block">
+                                <ul class="d-flex flex-wrap fLinks">
+                                        <li class="list-group-item">
+                                                <a href="https://discover.dtic.mil/mission-statement/" target="_blank" rel="noopener noreferrer">Mission</a></li>
+                                        <li class="list-group-item"><a href="https://discover.dtic.mil/wp-content/uploads/pdfs/dtic_strategic_plan.pdf" target="_blank" rel="noopener noreferrer">Strategic Plan</a>
+                                        </li>
+                                        <li class="list-group-item"><a href="https://www.cto.mil/" target="_blank" rel="noopener noreferrer">USD(R&amp;E)</a></li>
+                                        <li class="list-group-item"><a href="https://discover.dtic.mil/legal/" target="_blank" rel="noopener noreferrer">Legal</a></li>
+                                        <li class="list-group-item"><a href="https://discover.dtic.mil/privacy-security-copyright/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                                        </li>
+                                        <li class="list-group-item"><a href="https://www.defense.gov/privacy" target="_blank" rel="noopener noreferrer">DoD Privacy
+                                                        Program</a></li>
+                                        <li class="list-group-item"><a href="https://discover.dtic.mil/foia/" target="_blank" rel="noopener noreferrer">FOIA</a></li>
+                                        <li class="list-group-item"><a href="https://discover.dtic.mil/no-fear-act/" target="_blank" rel="noopener noreferrer">No FEAR Act</a></li>
+                                        <li class="list-group-item"><a href="https://open.defense.gov" target="_blank" rel="noopener noreferrer">Open Government</a></li>
+                                        <li class="list-group-item"><a href="https://dod.defense.gov/Resources/DoD-Information-Quality-Guidelines/" target="_blank" rel="noopener noreferrer">Information
+                                                        Quality</a></li>
+                                        <li class="list-group-item"><a href="http://www.esd.whs.mil/DD/plainlanguage/" target="_blank" rel="noopener noreferrer">Plain Language</a></li>
+                                        <li class="list-group-item"><a href="https://www.usa.gov/" target="_blank" rel="noopener noreferrer">USA.gov</a></li>
+                                        <li class="list-group-item"><a href="https://dodiac.dtic.mil/" target="_blank" rel="noopener noreferrer">Information Analysis
+                                                        Centers</a></li>
+                                </ul>
+                        </div>
+                </div>
+                <div class="row py-2 dticBG footer text-white">
+                        <div class="col-12 col-sm-6 pl-4 pl-lg-3">
+                                <div class="row">
+                                        <div class="col-12 col-sm-3 col-md-2 col-lg-1 py-2 pl-4 pl-md-5 d-flex align-items-center justify-content-md-center ml-sm-3">
+                                                <img src="/l/images/svg/DTIC.svg" alt="DTIC seal" class="footer-logo-img d-inline">
+                                        </div>
+                                        <div class="col-12 col-sm-8 col-md-8 py-2 ml-3 ml-md-5 d-flex align-items-center" style="font-size: 1.4rem;">Defense Technical Information
+                                                Center</div>
+                                </div>
+                        </div>
+                        <div class="col-12 col-sm-6 text-right pl-4 pl-lg-3">
+                                <div class="row">
+                                        <div class="col-12 d-flex justify-content-md-end">
+                                                <!--<a class="text-white socialIconsBG socialIconsSpacingR"
+                                                        href="http://www.facebook.com/dtic.mil" title="DTIC on Facebook"
+                                                        target="_blank" rel="noopener noreferrer"
+                                                        aria-label="DTIC on Facebook"> <i
+                                                                class="fa fa-facebook-square fa-2x socialIcons"
+                                                                aria-hidden="true"></i>
+                                                </a>-->
+                                                <a class="text-white socialIconsBG socialIconsSpacing" href="https://twitter.com/doddtic" title="DTIC on Twitter" target="_blank" rel="noopener noreferrer" aria-label="DTIC on Twitter"> <i class="fa fa-twitter fa-2x socialIcons" aria-hidden="true"></i>
+                                                </a><a class="text-white socialIconsBG socialIconsSpacing" href="https://www.linkedin.com/company/defense-technical-information-center" title="DTIC on LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="DTIC on LinkedIn"> <i class="fa fa-linkedin-square fa-2x socialIcons" aria-hidden="true"></i>
+                                                </a><a class="text-white socialIconsBG socialIconsSpacingL" href="https://public.govdelivery.com/accounts/USDODDTIC/subscriber/new" target="_blank" rel="noopener noreferrer" aria-label="Sign Up for DTIC's GovDelivery Newsletter" title="Sign Up for DTIC's GovDelivery Newsletter"> <i class="fa fa-envelope fa-2x socialIcons socialIconsGov" aria-hidden="true"></i>
+                                                </a>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-12 d-flex justify-content-md-end mt-1 pt-1">
+                                                <span class="contactR" style="padding-right: 1rem;"><a class="text-white" id="footerTel" href="tel:1-800-225-3842">(800)
+                                                                225-3842</a></span> <span class="contactL"><a class="text-white" href="https://discover.dtic.mil/contact-us/">Contact
+                                                                Us</a></span>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-12 d-flex justify-content-md-end pt-1">8725
+                                                John J. Kingman Road, Fort Belvoir, VA 22060-6218</div>
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-12 disclaimer p-3">NOTICE: The appearance of hyperlinks does not constitute
+                                endorsement by
+                                the DTIC
+                                of non-U.S. Government sites or the information, products, or services contained
+                                therein. Although the
+                                DTIC
+                                may or may not use these sites as additional distribution channels for Department of
+                                Defense information, it does not exercise editorial control over all of the information
+                                that you
+                                may find at these locations. Such hyperlinks are provided consistent with the stated
+                                purpose of this
+                                website. The DTIC bears no responsibility for the accuracy, legality or content of the
+                                external
+                                website or for that of subsequent links. Contact the external website for answers to
+                                questions regarding
+                                its
+                                content. Please let us know about existing external links which you believe are
+                                inappropriate.</div>
+                </div>
+        </div>
+</footer>
+
+
+
+</body></html>

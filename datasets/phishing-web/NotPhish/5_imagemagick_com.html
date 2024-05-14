@@ -1,0 +1,280 @@
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ImageMagick – Convert, Edit, or Compose Digital Images</title>
+  <meta name="application-name" content="ImageMagick">
+  <meta name="description" content="Use ImageMagick® to create, edit, compose, and convert digital images. Resize an image, crop it, change its shades and colors, add captions, and more.">
+  <meta name="application-url" content="https://imagemagick.org">
+  <meta name="generator" content="PHP">
+  <meta name="keywords" content="convert, edit, or, compose, digital, images, image processing software">
+  <meta name="rating" content="GENERAL">
+  <meta name="robots" content="INDEX, FOLLOW">
+  <meta name="generator" content="ImageMagick Studio LLC">
+  <meta name="author" content="ImageMagick Studio LLC">
+  <meta name="revisit-after" content="2 DAYS">
+  <meta name="resource-type" content="document">
+  <meta name="copyright" content="Copyright (c) 1999-2020 ImageMagick Studio LLC">
+  <meta name="distribution" content="Global">
+  <meta name="magick-serial" content="P131-S030410-R485315270133-P82224-A6668-G1245-1">
+  <meta property="og:url" content="https://imagemagick.org/">
+  <meta property="og:title" content="ImageMagick">
+  <meta property="og:image" content="https://imagemagick.org/image/logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ImageMagick">
+  <meta property="og:description" content="Create, Edit, Compose, or Convert Digital Images">
+  <meta name="google-site-verification" content="_bMOCDpkx9ZAzBwb2kF3PRHbfUUdFj2uO8Jd1AXArz4">
+  <link href="https://imagemagick.org/script/index.php" rel="canonical">
+  <link href="/script/../image/wand.png" rel="icon">
+  <link href="/script/../image/wand.ico" rel="shortcut icon">
+  <link href="/script/../assets/magick-css.php" rel="stylesheet">
+<meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A8FHS1NmdCwGqD9DwOicnHHY+y27kdWfxKa0YHSGDfv0CSpDKRHTQdQmZVPDUdaFWUsxdgVxlwAd6o+dhJykPA0AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A8zdXi6dr1hwXEUjQrYiyYQGlU3557y5QWDnN0Lwgj9ePt66XMEvNkVWOEOWPd7TP9sBQ25X0Q15Lr1Nn4oGFQkAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A4/Htern2udN9w3yJK9QgWQxQFruxOXsXL7cW60DyCl0EZFGCSme/J33Q/WzF7bBkVvhEWDlcBiUyZaim5CpFQwAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=imagemagick.org" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=imagemagick.org"></script></head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><img class="d-block" id="icon" alt="ImageMagick" src="/script/../image/wand.ico" width="32" height="32"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#magick-navbars" aria-controls="magick-navbars" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="magick-navbars">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="/script/../script/index.php">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/script/../script/download.php">Download</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/script/../script/command-line-tools.php">Tools</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/script/../script/command-line-processing.php">CLI</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/script/../script/develop.php">Develop</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" target="_blank" href="https://github.com/ImageMagick/ImageMagick/discussions">Community</a>
+        </li>
+        <li class="nav-item">
+          <iframe src="https://github.com/sponsors/ImageMagick/button" title="Sponsor ImageMagick" style="border: 0;" width="107" height="35"></iframe>
+        </li>
+      </ul>
+      <form class="d-flex form-inline" action="/script/../script/search.php">
+        <input class="form-control me-2" type="text" name="q" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" name="sa">Search</button>
+      </form>
+    </div>
+  </div>
+  </nav>
+
+  <div class="container">
+    <script src="https://partner.googleadservices.com/gampad/cookie.js?domain=imagemagick.org&amp;callback=_gfp_s_&amp;client=ca-pub-3129977114552745"></script><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202203230101/show_ads_impl_fy2019.js?bust=31065832" id="google_shimpl"></script><script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-3129977114552745" data-ad-slot="6345125851" data-full-width-responsive="true" data-ad-format="horizontal" data-adsbygoogle-status="done" data-ad-status="filled"><ins id="aswift_0_expand" style="border: medium none; height: 90px; width: 936px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_0_anchor" style="border: medium none; height: 90px; width: 936px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block; overflow: visible;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:936px;height:90px" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-3129977114552745&amp;output=html&amp;h=90&amp;slotname=6345125851&amp;adk=286360955&amp;adf=854766408&amp;pi=t.ma~as.6345125851&amp;w=936&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1648181242&amp;rafmt=2&amp;psa=0&amp;format=936x90&amp;url=https%3A%2F%2Fimagemagick.org%2Findex.php&amp;fwr=0&amp;fwrattr=true&amp;rpe=1&amp;resp_fmts=2&amp;wgl=1&amp;adsid=ChAI8K3wkQYQmMjfnbG3o5FqEi8A9nAR6otOIboHKv4g3Xu7O6HLNcQ-om-8g2dPsjY0FfaldHaN2rjCgM0qKsDX2Q&amp;dt=1648181241874&amp;bpp=2&amp;bdt=709&amp;idt=141&amp;shv=r20220323&amp;mjsv=m202203230101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;correlator=3940142660753&amp;frm=20&amp;pv=2&amp;ga_vid=1567456480.1648181242&amp;ga_sid=1648181242&amp;ga_hid=164465129&amp;ga_fc=0&amp;u_tz=-300&amp;u_his=50&amp;u_h=1600&amp;u_w=3840&amp;u_ah=1560&amp;u_aw=3840&amp;u_cd=24&amp;u_sd=1&amp;adx=166&amp;ady=56&amp;biw=1267&amp;bih=988&amp;scr_x=0&amp;scr_y=0&amp;eid=44759876%2C44759927%2C44759842%2C31065832&amp;oid=2&amp;pvsid=2711375558933074&amp;pem=520&amp;tmod=631982946&amp;nvt=1&amp;eae=0&amp;fc=896&amp;brdim=2082%2C172%2C2082%2C172%2C3840%2C0%2C1296%2C1079%2C1284%2C988&amp;vis=1&amp;rsz=%7C%7CeE%7C&amp;abl=CS&amp;pfx=0&amp;fu=128&amp;bc=31&amp;jar=2022-03-25-02&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;xpc=OimXoiwdkf&amp;p=https%3A//imagemagick.org&amp;dtd=298" data-google-container-id="a!1" data-google-query-id="COPwzcyx4PYCFf6vAAAd7M8O4w" data-load-complete="true" width="936" height="90" frameborder="0"></iframe></ins></ins></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+  </div>
+
+  <main class="container">
+  <div class="magick-template">
+<div class="magick-header">
+<h1 class="text-center">ImageMagick</h1>
+<p class="lead magick-description"><a href="/script/../image/wizard.png" title="And Now a Touch of Magick"><img class="img-fluid magick-icon" id="logo" alt="And Now a Touch of Magick" src="/script/../image/wizard.jpg" width="265" height="352"></a> 
+Use ImageMagick<sup><a href="http://tarr.uspto.gov/servlet/tarr?regser=serial&amp;entry=78333969">®</a></sup> to create, edit, compose, or convert digital images.  It can read and write images in a variety of <a href="/script/../script/formats.php">formats</a> (over 200) including PNG, JPEG, GIF, WebP, HEIC, SVG, PDF, <a href="/script/../script/motion-picture.php">DPX</a>, <a href="/script/../script/high-dynamic-range.php">EXR</a> and TIFF.  ImageMagick can resize, flip, mirror, rotate, distort, shear and transform images, adjust image colors, apply various special effects, or draw text, lines, polygons, ellipses and Bézier curves.</p>
+
+<p>ImageMagick is free software delivered as a ready-to-run binary distribution or as source code that you may use, copy, modify, and distribute in both open and proprietary applications. It is distributed under a derived Apache 2.0 <a href="https://imagemagick.org/script/license.php">license</a>.</p>
+<p>ImageMagick utilizes multiple computational threads to increase performance and can read, process, or write mega-, giga-, or tera-pixel image sizes.</p>
+
+<p>The current release is ImageMagick <a href="/script/../script/download.php">7.1.0-28</a>.  It runs on <a href="/script/../script/download.php#linux">Linux</a>, <a href="/script/../script/download.php#windows">Windows</a>, <a href="/script/../script/download.php#macosx">Mac Os X</a>, <a href="/script/../script/download.php#iOS">iOS</a>, <a href="https://github.com/cherryleafroad/Android-ImageMagick7">Android</a> OS, and others.</p>
+
+<p>The authoritative ImageMagick web site is <a href="https://imagemagick.org/">https://imagemagick.org</a>. The authoritative source code repository is <a href="https://github.com/ImageMagick/ImageMagick" target="_blank">https://github.com/ImageMagick/ImageMagick</a>.  We continue to maintain the legacy release of ImageMagick, version 6, at <a href="https://legacy.imagemagick.org/" target="_blank">https://legacy.imagemagick.org</a>.</p>
+
+<h2><a class="anchor" id="features"></a>Features and Capabilities</h2>
+<p>Here are just a few <a href="/script/../script/examples.php">examples</a> of what ImageMagick can do for you:</p>
+<div class="table-responsive" style="font-size:smaller !important;">
+<table class="table table-sm table-hover">
+  <tbody><tr>
+    <td><a href="https://legacy.imagemagick.org/Usage/anim_basics/">Animation</a></td>
+    <td>create a GIF animation sequence from a group of images.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/command-line-options.php#bilateral-blur">Bilateral blur</a></td>
+    <td>non-linear, edge-preserving, and noise-reducing smoothing filter.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/color-management.php">Color management</a></td>
+    <td>accurate color management with color profiles or in lieu of-- built-in gamma compression or expansion as demanded by the colorspace.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/color-thresholding.php">Color thresholding</a></td>
+    <td>force all pixels in the color range to white otherwise black.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/command-line-processing.php">Command-line processing</a></td>
+    <td>utilize ImageMagick from the command-line.</td>
+  </tr>
+  <tr>
+    <td><a href="https://en.wikipedia.org/wiki/Complex_text_layout">Complex text layout</a></td>
+    <td>bidirectional text support and shaping.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/composite.php">Composite</a></td>
+    <td>overlap one image over another.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/connected-components.php">Connected component labeling</a></td>
+    <td>uniquely label connected regions in an image.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/convex-hull.php">Convex hull</a></td>
+    <td>smallest area convex polygon containing the image foreground objects.  In addition, the minimum bounding box and unrotate angle are also generated.</td>
+  </tr>
+  <tr>
+    <td><a href="https://legacy.imagemagick.org/Usage/crop/">Decorate</a></td>
+    <td>add a border or frame to an image.</td>
+  </tr>
+  <tr>
+    <td><a href="https://legacy.imagemagick.org/Usage/transform/#vision">Delineate image features</a></td>
+    <td><a href="http://www.imagemagick.org/Usage/transform/#canny">Canny edge detection</a>, <a href="/script/../script/command-line-options.php#hough-line">Hough lines</a>.</td>
+  </tr>
+  <tr>
+    <td><a href="https://legacy.imagemagick.org/Usage/fourier/">Discrete Fourier transform</a></td>
+    <td>implements the forward and inverse <a href="https://en.wikipedia.org/wiki/Discrete_Fourier_transform">DFT</a>.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/distribute-pixel-cache.php">Distributed pixel cache</a></td>
+    <td>offload intermediate pixel storage to one or more remote servers.</td>
+  </tr>
+  <tr>
+    <td><a href="https://legacy.imagemagick.org/Usage/draw/">Draw</a></td>
+    <td>add shapes or text to an image.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/cipher.php">Encipher or decipher an image</a></td>
+    <td>convert ordinary images into unintelligible gibberish and back again.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/convert.php">Format conversion</a></td>
+    <td>convert an image from one <a href="/script/../script/formats.php">format </a> to another (e.g. PNG to JPEG).</td>
+  </tr>
+  <tr>
+    <td><a href="https://legacy.imagemagick.org/Usage/distorts/">Generalized pixel distortion</a></td>
+    <td>correct for, or induce image distortions including perspective.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/architecture.php#distributed">Heterogeneous distributed processing</a></td>
+    <td>certain algorithms are <a href="/script/../script/opencl.php">OpenCL</a>-enabled to take advantage of speed-ups offered by executing in concert across heterogeneous platforms consisting of CPUs, GPUs, and other processors.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/high-dynamic-range.php">High dynamic-range images</a></td>
+    <td>accurately represent the wide range of intensity levels found in real scenes ranging from the brightest direct sunlight to the deepest darkest shadows.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/clahe.php">Histogram equalization</a></td>
+    <td>use adaptive histogram equalization to improve contrast in images.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/magick-cache.php">Image cache</a></td>
+    <td>secure methods and tools to cache images, image sequences, video, audio or metadata in a local folder..</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/fx.php">Image calculator</a></td>
+    <td>apply a mathematical expression to an image, image sequence, or image channels.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/gradient.php">Image gradients</a></td>
+    <td>create a gradual blend of two colors whose shape is horizontal, vertical, circular, or elliptical.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/identify.php">Image identification</a></td>
+    <td>describe the format and attributes of an image.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/download.php#iOS">ImageMagick on the iPhone</a></td>
+    <td>convert, edit, or compose images on your <a href="https://www.apple.com/ios/">iOS</a> device such as the iPhone or iPad.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/architecture.php#tera-pixel">Large image support</a></td>
+    <td>read, process, or write mega-, giga-, or tera-pixel image sizes.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/montage.php">Montage</a></td>
+    <td>juxtapose image thumbnails on an image canvas.</td>
+  </tr>
+  <tr>
+    <td><a href="https://legacy.imagemagick.org/Usage/morphology/">Morphology of shapes</a></td>
+    <td>extract features, describe shapes, and recognize patterns in images.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/motion-picture.php">Motion picture support</a></td>
+    <td>read and write the common image formats used in digital film work.</td>
+  </tr>
+  <tr>
+    <td><a href="https://legacy.imagemagick.org/Usage/transform/#vision">Noise and color reduction</a></td>
+    <td><a href="https://legacy.imagemagick.org/discourse-server~/viewtopic6519.html?f=4&amp;t=26480">Kuwahara Filter</a>, <a href="https://legacy.imagemagick.org/discourse-server~/viewtopic6519.html?f=4&amp;t=25504">mean-shift</a>.</td>
+  </tr>
+  <tr>
+    <td><a href="http://www.fmwconcepts.com/misc_tests/perceptual_hash_test_results_510/index.html">Perceptual hash</a></td>
+    <td>map visually identical images to the same or similar hash-- useful in image retrieval, authentication, indexing, or copy detection as well as digital watermarking.</td>
+  </tr>
+  <tr>
+    <td><a href="https://legacy.imagemagick.org/Usage/blur/">Special effects</a></td>
+    <td>blur, sharpen, threshold, or tint an image.</td>
+  </tr>
+  <tr>
+    <td><a href="https://legacy.imagemagick.org/Usage/text/">Text &amp; comments</a></td>
+    <td>insert descriptive or artistic text in an image.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/architecture.php#threads">Threads of execution support</a></td>
+    <td>ImageMagick is thread safe and most internal algorithms execute in <a href="/script/../script/openmp.php">parallel</a> to take advantage of speed-ups offered by multicore processor chips.</td>
+  </tr>
+  <tr>
+    <td><a href="https://legacy.imagemagick.org/Usage/resize/">Transform</a></td>
+    <td>resize, rotate, deskew, crop, flip or trim an image.</td>
+  </tr>
+  <tr>
+    <td><a href="https://legacy.imagemagick.org/Usage/masking/">Transparency</a></td>
+    <td>render portions of an image invisible.</td>
+  </tr>
+  <tr>
+    <td><a href="/script/../script/architecture.php#virtual-pixels">Virtual pixel support</a></td>
+    <td>convenient access to pixels outside the image boundaries.</td>
+  </tr>
+</tbody></table>
+</div>
+
+<p><a href="https://legacy.imagemagick.org/Usage/" target="_blank">Examples of ImageMagick Usage</a> shows how to use ImageMagick from the <a href="/script/../script/command-line-processing.php">command-line</a> to accomplish any of these tasks and much more. Also, see <a href="http://www.fmwconcepts.com/imagemagick/" target="_blank">Fred's ImageMagick Scripts</a>:  a plethora of command-line scripts that perform geometric transforms, blurs, sharpens, edging, noise removal, and color manipulations. With <a href="https://github.com/dlemstra/Magick.NET">Magick.NET</a>, use ImageMagick without having to install ImageMagick on your server or desktop. Finally, see <a href="http://im.snibgo.com/">Snibgo's ImageMagick Cookbook</a> for Windows-based ImageMagick scripting.</p>
+
+</div>
+  </div>
+  </main><!-- /.container -->
+  <footer class="magick-footer">
+    <div class="container-fluid">
+      <a href="/script/../script/security-policy.php">Security</a> •
+      <a href="/script/../script/news.php">News</a>
+    &nbsp;
+      <a href="#"><img class="d-inline" id="wand" alt="And Now a Touch of Magick" src="/script/../image/wand.ico" width="16" height="16"></a>
+    &nbsp;
+      <a href="/script/../script/links.php">Related</a> •
+      <a href="/script/../script/sitemap.php">Sitemap</a>
+   <br>
+     <a href="/script/../script/support.php">Sponsor</a> •
+     <a href="/script/../script/cite.php">Cite</a> •
+     <a href="http://pgp.mit.edu/pks/lookup?op=get&amp;search=0x89AB63D48277377A">Public Key</a> •
+     <a href="/script/../script/contact.php">Contact Us</a>
+   <br>
+     <a href="https://github.com/imagemagick/imagemagick" target="_blank" rel="noopener" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" class="navbar-nav-svg" viewBox="0 0 512 499.36" width="2%" height="2%" role="img" focusable="false"><title>GitHub</title><path fill="currentColor" fill-rule="evenodd" d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z"></path></svg></a> •
+     <a href="https://twitter.com/imagemagick" target="_blank" rel="noopener" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="navbar-nav-svg" viewBox="0 0 512 416.32" width="2%" height="2%" role="img" focusable="false"><title>Twitter</title><path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"></path></svg></a>
+    <br>
+    <small>Copyright © 1999 ImageMagick Studio LLC</small>
+    </div>
+  </footer>
+
+  <!-- Javascript assets -->
+  <script src="/script/../assets/magick-js.php"></script>
+  
+
+<ins class="adsbygoogle adsbygoogle-noablate" style="display: none !important;" data-adsbygoogle-status="done" data-ad-status="unfilled"><ins id="aswift_1_expand" style="border: medium none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_1_anchor" style="border: medium none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-3129977114552745&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1648181242&amp;plat=2%3A16777216%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fimagemagick.org%2Findex.php&amp;ea=0&amp;pra=7&amp;wgl=1&amp;adsid=ChAI8K3wkQYQmMjfnbG3o5FqEi8A9nAR6otOIboHKv4g3Xu7O6HLNcQ-om-8g2dPsjY0FfaldHaN2rjCgM0qKsDX2Q&amp;dt=1648181241874&amp;bpp=1&amp;bdt=709&amp;idt=144&amp;shv=r20220323&amp;mjsv=m202203230101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;prev_fmts=936x90&amp;nras=1&amp;correlator=3940142660753&amp;frm=20&amp;pv=1&amp;ga_vid=1567456480.1648181242&amp;ga_sid=1648181242&amp;ga_hid=164465129&amp;ga_fc=0&amp;u_tz=-300&amp;u_his=50&amp;u_h=1600&amp;u_w=3840&amp;u_ah=1560&amp;u_aw=3840&amp;u_cd=24&amp;u_sd=1&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1267&amp;bih=988&amp;scr_x=0&amp;scr_y=0&amp;eid=44759876%2C44759927%2C44759842%2C31065832&amp;oid=2&amp;pvsid=2711375558933074&amp;pem=520&amp;tmod=631982946&amp;nvt=1&amp;eae=2&amp;fc=896&amp;brdim=2082%2C172%2C2082%2C172%2C3840%2C0%2C1296%2C1079%2C1284%2C988&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;jar=2022-03-25-02&amp;ifi=2&amp;uci=a!2&amp;fsb=1&amp;dtd=301" data-google-container-id="a!2" data-load-complete="true" frameborder="0"></iframe></ins></ins></ins><iframe src="https://www.google.com/recaptcha/api2/aframe" style="display: none;" width="0" height="0"></iframe></body><iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20220323/r20190131/zrt_lookup.html" style="display: none;"></iframe></html>

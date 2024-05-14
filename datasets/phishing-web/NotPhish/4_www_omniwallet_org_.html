@@ -1,0 +1,393 @@
+<html ng-app="omniwallet" class="ng-scope" lang="en"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="Description" content="Omniwallet™ is a cryptocurrency web wallet that combines security, usability and meta-currency support.">
+<title> Omniwallet™ - The Next Generation Wallet </title>
+
+<link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
+<noscript>
+        Java Script has been disabled!
+        <meta content="0;url=javascript_required.html">
+    </noscript>
+<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/bower_components/nvd3/build/nv.d3.css">
+<link rel="stylesheet" href="/theme.css">
+<link href="https://fonts.googleapis.com/css?family=Gudea:400,400italic,700" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet" type="text/css">
+
+<script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="/js/socket.io.min.js"></script>
+<script src="/bower_components/underscore/underscore.js"></script>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/angular-translate/angular-translate.js"></script>
+<script src="/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+<script src="/bower_components/numeraljs/numeral.js"></script>
+<script src="/bower_components/angular-numeraljs/src/angular-numeraljs.js"></script>
+<script src="/bower_components/ng-idle/angular-idle.js"></script>
+<script src="/bower_components/angular-password-strength/build/angular-password-strength.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="/bower_components/jsrsasign/jsrsasign-latest-all-min.js"></script>
+<script src="/bower_components/forge/js/forge.min.js"></script>
+<script src="/bower_components/bitcoinjs-lib/build/bitcoinjs-lib.js"></script>
+<script src="/bower_components/bitcore-lib/bitcore-lib.js"></script>
+<script src="/bower_components/bitcore-message/bitcore-message.min.js"></script>
+<script src="/bower_components/d3/d3.min.js"></script>
+<script src="/bower_components/nvd3/build/nv.d3.js"></script>
+<script src="/bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
+<script src="/bower_components/sjcl/sjcl.js"></script>
+<script src="/bower_components/FileSaver/FileSaver.js"></script>
+<script src="/bower_components/big.js/big.min.js"></script>
+<script src="/bower_components/angular-timer/dist/angular-timer.min.js"></script>
+<script src="/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+<script type="text/javascript" src="/bower_components/qrcode/lib/qrcode.min.js"></script>
+<script type="text/javascript" src="/bower_components/angular-qr/angular-qr.min.js"></script>
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/lang/en-US.js"></script>
+<script src="/js/filters/ToWhole.js"></script>
+<script src="/js/filters/TimeAgo.js"></script>
+<script src="/js/filters/BigJS.js"></script>
+<script src="/js/directives/Combobox.js"></script>
+<script src="/js/factories/AddressModelFactory.js"></script>
+<script src="/js/factories/AssetModelFactory.js"></script>
+<script src="/js/factories/TransactionModelFactory.js"></script>
+<script src="/js/factories/OrderbookFactory.js"></script>
+<script src="/js/factories/DExOfferFactory.js"></script>
+<script src="/js/factories/DExOrderFactory.js"></script>
+<script src="/js/services/WalletService.js"></script>
+<script src="/js/services/AccountService.js"></script>
+<script src="/js/services/AppraiserService.js"></script>
+<script src="/js/services/TransactionGenerationService.js"></script>
+<script src="/js/services/TransactionManagerService.js"></script>
+<script src="/js/services/ModalManagerService.js"></script>
+<script src="/js/services/BalanceSocket.js"></script>
+<script src="/js/services/AddressManagerService.js"></script>
+<script src="/js/services/PropertyManagerService.js"></script>
+<script src="/js/services/BrowserService.js"></script>
+<script src="/js/controllers/landing/HomeController.js"></script>
+<script src="/js/controllers/landing/NavigationController.js"></script>
+<script src="/js/controllers/landing/SiteController.js"></script>
+<script src="/js/controllers/landing/AccountSettingsController.js"></script>
+<script src="/js/controllers/wallet/OverviewController.js"></script>
+<script src="/js/controllers/wallet/AddressesController.js"></script>
+<script src="/js/controllers/wallet/HistoryController.js"></script>
+<script src="/js/controllers/wallet/SendController.js"></script>
+<script src="/js/controllers/wallet/AssetsController.js"></script>
+<script src="/js/controllers/wallet/ManageController.js"></script>
+<script src="/js/controllers/modals/ConfirmSendFooterController.js"></script>
+<script src="/js/controllers/assets/CrowdsaleParticipationController.js"></script>
+<script src="/js/controllers/assets/CrowdsaleController.js"></script>
+<script src="/js/controllers/assets/IssuanceController.js"></script>
+<script src="/js/controllers/assets/ManagedController.js"></script>
+<script src="/js/controllers/assets/DetailsController.js"></script>
+<script src="/js/controllers/explorer/AssetsController.js"></script>
+<script src="/js/controllers/explorer/CrowdsaleController.js"></script>
+<script src="/js/controllers/explorer/OverviewController.js"></script>
+<script src="/js/controllers/explorer/InspectorController.js"></script>
+<script src="/js/controllers/exchange/SaleController.js"></script>
+<script src="/js/controllers/exchange/BuyController.js"></script>
+<script src="/js/controllers/exchange/PendingController.js"></script>
+<script src="/js/controllers/exchange/TradeController.js"></script>
+<script src="/js/controllers/exchange/OverviewController.js"></script>
+<script src="/js/controllers/DEx/SaleController.js"></script>
+<script src="/js/controllers/DEx/OverviewController.js"></script>
+<script src="/js/controllers/DEx/OrderbookController.js"></script>
+<script src="/js/directive.js"></script>
+<script src="/js/service.js"></script>
+<script src="/js/controller.js"></script>
+<script src="/js/filter.js"></script>
+<script src="/js/LoginController.js"></script>
+<script src="/js/CreateWalletController.js"></script>
+<script src="/js/cryptUtil.js"></script>
+<script src="/js/cryptUtilAsync.js"></script>
+<script src="https://hcaptcha.com/1/api.js" async="" defer=""></script>
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-53639435-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('set', 'forceSSL', true);
+      ga('send', 'pageview');
+    </script>
+</head>
+<body ng-controller="SiteController" class="ng-scope">
+<div id="wrap">
+<div class="header">
+<!-- ngInclude: '/header.html' --><div ng-include="'/header.html'" class="ng-scope"><div id="header" ng-controller="NavigationController" ng-init="getNavData();modalOpened=false;section='';subsection=''" class="ng-scope">
+<div class="navbar navbar-static-top navbar-main" role="navigation">
+<div class="container">
+
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#omni-navbar">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/"><img src="/assets/img/logo-rebrand.png" alt="omni"></a>
+</div>
+
+<div class="hidden-xs">
+<ul class="nav navbar-nav navbar-right">
+<li ng-hide="account.loggedIn" class="">
+<button href="#" ng-click="modalManager.openCreateModal()" class="btn btn-warning ng-binding">Create Wallet</button>
+</li>
+<li ng-hide="account.loggedIn" class="">
+<a href="#" ng-click="modalManager.openLoginModal()" class="ng-binding">Login</a>
+</li>
+<li class="divider-vertical" ng-hide="account.loggedIn"></li>
+<li ng-show="account.loggedIn" ng-class="{active:section=='wallet'}" class="ng-hide">
+<a href="/wallet/overview" ng-click="section='wallet';subsection='overview'" class="ng-binding">My Wallet <span class="glyphicon glyphicon-chevron-down"></span></a>
+</li>
+<li ng-class="{active:section=='exchange'}">
+<a href="/dex/overview" ng-click="section='exchange';subsection='omnidex'" class="ng-binding">Exchange <span class="glyphicon glyphicon-chevron-down"></span></a>
+</li>
+<li ng-class="{active:section=='explorer'}">
+<a href="/explorer/overview" ng-click="section='explorer';subsection='transactions'" class="ng-binding">Explorer <span class="glyphicon glyphicon-chevron-down"></span></a>
+</li>
+<li ng-class="{active:section=='about'}">
+<a href="/about/omniwallet" ng-click="section='about';subsection='omniwallet'" class="ng-binding">About <span class="glyphicon glyphicon-chevron-down"></span></a>
+</li>
+<li ng-show="account.loggedIn" class="dropdown ng-hide" dropdown="">
+<a href="" class="dropdown-toggle ng-binding" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+My Account <span class="glyphicon glyphicon-chevron-down"></span>
+</a>
+<ul class="dropdown-menu" role="menu">
+<li><a ng-click="section='account'" href="/wallet/settings" class="ng-binding">Account Settings</a></li>
+<li><a href="/" ng-click="logout(); section='';" class="ng-binding">Logout</a></li>
+</ul>
+</li></ul>
+<div class="arrow_box ng-hide" ng-hide="section==''" ng-class="{'login':account.loggedIn, 'wallet':section=='wallet', 'exchange':section=='exchange', 'explorer':section=='explorer', 'about':section=='about'}"></div>
+</div>
+<div class="visible-xs">
+<div class="collapse navbar-collapse" id="omni-navbar">
+<ul class="nav nav-stacked">
+<!-- ngIf: account.loggedIn -->
+<!-- ngIf: account.loggedIn -->
+<!-- ngIf: account.loggedIn -->
+<!-- ngIf: account.loggedIn -->
+<!-- ngIf: account.loggedIn -->
+<!-- ngIf: account.loggedIn -->
+<li class="navbar-header ng-binding">Exchange</li>
+<li ng-class="{active:subsection=='omnidex'}"><a ng-click="subsection='trade'" href="/dex/overview" class="ng-binding">OmniDex</a></li>
+<li ng-class="{active:subsection=='trade'}"><a ng-click="subsection='trade'" href="/exchange/trade" class="ng-binding">BTC Market</a></li>
+<!-- ngIf: account.loggedIn -->
+<li class="navbar-header ng-binding">Explorer</li>
+<li ng-class="{active:subsection=='transactions'}"><a ng-click="subsection='transactions'" href="/explorer/overview" class="ng-binding">Transactions</a></li>
+<li ng-class="{active:subsection=='assets'}"><a ng-click="subsection='assets'" href="/explorer/assets" class="ng-binding">Assets</a></li>
+<li ng-class="{active:subsection=='crowdsales'}"><a ng-click="subsection='crowdsales'" href="/explorer/crowdsales" class="ng-binding">Active Crowdsales</a></li>
+<li class="navbar-header ng-binding">About</li>
+<li ng-class="{active:subsection=='omniwallet'}"><a ng-click="subsection='omniwallet'" href="/about/omniwallet" class="ng-binding">About Omniwallet</a></li>
+<li ng-class="{active:subsection=='mastercoin'}"><a ng-click="subsection='mastercoin'" href="/about/omni" class="ng-binding">About Omni</a></li>
+<li ng-class="{active:subsection=='faq'}"><a ng-click="subsection='faq'" href="/about/faq" class="ng-binding">FAQ</a></li>
+<li ng-class="{active:subsection=='contact'}"><a ng-click="subsection='contact'" href="/about/contact" class="ng-binding">Contact Us</a></li>
+<!-- ngIf: account.loggedIn -->
+<!-- ngIf: account.loggedIn -->
+<!-- ngIf: account.loggedIn -->
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="navbar navbar-static-top navbar-main-tier1 hidden-xs collapse" role="navigation" collapse="section==''" style="height: 0px;">
+<!-- ngIf: section=='wallet' -->
+<!-- ngIf: section=='exchange' -->
+<!-- ngIf: section=='explorer' -->
+<!-- ngIf: section=='about' -->
+</div>
+</div>
+</div>
+</div>
+<div class="main">
+<div class="container">
+<div class="alert alert-success text-center animate-show ng-hide" ng-show="showNotify"><strong class="ng-binding"> ,
+check your transaction <a target="_blank" href="" class="ng-binding">here.</a></strong><button type="button" class="close" aria-label="Close"><span aria-hidden="true" ng-click="showNotify=!showNotify">×</span></button></div>
+<div class="alert alert-danger text-center animate-show ng-hide" ng-show="showError"><strong class="ng-binding"> </strong> <button type="button" class="close" aria-label="Close"><span aria-hidden="true" ng-click="showError=!showError">×</span></button></div>
+<div class="panel panel-default panel-main">
+<div class="om-title text-center ng-binding ng-hide" ng-show="account.loggedIn &amp;&amp; !wallet.loaded">Loading...</div>
+<!-- ngView:  --><div class="panel-body ng-scope" ng-view=""><div class="col-xs-12 alert alert-warning ng-scope">
+<strong><center>Reminder</center><br></strong>
+<strong>Omniwallet and Watch Only Addresses are Never Involved with Escrow/Recovery services.</strong>
+If you are being asked to open/use Omniwallet as part of an Escrow or Recovery Process you are being <strong>SCAMMED</strong>.
+Stop all Communication and contact your local law enforecment. If you have any questions
+you can contact Omniwallet support below.<br>
+<br>
+<strong>If you did not create the wallet you are logging into, you do not own it or any funds within.</strong>
+Do not accept a Wallet/Wallet ID from anyone else as <strong>payment</strong> for anything.
+Always create your own wallet and have funds sent to an address you created and control. <br>
+<br>
+<strong>Never Share Your Password with anyone.</strong> Once someone has access to your wallet they can
+download a backup/export of any private keys associated with your wallet addresses. Once a private key is compromised
+any funds on those addresses can never be secured again regardless of password changes or 2fa setup.
+</div>
+<div class="col-xs-12 alert alert-info hide ng-scope">
+<strong>Planned Maintenance: Feb 18 18:30 UTC</strong> <br>
+Starting at 18:30UTC On Feb 18th OmniWallet will have a short maintenance window to upgrade back-end components. <br>
+We expect this Maintenance to last up to an hour and during the maintenance Omni Explorer services will be unavailable.
+</div>
+<div class="col-xs-12 alert alert-info hide ng-scope">
+<strong>Planned Maintenance: Feb 18 18:30 UTC</strong> <br>
+At this time all maintenance activities have been completed and services are restored.
+</div>
+<div class="col-xs-12 alert alert-info alert-dismissable hide ng-scope">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+<strong>Outage Resolved</strong> <br>
+At this time all resync activities have been completed and services are restored.
+</div>
+<div class="col-xs-12 alert alert-danger alert-dismissable hide ng-scope">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+<strong>Wallet Outage</strong> <br>
+One of our backend components has unexpectedly had to be reinitialized. Wallet services will be unavailable until this is complete.<br>
+Please monitor our twitter for status updates: <a href="https://twitter.com/Omni_Layer">https://twitter.com/Omni_Layer</a><br>
+We apologize for any service disruptions.<br>
+</div>
+<div class="col-xs-12 alert alert-info alert-dismissable hide ng-scope">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+<strong>Nove 24th: Outage Resolved</strong> <br>
+We have managed to complete the backend reinitialization ahead of schedule and all Omniwallet services are back online. <br>
+We apologize for the unexpected downtime caused by this outage. <br>
+We will be taking additional steps to try and minimize extended outages of this nature in the future.
+</div>
+<div class="col-xs-12 alert alert-info alert-dismissable hide ng-scope">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+<strong>RE: Unconfirmed/Pending transactions Aug 10 - Aug 16</strong> <br>
+Unfortunately we have discovered a bug which was causing the fee estimation to report/use fees lower than expected over the past few days for new transactions.
+We have already pushed a fix to correct the functionality going forward. While transactions that went out in the last few days should go through eventually it could take a few days for them to get confirmed on the blockchain. <br>
+We sincerely apologize to our users and are going to try pushing the transactions manually to one of the mining groups to try and get them confirmed a bit quicker.
+</div>
+<div class="col-xs-12 alert alert-info alert-dismissable hide ng-scope">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+<strong>A quick note on Bitcoin Fork / Bitcoin Cash.</strong> <br>
+At present, Omniwallet will not be offering native support for Bitcoin Cash. After the fork, we will be following the Bitcoin-Core network/chain. <br>
+Users will always be able to export their address private keys at anytime (before or after the fork). <br>
+Exported Address private keys can then be used with a Bitcoin Cash compatible wallet/service.
+</div>
+<div class="col-xs-12 alert alert-info alert-dismissable hide ng-scope">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+<strong>Message Signing now available.</strong> <br>
+You can now sign messages from addresses you have the private key for.<br>
+Go to "My Addresses" and choose "Actions -&gt; Sign Message" next to the address you want to sign a message with.<br>
+</div>
+<div class="col-xs-12 alert alert-info alert-dismissable hide ng-scope">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+<strong>Default Transaction Fee increased</strong> <br>
+Due to mempool congestion the default transaction fee speed has been set to 'fast'. <br>
+<a href="https://github.com/OmniLayer/omniwallet/wiki/How-to-adjust-the-miner-fee" target="_blank">Click here for more information about transaction speeds and fees.</a><br>
+</div>
+<div class="col-xs-12 alert alert-info alert-dismissable hide ng-scope">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+<strong>Omniwallet OmniDex Interface Launched</strong> <br>
+The OmniDex Trading interface is now live.
+<a href="https://blog.omni.foundation/2016/12/01/omniwallet-updates-omnidex-trading-interface-launched/" target="_new">Read the Announcement here.</a><br>
+</div>
+<div class="col-xs-12 alert alert-warning alert-dismissable hide ng-scope">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+<strong>Omni Protocol sends delayed</strong> <br>
+Our backend indexer has been replaced and updated. Balance information is back to normal. <br>
+We are currently investigating an issue with creating Omni protocol transactions.
+</div>
+<div class="col-xs-12 alert alert-danger alert-dismissable hide ng-scope">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+<strong>Issues Delivering Emails</strong> <br>
+We are currently investigating potential issues delivering email to all Yahoo domains as well as all Microsoft (hotmail, live, outlook..) domains. <br>
+New Users are advised to properly backup/record their wallet id upon creating a new wallet as the welcome emails may not get delivered.
+</div>
+<div class="main-container ng-scope" ng-controller="HomeController">
+<div class="row mobile-centered om-title homepage-welcome ng-binding">Welcome to Omniwallet</div>
+<div class="row visible-xs text-center"><button type="button" class="btn btn-secondary ng-binding" ng-click="modalManager.openCreateModal()">Create Wallet</button></div>
+<div class="row visible-xs text-center"><button type="button" class="btn btn-main ng-binding" ng-click="modalManager.openLoginModal()">Login</button></div>
+<div class="row visible-xs text-center"><a href="/" ng-click="modalManager.openBalanceCheckModal()" class="ng-binding">Balance Check</a></div>
+<div class="hidden-xs homepage-form">
+<form role="form" name="addressentry" class="ng-pristine ng-valid">
+<div class="form-group">
+<label for="AddressInput" class="om-subtitle homepage-form-title ng-binding">Balance Check</label>
+<span id="helpBlock" class="help-block help-text ng-binding">Enter a valid Bitcoin Address <small class="sm-help-text ng-binding">(e.g. 1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P)</small></span>
+<input type="text" class="form-control input-lg input-group input-white ng-pristine ng-valid" name="AddressInput" id="AddressInput" ng-model="balanceAddress" ng-change="checkAddress=false">
+</div>
+<a ng-href="" target="_blank" ng-click="checkBalance();" class="btn btn-main pull-right ng-binding">Check Balance</a>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="push"></div>
+</div>
+<div class="footer">
+<!-- ngInclude: '/footer.html' --><div ng-include="'/footer.html'" class="ng-scope"><div id="footer" class="container navbar navbar-fixed-bottom ng-scope">
+<div class="navbar-collapse collapse">
+<div class="row footer-top-row">
+<div class="col-xs-3 col-xs-offset-1">
+<ul class="nav nav-stacked">
+<li class="footer-titles">More Info</li>
+<li class="footer-content"><a href="/about">About Omniwallet</a></li>
+<li class="footer-content" ng-hide="Account.loggedIn"><a href="http://support.omniwallet.org" target="_blank">Trouble Logging In?</a></li>
+
+<li class="footer-content"><a href="/about/faq">FAQ</a></li>
+</ul>
+</div>
+<div class="col-xs-3">
+<ul class="nav nav-stacked">
+<li class="footer-titles">Spread the Word</li>
+<li class="footer-content"><a href="#">Tell your friends and colleagues<br>how awesome Omniwallet is</a></li>
+<li class="footer-titles">Donate</li>
+<li class="footer-content"><a href="bitcoin: 1HtmVRdFRqPScH7Ud6UFR6HUcndksjVmua">BTC / OmniProtocol: 1HtmVRdFRqPScH7Ud6UFR6HUcndksjVmua</a></li>
+</ul>
+</div>
+<div class="col-xs-3">
+<ul class="nav nav-stacked">
+<li class="footer-titles">Feeling Chatty?</li>
+<li class="footer-content"><a href="/about/contact"><img src="/assets/img/footer-icons/ask.png" class="icon-ask" width="21px" height="21px">Contact Us</a></li>
+<li class="footer-email"><img src="/assets/img/footer-icons/email.png" class="icon-email" width="18px" height="12px">info@omniwallet.org</li>
+<li class="footer-suggestions">We welcome your suggestions</li>
+</ul>
+</div>
+<div class="col-xs-2">
+<ul class="nav nav-stacked">
+<li class="footer-titles">Follow Us</li>
+<li class="footer-social"><a href="https://www.facebook.com/groups/523941304389744/"><i class="icon-facebook"></i>Facebook</a></li>
+<li class="footer-social"><a href="https://twitter.com/omniwallet"><i class="icon-twitter"></i>Twitter</a></li>
+
+</ul>
+</div>
+</div>
+<div class="row footer-middle-row">
+<div class="col-xs-5 col-xs-offset-1">
+<ul class="nav navbar-nav">
+<li class="footer-middle"><a href="/about/omniwallet"><img src="/assets/img/footer-icons/notif.png" class="icon-notif" width="21px" height="21px">Omniwallet is under ongoing development</a></li>
+<li class="divider-vertical-small"></li>
+<li class="footer-middle"><a href="/about/omniwallet">Disclaimer</a></li>
+<li class="divider-vertical-small"></li>
+<li class="footer-middle"><a href="/about/omniwallet">Terms of Use</a></li>
+</ul>
+</div>
+<div class="col-xs-4 col-xs-offset-2">
+<ul class="nav navbar-nav navbar-right">
+<li class="footer-middle"><a href="https://github.com/OmniLayer/omniwallet">Open Source Project</a></li>
+<li class="divider-vertical-small"></li>
+<li class="footer-middle footer-version"><a href="/status" class="ng-binding">Version 8b213a4b</a></li>
+</ul>
+</div>
+</div>
+<div class="row footer-bottom-row">
+<div class="col-xs-12 footer-bottom text-center">
+© Copyright Omni Foundation 2014. All rights reserved.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</body></html>

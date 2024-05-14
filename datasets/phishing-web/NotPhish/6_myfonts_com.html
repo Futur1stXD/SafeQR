@@ -1,0 +1,1877 @@
+<html class="hydrated" data-triggered="true" lang="en"><head>
+                	<title>Fonts for Print, Products &amp; Screens | MyFonts</title><meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' www.google.com/recaptcha/ www.gstatic.com/recaptcha/ px.owneriq.net tagmanager.google.com *.myfonts-test.com *.myfonts.com *.myfonts.net *.myfonts-beta.com cdn.carbonads.com srv.carbonads.net *.heapanalytics.com heapanalytics.com *.qualtrics.com www.google-analytics.com *.inside-graph.com *.adroll.com snap.licdn.com connect.facebook.net *.linkedin.com www.googleadservices.com www.googletagservices.com adservice.google.com optimize.google.com *.doubleclick.net *.googlesyndication.com local.skyfonts.com:* dev.visualwebsiteoptimizer.com *.onetrust.com *.driftt.com driftt.com *.privy.com platform-api.sharethis.com adservice.google.com.np cdn.ampproject.org optanon.blob.core.windows.net www.googletagmanager.com *.bing.com bing.com *.marketo.com tag.demandbase.com static-webfonts.myfonts-beta.com static-webfonts.myfonts.com *.cloudfront.net *.site24x7rum.com embed.typeform.com cdnjs.cloudflare.com cdn.jsdelivr.net js-agent.newrelic.com static.hotjar.com *.hotjar.com *.lift.acquia.com www.clarity.ms player.vimeo.com ak.sail-horizon.com static.cloudflareinsights.com *.attn.tv">
+<script type="text/javascript" async="" src="https://js.driftt.com/include/1648192800000/cm7nbzb9tz8z.js"></script><script async="" src="https://widget.privy.com/assets/widget.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ec.js"></script><script async="" src="https://www.clarity.ms/eus2/s/0.6.33/clarity.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.clarity.ms/tag/5oqcy8u8kj"></script><script async="" id="demandbase_js_lib" src="https://tag.demandbase.com/3d6d0dc4.min.js"></script><script gtm="GTM-5628STD" type="text/javascript" async="" src="https://www.google-analytics.com/gtm/optimize.js?id=GTM-KSKP8TR"></script><script src="https://connect.facebook.net/signals/config/1224991334526965?v=2.9.57&amp;r=stable" async=""></script><script src="https://connect.facebook.net/signals/config/327536414110201?v=2.9.57&amp;r=stable" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script type="text/javascript" async="" src="https://snap.licdn.com/li.lms-analytics/insight.min.js"></script><script type="text/javascript" async="" src="https://cdn.heapanalytics.com/js/heap-2253897516.js"></script><script type="text/javascript" async="" src="https://bat.bing.com/bat.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-5628STD"></script><script>
+
+    
+    var MyFonts = {
+        tracking: {
+            'Country Code': '',
+            'Language Code': 'EN-US',
+            'Email Hash': '',
+            'Vendor User Id': '',
+            'Vendor Id': '',
+            'Customer Type': '',
+            'Offer Code': ''
+        },
+        renderer: {
+            'Domain': 'render.myfonts.net',
+            'backgroundColor': 'ffffff',
+            'foregroundColor': '000000',
+            'fontSize': 32
+        },
+        constants: {
+            'cdnURL': 'https://cdn.myfonts.net',
+            'cspURL': 'https://csp.myfonts.com',
+            'apicdnURL': 'https://apicdn.myfonts.net',
+            'topHatUrl': 'https://th-banner.myfonts.com'
+        },
+        jquerydeferred: function(method){if (window.$j) {method();} else {setTimeout(function() { MyFonts.jquerydeferred(method) }, 50);}}
+    };
+
+    //load csp in the head
+    var siteName = 'MyfontsSite';
+    var scr = document.createElement('SCRIPT');
+
+    scr.src = 'https://csp.myfonts.com/csp_config.js';
+
+    document.head.appendChild(scr);
+
+    MyFonts.FontPreview = {
+        renderer: MyFonts.renderer,
+        getSources: function($img) {
+            var img = $img.get(0);
+            var values = {};
+            var renderer = MyFonts.models && MyFonts.models.renderer && MyFonts.models.renderer.toJSON() || MyFonts.FontPreview.renderer;
+            var src = img.getAttribute('data-src'),
+                md5Patt = /\?id=([^&]*)/,
+                textPatt = /&rt=([^&]*)/,
+                widthPatt = /&w=([^&]*)/,
+                renderTypePatt = /&t=([^&]*)/,
+                fontSizePatt = /&rs=([^&]*)/;
+
+            if (src.match(md5Patt)) {
+                values.md5 = src.match(md5Patt)[1];
+            }
+
+            // Save for later is reset is used
+            values.originalText = src.match(textPatt)[1];
+
+            if (src.match(textPatt) && (!renderer.sampleStrings || renderer.sampleTextType === 'pangram.auto')) {
+                values.text = src.match(textPatt)[1];
+            } else if (renderer.sampleStrings.length > 0) {
+                var index = $img.closest('.search-result-item').index('.search-result-item') % renderer.sampleStrings.length;
+                values.text = renderer.sampleStrings[index];
+            }
+
+            if (src.match(widthPatt)) {
+                values.width = src.match(widthPatt)[1];
+            }
+
+            if (src.match(renderTypePatt)) {
+                values.renderType = src.match(renderTypePatt)[1];
+            }
+
+            if (src.match(fontSizePatt)) {
+                values.fontSize = src.match(fontSizePatt)[1];
+            }
+
+            if (renderer.sampleTextType === 'fontname') {
+                values.text = $img.closest('.search-result-item').find('h4').text();
+            }
+
+            var stringPrefix = 'https://' + (renderer.Domain) + '/fonts/font_rend.php?';
+            var paramObject = {
+                id: values.md5,
+                rs: renderer.fontSize || values.fontSize,
+                bg: renderer.backgroundColor,
+                fg: renderer.foregroundColor,
+                t: values.renderType || renderer.renderType,
+                w: $img.parent().width(),
+                rbe: renderer.fitToWidth ? 'fixed' : '', // rbe stands for 'render back end' (fit to width)
+                ft: renderer.openType,
+                sc: renderer.scaled,
+                rt: values.text
+            };
+
+            return {
+                srcset: stringPrefix + $j.param($j.extend({}, paramObject, { sc: 2 })) + ' 2x',
+                src: stringPrefix + $j.param(paramObject)
+            };
+        },
+        setRenderer: function() {
+            if (typeof (Storage) !== 'undefined' && localStorage.getItem('renderer')) {
+                MyFonts.FontPreview.renderer = JSON.parse(localStorage.getItem('renderer'));
+            }
+        },
+        render: function($img) {
+            var sources = MyFonts.FontPreview.getSources($img);
+            $img.attr('srcset', sources.srcset);
+            $img.attr('src', sources.src).one('load', function() {
+                $j(this).removeClass('spinner').removeAttr('style data-init-width data-init-height');
+            });
+        }
+    };
+
+    MyFonts.FontPreview.setRenderer();
+
+    var dataLayer = [MyFonts.tracking];
+    
+</script><script src="https://csp.myfonts.com/csp_config.js"></script>
+            <script src="https://optanon.blob.core.windows.net/consent/b213127b-85c2-44e4-bf76-b4ae131406d0-test.js" type="text/javascript" charset="UTF-8"></script><link type="text/css" href="https://optanon.blob.core.windows.net/skins/6.30.0/default_flat_bottom_two_button_white/v2/css/optanon.css" rel="stylesheet"><style>#optanon ul#optanon-menu li { background-color:  !important }#optanon ul#optanon-menu li.menu-item-selected { background-color:  !important }#optanon #optanon-popup-wrapper .optanon-white-button-middle { background-color:  !important }.optanon-alert-box-wrapper .optanon-alert-box-button-middle { background-color:  !important; border-color:  !important; }#optanon #optanon-popup-wrapper .optanon-white-button-middle button { color:  !important }.optanon-alert-box-wrapper .optanon-alert-box-button-middle button { color:  !important }#optanon #optanon-popup-bottom { background-color: #F2F2F2 !important }#optanon.modern #optanon-popup-top, #optanon.modern #optanon-popup-body-left-shading { background-color: #F2F2F2 !important }.optanon-alert-box-wrapper { background-color:#FFFFFF !important }.optanon-alert-box-wrapper .optanon-alert-box-bg p { color: !important }.optanon-alert-box-wrapper  a { 
+outline: none;
+}
+.optanon-alert-box-wrapper  button { 
+outline: none;
+}
+
+.optanon-alert-box-wrapper  button:hover { 
+background-color: transparent;
+}
+.optanon-alert-box-button-middle.accept-cookie-container {
+cursor: default;
+}</style>
+    <script type="text/javascript">
+    if (window.location.href.indexOf("marketplace") === -1) { function OptanonWrapper() { } window.Optanon.LoadBanner();}
+    </script>
+<!-- Top Hat Banner -->
+<script type="module" src="https://th-banner.myfonts.com/myfonts-tophat-banner.esm.js"></script>
+<script nomodule="" src="https://th-banner.myfonts.com/myfonts-tophat-banner.js"></script>
+<!-- Top Hat Banner -->
+
+<!-- OneTrust Cookies Consent Notice end -->
+
+
+<!-- Page-hiding snippet (recommended)  -->
+<style>.async-hide, .ab-test-hide { opacity: 0 !important}</style>
+<script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+})(window,document.documentElement,'async-hide','dataLayer',4000,
+{'GTM-5628STD':true});</script>
+
+<script>
+
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5628STD');
+
+</script>
+<!-- End Google Tag Manager -->
+                    <meta charset="utf-8"><style data-styles="">tophat-banner,mt-banner{visibility:hidden}.hydrated{visibility:inherit}</style>
+<meta property="og:title" content="Fonts for Print, Products &amp; Screens | MyFonts">
+<meta property="og:url" content="https://www.myfonts.com">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://cdn.myfonts.net/s/images/MyFonts.png">
+<meta property="og:description" content="Welcome to MyFonts, the #1 place to download great @font-face webfonts and desktop fonts: classics (Baskerville, Futura, Garamond) alongside hot new fonts (Shorai Sans, Shorai Sans Variable,Fontanella).">
+
+<meta property="twitter:card" content="summary">
+<meta property="twitter:title" content="Fonts for Print, Products &amp; Screens | MyFonts">
+<meta property="twitter:url" content="https://www.myfonts.com">
+<meta property="twitter:image" content="https://cdn.myfonts.net/s/images/MyFonts.png">
+<meta property="twitter:description" content="Welcome to MyFonts, the #1 place to download great @font-face webfonts and desktop fonts: classics (Baskerville, Futura, Garamond) alongside hot new fonts (Shorai Sans, Shorai Sans Variable,Fontanella).">
+<meta property="twitter:site" content="@MyFonts">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="google" value="notranslate">
+<meta name="description" content="Welcome to MyFonts, the #1 place to download great @font-face webfonts and desktop fonts: classics (Baskerville, Futura, Garamond) alongside hot new fonts (Shorai Sans, Shorai Sans Variable,Fontanella).">
+
+
+<link rel="canonical" href="https://www.myfonts.com/">
+
+<!--[if lt IE 9]>
+    <script src="/s/js/html5shiv.js"></script>
+    <script src="/s/js/css3-mediaqueries.js" ></script>
+    <![endif]-->
+
+<script type="text/javascript">
+    var logged_in = false;
+</script>
+
+<script type="text/javascript" src="https://cdn.myfonts.net/s/js/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript">
+    var $j = jQuery.noConflict();
+    
+
+    $j(document).ready(function() {
+        if (window.Optanon && window.location.href.indexOf("marketplace") === -1 ) {
+            window.Optanon.LoadBanner();
+        }
+      setTimeout( function (){$j(this).scrollTop(0);}, 400);
+
+    });
+
+    
+</script>
+
+
+<script type="text/javascript" src="https://cdn.myfonts.net/s/jscache/live.e82af57f7950362c7a7fb5d29910f64a.js"></script>
+<script type="text/javascript" src="https://cdn.myfonts.net/s/js/jquery/owl-carousel/owl.carousel.min.js"></script>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.myfonts.net/s/jscache/live.90bb9b2549dc6788047c12aab70dc816.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.myfonts.net/s/js/jquery/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.myfonts.net/s/js/jquery/owl-carousel/owl.theme.css">
+<link rel="stylesheet" type="text/css" href="https://static-webfonts.myfonts.com/static-font.css">
+
+
+<!--[if IE]>
+<link rel="stylesheet" type="text/css" href="https://cdn.myfonts.net/s/css/ie_bugfix.css" />
+<![endif]-->
+
+
+
+<!-- .41.53 -->
+
+
+
+
+
+<link rel="search" type="application/opensearchdescription+xml" title="MyFonts Search" href="/searchplugin.xml">
+
+<link rel="apple-touch-icon" sizes="144x144" href="https://cdn.myfonts.net/s/images/icons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://cdn.myfonts.net/s/images/icons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://cdn.myfonts.net/s/images/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" href="https://cdn.myfonts.net/s/images/icons/apple-touch-icon-57x57.png">
+
+
+<!-- RSS -->
+
+	<style type="text/css">
+		
+			.banner-container {
+				height: 120px;
+				width: 100%;
+			}
+
+			@media only screen and (min-width: 250px) and (max-width: 767px) {
+				.banner-container {
+					display: none;
+				}
+			}
+		
+	</style>
+
+<script async="" src="//static.site24x7rum.com/beacon/site24x7rum-min.js?appKey=82d755fe79f178507c10f70f54cecde9"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="common-1647848975954" src="/s/js/built/common-1647848975954.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="common" src="/s/js/built/common.js"></script><script src="https://bat.bing.com/p/action/26072731.js" type="text/javascript" async="" data-ueto="ueto_8338abcd85"></script><style type="text/css">
+                        @keyframes slide-down-custom {
+                            0% {
+                                bottom: 988px !important;
+                            }
+                            100% {
+                                bottom: 0px;
+                            }
+                        }
+                        @-webkit-keyframes slide-down-custom {
+                            0% {
+                                bottom: 988px !important;
+                            }
+                            100% {
+                                bottom: 0px;
+                            }
+                        }
+                        @-moz-keyframes slide-down-custom {
+                            0% {
+                                bottom: 988px !important;
+                            }
+                            100% {
+                                bottom: 0px;
+                            }
+                        }
+                        </style><script async="true" type="text/javascript" src="https://cdn.attn.tv/attn.js?v=4-latest_ac6a939492"></script><script async="true" type="text/javascript" src="https://cdn.attn.tv/tag/4-latest/tag.js?v=4-latest_ac6a939492"></script><meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A8FHS1NmdCwGqD9DwOicnHHY+y27kdWfxKa0YHSGDfv0CSpDKRHTQdQmZVPDUdaFWUsxdgVxlwAd6o+dhJykPA0AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A8zdXi6dr1hwXEUjQrYiyYQGlU3557y5QWDnN0Lwgj9ePt66XMEvNkVWOEOWPd7TP9sBQ25X0Q15Lr1Nn4oGFQkAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A4/Htern2udN9w3yJK9QgWQxQFruxOXsXL7cW60DyCl0EZFGCSme/J33Q/WzF7bBkVvhEWDlcBiUyZaim5CpFQwAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_2022031601.js" async=""></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.myfonts.com" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=www.myfonts.com"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="Sailthru" src="https://ak.sail-horizon.com/spm/spm.v1.min.js"></script><script>var _d_site = _d_site || 'D4B0DCC69F0D0F373AFFD9CE';   (function(p, r, i, v, y){     p[i] = p[i] || function() { (p[i].q = p[i].q || []).push(arguments) };     v = r.createElement('script'); v.async = 1; v.src = 'https://widget.privy.com/assets/widget.js';     y = r.getElementsByTagName('script')[0]; y.parentNode.insertBefore(v, y);   })(window, document, 'Privy');</script><script charset="utf-8" src="https://assets.privy.com/packs/js/vendors~legacy_widget~modern_widget-a571641ae023c5b869db.chunk.js"></script><script charset="utf-8" src="https://assets.privy.com/packs/js/vendors~legacy_widget-aeba4391e8c499a73fb3.chunk.js"></script><script charset="utf-8" src="https://assets.privy.com/packs/js/legacy_widget-09a569d30e2614d2c2a1.chunk.js"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400" media="all"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,500" media="all"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,500" media="all"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,500%7COpen+Sans:400" media="all"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,500,700" media="all"><link id="widget-css" rel="stylesheet" href="https://assets.privy.com/assets/widget-704dd559854766451635ff1827723e2b40ff10e6a38dd7431169d58365927cb8.css" type="text/css"><style type="text/css" data-form-id="8925738">#privy-container #privy-inner-container .privy-form#privy-form-8925738 input,
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 button.selectpicker {
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid #9b9b9b;
+  border-radius: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  color: #4a4a4a !important;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 input {
+  font-family: "Lato", Helvetica, Arial, Sans Serif;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 button.selectpicker .filter-option {
+  font-family: "Lato", Helvetica, Arial, Sans Serif;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 button.selectpicker {
+  border: 1px solid #9b9b9b !important;
+  box-shadow: inset 0 -3px 0px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 -3px 0px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: inset 0 -3px 0px 0px rgba(0, 0, 0, 0.15);
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 .privy-half-width-input:first-child {
+  padding-right: 5px;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 .privy-half-width-input + .privy-half-width-input {
+  padding-left: 5px;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738.privy-form-horizontal .privy-form-group:not(:last-child) {
+  padding-right: 10px;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738.privy-form-vertical .privy-form-group:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738.privy-form-horizontal .privy-form-group {
+  width: 50%;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 input::-webkit-input-placeholder {
+  color: #9a9a9a;
+  opacity: 0.8;
+  font-family: "Lato", Helvetica, Arial, Sans Serif;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 input:-moz-placeholder {
+  color: #9a9a9a;
+  opacity: 0.8;
+  font-family: "Lato", Helvetica, Arial, Sans Serif;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 input::-moz-placeholder {
+  color: #9a9a9a;
+  opacity: 0.8;
+  font-family: "Lato", Helvetica, Arial, Sans Serif;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 input:-ms-input-placeholder {
+  color: #9a9a9a;
+  opacity: 0.8;
+  font-family: "Lato", Helvetica, Arial, Sans Serif;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 input::-ms-input-placeholder {
+  color: #9a9a9a;
+  opacity: 1.0;
+  font-family: "Lato", Helvetica, Arial, Sans Serif;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 .privy-form-group.privy-has-date-label-addon:before {
+  color: #9a9a9a;
+  opacity: 0.8;
+  font-size: 16px;
+  line-height: 40px;
+  font-family: "Lato", Helvetica, Arial, Sans Serif;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 .privy-form-group.privy-sms_opt_in-group .privy-checkbox-label,
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 .privy-form-group.privy-confirm_opt_in-group .privy-checkbox-label {
+    font-family: "Lato", Helvetica, Arial, Sans Serif;
+    font-size: 16px;
+    color: #9b9b9b;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 .privy-form-group.privy-sms_opt_in-group .privy-form-checkbox-container .privy-label-text,
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 .privy-form-group.privy-confirm_opt_in-group .privy-form-checkbox-container .privy-label-text {
+    font-family: "Lato", Helvetica, Arial, Sans Serif;
+    color: #9b9b9b;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 .privy-form-group .privy-form-checkbox-container input[type="checkbox"] + label,
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 .privy-form-group .privy-form-radio-container input[type="radio"] + label {
+  color: #9b9b9b;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 .privy-form-group .privy-form-checkbox-container input[type="checkbox"] + label span{
+  background: #ffffff;
+  border: 1px solid #9b9b9b;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 .privy-form-group .privy-form-checkbox-container input[type="checkbox"] + label span:before,
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 .privy-form-group .privy-form-checkbox-container input[type="checkbox"] + label span:after,
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 .privy-form-group .privy-form-radio-container input[type="radio"] + label span:after {
+  background: #9a9a9a;
+  margin-top: -1px;
+  margin-right: -1px;
+}
+
+#privy-container #privy-inner-container .privy-form#privy-form-8925738 .privy-form-group .privy-form-radio-container input[type="radio"] + label span{
+  background: #ffffff;
+  border: 1px solid #9b9b9b;
+}</style><style type="text/css" data-button-id="8925740">#privy-container #privy-inner-container .privy-button-element-wrapper[data-element-id='8925740'] .privy-button-element:active:after,
+#privy-container #privy-inner-container .privy-button-element-wrapper[data-element-id='8925740'] .privy-button-element:hover:after {
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+}</style></head>
+<body id="pagebody" class="homepageBody"><div class="optanon-alert-box-wrapper  " role="alertdialog" aria-labelledby="alert-box-title" aria-describedby="alert-box-message" style="display: block; animation-name: slide-down-custom; animation-duration: 1000ms; animation-fill-mode: forwards; animation-timing-function: ease-out;"><div class="optanon-alert-box-bottom-top"><div class="optanon-alert-box-corner-close"><button class="optanon-alert-box-close banner-close-button" aria-label="Close" title="Close" onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Banner Close Button');" tabindex="3"></button></div></div><div class="optanon-alert-box-bg"><div class="optanon-alert-box-logo"> </div><div class="optanon-alert-box-body"><p class="optanon-alert-box-title legacy-banner-title sr-only" id="alert-box-title" role="heading" aria-level="2">Cookie Notice</p><p class="banner-content" id="alert-box-message">We use cookies to enable an improved browsing experience, and to share information with our marketing partners. By continuing to access the website, you agree that we will store data in a cookie as outlined in our&nbsp;      <a href="https://www.monotype.com/legal/privacy-policy/" class="banner-policy-link" aria-label="Privacy Policy.">Privacy Policy.</a></p></div><div class="optanon-clearfix"></div><div class="optanon-alert-box-button-container"><div class="optanon-alert-box-button optanon-button-close"><div class="optanon-alert-box-button-middle"><button class="optanon-alert-box-close" aria-label="Close">Close</button></div></div><div class="optanon-alert-box-button optanon-button-allow"><div class="optanon-alert-box-button-middle accept-cookie-container"><button class="optanon-allow-all accept-cookies-button" title="Accept Cookies" aria-label="Accept Cookies" onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Banner Accept Cookies');" tabindex="2">Accept Cookies</button></div></div><div class="optanon-alert-box-button optanon-button-more"><div class="optanon-alert-box-button-middle"><button class="optanon-toggle-display cookie-settings-button" title="Cookie Settings" aria-label="Cookie Settings" onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Banner Open Preferences');" tabindex="1">Cookie Settings</button></div></div></div><div class="optanon-clearfix optanon-alert-box-bottom-padding"></div></div></div><div id="optanon" class="modern"><div id="optanon-popup-bg"></div><div id="optanon-popup-wrapper" role="dialog" aria-modal="true" tabindex="-1" lang="en-GB"><div id="optanon-popup-top"><button onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Preferences Close Button');" aria-label="Close" class="optanon-close-link optanon-close optanon-close-ui" title="Close"><div id="optanon-close" style="background: url(https://optanon.blob.core.windows.net/skins/6.30.0/default_flat_bottom_two_button_white/v2/images/optanon-pop-up-close.png);width:34px;height:34px;"></div></button></div><div id="optanon-popup-body"><div id="optanon-popup-body-left"><div id="optanon-popup-body-left-shading"></div><div id="optanon-branding-top-logo" style="background-image: url('https://optanon.blob.core.windows.net/logos/6260/6260:www.myfonts.com/MT_MyFonts_Logo_Blue_RGB_by-Monotype.png') !important;"></div><ul id="optanon-menu" aria-label="Navigation Menu" role="tablist"><li class="menu-item-on menu-item-about" title="Your Privacy" data-group="{&quot;GroupLanguagePropertiesSets&quot;:[{&quot;GroupName&quot;:{&quot;Text&quot;:&quot;Your Privacy&quot;},&quot;GroupDescription&quot;:{&quot;Text&quot;:&quot;When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information is mostly used to make the site work as you expect it to. The information does directly identify you but can provide a more personalized online experience.\n\nTo learn more about MyFonts privacy considerations and to modify settings you can click on the different category headings. However, blocking some types of cookies may impact your experience of the site and the services we are able to offer.&quot;}}]}"><p class="preference-menu-item"><button role="tab" aria-selected="true" aria-controls="Your-Privacy" id="Your-Privacy">Your Privacy</button></p></li><li class="menu-item-on menu-item-about" title="Your Privacy" data-group="{&quot;GroupLanguagePropertiesSets&quot;:[{&quot;GroupName&quot;:{&quot;Text&quot;:&quot;Your Privacy&quot;},&quot;GroupDescription&quot;:{&quot;Text&quot;:&quot;When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information is mostly used to make the site work as you expect it to. The information does directly identify you but can provide a more personalized online experience.\n\nTo learn more about MyFonts privacy considerations and to modify settings you can click on the different category headings. However, blocking some types of cookies may impact your experience of the site and the services we are able to offer.&quot;}}]}"><p class="preference-menu-item"><button role="tab" aria-selected="false" aria-controls="Your-Privacy" id="Your-Privacy">Your Privacy</button></p></li><li class="menu-item-necessary menu-item-on" title="Strictly Necessary Cookies" data-group="{&quot;ShowInPopup&quot;:true,&quot;Order&quot;:0,&quot;OptanonGroupId&quot;:1,&quot;Parent&quot;:null,&quot;GroupLanguagePropertiesSets&quot;:[{&quot;DefaultStatus&quot;:{&quot;Text&quot;:&quot;Always Active&quot;},&quot;GroupDescription&quot;:{&quot;Text&quot;:&quot;These cookies are necessary for the website to function and cannot be switched off. They are usually only set in response to requests for services, such as setting your privacy preferences, logging in or filling in forms.\n\nThese cookies do not store any personally identifiable information.&quot;},&quot;GroupName&quot;:{&quot;Text&quot;:&quot;Strictly Necessary Cookies&quot;},&quot;IsDntEnabled&quot;:false}],&quot;Cookies&quot;:[{&quot;Name&quot;:&quot;mf_favbust&quot;,&quot;Host&quot;:&quot;www.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:0},{&quot;Name&quot;:&quot;mf_new&quot;,&quot;Host&quot;:&quot;www.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:29},{&quot;Name&quot;:&quot;OptanonAlertBoxClosed&quot;,&quot;Host&quot;:&quot;www.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:365},{&quot;Name&quot;:&quot;__cfduid&quot;,&quot;Host&quot;:&quot;.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:1},{&quot;Name&quot;:&quot;OptanonConsent&quot;,&quot;Host&quot;:&quot;www.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:364},{&quot;Name&quot;:&quot;cookietest&quot;,&quot;Host&quot;:&quot;www.myfonts.com&quot;,&quot;IsSession&quot;:true,&quot;Length&quot;:0},{&quot;Name&quot;:&quot;wtfguru_lastvisit&quot;,&quot;Host&quot;:&quot;www.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:2915108},{&quot;Name&quot;:&quot;mfclienthost&quot;,&quot;Host&quot;:&quot;.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:336},{&quot;Name&quot;:&quot;mf_followbust&quot;,&quot;Host&quot;:&quot;foundry.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:0},{&quot;Name&quot;:&quot;recentlyViewedFamilyIds&quot;,&quot;Host&quot;:&quot;www.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:29},{&quot;Name&quot;:&quot;inside-us&quot;,&quot;Host&quot;:&quot;.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:999},{&quot;Name&quot;:&quot;mfcart_live&quot;,&quot;Host&quot;:&quot;.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:364},{&quot;Name&quot;:&quot;inside-c1&quot;,&quot;Host&quot;:&quot;www.myfonts.com&quot;,&quot;IsSession&quot;:true,&quot;Length&quot;:0},{&quot;Name&quot;:&quot;cookies.js&quot;,&quot;Host&quot;:&quot;www.myfonts.com&quot;,&quot;IsSession&quot;:true,&quot;Length&quot;:0},{&quot;Name&quot;:&quot;apisession&quot;,&quot;Host&quot;:&quot;www.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:0}],&quot;Purposes&quot;:[],&quot;CustomGroupId&quot;:null,&quot;GroupId&quot;:152955}" data-optanongroupid="1"><p class="preference-menu-item"><button role="tab" aria-selected="false" aria-controls="Strictly-Necessary-Cookies" id="Strictly-Necessary">Strictly Necessary Cookies</button></p></li><li class="menu-item-on menu-item-performance" title="Performance Cookies" data-group="{&quot;ShowInPopup&quot;:true,&quot;Order&quot;:1,&quot;OptanonGroupId&quot;:2,&quot;Parent&quot;:null,&quot;GroupLanguagePropertiesSets&quot;:[{&quot;DefaultStatus&quot;:{&quot;Text&quot;:&quot;Always Active&quot;},&quot;GroupDescription&quot;:{&quot;Text&quot;:&quot;These cookies allow us to monitor, measure and improve the performance of our site. All information these cookies collect is aggregated and therefore anonymous.&quot;},&quot;GroupName&quot;:{&quot;Text&quot;:&quot;Performance Cookies&quot;},&quot;IsDntEnabled&quot;:false}],&quot;Cookies&quot;:[{&quot;Name&quot;:&quot;_gaexp&quot;,&quot;Host&quot;:&quot;.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:75},{&quot;Name&quot;:&quot;_ga&quot;,&quot;Host&quot;:&quot;.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:729},{&quot;Name&quot;:&quot;_gat_UA-497472-4&quot;,&quot;Host&quot;:&quot;.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:0}],&quot;Purposes&quot;:[],&quot;CustomGroupId&quot;:null,&quot;GroupId&quot;:152951}" data-optanongroupid="2"><p class="preference-menu-item"><button role="tab" aria-selected="false" aria-controls="Performance-Cookies" id="Performance-Cookies">Performance Cookies</button></p></li><li class="menu-item-off menu-item-functional" title="Functional Cookies" data-group="{&quot;ShowInPopup&quot;:true,&quot;Order&quot;:2,&quot;OptanonGroupId&quot;:3,&quot;Parent&quot;:null,&quot;GroupLanguagePropertiesSets&quot;:[{&quot;DefaultStatus&quot;:{&quot;Text&quot;:&quot;Inactive&quot;},&quot;GroupDescription&quot;:{&quot;Text&quot;:&quot;These cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose services we have added to our pages.\r\n\r\nIf you do not allow these cookies then some or all of these services may not function properly.&quot;},&quot;GroupName&quot;:{&quot;Text&quot;:&quot;Functional Cookies&quot;},&quot;IsDntEnabled&quot;:false}],&quot;Cookies&quot;:[],&quot;Purposes&quot;:[],&quot;CustomGroupId&quot;:null,&quot;GroupId&quot;:152952}" data-optanongroupid="3"><p class="preference-menu-item"><button role="tab" aria-selected="false" aria-controls="Functional-Cookies" id="Functional-Cookies">Functional Cookies</button></p></li><li class="menu-item-on menu-item-advertising" title="Targeting Cookies" data-group="{&quot;ShowInPopup&quot;:true,&quot;Order&quot;:3,&quot;OptanonGroupId&quot;:4,&quot;Parent&quot;:null,&quot;GroupLanguagePropertiesSets&quot;:[{&quot;DefaultStatus&quot;:{&quot;Text&quot;:&quot;Active&quot;},&quot;GroupDescription&quot;:{&quot;Text&quot;:&quot;These cookies may be set through our site by advertising partners and are typically used to display relevant advertisements on other sites (including social media sites).\n\nTargeting cookies do not store directly personal information, but are based on uniquely identifying your browser and internet device. If you do not allow these cookies, you will experience less targeted advertising.&quot;},&quot;GroupName&quot;:{&quot;Text&quot;:&quot;Targeting Cookies&quot;},&quot;IsDntEnabled&quot;:false}],&quot;Cookies&quot;:[{&quot;Name&quot;:&quot;_gid&quot;,&quot;Host&quot;:&quot;.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:0},{&quot;Name&quot;:&quot;__ar_v4&quot;,&quot;Host&quot;:&quot;.www.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:364},{&quot;Name&quot;:&quot;_te_&quot;,&quot;Host&quot;:&quot;.www.myfonts.com&quot;,&quot;IsSession&quot;:true,&quot;Length&quot;:0},{&quot;Name&quot;:&quot;GoogleAdServingTest&quot;,&quot;Host&quot;:&quot;www.myfonts.com&quot;,&quot;IsSession&quot;:true,&quot;Length&quot;:0},{&quot;Name&quot;:&quot;_hp2_id.##########&quot;,&quot;Host&quot;:&quot;.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:701},{&quot;Name&quot;:&quot;_hp2_ses_props.##########&quot;,&quot;Host&quot;:&quot;.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:0},{&quot;Name&quot;:&quot;__gads&quot;,&quot;Host&quot;:&quot;.myfonts.com&quot;,&quot;IsSession&quot;:false,&quot;Length&quot;:729}],&quot;Purposes&quot;:[],&quot;CustomGroupId&quot;:null,&quot;GroupId&quot;:152953}" data-optanongroupid="4"><p class="preference-menu-item"><button role="tab" aria-selected="false" aria-controls="Targeting-Cookies" id="Targeting-Cookies">Targeting Cookies</button></p></li><li class="menu-item-moreinfo menu-item-off" title="More Information"><p class="preference-menu-item"><a target="_blank" aria-label="More Information" href="https://www.monotype.com/legal/privacy-policy/" onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Preferences Cookie Policy');">More Information</a></p></li></ul></div><div><div id="optanon-popup-body-right"><p role="heading" aria-level="2" class="legacy-preference-banner-title h2" aria-label="Privacy Preference Center">Privacy Preference Center</p><div class="vendor-header-container"><p class="header-3" role="heading" aria-level="3"></p><div id="optanon-popup-more-info-bar"><div class="optanon-status"><div class="optanon-status-editable"><form><span class="fieldset"><p><input type="checkbox" value="check" id="chkMain" checked="checked" class="legacy-group-status optanon-status-checkbox"><label for="chkMain">Active</label></p></span></form></div><div class="optanon-status-always-active optanon-status-on"><p>Always Active</p></div></div></div></div><div class="optanon-main-info-text" role="tabpanel"></div></div></div><div class="optanon-bottom-spacer"></div></div><div id="optanon-popup-bottom"> <a href="https://onetrust.com/poweredbyonetrust" target="_blank" rel="noopener"><div id="optanon-popup-bottom-logo" alt="OneTrust Website" style="background: url(https://optanon.blob.core.windows.net/skins/6.30.0/default_flat_bottom_two_button_white/v2/images/cookie-collective-top-bottom.png);width:155px;height:35px;" title="powered by OneTrust"></div></a><div class="optanon-button-wrapper optanon-save-settings-button optanon-close optanon-close-consent"><div class="optanon-white-button-left"></div><div class="optanon-white-button-middle"><button title="Save Settings" aria-label="Save Settings" onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Preferences Save Settings');">Save Settings</button></div><div class="optanon-white-button-right"></div></div><div class="optanon-button-wrapper optanon-allow-all-button optanon-allow-all" style="display: block;"><div class="optanon-white-button-left"></div><div class="optanon-white-button-middle"><button title="Allow All" aria-label="Allow All" onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Preferences Allow All');">Allow All</button></div><div class="optanon-white-button-right"></div></div></div></div></div>
+    <div class="banner-container">
+        <tophat-banner class="hydrated"><mt-banner class="hydrated"></mt-banner></tophat-banner>
+    </div>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5628STD"height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a name="top_of_page"></a>
+
+<div id="myfontsContainer" class="newHeaderFooter includesCategories transition-fade transition-transform fluid ">
+        <nav id="mobileNavMenu" style="display:none;">
+    <a href="/hotnewfonts/">Hot New Fonts</a>
+    <a href="/bestsellers/">Best Sellers</a>
+    <a href="/whatsnew/">What’s New</a>
+    <a href="/specials/">Special Offers</a>
+    <a href="/bundles/">Bundles</a>
+    <a href="/WhatTheFont/">WhatTheFont</a>
+    <span onclick="event.stopPropagation()">Learn</span>
+    <div class="mobileNavSubmenu">
+        <a href="/content/enterprise-solutions">Enterprise Solutions</a>
+        <a href="/content/creative-matters">Creative Matters</a>
+        <a href="/content/whats-your-font-style-quiz">What’s Your Font Style? Quiz</a>
+        <a href="/content/font-field-guide">Font Field Guide</a>
+    </div>
+    <a href="/premium-font-collections">Premium Collections</a>
+</nav>
+
+    <div class="headerWrapper">
+        <header id="myfontsHeader" class="robots-nocontent clearfix">
+            <nav id="headerNavMobile">
+                <button class="icon bhvr_header_4"></button>
+            </nav>
+            <div id="headerContainer">
+                <div id="headerCart"><a href="/cart/" class="opener">    <i id="cartImage"></i>
+    <span id="cartText">0 items, $0.00</span></a></div>
+
+                <div id="headerLogin" class="bhvr_header_5">
+                    <a id="headerLoginLink" href="https://www.myfonts.com/secure/login/" class="bhvr_header_2">
+                    <span id="headerLoginUsername">Sign in</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <!-- if user is subscribed to MLS -->
+                    <!-- TODO: remove hide class in a.mls-nav if the logged in user has subscription-->
+                        <a class="mls-nav hide" href="/browse/mls/" title="Browse the Monotype Library Subscription">Browse the Monotype Library Subscription</a>
+                    <!-- /if -->
+                    <iframe class="dropdownLoginFrame" scrolling="no" src="//www.myfonts.com/widgets/dropdown_login/dropdown_login.php?https=1" style="display:none;" frameborder="0"></iframe>
+                                        <nav id="userMenu" style="display:none;">
+                        <a href="/my/orders/" data-qe-id="orders">Order history &amp; downloads</a>
+                        <a href="/my/orders/kitbuild.html" data-qe-id="webfontKitBuilder">Webfont kit builder</a>
+                        <a href="/my/quotes/" data-qe-id="quotes">Price quotes</a>
+                        <a href="/my/settings/" data-qe-id="settings">Account settings</a>
+                        <a href="/my/renewals/" data-qe-id="subscriptions">Subscriptions</a>
+                        <a href="/my/albums/" data-qe-id="albums">Albums</a>
+                        <a href="/my/favorites/" data-qe-id="favorites" class="userMenu__item--desktopHidden">Favorites</a>
+                        <a href="/my/tags/" data-qe-id="tags">Tags</a>
+                        <a href="/my/wtf/" data-qe-id="wtf">WhatTheFont forum posts</a>
+                                                                                                <a href="https://www.myfonts.com/secure/logout/" id="signOut">Sign out</a>
+                    </nav>
+
+                    <a href="/my/favorites/" class="favorites hidden"></a>
+                </div>
+            </div>
+
+            <div id="headerLogotypeNew">
+                <a href="/">
+                    <img id="headerLogotypeNew__desktopLogo" src="https://www.myfonts.com/s/images/logo/MyFonts_Logo_C_RGB_by_Monotype.svg" alt="Myfonts">
+                    <img id="headerLogotypeNew__mobileLogo" src="https://www.myfonts.com/s/images/logo/header_logo.svg" alt="Myfonts">
+                </a>
+            </div>
+
+            <div class="searchBarWidget searchBoxComponent">
+	<form id="searchBarWidgetForm" method="get" action="/search" onsubmit="return handleSubmit(this);">
+		<div class="searchBarWidget_filter filter"><span class="selected">All fonts</span>
+<div class="arrow-down"></div>
+<ul class="items hidden">
+	<li data-filter="all" class="all hidden">All fonts</li>
+	<li data-filter="free" class="free">Free fonts</li>
+	<li data-filter="webfonts" class="webfonts">Webfonts</li>
+	<li data-filter="mls" class="mls">Subscription</li>
+</ul></div>
+		<div class="searchBarWidget__query query">
+			<input name="q" size="15" placeholder="Search over 130,000 fonts…and counting!" type="text" autocomplete="off">
+			<ul class="auto_complete_results hidden"></ul>
+		</div>
+		<button type="submit" id="searchButton" class="searchBarWidget__searchButton">
+			<span class="-search">Search</span>
+			<span class="-searchMobile">GO</span>
+		</button>
+	</form>
+</div>
+
+            <div class="mfEnterpriseSection">
+	<a class="mfEnterpriseSection_Text" href="/content/enterprise-solutions">
+		For Enterprise
+		<span class="mfEnterpriseSection_Arrow">
+			<svg class="mfEnterpriseSection_SVG" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M1 6L14 6" stroke="#208DF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+			<path d="M9 1L14 6L9 11" stroke="#208DF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+			</svg>
+		</span>
+	</a>
+</div>
+
+            <nav id="headerNavMobileHomepage">
+                <a class="signIn" href="https://www.myfonts.com/secure/login/">
+                    <button>
+                                                    Sign in
+                                            </button>
+                </a>
+            </nav>
+        </header>
+        <nav class="navigationBar">
+    <div class="navigationBar__linkWrapper">
+        <a class="navigationBar__link" href="/hotnewfonts/">Hot New Fonts</a>
+        <a class="navigationBar__link" href="/bestsellers/">Best Sellers</a>
+        <a class="navigationBar__link" href="/whatsnew/">What's New</a>
+        <a class="navigationBar__link" href="/specials/">Special Offers</a>
+        <a class="navigationBar__link" href="/bundles/">Bundles</a>
+        <div class="navigationBar__menu">
+            <a class="navigationBar__link navigationBar__link--toggle" href="/WhatTheFont/" id="WhatTheFont">WhatTheFont</a>
+            <nav class="navigationBar__submenu navigationBar__wtf_menu" id="WhatTheFontSubMenu">
+                <div class="navigationBar__submenu__linkWrapper">
+                    <a class="navigationBar__link" href="/WhatTheFont/">WhatTheFont</a>
+                    <a class="navigationBar__link" href="/WhatTheFont/forum/">WhatTheFont Forum</a>
+                    <a class="navigationBar__link" href="/WhatTheFont/mobile/">WhatTheFont Mobile</a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="navigationBar__menu">
+            <a class="navigationBar__link navigationBar__link--toggle" href="#" id="Learn">Learn</a>
+            <nav class="navigationBar__submenu navigationBar__learn_menu" id="LearnSubMenu">
+                <div class="navigationBar__submenu__linkWrapper">
+                    <a class="navigationBar__link" href="/content/enterprise-solutions">Enterprise Solutions</a>
+                    <a class="navigationBar__link" href="/content/creative-matters">Creative Matters</a>
+                    <a class="navigationBar__link" href="/content/whats-your-font-style-quiz">What’s Your Font Style? Quiz</a>
+                    <a class="navigationBar__link" href="/content/font-field-guide">Font Field Guide</a>
+                </div>
+            </nav>
+        </div>
+        <a class="navigationBar__link" href="/premium-font-collections">Premium Collections</a>
+    </div>
+</nav>
+
+<script type="text/javascript">
+    (function() {
+        var src = getRequireUrl("/modules/ui/navigation_bar/main-1647848975954");
+        document.write("\x3Cscript type='text/javascript' src='" + src + "'>\x3C/script>");
+    })();
+</script><script type="text/javascript" src="/s/js/built/modules/ui/navigation_bar/main-1647848975954.js"></script>
+
+                    <div class="headerWrapper__categoriesWrapper">
+                <div class="headerWrapper__categoriesWrapper__container">
+                    <div class="homepageFontCategoriesWidget">
+	<div class="homepageFontCategoriesWidget__text">
+		<span class="homepageFontCategoriesWidget__textTitle">Browse Fonts </span>
+		<span>by category</span>
+	</div>
+	<div class="homepageFontCategoriesWidget__category">
+		<div class="homepageFontCategoriesWidget__category__first">
+			<div class="homepageFontCategoriesWidget__category__card">
+				<a href="/sans-serif-fonts">
+					<img src="https://cdn.myfonts.net/s/images/categories/futura-next.png" class="homepageFontCategoriesWidget__category__cardImage homepageFontCategoriesWidget__category__cardImage--category1" alt="Set in Futura Next by Neufville" title="Set in Futura Next by Neufville">
+				</a>
+			</div>
+			<div class="homepageFontCategoriesWidget__category__card">
+				<a href="/slab-serif-fonts">
+					<img src="https://cdn.myfonts.net/s/images/categories/queulat-condensed.png" class="homepageFontCategoriesWidget__category__cardImage homepageFontCategoriesWidget__category__cardImage--category2" alt="Set in Queulat Condensed by Latinotype" title="Set in Queulat Condensed by Latinotype">
+				</a>
+			</div>
+			<div class="homepageFontCategoriesWidget__category__card">
+				<a href="/serif-fonts">
+					<img src="https://cdn.myfonts.net/s/images/categories/baskerville-display-pt.png" class="homepageFontCategoriesWidget__category__cardImage homepageFontCategoriesWidget__category__cardImage--category3" alt="Set in Baskerville Display PT by ParaType" title="Set in Baskerville Display PT by ParaType">
+				</a>
+			</div>
+		</div>
+		<div class="homepageFontCategoriesWidget__category__second">
+			<div class="homepageFontCategoriesWidget__category__card">
+				<a href="/display-fonts">
+					<img src="https://cdn.myfonts.net/s/images/categories/display.png" class="homepageFontCategoriesWidget__category__cardImage homepageFontCategoriesWidget__category__cardImage--category4" alt="Set in Frontage Condensed by Juri Zaech" title="Set in Frontage Condensed by Juri Zaech">
+				</a>
+			</div>
+			<div class="homepageFontCategoriesWidget__category__card">
+				<a href="/handwritten-fonts">
+					<img src="https://cdn.myfonts.net/s/images/categories/reliable.png" class="homepageFontCategoriesWidget__category__cardImage homepageFontCategoriesWidget__category__cardImage--category5" alt="Set in Reliable by PizzaDude.dk" title="Set in Reliable by PizzaDude.dk">
+				</a>
+			</div>
+			<div class="homepageFontCategoriesWidget__category__card">
+				<a href="/script-fonts">
+					<img src="https://cdn.myfonts.net/s/images/categories/kaleidos-rough.png" class="homepageFontCategoriesWidget__category__cardImage homepageFontCategoriesWidget__category__cardImage--category6" alt="Set in Kaleidos Rough by Mika Melvas" title="Set in Kaleidos Rough by Mika Melvas">
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+                </div>
+            </div>
+            </div>
+
+
+<div id="myfontsBody" class="clearfix">
+
+
+<script type="text/javascript">Behaviour.apply('header');</script>
+<div class="homepage">
+    <div class="homepage__mainBlock">
+                    <div class="homepage__mainBlock__valuePropositionWrapper">
+                <div class="homepage__container">
+                    <div class="homepage__mainBlock__valuePropositionWrapper__title">
+                        <h1>MyFonts offers the largest selection of professional fonts for any project.</h1>
+                    </div>
+                    <div class="homepage__mainBlock__valuePropositionWrapper__subtitle">
+                        <h2>Over 130,000 available fonts, and counting.</h2>
+                    </div>
+                </div>
+            </div>
+                <div class="homepage__mainBlock__carouselWrapper">
+            <script>
+	var homepageFontCardsData = {"currencyFormat":{"currency_symbol":"$","thousand":",","decimal":".","precedes":"1","space":"0","rounding":false},"cards":[{"cardType":"font","cardReasonType":"newFont","cardReason":["2022-02-28 11:14:21"],"foundry":{"foundryID":4516,"foundryName":"ArimaType","foundryURL":"\/foundry\/arimatype\/"},"imageMain":"https:\/\/cdn.myfonts.net\/cdn-cgi\/image\/width=960,height=480,fit=contain,format=auto\/images\/pim\/10000\/HcNpgci1tb3g5F6hzsORaYOM_ec610c91ea22cdcfb19b1c3c784d0e7c.png","fontData":{"familyID":221788,"familyName":"Monema","familyURL":"\/fonts\/arimatype\/monema\/","styleCount":14,"minPrice":"18.00","maxPrice":"30.00","minSalePrice":"18.00","maxSalePrice":"30.00"}},{"cardType":"fontBundle","cardReasonType":"fontBundle","cardReason":["Bundle"],"imageMain":"https:\/\/cdn.myfonts.net\/s\/aw\/960x480\/658\/1\/336932.png","bundleName":"Monotype Fresh Bundle","bundle":{"bundleID":680209,"bundleName":"Monotype Fresh Bundle","bundleURL":"\/package\/680209\/","price":199,"styleCount":50,"minPrice":"29.00","maxPrice":"69.00","minSalePrice":"29.00","maxSalePrice":"69.00","displayFoundry":null},"foundry":{"foundryID":2,"foundryName":"Monotype","foundryURL":"\/foundry\/Monotype_Imaging\/"}},{"cardType":"font","cardReasonType":"select","cardReason":["Expert's Choice"],"foundry":{"foundryID":2086,"foundryName":"Seniors Studio","foundryURL":"\/foundry\/Seniors_Studio\/"},"imageMain":"https:\/\/cdn.myfonts.net\/cdn-cgi\/image\/width=960,height=480,fit=contain,format=auto\/images\/pim\/10000\/361196_95086e0071c07a43af7e1a17a9ef3a15.png","fontData":{"familyID":208864,"familyName":"Be Bright","familyURL":"\/fonts\/seniors-studio\/be-bright\/","styleCount":2,"minPrice":"2.00","maxPrice":"13.00","minSalePrice":"2.00","maxSalePrice":"13.00"}},{"cardType":"font","cardReasonType":"newFont","cardReason":["2022-02-28 11:14:21"],"foundry":{"foundryID":4630,"foundryName":"Illuminaut Designs","foundryURL":"\/foundry\/illuminaut-designs\/"},"imageMain":"https:\/\/cdn.myfonts.net\/cdn-cgi\/image\/width=960,height=480,fit=contain,format=auto\/images\/pim\/10000\/KO6Q9hdVd2vImhbIq9tNZP7i_6aeea595acf177497ffc8abbbca9cacd.png","fontData":{"familyID":221800,"familyName":"Cubenzis","familyURL":"\/fonts\/illuminaut-designs\/cubenzis\/","styleCount":3,"minPrice":"12.00","maxPrice":"30.00","minSalePrice":"12.00","maxSalePrice":"30.00"}},{"cardType":"fontBundle","cardReasonType":"fontBundle","cardReason":["Bundle"],"imageMain":"https:\/\/cdn.myfonts.net\/s\/aw\/960x480\/548\/1\/280990.png","bundleName":"Adam Ladd's Hand Drawn Display Bundle","bundle":{"bundleID":649839,"bundleName":"Adam Ladd's Hand Drawn Display Bundle","bundleURL":"\/package\/649839\/","price":49,"styleCount":32,"minPrice":"0.00","maxPrice":"23.00","minSalePrice":"0.00","maxSalePrice":"23.00","displayFoundry":null},"foundry":{"foundryID":1274,"foundryName":"Adam Ladd","foundryURL":"\/foundry\/Adam_Ladd\/"}},{"cardType":"font","cardReasonType":"select","cardReason":["Expert's Choice"],"foundry":{"foundryID":366,"foundryName":"Sudtipos","foundryURL":"\/foundry\/Sudtipos\/"},"imageMain":"https:\/\/cdn.myfonts.net\/cdn-cgi\/image\/width=960,height=480,fit=contain,format=auto\/images\/pim\/10000\/286461_94bf6e720b835682991a0acfec19db31.png","fontData":{"familyID":199306,"familyName":"Wild Bloom","familyURL":"\/fonts\/sudtipos\/wild-bloom\/","styleCount":2,"minPrice":"39.00","maxPrice":"39.00","minSalePrice":"39.00","maxSalePrice":"39.00"}},{"cardType":"font","cardReasonType":"newFont","cardReason":["2022-02-28 11:14:21"],"foundry":{"foundryID":2756,"foundryName":"Letteralle","foundryURL":"\/foundry\/letteralle\/"},"imageMain":"https:\/\/cdn.myfonts.net\/cdn-cgi\/image\/width=960,height=480,fit=contain,format=auto\/images\/pim\/10000\/bfVndkDhApYz5IT0rHJF4hf4_6f826e24969239520646bc06dd906261.png","fontData":{"familyID":221777,"familyName":"Avegra","familyURL":"\/fonts\/letteralle\/avegra\/","styleCount":1,"minPrice":"24.00","maxPrice":"24.00","minSalePrice":"24.00","maxSalePrice":"24.00"}},{"cardType":"fontBundle","cardReasonType":"fontBundle","cardReason":["Bundle"],"imageMain":"https:\/\/cdn.myfonts.net\/s\/aw\/960x480\/671\/1\/343958.png","bundleName":"VVDS Sunshine Collection","bundle":{"bundleID":697367,"bundleName":"VVDS Sunshine Collection","bundleURL":"\/package\/697367\/","price":49,"styleCount":105,"minPrice":"7.00","maxPrice":"15.00","minSalePrice":"7.00","maxSalePrice":"15.00","displayFoundry":null},"foundry":{"foundryID":2340,"foundryName":"Vintage Voyage Design Supply","foundryURL":"\/foundry\/vintage-voyage-design-supply\/"}},{"cardType":"font","cardReasonType":"select","cardReason":["Expert's Choice"],"foundry":{"foundryID":496,"foundryName":"BrassFonts","foundryURL":"\/foundry\/Brass_Fonts\/"},"imageMain":"https:\/\/cdn.myfonts.net\/cdn-cgi\/image\/width=960,height=480,fit=contain,format=auto\/images\/pim\/10000\/doVOfx5IPs0Is3Dl7UCOGIOD_f7b813dfd984d33f2d61ee6b95d45684.png","fontData":{"familyID":220037,"familyName":"BF Garant","familyURL":"\/fonts\/brassfonts\/bf-garant\/","styleCount":20,"minPrice":"24.99","maxPrice":"24.99","minSalePrice":"24.99","maxSalePrice":"24.99"}}],"mobileCards":[{"cardType":"font","cardReasonType":"newFont","cardReason":["2022-02-28 11:14:21"],"foundry":{"foundryID":4516,"foundryName":"ArimaType","foundryURL":"\/foundry\/arimatype\/"},"imageMain":"https:\/\/cdn.myfonts.net\/cdn-cgi\/image\/width=960,height=480,fit=contain,format=auto\/images\/pim\/10000\/HcNpgci1tb3g5F6hzsORaYOM_ec610c91ea22cdcfb19b1c3c784d0e7c.png","fontData":{"familyID":221788,"familyName":"Monema","familyURL":"\/fonts\/arimatype\/monema\/","styleCount":14,"minPrice":"18.00","maxPrice":"30.00","minSalePrice":"18.00","maxSalePrice":"30.00"}},{"cardType":"fontBundle","cardReasonType":"fontBundle","cardReason":["Bundle"],"imageMain":"https:\/\/cdn.myfonts.net\/s\/aw\/960x480\/658\/1\/336932.png","bundleName":"Monotype Fresh Bundle","bundle":{"bundleID":680209,"bundleName":"Monotype Fresh Bundle","bundleURL":"\/package\/680209\/","price":199,"styleCount":50,"minPrice":"29.00","maxPrice":"69.00","minSalePrice":"29.00","maxSalePrice":"69.00","displayFoundry":null},"foundry":{"foundryID":2,"foundryName":"Monotype","foundryURL":"\/foundry\/Monotype_Imaging\/"}},{"cardType":"font","cardReasonType":"select","cardReason":["Expert's Choice"],"foundry":{"foundryID":2086,"foundryName":"Seniors Studio","foundryURL":"\/foundry\/Seniors_Studio\/"},"imageMain":"https:\/\/cdn.myfonts.net\/cdn-cgi\/image\/width=960,height=480,fit=contain,format=auto\/images\/pim\/10000\/361196_95086e0071c07a43af7e1a17a9ef3a15.png","fontData":{"familyID":208864,"familyName":"Be Bright","familyURL":"\/fonts\/seniors-studio\/be-bright\/","styleCount":2,"minPrice":"2.00","maxPrice":"13.00","minSalePrice":"2.00","maxSalePrice":"13.00"}}]};
+</script>
+
+<!-- Reference client-side album modules so its' js/css get included -->
+
+
+<div class="homepageCarousel">
+	<div class="homepageCarousel__mobile fontCardsMobileContainer">
+	<div class="fontCard font newFont" data-fontid="221788">
+    <div class="fcUpper clearfix">
+
+        
+        <div class="fcUpperTop">
+            <div class="fcTitle">
+                
+                    <a href="/fonts/arimatype/monema/" class="fcFontName">Monema</a> by 
+                    <a href="/foundry/arimatype/" class="fcFoundryName">ArimaType</a>
+                
+            </div>
+
+            <div class="fcButtonWrapper">
+                <ul class="fcUpperBtns clearfix">
+                    
+                        <li class="fontOnly add-to-album"><div class="album_dropdown float_right"><button class="add_to_album_toggle_client only"><span class="label">Album</span> ▼</button>
+<div class="add_to_album_dropdown_client only">
+<div class="unauthenticated"><h3>Albums</h3>
+<button class="add_to_album_auth">Add to album</button></div></div>
+</div></li>
+                        <li class="fontOnly favorite-root"><div><a href="#" class="favorite fcbtn" title="Add to Favorites" alt="Add to Favorites"></a>
+</div></li>
+                    
+                    <li class="foundryOnly follow-root clearfix"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fcUpperBot">
+          <div class="fcReason1">
+            <span>Released this month</span>
+            <span class="fcHnfRank"></span>
+            
+              <span class="fcReason2"></span>
+            
+          </div>
+          
+            <div class="fcPriceInfo">
+                
+                  
+                    <span>14 fonts</span> starting at
+                  
+                  <strong><span>
+                    
+                      $18.00
+                    
+                  </span></strong>
+              
+                
+            </div>
+          
+        </div>
+
+        <!--<div class="floaty fcUpperLeft">
+
+        </div>
+        <div class="floaty fcUpperRight">
+
+        </div>-->
+    </div>
+    <div class="fcLower clearfix">
+        
+        <div class="fcLowerImage">
+            
+            <a href="/fonts/arimatype/monema/">
+                
+                    <img data-original="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/HcNpgci1tb3g5F6hzsORaYOM_ec610c91ea22cdcfb19b1c3c784d0e7c.png" src="" class="lazy" alt="Monema by ArimaType" title="Monema by ArimaType">
+                
+            </a>
+            
+        </div>
+        
+        
+
+
+
+    </div>
+    </div><div class="fontCard fontBundle fontBundle">
+    <div class="fcUpper clearfix">
+
+        
+        <div class="fcUpperTop">
+            <div class="fcTitle">
+                
+                    <a href="/package/680209/" class="fcFontName">Monotype Fresh Bundle</a> by 
+                    <a href="/foundry/Monotype_Imaging/" class="fcFoundryName">Monotype</a>
+                
+            </div>
+
+            <div class="fcButtonWrapper">
+                <ul class="fcUpperBtns clearfix">
+                    
+                    <li class="foundryOnly follow-root clearfix"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fcUpperBot">
+          <div class="fcReason1">
+            <span>Bundle</span>
+            <span class="fcHnfRank"></span>
+            
+          </div>
+          
+            <div class="fcPriceInfo">
+                
+                  
+                    <span>50 fonts</span> for
+                  
+                  <strong><span>
+                    
+                      $199.00
+                    
+                  </span></strong>
+              
+                
+            </div>
+          
+        </div>
+
+        <!--<div class="floaty fcUpperLeft">
+
+        </div>
+        <div class="floaty fcUpperRight">
+
+        </div>-->
+    </div>
+    <div class="fcLower clearfix">
+        
+        <div class="fcLowerImage">
+            
+            <a href="/package/680209/">
+                
+                    <img data-original="https://cdn.myfonts.net/s/aw/960x480/658/1/336932.png" src="" class="lazy" alt="Monotype Fresh Bundle" title="Monotype Fresh Bundle">
+                
+            </a>
+            
+        </div>
+        
+        
+
+
+
+    </div>
+    </div><div class="fontCard font select" data-fontid="208864">
+    <div class="fcUpper clearfix">
+
+        
+        <div class="fcUpperTop">
+            <div class="fcTitle">
+                
+                    <a href="/fonts/seniors-studio/be-bright/" class="fcFontName">Be Bright</a> by 
+                    <a href="/foundry/Seniors_Studio/" class="fcFoundryName">Seniors Studio</a>
+                
+            </div>
+
+            <div class="fcButtonWrapper">
+                <ul class="fcUpperBtns clearfix">
+                    
+                        <li class="fontOnly add-to-album"><div class="album_dropdown float_right"><button class="add_to_album_toggle_client only"><span class="label">Album</span> ▼</button>
+<div class="add_to_album_dropdown_client only">
+<div class="unauthenticated"><h3>Albums</h3>
+<button class="add_to_album_auth">Add to album</button></div></div>
+</div></li>
+                        <li class="fontOnly favorite-root"><div><a href="#" class="favorite fcbtn" title="Add to Favorites" alt="Add to Favorites"></a>
+</div></li>
+                    
+                    <li class="foundryOnly follow-root clearfix"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fcUpperBot">
+          <div class="fcReason1">
+            <span>Expert's Choice</span>
+            <span class="fcHnfRank"></span>
+            
+              <span class="fcReason2"></span>
+            
+          </div>
+          
+            <div class="fcPriceInfo">
+                
+                  
+                    <span>2 fonts</span> starting at
+                  
+                  <strong><span>
+                    
+                      $2.00
+                    
+                  </span></strong>
+              
+                
+            </div>
+          
+        </div>
+
+        <!--<div class="floaty fcUpperLeft">
+
+        </div>
+        <div class="floaty fcUpperRight">
+
+        </div>-->
+    </div>
+    <div class="fcLower clearfix">
+        
+        <div class="fcLowerImage">
+            
+            <a href="/fonts/seniors-studio/be-bright/">
+                
+                    <img data-original="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/361196_95086e0071c07a43af7e1a17a9ef3a15.png" src="" class="lazy" alt="Be Bright by Seniors Studio" title="Be Bright by Seniors Studio">
+                
+            </a>
+            
+        </div>
+        
+        
+
+
+
+    </div>
+    </div></div>
+	<div class="homepageCarousel__desktop">
+		<div class="homepageCarousel__desktop__angleLeft">
+			<svg class="homepageCarousel__desktop__svgLeft" viewBox="0 0 50 80" xml:space="preserve">
+				<polyline fill="none" stroke="#000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" points="
+					45.63,75.8 0.375,38.087 45.63,0.375 "></polyline>
+			</svg>
+		</div>
+		<div class="homepageCarousel__desktop__angleRight">
+			<svg class="homepageCarousel__desktop__svgRight" viewBox="0 0 50 80" xml:space="preserve">
+				<polyline fill="none" stroke="#000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" points="
+					0.375,0.375 45.63,38.087 0.375,75.8 "></polyline>
+			</svg>
+		</div>
+		<div class="homepageCarousel__desktop__owlContainer fontCardsContainer owl-carousel owl-theme" style="opacity: 1; display: block;">
+		<div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 7596px; left: 0px; display: block; transition: all 0ms ease 0s; transform: translate3d(0px, 0px, 0px);"><div class="owl-item" style="width: 422px;"><div class="fontCard font newFont" data-fontid="221788">
+    <div class="fcUpper clearfix">
+
+        
+        <div class="fcUpperTop">
+            <div class="fcTitle">
+                
+                    <a href="/fonts/arimatype/monema/" class="fcFontName">Monema</a> by 
+                    <a href="/foundry/arimatype/" class="fcFoundryName">ArimaType</a>
+                
+            </div>
+
+            <div class="fcButtonWrapper">
+                <ul class="fcUpperBtns clearfix">
+                    
+                        <li class="fontOnly add-to-album"><div class="album_dropdown float_right"><button class="add_to_album_toggle_client only"><span class="label">Album</span> ▼</button>
+<div class="add_to_album_dropdown_client only">
+<div class="unauthenticated"><h3>Albums</h3>
+<button class="add_to_album_auth">Add to album</button></div></div>
+</div></li>
+                        <li class="fontOnly favorite-root"><div><a href="#" class="favorite fcbtn" title="Add to Favorites" alt="Add to Favorites"></a>
+</div></li>
+                    
+                    <li class="foundryOnly follow-root clearfix"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fcUpperBot">
+          <div class="fcReason1">
+            <span>Released this month</span>
+            <span class="fcHnfRank"></span>
+            
+              <span class="fcReason2"></span>
+            
+          </div>
+          
+            <div class="fcPriceInfo">
+                
+                  
+                    <span>14 fonts</span> starting at
+                  
+                  <strong><span>
+                    
+                      $18.00
+                    
+                  </span></strong>
+              
+                
+            </div>
+          
+        </div>
+
+        <!--<div class="floaty fcUpperLeft">
+
+        </div>
+        <div class="floaty fcUpperRight">
+
+        </div>-->
+    </div>
+    <div class="fcLower clearfix">
+        
+        <div class="fcLowerImage">
+            
+            <a href="/fonts/arimatype/monema/">
+                
+                    <img data-original="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/HcNpgci1tb3g5F6hzsORaYOM_ec610c91ea22cdcfb19b1c3c784d0e7c.png" src="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/HcNpgci1tb3g5F6hzsORaYOM_ec610c91ea22cdcfb19b1c3c784d0e7c.png" class="lazy" alt="Monema by ArimaType" title="Monema by ArimaType">
+                
+            </a>
+            
+        </div>
+        
+        
+
+
+
+    </div>
+    </div></div><div class="owl-item" style="width: 422px;"><div class="fontCard fontBundle fontBundle">
+    <div class="fcUpper clearfix">
+
+        
+        <div class="fcUpperTop">
+            <div class="fcTitle">
+                
+                    <a href="/package/680209/" class="fcFontName">Monotype Fresh Bundle</a> by 
+                    <a href="/foundry/Monotype_Imaging/" class="fcFoundryName">Monotype</a>
+                
+            </div>
+
+            <div class="fcButtonWrapper">
+                <ul class="fcUpperBtns clearfix">
+                    
+                    <li class="foundryOnly follow-root clearfix"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fcUpperBot">
+          <div class="fcReason1">
+            <span>Bundle</span>
+            <span class="fcHnfRank"></span>
+            
+          </div>
+          
+            <div class="fcPriceInfo">
+                
+                  
+                    <span>50 fonts</span> for
+                  
+                  <strong><span>
+                    
+                      $199.00
+                    
+                  </span></strong>
+              
+                
+            </div>
+          
+        </div>
+
+        <!--<div class="floaty fcUpperLeft">
+
+        </div>
+        <div class="floaty fcUpperRight">
+
+        </div>-->
+    </div>
+    <div class="fcLower clearfix">
+        
+        <div class="fcLowerImage">
+            
+            <a href="/package/680209/">
+                
+                    <img data-original="https://cdn.myfonts.net/s/aw/960x480/658/1/336932.png" src="https://cdn.myfonts.net/s/aw/960x480/658/1/336932.png" class="lazy" alt="Monotype Fresh Bundle" title="Monotype Fresh Bundle">
+                
+            </a>
+            
+        </div>
+        
+        
+
+
+
+    </div>
+    </div></div><div class="owl-item" style="width: 422px;"><div class="fontCard font select" data-fontid="208864">
+    <div class="fcUpper clearfix">
+
+        
+        <div class="fcUpperTop">
+            <div class="fcTitle">
+                
+                    <a href="/fonts/seniors-studio/be-bright/" class="fcFontName">Be Bright</a> by 
+                    <a href="/foundry/Seniors_Studio/" class="fcFoundryName">Seniors Studio</a>
+                
+            </div>
+
+            <div class="fcButtonWrapper">
+                <ul class="fcUpperBtns clearfix">
+                    
+                        <li class="fontOnly add-to-album"><div class="album_dropdown float_right"><button class="add_to_album_toggle_client only"><span class="label">Album</span> ▼</button>
+<div class="add_to_album_dropdown_client only">
+<div class="unauthenticated"><h3>Albums</h3>
+<button class="add_to_album_auth">Add to album</button></div></div>
+</div></li>
+                        <li class="fontOnly favorite-root"><div><a href="#" class="favorite fcbtn" title="Add to Favorites" alt="Add to Favorites"></a>
+</div></li>
+                    
+                    <li class="foundryOnly follow-root clearfix"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fcUpperBot">
+          <div class="fcReason1">
+            <span>Expert's Choice</span>
+            <span class="fcHnfRank"></span>
+            
+              <span class="fcReason2"></span>
+            
+          </div>
+          
+            <div class="fcPriceInfo">
+                
+                  
+                    <span>2 fonts</span> starting at
+                  
+                  <strong><span>
+                    
+                      $2.00
+                    
+                  </span></strong>
+              
+                
+            </div>
+          
+        </div>
+
+        <!--<div class="floaty fcUpperLeft">
+
+        </div>
+        <div class="floaty fcUpperRight">
+
+        </div>-->
+    </div>
+    <div class="fcLower clearfix">
+        
+        <div class="fcLowerImage">
+            
+            <a href="/fonts/seniors-studio/be-bright/">
+                
+                    <img data-original="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/361196_95086e0071c07a43af7e1a17a9ef3a15.png" src="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/361196_95086e0071c07a43af7e1a17a9ef3a15.png" class="lazy" alt="Be Bright by Seniors Studio" title="Be Bright by Seniors Studio">
+                
+            </a>
+            
+        </div>
+        
+        
+
+
+
+    </div>
+    </div></div><div class="owl-item" style="width: 422px;"><div class="fontCard font newFont" data-fontid="221800">
+    <div class="fcUpper clearfix">
+
+        
+        <div class="fcUpperTop">
+            <div class="fcTitle">
+                
+                    <a href="/fonts/illuminaut-designs/cubenzis/" class="fcFontName">Cubenzis</a> by 
+                    <a href="/foundry/illuminaut-designs/" class="fcFoundryName">Illuminaut Designs</a>
+                
+            </div>
+
+            <div class="fcButtonWrapper">
+                <ul class="fcUpperBtns clearfix">
+                    
+                        <li class="fontOnly add-to-album"><div class="album_dropdown float_right"><button class="add_to_album_toggle_client only"><span class="label">Album</span> ▼</button>
+<div class="add_to_album_dropdown_client only">
+<div class="unauthenticated"><h3>Albums</h3>
+<button class="add_to_album_auth">Add to album</button></div></div>
+</div></li>
+                        <li class="fontOnly favorite-root"><div><a href="#" class="favorite fcbtn" title="Add to Favorites" alt="Add to Favorites"></a>
+</div></li>
+                    
+                    <li class="foundryOnly follow-root clearfix"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fcUpperBot">
+          <div class="fcReason1">
+            <span>Released this month</span>
+            <span class="fcHnfRank"></span>
+            
+              <span class="fcReason2"></span>
+            
+          </div>
+          
+            <div class="fcPriceInfo">
+                
+                  
+                    <span>3 fonts</span> starting at
+                  
+                  <strong><span>
+                    
+                      $12.00
+                    
+                  </span></strong>
+              
+                
+            </div>
+          
+        </div>
+
+        <!--<div class="floaty fcUpperLeft">
+
+        </div>
+        <div class="floaty fcUpperRight">
+
+        </div>-->
+    </div>
+    <div class="fcLower clearfix">
+        
+        <div class="fcLowerImage">
+            
+            <a href="/fonts/illuminaut-designs/cubenzis/">
+                
+                    <img data-original="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/KO6Q9hdVd2vImhbIq9tNZP7i_6aeea595acf177497ffc8abbbca9cacd.png" src="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/KO6Q9hdVd2vImhbIq9tNZP7i_6aeea595acf177497ffc8abbbca9cacd.png" class="lazy" alt="Cubenzis by Illuminaut Designs" title="Cubenzis by Illuminaut Designs">
+                
+            </a>
+            
+        </div>
+        
+        
+
+
+
+    </div>
+    </div></div><div class="owl-item" style="width: 422px;"><div class="fontCard fontBundle fontBundle">
+    <div class="fcUpper clearfix">
+
+        
+        <div class="fcUpperTop">
+            <div class="fcTitle">
+                
+                    <a href="/package/649839/" class="fcFontName">Adam Ladd's Hand Drawn Display Bundle</a> by 
+                    <a href="/foundry/Adam_Ladd/" class="fcFoundryName">Adam Ladd</a>
+                
+            </div>
+
+            <div class="fcButtonWrapper">
+                <ul class="fcUpperBtns clearfix">
+                    
+                    <li class="foundryOnly follow-root clearfix"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fcUpperBot">
+          <div class="fcReason1">
+            <span>Bundle</span>
+            <span class="fcHnfRank"></span>
+            
+          </div>
+          
+            <div class="fcPriceInfo">
+                
+                  
+                    <span>32 fonts</span> for
+                  
+                  <strong><span>
+                    
+                      $49.00
+                    
+                  </span></strong>
+              
+                
+            </div>
+          
+        </div>
+
+        <!--<div class="floaty fcUpperLeft">
+
+        </div>
+        <div class="floaty fcUpperRight">
+
+        </div>-->
+    </div>
+    <div class="fcLower clearfix">
+        
+        <div class="fcLowerImage">
+            
+            <a href="/package/649839/">
+                
+                    <img data-original="https://cdn.myfonts.net/s/aw/960x480/548/1/280990.png" src="https://cdn.myfonts.net/s/aw/960x480/548/1/280990.png" class="lazy" alt="Adam Ladd's Hand Drawn Display Bundle" title="Adam Ladd's Hand Drawn Display Bundle">
+                
+            </a>
+            
+        </div>
+        
+        
+
+
+
+    </div>
+    </div></div><div class="owl-item" style="width: 422px;"><div class="fontCard font select" data-fontid="199306">
+    <div class="fcUpper clearfix">
+
+        
+        <div class="fcUpperTop">
+            <div class="fcTitle">
+                
+                    <a href="/fonts/sudtipos/wild-bloom/" class="fcFontName">Wild Bloom</a> by 
+                    <a href="/foundry/Sudtipos/" class="fcFoundryName">Sudtipos</a>
+                
+            </div>
+
+            <div class="fcButtonWrapper">
+                <ul class="fcUpperBtns clearfix">
+                    
+                        <li class="fontOnly add-to-album"><div class="album_dropdown float_right"><button class="add_to_album_toggle_client only"><span class="label">Album</span> ▼</button>
+<div class="add_to_album_dropdown_client only">
+<div class="unauthenticated"><h3>Albums</h3>
+<button class="add_to_album_auth">Add to album</button></div></div>
+</div></li>
+                        <li class="fontOnly favorite-root"><div><a href="#" class="favorite fcbtn" title="Add to Favorites" alt="Add to Favorites"></a>
+</div></li>
+                    
+                    <li class="foundryOnly follow-root clearfix"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fcUpperBot">
+          <div class="fcReason1">
+            <span>Expert's Choice</span>
+            <span class="fcHnfRank"></span>
+            
+              <span class="fcReason2"></span>
+            
+          </div>
+          
+            <div class="fcPriceInfo">
+                
+                  
+                    <span>2 fonts</span> starting at
+                  
+                  <strong><span>
+                    
+                      $39.00
+                    
+                  </span></strong>
+              
+                
+            </div>
+          
+        </div>
+
+        <!--<div class="floaty fcUpperLeft">
+
+        </div>
+        <div class="floaty fcUpperRight">
+
+        </div>-->
+    </div>
+    <div class="fcLower clearfix">
+        
+        <div class="fcLowerImage">
+            
+            <a href="/fonts/sudtipos/wild-bloom/">
+                
+                    <img data-original="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/286461_94bf6e720b835682991a0acfec19db31.png" src="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/286461_94bf6e720b835682991a0acfec19db31.png" class="lazy" alt="Wild Bloom by Sudtipos" title="Wild Bloom by Sudtipos">
+                
+            </a>
+            
+        </div>
+        
+        
+
+
+
+    </div>
+    </div></div><div class="owl-item" style="width: 422px;"><div class="fontCard font newFont" data-fontid="221777">
+    <div class="fcUpper clearfix">
+
+        
+        <div class="fcUpperTop">
+            <div class="fcTitle">
+                
+                    <a href="/fonts/letteralle/avegra/" class="fcFontName">Avegra</a> by 
+                    <a href="/foundry/letteralle/" class="fcFoundryName">Letteralle</a>
+                
+            </div>
+
+            <div class="fcButtonWrapper">
+                <ul class="fcUpperBtns clearfix">
+                    
+                        <li class="fontOnly add-to-album"><div class="album_dropdown float_right"><button class="add_to_album_toggle_client only"><span class="label">Album</span> ▼</button>
+<div class="add_to_album_dropdown_client only">
+<div class="unauthenticated"><h3>Albums</h3>
+<button class="add_to_album_auth">Add to album</button></div></div>
+</div></li>
+                        <li class="fontOnly favorite-root"><div><a href="#" class="favorite fcbtn" title="Add to Favorites" alt="Add to Favorites"></a>
+</div></li>
+                    
+                    <li class="foundryOnly follow-root clearfix"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fcUpperBot">
+          <div class="fcReason1">
+            <span>Released this month</span>
+            <span class="fcHnfRank"></span>
+            
+              <span class="fcReason2"></span>
+            
+          </div>
+          
+            <div class="fcPriceInfo">
+                
+                  
+                    <span>1 font</span> starting at
+                  
+                  <strong><span>
+                    
+                      $24.00
+                    
+                  </span></strong>
+              
+                
+            </div>
+          
+        </div>
+
+        <!--<div class="floaty fcUpperLeft">
+
+        </div>
+        <div class="floaty fcUpperRight">
+
+        </div>-->
+    </div>
+    <div class="fcLower clearfix">
+        
+        <div class="fcLowerImage">
+            
+            <a href="/fonts/letteralle/avegra/">
+                
+                    <img data-original="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/bfVndkDhApYz5IT0rHJF4hf4_6f826e24969239520646bc06dd906261.png" src="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/bfVndkDhApYz5IT0rHJF4hf4_6f826e24969239520646bc06dd906261.png" class="lazy" alt="Avegra by Letteralle" title="Avegra by Letteralle">
+                
+            </a>
+            
+        </div>
+        
+        
+
+
+
+    </div>
+    </div></div><div class="owl-item" style="width: 422px;"><div class="fontCard fontBundle fontBundle">
+    <div class="fcUpper clearfix">
+
+        
+        <div class="fcUpperTop">
+            <div class="fcTitle">
+                
+                    <a href="/package/697367/" class="fcFontName">VVDS Sunshine Collection</a> by 
+                    <a href="/foundry/vintage-voyage-design-supply/" class="fcFoundryName">Vintage Voyage Design Supply</a>
+                
+            </div>
+
+            <div class="fcButtonWrapper">
+                <ul class="fcUpperBtns clearfix">
+                    
+                    <li class="foundryOnly follow-root clearfix"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fcUpperBot">
+          <div class="fcReason1">
+            <span>Bundle</span>
+            <span class="fcHnfRank"></span>
+            
+          </div>
+          
+            <div class="fcPriceInfo">
+                
+                  
+                    <span>105 fonts</span> for
+                  
+                  <strong><span>
+                    
+                      $49.00
+                    
+                  </span></strong>
+              
+                
+            </div>
+          
+        </div>
+
+        <!--<div class="floaty fcUpperLeft">
+
+        </div>
+        <div class="floaty fcUpperRight">
+
+        </div>-->
+    </div>
+    <div class="fcLower clearfix">
+        
+        <div class="fcLowerImage">
+            
+            <a href="/package/697367/">
+                
+                    <img data-original="https://cdn.myfonts.net/s/aw/960x480/671/1/343958.png" src="https://cdn.myfonts.net/s/aw/960x480/671/1/343958.png" class="lazy" alt="VVDS Sunshine Collection" title="VVDS Sunshine Collection">
+                
+            </a>
+            
+        </div>
+        
+        
+
+
+
+    </div>
+    </div></div><div class="owl-item" style="width: 422px;"><div class="fontCard font select" data-fontid="220037">
+    <div class="fcUpper clearfix">
+
+        
+        <div class="fcUpperTop">
+            <div class="fcTitle">
+                
+                    <a href="/fonts/brassfonts/bf-garant/" class="fcFontName">BF Garant</a> by 
+                    <a href="/foundry/Brass_Fonts/" class="fcFoundryName">BrassFonts</a>
+                
+            </div>
+
+            <div class="fcButtonWrapper">
+                <ul class="fcUpperBtns clearfix">
+                    
+                        <li class="fontOnly add-to-album"><div class="album_dropdown float_right"><button class="add_to_album_toggle_client only"><span class="label">Album</span> ▼</button>
+<div class="add_to_album_dropdown_client only">
+<div class="unauthenticated"><h3>Albums</h3>
+<button class="add_to_album_auth">Add to album</button></div></div>
+</div></li>
+                        <li class="fontOnly favorite-root"><div><a href="#" class="favorite fcbtn" title="Add to Favorites" alt="Add to Favorites"></a>
+</div></li>
+                    
+                    <li class="foundryOnly follow-root clearfix"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fcUpperBot">
+          <div class="fcReason1">
+            <span>Expert's Choice</span>
+            <span class="fcHnfRank"></span>
+            
+              <span class="fcReason2"></span>
+            
+          </div>
+          
+            <div class="fcPriceInfo">
+                
+                  
+                    <span>20 fonts</span> starting at
+                  
+                  <strong><span>
+                    
+                      $24.99
+                    
+                  </span></strong>
+              
+                
+            </div>
+          
+        </div>
+
+        <!--<div class="floaty fcUpperLeft">
+
+        </div>
+        <div class="floaty fcUpperRight">
+
+        </div>-->
+    </div>
+    <div class="fcLower clearfix">
+        
+        <div class="fcLowerImage">
+            
+            <a href="/fonts/brassfonts/bf-garant/">
+                
+                    <img data-original="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/doVOfx5IPs0Is3Dl7UCOGIOD_f7b813dfd984d33f2d61ee6b95d45684.png" src="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/doVOfx5IPs0Is3Dl7UCOGIOD_f7b813dfd984d33f2d61ee6b95d45684.png" class="lazy" alt="BF Garant by BrassFonts" title="BF Garant by BrassFonts">
+                
+            </a>
+            
+        </div>
+        
+        
+
+
+
+    </div>
+    </div></div></div></div><div class="owl-controls clickable"><div class="owl-pagination"><div class="owl-page active"><span class=""></span></div><div class="owl-page"><span class=""></span></div><div class="owl-page"><span class=""></span></div></div></div></div>
+	</div>
+</div>
+        </div>
+    </div>
+
+    <div class="homepage__specialOffersWrapper">
+        <div class="homepage__container">
+            <div class="specialOffers">
+	<div class="specialOffers__header">
+		<a href="/specials">
+			<h3 class="mf-ribbon">Special Offers!</h3>
+		</a>
+		<div class="specialOffers__headerTextContainer">
+			<span class="specialOffers__headerDescription">
+				These great deals are expiring soon, act now to save on these awesome fonts.
+			</span>
+			<a href="/specials" class="specialOffers__headerViewAll">view all font deals &gt;</a>
+		</div>
+	</div>
+	<div class="specialOffers__content">
+								<div class="specialOffers__contentCard">
+				<a href="/specials/141713/direct">
+					<img src="//www.myfonts.com/artwork?id=571010&amp;subdir=960x480&amp;mode=poster" alt="Special offer on Rabbit On The Moon">
+				</a>
+			</div>
+						<div class="specialOffers__contentCard">
+				<a href="/specials/140054/direct">
+					<img src="https://cdn.myfonts.net/s/aw/960x480/1107/2/567268.jpg" alt="Special offer on Acardia">
+				</a>
+			</div>
+						<div class="specialOffers__contentCard">
+				<a href="/specials/141603/direct">
+					<img src="https://cdn.myfonts.net/s/aw/960x480/1113/2/570292.png" alt="Special offer on Fontanella">
+				</a>
+			</div>
+						<div class="specialOffers__contentCard">
+				<a href="/specials/140687/direct">
+					<img src="//www.myfonts.com/artwork?id=567920&amp;subdir=960x480&amp;mode=poster" alt="Special offer on Bourton">
+				</a>
+			</div>
+						<div class="specialOffers__contentCard">
+				<a href="/specials/140050/direct">
+					<img src="https://cdn.myfonts.net/s/aw/960x480/1107/2/567264.jpg" alt="Special offer on Ernest &amp; Emily">
+				</a>
+			</div>
+						<div class="specialOffers__contentCard">
+				<a href="/specials/140046/direct">
+					<img src="https://cdn.myfonts.net/s/aw/960x480/1107/2/567260.jpg" alt="Special offer on Palm Honey">
+				</a>
+			</div>
+						</div>
+</div>
+        </div>
+    </div>
+
+    <div class="homepage__bottomBlock homepage__container">
+        <div class="homepage__bottomBlock__recentFontsWrapper">
+            <div class="homepage__bottomBlock__contentWrapper -solidBox -borderBox">
+                <div class="recentFontsWidget">
+	<h4 class="recentFontsWidget__title">New Releases</h4>
+		<div class="recentFontsWidget__card">
+		<a href="/fonts/illuminaut-designs/cubenzis/">
+			<img alt="Cubenzis font page" class="recentFontsWidget__card__image" src="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/KO6Q9hdVd2vImhbIq9tNZP7i_6aeea595acf177497ffc8abbbca9cacd.png">
+		</a>
+		<div class="recentFontsWidget__card__description">
+			<span class="recentFontsWidget__card__description__fontDetails">
+				<a href="/fonts/illuminaut-designs/cubenzis/">Cubenzis</a> by <a href="/foundry/illuminaut-designs/">Illuminaut Designs</a>
+			</span>
+			<span class="recentFontsWidget__card__description__priceInfo">3 fonts starting at <span class="recentFontsWidget__card__description__price">$12.00</span></span>
+		</div>
+	</div>
+		<div class="recentFontsWidget__card">
+		<a href="/fonts/letteralle/avegra/">
+			<img alt="Avegra font page" class="recentFontsWidget__card__image" src="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/bfVndkDhApYz5IT0rHJF4hf4_6f826e24969239520646bc06dd906261.png">
+		</a>
+		<div class="recentFontsWidget__card__description">
+			<span class="recentFontsWidget__card__description__fontDetails">
+				<a href="/fonts/letteralle/avegra/">Avegra</a> by <a href="/foundry/letteralle/">Letteralle</a>
+			</span>
+			<span class="recentFontsWidget__card__description__priceInfo">1 fonts starting at <span class="recentFontsWidget__card__description__price">$24.00</span></span>
+		</div>
+	</div>
+		<div class="recentFontsWidget__card">
+		<a href="/fonts/headfirst/ryker/">
+			<img alt="Ryker font page" class="recentFontsWidget__card__image" src="https://cdn.myfonts.net/cdn-cgi/image/width=960,height=480,fit=contain,format=auto/images/pim/10000/FL9XqGuLoh7AFLvKYELyh0hB_14f69727c3987a65a1fb3c3fe66bd68b.png">
+		</a>
+		<div class="recentFontsWidget__card__description">
+			<span class="recentFontsWidget__card__description__fontDetails">
+				<a href="/fonts/headfirst/ryker/">Ryker</a> by <a href="/foundry/headFirst/">HeadFirst</a>
+			</span>
+			<span class="recentFontsWidget__card__description__priceInfo">24 fonts starting at <span class="recentFontsWidget__card__description__price">$11.99</span></span>
+		</div>
+	</div>
+	</div>
+            </div>
+        </div>
+
+        <div class="homepage__bottomBlock__staffPicksWrapper">
+            <div class="homepage__bottomBlock__contentWrapper -solidBox -borderBox">
+                <div class="staffPicks">
+    <h3 class="staffPicks__title mf-ribbon">Staff Picks!</h3>
+                        <div class="staffPicks__fontContainer">
+                <a href="/fonts/rachel-mcbride-creative/gumball-machine/">
+                    <img src="https://render.myfonts.net/fonts/font_rend.php?id=62b31818ba05d260781a3d9335dfb31a&amp;rs=26&amp;bg=ffffff&amp;fg=000000&amp;rt=Gumball+Machine AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789&amp;sc=2&amp;t=o&amp;w=1024" alt="Gumball Machine Sample" title="Gumball Machine Sample" class="staffPicks__fontContainer__sampleImage">
+                </a>
+                <div class="staffPicks__fontContainer__fontDetails">
+                    <span class="staffPicks__fontContainer__fontDetails__name">
+                        <a href="/fonts/rachel-mcbride-creative/gumball-machine/">Gumball Machine</a> by <a href="/foundry/rachel-mcbride-creative/">Rachel McBride Creative</a>
+                    </span>
+                    <span class="staffPicks__fontContainer__fontDetails__priceInfo">
+                                                    <span>8 fonts starting at <span class="staffPicks__fontContainer__fontDetails__price">$9.00</span></span>
+                                            </span>
+                </div>
+            </div>
+                    <div class="staffPicks__fontContainer">
+                <a href="/fonts/houseind/plinc-bubble-gum/">
+                    <img src="https://render.myfonts.net/fonts/font_rend.php?id=7179ff591be85037fcdfab498f3d3eef&amp;rs=26&amp;bg=ffffff&amp;fg=000000&amp;rt=Plinc+Bubble+Gum AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789&amp;sc=2&amp;t=o&amp;w=1024" alt="Plinc Bubble Gum Sample" title="Plinc Bubble Gum Sample" class="staffPicks__fontContainer__sampleImage">
+                </a>
+                <div class="staffPicks__fontContainer__fontDetails">
+                    <span class="staffPicks__fontContainer__fontDetails__name">
+                        <a href="/fonts/houseind/plinc-bubble-gum/">Plinc Bubble Gum</a> by <a href="/foundry/House_Ind/">House Industries</a>
+                    </span>
+                    <span class="staffPicks__fontContainer__fontDetails__priceInfo">
+                                                    <span>2 fonts starting at <span class="staffPicks__fontContainer__fontDetails__price">$33.00</span></span>
+                                            </span>
+                </div>
+            </div>
+                    <div class="staffPicks__fontContainer">
+                <a href="/fonts/andrijtype/bandera/">
+                    <img src="https://render.myfonts.net/fonts/font_rend.php?id=761a5e87bf6b7e7528e60dcf5f223915&amp;rs=26&amp;bg=ffffff&amp;fg=000000&amp;rt=Bandera AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789&amp;sc=2&amp;t=o&amp;w=1024" alt="Bandera Sample" title="Bandera Sample" class="staffPicks__fontContainer__sampleImage">
+                </a>
+                <div class="staffPicks__fontContainer__fontDetails">
+                    <span class="staffPicks__fontContainer__fontDetails__name">
+                        <a href="/fonts/andrijtype/bandera/">Bandera</a> by <a href="/foundry/AndrijType/">AndrijType</a>
+                    </span>
+                    <span class="staffPicks__fontContainer__fontDetails__priceInfo">
+                                                    <span>12 fonts starting at <span class="staffPicks__fontContainer__fontDetails__price">$21.00</span></span>
+                                            </span>
+                </div>
+            </div>
+                    <div class="staffPicks__fontContainer">
+                <a href="/fonts/popskraft/revolancer-pro/">
+                    <img src="https://render.myfonts.net/fonts/font_rend.php?id=a75aa872bf02c1ff36390dec828f3e8a&amp;rs=26&amp;bg=ffffff&amp;fg=000000&amp;rt=Revolancer+Pro AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789&amp;sc=2&amp;t=o&amp;w=1024" alt="Revolancer Pro Sample" title="Revolancer Pro Sample" class="staffPicks__fontContainer__sampleImage">
+                </a>
+                <div class="staffPicks__fontContainer__fontDetails">
+                    <span class="staffPicks__fontContainer__fontDetails__name">
+                        <a href="/fonts/popskraft/revolancer-pro/">Revolancer Pro</a> by <a href="/foundry/popskraft/">Popskraft</a>
+                    </span>
+                    <span class="staffPicks__fontContainer__fontDetails__priceInfo">
+                                                    <span>9 fonts starting at <span class="staffPicks__fontContainer__fontDetails__price">$12.00</span></span>
+                                            </span>
+                </div>
+            </div>
+                    <div class="staffPicks__fontContainer">
+                <a href="/fonts/lemonthe/resonant-chilliner/">
+                    <img src="https://render.myfonts.net/fonts/font_rend.php?id=792e80e5bf2442e912bacd074d15c290&amp;rs=26&amp;bg=ffffff&amp;fg=000000&amp;rt=Resonant+Chilliner AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789&amp;sc=2&amp;t=o&amp;w=1024" alt="Resonant Chilliner Sample" title="Resonant Chilliner Sample" class="staffPicks__fontContainer__sampleImage">
+                </a>
+                <div class="staffPicks__fontContainer__fontDetails">
+                    <span class="staffPicks__fontContainer__fontDetails__name">
+                        <a href="/fonts/lemonthe/resonant-chilliner/">Resonant Chilliner</a> by <a href="/foundry/lemonthe/">Lemonthe</a>
+                    </span>
+                    <span class="staffPicks__fontContainer__fontDetails__priceInfo">
+                                                    <span>2 fonts starting at <span class="staffPicks__fontContainer__fontDetails__price">$9.00</span></span>
+                                            </span>
+                </div>
+            </div>
+                    <div class="staffPicks__fontContainer">
+                <a href="/fonts/paulo-goode/evoque/">
+                    <img src="https://render.myfonts.net/fonts/font_rend.php?id=a4b31de33acec2c003a0789f21cc528a&amp;rs=26&amp;bg=ffffff&amp;fg=000000&amp;rt=Evoque AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789&amp;sc=2&amp;t=o&amp;w=1024" alt="Evoque Sample" title="Evoque Sample" class="staffPicks__fontContainer__sampleImage">
+                </a>
+                <div class="staffPicks__fontContainer__fontDetails">
+                    <span class="staffPicks__fontContainer__fontDetails__name">
+                        <a href="/fonts/paulo-goode/evoque/">Evoque</a> by <a href="/foundry/Paulo_Goode/">Paulo Goode</a>
+                    </span>
+                    <span class="staffPicks__fontContainer__fontDetails__priceInfo">
+                                                    <span>36 fonts starting at <span class="staffPicks__fontContainer__fontDetails__price">$40.00</span></span>
+                                            </span>
+                </div>
+            </div>
+                    <div class="staffPicks__fontContainer">
+                <a href="/fonts/slava-antipov/slivky/">
+                    <img src="https://render.myfonts.net/fonts/font_rend.php?id=1d70a34f0dff3d2a7453b1a59316108d&amp;rs=26&amp;bg=ffffff&amp;fg=000000&amp;rt=Slivky AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789&amp;sc=2&amp;t=o&amp;w=1024" alt="Slivky Sample" title="Slivky Sample" class="staffPicks__fontContainer__sampleImage">
+                </a>
+                <div class="staffPicks__fontContainer__fontDetails">
+                    <span class="staffPicks__fontContainer__fontDetails__name">
+                        <a href="/fonts/slava-antipov/slivky/">Slivky</a> by <a href="/foundry/slava-antipov/">Slava Antipov</a>
+                    </span>
+                    <span class="staffPicks__fontContainer__fontDetails__priceInfo">
+                                                    <span>6 fonts, some <span class="staffPicks__fontContainer__fontDetails__price">free</span></span>
+                                            </span>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="homepage__bottomBlock__adsWrapper">
+            <div class="homepage__bottomBlock__adsWrapper__mosaicBox"><div id="div-gpt-ad-1538510009458-0" data-google-query-id="CLbi3Yjc4PYCFU2yAQodCagGHw"><div id="google_ads_iframe_/8691100/MyFonts_HP_house_300x250_0__container__" style="border: 0pt none; display: inline-block; width: 300px; height: 250px;"><iframe style="border: 0px none; vertical-align: bottom;" src="https://bc36a43d6961e2359de16f79e5ac727f.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html" id="google_ads_iframe_/8691100/MyFonts_HP_house_300x250_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" role="region" aria-label="Advertisement" tabindex="0" data-google-container-id="1" data-load-complete="true" width="300" height="250" frameborder="0"></iframe></div></div></div>
+        <div id="div-gpt-ad-1524856716269-0" style="width: 300px;" data-google-query-id="CNPl3Yjc4PYCFRwBAQod6RQEpg"><div id="google_ads_iframe_/8691100/MyFonts_RON_300x250_0__container__" style="border: 0pt none; display: inline-block; width: 300px; height: 250px;"><iframe style="border: 0px none; vertical-align: bottom;" src="https://bc36a43d6961e2359de16f79e5ac727f.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html" id="google_ads_iframe_/8691100/MyFonts_RON_300x250_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" role="region" aria-label="Advertisement" tabindex="0" data-google-container-id="2" data-load-complete="true" width="300" height="250" frameborder="0"></iframe></div></div></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    (function() {
+        var src = getRequireUrl("/modules/ui/homepage/main-1647848975954");
+        document.write("\x3Cscript type='text/javascript' src='" + src + "'>\x3C/script>");
+    })();
+</script><script type="text/javascript" src="/s/js/built/modules/ui/homepage/main-1647848975954.js"></script>
+
+
+
+</div><!-- end myfontsBody -->
+<footer class="footer footer--new">
+	<div class="footer__container">
+		<div class="section__connect">
+			<span class="title">Connect</span>
+			<ul class="nav__list">
+				<li class="nav__list--txt icon-env">
+					<form class="js-cm-form" id="sub_newsleter_form" name="sub_newsleter_form" action="/backbone/createsend/" method="post">
+						<input autocomplete="Email" aria-label="Email" id="mf_news_email" maxlength="200" name="mf_news_email" required="" type="email" class="js-cm-email-input sc-dnqmqq fgqpHf" placeholder="Subscribe to our newsletters ☛">
+						<button type="submit" class="btn-send" id="newsletter_submit"></button>
+					</form>
+				</li>
+				<li class="nav__list--txt"><a class="link" href="https://meta.myfonts.com/" title="MyFonts Blog">Check out our Blog</a></li>
+				<li class="nav__list--txt icon-instagram"><a class="link" href="https://www.instagram.com/myfonts/" title="Myfonts Instagram Account">Follow us on Instagram</a></li>
+				<li class="nav__list--txt icon-twitter"><a class="link" href="https://twitter.com/MyFonts" title="Myfonts Twitter Account">Follow us on Twitter</a></li>
+				<li class="nav__list--txt icon-pintrest"><a class="link" href="https://www.pinterest.com/myfonts/" title="Myfonts Pinterest Account">Follow us on Pinterest</a></li>
+				<li class="nav__list--txt icon-fb"><a class="link" href="https://www.facebook.com/MyFonts/" title="Myfonts Facebook Account">Like our Facebook page</a></li>
+			</ul>
+		</div>
+		<div class="section__buy">
+			<span class="title">We accept</span>
+			<ul class="nav__list">
+				<li class="nav__list--txt visa">Visa</li>
+				<li class="nav__list--txt mastercard">MasterCard</li>
+				<li class="nav__list--txt amex">American Express</li>
+									<li class="nav__list--txt discover">Discover</li>
+																<li class="nav__list--txt paypal">PayPal</li>
+			</ul>
+		</div>
+		<div class="section__sell">
+			<span class="title">Sell</span>
+			<ul class="nav__list">
+				<li class="nav__list--txt"><a class="link" href="https://foundrysupport.monotype.com/hc/en-us/articles/360028863311-Get-Started-on-MyFonts" title="Become a Foundry partner">Become a Foundry partner</a></li>
+				<li class="nav__list--txt"><a class="link" href="https://signup.cj.com/member/signup/publisher/?cid=5153455" target="_blank" rel="noopener noreferrer" title="Join our affiliate program">Become an Affiliate</a></li>
+			</ul>
+		</div>
+		<div class="section__accord">
+			<input type="checkbox" id="about-section" class="toggle">
+			<label class="title" for="about-section">About</label>
+			<ul class="nav__list about-section">
+				<li class="nav__list--txt"><a class="link" href="/legal/terms-and-conditions-of-business/" title="Myfonts Terms &amp; Conditions">Terms &amp; Conditions</a></li>
+				<li class="nav__list--txt"><a class="link" href="/legal/terms-of-use/" title="Myfonts Terms of Use">Terms of Use</a></li>
+				<li class="nav__list--txt"><a class="link" href="/legal/website-use-privacy-policy/" title="Myfonts Privacy Policy">Privacy Policy</a></li>
+				<li class="nav__list--txt"><a class="link" href="/info/return-policy/" title="Myfonts Return Policy">Return Policy</a></li>
+				<li class="nav__list--txt"><a class="link" href="/legal/" title="Myfonts Legal">Legal</a></li>
+			</ul>
+		</div>
+		<div class="section__accord">
+			<input type="checkbox" id="help" class="toggle">
+			<label class="title" for="help">Help</label>
+			<ul class="nav__list">
+				<li class="nav__list--txt"><a class="link" href="/help/" title="Myfonts FAQ">FAQ</a></li>
+				<li class="nav__list--txt"><a class="link" href="/contact/" title="Myfonts Contact">Contact</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="footer__copyright">
+		<p class="footer__copyright--text">Copyright © 1999-2022  MyFonts Inc. All rights reserved.</p>
+	</div>
+</footer>
+</div>
+
+	<script type="text/javascript">
+		(function() {
+			var src = getRequireUrl("/modules/ui/newsletter/main");
+			document.write("\x3Cscript type='text/javascript' src='" + src + "'>\x3C/script>");
+		})();
+	</script><script type="text/javascript" src="/s/js/built/modules/ui/newsletter/main.js"></script><script type="text/javascript" id="">var isDNT="yes"==navigator.doNotTrack||"1"==navigator.doNotTrack||"1"==navigator.msDoNotTrack;
+isDNT||(window.heap=window.heap||[],heap.load=function(b,a){window.heap.appid=b;window.heap.config=a=a||{};var c=a.forceSSL||"https:"===document.location.protocol;a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=(c?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+b+".js";b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b);b=function(a){return function(){heap.push([a].concat(Array.prototype.slice.call(arguments,0)))}};a=["clearEventProperties",
+"identify","setEventProperties","track","unsetEventProperty"];for(c=0;c<a.length;c++)heap[a[c]]=b(a[c])},heap.load("2253897516"),setTimeout(function(){"undefined"!==typeof heap&&(heap.identify({handle:google_tag_manager["GTM-5628STD"].macro(4)}),heap.addUserProperties({"Subscription Plan":"undefined","Subscription Term":"undefined"}))},1E3));</script><script type="text/javascript" id="">_linkedin_data_partner_id="18805";</script><script type="text/javascript" id="">(function(){var b=document.getElementsByTagName("script")[0],a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";b.parentNode.insertBefore(a,b)})();</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=18805&amp;fmt=gif">
+</noscript>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","327536414110201");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=327536414110201&amp;ev=PageView&amp;noscript=1"></noscript>
+<script type="text/javascript" id="">var userProperties={userID:google_tag_manager["GTM-5628STD"].macro(5)};</script>
+<script type="text/javascript" id="">(function(){if(null!=google_tag_manager["GTM-5628STD"].macro(6)&&""!=google_tag_manager["GTM-5628STD"].macro(7)){var a=new Date;a.setTime(a.getTime()+2592E6);document.cookie="cjevent\x3d"+google_tag_manager["GTM-5628STD"].macro(8)+";expires\x3d"+a.toUTCString()+";path\x3d/"}})();</script>
+
+<script type="text/javascript" id="">var rumMOKey="82d755fe79f178507c10f70f54cecde9";(function(){if(window.performance&&window.performance.timing&&window.performance.navigation){var a=document.createElement("script");a.async=!0;a.setAttribute("src","//static.site24x7rum.com/beacon/site24x7rum-min.js?appKey\x3d"+rumMOKey);document.getElementsByTagName("head")[0].appendChild(a)}})(window);</script>
+
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1224991334526965");fbq("track","PageView");</script>
+<noscript>
+<img height="1" width="1" src="https://www.facebook.com/tr?id=1224991334526965&amp;ev=PageView
+&amp;noscript=1">
+</noscript>
+<script type="text/javascript" id="">window.addEventListener("load",function(){require.config({paths:{Sailthru:"https://ak.sail-horizon.com/spm/spm.v1.min"},waitSeconds:300,shim:{Sailthru:{exports:"Sailthru"}}});require(["Sailthru"],function(a){console.log("Optional console log text!");a.init({customerId:"45c7755b79caca80c515e99c488dbf6c"});window.Sailthru=a})});</script><script type="text/javascript" id="" src="https://cdn.attn.tv/myfonts/dtag.js"></script>
+
+<!-- end of myfontsContainer -->
+
+
+
+<script type="text/javascript" src="https://cdn.myfonts.net/s/js/customize_check.js"></script><script src="/customize.php" type="text/javascript"></script> 
+
+
+<!--
+Runtime:     0.21492791175842 seconds 
+FS requests:     
+DB queries:  read-db-a.myfonts.com: 18
+             db.backend.myfonts.com: 4
+                       
+-->
+
+
+<div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon466103561001"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon820041864437" alt="" src="https://bat.bing.com/action/0?ti=26072731&amp;tm=gtm002&amp;Ver=2&amp;mid=f280070d-7860-484b-89c1-c82ffe4afba8&amp;sid=9c71ef20ac0b11ecae5399335d7912e0&amp;vid=9c71faa0ac0b11ec95a8534ded3c8fd2&amp;vids=1&amp;pi=0&amp;lg=en-US&amp;sw=3840&amp;sh=1600&amp;sc=24&amp;tl=Fonts%20for%20Print,%20Products%20%26%20Screens%20%7C%20MyFonts&amp;p=https%3A%2F%2Fwww.myfonts.com%2F&amp;r=&amp;lt=1772&amp;evt=pageLoad&amp;msclkid=N&amp;sv=1&amp;rn=418458" width="0" height="0"></div><script type="text/javascript" id="" src="https://www.googletagservices.com/tag/js/gpt.js"></script><script type="text/javascript" id="">var googletag=googletag||{};googletag.cmd=googletag.cmd||[];
+(function(b){var a="div-gpt-ad-1538510009458-0";googletag.cmd.push(function(){googletag.defineSlot("/8691100/MyFonts_HP_house_300x250",[300,250],a).addService(googletag.pubads());googletag.pubads().enableSingleRequest();googletag.enableServices()});var c=b.createElement("div");c.id=a;var d=0,h=50,f=function(e,a){0!==b.getElementsByClassName(e).length?a():setTimeout(function(){d<=h&&(d++,f(e,a))},100)},g="homepage__bottomBlock__adsWrapper__mosaicBox";f(g,function(){var a=b.getElementsByClassName(g)[0];
+a.insertBefore(c,a.firstChild)});googletag.cmd.push(function(){googletag.display(a)})})(document);</script>
+<script type="text/javascript" id="">(function(a,b,c,d,e){a=b.createElement(c);b=b.getElementsByTagName(c)[0];a.async=1;a.id=e;a.src=d;b.parentNode.insertBefore(a,b)})(window,document,"script","https://tag.demandbase.com/3d6d0dc4.min.js","demandbase_js_lib");</script>
+<script type="text/javascript" id="">(function(a,e,b,f,g,c,d){a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)};c=e.createElement(f);c.async=1;c.src="https://www.clarity.ms/tag/"+g;d=e.getElementsByTagName(f)[0];d.parentNode.insertBefore(c,d)})(window,document,"clarity","script","5oqcy8u8kj");</script><div style="position: fixed; left: 0px; bottom: 0px; width: 100vw; height: 0px; z-index: 2147483647;" id="attentive_overlay"><iframe style="width: 100%; height: 0px; position: absolute; bottom: 0px; opacity: 0; transition: opacity 500ms ease 0s; border: 0px none; overflow: hidden;" referrerpolicy="origin" id="attentive_creative" title="Sign Up via Text for Offers"></iframe></div>
+<script type="text/javascript" id="">var googletag=googletag||{};googletag.cmd=googletag.cmd||[];</script>
+
+<script type="text/javascript" id="">googletag.cmd.push(function(){googletag.defineSlot("/8691100/MyFonts_RON_300x250",[[1,1],[300,250]],"div-gpt-ad-1524856716269-0").addService(googletag.pubads());googletag.pubads().setTargeting("myfonts_page","home");googletag.pubads().enableSingleRequest();googletag.enableServices()});</script>
+
+<script type="text/javascript" id="">(function(c,b,a){a=c.createElement("div");a.id="div-gpt-ad-1524856716269-0";a.style="width:300px;";b=c.createElement("script");b.type="text/javascript";b.text="googletag.cmd.push(function() { googletag.display('div-gpt-ad-1524856716269-0'); });";a.appendChild(b);c.getElementsByClassName("homepage__bottomBlock__adsWrapper")[0].appendChild(a)})(document);</script><iframe src="https://bc36a43d6961e2359de16f79e5ac727f.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html" style="visibility: hidden; display: none;"></iframe><img style="display:none" alt="" aria-hidden="true" id="db_bw_pixel_ad" src="https://match.prod.bidr.io/cookie-sync/demandbase" width="0" height="0"><img style="display:none" alt="" aria-hidden="true" id="db_lr_pixel_ad" src="https://id.rlcdn.com/464526.gif" width="0" height="0"><script type="text/javascript" id="">Object.assign(window.AcquiaLift,{profile:{person_udf11:"Residential",person_udf12:"",person_udf13:"",person_udf14:"",person_udf15:""}});window.AcquiaLiftPublicApi.personalize();</script>
+
+<script type="text/javascript" id="">driftTrigger=function(d){d=500;var e=3E3,c=document.getElementById("cartText")||document.getElementsByClassName("mfCart_text")[0],g=document.getElementById("link_to_this_cart")?"https://www.myfonts.com"+document.getElementById("link_to_this_cart").getAttribute("href"):!1,h=google_tag_manager["GTM-5628STD"].macro(16),k="English",l="MyFonts",b=0;document.cookie="DriftEnterprise\x3dfalse";document.cookie="DriftEnterprise10k\x3dfalse";document.cookie="DriftSupport\x3dfalse";if(null!==c){b=parseFloat(c.textContent.split(", ")[1].match(/[0-9\.,]+/)[0].slice(0,
+-3).replace(/[,\.]/gi,""));var f=c.textContent.split(", ")[1].replace(/[0-9\.,\s]+/gi,"");"A$"==f&&(b*=.74);"\u20ac"==f&&(b*=1.18);"\u00a3"==f&&(b*=1.33);"C$"==f&&(b*=.771588);"\u00a5"==f&&(b*=.009059);console.log("Cart value USD: "+b);console.log("Cart currency: "+f);b>=e?(console.log("Enterprise chat"),document.cookie="DriftEnterprise10k\x3dfalse",document.cookie="DriftEnterprise\x3dtrue",document.cookie="DriftSupport\x3dfalse"):b>=d&&(console.log("Support chat"),document.cookie="DriftEnterprise10k\x3dfalse",
+document.cookie="DriftEnterprise\x3dfalse",document.cookie="DriftSupport\x3dtrue");drift.on("ready",function(){drift.api.setUserAttributes({lastCartValueUSD:"$"+b.toFixed(2),lastCartCurrency:f,lastCartLink:g?g:""})})}drift.on("ready",function(m){drift.api.setUserAttributes({site:l,siteID:h,siteLanguage:k});window.drift.on("message:sent",function(a){heap.track("Chat message sent",{playbookID:a.playbookId,conversationID:a.conversationId,cartValueUSD:b})});window.drift.on("message",function(a){"Font Bot"==
+a.teamMember.name?heap.track("Chatbot message received",{teamMember:a.teamMember.name,playbookID:a.playbookId,conversationID:a.conversationId,widgetVisible:a.data.widgetVisible,cartValueUSD:b}):heap.track("Chat message received",{teamMember:a.teamMember.name,playbookID:a.playbookId,conversationID:a.conversationId,widgetVisible:a.data.widgetVisible,cartValueUSD:b})});window.drift.on("emailCapture",function(a){heap.track("Chat email captured",{playbookID:a.playbookId,conversationID:a.conversationId,
+cartValueUSD:b})});window.drift.on("scheduling:meetingBooked",function(a){heap.track("Chat meeting scheduled",{teamMemberRecipient:a.teamMember.name,playbookID:a.playbookId,conversationID:a.conversationId,cartValueUSD:b})});window.drift.on("conversation:playbookFired",function(a){heap.track("Chat playbook fired",{playbookID:a.playbookId,conversationID:a.conversationId,cartValueUSD:b})});window.drift.on("conversation:playbookDismissed",function(a){heap.track("Chat dismissed",{playbookID:a.playbookId,
+conversationID:a.conversationId,cartValueUSD:b})});window.drift.on("conversation:playbookClicked",function(a){heap.track("Chat engaged",{playbookID:a.playbookId,conversationID:a.conversationId,cartValueUSD:b})});window.drift.on("conversation:buttonClicked",function(a){heap.track("Chat button clicked",{playbookID:a.playbookId,conversationID:a.conversationId,cartValueUSD:b,buttonText:a.buttonBody})})})};
+setTimeout(function(){!function(){var d=window.driftt=window.drift=window.driftt||[];if(!d.init){if(d.invoked)return void(window.console&&console.error&&console.error("Drift snippet included twice."));d.invoked=!0;d.methods="identify config track reset debug show ping page hide off on".split(" ");d.factory=function(e){return function(){var c=Array.prototype.slice.call(arguments);return c.unshift(e),d.push(c),d}};d.methods.forEach(function(e){d[e]=d.factory(e)});d.load=function(e){var c=3E5,g=Math.ceil(new Date/
+c)*c;c=document.createElement("script");c.type="text/javascript";c.async=!0;c.crossorigin="anonymous";c.src="https://js.driftt.com/include/"+g+"/"+e+".js";e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(c,e)}}}();drift.SNIPPET_VERSION="0.3.1";drift.load("cm7nbzb9tz8z");drift.config({backgroundColor:"#0099ff",foregroundColor:"#ffffff",activeColor:"#0099ff",textColor:"#ffffff"});driftTrigger(!0)},2E3);</script>
+
+<script type="text/javascript" id="">setTimeout(function(){var a=document.createElement("script");a.innerText="var _d_site \x3d _d_site || 'D4B0DCC69F0D0F373AFFD9CE';   (function(p, r, i, v, y){     p[i] \x3d p[i] || function() { (p[i].q \x3d p[i].q || []).push(arguments) };     v \x3d r.createElement('script'); v.async \x3d 1; v.src \x3d 'https://widget.privy.com/assets/widget.js';     y \x3d r.getElementsByTagName('script')[0]; y.parentNode.insertBefore(v, y);   })(window, document, 'Privy');";document.head.append(a)},1E3);</script>
+<iframe src="https://www.google.com/recaptcha/api2/aframe" style="display: none;" width="0" height="0"></iframe><div id="privy-container" style="display: block !important;"><div id="privy-inner-container" style="display: block !important;"><div class="privy privy-popup-container privy-display-2412680 privy-flyout-container privy-right" style="display: none;"></div><div class="privy-dropdown-container privy"></div><div class="privy privy-popup-container privy-display-2412681 privy-thank-you" style="display: none;"></div><div class="privy privy-popup-container privy-display-1821169 privy-thank-you" style="display: none;"></div><div class="privy-tab-container privy-bottom-center privy-bottom privy-center privy-basic" aria-label="Marketing and promotions tab bottom-center" role="complementary" style="margin-left: 0px;"></div><div class="privy privy-popup-container privy-display-1821168" style="display: none;"></div><div class="privy-tab-container privy-bottom-left privy-bottom privy-left privy-corner" aria-label="Marketing and promotions tab bottom-left" role="complementary"><div aria-haspopup="dialog" role="button" tabindex="0" class="privy-tab privy-bottom privy-left privy-corner" style="background: rgba(0, 0, 0, 0) linear-gradient(-45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgb(74, 144, 226) 50%, rgb(74, 144, 226) 100%) repeat scroll 0% 0%; color: white;"><div class="privy-tab-text" style="color: white; font-family: Lato, Helvetica, Arial, Sans Serif;">Get 10% off!</div><div class="privy-caret privy-caret-up" style="color: white;"></div></div></div><div class="privy privy-popup-container privy-display-1821032" style="display: none;"></div><div class="privy privy-popup-container privy-display-1821031 privy-thank-you" style="display: none;"></div><div class="privy privy-popup-container privy-display-2491520 privy-thank-you" style="display: none;"></div><div class="privy-tab-container privy-top-left privy-top privy-left privy-basic" aria-label="Marketing and promotions tab top-left" role="complementary"></div><div class="privy privy-popup-container privy-display-2520212" style="display: none;"></div><div class="privy privy-popup-container privy-display-1726947" style="background-color: rgba(0, 0, 0, 0.33); background-image: none; border-radius: 0px; border: medium none;"><div aria-label="marketing and promotions" role="dialog" aria-modal="true" class="privy-popup-content-wrap">
+      <div class="privy-popup-inner-content-wrap" style="width: 800px; border-width: 1px; border-color: rgb(255, 255, 255); border-radius: 10px; background-color: rgb(255, 255, 255); transform: none; transform-origin: left top 0px;">
+        <div class="privy-popup-alerts-container" role="alert" style="display:none;"></div>
+        <div role="button" class="privy-dismiss-content" title="Close" aria-label="Close" style="transform: scale(1); transform-origin: right top 0px;" tabindex="6"><img alt="Close" class="privy-x" src="https://assets.privy.com/assets/x-da8d2cc51c4426cc3ea5a20273576343cfa3a717812fa7182499685b95066541.svg"></div>
+        <div class="privy-popup-content privy-foreground-element" style="width: 800px; height: 600px; border-radius: 10px; background-color: rgb(255, 255, 255); background-image: url(&quot;https://assets.privy.com/picture_photos/2363543/medium/e0de754b99c24e2984bd224365e11f78?1643166852&quot;); background-position: center 50%; background-repeat: no-repeat; background-size: cover;"><div class="privy-element-wrapper privy-text-element-wrapper privy-element-wrapper-absolute" data-element-id="9413979" style="z-index: 3; top: 479px; left: 100px; position: absolute; width: 200px; height: 30px;"><div class="privy-element privy-text-element privy-text-left"><div style="text-align:left"><div style="text-align:center"><span style="color:rgba(223, 217, 217, 1)"><span style="font-weight:400"><span style="font-family:Lato"><span style="font-size:9px"><span style="letter-spacing:0px">﻿</span></span></span></span></span><a href="https://www.monotype.com/legal/privacy-policy/" tabindex="5"><span style="color:rgba(223, 217, 217, 1)"><span style="font-weight:400"><span style="font-family:Lato"><span style="font-size:9px"><span style="letter-spacing:0px">Privacy Policy</span></span></span></span></span></a><span style="color:rgba(223, 217, 217, 1)"><span style="font-weight:400"><span style="font-family:Lato"><span style="font-size:9px"><span style="letter-spacing:0px">﻿</span></span></span></span></span></div></div></div></div><div class="privy-element-wrapper privy-form-element-wrapper privy-element-wrapper-absolute" data-element-id="8925738" style="z-index: 2; top: 241px; left: 415px; position: absolute; width: 330px; height: 40px;"><form aria-label="marketing offers and promotions" accept-charset="UTF-8" method="post" class="privy-form privy-element privy-form-element privy-form-vertical" id="privy-form-8925738" style="color: rgb(74, 74, 74); font-family: Lato, Helvetica, Arial, Sans Serif; font-size: 16px; font-weight: 500; text-align: left; letter-spacing: 0px; border-width: 0px; border-radius: 0px;">
+      <div class="privy-alert-error privy-form-errors" role="alert" style="display:none;"></div><div class="privy-form-inner"><input name="customer_attributes[source]" type="hidden" style="display:none" value="mf_privy_pre_purchase" tabindex="1"><div class="privy-form-group privy-first_name-group privy-last_name-group privy-name-group"><div><div class="privy-half-width-input"><input class="privy-first_name-input " type="text" name="customer_attributes[first_name]" autocomplete="given-name" aria-label="First Name" placeholder="First Name" tabindex="1"></div><div class="privy-half-width-input"><input class="privy-last_name-input " type="text" name="customer_attributes[last_name]" autocomplete="family-name" aria-label="Last Name" placeholder="Last Name" tabindex="2"></div></div></div><div class="privy-form-group privy-email-group"><input class="privy-email-input " name="customer_attributes[email]" type="email" autocomplete="email" aria-label="Email" placeholder="Email" tabindex="3"></div></div>
+      <input name="utf8" type="hidden" value="✓" tabindex="1">
+    </form></div><div class="privy-element-wrapper privy-button-element-wrapper privy-element-wrapper-absolute" data-element-id="8925740" style="z-index: 1; top: 348px; left: 415px; position: absolute; width: 330px; height: 40px;"><button role="button" aria-label="Submit" class="privy-element privy-button-element privy-button-flat" tabindex="4" id="privy-submit-btn" style="color: rgb(255, 255, 255); font-family: Lato, Helvetica, Arial, Sans Serif; font-size: 20px; font-weight: 400; text-align: center; letter-spacing: 0px; background-color: rgb(74, 144, 226); border-width: 0px; border-radius: 0px;">Submit</button></div></div>
+      </div>
+
+      
+      
+    </div>
+
+    <canvas id="privy-confetti-canvas"></canvas></div><div class="privy privy-popup-container privy-display-1726948 privy-thank-you" style="display: none;"></div><div class="privy privy-popup-container privy-display-4166501 privy-thank-you" style="display: none;"></div><div class="privy privy-popup-container privy-display-4166500" style="display: none;"></div></div></div></body></html>

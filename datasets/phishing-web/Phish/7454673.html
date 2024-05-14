@@ -1,0 +1,411 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+<meta http-equiv="X-UA-Compatible" content="requiresActiveX=true">
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE9">
+<meta name="keywords" content="メール,Webメール,Ｗｅｂメール,BIGLOBE,ビッグローブ">
+<meta name="description" content="BIGLOBEメールはブラウザで手軽にメールが使えます。スマートフォンにも対応。面倒な設定はいらず、ログインするだけですぐにご利用いただけます。">
+<title>BIGLOBEメール｜Webメール</title>
+<link rel="icon" href="https://webmail.biglobe.ne.jp/images2/common/favicon.ico" type="image/vnd.microsoft.icon">
+<link href="https://webmail.biglobe.ne.jp/css2/import_top.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" async="" src="https://cdn.treasuredata.com/sdk/1.7.1/td.min.js"></script><script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript" src="https://webmail.biglobe.ne.jp/js2/common.js" charset="SHIFT-JIS"></script>
+<script type="text/javascript" src="https://webmail.biglobe.ne.jp/js2/wm_login.js"></script>
+<script type="text/javascript" src="/api/js/check_deprecated_browser.js"></script>
+<script type="text/javascript" src="/api/js/input_time_chk.js"></script>
+
+<!-- SWキーボードここから//-->
+<link rel="stylesheet" href="https://webmail.biglobe.ne.jp/softkeyboard/softkeyboardsjis.css">
+<script language="JavaScript" src="/api/softkeyboard/webmail_jquery.js" charset="SHIFT-JIS"></script>
+<script language="JavaScript" src="/api/softkeyboard/webmail_jquery.softkeyboard.loginmail.js" charset="SHIFT-JIS"></script>
+<!-- SWキーボードここまで //-->
+<script type="text/javascript">
+<!--
+
+	d = document;
+
+//-->
+</script>
+
+<!-- GA Tracking code// -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36799343-1']);
+  _gaq.push(['_setDomainName', 'biglobe.ne.jp']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- //GA Tracking code -->
+
+<!-- select_change_event -->
+<script type="text/javascript">
+
+  $(function(){
+    $('select#version').change(function() {
+      if($(this).val()=='basic'){
+	var str_url = location.href;
+	if ( str_url.indexOf( "next_url=https%3a%2f%2fwebmail%2esso%2ebiglobe%2ene%2ejp%2f%3fapp%3dmailoptions%26tab%3drecommendation" ) == -1 ) {
+	  return false;
+	} else {
+	  alert("標準版へログインしようとしています。\n\n「おすすめ」はアドバンスト版のみご利用いただけます。標準版へログインした場合は、通常の「メール」画面が表示されます。");
+	}
+      }
+    });
+  });
+
+set_time('sms');
+</script>
+<script type="text/javascript">
+var jsHost = (("https:" == document.location.protocol) ? "https://" : "http://");
+var rtmsJs = jsHost + "top.bcdn.jp/j/ft_rtms/rtms.js?" + Math.floor(new Date().getTime()/86400000);
+document.write(decodeURI("%3Cscript src='" + rtmsJs + "' type='text/javascript' async%3E%3C/script%3E"));
+</script><script src="https://top.bcdn.jp/j/ft_rtms/rtms.js?19052" type="text/javascript" async=""></script>
+</head>
+
+<body onload="deprecated_check()">
+
+<div id="container"><a name="pagetop"></a>
+
+<!-- Header// -->
+<div id="header_main">
+	<div id="header_logo">
+	<h1><img src="https://webmail.biglobe.ne.jp/images2/common/logo_email.gif" alt="BIGLOBEメール" usemap="#logo" width="210" height="31"></h1>
+	<map name="logo">
+	<area shape="rect" coords="0,0,150,35" href="http://www.biglobe.ne.jp/" alt="BIGLOBE">
+	<area shape="rect" coords="150,0,210,35" href="https://webmail.biglobe.ne.jp/" alt="BIGLOBEメール">
+	</map>
+	</div><!--/header-logo-->
+	<div id="header_keyword">
+	<strong>メールがもっと便利で楽しくなる！</strong>
+	</div><!--/header_keyword-->
+<!--
+	<div id="headerNavi">
+	<div class="search">
+<form method="get" action="http://guide.biglobe.ne.jp/cgi-bin/search-roboBS" name="search">
+<input type="text" name="q" size="18" style="width:125px;color:#999" value="キーワード" onFocus="javascript:if(this.value=='キーワード')
+							this.value='';this.style.color='#333'" onBlur="javascript:if(this.value=='')this.value='キーワード';this.style.color='#999'" />
+<input type="submit" value="サイト内検索" />
+<input type="hidden" name="c" value="検索" />
+<input type="hidden" name="clid" value="1" />
+<input type="hidden" name="sitesearch" value="webmail.biglobe.ne.jp" />
+</form>
+	</div>
+	<div class="top"><a href="http://www.biglobe.ne.jp/">BIGLOBEトップ</a></div>
+	</div>
+-->
+	<br class="clear">
+</div>
+
+<div id="header-link">
+	<div id="support_menu">
+<ul class="fmenu">
+      <li><a href="https://email.biglobe.ne.jp/">メールサービス</a></li>
+      <li><a class="bl" href="https://support.biglobe.ne.jp/" target="_blank">会員サポート</a></li>
+      <li><a class="bl" href="https://support.biglobe.ne.jp/shogaiap/service.html" target="_blank">障害情報</a></li>
+</ul>
+	</div>
+</div>
+<!-- //Header -->
+
+
+<!-- Main_start -->
+<div id="main">
+
+<!-- Contents_start -->
+<div id="contents_block">
+
+<!-- 注意書きの記載 //-->
+	<!-- JavaScriptが動作しない場合 //-->
+	<noscript>
+		<div class="warning">
+			BIGLOBEメール（アドバンスト版）をご利用になるには、JavaScriptを有効にしてください。
+		</div>
+	</noscript>
+
+<!-- 注意書きの記載 //-->
+<!--★ここから追記4/20★-->
+<div class="news">
+<ul>
+
+<script>
+var newslist_url = new Array();
+var newslist_name = new Array();
+</script>
+<script type="text/javascript" src="https://webmail.biglobe.ne.jp/blog/c31a2fc863.js" charset="SHIFT-JIS"></script>
+<script>
+var anamelist = new Array();
+var aurllist = new Array();
+anamelist[0] = newslist_name[0];
+anamelist[1] = newslist_name[1];
+anamelist[2] = newslist_name[2];
+anamelist[3] = newslist_name[3];
+anamelist[4] = newslist_name[4];
+anamelist[5] = newslist_name[5];
+aurllist[0] = newslist_url[0];
+aurllist[1] = newslist_url[1];
+aurllist[2] = newslist_url[2];
+aurllist[3] = newslist_url[3];
+aurllist[4] = newslist_url[4];
+aurllist[5] = newslist_url[5];
+
+</script>
+<script>
+for (i = 0; i < 6; i++) {
+if( anamelist[i] != undefined){
+	if( anamelist[i] != "障害・メンテナンス情報について"){
+	anamelist[i] = "<li><img src=\"https://asp2.blog.biglobe.ne.jp/images/manage/emoji/webry/07_attention.gif\">" + "<b><a href=\"" + aurllist[i] + "\" target=\"_parent\"><font color=\"#ff0000\">" + anamelist[i] + "</font></a></b></li>";
+	document.write(anamelist[i]);
+	document.write("<br />");
+	}
+}
+}
+</script>
+
+</ul>
+</div>
+<!--★ここまで追記4/20★-->
+
+<!--div class="pr_block">
+</div -->
+
+<!-- 障害情報 start //-->
+<!--
+<div class="infoArea">
+<p><img src="https://asp2.blog.biglobe.ne.jp/images/manage/emoji/webry/07_attention.gif">
+<a href="https://support.biglobe.ne.jp/shogaiap/today.html#100010358" target="_blank"><font color="ff0000"><b>【一部のお客さま】Webメールへのアクセスに時間がかかる事象のお詫び(2018/7/17)</a></b></font></p>
+</div>
+-->
+<!-- 障害情報 end //-->
+
+<!-- お客様サービス start //-->
+<iframe src="https://member4.sso.biglobe.ne.jp/heute" width="300" height="36" frameborder="0"></iframe>
+<!-- お客様サービス end //-->
+
+<!-- お知らせ start //-->
+<div class="infotitle" style="margin-top:25px;">お知らせ</div>
+<div class="infoArea">
+<p>・<a href="https://email.biglobe.ne.jp/campaign/spam/folderoption.html?hinfo2=ncdsf008&amp;utm_source=webmail&amp;utm_campaign=mfo-maillogin&amp;utm_medium=info" target="_blank">【キャンペーン】迷惑メールフォルダオプション(2021/4/1 ～ 2021/5/31) </a><font color="ff0000"><b>New!</b></font></p>
+<p>・<a href="https://support.biglobe.ne.jp/news/news680.html" target="_blank">【重要】BIGLOBEメール（Webメール）への電話認証導入と電話番号登録のお願い</a><font color="ff0000"><b>New!</b></font></p>
+<p>・<a href="https://support.biglobe.ne.jp/news/news550.html#a_faq1" target="_blank">Webメールにログインが出来ない場合はこちらをご確認ください。</a><font color="ff0000"><b></b></font></p>
+</div>
+<!-- お知らせ end //-->
+
+<script>
+getResponsiveCSS ();
+</script>
+
+<!-- firstviewポップアップ制御cookie削除 -->
+<iframe src="https://member4.sso.biglobe.ne.jp/webmail/advanced/firstview/del_suppress.html" width="0" height="0" frameborder="0"></iframe>
+<!-- div class="subArea_block">
+<h3><img src="https://webmail.biglobe.ne.jp/images2/title_top_attention.jpg" alt="ご注意ください" width="550" height="20" /></h3>
+
+<ul class="textArea">
+<li class="dot_last">
+パスワードは、第三者に悪用されないためにも、定期的に変更することをおすすめします。<br />
+［<a href="http://support.biglobe.ne.jp/jimu/idpw/pwchange/pass.html" target="blank">より安全なパスワードにするには</a>］
+</li>
+</ul>
+</div --><!-- /subArea_block -->
+
+<div id="info_footer"><p>
+
+
+</p><div class="webrylink">
+<center>
+
+<div class="banner_area" style="margin-bottom: 15px;">
+	<a href="https://email.biglobe.ne.jp/campaign/spam/folderoption.html?hinfo2=ncdsf007&amp;utm_source=webmail&amp;utm_campaign=mfo-maillogin&amp;utm_medium=banner" target="_blank">
+	<img src="https://webmail.biglobe.ne.jp/images2/banner/spam_550_100_20210401.png" alt="迷惑メールフォルダオプション初月無料キャンペーン" title="迷惑メールフォルダオプション初月無料キャンペーン">
+	</a>
+</div>
+<ul>
+<li><a href="https://webmail.biglobe.ne.jp/requirements.html">推奨環境</a></li>
+<li><a href="https://webmail.biglobe.ne.jp/help.html">ヘルプ</a></li>
+<li><a href="http://email.biglobe.ne.jp/faq.html">よくあるお問い合わせ</a></li>
+<li><a href="https://webmail.biglobe.ne.jp/read.html">必ずお読みください</a></li>
+</ul>
+</center>
+</div>
+
+<p></p></div>
+
+<!-- /contents_block --></div>
+<!-- Contents_end -->
+
+
+<!-- Menu_start -->
+<div id="side_menuArea">
+<div id="side_menu_block">
+<div id="side_menu">
+<h2><img src="https://webmail.biglobe.ne.jp/images2/pagetitle_top.jpg" alt="BIGLOBEメールメールにログイン" width="238" height="43"></h2>
+
+<!-- ERRORメッセージ:s -->
+<!-- ERRORメッセージ:e -->
+
+<div class="login_block">
+<div id="login_form">
+<form method="POST" name="direct" action="direct.php" onsubmit="set_time_hidden(this);return openWebmail();">
+	<input type="hidden" name="sms" value="">
+	<input type="hidden" name="ems" value="">
+
+<input type="hidden" name="onetime" value="0a094869e64267c742fc30db12dbf34c">
+<input type="hidden" name="custom_id" value="">
+<input type="hidden" name="from_page" value="loginWebmail">
+	<div>
+	<label for="loginid">メールアドレスまたはユーザID</label>
+	<input name="loginid" type="text" size="35" autocomplete="off" id="loginid" value="" style="ime-mode: disabled">
+	<label for="biglobe_pw">BIGLOBEパスワード</label>
+	<input name="biglobe_pw" type="password" size="30" id="biglobe_pw">
+	</div>
+	
+<!-- Androidの場合SWキーボードのボタンを表示しないここから //-->
+<script language="Javascript" type="text/javascript">
+<!--
+
+var ua = navigator.userAgent;
+if (
+ua.indexOf('Android') == -1 && ua.indexOf('iPhone') == -1 && ua.indexOf('iPad') == -1)
+{
+document.write("<div class='skey'><img src='https://webmail.biglobe.ne.jp/images2/button_softkey.gif' alt='ソフトウェアキーボードで入力する' title='ソフトウェアキーボードで入力する' width='200' height='30' id='soft_keyboard_pass_id'></div>");
+}
+
+//-->
+</script><div class="skey"><img src="https://webmail.biglobe.ne.jp/images2/button_softkey.gif" alt="ソフトウェアキーボードで入力する" title="ソフトウェアキーボードで入力する" id="soft_keyboard_pass_id" width="200" height="30"></div>
+<!-- Androidの場合SWキーボードのボタンを表示しないここまで //-->
+
+<!-- SWキーボードここから //-->
+<div id="keyboard"></div>
+<div id="my_div"></div>
+
+<script language="Javascript" type="text/javascript">
+<!--
+
+$(document).ready(function(){
+ $("#keyboard").keyboard({
+  SelBoxPosition : 0,
+  IdBoxPosition : 0,
+  PassBoxPosition : 0,
+  IdInputID  : 'loginid',
+  PassInputID  : 'biglobe_pw',
+  ExecKeyboard : 'soft_keyboard_pass_id',
+  DirectoryName : 'softkeyboard/',
+  IdMaxLen  : 8,
+  PassMaxLen  : 16
+ });
+});
+
+//-->
+</script>
+<!-- SWキーボードここまで //-->
+
+	<ul>
+    <li><input type="checkbox" name="autologinidflag" id="autologinidflag" value="1"><label for="autologinidflag">次回からIDの入力を省略</label></li>
+	<li><input type="checkbox" name="autologinflag" id="autologinflag" value="1"><label for="autologinflag"><a href="http://support.biglobe.ne.jp/settei/webmail/login.html" target="_blank">ログイン状態を保存する</a><br>（共有パソコンではチェックをはずしてください）</label></li>
+        <li><select name="version" id="version" onchange="deprecated_check()">
+<option value="advanced" selected="">アドバンスト版</option>
+<option value="basic">標準版</option>
+</select></li>
+         <li>
+
+<div id="deprecated" style="padding-top: 10px">
+</div>
+
+</li>
+        </ul>
+
+	<div class="loginBtn">
+	<input type="image" src="https://webmail.biglobe.ne.jp/images2/btn_login.gif" alt="ログイン" title="ログイン" width="205" height="37" border="0"></div>
+</form>
+</div><!-- //login_form -->
+<script type="text/javascript">
+<!--
+
+	doit();
+
+//-->
+</script>
+
+<ul class="supportLink">
+<li><a href="http://support.biglobe.ne.jp/settei/webmail/login.html" target="_blank">ログイン方法について</a></li>
+<li><a href="http://support.biglobe.ne.jp/jimu/idpw/index.html" target="_blank">ID・パスワードを忘れた場合</a><br>
+BIGLOBE法人会員でID・パスワードをお忘れの方は［<a href="http://office.biglobe.ne.jp/kentou/office/faq.html" target="_blank">こちら</a>］</li>
+<li><a href="http://email.biglobe.ne.jp/mailaccount.html" target="_blank">メールアドレスの取得・確認</a></li>
+<li><a href="http://email.biglobe.ne.jp/machange/index.html" target="_blank">メールアドレスの変更</a></li>
+</ul>
+</div><!-- /login_block -->
+
+
+<!-- /side_menu --></div>
+<!-- /side_menu_block --></div>
+
+</div><!-- //side_menuArea -->
+<!-- /Menu_end -->
+
+</div><!-- /main -->
+<!-- /Main_end -->
+
+<!-- START : フッター -->
+<div id="footerContainer">
+<!--フッターサーチここから-->
+<!--
+<div id="footerSearch">
+<table border="0" align="center" cellpadding="0" cellspacing="0" summary="search form">
+<tr>
+	<form name="srh2" id="srh2" method="get" action="http://cgi.search.biglobe.ne.jp/cgi-bin/search2-f">
+	<td>
+		<input type="hidden" name="search" value="検索">
+		<input type="text" name="q" size="18" style="width:216px" value="">
+	</td>
+	<td width="3"><img src="https://webmail.biglobe.ne.jp/images2/common/spacer.gif" alt="" width="3" height="3"></td>
+	<td><input type="submit" name="btn2" value="ウェブ検索"></td>
+	</form>
+</tr>
+</table>
+</div>
+-->
+<!--フッターサーチここまで-->
+<div id="footerLink">
+	<div id="footerLinkBox1">&nbsp;</div>
+	<div id="footerLinkBox2">
+		<a href="https://www.biglobe.ne.jp/">BIGLOBEトップ</a>｜<a href="https://join.biglobe.ne.jp/">インターネット接続</a>（<a href="https://join.biglobe.ne.jp/ftth/hikari/">ビッグローブ光</a>・<a href="https://join.biglobe.ne.jp/mobile/">格安SIM</a>・<a href="https://join.biglobe.ne.jp/mobile/special/">SIM替え</a>）<br>
+		<a href="https://www.biglobe.co.jp/">会社概要</a>｜<a href="https://www.biglobe.ne.jp/whatsnew/news.html">ニュースリリース</a>｜<a href="https://www.biglobe.co.jp/recruit/index.html">採用情報</a>｜<a href="https://www.biglobe.ne.jp/privacy.html">個人情報保護ポリシー</a>｜<a href="https://www.biglobe.ne.jp/cookie.html">Cookieポリシー</a>｜<a href="https://support.biglobe.ne.jp/safesecurity/">安心・安全</a>｜<a href="https://support.biglobe.ne.jp/">お問い合わせ</a>
+	</div>
+
+
+	<div id="footerLinkBox3">
+	<img src="https://webmail.biglobe.ne.jp/images2/common/footer3logo.gif" alt="" usemap="#FooterMap" width="210" height="66">
+<map name="FooterMap" id="FooterMap">
+<area shape="rect" coords="95,0,155,64" href="https://privacymark.jp/" target="_blank" alt="プライバシーマーク" onclick="B.gae('footer', 'click', 'footer');">
+<area shape="rect" coords="160,0,210,64" href="http://www.biglobe.ne.jp/safesecurity.html" target="_blank" alt="インターネット接続サービス安全・安心マーク" onclick="B.gae('footer', 'click', 'footer');">
+</map>
+	</div>
+
+
+</div>
+<div id="footerCopyright">
+	<script type="text/javascript" src="https://webmail.biglobe.ne.jp/js2/footer.js"></script>
+	<script type="text/javascript">
+	<!--
+	copyright();
+	//-->
+	</script>Copyright(C)BIGLOBE Inc. 1996-2022
+	<noscript>Copyright(C)BIGLOBE Inc.</noscript>
+</div>
+</div>
+<!-- END : フッター -->
+
+
+</div><!-- /container -->
+
+
+
+</body></html>

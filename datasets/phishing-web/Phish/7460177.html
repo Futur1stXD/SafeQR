@@ -1,0 +1,461 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Axie Marketplace</title>
+
+    <!-- FAVICONS-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+
+    <!-- GOOGLE FONT -->
+	<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap" as="fetch" crossorigin="anonymous">
+    <script type="text/javascript">
+    !function(e,n,t){"use strict";var o="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap",r="__3perf_googleFonts_c2536";function c(e){(n.head||n.body).appendChild(e)}function a(){var e=n.createElement("link");e.href=o,e.rel="stylesheet",c(e)}function f(e){if(!n.getElementById(r)){var t=n.createElement("style");t.id=r,c(t)}n.getElementById(r).innerHTML=e}e.FontFace&&e.FontFace.prototype.hasOwnProperty("display")?(t[r]&&f(t[r]),fetch(o).then(function(e){return e.text()}).then(function(e){return e.replace(/@font-face {/g,"@font-face{font-display:swap;")}).then(function(e){return t[r]=e}).then(f).catch(a)):a()}(window,document,localStorage);
+    </script>
+
+    <!-- BASE CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+	<link href="css/style.css" rel="stylesheet">
+
+    <!-- SPECIFIC CSS -->
+    <link href="css/home.css" rel="stylesheet">
+<style id="__3perf_googleFonts_c2536">/* devanagari */
+@font-face{font-display:swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLDz8Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* latin-ext */
+@font-face{font-display:swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLDz8Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face{font-display:swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face{font-display:swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiEyp8kv8JHgFVrJJbecmNE.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* latin-ext */
+@font-face{font-display:swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiEyp8kv8JHgFVrJJnecmNE.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face{font-display:swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face{font-display:swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLGT9Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* latin-ext */
+@font-face{font-display:swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face{font-display:swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face{font-display:swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLEj6Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* latin-ext */
+@font-face{font-display:swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face{font-display:swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face{font-display:swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLCz7Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* latin-ext */
+@font-face{font-display:swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLCz7Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face{font-display:swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style><style type="text/css" id="jarallax-clip-0">#jarallax-container-0 {
+            clip: rect(0 1267px 700px 0);
+            clip: rect(0, 1267px, 700px, 0);
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }</style></head>
+
+<body class="light-theme">
+
+	<div id="preloader" style="display: none;"><div data-loader="circle-side" style="display: none;"></div></div><!-- /Page Preload -->
+				
+	
+	<main>
+
+	    <div class="hero_single version_2 jarallax" data-jarallax="">
+	    	
+	        <div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)" style="background-color: rgba(0, 0, 0, 0.5);">
+	            <div class="container">
+	                <div class="row">
+	                    <div class="col-xl-9 col-lg-10">
+	                        <h1 class="slide-animated one is-transitioned">Discover, collect<br> extraordinary Axie Items</h1>
+	                        <p class="slide-animated two is-transitioned">on the world's first &amp; largest Axie marketplace</p>
+	                    </div>
+	                </div>
+	                <!-- /row -->
+	            </div>
+	        </div>
+	        <div class="wave hero"></div>
+	    <div style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100;" id="jarallax-container-0"><img class="jarallax-img" src="img/hero_general.jpg" alt="" style="object-fit: cover; object-position: 50% 50%; max-width: none; position: fixed; top: 0px; left: 0px; width: 1267px; height: 844px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; will-change: transform, opacity; margin-top: 72px; transform: translate3d(0px, -72px, 0px);"></div></div>
+	    <!-- /hero_single -->
+
+	    <div class="container margin_90_90">
+	        <div class="main_title center">
+	            <span><em></em></span>
+	            <h2>Featured Items</h2>
+	        </div>
+	        <!-- /main_title -->
+
+	        <div class="owl-carousel owl-theme featured_carousel owl-loaded owl-drag" data-cue="slideInUp">
+			
+	            
+				
+				
+				
+				
+				
+				
+				
+				
+
+	        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1902px;"><div class="owl-item active" style="width: 355.333px; margin-right: 25px;"><div class="item">
+	                <div class="strip">
+	                    <figure>
+	                        <a href="#modal-dialog" class="btn_1 modal_popup">Place a bid</a>
+	                        <img src="/nft/1.png" data-src="/nft/1.png" class="owl-lazy" alt="" style="opacity: 1;" width="533" height="400">
+	                        <a href="#" class="strip_info">
+	                            <div class="item_title">
+	                                <h3>Axie #771236</h3>
+	                                <small>3.25 ETH</small>
+	                            </div>
+	                        </a>
+	                    </figure>
+
+	                </div>
+	            </div></div><div class="owl-item active" style="width: 355.333px; margin-right: 25px;"><div class="item">
+	                <div class="strip">
+	                    <figure>
+	                        <a href="#modal-dialog" class="btn_1 modal_popup">Place a bid</a>
+	                        <img src="/nft/2.png" data-src="/nft/2.png" class="owl-lazy" alt="" style="opacity: 1;" width="533" height="400">
+	                        <a href="#" class="strip_info">
+	                            <div class="item_title">
+	                                <h3>Axie #6457345</h3>
+	                                <small>4.1 ETH</small>
+	                            </div>
+	                        </a>
+	                    </figure>
+
+	                </div>
+	            </div></div><div class="owl-item active" style="width: 355.333px; margin-right: 25px;"><div class="item">
+	                <div class="strip">
+	                    <figure>
+	                        <a href="#modal-dialog" class="btn_1 modal_popup">Place a bid</a>
+	                        <img src="/nft/3.png" data-src="/nft/3.png" class="owl-lazy" alt="" style="opacity: 1;" width="533" height="400">
+	                        <a href="#" class="strip_info">
+	                            <div class="item_title">
+	                                <h3>Axie #764554</h3>
+	                                <small>2.29 ETH</small>
+	                            </div>
+	                        </a>
+	                    </figure>
+
+	                </div>
+	            </div></div><div class="owl-item active" style="width: 355.333px; margin-right: 25px;"><div class="item">
+	                <div class="strip">
+	                    <figure>
+	                        <a href="#modal-dialog" class="btn_1 modal_popup">Place a bid</a>
+	                        <img src="/nft/4.png" data-src="/nft/4.png" class="owl-lazy" alt="" width="533" height="400">
+	                        <a href="#" class="strip_info">
+	                            <div class="item_title">
+	                                <h3>Axie #126845697</h3>
+	                                <small>3.17 ETH</small>
+	                            </div>
+	                        </a>
+	                    </figure>
+
+	                </div>
+	            </div></div><div class="owl-item" style="width: 355.333px; margin-right: 25px;"><div class="item">
+	                <div class="strip">
+	                    <figure>
+	                        <a href="#modal-dialog" class="btn_1 modal_popup">Place a bid</a>
+	                        <img src="/nft/5.png" data-src="/nft/5.png" class="owl-lazy" alt="" width="533" height="400">
+	                        <a href="#" class="strip_info">
+	                            <div class="item_title">
+	                                <h3>Axie #97860345</h3>
+	                                <small>2.22 ETH</small>
+	                            </div>
+	                        </a>
+	                    </figure>
+
+	                </div>
+	            </div></div></div></div><div class="owl-nav"><button type="button" role="presentation" class="owl-prev disabled"><i class="bi bi-chevron-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="bi bi-chevron-right"></i></button></div><div class="owl-dots disabled"></div></div>
+	    </div>
+	    <!-- /container -->
+
+	 
+	    <div class="container margin_120_90">
+	        <div class="main_title version_2">
+	            <span><em></em></span>
+	            <h2>New Items</h2>
+	        </div>
+	        <!-- /main_title -->
+
+	        <div class="row justify-content-center">
+	            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6" data-cue="slideInUp">
+	                <div class="strip">
+	                    <figure>
+							<a href="#modal-dialog" class="btn_1 modal_popup">Place a bid</a>
+	                        <img src="nft/6.png" data-src="nft/6.png" class="lazy" alt="" width="533" height="400">
+	                        <a href="#" class="strip_info">
+	                            <div class="item_title">
+	                                <h3>Axie #7734258</h3>
+	                                <small>2.45 ETH</small>
+	                            </div>
+	                        </a>
+	                    </figure>
+	                </div>
+	            </div>
+				
+				<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6" data-cue="slideInUp">
+	                <div class="strip">
+	                    <figure>
+						<a href="#modal-dialog" class="btn_1 modal_popup">Place a bid</a>
+	                        <img src="nft/7.png" data-src="nft/7.png" class="lazy" alt="" width="533" height="400">
+	                        <a href="#" class="strip_info">
+	                            <div class="item_title">
+	                                <h3>Axie #46574567</h3>
+	                                <small>3.11 ETH</small>
+	                            </div>
+	                        </a>
+	                    </figure>
+	                </div>
+	            </div>
+				
+				<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6" data-cue="slideInUp">
+	                <div class="strip">
+	                    <figure>
+						<a href="#modal-dialog" class="btn_1 modal_popup">Place a bid</a>
+	                        <img src="nft/8.png" data-src="nft/8.png" class="lazy" alt="" width="533" height="400">
+	                        <a href="#" class="strip_info">
+	                            <div class="item_title">
+	                                <h3>Axie #764574</h3>
+	                                <small>2.22 ETH</small>
+	                            </div>
+	                        </a>
+	                    </figure>
+	                </div>
+	            </div>
+				
+				<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6" data-cue="slideInUp">
+	                <div class="strip">
+	                    <figure>
+						<a href="#modal-dialog" class="btn_1 modal_popup">Place a bid</a>
+	                        <img src="nft/9.png" data-src="nft/9.png" class="lazy" alt="" width="533" height="400">
+	                        <a href="#" class="strip_info">
+	                            <div class="item_title">
+	                                <h3>Axie #7341234</h3>
+	                                <small>21.97 ETH</small>
+	                            </div>
+	                        </a>
+	                    </figure>
+	                </div>
+	            </div>
+				
+				<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6" data-cue="slideInUp">
+	                <div class="strip">
+	                    <figure>
+						<a href="#modal-dialog" class="btn_1 modal_popup">Place a bid</a>
+	                        <img src="nft/10.png" data-src="nft/10.png" class="lazy" alt="" width="533" height="400">
+	                        <a href="#" class="strip_info">
+	                            <div class="item_title">
+	                                <h3>Axie #6543247</h3>
+	                                <small>13.41 ETH</small>
+	                            </div>
+	                        </a>
+	                    </figure>
+	                </div>
+	            </div>
+				
+				<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6" data-cue="slideInUp">
+	                <div class="strip">
+	                    <figure>
+						<a href="#modal-dialog" class="btn_1 modal_popup">Place a bid</a>
+	                        <img src="nft/11.png" data-src="nft/11.png" class="lazy" alt="" width="533" height="400">
+	                        <a href="#" class="strip_info">
+	                            <div class="item_title">
+	                                <h3>Axie #9876345</h3>
+	                                <small>1.13 ETH</small>
+	                            </div>
+	                        </a>
+	                    </figure>
+	                </div>
+	            </div>
+				
+				<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6" data-cue="slideInUp">
+	                <div class="strip">
+	                    <figure>
+						<a href="#modal-dialog" class="btn_1 modal_popup">Place a bid</a>
+	                        <img src="nft/12.png" data-src="nft/12.png" class="lazy" alt="" width="533" height="400">
+	                        <a href="#" class="strip_info">
+	                            <div class="item_title">
+	                                <h3>Axie #6354345</h3>
+	                                <small>4.14 ETH</small>
+	                            </div>
+	                        </a>
+	                    </figure>
+	                </div>
+	            </div>
+				
+				<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6" data-cue="slideInUp">
+	                <div class="strip">
+	                    <figure>
+						<a href="#modal-dialog" class="btn_1 modal_popup">Place a bid</a>
+	                        <img src="nft/13.png" data-src="nft/13.png" class="lazy" alt="" width="533" height="400">
+	                        <a href="#" class="strip_info">
+	                            <div class="item_title">
+	                                <h3>Axie #234151</h3>
+	                                <small>3.19 ETH</small>
+	                            </div>
+	                        </a>
+	                    </figure>
+	                </div>
+	            </div>
+	           
+	        </div>
+	    </div>
+	    <!-- /container -->
+
+	  
+
+	</main>
+	<!-- /main -->
+
+	
+
+	<div id="toTop"></div><!-- Back to top button -->
+
+	<!-- Modal Bid -->
+    <div id="modal-dialog" class="zoom-anim-dialog mfp-hide">
+        <div class="modal_header">
+            <h3>Place a bid</h3>
+        </div>
+        <form>
+            <div class="sign-in-wrapper">
+                <p>For place bid please fill form below</p>
+                <div class="form-group">
+                    <label>Your bid (ETH)</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Enter your email</label>
+                    <input type="text" class="form-control">
+                </div>
+               
+                <div class="text-center">
+                    <button type="button" value="Place a bid" class="btn_1 full-width mb-2">Place a bid</button>
+                    <button type="button" value="Cancel" class="btn_1 full-width outline">Cancel</button>
+                </div>
+            </div>
+        </form>
+        <!--form -->
+    </div>
+    <!-- /Modal -->
+	
+	<!-- COMMON SCRIPTS -->
+    <script src="js/common_scripts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/common_func.js"></script>
+
+
+</body></html>

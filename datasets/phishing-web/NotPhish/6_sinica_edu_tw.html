@@ -1,0 +1,856 @@
+<html dir="ltr" ng-app="aswebApp" ng-controller="aswebCtrl" class="ng-scope" lang="zh-TW"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+   <base href="/">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="shortcut icon" href="favicon.ico">
+   <link rel="stylesheet" href="include/bootstrap/css/bootstrap.css" type="text/css">
+   <link rel="stylesheet" href="css/maincore.css" type="text/css">
+   <link rel="stylesheet" href="css/style.css" type="text/css">
+   <link rel="stylesheet" href="css/e-style.css" type="text/css">
+   <link rel="stylesheet" href="css/asweb.css" type="text/css">
+   <!--[if lt IE 9]>
+      <script src="//css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+   <![endif]-->
+   <!--highslide-->
+   <link rel="stylesheet" href="include/highslide/highslide.css" type="text/css">
+   <title ng-bind="lang == 'ch' ? siteInfo.ch : siteInfo.en" class="ng-binding">中央研究院網站</title>
+   <meta name="description" content="中央研究院網站提供重要研究成果及學術活動訊息，供民眾查詢，以利快速找到所需資訊。">
+   <meta property="og:type" content="website">  
+   <meta property="og:title" content="中央研究院">
+   <meta property="og:description" content="中央研究院網站提供重要研究成果及學術活動訊息，供民眾查詢，以利快速找到所需資訊。">
+   <meta property="og:url" content="https://www.sinica.edu.tw">
+   <meta property="og:site_name" content="中央研究院">
+   <!-- GA -->
+   <script async="" src="https://www.google-analytics.com/analytics.js"></script><script>
+      (function(i, s, o, g, r, a, m) {
+         i['GoogleAnalyticsObject'] = r;
+         i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+         }, i[r].l = 1 * new Date();
+         a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+         a.async = 1;
+         a.src = g;
+         m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+      ga('create', 'UA-86556059-1', 'auto');
+      ga('send', 'pageview');
+            var inHouse = '0';
+   </script>
+   <style>
+      .carousel-indicators {
+
+         /* text-align: right;
+float: right;
+right: 2% !important;
+left: inherit;
+ bottom: 50px; */
+      }
+
+      .header-search-width table {
+         margin-bottom: 0px;
+      }
+
+      .header-search-width .gsc-control-cse {
+         padding: 0px;
+         background-color: transparent;
+         border-color: transparent;
+      }
+
+      .header-search-width .gsib_a {
+         padding: 2px;
+      }
+   </style>
+<script src="https://www.google.com/cse/static/element/3e1664f444e6eb06/cse_element__zh_tw.js?usqp=CAI%3D" type="text/javascript"></script><link type="text/css" rel="stylesheet" href="https://www.google.com/cse/static/element/3e1664f444e6eb06/default+zh_TW.css"><link type="text/css" rel="stylesheet" href="https://www.google.com/cse/static/style/look/v4/default.css"><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><style type="text/css">.gsc-control-cse{font-family:arial, sans-serif}.gsc-control-cse .gsc-table-result{font-family:arial, sans-serif}.gsc-refinementsGradient{background:linear-gradient(to left,rgba(233,233,233,1),rgba(233,233,233,0))}.gsc-control-cse{border-color:#FFFFFF;background-color:#FFFFFF}input.gsc-input,.gsc-input-box,.gsc-input-box-hover,.gsc-input-box-focus{border-color:#D9D9D9}.gsc-search-button-v2,.gsc-search-button-v2:hover,.gsc-search-button-v2:focus{border-color:#CCC;background-color:#3D85C6;background-image:none;filter:none}.gsc-search-button-v2 svg{fill:#FFFFFF}.gsc-tabHeader.gsc-tabhActive,.gsc-refinementHeader.gsc-refinementhActive{color:#FF9900;border-color:#FF9900;background-color:#FFFFFF}.gsc-tabHeader.gsc-tabhInactive,.gsc-refinementHeader.gsc-refinementhInactive{color:#E9E9E9;border-color:#E9E9E9;background-color:#E9E9E9}.gsc-webResult.gsc-result,.gsc-results .gsc-imageResult{border-color:#FFFFFF;background-color:#FFFFFF}.gsc-webResult.gsc-result:hover{border-color:#FFFFFF;background-color:#FFFFFF}.gs-webResult.gs-result a.gs-title:link,.gs-webResult.gs-result a.gs-title:link b,.gs-imageResult a.gs-title:link,.gs-imageResult a.gs-title:link b{color:#0000CC}.gs-webResult.gs-result a.gs-title:visited,.gs-webResult.gs-result a.gs-title:visited b,.gs-imageResult a.gs-title:visited,.gs-imageResult a.gs-title:visited b{color:#0000CC}.gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b,.gs-imageResult a.gs-title:hover,.gs-imageResult a.gs-title:hover b{color:#0000CC}.gs-webResult.gs-result a.gs-title:active,.gs-webResult.gs-result a.gs-title:active b,.gs-imageResult a.gs-title:active,.gs-imageResult a.gs-title:active b{color:#0000CC}.gsc-cursor-page{color:#0000CC}a.gsc-trailing-more-results:link{color:#0000CC}.gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet,.gs-fileFormatType{color:#000000}.gs-webResult div.gs-visibleUrl{color:#008000}.gs-webResult div.gs-visibleUrl-short{color:#008000}.gs-webResult div.gs-visibleUrl-short{display:none}.gs-webResult div.gs-visibleUrl-long{display:none}.gs-webResult div.gs-visibleUrl-breadcrumb{display:block}.gs-promotion div.gs-visibleUrl-short{display:none}.gs-promotion div.gs-visibleUrl-long{display:block}.gs-promotion div.gs-visibleUrl-breadcrumb{display:none}.gsc-cursor-box{border-color:#FFFFFF}.gsc-results .gsc-cursor-box .gsc-cursor-page{border-color:#E9E9E9;background-color:#E9E9E9;color:#E9E9E9}.gsc-results .gsc-cursor-box .gsc-cursor-current-page{border-color:#FF9900;background-color:#FFFFFF;color:#FF9900}.gsc-webResult.gsc-result.gsc-promotion{border-color:#336699;background-color:#FFFFFF}.gsc-completion-title{color:#0000CC}.gsc-completion-snippet{color:#000000}.gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link{color:#0000CC}.gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited{color:#0000CC}.gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover{color:#0000CC}.gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active{color:#0000CC}.gs-promotion .gs-snippet,.gs-promotion .gs-title .gs-promotion-title-right,.gs-promotion .gs-title .gs-promotion-title-right *{color:#000000}.gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short{color:#008000}.gcsc-find-more-on-google{color:#0000CC}.gcsc-find-more-on-google-magnifier{fill:#0000CC}</style><style type="text/css">.highslide img {cursor: url(include/highslide/graphics/zoomin.cur), pointer !important;}</style></head>
+
+<body class="stretched device-lg">
+   <div id="wrapper" class="clearfix" style="animation-duration: 1.5s; opacity: 1;">
+      <header class="header">
+         <div id="header-wrap">
+            <div class="container clearfix">
+               <div id="primary-menu-trigger"><i class=" icon-reorder icon-2x pull-left icon-border" style="color:#003377;"></i></div>
+               <!--logo-->
+               <div class="col_one_fourth header-left-part">
+                  <div id="logo22">
+                     <a href="" class="standard-logo" ng-click="backHome(lang)">
+                        <img src="images/logo.png" alt="Logo" class="for-logo-pc">
+                        <img src="images/mobile-logo.png" alt="Logo" class="for-logo-pad">
+                     </a>
+                     <a href="" class="retina-logo" ng-click="backHome(lang)">
+                        <img src="images/logo@2x.png" alt="Logo" class="for-logo-pc">
+                        <img src="images/mobile-logo@2x.png" alt="Logo" class="for-logo-pad">
+                     </a>
+                  </div>
+               </div>
+
+               <div class="col_three_fourth col_last header-right-part">
+                  <!--roleMenus-->
+                  <div ng-class="lang == 'ch' ? 'col_half' : 'col-md-7'" class="col_half">
+                     <ul class="identity list-style-1" ng-class="lang == 'ch' ? '' : 'list-style-3 row'">
+                        <!-- ngRepeat: m in roleMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in roleMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a ng-href="" target="_self" ng-style="{'color': m.mColor}"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">研究人員</span></a>
+                           <!-- ngIf: m.subTree --><ul class="drop-section ng-scope" ng-if="m.subTree">
+                              <!-- ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="#/ch/articles/53" target="_self" ng-style="{'color': m.mColor}" href="#/ch/articles/53"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">研究單位</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="#/ch/articles/22" target="_self" ng-style="{'color': m.mColor}" href="#/ch/articles/22"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">計畫與申請</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="http://irb.sinica.edu.tw" target="_blank" ng-style="{'color': m.mColor}" href="http://irb.sinica.edu.tw"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">本院IRB申請</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="https://dia.sinica.edu.tw/" target="_blank" ng-style="{'color': m.mColor}" href="https://dia.sinica.edu.tw/"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">國際交流合作</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="https://ae.daais.sinica.edu.tw/" target="_blank" ng-style="{'color': m.mColor}" href="https://ae.daais.sinica.edu.tw/"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">學術倫理</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="https://goo.gl/Ck2U69" target="_blank" ng-style="{'color': m.mColor}" href="https://goo.gl/Ck2U69"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">本院全球學術研究據點</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="https://gate.sinica.edu.tw" target="_blank" ng-style="{'color': m.mColor}" href="https://gate.sinica.edu.tw"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">Webmail服務</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="#/ch/articles/23" target="_self" ng-style="{'color': m.mColor}" href="#/ch/articles/23"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">常用連結</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="#/ch/articles/54" target="_self" ng-style="{'color': m.mColor}" href="#/ch/articles/54"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">院內設施服務資訊</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree -->
+                           </ul><!-- end ngIf: m.subTree -->
+                        </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in roleMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in roleMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a ng-href="" target="_self" ng-style="{'color': m.mColor}"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">行政人員</span></a>
+                           <!-- ngIf: m.subTree --><ul class="drop-section ng-scope" ng-if="m.subTree">
+                              <!-- ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="https://ssoz.apps.sinica.edu.tw" target="_blank" ng-style="{'color': m.mColor}" href="https://ssoz.apps.sinica.edu.tw"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">院內行政服務</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="https://gate.sinica.edu.tw" target="_blank" ng-style="{'color': m.mColor}" href="https://gate.sinica.edu.tw"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">Webmail服務</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="#/ch/articles/23" target="_self" ng-style="{'color': m.mColor}" href="#/ch/articles/23"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">常用連結</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="#/ch/articles/54" target="_self" ng-style="{'color': m.mColor}" href="#/ch/articles/54"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">院內設施服務資訊</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree -->
+                           </ul><!-- end ngIf: m.subTree -->
+                        </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in roleMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in roleMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a ng-href="" target="_self" ng-style="{'color': m.mColor}"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">學生</span></a>
+                           <!-- ngIf: m.subTree --><ul class="drop-section ng-scope" ng-if="m.subTree">
+                              <!-- ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="http://tigp.sinica.edu.tw/" target="_blank" ng-style="{'color': m.mColor}" href="http://tigp.sinica.edu.tw/"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">國際研究生學程</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="http://asdp.sinica.edu.tw/" target="_blank" ng-style="{'color': m.mColor}" href="http://asdp.sinica.edu.tw/"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">國內學位學程</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="http://research.sinica.edu.tw" target="_blank" ng-style="{'color': m.mColor}" href="http://research.sinica.edu.tw"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">研之有物</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="#/ch/articles/54" target="_self" ng-style="{'color': m.mColor}" href="#/ch/articles/54"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">院內設施服務資訊</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree -->
+                           </ul><!-- end ngIf: m.subTree -->
+                        </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in roleMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in roleMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a ng-href="" target="_self" ng-style="{'color': m.mColor}"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">訪客</span></a>
+                           <!-- ngIf: m.subTree --><ul class="drop-section ng-scope" ng-if="m.subTree">
+                              <!-- ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="#/ch/newsList/2" target="_self" ng-style="{'color': m.mColor}" href="#/ch/newsList/2"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">院新聞稿</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="#/ch/newsList/3" target="_self" ng-style="{'color': m.mColor}" href="#/ch/newsList/3"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">學術活動</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="#/ch/newsList/4" target="_self" ng-style="{'color': m.mColor}" href="#/ch/newsList/4"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">學術行政</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="https://sec.sinica.edu.tw/site/datas/lists/37/180/310/0" target="_blank" ng-style="{'color': m.mColor}" href="https://sec.sinica.edu.tw/site/datas/lists/37/180/310/0"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">藝文活動</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="#/ch/newsList/8" target="_self" ng-style="{'color': m.mColor}" href="#/ch/newsList/8"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">學術榮譽專區</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="#/ch/articles/50" target="_self" ng-style="{'color': m.mColor}" href="#/ch/articles/50"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">展覽館群</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" class="drop-title-01 ng-scope"><a ng-href="http://research.sinica.edu.tw" target="_blank" ng-style="{'color': m.mColor}" href="http://research.sinica.edu.tw"><span ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" class="ng-binding">研之有物</span></a></li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree -->
+                           </ul><!-- end ngIf: m.subTree -->
+                        </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in roleMenus -->
+                     </ul>
+                  </div>
+                  <!--topMenus-->
+                  <div class="col_last col_half" ng-class="lang == 'ch' ? 'col_half' : 'col-md-5'">
+                     <a href="ch/COVID-19" target="_blank"><img class="img" src="images/EpidemicPreventionLogo.png" alt="EpidemicPrevention" width="" height="32"></a>
+                     <ul class="green-menu list-style-1">
+                        <!-- ngRepeat: m in langMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in langMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a href="" ng-click="setLang(lang == 'ch' ? m.linkUrl : m.linkUrlEn)"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">English</span></a></li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in langMenus -->
+                        <!-- ngRepeat: m in topMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in topMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a ng-href="#/ch/articles/36" target="_self" ng-style="{'color': m.mColor}" href="#/ch/articles/36"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">網站導覽</span></a></li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in topMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in topMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a ng-href="#/ch/articles/32" target="_self" ng-style="{'color': m.mColor}" href="#/ch/articles/32"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">連絡我們</span></a></li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in topMenus -->
+                     </ul>
+                  </div>
+                  <div class="clear"></div>
+
+                  <!--mainMenus-->
+                  <div class="col_three_fourth header-menu-width">
+                     <nav id="primary-menu">
+                        <ul class="main-menu sf-js-enabled" style="touch-action: pan-y;">
+                           <!-- ngRepeat: m in mainMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in mainMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; m.linkUrl) || (lang == 'en' &amp;&amp; m.linkUrlEn)) ? '' : 'noLink'" class="ng-scope noLink"><a ng-href="" target="_self" ng-style="{'color': m.mColor}">
+                                 <div ng-bind="lang == 'ch' ? m.mName : m.mNameEn" ng-class="lang == 'ch' ? 'mainMenusTitle' : ''" class="ng-binding mainMenusTitle">關於本院</div>
+                              </a>
+                              <!-- ngIf: m.subTree --><ul class="sub-menu-section ng-scope" ng-if="m.subTree">
+                                 <!-- ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="#/ch/articles/12" target="_self" class="ng-scope" href="#/ch/articles/12">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">簡介</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="#/ch/president" target="_self" class="ng-scope" href="#/ch/president">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">院長</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="#/ch/articles/15" target="_self" class="ng-scope" href="#/ch/articles/15">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">副院長</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree --><!-- ngIf: mm.subTree --><ul class="packet menu-three-section ng-scope" ng-repeat="mmm in mm.subTree" ng-if="mm.subTree">
+                                       <!-- ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) --><li ng-if="(lang == 'ch' &amp;&amp; mmm.mName) || (lang == 'en' &amp;&amp; mmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmm.linkUrl) || (lang == 'en' &amp;&amp; mmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="#/ch/articles/16" target="_self" ng-style="{'color': mmm.mColor}" href="#/ch/articles/16">
+                                             <div ng-bind="lang == 'ch' ? ('▼'+ mmm.mName) : ('▼'+ mmm.mNameEn)" class="ng-binding">▼周美吟副院長</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) -->
+                                       <!-- ngRepeat: mmmm in mmm.subTree -->
+                                    </ul><!-- end ngIf: mm.subTree --><!-- end ngRepeat: mmm in mm.subTree --><!-- ngIf: mm.subTree --><ul class="packet menu-three-section ng-scope" ng-repeat="mmm in mm.subTree" ng-if="mm.subTree">
+                                       <!-- ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) --><li ng-if="(lang == 'ch' &amp;&amp; mmm.mName) || (lang == 'en' &amp;&amp; mmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmm.linkUrl) || (lang == 'en' &amp;&amp; mmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="#/ch/articles/17" target="_self" ng-style="{'color': mmm.mColor}" href="#/ch/articles/17">
+                                             <div ng-bind="lang == 'ch' ? ('▼'+ mmm.mName) : ('▼'+ mmm.mNameEn)" class="ng-binding">▼劉扶東副院長</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) -->
+                                       <!-- ngRepeat: mmmm in mmm.subTree -->
+                                    </ul><!-- end ngIf: mm.subTree --><!-- end ngRepeat: mmm in mm.subTree --><!-- ngIf: mm.subTree --><ul class="packet menu-three-section ng-scope" ng-repeat="mmm in mm.subTree" ng-if="mm.subTree">
+                                       <!-- ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) --><li ng-if="(lang == 'ch' &amp;&amp; mmm.mName) || (lang == 'en' &amp;&amp; mmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmm.linkUrl) || (lang == 'en' &amp;&amp; mmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="#/ch/articles/18" target="_self" ng-style="{'color': mmm.mColor}" href="#/ch/articles/18">
+                                             <div ng-bind="lang == 'ch' ? ('▼'+ mmm.mName) : ('▼'+ mmm.mNameEn)" class="ng-binding">▼黃進興副院長</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) -->
+                                       <!-- ngRepeat: mmmm in mmm.subTree -->
+                                    </ul><!-- end ngIf: mm.subTree --><!-- end ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="http://academicians.sinica.edu.tw/index.php" target="_blank" class="ng-scope" href="http://academicians.sinica.edu.tw/index.php">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">院士專區</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="/ch/articles/100" target="_self" class="ng-scope" href="/ch/articles/100">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">評議會</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="/ch/articles/103" target="_self" class="ng-scope" href="/ch/articles/103">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">院務會議</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="#/ch/articles/43" target="_self" class="ng-scope" href="#/ch/articles/43">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">各委員會</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="#/ch/articles/44" target="_self" class="ng-scope" href="#/ch/articles/44">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">對政府建言的白皮書</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree -->
+                              </ul><!-- end ngIf: m.subTree -->
+                           </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in mainMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in mainMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; m.linkUrl) || (lang == 'en' &amp;&amp; m.linkUrlEn)) ? '' : 'noLink'" class="ng-scope"><a ng-href="#/ch/articles/53" target="_self" ng-style="{'color': m.mColor}" href="#/ch/articles/53">
+                                 <div ng-bind="lang == 'ch' ? m.mName : m.mNameEn" ng-class="lang == 'ch' ? 'mainMenusTitle' : ''" class="ng-binding mainMenusTitle">研究單位</div>
+                              </a>
+                              <!-- ngIf: m.subTree --><ul class="sub-menu-section ng-scope" ng-if="m.subTree">
+                                 <!-- ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="https://caac.daais.sinica.edu.tw/#" target="_blank" class="ng-scope" href="https://caac.daais.sinica.edu.tw/#">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">學術諮詢總會</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope noLink">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="" target="_self" class="ng-scope">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">研究所、中心</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree --><!-- ngIf: mm.subTree --><ul class="packet menu-three-section ng-scope" ng-repeat="mmm in mm.subTree" ng-if="mm.subTree">
+                                       <!-- ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) --><li ng-if="(lang == 'ch' &amp;&amp; mmm.mName) || (lang == 'en' &amp;&amp; mmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmm.linkUrl) || (lang == 'en' &amp;&amp; mmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="#/ch/articles/45" target="_self" ng-style="{'color': mmm.mColor}" href="#/ch/articles/45" style="color: rgb(6, 103, 6);">
+                                             <div ng-bind="lang == 'ch' ? ('▼'+ mmm.mName) : ('▼'+ mmm.mNameEn)" class="ng-binding">▼數理科學組</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) -->
+                                       <!-- ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.math.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.math.sinica.edu.tw/" style="color: rgb(6, 103, 6);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">數學研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.phys.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.phys.sinica.edu.tw/" style="color: rgb(6, 103, 6);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">物理研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="https://www.chem.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="https://www.chem.sinica.edu.tw/" style="color: rgb(6, 103, 6);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">化學研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.earth.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.earth.sinica.edu.tw/" style="color: rgb(6, 103, 6);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">地球科學研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="https://www.iis.sinica.edu.tw/zh/index.html" target="_blank" ng-style="{'color': mmmm.mColor}" href="https://www.iis.sinica.edu.tw/zh/index.html" style="color: rgb(6, 103, 6);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">資訊科學研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.stat.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.stat.sinica.edu.tw/" style="color: rgb(6, 103, 6);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">統計科學研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.iams.sinica.edu.tw/introc/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.iams.sinica.edu.tw/introc/" style="color: rgb(6, 103, 6);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">原子與分子科學研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.asiaa.sinica.edu.tw/index_c.php" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.asiaa.sinica.edu.tw/index_c.php" style="color: rgb(6, 103, 6);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">天文及天文物理研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.rcas.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.rcas.sinica.edu.tw/" style="color: rgb(6, 103, 6);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">應用科學研究中心</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.rcec.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.rcec.sinica.edu.tw/" style="color: rgb(6, 103, 6);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">環境變遷研究中心</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.citi.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.citi.sinica.edu.tw/" style="color: rgb(6, 103, 6);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">資訊科技創新研究中心</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree -->
+                                    </ul><!-- end ngIf: mm.subTree --><!-- end ngRepeat: mmm in mm.subTree --><!-- ngIf: mm.subTree --><ul class="packet menu-three-section ng-scope" ng-repeat="mmm in mm.subTree" ng-if="mm.subTree">
+                                       <!-- ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) --><li ng-if="(lang == 'ch' &amp;&amp; mmm.mName) || (lang == 'en' &amp;&amp; mmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmm.linkUrl) || (lang == 'en' &amp;&amp; mmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="#/ch/articles/46" target="_self" ng-style="{'color': mmm.mColor}" href="#/ch/articles/46" style="color: rgb(4, 81, 141);">
+                                             <div ng-bind="lang == 'ch' ? ('▼'+ mmm.mName) : ('▼'+ mmm.mNameEn)" class="ng-binding">▼生命科學組</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) -->
+                                       <!-- ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="https://ipmb.sinica.edu.tw/ch" target="_blank" ng-style="{'color': mmmm.mColor}" href="https://ipmb.sinica.edu.tw/ch" style="color: rgb(4, 81, 141);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">植物暨微生物學研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://icob.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://icob.sinica.edu.tw/" style="color: rgb(4, 81, 141);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">細胞與個體生物學研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="https://www.ibc.sinica.edu.tw/zh/首頁" target="_blank" ng-style="{'color': mmmm.mColor}" href="https://www.ibc.sinica.edu.tw/zh/首頁" style="color: rgb(4, 81, 141);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">生物化學研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.imb.sinica.edu.tw/ch/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.imb.sinica.edu.tw/ch/" style="color: rgb(4, 81, 141);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">分子生物研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.ibms.sinica.edu.tw/templates/default/ch/index.php" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.ibms.sinica.edu.tw/templates/default/ch/index.php" style="color: rgb(4, 81, 141);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">生物醫學科學研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="https://abrc.sinica.edu.tw/ch/" target="_blank" ng-style="{'color': mmmm.mColor}" href="https://abrc.sinica.edu.tw/ch/" style="color: rgb(4, 81, 141);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">農業生物科技研究中心</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="https://www.genomics.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="https://www.genomics.sinica.edu.tw/" style="color: rgb(4, 81, 141);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">基因體研究中心</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://biodiv.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://biodiv.sinica.edu.tw/" style="color: rgb(4, 81, 141);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">生物多樣性研究中心</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="https://biotrec.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="https://biotrec.sinica.edu.tw/" style="color: rgb(4, 81, 141);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">生醫轉譯研究中心</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree -->
+                                    </ul><!-- end ngIf: mm.subTree --><!-- end ngRepeat: mmm in mm.subTree --><!-- ngIf: mm.subTree --><ul class="packet menu-three-section ng-scope" ng-repeat="mmm in mm.subTree" ng-if="mm.subTree">
+                                       <!-- ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) --><li ng-if="(lang == 'ch' &amp;&amp; mmm.mName) || (lang == 'en' &amp;&amp; mmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmm.linkUrl) || (lang == 'en' &amp;&amp; mmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="#/ch/articles/47" target="_self" ng-style="{'color': mmm.mColor}" href="#/ch/articles/47" style="color: rgb(218, 87, 0);">
+                                             <div ng-bind="lang == 'ch' ? ('▼'+ mmm.mName) : ('▼'+ mmm.mNameEn)" class="ng-binding">▼人文社會科學組</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) -->
+                                       <!-- ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="https://www1.ihp.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="https://www1.ihp.sinica.edu.tw/" style="color: rgb(218, 87, 0);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">歷史語言研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="https://www.ioe.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="https://www.ioe.sinica.edu.tw/" style="color: rgb(218, 87, 0);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">民族學研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.mh.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.mh.sinica.edu.tw/" style="color: rgb(218, 87, 0);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">近代史研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.econ.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.econ.sinica.edu.tw/" style="color: rgb(218, 87, 0);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">經濟研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.ea.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.ea.sinica.edu.tw/" style="color: rgb(218, 87, 0);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">歐美研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.litphil.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.litphil.sinica.edu.tw/" style="color: rgb(218, 87, 0);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">中國文哲研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.ith.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.ith.sinica.edu.tw/" style="color: rgb(218, 87, 0);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">臺灣史研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="https://www.ios.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="https://www.ios.sinica.edu.tw/" style="color: rgb(218, 87, 0);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">社會學研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="https://www.ling.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="https://www.ling.sinica.edu.tw/" style="color: rgb(218, 87, 0);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">語言學研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.ipsas.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.ipsas.sinica.edu.tw/" style="color: rgb(218, 87, 0);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">政治學研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.iias.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.iias.sinica.edu.tw/" style="color: rgb(218, 87, 0);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">法律學研究所</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree --><!-- ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><li ng-repeat="mmmm in mmm.subTree" ng-if="(lang == 'ch' &amp;&amp; mmmm.mName) || (lang == 'en' &amp;&amp; mmmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmmm.linkUrl) || (lang == 'en' &amp;&amp; mmmmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.rchss.sinica.edu.tw/" target="_blank" ng-style="{'color': mmmm.mColor}" href="http://www.rchss.sinica.edu.tw/" style="color: rgb(218, 87, 0);">
+                                             <div ng-bind="lang == 'ch' ? mmmm.mName : mmmm.mNameEn" class="ng-binding">人文社會科學研究中心</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmmm.mName) || (lang == 'en' && mmmm.mNameEn) --><!-- end ngRepeat: mmmm in mmm.subTree -->
+                                    </ul><!-- end ngIf: mm.subTree --><!-- end ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope noLink">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="" target="_self" class="ng-scope">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">核心設施</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree --><!-- ngIf: mm.subTree --><ul class="packet menu-three-section ng-scope" ng-repeat="mmm in mm.subTree" ng-if="mm.subTree">
+                                       <!-- ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) --><li ng-if="(lang == 'ch' &amp;&amp; mmm.mName) || (lang == 'en' &amp;&amp; mmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmm.linkUrl) || (lang == 'en' &amp;&amp; mmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="https://daais.sinica.edu.tw/pages/520" target="_blank" ng-style="{'color': mmm.mColor}" href="https://daais.sinica.edu.tw/pages/520">
+                                             <div ng-bind="lang == 'ch' ? ('▼'+ mmm.mName) : ('▼'+ mmm.mNameEn)" class="ng-binding">▼儀器服務</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) -->
+                                       <!-- ngRepeat: mmmm in mmm.subTree -->
+                                    </ul><!-- end ngIf: mm.subTree --><!-- end ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope noLink">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="" target="_self" class="ng-scope">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">跨領域整合計畫</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree --><!-- ngIf: mm.subTree --><ul class="packet menu-three-section ng-scope" ng-repeat="mmm in mm.subTree" ng-if="mm.subTree">
+                                       <!-- ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) --><li ng-if="(lang == 'ch' &amp;&amp; mmm.mName) || (lang == 'en' &amp;&amp; mmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmm.linkUrl) || (lang == 'en' &amp;&amp; mmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://www.cfss.sinica.edu.tw/" target="_blank" ng-style="{'color': mmm.mColor}" href="http://www.cfss.sinica.edu.tw/">
+                                             <div ng-bind="lang == 'ch' ? ('▼'+ mmm.mName) : ('▼'+ mmm.mNameEn)" class="ng-binding">▼永續科學中心</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) -->
+                                       <!-- ngRepeat: mmmm in mmm.subTree -->
+                                    </ul><!-- end ngIf: mm.subTree --><!-- end ngRepeat: mmm in mm.subTree --><!-- ngIf: mm.subTree --><ul class="packet menu-three-section ng-scope" ng-repeat="mmm in mm.subTree" ng-if="mm.subTree">
+                                       <!-- ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) --><li ng-if="(lang == 'ch' &amp;&amp; mmm.mName) || (lang == 'en' &amp;&amp; mmm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mmm.linkUrl) || (lang == 'en' &amp;&amp; mmm.linkUrlEn)) ? '' : 'noLink'" class="ng-scope">
+                                          <a ng-href="http://ascdc.sinica.edu.tw/" target="_blank" ng-style="{'color': mmm.mColor}" href="http://ascdc.sinica.edu.tw/">
+                                             <div ng-bind="lang == 'ch' ? ('▼'+ mmm.mName) : ('▼'+ mmm.mNameEn)" class="ng-binding">▼數位文化中心</div>
+                                          </a>
+                                       </li><!-- end ngIf: (lang == 'ch' && mmm.mName) || (lang == 'en' && mmm.mNameEn) -->
+                                       <!-- ngRepeat: mmmm in mmm.subTree -->
+                                    </ul><!-- end ngIf: mm.subTree --><!-- end ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree -->
+                              </ul><!-- end ngIf: m.subTree -->
+                           </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in mainMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in mainMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; m.linkUrl) || (lang == 'en' &amp;&amp; m.linkUrlEn)) ? '' : 'noLink'" class="ng-scope noLink"><a ng-href="" target="_self" ng-style="{'color': m.mColor}">
+                                 <div ng-bind="lang == 'ch' ? m.mName : m.mNameEn" ng-class="lang == 'ch' ? 'mainMenusTitle' : ''" class="ng-binding mainMenusTitle">行政單位</div>
+                              </a>
+                              <!-- ngIf: m.subTree --><ul class="sub-menu-section ng-scope" ng-if="m.subTree">
+                                 <!-- ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName == '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn == 'Secretary-General')" ng-href="#/ch/articles/85" target="_self" style="width:50%; float:left" class="ng-scope" href="#/ch/articles/85">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">秘書長</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName == '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn == 'Secretary-General')" ng-href="https://caac.daais.sinica.edu.tw/" target="_blank" style="width:50%; float:right" class="ng-scope" href="https://caac.daais.sinica.edu.tw/">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? '學術諮詢總會' : 'Central Academic Advisory Committee'" ng-style="{'color': mm.mColor}">學術諮詢總會</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="https://www.ibc.sinica.edu.tw/zh/%E4%BA%BA%E5%93%A1/%E7%A0%94%E7%A9%B6%E4%BA%BA%E5%93%A1/%E5%B0%88%E4%BB%BB%E7%A0%94%E7%A9%B6%E4%BA%BA%E5%93%A1/%E5%90%B3%E4%B8%96%E9%9B%84/" target="_blank" class="ng-scope" href="https://www.ibc.sinica.edu.tw/zh/%E4%BA%BA%E5%93%A1/%E7%A0%94%E7%A9%B6%E4%BA%BA%E5%93%A1/%E5%B0%88%E4%BB%BB%E7%A0%94%E7%A9%B6%E4%BA%BA%E5%93%A1/%E5%90%B3%E4%B8%96%E9%9B%84/">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">副秘書長</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="https://sec.sinica.edu.tw/" target="_blank" class="ng-scope" href="https://sec.sinica.edu.tw/">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">秘書處</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="https://daais.sinica.edu.tw" target="_blank" class="ng-scope" href="https://daais.sinica.edu.tw">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">學術及儀器事務處</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="https://dga.sinica.edu.tw/" target="_blank" class="ng-scope" href="https://dga.sinica.edu.tw/">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">總務處</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="https://iptt.sinica.edu.tw/" target="_blank" class="ng-scope" href="https://iptt.sinica.edu.tw/">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">智財技轉處</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="https://its.sinica.edu.tw/" target="_blank" class="ng-scope" href="https://its.sinica.edu.tw/">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">資訊服務處</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="https://dia.sinica.edu.tw/" target="_blank" class="ng-scope" href="https://dia.sinica.edu.tw/">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">國際事務處</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="https://dla.sinica.edu.tw/" target="_blank" class="ng-scope" href="https://dla.sinica.edu.tw/">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">法制處</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="https://acc.sinica.edu.tw" target="_blank" class="ng-scope" href="https://acc.sinica.edu.tw">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">主計室</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="http://hro.sinica.edu.tw/" target="_blank" class="ng-scope" href="http://hro.sinica.edu.tw/">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">人事室</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree --><!-- ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><li ng-repeat="mm in m.subTree" ng-if="(lang == 'ch' &amp;&amp; mm.mName) || (lang == 'en' &amp;&amp; mm.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; mm.linkUrl) || (lang == 'en' &amp;&amp; mm.linkUrlEn)) ? 'pointer' : 'noLink'" class="ng-scope pointer">
+                                    <!-- ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') --><a ng-if="(lang == 'ch' &amp;&amp; mm.mName != '秘書長') || (lang == 'en' &amp;&amp; mm.mNameEn != 'Secretary-General')" ng-href="https://ethics.sinica.edu.tw/" target="_blank" class="ng-scope" href="https://ethics.sinica.edu.tw/">
+                                       <div class="sub-menu-title ng-binding" ng-bind="lang == 'ch' ? mm.mName : mm.mNameEn" ng-style="{'color': mm.mColor}">政風室</div>
+                                    </a><!-- end ngIf: (lang == 'ch' && mm.mName != '秘書長') || (lang == 'en' && mm.mNameEn != 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngIf: (lang == 'ch' && mm.mName == '秘書長') || (lang == 'en' && mm.mNameEn == 'Secretary-General') -->
+                                    <!-- ngRepeat: mmm in mm.subTree -->
+                                 </li><!-- end ngIf: (lang == 'ch' && mm.mName) || (lang == 'en' && mm.mNameEn) --><!-- end ngRepeat: mm in m.subTree -->
+                              </ul><!-- end ngIf: m.subTree -->
+                           </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in mainMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in mainMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; m.linkUrl) || (lang == 'en' &amp;&amp; m.linkUrlEn)) ? '' : 'noLink'" class="ng-scope"><a ng-href="https://jobinfo.apps.sinica.edu.tw/recruitInfo.php?_argLang=ch" target="_blank" ng-style="{'color': m.mColor}" href="https://jobinfo.apps.sinica.edu.tw/recruitInfo.php?_argLang=ch">
+                                 <div ng-bind="lang == 'ch' ? m.mName : m.mNameEn" ng-class="lang == 'ch' ? 'mainMenusTitle' : ''" class="ng-binding mainMenusTitle">人才招募</div>
+                              </a>
+                              <!-- ngIf: m.subTree -->
+                           </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in mainMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in mainMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; m.linkUrl) || (lang == 'en' &amp;&amp; m.linkUrlEn)) ? '' : 'noLink'" class="ng-scope"><a ng-href="https://newsletter.sinica.edu.tw/" target="_blank" ng-style="{'color': m.mColor}" href="https://newsletter.sinica.edu.tw/">
+                                 <div ng-bind="lang == 'ch' ? m.mName : m.mNameEn" ng-class="lang == 'ch' ? 'mainMenusTitle' : ''" class="ng-binding mainMenusTitle">中研院訊</div>
+                              </a>
+                              <!-- ngIf: m.subTree -->
+                           </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in mainMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in mainMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" ng-class="((lang == 'ch' &amp;&amp; m.linkUrl) || (lang == 'en' &amp;&amp; m.linkUrlEn)) ? '' : 'noLink'" class="ng-scope"><a ng-href="https://calendar.sinica.edu.tw" target="_blank" ng-style="{'color': m.mColor}" href="https://calendar.sinica.edu.tw">
+                                 <div ng-bind="lang == 'ch' ? m.mName : m.mNameEn" ng-class="lang == 'ch' ? 'mainMenusTitle' : ''" class="ng-binding mainMenusTitle">行事曆</div>
+                              </a>
+                              <!-- ngIf: m.subTree -->
+                           </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in mainMenus -->
+                        </ul>
+                     </nav>
+                  </div>
+
+                  <!--search-->
+                  <script async="" src="https://cse.google.com/cse.js?cx=001231326153008187022:mrnnpgnso-s"></script>
+                  <form name="search" target="_blank" method="get" action="//google.com.tw/search" class="ng-pristine ng-valid">
+                     <div class="col_one_fourth col_last header-search-width">
+                        <div class="input-group searchBar">
+                           <input type="hidden" name="cx" value="001231326153008187022:mrnnpgnso-s">
+                           <input type="text" name="q" id="search" title="search" class="form-control search-bar" placeholder="請輸入檢索字串">
+                           <span class="input-group-btn">
+                              <button class="btn btn-default ng-binding" type="button" onclick="document.search.submit();" onkeypress="document.search.submit();">檢　索</button>
+                           </span>
+                        </div>
+                     </div>
+                  </form>
+                  <div class="clear"></div>
+               </div>
+            </div>
+         </div>
+      </header>
+      <section ng-show="slide == 1">
+         <div class="container clearfix">
+            <div class="row">
+               <div class="carousel slide" data-ride="carousel" id="carousel-example-generic">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                     <!-- ngRepeat: r in (lang == 'ch' ? slides : slidesEn) track by $index --><li data-target="#carousel-example-generic" ng-repeat="r in (lang == 'ch' ? slides : slidesEn) track by $index" data-slide-to="0" ng-class="$index == 0 ? 'active' : ''" class="ng-scope active">
+                     </li><!-- end ngRepeat: r in (lang == 'ch' ? slides : slidesEn) track by $index --><li data-target="#carousel-example-generic" ng-repeat="r in (lang == 'ch' ? slides : slidesEn) track by $index" data-slide-to="1" ng-class="$index == 0 ? 'active' : ''" class="ng-scope">
+                     </li><!-- end ngRepeat: r in (lang == 'ch' ? slides : slidesEn) track by $index --><li data-target="#carousel-example-generic" ng-repeat="r in (lang == 'ch' ? slides : slidesEn) track by $index" data-slide-to="2" ng-class="$index == 0 ? 'active' : ''" class="ng-scope">
+                     </li><!-- end ngRepeat: r in (lang == 'ch' ? slides : slidesEn) track by $index --><li data-target="#carousel-example-generic" ng-repeat="r in (lang == 'ch' ? slides : slidesEn) track by $index" data-slide-to="3" ng-class="$index == 0 ? 'active' : ''" class="ng-scope">
+                     </li><!-- end ngRepeat: r in (lang == 'ch' ? slides : slidesEn) track by $index --><li data-target="#carousel-example-generic" ng-repeat="r in (lang == 'ch' ? slides : slidesEn) track by $index" data-slide-to="4" ng-class="$index == 0 ? 'active' : ''" class="ng-scope">
+                     </li><!-- end ngRepeat: r in (lang == 'ch' ? slides : slidesEn) track by $index -->
+                  </ol>
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+                     <!-- ngRepeat: r in (lang == 'ch' ? slides : slidesEn) track by $index --><div class="item ng-scope active" ng-repeat="r in (lang == 'ch' ? slides : slidesEn) track by $index" ng-class="$index == 0 ? 'active' : ''">
+                        <div class="col_two_third col_last slider-margin slider-img floatright">
+                           <a ng-href="#/ch/news/7126" target="_self" href="#/ch/news/7126">
+                              <img ng-src="https://www.sinica.edu.tw/fileManage/index.php/showImg/2503GLDK1xYgpKRIwexIiqe1" alt="利用因果推論與巨量資料，評估延長失業給付與提早就業獎勵的福利效果" src="https://www.sinica.edu.tw/fileManage/index.php/showImg/2503GLDK1xYgpKRIwexIiqe1" width="100%"></a>
+                        </div>
+                        <div class="col_one_third slider-text floatleft">
+                           <div class="flex-caption slider-caption-bg">
+                              <h2 class="slideTitle">
+                                 <a ng-href="#/ch/news/7126" target="_self" ng-bind="lang == 'ch' ? r.title : r.titleEn" class="ng-binding" href="#/ch/news/7126">利用因果推論與巨量資料，評估延長失業給付與提早就業獎勵的福利效果</a></h2>
+                              <div class="slideTxt ng-binding" ng-bind-html="lang == 'ch' ? (r.summary | cut:true:250:' ...') : (r.summaryEn | cut:true:400:' ...')"><p>本院經濟研究所楊子霆副研究員及其研究團隊，利用臺灣就業保險行政資料與斷點迴歸設計，分析過去文獻較少關注的提早就業獎勵與延長失業給付的效果。實證結果顯示，失業給付雖然增加失業給付的支出與減少租稅收入，但能提供失業勞工在失業期間消費上的支持，根據推估，1元的失業給付支出帶來相當於2元的社會福利增益。研究成果近期已發表於《公共經濟學期刊》 （<em>Journal of Public Economics</em>）。</p></div>
+                              <div class="more-link-style1 slideMore text-right">
+                                 <a ng-href="#/ch/newsList/1" target="_self" class="ng-binding" href="#/ch/newsList/1">更多專題報導.....</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div><!-- end ngRepeat: r in (lang == 'ch' ? slides : slidesEn) track by $index --><div class="item ng-scope" ng-repeat="r in (lang == 'ch' ? slides : slidesEn) track by $index" ng-class="$index == 0 ? 'active' : ''">
+                        <div class="col_two_third col_last slider-margin slider-img floatright">
+                           <a ng-href="#/ch/news/7122" target="_self" href="#/ch/news/7122">
+                              <img ng-src="https://www.sinica.edu.tw/fileManage/index.php/showImg/2103ws8XX2h7xicrvsXyUKXu" alt="2022年中央研究院藝文活動表演資訊" src="https://www.sinica.edu.tw/fileManage/index.php/showImg/2103ws8XX2h7xicrvsXyUKXu" width="100%"></a>
+                        </div>
+                        <div class="col_one_third slider-text floatleft">
+                           <div class="flex-caption slider-caption-bg">
+                              <h2 class="slideTitle">
+                                 <a ng-href="#/ch/news/7122" target="_self" ng-bind="lang == 'ch' ? r.title : r.titleEn" class="ng-binding" href="#/ch/news/7122">2022年中央研究院藝文活動表演資訊</a></h2>
+                              <div class="slideTxt ng-binding" ng-bind-html="lang == 'ch' ? (r.summary | cut:true:250:' ...') : (r.summaryEn | cut:true:400:' ...')"><div>2022年中央研究院藝文活動表演節目如下：</div>
+
+<div>一、節目名稱：「樂讀普希金」講座音樂會<br>
+演出團體：樂聚Legato<br>
+時間：7月22日（五）
+<p>二、節目名稱：藝起愛樂<br>
+演出團體：小巨人絲竹樂團<br>
+時間：8月19日（五）</p>
+
+<p>三、節目名稱：大鳴大Fun<br>
+演出團體：舞工廠舞團<br>
+時間：9月16日（五）</p>
+</div></div>
+                              <div class="more-link-style1 slideMore text-right">
+                                 <a ng-href="#/ch/newsList/1" target="_self" class="ng-binding" href="#/ch/newsList/1">更多專題報導.....</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div><!-- end ngRepeat: r in (lang == 'ch' ? slides : slidesEn) track by $index --><div class="item ng-scope" ng-repeat="r in (lang == 'ch' ? slides : slidesEn) track by $index" ng-class="$index == 0 ? 'active' : ''">
+                        <div class="col_two_third col_last slider-margin slider-img floatright">
+                           <a ng-href="#/ch/news/7120" target="_self" href="#/ch/news/7120">
+                              <img ng-src="https://www.sinica.edu.tw/fileManage/index.php/showImg/1803sePzsbkpi7Y5NcU4HINF" alt="線上演講〉本院分子生物研究所尖端演講系列" src="https://www.sinica.edu.tw/fileManage/index.php/showImg/1803sePzsbkpi7Y5NcU4HINF" width="100%"></a>
+                        </div>
+                        <div class="col_one_third slider-text floatleft">
+                           <div class="flex-caption slider-caption-bg">
+                              <h2 class="slideTitle">
+                                 <a ng-href="#/ch/news/7120" target="_self" ng-bind="lang == 'ch' ? r.title : r.titleEn" class="ng-binding" href="#/ch/news/7120">線上演講〉本院分子生物研究所尖端演講系列</a></h2>
+                              <div class="slideTxt ng-binding" ng-bind-html="lang == 'ch' ? (r.summary | cut:true:250:' ...') : (r.summaryEn | cut:true:400:' ...')"><p>講&nbsp; 題： Gamma oscillations: mechanisms, function and human diseases<br>
+主講人：蔡立慧教授（本院院士、麻省理工學院Picower學習與記憶研究所所長）<br>
+時&nbsp; 間： 111年3月31日（星期四）上午9:00-10:00<br>
+地&nbsp; 點： 本院分子生物研究所B1演講廳<br>
+主持人：吳玉威助研究員（本院分子生物研究所）</p></div>
+                              <div class="more-link-style1 slideMore text-right">
+                                 <a ng-href="#/ch/newsList/1" target="_self" class="ng-binding" href="#/ch/newsList/1">更多專題報導.....</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div><!-- end ngRepeat: r in (lang == 'ch' ? slides : slidesEn) track by $index --><div class="item ng-scope" ng-repeat="r in (lang == 'ch' ? slides : slidesEn) track by $index" ng-class="$index == 0 ? 'active' : ''">
+                        <div class="col_two_third col_last slider-margin slider-img floatright">
+                           <a ng-href="#/ch/news/7117" target="_self" href="#/ch/news/7117">
+                              <img ng-src="https://www.sinica.edu.tw/fileManage/index.php/showImg/1503R0Y31zFg7rdfz4lAXSuT" alt="上梁典禮〉中研院南部院區第二期工程  投入量子電腦與海洋能源研究" src="https://www.sinica.edu.tw/fileManage/index.php/showImg/1503R0Y31zFg7rdfz4lAXSuT" width="100%"></a>
+                        </div>
+                        <div class="col_one_third slider-text floatleft">
+                           <div class="flex-caption slider-caption-bg">
+                              <h2 class="slideTitle">
+                                 <a ng-href="#/ch/news/7117" target="_self" ng-bind="lang == 'ch' ? r.title : r.titleEn" class="ng-binding" href="#/ch/news/7117">上梁典禮〉中研院南部院區第二期工程  投入量子電腦與海洋能源研究</a></h2>
+                              <div class="slideTxt ng-binding" ng-bind-html="lang == 'ch' ? (r.summary | cut:true:250:' ...') : (r.summaryEn | cut:true:400:' ...')"><p>中央研究院南部院區建設往前邁大步！今（15）日舉行第二期工程「研究大樓(Ⅱ)及綜合大樓」上梁祈福儀式，典禮由蔡英文總統、中硏院廖俊智院長等人共同見證，期許工程順利於今（111）年底前竣工。廖俊智院長表示，量子科技與氣候變遷，皆是當前影響全球重要的關鍵議題，本院將於南部院區設置量子科技研究基地及海洋能專題研究中心，為臺灣邁向量子時代布局，並因應2050淨零排放目標。</p></div>
+                              <div class="more-link-style1 slideMore text-right">
+                                 <a ng-href="#/ch/newsList/1" target="_self" class="ng-binding" href="#/ch/newsList/1">更多專題報導.....</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div><!-- end ngRepeat: r in (lang == 'ch' ? slides : slidesEn) track by $index --><div class="item ng-scope" ng-repeat="r in (lang == 'ch' ? slides : slidesEn) track by $index" ng-class="$index == 0 ? 'active' : ''">
+                        <div class="col_two_third col_last slider-margin slider-img floatright">
+                           <a ng-href="#/ch/news/7113" target="_self" href="#/ch/news/7113">
+                              <img ng-src="https://www.sinica.edu.tw/fileManage/index.php/showImg/1003NiRwGeGbGn3OSB3mtj31" alt="突破合金材料極限！ 中研院學者研發超彈性高熵合金　助高精密元件提升效能" src="https://www.sinica.edu.tw/fileManage/index.php/showImg/1003NiRwGeGbGn3OSB3mtj31" width="100%"></a>
+                        </div>
+                        <div class="col_one_third slider-text floatleft">
+                           <div class="flex-caption slider-caption-bg">
+                              <h2 class="slideTitle">
+                                 <a ng-href="#/ch/news/7113" target="_self" ng-bind="lang == 'ch' ? r.title : r.titleEn" class="ng-binding" href="#/ch/news/7113">突破合金材料極限！ 中研院學者研發超彈性高熵合金　助高精密元件提升效能</a></h2>
+                              <div class="slideTxt ng-binding" ng-bind-html="lang == 'ch' ? (r.summary | cut:true:250:' ...') : (r.summaryEn | cut:true:400:' ...')"><p>本院應科中心包淳偉研究員與跨國團隊合作，以理論模擬結合實驗結果，研發出超彈性高熵艾林瓦（Elinvar）合金，擁有目前所知最高標準化強度、極低的彈性能耗損，能承受更大的外加應力、應變，不容易永久變形，成果於近期登上國際期刊《自然》（<em>Nature</em>）。包淳偉研究員團隊正持續進行更大尺度的分子模擬，期望能應用在要求恆定彈性、需應付溫度急遽變化的高精密元件中，例如民生、生醫、能源、航太等產業。</p></div>
+                              <div class="more-link-style1 slideMore text-right">
+                                 <a ng-href="#/ch/newsList/1" target="_self" class="ng-binding" href="#/ch/newsList/1">更多專題報導.....</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div><!-- end ngRepeat: r in (lang == 'ch' ? slides : slidesEn) track by $index -->
+                  </div>
+
+                  <!-- Controls -->
+                  <span class="carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                     <span class="sr-only">Previous</span>
+                  </span>
+                  <span class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                     <span class="sr-only">Next</span>
+                  </span>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- ngView: --><div ng-view="" class="ng-scope"><!--middleMenus-->
+<div class="container clearfix mobile-full-service-link ng-scope">
+   <div class="row">
+      <div class="service-link">
+         <ul class="list-style-2">
+             <!-- ngRepeat: m in middleMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in middleMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a ng-href="http://nbrp.sinica.edu.tw/" target="_blank" ng-style="{'color': m.mColor}" ng-class="lang == 'ch' ? 'middleMenusTitle' : ''" href="http://nbrp.sinica.edu.tw/" class="middleMenusTitle"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">國家生技研究園區</span></a>
+            </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in middleMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in middleMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a ng-href="#/ch/articles/22" target="_self" ng-style="{'color': m.mColor}" ng-class="lang == 'ch' ? 'middleMenusTitle' : ''" href="#/ch/articles/22" class="middleMenusTitle"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">計畫與申請</span></a>
+            </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in middleMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in middleMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a ng-href="https://iptt.sinica.edu.tw/" target="_blank" ng-style="{'color': m.mColor}" ng-class="lang == 'ch' ? 'middleMenusTitle' : ''" href="https://iptt.sinica.edu.tw/" class="middleMenusTitle"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">科技移轉及育成</span></a>
+            </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in middleMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in middleMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a ng-href="http://aslib.sinica.edu.tw/" target="_blank" ng-style="{'color': m.mColor}" ng-class="lang == 'ch' ? 'middleMenusTitle' : ''" href="http://aslib.sinica.edu.tw/" class="middleMenusTitle"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">圖書館</span></a>
+            </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in middleMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in middleMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a ng-href="/ch/articles/92" target="_self" ng-style="{'color': m.mColor}" ng-class="lang == 'ch' ? 'middleMenusTitle' : ''" href="/ch/articles/92" class="middleMenusTitle"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">檔案專區</span></a>
+            </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in middleMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in middleMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a ng-href="#/ch/articles/50" target="_self" ng-style="{'color': m.mColor}" ng-class="lang == 'ch' ? 'middleMenusTitle' : ''" href="#/ch/articles/50" class="middleMenusTitle"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">展覽館群</span></a>
+            </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in middleMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in middleMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a ng-href="https://www.youtube.com/channel/UCPk594oZYMU4Eak7By5wHyQ?view_as=subscriber" target="_blank" ng-style="{'color': m.mColor}" ng-class="lang == 'ch' ? 'middleMenusTitle' : ''" href="https://www.youtube.com/channel/UCPk594oZYMU4Eak7By5wHyQ?view_as=subscriber" class="middleMenusTitle"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">影音服務</span></a>
+            </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in middleMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in middleMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a ng-href="#/ch/articles/52" target="_self" ng-style="{'color': m.mColor}" ng-class="lang == 'ch' ? 'middleMenusTitle' : ''" href="#/ch/articles/52" class="middleMenusTitle"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">行政及儀器服務</span></a>
+            </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in middleMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in middleMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a ng-href="#/ch/articles/48" target="_self" ng-style="{'color': m.mColor}" ng-class="lang == 'ch' ? 'middleMenusTitle' : ''" href="#/ch/articles/48" class="middleMenusTitle"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">公開資訊</span></a>
+            </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in middleMenus --><!-- ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><li ng-repeat="m in middleMenus" ng-if="(lang == 'ch' &amp;&amp; m.mName) || (lang == 'en' &amp;&amp; m.mNameEn)" class="ng-scope"><a ng-href="#/ch/articles/23" target="_self" ng-style="{'color': m.mColor}" ng-class="lang == 'ch' ? 'middleMenusTitle' : ''" href="#/ch/articles/23" class="middleMenusTitle"><span ng-bind="lang == 'ch' ? m.mName : m.mNameEn" class="ng-binding">常用連結</span></a>
+            </li><!-- end ngIf: (lang == 'ch' && m.mName) || (lang == 'en' && m.mNameEn) --><!-- end ngRepeat: m in middleMenus -->
+         </ul>
+      </div>
+   </div>
+</div>
+
+<!--content-->
+<section id="content" class="ng-scope">
+   <div class="container clearfix">
+      <div class="col-md-4 info-section">
+         <div class="blue-bg info-box">
+            <h5 ng-bind="lang == 'ch' ? newsList.catName : newsList.catNameEn" class="ng-binding">院新聞稿</h5>
+            <ul>
+               <!-- ngRepeat: n in (lang == 'ch' ? newsList.lists : newsList.listsEn) | limitTo:3 --><li ng-repeat="n in (lang == 'ch' ? newsList.lists : newsList.listsEn) | limitTo:3" class="ng-scope">
+                  <img src="images/icon_new.png" class="icon_new_none" alt="new">
+                  <a ng-href="#/ch/news/7117" target="_self" href="#/ch/news/7117">
+                     <span ng-bind="lang == 'ch' ? n.title : n.titleEn" class="ng-binding">上梁典禮〉中研院南部院區第二期工程  投入量子電腦與海洋能源研究</span>
+                     <!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">(</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" ng-bind="lang == 'ch' ? n.oName : n.oNameEn" class="ng-binding ng-scope">總務處</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">)</span><!-- end ngIf: (n.oName != '不顯示單位') -->
+                  </a>
+               </li><!-- end ngRepeat: n in (lang == 'ch' ? newsList.lists : newsList.listsEn) | limitTo:3 --><li ng-repeat="n in (lang == 'ch' ? newsList.lists : newsList.listsEn) | limitTo:3" class="ng-scope">
+                  <img src="images/icon_new.png" class="icon_new_none" alt="new">
+                  <a ng-href="#/ch/news/7113" target="_self" href="#/ch/news/7113">
+                     <span ng-bind="lang == 'ch' ? n.title : n.titleEn" class="ng-binding">突破合金材料極限！ 中研院學者研發超彈性高熵合金　助高精密元件提升效能</span>
+                     <!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">(</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" ng-bind="lang == 'ch' ? n.oName : n.oNameEn" class="ng-binding ng-scope">應用科學研究中心</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">)</span><!-- end ngIf: (n.oName != '不顯示單位') -->
+                  </a>
+               </li><!-- end ngRepeat: n in (lang == 'ch' ? newsList.lists : newsList.listsEn) | limitTo:3 --><li ng-repeat="n in (lang == 'ch' ? newsList.lists : newsList.listsEn) | limitTo:3" class="ng-scope">
+                  <img src="images/icon_new.png" class="icon_new_none" alt="new">
+                  <a ng-href="#/ch/news/7108" target="_self" href="#/ch/news/7108">
+                     <span ng-bind="lang == 'ch' ? n.title : n.titleEn" class="ng-binding">比光合作用更快！中研院設計人工固碳循環 有助負碳技術研發</span>
+                     <!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">(</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" ng-bind="lang == 'ch' ? n.oName : n.oNameEn" class="ng-binding ng-scope">生物化學研究所</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">)</span><!-- end ngIf: (n.oName != '不顯示單位') -->
+                  </a>
+               </li><!-- end ngRepeat: n in (lang == 'ch' ? newsList.lists : newsList.listsEn) | limitTo:3 -->
+            </ul>
+            <span class="more-link-style2"><a ng-href="#/ch/newsList/2" target="_self" href="#/ch/newsList/2"><span ng-bind="lang == 'ch' ? '更多新聞.....' : 'more.....'" class="ng-binding">更多新聞.....</span></a></span>
+         </div>
+      </div>
+      <div class="col-md-4 info-section">
+         <div class="pink-bg info-box">
+            <h5 ng-bind="lang == 'ch' ? actsList.catName : actsList.catNameEn" class="ng-binding">學術訊息</h5>
+            <ul>
+               <!-- ngRepeat: n in (lang == 'ch' ? actsList.lists : actsList.listsEn) | limitTo:3 --><li ng-repeat="n in (lang == 'ch' ? actsList.lists : actsList.listsEn) | limitTo:3" class="ng-scope">
+                  <img src="images/icon_new.png" class="icon_new" alt="new">
+                  <a ng-href="#/ch/news/7125" target="_self" href="#/ch/news/7125">
+                     <span ng-bind="lang == 'ch' ? n.title : n.titleEn" class="ng-binding">捐血活動公告 3/29</span>
+                     <!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">(</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" ng-bind="lang == 'ch' ? n.oName : n.oNameEn" class="ng-binding ng-scope">總務處</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">)</span><!-- end ngIf: (n.oName != '不顯示單位') -->
+                  </a>
+               </li><!-- end ngRepeat: n in (lang == 'ch' ? actsList.lists : actsList.listsEn) | limitTo:3 --><li ng-repeat="n in (lang == 'ch' ? actsList.lists : actsList.listsEn) | limitTo:3" class="ng-scope">
+                  <img src="images/icon_new.png" class="icon_new" alt="new">
+                  <a ng-href="#/ch/news/7121" target="_self" href="#/ch/news/7121">
+                     <span ng-bind="lang == 'ch' ? n.title : n.titleEn" class="ng-binding">本院展覽〉嶺南畫派歐豪年來臺半世紀個展 展出「海鷹」、「五虎圖」等經典之作</span>
+                     <!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">(</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" ng-bind="lang == 'ch' ? n.oName : n.oNameEn" class="ng-binding ng-scope">總務處</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">)</span><!-- end ngIf: (n.oName != '不顯示單位') -->
+                  </a>
+               </li><!-- end ngRepeat: n in (lang == 'ch' ? actsList.lists : actsList.listsEn) | limitTo:3 --><li ng-repeat="n in (lang == 'ch' ? actsList.lists : actsList.listsEn) | limitTo:3" class="ng-scope">
+                  <img src="images/icon_new.png" class="icon_new" alt="new">
+                  <a ng-href="#/ch/news/7120" target="_self" href="#/ch/news/7120">
+                     <span ng-bind="lang == 'ch' ? n.title : n.titleEn" class="ng-binding">線上演講〉本院分子生物研究所尖端演講系列</span>
+                     <!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">(</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" ng-bind="lang == 'ch' ? n.oName : n.oNameEn" class="ng-binding ng-scope">分子生物研究所</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">)</span><!-- end ngIf: (n.oName != '不顯示單位') -->
+                  </a>
+               </li><!-- end ngRepeat: n in (lang == 'ch' ? actsList.lists : actsList.listsEn) | limitTo:3 -->
+            </ul>
+            <span class="more-link-style2"><a ng-href="#/ch/newsList/99" target="_self" href="#/ch/newsList/99"><span ng-bind="lang == 'ch' ? '更多學術訊息.....' : 'more.....'" class="ng-binding">更多學術訊息.....</span></a></span>
+         </div>
+      </div>
+      <div class="col-md-4 info-section">
+         <div class="yellow-bg info-box">
+            <h5 ng-bind="lang == 'ch' ? admsList.catName : admsList.catNameEn" class="ng-binding">研究成果</h5>
+            <ul>
+               <!-- ngRepeat: n in (lang == 'ch' ? admsList.lists : admsList.listsEn) | limitTo:3 --><li ng-repeat="n in (lang == 'ch' ? admsList.lists : admsList.listsEn) | limitTo:3" class="ng-scope">
+                  <img src="images/icon_new.png" class="icon_new" alt="new">
+                  <a ng-href="#/ch/news/7126" target="_self" href="#/ch/news/7126">
+                     <span ng-bind="lang == 'ch' ? n.title : n.titleEn" class="ng-binding">利用因果推論與巨量資料，評估延長失業給付與提早就業獎勵的福利效果</span>
+                     <!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">(</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" ng-bind="lang == 'ch' ? n.oName : n.oNameEn" class="ng-binding ng-scope">經濟研究所</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">)</span><!-- end ngIf: (n.oName != '不顯示單位') -->
+                  </a>
+               </li><!-- end ngRepeat: n in (lang == 'ch' ? admsList.lists : admsList.listsEn) | limitTo:3 --><li ng-repeat="n in (lang == 'ch' ? admsList.lists : admsList.listsEn) | limitTo:3" class="ng-scope">
+                  <img src="images/icon_new.png" class="icon_new" alt="new">
+                  <a ng-href="#/ch/news/7124" target="_self" href="#/ch/news/7124">
+                     <span ng-bind="lang == 'ch' ? n.title : n.titleEn" class="ng-binding">新書出版〉《甲骨綴合三集》</span>
+                     <!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">(</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" ng-bind="lang == 'ch' ? n.oName : n.oNameEn" class="ng-binding ng-scope">歷史語言研究所</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">)</span><!-- end ngIf: (n.oName != '不顯示單位') -->
+                  </a>
+               </li><!-- end ngRepeat: n in (lang == 'ch' ? admsList.lists : admsList.listsEn) | limitTo:3 --><li ng-repeat="n in (lang == 'ch' ? admsList.lists : admsList.listsEn) | limitTo:3" class="ng-scope">
+                  <img src="images/icon_new.png" class="icon_new" alt="new">
+                  <a ng-href="#/ch/news/7123" target="_self" href="#/ch/news/7123">
+                     <span ng-bind="lang == 'ch' ? n.title : n.titleEn" class="ng-binding">新書出版〉《筆醒山河：中國近代啟蒙人嚴復》</span>
+                     <!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">(</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" ng-bind="lang == 'ch' ? n.oName : n.oNameEn" class="ng-binding ng-scope">近代史研究所</span><!-- end ngIf: (n.oName != '不顯示單位') --><!-- ngIf: (n.oName != '不顯示單位') --><span ng-if="(n.oName != '不顯示單位')" class="ng-scope">)</span><!-- end ngIf: (n.oName != '不顯示單位') -->
+                  </a>
+               </li><!-- end ngRepeat: n in (lang == 'ch' ? admsList.lists : admsList.listsEn) | limitTo:3 -->
+            </ul>
+            <span class="more-link-style2"><a ng-href="#/ch/newsList/16" target="_self" href="#/ch/newsList/16"><span ng-bind="lang == 'ch' ? '更多研究成果.....' : 'more.....'" class="ng-binding">更多研究成果.....</span></a></span>
+         </div>
+      </div>
+      <div class="clear"></div>
+   </div>
+</section>
+</div>
+      <!--footer&copyrights-->
+      <div class="container clearfix">
+         <div class="row">
+            <footer id="footer" style="margin-top: 16px;">
+               <div id="copyrights">
+                  <div class="copyright ng-binding" ng-bind-html="lang == 'ch' ? webtail.contents : webtail.contentsEn"><meta name="og:url" content="voting.sinica.edu.tw">
+<meta name="description" content="voting.sinica.edu.tw">
+11529 台北市南港區研究院路二段128號 |
+電話：+886-2-27822120~9(共10線)<br><a href="#/ch/articles/37" target="_self">本院位置及交通資訊</a> |
+聯絡意見－<a href="mailto:aspublic@gate.sinica.edu.tw" title="" target="_blank">aspublic@gate.sinica.edu.tw</a> <br> © 2016 Academia Sinica | <a href="#/ch/articles/51" target="_self">隱私權及安全政策 
+</a><a href="https://www.youtube.com/channel/UCPk594oZYMU4Eak7By5wHyQ" target="_blank"><img src="downloadFile_m.php?file=00012f.png&amp;_downloadName=youtube.png" class="asLink" alt="youtube" width="42px"></a>
+<a href="https://www.facebook.com/sinicaedu/" target="_blank"><img src="downloadFile_m.php?file=00012h.png&amp;_downloadName=fb.png" class="asLink" alt="fb" width="26px"></a>
+<a href="https://www.instagram.com/academiasinica_official/" target="_blank"><img src="downloadFile_m.php?_downloadName=ig_logo.png&amp;file=0002d7.png" class="asLink" width="26px"></a>
+<a href="http://research.sinica.edu.tw/" target="_blank"><img src="downloadFile_m.php?file=00015p.png&amp;_downloadName=logo-mobile.png" class="asLink" alt="research" width="78px"></a>
+<span style="word-break: normal;">
+
+</span></div>
+               </div>
+            </footer>
+         </div>
+      </div>
+   </div>
+
+   <div id="gotoTop" class="icon-angle-up"></div>
+
+   <script type="text/javascript" src="js/jquery.js"></script>
+   <script type="text/javascript" src="js/plugins.js"></script>
+   <script type="text/javascript" src="js/jquery.nivo.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <!--angularjs-->
+   <script type="text/javascript" src="include/angularjs/angular.min.js"></script>
+   <script type="text/javascript" src="include/angularjs/angular-route.min.js"></script>
+   <script type="text/javascript" src="include/angularjs/angular-sanitize.min.js"></script>
+   <script type="text/javascript" src="js/aswebSvcs.js"></script>
+   <script type="text/javascript" src="js/aswebFctrs.js"></script>
+   <script type="text/javascript" src="js/aswebCtrls.js"></script>
+   <script type="text/javascript" src="js/asweb.js"></script>
+
+   <!--Footer Scripts-->
+   <script type="text/javascript" src="js/functions.js"></script>
+   <script type="text/javascript">
+      function startSlide() {
+         $('.nivoSlider').nivoSlider({
+            effect: 'random',
+            slices: 15,
+            boxCols: 12,
+            boxRows: 6,
+            animSpeed: 500,
+            pauseTime: 10000,
+            directionNav: true,
+            controlNav: true,
+            pauseOnHover: true,
+            prevText: '<i class="icon-angle-left"></i>',
+            nextText: '<i class="icon-angle-right"></i>',
+            afterLoad: function() {
+               $('#slider').find('.nivo-caption').addClass('slider-caption-bg');
+            }
+         });
+      }
+   </script>
+   <!--highslide-->
+   <script src="include/highslide/highslide-with-gallery.js"></script>
+   <script type="text/javascript">
+      hs.graphicsDir = 'include/highslide/graphics/';
+      hs.align = 'center';
+      hs.transitions = ['expand', 'crossfade'];
+      hs.outlineType = 'rounded-white';
+      hs.fadeInOut = true;
+      hs.numberPosition = 'caption';
+      hs.dimmingOpacity = 0.75;
+      // Add the controlbar
+      if (hs.addSlideshow) hs.addSlideshow({
+         //slideshowGroup: 'group1',
+         interval: 5000,
+         repeat: false,
+         useControls: true,
+         fixedControls: 'fit',
+         overlayOptions: {
+            opacity: .75,
+            position: 'bottom center',
+            hideOnMouseOut: true
+         }
+      });
+   </script>
+
+
+<div class="highslide-container" style="padding: 0px; border: medium none; margin: 0px; position: absolute; left: 0px; top: 0px; width: 100%; z-index: 1001; direction: ltr;"><a class="highslide-loading" title="按下即取消" href="javascript:;" style="position: absolute; top: -9999px; opacity: 0.75; z-index: 1;">載入中...</a><div style="display: none;"></div><table style="padding: 0px; border: medium none; margin: 0px; visibility: hidden; position: absolute; border-collapse: collapse; width: 0px;" cellspacing="0"><tbody style="padding: 0px; border: medium none; margin: 0px;"><tr style="padding: 0px; border: medium none; margin: 0px; height: auto;"><td style="padding: 0px; border: medium none; margin: 0px; line-height: 0; font-size: 0px; background: rgba(0, 0, 0, 0) url(&quot;https://www.sinica.edu.tw/include/highslide/graphics/outlines/rounded-white.png&quot;) repeat scroll 0px 0px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: medium none; margin: 0px; line-height: 0; font-size: 0px; background: rgba(0, 0, 0, 0) url(&quot;https://www.sinica.edu.tw/include/highslide/graphics/outlines/rounded-white.png&quot;) repeat scroll 0px -40px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: medium none; margin: 0px; line-height: 0; font-size: 0px; background: rgba(0, 0, 0, 0) url(&quot;https://www.sinica.edu.tw/include/highslide/graphics/outlines/rounded-white.png&quot;) repeat scroll -20px 0px; height: 20px; width: 20px;"></td></tr><tr style="padding: 0px; border: medium none; margin: 0px; height: auto;"><td style="padding: 0px; border: medium none; margin: 0px; line-height: 0; font-size: 0px; background: rgba(0, 0, 0, 0) url(&quot;https://www.sinica.edu.tw/include/highslide/graphics/outlines/rounded-white.png&quot;) repeat scroll 0px -80px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: medium none; margin: 0px; position: relative;" class="rounded-white highslide-outline"></td><td style="padding: 0px; border: medium none; margin: 0px; line-height: 0; font-size: 0px; background: rgba(0, 0, 0, 0) url(&quot;https://www.sinica.edu.tw/include/highslide/graphics/outlines/rounded-white.png&quot;) repeat scroll -20px -80px; height: 20px; width: 20px;"></td></tr><tr style="padding: 0px; border: medium none; margin: 0px; height: auto;"><td style="padding: 0px; border: medium none; margin: 0px; line-height: 0; font-size: 0px; background: rgba(0, 0, 0, 0) url(&quot;https://www.sinica.edu.tw/include/highslide/graphics/outlines/rounded-white.png&quot;) repeat scroll 0px -20px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: medium none; margin: 0px; line-height: 0; font-size: 0px; background: rgba(0, 0, 0, 0) url(&quot;https://www.sinica.edu.tw/include/highslide/graphics/outlines/rounded-white.png&quot;) repeat scroll 0px -60px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: medium none; margin: 0px; line-height: 0; font-size: 0px; background: rgba(0, 0, 0, 0) url(&quot;https://www.sinica.edu.tw/include/highslide/graphics/outlines/rounded-white.png&quot;) repeat scroll -20px -20px; height: 20px; width: 20px;"></td></tr></tbody></table></div></body></html>

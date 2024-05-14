@@ -1,0 +1,1049 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><link rel="alternate" href="https://www.4.cn/?lang=zh" hreflang="x-default">
+<link rel="alternate" href="https://www.4.cn/?lang=zh" hreflang="zh-Hans">
+<link rel="alternate" href="https://www.4.cn/?lang=en" hreflang="en">
+<link rel="alternate" href="https://www.4.cn/?lang=zh_HK" hreflang="zh-Hant">
+<style>
+ .garyBody{
+      filter: grayscale(100%);
+      -webkit-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      -ms-filter: grayscale(100%);
+      -o-filter: grayscale(100%);
+      -webkit-filter: grayscale(1);
+    }
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>4.CN - Buy, Sell &amp; Park Domain Names</title><meta name="keywords" content="buy domain, sell domain, domain escrow, domain auction, domain brokerage, domain parking, domain appraisal, domain name, domain, domain marketplace, domain escrow service, transfer domain, affiliate program, chinese domain names"><meta name="description" content="4.CN is the global and professional marketplace for buying and selling domain names. We have over 1.500.000 domains in our marketplace. Currently we are the leading domain auction platform and domain escrow service provider in China now."><meta http-equiv="content-language" content="en"><meta name="author" content="4.CN">
+<meta name="copyright" content="4.CN">
+<meta name="robots" content="all, index, follow, noodp">
+<meta name="msnbot" content="noodp">
+<meta name="googlebot" content="noodp">
+<meta name="slurp" content="noydir">
+<!--<meta name="revisit-after" content="5 days" /> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="/img/favicon.ico" rel="shortcut icon">
+<link href="/img/favicon.ico" rel="icon" type="image/ico">
+<link href="/img/index.css" media="screen" rel="stylesheet" type="text/css">
+<link href="/js/front/css/jquery.flexslider.css" media="screen" rel="stylesheet" type="text/css"><link href="/img/style.css" type="text/css" media="all" rel="stylesheet">
+<link href="/js/front/css/jquery.dialog.css" type="text/css" media="all" rel="stylesheet">
+<link href="/img/en/style.css" type="text/css" media="all" rel="stylesheet">
+<script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="/js/front/jquery.min.js"></script><script type="text/javascript" src="/js/front/jquery.dialog.min.js"></script><script type="text/javascript" src="/js/front/locale/dialog-en.min.js"></script><script type="text/javascript" src="/js/front/jquery.flexslider-min.js"></script><script type="text/javascript" src="/js/front/jquery.cxscroll.min.js"></script><script type="text/javascript" src="/js/front/jquery.index.min.js"></script><script type="text/javascript" src="/js/front/jquery.duomai.min.js"></script><script type="text/javascript" src="/js/front/locale/index-en.js"></script><script type="text/javascript" src="/js/front/punycode.js"></script><script type="text/javascript" src="/js/static/gt.js"></script><script type="text/javascript">
+var serverdate = new Date("March 25, 2022 16:26:21");
+var client_language_flag = 'en';
+
+function padlength(what) {
+    var output = (what.toString().length==1) ? "0" + what : what;
+    return output;
+}
+
+function displaytime() {
+    serverdate.setSeconds(serverdate.getSeconds()+1)
+    var timestring = padlength(serverdate.getHours()) + ":" + padlength(serverdate.getMinutes()) + ":" + padlength(serverdate.getSeconds());
+    var other = 'CST';
+    other += " (UTC";
+    other += '+08:00)';
+
+    $('#navtime').html('4.CN Server Time: 2022-03-25&nbsp;' + timestring + '&nbsp;'+ other);
+    timestring = undefined;
+}
+
+function closeMobileTop(){
+    document.cookie="closetop=1"
+    document.getElementById("mobile_bottom").style.display="none";
+}
+function downloadApp(){
+     var type = "other";
+     var downloadUri = "https://itunes.apple.com/us/app/jin-ming-wang4.cn/id1196677695?mt=8";
+
+     var ifr = document.createElement('iframe');
+     if(type == 'ios'){
+         //safari可能不识别iframe.
+         ifr.src = "midaizi://";
+         ifr.style = "width:1px;height:1px;";
+     }else{
+         //请勿修改该地址后面的apps/index.否则会影响android那边manifest里面pathPrefix配置
+         ifr.src = "midaizi://4.cn/apps/index";
+     }
+     document.body.appendChild(ifr);
+     //800ms后无反应就自动下载
+     setTimeout(function(){
+         document.body.removeChild(ifr);
+         window.location.href = downloadUri;
+     }, 800)
+}
+
+
+$(function(){
+
+    window.alert = function(text){
+        $.dialog.alert(text);
+    }
+    
+    $(".toolbar").height($(window).height());
+    $(".toolbar").css("padding-top",($(window).height()-300)/2+"px");
+
+    $(window).resize(function() {
+        $(".toolbar").height($(window).height());
+        $(".toolbar").css("padding-top",($(window).height()-300)/2+"px");
+    });
+    $(".scrollToTop").click(function(){
+        $('html,body').animate({scrollTop:0},500);
+    });
+
+
+    $('.sub-nav-ul a').each(function(){
+        //出现在当前链接中 朝前匹配  如果是页面锚点 拒绝选中
+        if(window.location.href.indexOf(this.href) !== -1 && this.href.indexOf('#') == -1){
+            this.className = 'on'
+        }
+    });
+    $('#keyword').focus(function(){
+        if($.trim($(this).val()) == 'Please enter keyword or domain') {
+            $(this).val('');
+        }
+    }).blur(function(){
+        if($.trim($(this).val()) == '') {
+            $(this).val('Please enter keyword or domain');
+        }
+    });
+
+    $('#handleSearch').submit(function() {
+        if($.trim($('#keyword').val()) == 'Please enter keyword or domain') {
+            $('#keyword').val('Please enter keyword or domain');
+            return false;
+        }
+    });
+
+    $('tr[id^="r_"]').hover(function(){
+        $(this).toggleClass('cur');
+    });
+    //$('tr[id^="r_"]:odd').addClass("odd");
+
+    /*
+    $('tr[id^="r_"]').click(function(event) {
+        if (event.target.type !== 'checkbox') {
+            $(':checkbox', this).trigger('click');
+        }
+    });
+    */
+
+    $('li[id^="r_"]').each(function(){
+        $(this).mouseover(function(){
+            $(this).addClass('cur');
+        }).mouseout(function(){
+            $(this).removeClass('cur');
+        });
+    });
+
+    //$("ul.actions :first-child").addClass("first");
+    //$("ul.actions :last-child").addClass("last");
+    setInterval("displaytime()", 1000);
+});
+</script></head>
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    <div id="top" style="height: 28px; line-height: 28px; background: #eee;">
+  <div class="wrapper" style="width: 980px; margin: 0 auto; color: #999">
+   <div class="fl">
+            Welcome to 4.CN                        <a href="/member/signin" class="orange" title="Sign In">Sign In</a>
+    <a href="/member/signup" class="orange" title="Create an account">Create an account</a>
+                    </div>
+   <div class="fr topmenu">
+    <a href="http://top.4.cn/" class="orange" target="_blank">Top Domains</a>
+    <span class="point"> | </span>
+    <a href="http://whois.4.cn" class="f333" target="_blank">Whois</a>
+    <span class="point"> | </span>
+                        <a href="/company/prices">Fee Policies</a>
+    <span class="point"> | </span>
+    <a href="/help">Help Center</a>
+    <span class="point"> | </span>
+    <a href="/company/contactus">Contact Us</a>
+    <span class="point"> | </span>
+    <span class="nav-tool">
+                            <a href="http://www.facebook.com/4dotcn" title="Like us on Facebook" target="_blank">
+      <img src="/img/flag/facebook.gif">
+     </a>
+     <a href="http://www.twitter.com/4dotcn" title="Follow us on Twitter" target="_blank">
+      <img src="/img/flag/twitter.gif">
+     </a>
+                        </span>
+   </div>
+  </div>
+ </div>
+ <div id="header" class="clearfix">
+  <div class="logo">
+   <h1 title="4.cn" onclick="window.location.href='/'"></h1>
+   <a href="/company/contactus" class="phone" target="_blank" title="Contact Us"></a>
+  </div>
+  <div class="useful">
+   <div class="action-search">
+    <div class="search-wrap clearfix">
+     <form action="/search/result" method="post" id="handleSearch">
+      <input name="buynow" value="1" type="hidden">
+      <input name="selling" value="1" type="hidden">
+      <input name="stock" value="1" type="hidden">
+      <input name="hotsale" value="1" type="hidden">
+      <input name="auction" value="1" type="hidden">
+      <div class="search-text-container">
+       <label for="keyword"></label>
+       <input id="keyword" value="Please enter keyword or domain" name="keyword" type="text">
+      </div>
+      <div class="search-btn-container">
+       <button type="submit" name="search" value="1">
+        <strong class="blue">Search</strong>
+       </button>
+      </div>
+     </form>
+    </div>
+   </div>
+   <div style="margin-top: 5px; padding-left: 10px; width: 500px; overflow: hidden; height: 15px;">
+            Hot search:             <a href="/search/result/tags/81/search/1/tlds/0">Disyllable Pinyin.com</a>
+    &nbsp;&nbsp;&nbsp;
+    <a href="/search/result/tags/150/search/1/tlds/0">Repeated Disyllable Pinyin.com</a>
+    &nbsp;&nbsp;&nbsp;
+    <a href="/search/result/tags/74/search/1/">2Letters</a>
+    &nbsp;&nbsp;&nbsp;
+    <a href="/search/result/tags/75/search/1/tlds/0">3Letters.com</a>
+    &nbsp;&nbsp;&nbsp;
+    <a href="/search/result/tags/71/search/1">3Numbers</a>
+    &nbsp;&nbsp;&nbsp;
+    <a href="/search/result/tags/72/search/1/tlds/0">4Numbers.com</a>
+    &nbsp;&nbsp;&nbsp;
+    <a href="/search/result/tags/79/search/1">Monosyllable Pinyin</a>
+    &nbsp;&nbsp;&nbsp;
+    <a href="/search/result/tags/77/search/1">2Charaters</a>
+    &nbsp;&nbsp;&nbsp;
+   </div>
+  </div>
+ </div>
+<!--导航栏-->
+ <style>
+/* app scan qrcode*/
+#nav .nav_mobile_container {
+ display: block;
+ text-align: center;
+ position: relative;
+}
+
+#nav .nav_mobile_container .qrcode {
+ display: none;
+ position: absolute;
+ width: 100px;
+ height: 100px;
+ top: 36px;
+ left: 15px;
+ z-index: 9999
+}
+
+#nav .nav_mobile_container:hover .qrcode {
+ display: block
+}
+</style>
+ <div id="nav">
+  <ul class="fl">
+                            <li>
+    <a href="/index" class="index-item cur">Home</a>
+   </li>
+                                    <li class="fg"></li>
+                                <li>
+    <a href="/buynow" class="buynow-item ">BIN Sales</a>
+   </li>
+                                    <li class="fg"></li>
+                                <li>
+    <a href="/bulk" class="bulk-item ">Bulk Sales</a>
+   </li>
+                                    <li class="fg"></li>
+                                <li>
+    <a href="/hotsale/event" class="hotsale-item ">Hot Sales</a>
+   </li>
+                                    <li class="fg"></li>
+                                <li>
+    <a href="/auction" class="auction-item ">Live Auction</a>
+   </li>
+                                    <li class="fg"></li>
+                                <li>
+    <a href="/buy-domains" class="buy-domains-item ">Buy Domains</a>
+   </li>
+                                <li>
+    <a href="/sell-domains" class="sell-domains-item ">Sell Domains</a>
+   </li>
+                                <li>
+    <a href="/escrow" class="escrow-item ">Escrow</a>
+   </li>
+                    </ul>
+  <ul class="fr">
+   <!-- 手机客户端 -->
+   <li class="nav_mobile_container">
+    <a class="smartphone-item nav_mobile">
+            Mobile App            </a>
+    <img src="/img/app-qrcode-100.png" class="qrcode">
+   </li>
+
+   <li class="fg"></li>
+   <li>
+    <a class="account-item nav_user" href="/account" title="My Account">My Account</a>
+   </li>
+  </ul>
+
+ </div>
+ <!--end header-navigator-->
+    <script type="text/javascript">
+var showcase_pos = 0, showcase_cnt = 8;
+var showcase_len, showcase_arr=new Array();
+function showcase_scroll() {
+	var showcase_end = showcase_pos+showcase_cnt-1;
+	var showcase_pad = showcase_end-showcase_len;
+	var html = "";
+	if(showcase_pad<0){
+		html = showcase_fetch(showcase_pos, showcase_end);
+		showcase_pos = showcase_pad == -1 ? 0 : showcase_end+1 ;
+	} else if(showcase_pad>=0){
+		html = showcase_fetch(showcase_pos, showcase_len-1);
+		html += showcase_fetch(0, showcase_pad);
+		showcase_pos = showcase_pad+1;
+	}
+	$("#showcase").html(html);	
+};
+function showcase_fetch(start, end) {
+	var obj, html = "";
+	for(var i=start;i<=end;i++){
+		obj = showcase_arr[i];
+		//html +="<li><a href='"+ obj.href+ "' title='"+ obj.title+ "' target='_blank'>"+$(obj).text()+"</a></li>"
+		html +="<li>"+obj+"</li>"
+	}
+	return html;
+}
+
+$(function(){
+			//会员登录
+	    $('#username').autoTip('Your Email / Customer ID:');
+		$('#index_login').submit(function(){
+			if($('#username').focus().val().trim() == ''){
+			    return false;
+			}else{
+				$("<input/>").attr('name', 'token').attr('type', 'hidden').val('3857Huy5egdH+X49mp8DSiOSCvY6CQMkr5EzYV1qqRCJVvMXy7CGbvc').appendTo("#index_login");
+			}
+		});
+		
+	showcase_len = $("#showcase li").length;
+	$("#showcase li").each(function(i,e){
+		showcase_arr.push($(e).html());
+	});
+	if(showcase_arr.length>8){
+		setInterval(showcase_scroll, 4000);
+	}
+
+	$('.flexslider').flexslider({
+		controlNav: false
+	});
+	$('.flexslider2').cxScroll({
+		direction: "top",
+		step:5 
+	});
+
+	//根据域名长度显示不同字体大小 
+	$(".list-ul .domain-name").each(function(i,e){
+	    var string = $.trim($(e).text());
+	    switch(string.length){
+	    case 12:
+		    $(e).css("font-size","16px");
+		    break;
+	    case 13:
+	    case 14:
+		    $(e).css("font-size","15px");
+		    break;
+	    case 15:
+	    case 16:
+		    $(e).css("font-size","13px");
+		    break;
+	    case 17:
+	    case 18:
+	    case 19:
+		    $(e).css("font-size","12px");
+		    break;
+	    }
+	});
+
+	//极速拍卖定时刷新数据
+		
+});
+</script>
+<div id="wrapper" class="clearfix">
+	<div class="break"></div>
+	<div class="icontent fl">
+		<div class="flexslider">
+			<ul class="slides">
+						<li style="display: list-item;"><a href="https://www.4.cn/apps/whois" target="_blank">
+			     <img src="https://m.4.cn/20170614/ce3f575f9ebfcc222ba98e3360df068e_925_3626.png" title="whois app" border="0"> 
+			</a></li>
+			
+						</ul>
+		</div>
+		
+					
+		
+				
+				
+		
+		
+				<!-- begin buynow -->
+		<div class="panel clearfix break featured-auction">
+			<div class="gray-head rev">
+				<h2 class="head-h2">
+					<span class="fr"><a href="/buynow/recommend" class="more">More&nbsp;&gt;&gt;</a></span>
+				</h2>
+				<div class="flag_tip"><span class="head-span" style="color:#fff;">Featured BIN Sales</span></div>
+			</div>
+			<div class="grey-list">
+				<ul class="list-ul clearfix">
+									<li>
+					<a href="/search/detail/pid/8733725" target="_blank" title="832444.com">
+						<span class="domain-name">832444.com</span>
+						<span class="domain-ltime" title="顺顺顺">顺顺顺</span>
+						<span class="domain-price">3,980 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/24549468" target="_blank" title="8ba.com">
+						<span class="domain-name">8ba.com</span>
+						<span class="domain-ltime" title="发财域名，机会难得！">发财域名，机会难得！</span>
+						<span class="domain-price">38,888 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/10475858" target="_blank" title="749988.com">
+						<span class="domain-name">749988.com</span>
+						<span class="domain-ltime" title="含义自悟">含义自悟</span>
+						<span class="domain-price">7,000 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/8722577" target="_blank" title="robot88.com">
+						<span class="domain-name">robot88.com</span>
+						<span class="domain-ltime" title="机器人">机器人</span>
+						<span class="domain-price">20,000 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/7554661" target="_blank" title="najuhui.com">
+						<span class="domain-name">najuhui.com</span>
+						<span class="domain-ltime" title="哪聚会    限时特价，过后涨价">哪聚会    限时特价，过后涨价</span>
+						<span class="domain-price">366 CNY</span>
+					</a>
+				</li>
+								<li class="five">
+					<a href="/search/detail/pid/8549947" target="_blank" title="06144.com">
+						<span class="domain-name">06144.com</span>
+						<span class="domain-ltime" title="发财域名，机会难得">发财域名，机会难得</span>
+						<span class="domain-price">4,999 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/8989907" target="_blank" title="64563.com">
+						<span class="domain-name">64563.com</span>
+						<span class="domain-ltime" title="发财域名，机会难得">发财域名，机会难得</span>
+						<span class="domain-price">2,999 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/15399426" target="_blank" title="1943.vip">
+						<span class="domain-name">1943.vip</span>
+						<span class="domain-ltime" title="4数字vip">4数字vip</span>
+						<span class="domain-price">9,800 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/15398666" target="_blank" title="77qipai.com">
+						<span class="domain-name">77qipai.com</span>
+						<span class="domain-ltime" title="77qp">77qp</span>
+						<span class="domain-price">68,000 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/23445630" target="_blank" title="809.xyz">
+						<span class="domain-name">809.xyz</span>
+						<span class="domain-ltime" title="8开9尾">8开9尾</span>
+						<span class="domain-price">2,888 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/8722718" target="_blank" title="zhudashuai.com">
+						<span class="domain-name" style="font-size: 15px;">zhudashuai.com</span>
+						<span class="domain-ltime" title="朱大帅">朱大帅</span>
+						<span class="domain-price">9,800 CNY</span>
+					</a>
+				</li>
+								<li class="five">
+					<a href="/search/detail/pid/8732543" target="_blank" title="365fp.com">
+						<span class="domain-name">365fp.com</span>
+						<span class="domain-ltime" title="发票/废品/扶贫">发票/废品/扶贫</span>
+						<span class="domain-price">20,000 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/15399161" target="_blank" title="3085.vip">
+						<span class="domain-name">3085.vip</span>
+						<span class="domain-ltime" title="4数字vip">4数字vip</span>
+						<span class="domain-price">4,800 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/8709707" target="_blank" title="dianshouji.com">
+						<span class="domain-name" style="font-size: 15px;">dianshouji.com</span>
+						<span class="domain-ltime" title="精品域名">精品域名</span>
+						<span class="domain-price">9,000 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/10829683" target="_blank" title="365hb.com">
+						<span class="domain-name">365hb.com</span>
+						<span class="domain-ltime" title="365hb">365hb</span>
+						<span class="domain-price">208,888 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/10041539" target="_blank" title="18706.com">
+						<span class="domain-name">18706.com</span>
+						<span class="domain-ltime" title="发财域名，机会难得">发财域名，机会难得</span>
+						<span class="domain-price">5,999 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/8509680" target="_blank" title="41255.com">
+						<span class="domain-name">41255.com</span>
+						<span class="domain-ltime" title="发财域名，机会难得">发财域名，机会难得</span>
+						<span class="domain-price">8,999 CNY</span>
+					</a>
+				</li>
+								<li class="five">
+					<a href="/search/detail/pid/15690266" target="_blank" title="ttcqp.com">
+						<span class="domain-name">ttcqp.com</span>
+						<span class="domain-ltime" title="天天彩棋牌">天天彩棋牌</span>
+						<span class="domain-price">2,800 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/8708722" target="_blank" title="365lw.com">
+						<span class="domain-name">365lw.com</span>
+						<span class="domain-ltime" title="劳务网/论文网">劳务网/论文网</span>
+						<span class="domain-price">12,800 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/9319061" target="_blank" title="qpw.cc">
+						<span class="domain-name">qpw.cc</span>
+						<span class="domain-ltime" title="含义自悟">含义自悟</span>
+						<span class="domain-price">120,000 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/23766084" target="_blank" title="dhtm.com">
+						<span class="domain-name">dhtm.com</span>
+						<span class="domain-ltime" title=""></span>
+						<span class="domain-price">35,000 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/11890982" target="_blank" title="97455.com">
+						<span class="domain-name">97455.com</span>
+						<span class="domain-ltime" title="发财域名，机会难得">发财域名，机会难得</span>
+						<span class="domain-price">12,999 CNY</span>
+					</a>
+				</li>
+								<li>
+					<a href="/search/detail/pid/18187027" target="_blank" title="99115.com">
+						<span class="domain-name">99115.com</span>
+						<span class="domain-ltime" title="年底优惠价；有对子就是好，稀缺型5数">年底优惠价；有对子就是好，稀缺型5数</span>
+						<span class="domain-price">151,920 CNY</span>
+					</a>
+				</li>
+								<li class="five">
+					<a href="/search/detail/pid/8722691" target="_blank" title="hxkgroup.com">
+						<span class="domain-name" style="font-size: 16px;">hxkgroup.com</span>
+						<span class="domain-ltime" title="精品域名">精品域名</span>
+						<span class="domain-price">50,000 CNY</span>
+					</a>
+				</li>
+								</ul>
+			</div>
+		</div>
+		<!-- end buynow -->
+				
+		
+		<div class="panel clearfix break">
+			<div class="bluehead">
+				<h2>Featured Domains<a href="/search/result">More&nbsp;&gt;&gt;</a></h2>
+			</div>
+			<div class="body">
+				<ol class="list fl featured_domains" style="width:449px;">
+					<li class="cap">
+						<span class="domain">Domain Name</span>
+						<span class="category">Category</span>
+						<span class="price">Listing Price</span>
+					</li>
+					<li><span class="domain"><span class="s0"></span><a href="/search/detail/pid/2222482" target="_blank">7z.com</a></span><span class="category">1 &amp; 2 Letter</span><span class="price">make offer</span></li><li class="odd"><span class="domain"><span class="s1"></span><a href="/search/detail/pid/3257072" target="_blank">kuwan.com</a></span><span class="category">Games</span><span class="price">¥980,000 CNY</span></li><li><span class="domain"><span class="s2"></span><a href="/search/detail/pid/8219699" target="_blank">mgb.com</a></span><span class="category">Uncategoried</span><span class="price">¥550,000 CNY</span></li><li class="odd"><span class="domain"><span class="s3"></span><a href="/search/detail/pid/1797784" target="_blank">zz.com.cn</a></span><span class="category">1 &amp; 2 Letter</span><span class="price">¥300,000 CNY</span></li><li><span class="domain"><span class="s4"></span><a href="/search/detail/pid/18945549" target="_blank">sqd.com</a></span><span class="category">Uncategoried</span><span class="price">make offer</span></li><li class="odd"><span class="domain"><span class="s5"></span><a href="/search/detail/pid/23287188" target="_blank">718.net</a></span><span class="category"></span><span class="price">make offer</span></li><li><span class="domain"><span class="s6"></span><a href="/search/detail/pid/31203507" target="_blank">331.com</a></span><span class="category"></span><span class="price">make offer</span></li><li class="odd"><span class="domain"><span class="s7"></span><a href="/search/detail/pid/2734842" target="_blank">520.com</a></span><span class="category">3 Number</span><span class="price">make offer</span></li><li><span class="domain"><span class="s8"></span><a href="/search/detail/pid/31203469" target="_blank">8032.com</a></span><span class="category"></span><span class="price">make offer</span></li><li class="odd"><span class="domain"><span class="s9"></span><a href="/search/detail/pid/31203514" target="_blank">8179.com</a></span><span class="category"></span><span class="price">make offer</span></li>					</ol>
+					<ol class="list fl featured_domains" style="width:448px;border-left:0 none;">
+						<li class="cap">
+							<span class="domain">Domain Name</span>
+						<span class="category">Category</span>
+						<span class="price">Listing Price</span>
+						</li>
+						<li><span class="domain"><span class="s10"></span><a href="/search/detail/pid/31203104" target="_blank">335.cn</a></span><span class="category"></span><span class="price">make offer</span></li><li class="odd"><span class="domain"><span class="s11"></span><a href="/search/detail/pid/31203477" target="_blank">8259.com</a></span><span class="category"></span><span class="price">make offer</span></li><li><span class="domain"><span class="s12"></span><a href="/search/detail/pid/2477447" target="_blank">xiewang.com</a></span><span class="category">Uncategoried</span><span class="price">¥280,000 CNY</span></li><li class="odd"><span class="domain"><span class="s13"></span><a href="/search/detail/pid/7872330" target="_blank">as.cc</a></span><span class="category">Uncategoried</span><span class="price">make offer</span></li><li><span class="domain"><span class="s14"></span><a href="/search/detail/pid/2390280" target="_blank">9e.com</a></span><span class="category">2 Characters</span><span class="price">make offer</span></li><li class="odd"><span class="domain"><span class="s15"></span><a href="/search/detail/pid/23287183" target="_blank">713.net</a></span><span class="category"></span><span class="price">make offer</span></li><li><span class="domain"><span class="s16"></span><a href="/search/detail/pid/2222500" target="_blank">sdx.com</a></span><span class="category">3 Letter</span><span class="price">make offer</span></li><li class="odd"><span class="domain"><span class="s17"></span><a href="/search/detail/pid/2032457" target="_blank">zt.net</a></span><span class="category">2 Characters</span><span class="price">make offer</span></li><li><span class="domain"><span class="s18"></span><a href="/search/detail/pid/1769797" target="_blank">dingche.com</a></span><span class="category">Uncategoried</span><span class="price">make offer</span></li><li class="odd"><span class="domain"><span class="s19"></span><a href="/search/detail/pid/5590139" target="_blank">6588.com</a></span><span class="category">Uncategoried</span><span class="price">make offer</span></li>					</ol>
+					<!-- 
+						<ol class="list fl featured_domains" style="width:349px;border-left:0 none;">
+						<li class="cap">
+							<span class="domain">Domain Name</span>
+							<span class="category">Description</span>
+							<span class="price">Listing Price</span>
+						</li>
+						<li ><span class="domain"><span class="s0"></span><a href="/search/detail/pid/8733725" target="_blank">832444.com</a></span><span class="category">顺顺顺</span><span class="price">&#165;3,980 CNY</span></li><li class="odd"><span class="domain"><span class="s1"></span><a href="/search/detail/pid/24549468" target="_blank">8ba.com</a></span><span class="category">发财域名，机会难得！</span><span class="price">&#165;38,888 CNY</span></li><li ><span class="domain"><span class="s2"></span><a href="/search/detail/pid/10475858" target="_blank">749988.com</a></span><span class="category">含义自悟</span><span class="price">&#165;7,000 CNY</span></li><li class="odd"><span class="domain"><span class="s3"></span><a href="/search/detail/pid/8722577" target="_blank">robot88.com</a></span><span class="category">机器人</span><span class="price">&#165;20,000 CNY</span></li><li ><span class="domain"><span class="s4"></span><a href="/search/detail/pid/7554661" target="_blank">najuhui.com</a></span><span class="category">哪聚会    限时特价，过后涨价</span><span class="price">&#165;366 CNY</span></li><li class="odd"><span class="domain"><span class="s5"></span><a href="/search/detail/pid/8549947" target="_blank">06144.com</a></span><span class="category">发财域名，机会难得</span><span class="price">&#165;4,999 CNY</span></li><li ><span class="domain"><span class="s6"></span><a href="/search/detail/pid/8989907" target="_blank">64563.com</a></span><span class="category">发财域名，机会难得</span><span class="price">&#165;2,999 CNY</span></li><li class="odd"><span class="domain"><span class="s7"></span><a href="/search/detail/pid/15399426" target="_blank">1943.vip</a></span><span class="category">4数字vip</span><span class="price">&#165;9,800 CNY</span></li><li ><span class="domain"><span class="s8"></span><a href="/search/detail/pid/15398666" target="_blank">77qipai.com</a></span><span class="category">77qp</span><span class="price">&#165;68,000 CNY</span></li><li class="odd"><span class="domain"><span class="s9"></span><a href="/search/detail/pid/23445630" target="_blank">809.xyz</a></span><span class="category">8开9尾</span><span class="price">&#165;2,888 CNY</span></li><li ><span class="domain"><span class="s0"></span><a href="/search/detail/pid/8722718" target="_blank">zhudashuai.com</a></span><span class="category">朱大帅</span><span class="price">&#165;9,800 CNY</span></li><li class="odd"><span class="domain"><span class="s1"></span><a href="/search/detail/pid/8732543" target="_blank">365fp.com</a></span><span class="category">发票/废品/扶贫</span><span class="price">&#165;20,000 CNY</span></li><li ><span class="domain"><span class="s2"></span><a href="/search/detail/pid/15399161" target="_blank">3085.vip</a></span><span class="category">4数字vip</span><span class="price">&#165;4,800 CNY</span></li><li class="odd"><span class="domain"><span class="s3"></span><a href="/search/detail/pid/8709707" target="_blank">dianshouji.com</a></span><span class="category">精品域名</span><span class="price">&#165;9,000 CNY</span></li><li ><span class="domain"><span class="s4"></span><a href="/search/detail/pid/10829683" target="_blank">365hb.com</a></span><span class="category">365hb</span><span class="price">&#165;208,888 CNY</span></li><li class="odd"><span class="domain"><span class="s5"></span><a href="/search/detail/pid/10041539" target="_blank">18706.com</a></span><span class="category">发财域名，机会难得</span><span class="price">&#165;5,999 CNY</span></li><li ><span class="domain"><span class="s6"></span><a href="/search/detail/pid/8509680" target="_blank">41255.com</a></span><span class="category">发财域名，机会难得</span><span class="price">&#165;8,999 CNY</span></li><li class="odd"><span class="domain"><span class="s7"></span><a href="/search/detail/pid/15690266" target="_blank">ttcqp.com</a></span><span class="category">天天彩棋牌</span><span class="price">&#165;2,800 CNY</span></li><li ><span class="domain"><span class="s8"></span><a href="/search/detail/pid/8708722" target="_blank">365lw.com</a></span><span class="category">劳务网/论文网</span><span class="price">&#165;12,800 CNY</span></li><li class="odd"><span class="domain"><span class="s9"></span><a href="/search/detail/pid/9319061" target="_blank">qpw.cc</a></span><span class="category">含义自悟</span><span class="price">&#165;120,000 CNY</span></li><li ><span class="domain"><span class="s0"></span><a href="/search/detail/pid/23766084" target="_blank">dhtm.com</a></span><span class="category"></span><span class="price">&#165;35,000 CNY</span></li><li class="odd"><span class="domain"><span class="s1"></span><a href="/search/detail/pid/11890982" target="_blank">97455.com</a></span><span class="category">发财域名，机会难得</span><span class="price">&#165;12,999 CNY</span></li><li ><span class="domain"><span class="s2"></span><a href="/search/detail/pid/18187027" target="_blank">99115.com</a></span><span class="category">年底优惠价；有对子就是好，稀缺型5数</span><span class="price">&#165;151,920 CNY</span></li><li class="odd"><span class="domain"><span class="s3"></span><a href="/search/detail/pid/8722691" target="_blank">hxkgroup.com</a></span><span class="category">精品域名</span><span class="price">&#165;50,000 CNY</span></li>					</ol>
+					 -->
+			</div>
+		</div>
+	</div><!--end .icontent-->
+	<div class="isidebar fr">
+				<div class="login">
+		  <form action="/member/signin" method="post" id="index_login">
+			<div class="ftext-wrap rev"><label class="idt"></label><input type="text" id="username" name="username" value="Your Email / Customer ID:"></div>
+			<div class="ftext-wrap ftext-password rev"><label class="cert"></label><input type="password" id="password" name="password" value=""></div>
+			<p><button class="sub-btn" type="submit"><span>Sign In</span></button></p>
+			<p>
+				<a href="/member/signup" class="reg_btn">Create an account</a>
+				<a href="/member/lost-password-email" class="forget-password">Forgot?</a>
+			</p>
+		  </form>
+		</div>
+				
+		<div style="clear: both;"></div>
+		<div class="entrust-buy">
+<script>
+function submitBrokerage(){
+	if($("#extraparams").focus().val().trim()==""){
+		$("#extraparams").val('');
+	}
+		//不登录时必须填写联系方式
+	if($("[name=hasAccount]:checked").val()==="0"){
+		var contact = $("#Contact").focus().val().trim();
+		if(client_language_flag == 'zh'){
+	        if(!$.utils.isMobile(contact)){
+	        	alert("Your phone or email");
+	     	    return false;
+	        }
+	    }
+	    if(!$.utils.isMobile(contact) && !$.utils.isEmail(contact)){
+	    	alert("Please fill in your phone number or email");
+	        return false;
+	    }
+	}else{
+		if(!$('#loginForm [name=username]').focus().val().trim()){
+		    alert('Your Email / Customer ID:');
+		    return false;
+		}
+	}
+		$('#applybrokerage').submit();
+}
+
+jQuery.fn.countDownFun = function(time) {
+    var that = $(this);
+    // 获取默认值  等待时间结束在设置为默认值
+    var defText = that.text();
+    // 设置倒计时时间
+    var time = time || 60;
+    var i = 1;
+
+    // 倒计时开始
+    var start = setInterval( function() {
+
+        // 剩余时间
+        var countDownTime = time - i;
+
+        // 倒计时时间结束
+        if (i > time - 1) {
+            i = 1;
+            that.text(defText);
+            that.attr("disabled", false);
+            clearInterval(start);
+        } else {
+            // 倒计时时间内
+            that.attr("disabled", true);
+            that.text(countDownTime + "  Resend");
+            i++;
+        }
+    }, 1000);
+}
+
+function sendVerifyCode(){
+
+	var contact = $("#Contact").val();
+	if(!$.utils.isMobile(contact) && !$.utils.isEmail(contact)){
+		alert("Your phone or email");
+		return false;
+	}
+	var sendCode = $("#sendVerifyCode");
+	sendCode.attr("disabled", true);
+    $.ajax({
+        type: 'POST',
+        url: '/api/member/send-verify-code',
+        timeout: 30000,
+        dataType: "json",
+        data: {
+            "Contact":contact,
+            "geetest_challenge":$(" input[ name='geetest_challenge' ] ").val(),
+            "geetest_validate":$(" input[ name='geetest_validate' ] ").val(),
+            "geetest_seccode":$(" input[ name='geetest_seccode' ] ").val(),
+        },
+        success: function(data) {
+            if(data.retcode == 0){
+            	sendCode.countDownFun(60);
+            }else{
+                LUOCAPTCHA.reset()
+            	sendCode.attr("disabled", false);
+            	switch(data.retcode){
+		        	case 658 :
+		        		alert("Failed, please resend.");
+						break;
+		        	case 659 :
+		        		alert("Failed, please try again.");
+						break;
+                    case 640 :
+                        alert("Please complete the verification first.");
+                        break;
+		        	case 641 :
+		        		alert("Too frequent operation, please try later.");
+						break;
+		        	default:
+						alert("Invalid Request!");
+						break;
+	        	}
+        	}
+        }
+    });
+}
+$(function(){
+		 	$("[name=hasAccount]").change(function(){
+		if($(this).val()==1){
+			$("#loginForm").show();
+			$("#contactForm").hide();
+		}else{
+			$("#loginForm").hide();
+			$("#contactForm").show();
+		}
+	});
+	
+	//请输入您的Email/手机号
+	$("#Contact").blur(function(){
+		var _this = this;
+		var contact = this.value.trim();
+		if(client_language_flag == 'zh'){
+	        if(!$.utils.isMobile(contact)){
+	     	    return false;
+	        }
+	    }
+	    if(!$.utils.isMobile(contact) && !$.utils.isEmail(contact)){
+	    	alert("Your phone or email");
+	        return false;
+	    }
+		if(contact){
+			$.get('/api/member/is-member-exist',{contact:contact},function(data){
+				if(data.success){
+					//您已经注册过4.cn了,请登录
+					$(_this).parents().find(".error").html("You already have an account with us");
+				}
+			});
+		}
+	})
+	})
+function handlerEmbed (captchaObj) {
+	$("#sendVerifyCode").click(function(e) {
+		if(handelVerify(e,captchaObj)){
+			sendVerifyCode();
+		}
+	});
+	captchaObj.appendTo("#embed-captcha");
+	captchaObj.onReady(function() {
+		$("#wait").hide();
+	});
+};
+
+function handelVerify(e,captchaObj){
+	var validate = captchaObj.getValidate();
+	if (!validate) {
+		$("#notice").show();
+		setTimeout(function() {
+			$("#notice").hide();
+		}, 2000);
+		e.preventDefault();
+		return false;
+	}
+	return true;
+}
+</script>
+<form method="post" action="/index/apply-brokerage" id="applybrokerage">
+	<div class="tit"></div>
+	<div class="entrust-box">
+		<dl class="clearfix">
+			<dt>Domain：</dt>
+			<dd>
+				<input type="text" class="domain-name" name="DomainName">
+			</dd>
+		</dl>
+		<dl class="clearfix">
+			<dt>Budget： </dt>
+			<dd>
+				<input type="text" class="budget" name="BudgetAmount">
+                    <select name="BudgetCurrency" id="BudgetCurrency" style="height:25px;">
+    <option value="CNY">CNY</option>
+    <option value="USD" selected="selected">USD</option>
+    <option value="EUR">EUR</option>
+</select>                </dd>
+		</dl>
+		<dl class="clearfix">
+			<dt>Comment：</dt>
+			<dd>
+				<textarea id="extraparams" name="Comment" placeholder="Please fill in your requirements&amp;budget and leave it to us"></textarea>
+			</dd>
+			<dt style="display: none;">&nbsp;</dt>
+			<dd style="display: none;">
+				<input type="checkbox" checked="checked" name="Terms" id="Terms" value="1">I have read and accept the <a href="/policies/domain-brokerage-services" target="_blank">4.CN Brokerage Services Policy</a>.</dd>
+		</dl>
+            
+            
+                        <dl class="clearfix">
+			<dt>Contacts:</dt>
+			<dd>
+				<label for="hasAccount-1"><input type="radio" name="hasAccount" id="hasAccount-1" value="1" checked="checked" style="position: relative; top: -3px;"> <span style="position: relative; top: -10px">I have an account</span></label>
+
+				<label for="hasAccount-0"><input type="radio" name="hasAccount" id="hasAccount-0" value="0" style="position: relative; top: -3px;"> <span style="position: relative; top: -10px">I am a new customer</span></label>
+
+			</dd>
+		</dl>
+
+		<dl class="clearfix">
+			<dt></dt>
+			<dd id="loginForm">
+				<div class="ftext-wrap rev">
+					<label class="idt"></label>
+					<input type="text" name="username" placeholder="Your Email / Customer ID:" style="border: none; border-left: 1px solid #ddd;">
+				</div>
+				<div class="ftext-wrap ftext-password rev">
+					<label class="cert"></label>
+					<input type="password" name="password" value="" style="border: none; border-left: 1px solid #ddd;">
+				</div>
+			</dd>
+			<dd id="contactForm" style="display: none">
+				<div class="ftext-wrap rev">
+					<label class="idt"></label>
+					<input type="text" name="Contact" id="Contact" placeholder="Please fill in your phone number or email" style="border: none; border-left: 1px solid #ddd;">
+					<p class="hint">Please fill in your contacts, our broker will contact you in 2 business days.</p>
+				</div>
+
+							</dd>
+			<dd class="error"></dd>
+		</dl>
+                        
+            <p>
+                Apply<i>&gt;</i>4.cn Negotiation<i>&gt;</i>Negotiation success<i>&gt;</i>get domain</p>
+		<p>
+			<a title="Brokerage" href="javascript:void(0);" id="submit" onclick="submitBrokerage()">Brokerage</a>
+		</p>
+	</div>
+</form></div>
+		<div class="announce-wrap rev">
+			<ul>
+									<li><span class="point">·</span><a href="/announce/detail/id/319" title="4.CN Holiday Reminder" target="_blank">4.CN Holiday Reminder</a></li>
+									<li><span class="point">·</span><a href="/announce/detail/id/317" title="4.CN Holiday Reminder" target="_blank">4.CN Holiday Reminder</a></li>
+									<li><span class="point">·</span><a href="/announce/detail/id/315" title="4.CN Holiday Arrangement for the National Day" target="_blank">4.CN Holiday Arrangement for the National Day</a></li>
+							</ul>
+		</div><!--end .announce-wrap-->
+		<div class="panel mt10px">
+			<div class="head">
+				<h2>Ending Soon Auctions<a href="/auction/active">More&nbsp;&gt;&gt;</a></h2>
+			</div>
+			<div class="body">
+				<ol class="list" id="closing_auctions">
+					<li class="cap"><span class="domain">Domain Name</span><span class="time">Time Left</span><span class="price">Current Bid</span></li>
+										
+				</ol>
+			</div>
+		</div>
+
+		<!-- <a href="/buyer/apply-brokerage" target="_blank"><img src="/img/en/apply-agent.gif" style="margin-top:10px;" /></a> -->
+		<!-- <a href="/seller/add-auction" target="_blank"><img src="/img/en/apply-auction.gif" style="margin-top:10px;" /></a> -->
+
+		<div class="panel break">
+			<div class="head">
+				<h2>Spotlight Hotsales<a href="/hotsale">More&nbsp;&gt;&gt;</a></h2>
+			</div>
+			<div class="body">
+				<ol class="list" id="featured_hotsale">
+					<li class="cap"><span class="domain">Domain Name</span><span class="price">Listing Price</span></li>
+					<li><span class="domain"><span class="n0"></span><a href="/hotsale/detail/hid/40313" target="_blank">8111.net</a></span><span class="price">80,000 CNY</span></li><li class="odd"><span class="domain"><span class="n1"></span><a href="/hotsale/detail/hid/40314" target="_blank">7666.net</a></span><span class="price">80,000 CNY</span></li><li><span class="domain"><span class="n2"></span><a href="/hotsale/detail/hid/40315" target="_blank">7856.net</a></span><span class="price">30,000 CNY</span></li><li class="odd"><span class="domain"><span class="n3"></span><a href="/hotsale/detail/hid/40316" target="_blank">6606.net</a></span><span class="price">30,000 CNY</span></li><li><span class="domain"><span class="n4"></span><a href="/hotsale/detail/hid/40317" target="_blank">1131.net</a></span><span class="price">30,000 CNY</span></li><li class="odd"><span class="domain"><span class="n5"></span><a href="/hotsale/detail/hid/40318" target="_blank">5355.net</a></span><span class="price">30,000 CNY</span></li><li><span class="domain"><span class="n6"></span><a href="/hotsale/detail/hid/40319" target="_blank">5671.net</a></span><span class="price">20,000 CNY</span></li><li class="odd"><span class="domain"><span class="n7"></span><a href="/hotsale/detail/hid/40320" target="_blank">7755.cn</a></span><span class="price">120,000 CNY</span></li><li><span class="domain"><span class="n8"></span><a href="/hotsale/detail/hid/40321" target="_blank">8800.cn</a></span><span class="price">180,000 CNY</span></li><li class="odd"><span class="domain"><span class="n9"></span><a href="/hotsale/detail/hid/40322" target="_blank">5525.cn</a></span><span class="price">120,000 CNY</span></li>					
+				</ol>
+			</div>
+		</div>
+	</div><!--end side-bar-->
+</div>    <div id="footer">
+  <div class="wrap clearfix">
+   <table class="footer_table" width="100%">
+    <tbody><tr>
+     <th width="18%">About 4.cn</th>
+     <th width="18%">Quick link</th>
+     <th width="18%">Help center</th>
+     <th rowspan="2" width="46%">
+     <div style="font-size: 14px; text-align: left;">
+       <p>
+        <b>Tel: </b>400-6644-724
+       </p>
+       <p>
+        <b>Fax: </b>0571-56638596
+       </p>
+       <p>
+        <b>Email: </b>support@goldenname.com
+       </p>
+      </div>
+                                             </th>
+    </tr>
+    <tr>
+     <td>
+      <div>
+       <a href="/company/aboutus" target="_blank">About Us</a>
+      </div>
+      <div>
+       <a href="/announce" target="_blank">News Releases</a>
+      </div>
+      <div>
+       <a href="/company/contactus" target="_blank">Contact Us</a>
+      </div>
+     </td>
+     <td>
+      <div>
+       <a href="/company/prices" target="_blank">Fee Policies</a>
+      </div>
+                                                <div>
+       <a href="/policies/" target="_blank">Policies</a>
+      </div>
+     </td>
+     <td>
+      <div>
+       <a href="/help/list/cid/1" target="_blank">Sign Up</a>
+      </div>
+      <div>
+       <a href="/help/list/cid/11" target="_blank">BIN Sales</a>
+      </div>
+      <div>
+       <a href="/help/list/cid/4" target="_blank">Sell Domains</a>
+      </div>
+     </td>
+    </tr>
+   </tbody></table>
+  </div>
+                <div class="wrap copyright">
+  <a href="http://beian.miit.gov.cn" target="_blank" rel="nofollow">浙ICP备15018581号-3</a><br>
+          <a href="http://beian.miit.gov.cn" target="_blank" rel="nofollow">备案号查询</a><br>
+			Copyright © 2008-2022 <b>Hangzhou Midaizi Network Co.,Ltd. </b> All Rights Reserved<br>
+		<a href="http://www.domaining.com/" target="_blank">
+  <img src="https://partner.domaining.com/Award/domaining-120x31.gif" valign="absmiddle" alt="Web site recommended by Domaining.com" width="120" height="31" border="0">
+ </a>
+ <a href="http://zjnet.zjaic.gov.cn/" target="_blank">
+  <img src="/img/award/jb.gif">
+ </a>
+ <a href="http://www.hangzhou.cyberpolice.cn/" target="_blank">
+  <img src="/img/award/pl.gif">
+ </a>
+ <a href="http://www.pingpinganan.gov.cn/" target="_blank">
+  <img src="/img/award/dp.gif">
+ </a>
+ <a href="http://www.internic.net/registrars/registrar-1629.html" target="_blank">
+  <img src="/img/award/icann.png">
+ </a>
+ <iframe src="/index/geo" scrolling="no" width="135" height="65" frameborder="0"></iframe>
+ <div style="width: 300px; margin: 0 auto; padding: 20px 0;">
+  <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010402000519" style="display: inline-block; text-decoration: none; height: 20px; line-height: 20px;">
+   <p style="float: left; height: 20px; line-height: 20px; margin: 0px 0px 0px 5px; color: #939393;">浙公网安备 33010402000519号</p>
+  </a>
+ </div>
+ <!--<script src="https://ss.cnnic.cn/seallogo.dll?sn=e12051433010021133307708&size=3"></script>-->
+</div>
+<div style="display: none">
+ <script src="https://s141.cnzz.com/stat.php?id=853703&amp;web_id=853703" language="JavaScript" charset="gb2312"></script><script src="https://c.cnzz.com/core.php?web_id=853703&amp;t=z" charset="utf-8" type="text/javascript"></script><a href="https://www.cnzz.com/stat/website.php?web_id=853703" target="_blank" title="站长统计">站长统计</a>
+        <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-101238353-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+	</div>    </div>
+        <div class="toolbar" style="height: 988px; padding-top: 344px;">
+  <div class="apps">
+   <div class="toolbar_con">
+    <img alt="" src="/img/app-qrcode-100.png" width="200" height="200">
+    <span>Get mobile app</span>
+    <div class="toolbar_con_arrow"></div>
+   </div>
+  </div>
+  <div class="microapp">
+   <div class="toolbar_con">
+    <img alt="" src="/img/toolbar_microapp.jpg" width="200" height="200">
+    <span>Use Wechat Mini Programs</span>
+    <div class="toolbar_con_arrow"></div>
+   </div>
+  </div>
+  <div class="wechat">
+   <div class="toolbar_con">
+    <img alt="" src="/img/qr.jpg" width="200" height="200">
+    <span>WeChat Official Account</span>
+    <div class="toolbar_con_arrow"></div>
+   </div>
+  </div>
+  <div class="whois">
+   <div class="toolbar_con">
+    <img alt="" src="/img/toolbar_whois.png" width="200" height="200">
+    <span>Whois app</span>
+    <div class="toolbar_con_arrow"></div>
+   </div>
+  </div>
+  <div class="contact">
+   <div class="toolbar_con">
+         <div>
+           <div style="text-align: left;font-weight:bold;">
+            Your Account Manager  : Angel        </div>
+          <div style="text-align: left;">
+        <div>Mobile phone:+86.571-56638592</div>
+        <div>E: <a href="mailto:angel@goldenname.com">angel@goldenname.com</a></div>
+    </div>
+    <div style="margin-top: 10px">
+                        <a href="https://t.me/Angel4cn"> <img src="/img/contact_telegram.jpg" height="40"></a>
+             </div>
+    </div>
+<div class="toolbar_con_arrow"></div>
+   </div>
+  </div>
+  <div class="scrollToTop"></div>
+ </div>
+    
+<script type="text/javascript">
+function showWxQrcode(contactID){
+    $.dialog.show({
+        width:'230',
+        height: '240',
+        html: $('#wximg_'+contactID).html()
+    });
+}
+</script>
+
+</body></html>

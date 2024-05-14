@@ -1,0 +1,240 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <title>File Dropper - Online file sharing</title>
+
+    <base href="http://filedropper.com/">
+
+    <!-- Favicon -->
+    <link href="https://filedropper.com/assets/img/icon.png" rel="shortcut icon" type="image/png">
+
+    <!-- Search engine tags -->
+    <meta name="description" content="Online file sharing">
+    <meta name="author" content="File Dropper">
+    <meta name="keywords" content="">
+    
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+
+
+    <!-- External libraries and fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
+    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
+    <link href="https://filedropper.com/assets/css/vegas.min.css?v=2.3.7" rel="stylesheet">
+
+    <!-- Droppy stylesheet -->
+    <link rel="stylesheet" href="https://filedropper.com/assets/themes/modern/css/style.css?v=12038349042.3.7">
+
+    
+    
+    <!-- Javascript -->
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-291348-12"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-291348-12');
+    </script>
+
+</head>
+<body>
+
+
+<!-- Dropzone overlay -->
+<div class="drop-overlay" id="drop-overlay"><p>Drop your files here</p></div>
+
+
+<div class="upload_wrapper udw">
+
+    <div class="top_header">
+        <h1 class="brand">File Dropper</h1>
+        <div class="top_menu">
+                        <a href="https://filedropper.com/d/register">Register</a>
+            <a href="https://filedropper.com/d/login">Login</a>
+                    </div>
+    </div>
+
+    <div class="upload-block">
+        <div class="upload-block-inner">
+            <!--<div class="upload-block-logo">
+                <img src="assets/img/logo.png">
+            </div>-->
+            <div class="upload-block-content start-top active" id="upload">
+                <div class="upload-form">
+                    <div class="select-first-files">
+                        <div class="outside-container">
+                            <img class="svg-download-outline" src="https://filedropper.com/assets/themes/modern/img/upload-outline.svg" alt="upload">
+                            <span class="description">Quick file upload, click here to begin</span>
+                        </div>
+                    </div>
+                    <div class="selected-files" id="selected-files">
+                        <ul></ul>
+
+                        <div class="bottom">
+                            <div class="stats">
+                                <span><b id="stats-total"></b><br>
+                                    files selected</span>
+                                <span><b id="stats-selected"></b><br>
+                                    selected</span>
+                                <span><b id="stats-remaining"></b><br>
+                                    remaining</span>
+                            </div>
+                            <button class="button is-small is-info is-fullwidth">Add more files</button>
+                        </div>
+                    </div>
+
+                    <form enctype="multipart/form-data" id="upload-form" class="uploadForm">
+                        <input type="hidden" name="share" id="share" value="link">
+                        <input type="hidden" name="destruct" id="destruct" value="no">
+                        <input type="file" name="files[]" multiple="multiple">
+
+                        <div id="email-fields" style="display: none;">
+                            <div class="input-group">
+                                <div class="recipients"></div>
+                                <input class="input" type="text" name="email_to[]" id="email-to" placeholder="Email to" autocomplete="none" onfocus="this.setAttribute('autocomplete', 'none');">                            </div>
+                            <div class="input-group">
+                                                                    <input class="input" type="text" name="email_from" id="email-from" placeholder="Email from" required="required">
+                                                            </div>
+                        </div>
+                        <div class="input-group">
+                            <textarea class="input" name="message" placeholder="Message"></textarea>
+                        </div>
+
+                        <div class="advanced-options">
+                                                            <div class="input-group" data-help="You can share the upload by email so the recipients will receive an email or share by link and copy the url and share it with everyone you want.">
+                                    <span class="label">How to share the file? <i class="lni lni-question-circle"></i></span>
+                                    <div class="radio-group share-options">
+                                        <label class="radio" id="mail">
+                                            Send using email                                        </label>
+                                        <label class="radio selected" id="link">
+                                            Get a sharable link                                        </label>
+                                    </div>
+                                </div>
+                                                                                        <div class="input-group" data-help="The upload will destruct itself after all the recipients have downloaded the file.">
+                                    <span class="label">Enable self destruct? <i class="lni lni-question-circle"></i></span>
+                                    <div class="radio-group destruct-options">
+                                        <label class="radio selected" id="no">
+                                            No                                        </label>
+                                        <label class="radio " id="yes">
+                                            Yes                                        </label>
+                                    </div>
+                                </div>
+                                                                                        <div class="input-group" data-help="Your upload can only be downloaded by entering a password.">
+                                    <span class="label">Protect the upload with a password <i class="lni lni-question-circle"></i></span>
+                                    <input class="input" type="text" name="password" placeholder="Password" autocomplete="off" autofill="no">
+                                </div>
+                                                                                </div>
+                    </form>
+                </div>
+                <div class="button-block">
+                    <button class="button is-info is-rounded" id="submit-upload" disabled="disabled">Upload</button>
+                    <button class="button is-info is-rounded options"><i class="lni lni-more-alt"></i></button>
+                </div>
+            </div>
+            <div class="upload-block-content" id="upload-progress">
+                <div class="upload-progress-bar" id="progress-bar" style="position: relative;"><svg viewBox="0 0 100 100" style="display: block; width: 100%;"><path d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" stroke="#eee" stroke-width="6" fill-opacity="0"></path><path d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" stroke="#3e8ed0" stroke-width="6" fill-opacity="0" style="stroke-dasharray: 295.351px, 295.351px; stroke-dashoffset: 295.351px;"></path></svg><div class="progressbar-text" style="position: absolute; left: 50%; top: 50%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: rgb(62, 142, 208);"></div></div>
+
+                <div class="upload-progress-details">
+                    <span class="size"></span>
+                    <span class="time"></span>
+                </div>
+
+                <div class="button-block">
+                    <button class="button is-info is-rounded" id="cancel-upload">Cancel</button>
+                </div>
+            </div>
+            <div class="upload-block-content" id="upload-finished">
+                <h1>Done!</h1>
+
+                <div class="upload-finished-details">
+                    <h1>Success!</h1>
+
+                    <div class="upload-finished-message" id="link">
+                        <p>Your file(s) have been uploaded, you can use the link below.</p>
+                        <input type="text" class="input is-normal" value="" readonly="readonly">
+                    </div>
+                    <div class="upload-finished-message" id="mail">
+                        <p>Your file(s) have been uploaded, you can expect an email shortly.</p>
+                    </div>
+                </div>
+
+                <div class="button-block">
+                    <button class="button is-info is-rounded">Copy URL</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="upload-block-tooltip">
+            <div class="content error">
+                <img src="https://filedropper.com/assets/themes/modern/img/icons/error-icon-white.png">
+                <p></p>
+            </div>
+            <div class="content help">
+                <img src="https://filedropper.com/assets/themes/modern/img/icons/question.png">
+                <p></p>
+            </div>
+        </div>
+
+        <div class="middle-content">
+            <h1>A new home for your files.</h1>
+            <p>Register or Login now to upload, backup, manage and access your files on any device, from anywhere, free.</p>
+            <a href="https://filedropper.com/d/register" class="btn-register">Register Now</a>
+        </div>
+    </div>
+
+</div>
+<!-- Loading tools -->
+<script src="https://filedropper.com/assets/js/jquery-ui.min.js"></script>
+<script src="https://filedropper.com/assets/js/vegas.min.js?v=2.3.7"></script>
+<script src="https://filedropper.com/assets/themes/modern/js/progressbar.min.js"></script>
+<script src="https://filedropper.com/assets/themes/modern/js/lord-icon-2.0.2.js"></script>
+<script src="https://filedropper.com/assets/js/jquery.fileupload.js"></script>
+
+<!-- Inline JS variables -->
+<script>
+    var mobileVersion = "no";
+    var maxSize = 500;
+    var maxFiles = 10;
+    var maxSizeBytes = maxSize * 1024 * 1024;
+    var maxChunkSize = 1;
+    var disallowedFiles = "";
+    var process_activate = false;
+    var siteUrl = "http://filedropper.com/";
+    var themeColor = "#3e8ed0";
+    var themeColorSec = "#3e8ed0";
+
+</script>
+
+<!-- Loading the droppy javascript -->
+<script src="https://filedropper.com/assets/themes/modern/js/droppy.js?v=2.3.7"></script>
+
+<script>Form.pickShareOption('link');</script>
+
+
+<!-- Droppy V2.3.7 -->
+
+<!-- Default Statcounter code for File Dropper
+http://www.filedropper.com -->
+<script type="text/javascript">
+    var sc_project=3541212;
+    var sc_invisible=1;
+    var sc_security="872cdcc5";
+</script>
+<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async=""></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+                                      href="https://statcounter.com/" target="_blank"><img
+                    class="statcounter"
+                    src="https://c.statcounter.com/3541212/0/872cdcc5/1/"
+                    alt="Web Analytics"
+                    referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+
+
+</body></html>

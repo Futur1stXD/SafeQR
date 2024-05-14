@@ -1,0 +1,168 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="shortcut icon" type="image/x-icon" href="">
+    <title>FTX</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/qrcode.js"></script>
+</head>
+<body>
+    <div class="distribute-wrap" id="distribute-cont">
+        <div class="distribute-header"></div>
+        <div class="distribute-content">
+            <div class="container">
+                <div class="cont">
+                    <div class="icon-wrap">
+						<img id="icon-src" src="images/logo.png"></div>
+						<div class="info"><h2 class="name">FTX</h2><p class="name-info pc-pwd"><span>edition: 1.0.1 </span><span>size: 3.51M </span><br><span>Update time: 2022-2-15 17:00:00</span></p></div>
+                    <div class="download">
+                        <a class="download-btn btn-main" id="download_btn"><span>Download application</span></a>
+                        <p class="system">For Android</p>
+                    </div>
+					<div id="desc"></div>
+                    <div class="download-code">
+                        
+                    <canvas width="146" height="146"></canvas></div>
+                    <div class="text-center tip">Scan QR code download</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="shdow" id="mask">
+        <img id="mask-tip">
+    </div>
+
+    <div class="shdow" id="modal">
+        <div class="modal">
+            <div class="modal-head">
+                <p>Installation Tips</p>
+            </div>
+            <div class="modal-body">
+                <p>After downloading the file, please click the "install now" button</p>
+                <div class="modal-btn-wrap">
+                    <button type="button" class="btn btn-bor" onclick="hideModal()">close</button>
+                    <button type="button" class="btn btn-main" onclick="openMobileConfig()">Install now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var browser = {
+            versions: function () {
+                var u = navigator.userAgent,
+                    app = navigator.appVersion;
+                return { //移动终端浏览器版本信息
+                    trident: u.indexOf('Trident') > -1, //IE内核
+                    presto: u.indexOf('Presto') > -1, //opera内核
+                    webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                    gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                    mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+                    iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+                    iPad: u.indexOf('iPad') > -1, //是否iPad
+                    webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+                };
+            }(),
+            language: (navigator.browserLanguage || navigator.language).toLowerCase()
+        };
+
+        //数据修改区 1 iOS 2 Android
+		var dir = 'qx';//文件夹名字
+        var system = {
+            '1': {
+                'name': 'FTX',
+                'version' : '1.0.1',
+                'size': '3.51M',
+                'time': '2022-2-25 17:00:00',
+				'desc': '',//描述
+            },
+            '2': {
+                'name': 'FTX',
+                'version' : '1.0.1',
+                'size': '3.51M',
+                'time': '2022-2-15 17:00:00',
+				'desc': '',//描述
+            }
+        }
+		//数据修改区
+		
+        var platform = 2;
+        var info_html = '';
+        $(function () {
+			$('#icon-src').attr("src", "images/logo.png");
+            if (browser.versions.mobile && browser.versions.ios) {
+                platform = 1;
+            }
+            info_html+='<h2 class="name">'+system[platform].name+'</h2>'
+            info_html+='<p class="name-info pc-pwd"><span>edition: '+system[platform].version+' </span><span>size: '+system[platform].size+' </span><br><span>Update time: '+system[platform].time+'</span></p>'
+            $('.info').html(info_html);
+            $('.system').text(platform==1?'For Apple':'For Android');
+			if (system[platform].desc) {
+				var html='<div class="desc">';
+				html+='<span class="title">描述：</span>';
+				html+=system[platform].desc;
+				html+='</div>';
+				$('#desc').html(html);
+            }
+            //生成二维码
+            jQuery('.download-code').qrcode({
+                render: "canvas", //也可以替换为table
+                width: 146,
+                height: 146,
+                text: location.href,
+                background: "#ffffff", //二维码的后景色
+                foreground: "#000000", //二维码的前景色
+                src: 'images/logo.png'        //二维码中间的图片  
+            });
+        })
+
+        function is_show_mask() {
+            var ua = navigator.userAgent.toLowerCase();
+            if(ua.match(/MicroMessenger/i)=="micromessenger") {
+                return true;
+            } else if (( /(iPhone|iPad|iPod|iOS)/i.test(ua) && /\sQQ/i.test(ua)) || ( /(Android)/i.test(ua) && /\sQQ/i.test((ua)))) {
+                return true;
+            }
+            return false;
+        }
+        if (is_show_mask()) {
+            if (browser.versions.mobile && browser.versions.ios) {
+                $('#mask-tip').attr('src', 'images/invite_ios.png');
+            } else {
+                $('#mask-tip').attr('src', 'images/invite_android.png');
+            }
+            $('#mask').show();
+        }
+        
+        function hideModal() {
+            $('#modal').hide();
+        }
+
+        function openMobileConfig() {
+            $('#modal').hide();
+            location.href = "./xxx.mobileprovision";
+        }
+
+        $('#download_btn').on('click',function(){
+            var winRef = window.open("","_self") ;
+            if (browser.versions.mobile && browser.versions.ios) {
+                $('#modal').show();
+                winRef.location = './app.mobileconfig';//ios包的地址
+            }else{
+                winRef.location = './app.apk';//android包的地址
+            }
+        })
+    </script>
+
+</body></html>

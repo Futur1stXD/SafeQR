@@ -1,0 +1,518 @@
+<html lang="en"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+<!--
+  _____       _       _    _       _
+ / ____|     | |     | |  | |     | |
+| |  __  __ _| |_ ___| |__| |_   _| |__
+| | |_ |/ _` | __/ _ \  __  | | | | '_ \
+| |__| | (_| | ||  __/ |  | | |_| | |_) |
+ \_____|\__,_|\__\___|_|  |_|\__,_|_.__/
+
+GateHub is a platform for the Internet of Value.
+-->
+  <meta charset="utf-8">
+  <base href="/">
+  <title ng-bind="pageTitle" class="ng-binding">GateHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="GateHub is a platform for the Internet of Value, built on XRP Ledger protocol. It allows everyone to send, receive, trade and manage any type of assets.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Coil Payment Pointer -->
+  <meta name="monetization" content="$ilp.gatehub.net/660829215">
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-MWQ2ZD6"></script><script>if(window.location.search.indexOf('contentOnly=1')===-1){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MWQ2ZD6');}</script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "Organization",
+      "legalName": "GateHub Limited",
+      "url": "https://gatehub.net",
+      "logo": "https://gatehub.net/resources/ico/logo_gatehub_text.png",
+      "sameAs": [
+      "https://twitter.com/GateHub",
+      "https://www.facebook.com/GateHubNet/",
+      "https://www.linkedin.com/company/gatehub-limited/",
+      "https://gatehub.net/blog/"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Level 3 207 Regent Street",
+        "addressLocality": "London",
+        "addressRegion": "London",
+        "postalCode": "W1B 3HH",
+        "addressCountry": "United Kingdom"
+      }
+    }
+  </script>
+
+  <style>
+    [ng\:cloak], [ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+  </style>
+  <noscript>
+    <style>
+      [ng\:cloak], [ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: block !important;
+      }
+    </style>
+  </noscript>
+
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- No cache -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="resources/ico/favicon.ico">
+    <link rel="icon" href="resources/ico/favicon-32.png" sizes="32x32">
+
+    <!-- Apple -->
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="resources/ico/gatehub-60.png">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="resources/ico/gatehub-76.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="resources/ico/gatehub-120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="resources/ico/gatehub-152.png">
+
+    <!-- Google -->
+    <link rel="icon" sizes="192x192" href="resources/ico/gatehub-192.png">
+    <meta name="google-site-verification" content="bJEZRkSrOR7AOblMcOodHBXyq9WwcGJIVMUESxxDiMQ">
+
+    <!-- Microsoft -->
+    <meta name="msapplication-TileColor" content="#3B3F4D">
+    <meta name="msapplication-TileImage" content="resources/ico/gatehub-144.png">
+
+    <!-- Web-app -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="GateHub Wallet">
+    <meta property="og:site_name" content="GateHub">
+    <meta property="og:url" content="https://www.gatehub.net/">
+    <meta property="og:image" content="https://gatehub.net/resources/img/gatehub-og.png">
+    <meta property="og:description" content="GateHub is a platform for the Internet of Value. Built on XRP Ledger protocol it allows everyone to send, receive, trade and manage any type of assets.">
+
+    <!-- jQuery -->
+    <script type="text/javascript" charset="utf-8" src="resources/js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="resources/js/jquery-ui-custom-1.11.4.min.js"></script>
+
+    <!-- Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap -->
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- App Scripts -->
+    <script type="text/javascript" charset="utf-8" src="resources/js/ripple-0.12.3-min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="resources/js/lodash.14.7.4.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="resources/js/ripple-0.17.4.js"></script>
+    <script type="text/javascript" charset="utf-8" src="resources/js/ripple-orderbook-0.1.3.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="resources/js/highstock.js"></script>
+    <script type="text/javascript" charset="utf-8" src="resources/js/moment.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="resources/js/exercisedTransactions.js"></script>
+    <script type="text/javascript" charset="utf-8" src="resources/js/d3-selection.v1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="resources/js/d3-format.v1.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="resources/tradingview/charting_library/charting_library.min.js"></script><!--TRADINGVIEW-->
+    <script type="text/javascript" charset="utf-8" src="resources/tradingview/datafeed.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="resources/transactionparser/index.js"></script>
+  <link href="resources/css/styles.a8c6fa730cddd490bf9c69549709eb8e.css" rel="stylesheet"></head>
+
+  <body ng-class="bodyClass" class="rc-home">
+    <noscript>
+      <!-- GTM -->
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWQ2ZD6" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+
+      <!-- notice for users without JavaScript -->
+      <h1 style="text-align: center; padding-top:50px; color:#fff;">Please enable JavaScript</h1>
+      <div style="text-align: center; font-size: 20px; color:#fff;">
+        For GateHub's websites and apps to work it is necessary to enable JavaScript.<br>
+        For instructions on how to enable JavaScript in your web browser <a href="https://www.enable-javascript.com/" rel="noopener noreferrer" target="_blank" style="color:#fff; text-decoration:underline;">click here</a>.
+      </div>
+    </noscript>
+
+    <div class="gh-banner" style="display: block;" id="cookieBanner">
+      <div class="gh-banner-inner" style="position: relative; padding:8px 8px 0;">
+        <span>This site uses cookies to improve your browsing experience and perform analytics and research. To change your preferences, see our <a href="/legal/privacy" style="color:#ffffff; text-decoration:underline;">Cookies &amp; Tracking Notice</a>. Otherwise, clicking <i>Accept all Cookies</i> indicates you agree to the use of cookies on your device.</span>
+
+        <br><button style="background-color: #ffffff; color:black; border-radius:2px; box-shadow:0 6px 12px rgba(0, 0, 0, .175); margin-top:8px; margin-bottom:4px;" onclick="closeCookieBanner()">Accept all Cookies</button>
+      </div>
+    </div>
+
+    <landing-header class="ng-isolate-scope"><!-- Home Header -->
+<div class="rc-home-header">
+    <!-- Navigation -->
+    <div class="navbar rc-navbar-homepage">
+        <div class="navbar-header brand-container">
+            <a class="navbar-brand" href="/" ng-click="$ctrl.isSameRoute('/')">
+                <svg viewBox="0 0 40 40">
+                    <use xlink:href="resources/ico/icon-sprite.svg#gatehub-logo"></use>
+                </svg>
+                <svg viewBox="0 0 102 40">
+                    <use xlink:href="resources/ico/icon-sprite.svg#gatehub-logo-with-text"></use>
+                </svg>
+            </a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <nav class="navbar-header nav-primary navbar-collapse collapse">
+            <div class="navbar-product-dropdown ">
+                <button type="button" class="navbar-product-toggle ng-binding" ng-class="$ctrl.productToggleClass" ng-click="$ctrl.onProductToggleClick()">
+                    Wallet
+                    <svg>
+                        <use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-header-caret"></use>
+                    </svg>
+                </button>
+                <ul class="nav navbar-nav navbar-product-navigation">
+                    <li ng-class="{'active': $ctrl.isActiveMenu('/')}" class="active">
+                        <a href="/" ng-click="$ctrl.isSameRoute('/')">
+                            <svg viewBox="0 0 34 34">
+                                <use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-wallet"></use>
+                            </svg>
+                            <dl>
+                                <dt>Wallet</dt>
+                                <dd>Digital wallet service</dd>
+                            </dl>
+                        </a>
+                    </li>
+                    <li ng-class="{'active': $ctrl.isActiveMenu('/markets')}">
+                        <a href="/markets" ng-click="$ctrl.isSameRoute('/markets')">
+                            <svg>
+                                <use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-markets"></use>
+                            </svg>
+                            <dl>
+                                <dt>Markets</dt>
+                                <dd>XRP ledger markets</dd>
+                            </dl>
+                        </a>
+                    </li>
+                    <li ng-class="{'active': $ctrl.isActiveMenu('/explorer')}">
+                        <a href="/explorer" ng-click="$ctrl.isSameRoute('/explorer')">
+                            <svg>
+                                <use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-explorer"></use>
+                            </svg>
+                            <dl>
+                                <dt>Explorer</dt>
+                                <dd>XRP ledger explorer</dd>
+                            </dl>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <nav class="nav-secondary navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <!-- ngIf: $ctrl.isMarketDetail -->
+                <li ng-class="{'active': $ctrl.isActiveMenu('/features')}">
+                    <a href="/features">Features <em>New</em></a>
+                    <ul class="nav navbar-nav navbar-features-dropdown">
+                        <li ng-class="{'active': $ctrl.isActiveMenu('/features/wallets')}">
+                            <a href="/features/wallets">
+                                <svg class="icon-wallet">
+                                    <use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-wallet"></use>
+                                </svg>
+                                Wallets
+                            </a>
+                        </li>
+                        <li ng-class="{'active': $ctrl.isActiveMenu('/features/payments')}">
+                            <a href="/features/payments">
+                                <svg class="icon-payments">
+                                    <use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-payments"></use>
+                                </svg>
+                                Payments
+                            </a>
+                        </li>
+                        <li ng-class="{'active': $ctrl.isActiveMenu('/features/trade')}">
+                            <a href="/features/trade">
+                                <svg class="icon-trade">
+                                    <use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-trade"></use>
+                                </svg>
+                                Trade
+                            </a>
+                        </li>
+                        <li ng-class="{'active': $ctrl.isActiveMenu('/features/analytics')}">
+                            <a href="/features/analytics">
+                                <svg class="icon-analytics">
+                                    <use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-analytics"></use>
+                                </svg>
+                                Analytics
+                            </a>
+                        </li>
+                        <li ng-class="{'active': $ctrl.isActiveMenu('/features/security')}">
+                            <a href="/features/security">
+                                <svg class="icon-security">
+                                    <use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-lock"></use>
+                                </svg>
+                                Security
+                            </a>
+                        </li>
+                        <li ng-class="{'active': $ctrl.isActiveMenu('/wallet-protect')}">
+                            <a href="/wallet-protect">
+                                <svg class="icon-security">
+                                    <use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-security"></use>
+                                </svg>
+                                Wallet Protect
+                            </a>
+                        </li>
+                        <li ng-class="{'active': $ctrl.isActiveMenu('/trade-xapp')}">
+                            <a href="/trade-xapp">
+                                <svg>
+                                    <use xlink:href="resources/ico/icon-sprite.svg#xumm"></use>
+                                </svg>
+                                Trade xApp <em>NEW</em>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li ng-class="{'active': $ctrl.isActiveMenu('/about')}">
+                    <a href="/about">Company</a>
+                    <ul class="nav navbar-nav navbar-features-dropdown">
+                        <li ng-class="{'active': $ctrl.isActiveMenu('/about')}"><a href="/about">About</a></li>
+                        <li><a href="https://gatehub.net/blog" target="_top" rel="noopener noreferrer">Blog</a></li>
+                        <li><a href="https://support.gatehub.net" target="_blank" rel="noopener noreferrer">Support</a></li>
+                        <li ng-class="{'active': $ctrl.isActiveMenu('/careers')}"><a href="/careers">Careers</a></li>
+                        <!--<li ng-class="{'active': $ctrl.isActiveMenu('/contact')}"><a href="/contact">Contact</a></li>-->
+                    </ul>
+                </li>
+                <li><a ng-href="https://signin.gatehub.net" href="https://signin.gatehub.net">Sign In</a></li>
+                <li><a ng-href="https://signin.gatehub.net/signup" class="right" href="https://signin.gatehub.net/signup">Sign Up</a></li>
+            </ul>
+        </nav><!-- end .navbar-collapse -->
+    </div>
+    <!-- end Navigation -->
+</div>
+<!-- end Home Header -->
+</landing-header>
+    <!-- ngView: --><div ng-view="" autoscroll="" class="ng-scope"><wallet class="ng-scope ng-isolate-scope"><!-- Global Container -->
+<section class="global-container">
+    <div class="container">
+
+        <div class="global-header">
+            <h1>Wallet</h1>
+            <h2>Your digital asset wallet for the<br> Internet of Value</h2>
+        </div>
+
+        <ul class="global-carousel">
+            <li>
+                <div>
+                    <img ng-src="../resources/img/card.svg" title="Card for the Internet of Value" alt="Card for the Internet of Value" src="../resources/img/card.svg">
+                    <p>* GateHub card coming soon</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img ng-src="../resources/img/balance.svg?v=1" title="Web app for the Internet of Value" alt="Web app for the Internet of Value" src="../resources/img/balance.svg?v=1">
+                    <p>No. 1 XRP Ledger wallet since 2015.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img ng-src="../resources/img/mobile-wallet.svg" title="Mobile wallet for the Internet of Value" alt="Mobile wallet for the Internet of Value" src="../resources/img/mobile-wallet.svg">
+                    <p>* Mobile app coming soon</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+<!-- end Global Container -->
+
+<!-- Global Container -->
+<section class="global-container">
+    <div class="container">
+        <div class="global-card">
+            <div class="img-container">
+                <img ng-src="../resources/img/wp-graphic2.svg" style="margin-top: 30px;" title="Protect your XRP wallet with multisign and theft cover" alt="Protect your XRP wallet with multisign and theft cover" src="../resources/img/wp-graphic2.svg">
+            </div>
+            <dl>
+                <dt>Wallet protect</dt>
+                <dd>
+                    Secure your XRP wallet with multisign, fraud shield and Theft Cover by Coincover. Your transactions are monitored in real time and all your crypto is fully protected and covered up to $100k.
+                    <a class="coincover-logo" href="https://www.coincover.com/" rel="noopener noreferral" target="_blank">
+                        <img src="../resources/ico/coincover-logo.svg" class="coincover-logo" alt="Coincover">
+                    </a>
+                    <a href="/wallet-protect">Learn more <svg><use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-header-caret"></use></svg></a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</section>
+<!-- end Global Container -->
+
+<!-- Global Container -->
+<section class="global-container">
+    <div class="container">
+        <div class="global-card global-card-empty">
+            <dl>
+                <dt>Trade</dt>
+                <dd>
+                    An intuitive interface for trading all your assets. Trade any of the currencies supported by GateHub or over 100 other IOUs on the XRP Ledger decentralized exchange. Explore and analyze the markets. The new Trade page works for you whether you're a beginner or a seasoned trader.
+                    <a href="/features/trade">Learn more <svg><use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-header-caret"></use></svg></a>
+                </dd>
+            </dl>
+            <div class="img-container">
+                <img ng-src="../resources/img/trade.svg" title="Trading on the XRPL decentralized exchange" alt="Trading on the XRPL decentralized exchange" src="../resources/img/trade.svg">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end Global Container -->
+
+<!-- Global Container -->
+<section class="global-container">
+    <div class="container">
+        <div class="global-card">
+            <div class="img-container">
+                <img ng-src="../resources/img/payment2.svg" title="Cryptocurrency and FIAT payments in real time" alt="Cryptocurrency and FIAT payments in real time" src="../resources/img/payment2.svg">
+            </div>
+            <dl>
+                <dt>Payments</dt>
+                <dd>
+                    Any value, anytime, anywhere. Make payments with FIAT and cryptocurrency however you like via XRP Ledger, Blockchain, SEPA, Wire, and more. Our wallets also support Web Monetization and PayString for even more convenience and flexibility for your payments.
+                    <a href="/features/payments">Learn more <svg><use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-header-caret"></use></svg></a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</section>
+<!-- end Global Container -->
+
+<!-- Global Container -->
+<section class="global-container">
+    <div class="container">
+        <div class="global-card global-card-empty">
+            <dl>
+                <dt>Analytics</dt>
+                <dd>
+                    Everything about your wallets, assets and bottom line in one place. See your NET worth, filter wallets and assets and see how your portfolio has evolved over time. See what your money is doing for you and own it with Analytics.
+                    <a href="/features/analytics">Learn more <svg><use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-header-caret"></use></svg></a>
+                </dd>
+            </dl>
+            <img ng-src="../resources/img/chart.svg" title="Assets, portfolio and cash flows for all your wallets" alt="Assets, portfolio and cash flows for all your wallets" src="../resources/img/chart.svg">
+        </div>
+    </div>
+</section>
+<!-- end Global Container -->
+
+<!-- Global Container -->
+<section class="global-container">
+    <div class="container">
+        <div class="global-card global-card-empty global-card-clear-top">
+            <ul>
+                <li>
+                    <h3>
+                        <svg><use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-support"></use></svg>
+                        Support
+                    </h3>
+                    <p>
+                        Our support team works around the clock to lend a hand when you need it. An extensive Knowledge Base is made to serve immediate solutions to any questions you might have.
+                        <a href="https://support.gatehub.net/hc/en-us" rel="noopener noreferrer" target="_blank">Learn more <svg><use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-header-caret"></use></svg></a>
+                    </p>
+                </li>
+                <li>
+                    <h3>
+                        <svg><use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-guard"></use></svg>
+                        Security
+                    </h3>
+                    <p>
+                        The no. 1 priority at GateHub is keeping you and your funds safe. Our security features are built to make your experience pleasant and safe.
+                        <a href="/features/security">Learn more <svg><use xlink:href="resources/ico/icon-sprite.svg#gatehub-icon-header-caret"></use></svg></a>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- end Global Container -->
+</wallet></div>
+    <landing-footer class="foot ng-isolate-scope"><!-- Home Footer -->
+<footer class="rc-home-footer clearfix">
+    <div class="contain clearfix">
+        <a class="navbar-brand" href="/">
+            <svg viewBox="0 0 40 40">
+                <use xlink:href="resources/ico/icon-sprite.svg#gatehub-logo"></use>
+            </svg>
+            <svg viewBox="0 0 102 40">
+                <use xlink:href="resources/ico/icon-sprite.svg#gatehub-logo-with-text"></use>
+            </svg>
+        </a>
+        <div class="navbar-menu">
+            <nav class="menu-vertical">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="/">Wallet</a></li>
+                    <li><a href="/markets">Markets</a></li>
+                    <li><a href="/explorer">Explorer</a></li>
+                </ul>
+            </nav>
+            <nav class="menu-vertical">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="https://gatehub.net/blog" target="_top">Blog</a></li>
+                    <li><a href="/careers">Careers</a></li>
+                    <!--<li><a href="/contact">Contact</a></li>-->
+                </ul>
+            </nav>
+            <nav class="menu-vertical">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="/fees">Fees</a></li>
+                    <li><a href="https://support.gatehub.net/hc/en-us" target="_blank" rel="noopener noreferrer">Support</a></li>
+                    <li><a href="https://status.gatehub.net/" target="_blank" rel="noopener noreferrer">System Status</a></li>
+                    <li><a href="/legal">Terms &amp; Policies</a></li>
+                </ul>
+            </nav>
+            <nav class="menu-vertical">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="https://twitter.com/GateHub" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                    <li><a href="https://www.facebook.com/GateHubNet" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li><a href="https://www.linkedin.com/company/gatehub-limited" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                </ul>
+            </nav>
+
+        </div>
+        <nav class="menu-horizontal">
+            <h4 class="ng-binding">© 2022 GateHub Ltd</h4>
+            <ul>
+                <li><a href="/legal/terms">Terms of Use</a></li>
+                <li><a href="/legal/privacy">Privacy Policy</a></li>
+                <li><a href="/legal/responsible-disclosure">Responsible Disclosure Policy</a></li>
+            </ul>
+        </nav>
+    </div>
+</footer>
+<!-- end Home Footer -->
+</landing-footer>
+
+    <script>
+      function closeCookieBanner() {
+        document.getElementById('cookieBanner').style.display = 'none';
+        if (typeof localStorage !== 'undefined') {
+          localStorage.setItem('hideCookieBanner', 1);
+        }
+      }
+    </script>
+  <script type="text/javascript" src="main.4241893d1358a36468e0.js"></script>
+  <script src="resources/js/angular-websocket.min.js"></script>
+
+<script type="text/javascript" id="">1<=google_tag_manager["GTM-MWQ2ZD6"].macro(126)&&(console.log("\n\n\n*********************** ALL PAGES START **************************"),console.log("Hostname: gatehub.net"),console.log("Hostname is valid production hostname: true"),!0===google_tag_manager["GTM-MWQ2ZD6"].macro(141)?console.log("Hostname type: production"):!0===google_tag_manager["GTM-MWQ2ZD6"].macro(149)?console.log("Hostname type: staging"):console.log("Hostname type: fake"),console.log("---\n"),console.log("Debug Mode: false"),console.log("Verbose Debug Mode: false"),
+console.log("Debug Level: "+google_tag_manager["GTM-MWQ2ZD6"].macro(152)),console.log("---\n"),console.log("GA ID: UA-57109036-1"),console.log("---\n"),console.log("Page URL: https:\/\/gatehub.net\/"),console.log("Page Path: \/"),console.log("Section: www"),console.log("Section - UC: WWW"),console.log("DL Page: undefined"),console.log("---\n"),console.log("URL - Full URL: https:\/\/gatehub.net\/"),console.log("URL - Protocol: https"),
+console.log("URL - Host Name: gatehub.net"),console.log("URL - Port: 443"),console.log("URL - Path: \/"),console.log("URL - Query: "),console.log("URL - Fragment: "),console.log("---\n"),console.log("New History Fragment: undefined"),console.log("Old History Fragment: undefined"),console.log("New History State: undefined"),console.log("Old History State: undefined"),
+console.log("History Source: undefined"),console.log("*********************** ALL PAGES END **************************\n\n\n"));</script><script type="text/javascript" id="">window.dataLayer.push({event:void 0,eventCategory:void 0,eventAction:void 0,eventLabel:void 0,eventValue:void 0,eventNonInteraction:void 0,page:void 0,attributes:{route:void 0}});</script>
+</body></html>

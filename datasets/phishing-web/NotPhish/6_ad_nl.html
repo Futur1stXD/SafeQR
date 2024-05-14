@@ -1,0 +1,278 @@
+<html class="sp-message-open" lang="nl"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @font-face {
+            font-family: Sharp Sans Display;
+            font-style: normal;
+            font-weight: 600;
+            /*noinspection CssUnknownTarget*/
+            src: url("https://myprivacy-static.dpgmedia.net/consent/resources/fonts/SharpSansDispNo2-Bold.otf") format("opentype");
+        }
+
+        @font-face {
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 400;
+            /*noinspection CssUnknownTarget*/
+            src: url("https://myprivacy-static.dpgmedia.net/consent/resources/fonts/Montserrat-Regular.ttf") format("opentype");
+        }
+
+        h2 {
+            font-family: Sharp Sans Display, Arial, sans-serif;
+            font-size: 26px;
+            text-transform: uppercase;
+        }
+
+        body {
+            margin: 0;
+            font-family: Montserrat, Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        .container {
+            /*noinspection CssUnknownTarget*/
+            background-image: url("https://myprivacy-static.dpgmedia.net/consent/resources/backgrounds/ad.png");
+            width: 100vw;
+            height: 100vh;
+            background-position: top center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: #f5f5f5;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .container {
+                /*noinspection CssUnknownTarget*/
+                background-image: url("https://myprivacy-static.dpgmedia.net/consent/resources/backgrounds/medium/ad.png");
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                /*noinspection CssUnknownTarget*/
+                background-image: url("https://myprivacy-static.dpgmedia.net/consent/resources/backgrounds/small/ad.png");
+            }
+        }
+
+        .modal {
+            position: fixed;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 74vh;
+            z-index: 999;
+            pointer-events: auto;
+            transition: all 0.5s;
+            visibility: hidden;
+            box-shadow: 0 5px 15px rgba(25, 25, 25, 0.5);
+            max-width: 640px;
+            margin: 13vh auto;
+        }
+
+        .modal__header {
+            flex: 0 10%;
+            width: 100%;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            border-bottom: #b4b4b4 solid 1px;
+            min-height: 40px;
+            horiz-align: center;
+        }
+
+        .modal__header__logo > img {
+            height: 35px;
+        }
+
+        .modal__header__text {
+            margin-top: 9px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal__body {
+            flex: 0 85%;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .modal__body__logo {
+            flex: 0 30%;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal__body__logo > img {
+            max-height: 86px;
+            max-width: 80%;
+        }
+
+        .modal__body__text {
+            flex: 0 60%
+        }
+
+        .spinner {
+            margin: 64px auto;
+            width: 72px;
+        }
+
+        .spinner__circle {
+            position: relative;
+            width: 72px;
+            height: 72px;
+            overflow: hidden;
+            background-color: #FFB12F;
+            border-radius: 100%;
+
+            -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+            animation: spin 1.5s infinite linear;
+        }
+
+        .spinner__circle-inner, .spinner__circle-gradient {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            transform: translate(-50%, -50%);
+        }
+
+
+        .spinner__circle-inner {
+            top: 50%;
+            left: 50%;
+            background-color: #fff;
+            border-radius: 100%;
+        }
+
+        .spinner__circle-gradient {
+            top: -24px;
+            left: 6px;
+            background-color: #FFB12F;
+            background-image: -moz-linear-gradient(0deg, #FFB12F 0%, #fff 50%);
+            background-image: -webkit-linear-gradient(0deg, #FFB12F 0%, #fff 50%);
+            background-image: linear-gradient(0deg, #FFB12F 0%, #fff 50%);
+            transform: rotate(-45deg);
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 960px) {
+            .modal {
+                height: 100vh;
+                width: 100vw;
+                margin: 0;
+                max-width: none;
+            }
+
+            .modal__body {
+                padding: 0 10vw;
+            }
+        }
+    </style>
+    <title>DPG Media Privacy Gate</title>
+
+    <!-- Google Tag Manager -->
+    <script async="" src="https://sp.dpgmedia.net/Cd47FPkRXzy5tMeertNeUPW_v3.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-NT4WR7C"></script><script>(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NT4WR7C');</script>
+    <!-- End Google Tag Manager -->
+
+    <script type="text/javascript">
+        window.cmpProperties = {
+            baseUrl: 'https://www.ad.nl',
+            cmpCname: 'https://cmp.dpgmedia.nl',
+            language: 'nl',
+            consentType: 'TCF',
+        }
+    </script>
+    <script type="text/javascript">
+        function getCookie(name) {
+            const value = '; ' + document.cookie;
+            const parts = value.split('; ' + name + '=');
+            if (2 === parts.length) return parts.pop().split(';').shift();
+        }
+
+        function redirect() {
+            document.getElementById('message').style.visibility = 'visible';
+            window.location.href = 'https://www.ad.nl/privacy-gate/accept-tcf2?redirectUri=%2F&authId=10a65461-08a6-4a7d-a337-6aac3c9d2a08';
+        }
+
+        function handleError(error) {
+            console.error('SourcePoint error: ' + error)
+            document.getElementsByClassName('container')[0].setAttribute('data-sourcepoint-error', 'true');
+            redirect();
+        }
+
+        const authId = getCookie('authId');
+        window._privacy = [];
+        window._privacy.push(['functional', redirect]);
+        window._privacy.push(['error', handleError]);
+    </script>
+    <script type="text/javascript" src="https://myprivacy-static.dpgmedia.net/consent.js"></script><script id="sourcepoint-init-script">!function(t){var e={};function n(r){if(e[r])return e[r].exports;var o=e[r]={i:r,l:!1,exports:{}};return t[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}n.m=t,n.c=e,n.d=function(t,e,r){n.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:r})},n.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},n.t=function(t,e){if(1&e&&(t=n(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var o in t)n.d(r,o,function(e){return t[e]}.bind(null,o));return r},n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,"a",e),e},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},n.p="",n(n.s=3)}([function(t,e,n){var r=n(2);t.exports=!r((function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a}))},function(t,e){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,e){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,e,n){n(4),function(){if("function"!=typeof window.__tcfapi){var t,e=[],n=window,r=n.document;!n.__tcfapi&&function t(){var e=!!n.frames.__tcfapiLocator;if(!e)if(r.body){var o=r.createElement("iframe");o.style.cssText="display:none",o.name="__tcfapiLocator",r.body.appendChild(o)}else setTimeout(t,5);return!e}()&&(n.__tcfapi=function(){for(var n=arguments.length,r=new Array(n),o=0;o<n;o++)r[o]=arguments[o];if(!r.length)return e;if("setGdprApplies"===r[0])r.length>3&&2===parseInt(r[1],10)&&"boolean"==typeof r[3]&&(t=r[3],"function"==typeof r[2]&&r[2]("set",!0));else if("ping"===r[0]){var i={gdprApplies:t,cmpLoaded:!1,apiVersion:"2.0"};"function"==typeof r[2]&&r[2](i,!0)}else e.push(r)},n.addEventListener("message",(function(t){var e="string"==typeof t.data,r={};try{r=e?JSON.parse(t.data):t.data}catch(t){}var o=r.__tcfapiCall;o&&n.__tcfapi(o.command,o.parameter,o.version,(function(n,r){var i={__tcfapiReturn:{returnValue:n,success:r,callId:o.callId}};e&&(i=JSON.stringify(i)),t.source.postMessage(i,"*")}))}),!1))}}()},function(t,e,n){var r=n(0),o=n(5).f,i=Function.prototype,c=i.toString,u=/^s*function ([^ (]*)/;r&&!("name"in i)&&o(i,"name",{configurable:!0,get:function(){try{return c.call(this).match(u)[1]}catch(t){return""}}})},function(t,e,n){var r=n(0),o=n(6),i=n(10),c=n(11),u=Object.defineProperty;e.f=r?u:function(t,e,n){if(i(t),e=c(e,!0),i(n),o)try{return u(t,e,n)}catch(t){}if("get"in n||"set"in n)throw TypeError("Accessors not supported");return"value"in n&&(t[e]=n.value),t}},function(t,e,n){var r=n(0),o=n(2),i=n(7);t.exports=!r&&!o((function(){return 7!=Object.defineProperty(i("div"),"a",{get:function(){return 7}}).a}))},function(t,e,n){var r=n(8),o=n(1),i=r.document,c=o(i)&&o(i.createElement);t.exports=function(t){return c?i.createElement(t):{}}},function(t,e,n){(function(e){var n=function(t){return t&&t.Math==Math&&t};t.exports=n("object"==typeof globalThis&&globalThis)||n("object"==typeof window&&window)||n("object"==typeof self&&self)||n("object"==typeof e&&e)||Function("return this")()}).call(this,n(9))},function(t,e){var n;n=function(){return this}();try{n=n||new Function("return this")()}catch(t){"object"==typeof window&&(n=window)}t.exports=n},function(t,e,n){var r=n(1);t.exports=function(t){if(!r(t))throw TypeError(String(t)+" is not an object");return t}},function(t,e,n){var r=n(1);t.exports=function(t,e){if(!r(t))return t;var n,o;if(e&&"function"==typeof(n=t.toString)&&!r(o=n.call(t)))return o;if("function"==typeof(n=t.valueOf)&&!r(o=n.call(t)))return o;if(!e&&"function"==typeof(n=t.toString)&&!r(o=n.call(t)))return o;throw TypeError("Can't convert object to primitive value")}}]);</script><script id="sourcepoint-script" src="https://cmp.dpgmedia.nl/unified/wrapperMessagingWithoutDetection.js"></script>
+<script charset="utf-8" src="https://cmp.dpgmedia.nl/unified/3.4.1/gdpr-tcf.3dff9d9b0f98fc50814a.bundle.js"></script><style type="text/css">#sp_message_iframe_626191 { display:block; width: 100%; height: 100%; border: 0 none; } .sp-message-open { margin-top: 0px !important; overflow: hidden !important; left: 0 !important; right: 0 !important; top: 0 !important; bottom: 0 !important; position: fixed  !important; } #sp_message_container_626191 { overflow:auto;-webkit-overflow-scrolling:touch; display: none; position: fixed; z-index: 2147483647; left: 0; right: 0; bottom: 0; top: 0; height: 100%; width: 100%; max-width: 100%; max-height: 100%;}</style></head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe title="gtm" src="https://www.googletagmanager.com/ns.html?id=GTM-NT4WR7C"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="container">
+    <div id="message" class="modal">
+        <div class="modal__header">
+            <div class="modal__header__logo">
+                <img src="https://myprivacy-static.dpgmedia.net/consent/resources/logos/dpgmedia-logo.svg" alt="dpg media logo">
+            </div>
+            <div class="modal__header__text">
+                <span>Privacy</span>
+            </div>
+        </div>
+        <div class="modal__body">
+            <div class="modal__body__logo"><img src="https://myprivacy-static.dpgmedia.net/consent/resources/logos/logo-ad.svg" alt="AD"></div>
+            <div class="modal__body__text">
+                <div class="spinner">
+                    <div class="spinner__circle">
+                        <div class="spinner__circle-gradient"></div>
+                        <div class="spinner__circle-inner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<iframe style="display: none;" name="__tcfapiLocator"></iframe>
+<script type="text/javascript" id="">_snowplow_app_id=google_tag_manager["GTM-NT4WR7C"].macro(13);(function(a,e,f,g,b,c,d){a[b]||(a.GlobalSnowplowNamespace=a.GlobalSnowplowNamespace||[],a.GlobalSnowplowNamespace.push(b),a[b]=function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].q=a[b].q||[],c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d))})(window,document,"script","https:\/\/sp.dpgmedia.net\/Cd47FPkRXzy5tMeertNeUPW_v3.js","dpg_snowplow");
+dpg_snowplow("newTracker","dpg","c.dpgmedia.net",{platform:"web",eventMethod:"post",appId:"privacy.web.anon",encodeBase64:!1,discoverRootDomain:!0,postPath:"/a/b",contexts:{webPage:!1,performanceTiming:!1,gaCookies:!0}});dpg_snowplow("trackPageView",{context:google_tag_manager["GTM-NT4WR7C"].macro(36)});</script>
+<script type="text/javascript" id="">dpg_snowplow("trackStructEvent",{category:"privacy_gate",action:google_tag_manager["GTM-NT4WR7C"].macro(52),label:google_tag_manager["GTM-NT4WR7C"].macro(53),property:null,value:null,context:google_tag_manager["GTM-NT4WR7C"].macro(76)});</script><div id="sp_message_container_626191" style="display: block;"><iframe src="https://cmp.dpgmedia.nl/index.html?message_id=626191&amp;consentUUID=60d616d2-c432-4e90-a803-400efabf7bdd_5&amp;requestUUID=74ec45b3-cde1-4f64-9bf7-dd7c315af43d&amp;preload_message=true&amp;consentLanguage=nl" id="sp_message_iframe_626191" title="SP Consent Message"></iframe></div><script type="text/javascript" id="">dpg_snowplow("trackStructEvent",{category:"privacy_gate",action:google_tag_manager["GTM-NT4WR7C"].macro(92),label:google_tag_manager["GTM-NT4WR7C"].macro(93),property:null,value:null,context:google_tag_manager["GTM-NT4WR7C"].macro(116)});</script></body></html>

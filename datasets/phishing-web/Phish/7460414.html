@@ -1,0 +1,293 @@
+<html data-dpr="1" style="font-size: 120px;"><head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-status-bar-style" content="white">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Pragma" contect="no-cache">
+    <link rel="apple-touch-icon" href="img/logo.png">
+    <link rel="shortcut icon" href="img/logo.png">
+    <link rel="shortcut icon" type="image/ico" href="img/favicon.ico">
+    <title>Login</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var change_rem = ((window.screen.width > 450) ? 450 : window.screen.width) / 375 * 100;
+            document.getElementsByTagName("html")[0].style.fontSize = change_rem + "px";
+            window.onresize = function () {
+                change_rem = ((window.screen.width > 450) ? 450 : window.screen.width) / 375 * 100;
+                document.getElementsByTagName("html")[0].style.fontSize = change_rem + "px";
+            }
+        }
+    </script>
+
+    <link href="/static/index/css/ionic.css" rel="stylesheet">
+    <link href="/static/index/css/style.css?323213" rel="stylesheet">
+    <link href="/static/index/css/common.css" rel="stylesheet">
+    <link href="/static/index/css/reset.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/index/css/home.css">
+    <link rel="stylesheet" href="/static/index/css/user.css">
+    <link rel="stylesheet" href="/static/index/css/swiper.min.css">
+    <script src="/static/index/js/jquery-1.9.1.min.js"></script>
+    <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <style>
+        .ionic_toast {
+            z-index: 9999;
+        }
+
+        .toast_section {
+            color: #FFF;
+            cursor: default;
+            font-size: 1em;
+            display: none;
+            border-radius: 5px;
+            opacity: 1;
+            padding: 10px 30px 10px 10px;
+            margin: 10px;
+            position: fixed;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 9999;
+            background-color: rgba(0, 0, 0, 0.75);
+        }
+
+        .ionic_toast_top {
+            top: 10px;
+        }
+
+        .ionic_toast_middle {
+            top: 40%;
+        }
+
+        .ionic_toast_bottom {
+            bottom: 10px;
+        }
+
+        .ionic_toast_close {
+            border-radius: 2px;
+            color: #CCCCCC;
+            cursor: pointer;
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .toast_close_icon {
+            position: relative;
+            top: 1px;
+        }
+
+        .ionic_toast_sticky .ionic_toast_close {
+            display: block;
+        }
+
+        .ionic_toast_close:active {
+
+        }</style>
+    <script src="/static/index/js/lk/order.js"></script>
+    <script src="/static/layer/layer.js"></script><link rel="stylesheet" href="https://ftxwo.com/static/layer/skin/default/layer.css?v=3.0.11110" id="layuicss-skinlayercss">
+    <script src="/static/public/js/function.js"></script>
+    <script src="/static/public/js/base64.js"></script>
+    <script type="text/javascript">
+        var Base64 = new Base64();
+
+
+    </script>
+</head>
+
+<body ng-app="starter" ng-controller="AppCtrl" class="grade-a platform-browser platform-win32 platform-ready" style="font-size: 12px;">
+<ion-nav-bar class="bar-stable headerbar nav-bar-container hide" nav-bar-transition="ios" nav-bar-direction="none" nav-swipe="">
+<div class="nav-bar-block" nav-bar="cached"><ion-header-bar class="bar-stable headerbar bar bar-header" align-title="center"><div class="title title-center header-item"></div></ion-header-bar></div><div class="nav-bar-block" nav-bar="active"><ion-header-bar class="bar-stable headerbar bar bar-header" align-title="center"><div class="title title-center header-item"></div></ion-header-bar></div></ion-nav-bar>
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe=""><ion-view hide-nav-bar="true" class="signin-view pane" state="signin" nav-view="active" style="opacity: 1; transform: translate3d(0%, 0px, 0px);">
+<div class="header-right" style="width: 104px;float: right;position: absolute;right: 20px;top: 50px;">
+            <div class="language">
+                <span class="language-tit">English</span>
+                <em class="language-icon"><img src="/static/public/images/home/icon-english.png"></em>
+            </div>
+            <ul style="top:30px;">
+                <li onclick="changelang('zh-cn')">
+                    <span>中文</span>
+                    <em>
+                        <img src="/static/public/images/home/icon-china.png" alt="">
+                    </em>
+                </li>
+                <li onclick="changelang('en-us')">
+                    <span>English</span>
+                    <em>
+                        <img src="/static/public/images/home/icon-english.png" alt="">
+                    </em>
+                </li>
+                <li onclick="changelang('zh-tw')">
+                    <span>繁體中文</span>
+                    <em>
+                        <img src="/static/public/images/home/icon-hk.png" alt="">
+                    </em>
+                </li>
+                <li onclick="changelang('ja')">
+                    <span>日本</span>
+                    <em>
+                        <img src="/static/public/images/home/ja.png" alt="">
+                    </em>
+                </li>
+                <li onclick="changelang('vi')">
+                    <span>Tiếng Việt</span>
+                    <em>
+                        <img src="/static/public/images/home/vi.png" alt="">
+                    </em>
+                </li>
+                <li onclick="changelang('ko')">
+                    <span>한국인</span>
+                    <em>
+                        <img src="/static/public/images/home/ko.png" alt="">
+                    </em>
+                </li>
+                <li onclick="changelang('th')">
+                    <span>ไทย</span>
+                    <em>
+                        <img src="/static/public/images/home/th.png" alt="">
+                    </em>
+                </li>
+                <li onclick="changelang('de')">
+                    <span>Deutsch</span>
+                    <em>
+                        <img src="/static/public/images/home/de.png" alt="">
+                    </em>
+                </li>
+                <li onclick="changelang('fr')">
+                    <span>français</span>
+                    <em>
+                        <img src="/static/public/images/home/fr.png" alt="">
+                    </em>
+                </li>
+                <li onclick="changelang('es')">
+                    <span>Español</span>
+                    <em>
+                        <img src="/static/public/images/home/es.png" alt="">
+                    </em>
+                </li>
+            </ul>
+        </div>
+<div class="signin">
+    <div class="signin-header">
+        <div class="system-logo" ng-show="show_system_logo">
+            <img alt="" src="/logo/1FTX.png" style="margin:0 auto;">
+        </div>
+        <div class="system-name ng-binding ng-hide" ng-show="show_system_name" style=""></div>
+    </div>
+ <form method="post" id="formid">
+    <div class="signin-content">
+
+        <div class="list">
+            <label class="item item-input">
+                <i class="input-icon ion-android-person"></i>
+                <input type="text" placeholder="username" name="username" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" style="">
+            </label>
+            <label class="item item-input">
+                <i class="input-icon ion-locked"></i>
+                <input type="password" placeholder="password" name="upwd" required="" ng-keydown="go_signin()" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" style="">
+            </label>
+        </div>
+        <p>
+        	<span style="display: none;">forgetPassword？</span>
+    		<span class="ion-android-warning ng-hide" ng-show="show_sign_in_mistake" style="">&nbsp;Wrong account or password, please re-enter!</span>
+    	</p>
+        <div class="signin-action">
+            <button class="newbutton sign_button" onclick="return checkform(this.form);">
+                Login            </button>
+        </div>
+
+    </div>
+   </form>
+    <div class="signin-footer" ng-show="if_signup">
+        <a href="/index/login/register.html">——&nbsp;&nbsp;Open an account&nbsp;&nbsp;——</a>
+    </div>
+    <div class="signin-footer" ng-show="if_signup">
+      <a href="/index/index/kfurl">——&nbsp;&nbsp;forgetPassword&nbsp;&nbsp;——</a>
+    </div>
+    <div class="signin-footer" ng-show="if_signup">
+      <a href="/index/index/kfurl">——&nbsp;&nbsp;Online Service&nbsp;&nbsp;——</a>
+    </div>    
+</div>
+</ion-view></ion-nav-view>
+<script>
+    function checkform(form){
+        var username = form.username.value;
+        var upwd = form.upwd.value;
+        if(!username){
+            layer.msg("enter one user name");
+            return false;
+        }
+
+        if (!upwd) {
+            layer.msg("Please input a password");
+            return false;
+        }
+
+        var data = $('#formid').serialize();
+        var formurl = "/index/login/login.html";
+        var locurl = "/index/index/index.html";
+
+        WPpost(formurl,data,locurl);
+        return false;
+    }
+</script>
+<script>
+    let _pathname;
+    var languageMap = {
+        'zh-cn':{
+            name:'中文',
+            img:'/static/public/images/home/icon-china.png'
+        },
+        'en-us':{
+            name:'English',
+            icon:'/static/public/images/home/icon-english.png'
+        },
+        'zh-tw':{
+            name:'繁體中文',
+            icon:'/static/public/images/home/icon-hk.png'
+        },
+        'ja':{
+            name:'日本',
+            icon:'/static/public/images/home/ja.png'
+        },
+        'vi':{
+            name:'Tiếng Việt',
+            icon:'/static/public/images/home/vi.png'
+        },
+        'ko':{
+            name:'한국인',
+            icon:'/static/public/images/home/ko.png'
+        },
+        'th':{
+            name:'ไทย',
+            icon:'/static/public/images/home/th.png'
+        },
+        'de':{
+            name:'Deutsch',
+            icon:'/static/public/images/home/de.png'
+        },
+        'fr':{
+            name:'français',
+            icon:'/static/public/images/home/fr.png'
+        },
+        'es':{
+            name:'Español',
+            icon:'/static/public/images/home/es.png'
+        }
+    }
+    function changelang(lang){
+        _pathname = window.location.pathname;
+        window.location.href = window.location.pathname+'?lang='+lang;
+    }
+    var lang = 'en-us';
+    $('.language-tit').text(languageMap[lang].name);
+    $('.language-icon img').attr('src',languageMap[lang].icon);
+</script>
+<script src="/static/index/js/flexible.js"></script>
+<script src="/static/index/js/zepto.min.js"></script>
+<script src="/static/index/js/swiper.min.js"></script>
+<script src="/static/index/js/home.js"></script>
+</body></html>

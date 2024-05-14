@@ -1,0 +1,1059 @@
+<html><head>
+<title>Bitcoin trading volume - Bitcoinity.org</title>
+<link href="//static.bitcoinity.org/assets/data-screen-b711e36db928164740bfd2e46e697736.css" media="screen" rel="stylesheet" type="text/css">
+<link href="//static.bitcoinity.org/assets/data-print-ed1a301e961af17ff5b75c2fd441fa10.css" media="print" rel="stylesheet" type="text/css">
+<script async="" src="//www.google-analytics.com/analytics.js"></script><script src="//static.bitcoinity.org/assets/data-38a629c4cf0e4589efd5a27ac7d69a3d.js" type="text/javascript"></script>
+<link rel="icon" href="/data_favicon.ico" type="image/x-icon">
+<script src="//static.bitcoinity.org/assets/c3-175a720d1950508bb718795d2d0d8e16.js" type="text/javascript"></script>
+<link href="//static.bitcoinity.org/assets/c3-e33e3766d485785cb6ba50a4993fb0a3.css" media="screen" rel="stylesheet" type="text/css">
+
+<meta content="authenticity_token" name="csrf-param">
+<meta content="EjhaTugaVd1KuDY/TF2f+LwJl+er7pt84CNOA953FhU=" name="csrf-token">
+</head>
+<body>
+<div class="main_title row-fluid">
+<div class="subtitle">
+</div>
+<h1 id="title">
+<a href="/">data.bitcoinity.org</a>
+<span class="small">
+(beta version)
+</span>
+</h1>
+</div>
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span2 menu_links">
+<h3 class="center">Markets</h3>
+<hr style="border-color: #ddd">
+<ul class="nav nav-tabs nav-stacked data_type">
+<li class="exchanges">
+<a href="/markets/exchanges">exchanges list</a>
+</li>
+<li class="volume active"><a href="/markets/volume" class="chart_link">trading volume</a></li>
+<li class="rank"><a href="/markets/rank" class="chart_link">rank</a></li>
+<li class="price"><a href="/markets/price" class="chart_link">price</a></li>
+<li class="price_volume"><a href="/markets/price_volume" class="chart_link">price + volume</a></li>
+<li class="market_cap"><a href="/markets/market_cap" class="chart_link">market cap</a></li>
+<li class="tradespm"><a href="/markets/tradespm" class="chart_link">trades per minute</a></li>
+<li class="volatility"><a href="/markets/volatility" class="chart_link">volatility</a></li>
+<li class="arbitrage">
+<a href="/markets/arbitrage">arbitrage</a>
+</li>
+<li class="books">
+<a href="/markets/books/USD"><span class="label label-warning" style="float: right">new</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;combined order book
+</a></li>
+<li class="spread"><a href="/markets/spread" class="chart_link">bid/ask spread</a></li>
+<li class="bidask_sum"><a href="/markets/bidask_sum" class="chart_link">bid/ask sum</a></li>
+</ul>
+<h3 class="center">Blockchain</h3>
+<hr style="border-color: #ddd">
+<ul class="nav nav-tabs nav-stacked data_type">
+<li class="hashrate"><a href="/bitcoin/hashrate" class="chart_link">hashrate</a></li>
+<li class="difficulty"><a href="/bitcoin/difficulty" class="chart_link">mining difficulty</a></li>
+<li class="blocksize"><a href="/bitcoin/blocksize" class="chart_link">block size</a></li>
+<li class="block_version"><a href="/bitcoin/block_version" class="chart_link">block version</a></li>
+<li class="tx_count"><a href="/bitcoin/tx_count" class="chart_link">number of transactions</a></li>
+<li class="block_time"><a href="/bitcoin/block_time" class="chart_link">time between blocks</a></li>
+<li class="block_size_votes"><a href="/bitcoin/block_size_votes" class="chart_link">block size votes</a></li>
+</ul>
+</div>
+<div class="span10 main_content">
+<div id="chart">
+<div class="row-fluid">
+<div class="span12">
+<h3 class="title">Bitcoin trading volume</h3>
+</div>
+</div>
+<div class="row-fluid rank_info" style="display: none">
+<div class="alert alert-info2 alert-dismissable" role="alert">
+You may want to look at the <a href="//bitcoinity.org/markets/rank_explanation" target="_blank">explanation</a> of how it works.
+</div>
+</div>
+<div class="row-fluid">
+<div class="span4">
+<span class="timespans btn-group">
+<a class="v_10m btn btn-mini" href="#" onclick="chart.set_timespan('10m'); return false;">10m</a>
+<a class="v_1h btn btn-mini" href="#" onclick="chart.set_timespan('1h'); return false;">1h</a>
+<a class="v_6h btn btn-mini" href="#" onclick="chart.set_timespan('6h'); return false;">6h</a>
+<a class="v_24h btn btn-mini" href="#" onclick="chart.set_timespan('24h'); return false;">24h</a>
+<a class="v_3d btn btn-mini" href="#" onclick="chart.set_timespan('3d'); return false;">3d</a>
+<a class="v_7d btn btn-mini" href="#" onclick="chart.set_timespan('7d'); return false;">7d</a>
+<a class="v_30d btn btn-mini disabled btn-primary" onclick="chart.set_timespan('30d'); return false;">30d</a>
+<a class="v_6m btn btn-mini" href="#" onclick="chart.set_timespan('6m'); return false;">6m</a>
+<a class="v_2y btn btn-mini" href="#" onclick="chart.set_timespan('2y'); return false;">2y</a>
+<a class="v_5y btn btn-mini" href="#" onclick="chart.set_timespan('5y'); return false;">5y</a>
+<a class="v_all btn btn-mini" href="#" onclick="chart.set_timespan('all'); return false;">all</a>
+</span>
+</div>
+<div class="span4 offset4 text-right">
+<span class="resolutions btn-group">
+<a class="v_auto btn btn-mini disabled btn-primary" onclick="chart.set_resolution('auto'); return false;" style="display: inline-block;">auto</a>
+<a class="v_second btn btn-mini" href="#" onclick="chart.set_resolution('second'); return false;" style="display: none;">second</a>
+<a class="v_minute btn btn-mini" href="#" onclick="chart.set_resolution('minute'); return false;" style="display: none;">minute</a>
+<a class="v_hour btn btn-mini" href="#" onclick="chart.set_resolution('hour'); return false;" style="display: inline-block;">hour</a>
+<a class="v_day btn btn-mini active" onclick="chart.set_resolution('day'); return false;" style="display: inline-block;">day</a>
+<a class="v_week btn btn-mini" href="#" onclick="chart.set_resolution('week'); return false;" style="display: inline-block;">week</a>
+<a class="v_month btn btn-mini" href="#" onclick="chart.set_resolution('month'); return false;" style="display: none;">month</a>
+</span>
+</div>
+</div>
+<div class="info_box loading" style="display: none;">
+<img alt="Data_loading" src="//static.bitcoinity.org/assets/data_loading-a9ec0f146134d4dab6c3767f36230784.gif">
+Collecting data...
+</div>
+<div class="info_box no_data" style="display: none">
+No data available for selected parameters
+</div>
+<div class="info_box error" style="display: none">
+<img alt="Muppet_beaker_icon" src="//static.bitcoinity.org/assets/muppet_beaker_icon-b78e37993464424e8c567e674037831c.jpg">
+Something went terribly wrong
+</div>
+<div class="row-fluid chart_data">
+<div class="span12 chart_frame">
+<div class="svg">
+
+<svg style="height: 500px" class="nvd3-svg"><text x="537" y="95" class="copyright">bitcoinity.org</text><g class="nvd3 nv-wrap nv-multiBarWithLegend" transform="translate(80,30)"><g><g class="nv-x nv-axis nvd3-svg" transform="translate(0,420)"><g class="nvd3 nv-wrap nv-axis"><g><g class="tick" style="opacity: 1;" transform="translate(16.90199335548173,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">02/21/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(47.6328903654485,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">02/22/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(78.36378737541528,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">02/23/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(109.09468438538205,0)"><line y2="-420" style="opacity: 1;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 1;" y="7" x="0">02/24/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(139.82558139534885,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">02/25/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(170.55647840531563,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">02/26/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(201.2873754152824,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">02/27/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(232.0182724252492,0)"><line y2="-420" style="opacity: 1;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 1;" y="7" x="0">02/28/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(262.74916943521595,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/01/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(293.4800664451827,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/02/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(324.21096345514945,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/03/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(354.94186046511624,0)"><line y2="-420" style="opacity: 1;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 1;" y="7" x="0">03/04/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(385.672757475083,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/05/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(416.4036544850498,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/06/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(447.1345514950166,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/07/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(477.86544850498336,0)"><line y2="-420" style="opacity: 1;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 1;" y="7" x="0">03/08/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(508.59634551495014,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/09/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(539.327242524917,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/10/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(570.0581395348837,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/11/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(600.7890365448505,0)"><line y2="-420" style="opacity: 1;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 1;" y="7" x="0">03/12/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(631.5199335548173,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/13/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(662.2508305647841,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/14/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(692.9817275747508,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/15/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(723.7126245847177,0)"><line y2="-420" style="opacity: 1;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 1;" y="7" x="0">03/16/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(754.4435215946844,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/17/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(785.1744186046512,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/18/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(815.905315614618,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/19/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(846.6362126245848,0)"><line y2="-420" style="opacity: 1;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 1;" y="7" x="0">03/20/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(877.3671096345515,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/21/2022</text></g><g class="tick" style="opacity: 1;" transform="translate(908.0980066445184,0)"><line y2="-420" style="opacity: 0;" x2="0"></line><text dy=".71em" style="text-anchor: middle; opacity: 0;" y="7" x="0">03/22/2022</text></g><path class="domain" d="M0,0V0H925V0"></path><text class="nv-axislabel" text-anchor="middle" y="36" x="462.5" style="opacity: 1;"></text></g></g></g><g class="nv-y nv-axis nvd3-svg"><g class="nvd3 nv-wrap nv-axis"><g><g class="tick zero" style="opacity: 1;" transform="translate(0,420)"><line x2="925" y2="0"></line><text dy=".32em" style="text-anchor: end;" x="-3" opacity="0" y="0">0.00</text></g><g class="tick" style="opacity: 1;" transform="translate(0,376.5956057609018)"><line x2="925" y2="0"></line><text dy=".32em" style="text-anchor: end;" x="-3" opacity="1" y="0">10.0k</text></g><g class="tick" style="opacity: 1;" transform="translate(0,333.1912115218036)"><line x2="925" y2="0"></line><text dy=".32em" style="text-anchor: end;" x="-3" opacity="1" y="0">20.0k</text></g><g class="tick" style="opacity: 1;" transform="translate(0,289.7868172827054)"><line x2="925" y2="0"></line><text dy=".32em" style="text-anchor: end;" x="-3" opacity="1" y="0">30.0k</text></g><g class="tick" style="opacity: 1;" transform="translate(0,246.38242304360716)"><line x2="925" y2="0"></line><text dy=".32em" style="text-anchor: end;" x="-3" opacity="1" y="0">40.0k</text></g><g class="tick" style="opacity: 1;" transform="translate(0,202.97802880450894)"><line x2="925" y2="0"></line><text dy=".32em" style="text-anchor: end;" x="-3" opacity="1" y="0">50.0k</text></g><g class="tick" style="opacity: 1;" transform="translate(0,159.5736345654107)"><line x2="925" y2="0"></line><text dy=".32em" style="text-anchor: end;" x="-3" opacity="1" y="0">60.0k</text></g><g class="tick" style="opacity: 1;" transform="translate(0,116.16924032631253)"><line x2="925" y2="0"></line><text dy=".32em" style="text-anchor: end;" x="-3" opacity="1" y="0">70.0k</text></g><g class="tick" style="opacity: 1;" transform="translate(0,72.76484608721431)"><line x2="925" y2="0"></line><text dy=".32em" style="text-anchor: end;" x="-3" opacity="1" y="0">80.0k</text></g><g class="tick" style="opacity: 1;" transform="translate(0,29.360451848116075)"><line x2="925" y2="0"></line><text dy=".32em" style="text-anchor: end;" x="-3" opacity="1" y="0">90.0k</text></g><path class="domain" d="M0,0H0V420H0"></path><text class="nv-axislabel" style="text-anchor: middle;" transform="rotate(-90)" y="-50" x="-210">Volume [BTC]</text></g><g class="nv-axisMaxMin nv-axisMaxMin-y nv-axisMin-y" transform="translate(0,420)"><text style="opacity: 1;" dy=".32em" y="0" x="-3" text-anchor="end">0.00</text></g><g class="nv-axisMaxMin nv-axisMaxMin-y nv-axisMax-y" transform="translate(0,0)"><text style="opacity: 1;" dy=".32em" y="0" x="-3" text-anchor="end">96.8k</text></g></g></g><g class="nv-barsWrap nvd3-svg"><g class="nvd3 nv-wrap nv-multibar" transform="translate(0,0)"><defs><clipPath id="nv-edge-clip-6407"><rect width="925" height="420"></rect></clipPath></defs><g clip-path="url(#nv-edge-clip-6407)"><g class="nv-groups"><g style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);" class="nv-group nv-series-0"><rect class="nv-bar positive" x="0" y="394.1280921286002" height="25.8719078713998" width="27.6578073089701" transform="translate(3.073089700996678,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="394.79235737937097" height="25.20764262062903" width="27.6578073089701" transform="translate(33.80398671096346,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="342.41382881104215" height="77.58617118895785" width="27.6578073089701" transform="translate(64.53488372093024,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="392.0910720211295" height="27.90892797887051" width="27.6578073089701" transform="translate(95.265780730897,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="404.420088267694" height="15.579911732306016" width="27.6578073089701" transform="translate(125.99667774086379,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="396.22323091080654" height="23.776769089193465" width="27.6578073089701" transform="translate(156.72757475083057,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="383.3302457463084" height="36.66975425369162" width="27.6578073089701" transform="translate(187.45847176079735,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="392.46439252697877" height="27.53560747302123" width="27.6578073089701" transform="translate(218.18936877076413,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="395.81148579773753" height="24.188514202262468" width="27.6578073089701" transform="translate(248.92026578073092,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="403.1272188053907" height="16.872781194609274" width="27.6578073089701" transform="translate(279.65116279069764,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="392.31573001008144" height="27.684269989918562" width="27.6578073089701" transform="translate(310.3820598006644,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="410.49894210491226" height="9.50105789508774" width="27.6578073089701" transform="translate(341.1129568106312,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="405.38238029918375" height="14.617619700816249" width="27.6578073089701" transform="translate(371.843853820598,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="390.5515398368351" height="29.448460163164896" width="27.6578073089701" transform="translate(402.57475083056477,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="396.07389921764235" height="23.92610078235765" width="27.6578073089701" transform="translate(433.30564784053155,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="394.1178290330587" height="25.882170966941317" width="27.6578073089701" transform="translate(464.03654485049833,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="391.0325453675304" height="28.967454632469583" width="27.6578073089701" transform="translate(494.7674418604651,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="378.47762762407194" height="41.52237237592806" width="27.6578073089701" transform="translate(525.4983388704319,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="412.1520744680248" height="7.847925531975193" width="27.6578073089701" transform="translate(556.2292358803986,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="405.1511214230395" height="14.848878576960487" width="27.6578073089701" transform="translate(586.9601328903655,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="385.07378933792" height="34.926210662079995" width="27.6578073089701" transform="translate(617.6910299003322,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="396.9854538259377" height="23.014546174062275" width="27.6578073089701" transform="translate(648.421926910299,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="382.9343468982106" height="37.065653101789394" width="27.6578073089701" transform="translate(679.1528239202657,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="410.0817006795547" height="9.918299320445328" width="27.6578073089701" transform="translate(709.8837209302326,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="403.6236993892725" height="16.376300610727526" width="27.6578073089701" transform="translate(740.6146179401993,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="410.72702220373185" height="9.272977796268151" width="27.6578073089701" transform="translate(771.3455149501661,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="412.1467721573189" height="7.853227842681122" width="27.6578073089701" transform="translate(802.0764119601329,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="408.6158262034294" height="11.384173796570622" width="27.6578073089701" transform="translate(832.8073089700997,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="398.25712333395774" height="21.742876666042264" width="27.6578073089701" transform="translate(863.5382059800664,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="408.0532994366864" height="11.946700563313584" width="27.6578073089701" transform="translate(894.2691029900333,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect></g><g style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);" class="nv-group nv-series-1"><rect class="nv-bar positive" x="0" y="393.52413366335077" height="1" width="27.6578073089701" transform="translate(3.073089700996678,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="394.30679623274864" height="1" width="27.6578073089701" transform="translate(33.80398671096346,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="340.98027626729214" height="1.433552543750011" width="27.6578073089701" transform="translate(64.53488372093024,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="391.41783080903696" height="1" width="27.6578073089701" transform="translate(95.265780730897,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="404.012083937081" height="1" width="27.6578073089701" transform="translate(125.99667774086379,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="395.6526655545439" height="1" width="27.6578073089701" transform="translate(156.72757475083057,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="382.324043733478" height="1.0062020128303857" width="27.6578073089701" transform="translate(187.45847176079735,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="391.5612004749991" height="1" width="27.6578073089701" transform="translate(218.18936877076413,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="395.1224204000118" height="1" width="27.6578073089701" transform="translate(248.92026578073092,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="402.3733849750805" height="1" width="27.6578073089701" transform="translate(279.65116279069764,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="391.3797096399406" height="1" width="27.6578073089701" transform="translate(310.3820598006644,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="410.02026413798325" height="1" width="27.6578073089701" transform="translate(341.1129568106312,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="405.017679798431" height="1" width="27.6578073089701" transform="translate(371.843853820598,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="389.7896600743272" height="1" width="27.6578073089701" transform="translate(402.57475083056477,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="395.56898207807444" height="1" width="27.6578073089701" transform="translate(433.30564784053155,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="393.35777634757886" height="1" width="27.6578073089701" transform="translate(464.03654485049833,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="390.3931773716711" height="1" width="27.6578073089701" transform="translate(494.7674418604651,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="377.7130584825002" height="1" width="27.6578073089701" transform="translate(525.4983388704319,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="411.853025410172" height="1" width="27.6578073089701" transform="translate(556.2292358803986,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="404.89038951028823" height="1" width="27.6578073089701" transform="translate(586.9601328903655,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="384.4680270127397" height="1" width="27.6578073089701" transform="translate(617.6910299003322,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="396.44781283125695" height="1" width="27.6578073089701" transform="translate(648.421926910299,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="382.2042467560845" height="1" width="27.6578073089701" transform="translate(679.1528239202657,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="409.689556386648" height="1" width="27.6578073089701" transform="translate(709.8837209302326,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="403.04277601848185" height="1" width="27.6578073089701" transform="translate(740.6146179401993,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="410.47562615789326" height="1" width="27.6578073089701" transform="translate(771.3455149501661,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="411.92329511816376" height="1" width="27.6578073089701" transform="translate(802.0764119601329,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="408.3561504834849" height="1" width="27.6578073089701" transform="translate(832.8073089700997,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="397.702081688336" height="1" width="27.6578073089701" transform="translate(863.5382059800664,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="407.61918317819084" height="1" width="27.6578073089701" transform="translate(894.2691029900333,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect></g><g style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);" class="nv-group nv-series-2"><rect class="nv-bar positive" x="0" y="379.7489379149808" height="13.775195748369981" width="27.6578073089701" transform="translate(3.073089700996678,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="383.22350336108104" height="11.083292871667595" width="27.6578073089701" transform="translate(33.80398671096346,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="302.0337077960578" height="38.94656847123434" width="27.6578073089701" transform="translate(64.53488372093024,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="377.451698569798" height="13.96613223923896" width="27.6578073089701" transform="translate(95.265780730897,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="397.89625097429644" height="6.115832962784566" width="27.6578073089701" transform="translate(125.99667774086379,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="382.1742770890891" height="13.47838846545477" width="27.6578073089701" transform="translate(156.72757475083057,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="360.683687498163" height="21.640356235314982" width="27.6578073089701" transform="translate(187.45847176079735,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="372.98080168528026" height="18.580398789718856" width="27.6578073089701" transform="translate(218.18936877076413,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="381.01826051311525" height="14.104159886896525" width="27.6578073089701" transform="translate(248.92026578073092,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="388.50101923743114" height="13.872365737649375" width="27.6578073089701" transform="translate(279.65116279069764,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="375.45366276278713" height="15.926046877153453" width="27.6578073089701" transform="translate(310.3820598006644,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="404.74569226936393" height="5.274571868619319" width="27.6578073089701" transform="translate(341.1129568106312,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="396.9188264368826" height="8.098853361548379" width="27.6578073089701" transform="translate(371.843853820598,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="374.7840147390688" height="15.00564533525835" width="27.6578073089701" transform="translate(402.57475083056477,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="383.02948353711076" height="12.539498540963677" width="27.6578073089701" transform="translate(433.30564784053155,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="378.08479866590955" height="15.272977681669317" width="27.6578073089701" transform="translate(464.03654485049833,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="372.87677955522395" height="17.516397816447125" width="27.6578073089701" transform="translate(494.7674418604651,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="364.134029045679" height="13.579029436821202" width="27.6578073089701" transform="translate(525.4983388704319,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="406.216134528623" height="5.636890881548993" width="27.6578073089701" transform="translate(556.2292358803986,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="399.3106700225797" height="5.57971948770853" width="27.6578073089701" transform="translate(586.9601328903655,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="374.4916470339055" height="9.976379978834188" width="27.6578073089701" transform="translate(617.6910299003322,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="385.26984824759535" height="11.177964583661606" width="27.6578073089701" transform="translate(648.421926910299,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="351.29954815430415" height="30.904698601780353" width="27.6578073089701" transform="translate(679.1528239202657,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="400.38098667828154" height="9.308569708366463" width="27.6578073089701" transform="translate(709.8837209302326,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="391.49146758812793" height="11.551308430353913" width="27.6578073089701" transform="translate(740.6146179401993,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="405.0468661708898" height="5.4287599870034455" width="27.6578073089701" transform="translate(771.3455149501661,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="406.2053918762026" height="5.717903241961153" width="27.6578073089701" transform="translate(802.0764119601329,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="398.40563166095455" height="9.950518822530341" width="27.6578073089701" transform="translate(832.8073089700997,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="384.37719392777416" height="13.324887760561865" width="27.6578073089701" transform="translate(863.5382059800664,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect><rect class="nv-bar positive" x="0" y="397.053826636636" height="10.56535654155482" width="27.6578073089701" transform="translate(894.2691029900333,0)" style="fill: rgb(44, 160, 44); stroke: rgb(44, 160, 44);"></rect></g><g style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);" class="nv-group nv-series-3"><rect class="nv-bar positive" x="0" y="379.3267362034171" height="1" width="27.6578073089701" transform="translate(3.073089700996678,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="382.95609213043883" height="1" width="27.6578073089701" transform="translate(33.80398671096346,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="300.81316465822584" height="1.2205431378319531" width="27.6578073089701" transform="translate(64.53488372093024,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="377.02625000168155" height="1" width="27.6578073089701" transform="translate(95.265780730897,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="397.6075350128561" height="1" width="27.6578073089701" transform="translate(125.99667774086379,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="381.61300253925026" height="1" width="27.6578073089701" transform="translate(156.72757475083057,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="359.74282430422005" height="1" width="27.6578073089701" transform="translate(187.45847176079735,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="372.4004445914382" height="1" width="27.6578073089701" transform="translate(218.18936877076413,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="380.48346624745545" height="1" width="27.6578073089701" transform="translate(248.92026578073092,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="388.1720380510475" height="1" width="27.6578073089701" transform="translate(279.65116279069764,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="374.9447734941264" height="1" width="27.6578073089701" transform="translate(310.3820598006644,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="404.5472806343947" height="1" width="27.6578073089701" transform="translate(341.1129568106312,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="396.5845763281893" height="1" width="27.6578073089701" transform="translate(371.843853820598,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="374.20468373435176" height="1" width="27.6578073089701" transform="translate(402.57475083056477,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="382.6506218255478" height="1" width="27.6578073089701" transform="translate(433.30564784053155,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="377.6287454102305" height="1" width="27.6578073089701" transform="translate(464.03654485049833,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="372.41859662227165" height="1" width="27.6578073089701" transform="translate(494.7674418604651,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="363.7469039192094" height="1" width="27.6578073089701" transform="translate(525.4983388704319,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="406.0985831582974" height="1" width="27.6578073089701" transform="translate(556.2292358803986,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="399.13307257852534" height="1" width="27.6578073089701" transform="translate(586.9601328903655,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="374.21440343348485" height="1" width="27.6578073089701" transform="translate(617.6910299003322,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="385.02195149583576" height="1" width="27.6578073089701" transform="translate(648.421926910299,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="349.9287833188084" height="1.37076483549572" width="27.6578073089701" transform="translate(679.1528239202657,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="400.18937241807396" height="1" width="27.6578073089701" transform="translate(709.8837209302326,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="391.2207313113456" height="1" width="27.6578073089701" transform="translate(740.6146179401993,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="404.90396929762227" height="1" width="27.6578073089701" transform="translate(771.3455149501661,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="406.03044697056055" height="1" width="27.6578073089701" transform="translate(802.0764119601329,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="398.1780308543337" height="1" width="27.6578073089701" transform="translate(832.8073089700997,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="383.91295248854937" height="1" width="27.6578073089701" transform="translate(863.5382059800664,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect><rect class="nv-bar positive" x="0" y="396.8587734795641" height="1" width="27.6578073089701" transform="translate(894.2691029900333,0)" style="fill: rgb(214, 39, 40); stroke: rgb(214, 39, 40);"></rect></g><g style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);" class="nv-group nv-series-4"><rect class="nv-bar positive" x="0" y="273.25368367406645" height="106.07305252935066" width="27.6578073089701" transform="translate(3.073089700996678,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="303.3277902713338" height="79.62830185910502" width="27.6578073089701" transform="translate(33.80398671096346,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="92.82236205439209" height="207.99080260383374" width="27.6578073089701" transform="translate(64.53488372093024,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="277.32471701786676" height="99.70153298381479" width="27.6578073089701" transform="translate(95.265780730897,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="355.44158813853426" height="42.16594687432183" width="27.6578073089701" transform="translate(125.99667774086379,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="311.03068138485366" height="70.5823211543966" width="27.6578073089701" transform="translate(156.72757475083057,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="233.9217418843945" height="125.82108241982556" width="27.6578073089701" transform="translate(187.45847176079735,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="261.76363727500944" height="110.63680731642876" width="27.6578073089701" transform="translate(218.18936877076413,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="294.10973894072583" height="86.37372730672962" width="27.6578073089701" transform="translate(248.92026578073092,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="295.7393460376111" height="92.4326920134364" width="27.6578073089701" transform="translate(279.65116279069764,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="258.71492022241904" height="116.22985327170738" width="27.6578073089701" transform="translate(310.3820598006644,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="363.6840569316206" height="40.86322370277412" width="27.6578073089701" transform="translate(341.1129568106312,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="346.10276958975544" height="50.481806738433875" width="27.6578073089701" transform="translate(371.843853820598,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="277.0553529145836" height="97.14933081976818" width="27.6578073089701" transform="translate(402.57475083056477,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="287.37631572702554" height="95.27430609852223" width="27.6578073089701" transform="translate(433.30564784053155,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="254.7212244715275" height="122.90752093870302" width="27.6578073089701" transform="translate(464.03654485049833,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="266.3993113788641" height="106.01928524340752" width="27.6578073089701" transform="translate(494.7674418604651,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="283.2947355951297" height="80.45216832407971" width="27.6578073089701" transform="translate(525.4983388704319,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="377.0076234875958" height="29.09095967070158" width="27.6578073089701" transform="translate(556.2292358803986,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="359.9057043466124" height="39.22736823191292" width="27.6578073089701" transform="translate(586.9601328903655,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="305.37480533341466" height="68.83959810007019" width="27.6578073089701" transform="translate(617.6910299003322,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="312.313319352055" height="72.70863214378079" width="27.6578073089701" transform="translate(648.421926910299,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="233.47919236691973" height="116.4495909518887" width="27.6578073089701" transform="translate(679.1528239202657,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="323.9766808004827" height="76.21269161759125" width="27.6578073089701" transform="translate(709.8837209302326,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="308.3895970101509" height="82.83113430119471" width="27.6578073089701" transform="translate(740.6146179401993,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="363.7476146690738" height="41.156354628548456" width="27.6578073089701" transform="translate(771.3455149501661,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="368.3814115214647" height="37.649035449095834" width="27.6578073089701" transform="translate(802.0764119601329,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="369.72090452623627" height="28.457126328097445" width="27.6578073089701" transform="translate(832.8073089700997,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="288.1703432316118" height="95.74260925693756" width="27.6578073089701" transform="translate(863.5382059800664,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect><rect class="nv-bar positive" x="0" y="330.3581763712781" height="66.500597108286" width="27.6578073089701" transform="translate(894.2691029900333,0)" style="fill: rgb(148, 103, 189); stroke: rgb(148, 103, 189);"></rect></g><g style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);" class="nv-group nv-series-5"><rect class="nv-bar positive" x="0" y="272.7289872510492" height="1" width="27.6578073089701" transform="translate(3.073089700996678,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="302.8362298929555" height="1" width="27.6578073089701" transform="translate(33.80398671096346,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="91.73212288182502" height="1.0902391725670668" width="27.6578073089701" transform="translate(64.53488372093024,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="276.7231404978793" height="1" width="27.6578073089701" transform="translate(95.265780730897,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="355.0264185814393" height="1" width="27.6578073089701" transform="translate(125.99667774086379,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="310.4961899159741" height="1" width="27.6578073089701" transform="translate(156.72757475083057,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="233.12142819908527" height="1" width="27.6578073089701" transform="translate(187.45847176079735,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="261.145023721963" height="1" width="27.6578073089701" transform="translate(218.18936877076413,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="293.54377064121314" height="1" width="27.6578073089701" transform="translate(248.92026578073092,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="295.1936819605419" height="1" width="27.6578073089701" transform="translate(279.65116279069764,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="258.1901651507332" height="1" width="27.6578073089701" transform="translate(310.3820598006644,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="363.24200131985305" height="1" width="27.6578073089701" transform="translate(341.1129568106312,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="345.6743773776806" height="1" width="27.6578073089701" transform="translate(371.843853820598,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="276.32531393797325" height="1" width="27.6578073089701" transform="translate(402.57475083056477,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="286.87913042189007" height="1" width="27.6578073089701" transform="translate(433.30564784053155,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="254.09827276568757" height="1" width="27.6578073089701" transform="translate(464.03654485049833,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="265.7604478992765" height="1" width="27.6578073089701" transform="translate(494.7674418604651,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="282.72468981811295" height="1" width="27.6578073089701" transform="translate(525.4983388704319,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="376.634878412248" height="1" width="27.6578073089701" transform="translate(556.2292358803986,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="359.482342456121" height="1" width="27.6578073089701" transform="translate(586.9601328903655,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="304.916047499104" height="1" width="27.6578073089701" transform="translate(617.6910299003322,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="311.8769638900283" height="1" width="27.6578073089701" transform="translate(648.421926910299,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="232.98953246101132" height="1" width="27.6578073089701" transform="translate(679.1528239202657,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="323.5428604191519" height="1" width="27.6578073089701" transform="translate(709.8837209302326,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="307.9238594987599" height="1" width="27.6578073089701" transform="translate(740.6146179401993,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="363.3674900608254" height="1" width="27.6578073089701" transform="translate(771.3455149501661,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="367.93421123146766" height="1" width="27.6578073089701" transform="translate(802.0764119601329,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="369.23510330148895" height="1" width="27.6578073089701" transform="translate(832.8073089700997,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="287.66026190805326" height="1" width="27.6578073089701" transform="translate(863.5382059800664,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect><rect class="nv-bar positive" x="0" y="329.8795675837917" height="1" width="27.6578073089701" transform="translate(894.2691029900333,0)" style="fill: rgb(140, 86, 75); stroke: rgb(140, 86, 75);"></rect></g><g style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);" class="nv-group nv-series-6"><rect class="nv-bar positive" x="0" y="266.85712438007266" height="5.871862870976543" width="27.6578073089701" transform="translate(3.073089700996678,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="297.0244213543053" height="5.811808538650212" width="27.6578073089701" transform="translate(33.80398671096346,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="72.63463589423046" height="19.097486987594564" width="27.6578073089701" transform="translate(64.53488372093024,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="269.36887757183547" height="7.354262926043816" width="27.6578073089701" transform="translate(95.265780730897,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="352.4859529806138" height="2.5404656008255415" width="27.6578073089701" transform="translate(125.99667774086379,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="305.58744113826566" height="4.9087487777084675" width="27.6578073089701" transform="translate(156.72757475083057,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="221.64911313429087" height="11.472315064794401" width="27.6578073089701" transform="translate(187.45847176079735,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="250.05858706225132" height="11.086436659711694" width="27.6578073089701" transform="translate(218.18936877076413,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="287.5394017501766" height="6.004368891036563" width="27.6578073089701" transform="translate(248.92026578073092,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="289.4378124776499" height="5.755869482891967" width="27.6578073089701" transform="translate(279.65116279069764,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="247.30642668068214" height="10.883738470051071" width="27.6578073089701" transform="translate(310.3820598006644,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="360.8503776698207" height="2.3916236500323294" width="27.6578073089701" transform="translate(341.1129568106312,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="342.7613250715111" height="2.9130523061695044" width="27.6578073089701" transform="translate(371.843853820598,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="270.2563030156743" height="6.069010922298958" width="27.6578073089701" transform="translate(402.57475083056477,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="281.4712281059364" height="5.407902315953663" width="27.6578073089701" transform="translate(433.30564784053155,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="245.97817872442437" height="8.1200940412632" width="27.6578073089701" transform="translate(464.03654485049833,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="258.9967663908599" height="6.763681508416653" width="27.6578073089701" transform="translate(494.7674418604651,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="277.983754874005" height="4.7409349441079485" width="27.6578073089701" transform="translate(525.4983388704319,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="375.1005401014613" height="1.5343383107866657" width="27.6578073089701" transform="translate(556.2292358803986,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="357.36075903411887" height="2.121583422002118" width="27.6578073089701" transform="translate(586.9601328903655,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="300.7997542439131" height="4.116293255190897" width="27.6578073089701" transform="translate(617.6910299003322,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="308.17833123561485" height="3.6986326544134727" width="27.6578073089701" transform="translate(648.421926910299,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="221.79301719134833" height="11.196515269662996" width="27.6578073089701" transform="translate(679.1528239202657,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="319.5376405317488" height="4.005219887403086" width="27.6578073089701" transform="translate(709.8837209302326,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="303.5685803136825" height="4.355279185077393" width="27.6578073089701" transform="translate(740.6146179401993,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="361.6363674956416" height="1.7311225651837958" width="27.6578073089701" transform="translate(771.3455149501661,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="366.4919410023343" height="1.4422702291333849" width="27.6578073089701" transform="translate(802.0764119601329,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="366.21152115675807" height="3.023582144730881" width="27.6578073089701" transform="translate(832.8073089700997,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="280.6294090099144" height="7.030852898138846" width="27.6578073089701" transform="translate(863.5382059800664,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect><rect class="nv-bar positive" x="0" y="325.7118827329102" height="4.1676848508814714" width="27.6578073089701" transform="translate(894.2691029900333,0)" style="fill: rgb(227, 119, 194); stroke: rgb(227, 119, 194);"></rect></g><g style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);" class="nv-group nv-series-7"><rect class="nv-bar positive" x="0" y="244.00731050193184" height="22.84981387814082" width="27.6578073089701" transform="translate(3.073089700996678,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="273.6690287526697" height="23.35539260163557" width="27.6578073089701" transform="translate(33.80398671096346,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="3.4858350625019163" height="69.14880083172854" width="27.6578073089701" transform="translate(64.53488372093024,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="246.57039200842604" height="22.79848556340943" width="27.6578073089701" transform="translate(95.265780730897,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="337.67308131293424" height="14.81287166767953" width="27.6578073089701" transform="translate(125.99667774086379,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="282.60612833208467" height="22.981312806180995" width="27.6578073089701" transform="translate(156.72757475083057,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="178.24199204090505" height="43.407121093385825" width="27.6578073089701" transform="translate(187.45847176079735,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="198.99956757237916" height="51.059019489872156" width="27.6578073089701" transform="translate(218.18936877076413,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="255.28277928245566" height="32.256622467720916" width="27.6578073089701" transform="translate(248.92026578073092,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="263.37043678586207" height="26.067375691787845" width="27.6578073089701" transform="translate(279.65116279069764,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="205.94336703430025" height="41.363059646381885" width="27.6578073089701" transform="translate(310.3820598006644,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="350.2391335945882" height="10.611244075232491" width="27.6578073089701" transform="translate(341.1129568106312,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="327.6826451946945" height="15.078679876816636" width="27.6578073089701" transform="translate(371.843853820598,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="242.61085120514164" height="27.64545181053265" width="27.6578073089701" transform="translate(402.57475083056477,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="259.7494976559779" height="21.7217304499585" width="27.6578073089701" transform="translate(433.30564784053155,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="212.27337299576902" height="33.704805728655344" width="27.6578073089701" transform="translate(464.03654485049833,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="226.72371122677941" height="32.27305516408046" width="27.6578073089701" transform="translate(494.7674418604651,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="255.10696958128509" height="22.876785292719916" width="27.6578073089701" transform="translate(525.4983388704319,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="364.46725337719414" height="10.63328672426718" width="27.6578073089701" transform="translate(556.2292358803986,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="344.03717451388906" height="13.323584520229815" width="27.6578073089701" transform="translate(586.9601328903655,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="279.7247294216749" height="21.07502482223822" width="27.6578073089701" transform="translate(617.6910299003322,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="289.32396453278926" height="18.854366702825587" width="27.6578073089701" transform="translate(648.421926910299,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="179.24522220917407" height="42.54779498217425" width="27.6578073089701" transform="translate(679.1528239202657,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="302.5684438918897" height="16.96919663985915" width="27.6578073089701" transform="translate(709.8837209302326,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="286.18652293899805" height="17.38205737468445" width="27.6578073089701" transform="translate(740.6146179401993,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="351.94362174476686" height="9.692745750874735" width="27.6578073089701" transform="translate(771.3455149501661,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="353.8799617807169" height="12.61197922161739" width="27.6578073089701" transform="translate(802.0764119601329,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="353.6025610089048" height="12.608960147853281" width="27.6578073089701" transform="translate(832.8073089700997,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="257.4903883502313" height="23.139020659683126" width="27.6578073089701" transform="translate(863.5382059800664,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect><rect class="nv-bar positive" x="0" y="311.7971190731401" height="13.91476365977013" width="27.6578073089701" transform="translate(894.2691029900333,0)" style="fill: rgb(127, 127, 127); stroke: rgb(127, 127, 127);"></rect></g><g style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);" class="nv-group nv-series-8"><rect class="nv-bar positive" x="0" y="242.83401604688513" height="1.1732944550467153" width="27.6578073089701" transform="translate(3.073089700996678,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="272.43339075585345" height="1.2356379968162514" width="27.6578073089701" transform="translate(33.80398671096346,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="0.7269276797936364" height="2.75890738270828" width="27.6578073089701" transform="translate(64.53488372093024,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="245.20467525237504" height="1.3657167560510004" width="27.6578073089701" transform="translate(95.265780730897,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="336.75678711591974" height="1" width="27.6578073089701" transform="translate(125.99667774086379,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="281.65479605309355" height="1" width="27.6578073089701" transform="translate(156.72757475083057,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="176.43902286399984" height="1.8029691769052079" width="27.6578073089701" transform="translate(187.45847176079735,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="197.37373914598433" height="1.6258284263948326" width="27.6578073089701" transform="translate(218.18936877076413,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="254.02206238143916" height="1.260716901016508" width="27.6578073089701" transform="translate(248.92026578073092,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="262.1673059061109" height="1.2031308797511429" width="27.6578073089701" transform="translate(279.65116279069764,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="204.51590339730075" height="1.427463636999505" width="27.6578073089701" transform="translate(310.3820598006644,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="348.92414230020313" height="1.314991294385095" width="27.6578073089701" transform="translate(341.1129568106312,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="326.94554408128727" height="1" width="27.6578073089701" transform="translate(371.843853820598,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="241.26574140050676" height="1.3451098046348875" width="27.6578073089701" transform="translate(402.57475083056477,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="258.83797781536543" height="1" width="27.6578073089701" transform="translate(433.30564784053155,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="210.97320987030048" height="1.3001631254685435" width="27.6578073089701" transform="translate(464.03654485049833,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="224.99677936467288" height="1.7269318621065395" width="27.6578073089701" transform="translate(494.7674418604651,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="254.0018354609246" height="1.105134120360475" width="27.6578073089701" transform="translate(525.4983388704319,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="364.01402921168324" height="1" width="27.6578073089701" transform="translate(556.2292358803986,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="343.49902927405833" height="1" width="27.6578073089701" transform="translate(586.9601328903655,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="278.869250582577" height="1" width="27.6578073089701" transform="translate(617.6910299003322,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="288.3434862330096" height="1" width="27.6578073089701" transform="translate(648.421926910299,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="177.33301380401883" height="1.9122084051552406" width="27.6578073089701" transform="translate(679.1528239202657,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="301.8807925991043" height="1" width="27.6578073089701" transform="translate(709.8837209302326,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="284.93811268314954" height="1.248410255848512" width="27.6578073089701" transform="translate(740.6146179401993,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="351.34554327415805" height="1" width="27.6578073089701" transform="translate(771.3455149501661,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="353.17276572322174" height="1" width="27.6578073089701" transform="translate(802.0764119601329,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="352.91874583210137" height="1" width="27.6578073089701" transform="translate(832.8073089700997,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="256.109202779432" height="1.381185570799289" width="27.6578073089701" transform="translate(863.5382059800664,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect><rect class="nv-bar positive" x="0" y="310.9501527620977" height="1" width="27.6578073089701" transform="translate(894.2691029900333,0)" style="fill: rgb(188, 189, 34); stroke: rgb(188, 189, 34);"></rect></g><g style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);" class="nv-group nv-series-9"><rect class="nv-bar positive" x="0" y="242.77823098323327" height="1" width="27.6578073089701" transform="translate(3.073089700996678,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="272.30099302997417" height="1" width="27.6578073089701" transform="translate(33.80398671096346,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="0" height="1" width="27.6578073089701" transform="translate(64.53488372093024,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="245.00736972726264" height="1" width="27.6578073089701" transform="translate(95.265780730897,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="336.7124195781725" height="1" width="27.6578073089701" transform="translate(125.99667774086379,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="281.6067452184512" height="1" width="27.6578073089701" transform="translate(156.72757475083057,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="176.31791852745755" height="1" width="27.6578073089701" transform="translate(187.45847176079735,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="197.26605631622866" height="1" width="27.6578073089701" transform="translate(218.18936877076413,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="253.9172190671546" height="1" width="27.6578073089701" transform="translate(248.92026578073092,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="262.0803478065165" height="1" width="27.6578073089701" transform="translate(279.65116279069764,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="204.3906721709542" height="1" width="27.6578073089701" transform="translate(310.3820598006644,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="348.9010945668622" height="1" width="27.6578073089701" transform="translate(341.1129568106312,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="326.79699341009183" height="1" width="27.6578073089701" transform="translate(371.843853820598,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="241.19325302381986" height="1" width="27.6578073089701" transform="translate(402.57475083056477,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="258.74627431334886" height="1" width="27.6578073089701" transform="translate(433.30564784053155,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="210.84977515183152" height="1" width="27.6578073089701" transform="translate(464.03654485049833,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="224.85415686564264" height="1" width="27.6578073089701" transform="translate(494.7674418604651,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="253.97019843200766" height="1" width="27.6578073089701" transform="translate(525.4983388704319,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="363.9953418837875" height="1" width="27.6578073089701" transform="translate(556.2292358803986,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="343.4791244529042" height="1" width="27.6578073089701" transform="translate(586.9601328903655,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="278.75400800947676" height="1" width="27.6578073089701" transform="translate(617.6910299003322,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="287.61248244655303" height="1" width="27.6578073089701" transform="translate(648.421926910299,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="176.7906060169266" height="1" width="27.6578073089701" transform="translate(679.1528239202657,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="301.8342452926784" height="1" width="27.6578073089701" transform="translate(709.8837209302326,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="284.6767782977875" height="1" width="27.6578073089701" transform="translate(740.6146179401993,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="351.2315303475466" height="1" width="27.6578073089701" transform="translate(771.3455149501661,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="352.5919789026554" height="1" width="27.6578073089701" transform="translate(802.0764119601329,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="352.4574686706329" height="1" width="27.6578073089701" transform="translate(832.8073089700997,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="254.73497451725217" height="1.3742282621798267" width="27.6578073089701" transform="translate(863.5382059800664,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect><rect class="nv-bar positive" x="0" y="301.77496253644216" height="9.175190225655513" width="27.6578073089701" transform="translate(894.2691029900333,0)" style="fill: rgb(23, 190, 207); stroke: rgb(23, 190, 207);"></rect></g></g></g></g></g><g class="nv-legendWrap nvd3-svg" transform="translate(0,-30)"><g class="nvd3 nv-legend" transform="translate(0,5)"><g transform="translate(192,5)"><g class="nv-series" transform="translate(0,5)"><circle style="stroke-width: 2px; fill: rgb(31, 119, 180); fill-opacity: 1; stroke: rgb(31, 119, 180);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">bitfinex</text></g><g class="nv-series" transform="translate(70,5)"><circle style="stroke-width: 2px; fill: rgb(255, 127, 14); fill-opacity: 1; stroke: rgb(255, 127, 14);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">bitso</text></g><g class="nv-series" transform="translate(129,5)"><circle style="stroke-width: 2px; fill: rgb(44, 160, 44); fill-opacity: 1; stroke: rgb(44, 160, 44);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">bitstamp</text></g><g class="nv-series" transform="translate(209,5)"><circle style="stroke-width: 2px; fill: rgb(214, 39, 40); fill-opacity: 1; stroke: rgb(214, 39, 40);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">cex.io</text></g><g class="nv-series" transform="translate(272,5)"><circle style="stroke-width: 2px; fill: rgb(148, 103, 189); fill-opacity: 1; stroke: rgb(148, 103, 189);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">coinbase</text></g><g class="nv-series" transform="translate(355,5)"><circle style="stroke-width: 2px; fill: rgb(140, 86, 75); fill-opacity: 1; stroke: rgb(140, 86, 75);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">exmo</text></g><g class="nv-series" transform="translate(417,5)"><circle style="stroke-width: 2px; fill: rgb(227, 119, 194); fill-opacity: 1; stroke: rgb(227, 119, 194);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">gemini</text></g><g class="nv-series" transform="translate(487,5)"><circle style="stroke-width: 2px; fill: rgb(127, 127, 127); fill-opacity: 1; stroke: rgb(127, 127, 127);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">kraken</text></g><g class="nv-series" transform="translate(556,5)"><circle style="stroke-width: 2px; fill: rgb(188, 189, 34); fill-opacity: 1; stroke: rgb(188, 189, 34);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">others</text></g><g class="nv-series" transform="translate(623,5)"><circle style="stroke-width: 2px; fill: rgb(23, 190, 207); fill-opacity: 1; stroke: rgb(23, 190, 207);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">therocktrading</text></g></g></g></g><g class="nv-controlsWrap"></g></g></g></svg></div>
+</div>
+</div>
+<div class="row-fluid map_data">
+<div class="span12 map_frame" style="display: none;">
+<div class="map_canvas" style="height: 700px; width: 100%;"></div>
+</div>
+</div>
+<div class="row-fluid">
+<div class="span6 options">
+<table class="table form-horizontal">
+<tbody><tr class="tr_currency" style="display: table-row;">
+<td class="left">
+Currency
+</td>
+<td class="right">
+<select class="btn btn-mini currency" onchange="chart.update_currency();">
+<option value="all">
+all currencies
+</option>
+<option value="AED">
+AED
+</option>
+<option value="ARS">
+ARS
+</option>
+<option value="AUD">
+AUD
+</option>
+<option value="BRL">
+BRL
+</option>
+<option value="CAD">
+CAD
+</option>
+<option value="CHF">
+CHF
+</option>
+<option value="CLP">
+CLP
+</option>
+<option value="CNY">
+CNY
+</option>
+<option value="COP">
+COP
+</option>
+<option value="CZK">
+CZK
+</option>
+<option value="DKK">
+DKK
+</option>
+<option value="EUR">
+EUR
+</option>
+<option value="GBP">
+GBP
+</option>
+<option value="HKD">
+HKD
+</option>
+<option value="HRK">
+HRK
+</option>
+<option value="HUF">
+HUF
+</option>
+<option value="IDR">
+IDR
+</option>
+<option value="ILS">
+ILS
+</option>
+<option value="INR">
+INR
+</option>
+<option value="IRR">
+IRR
+</option>
+<option value="JPY">
+JPY
+</option>
+<option value="KES">
+KES
+</option>
+<option value="KRW">
+KRW
+</option>
+<option value="MXN">
+MXN
+</option>
+<option value="MYR">
+MYR
+</option>
+<option value="NOK">
+NOK
+</option>
+<option value="NZD">
+NZD
+</option>
+<option value="PHP">
+PHP
+</option>
+<option value="PKR">
+PKR
+</option>
+<option value="PLN">
+PLN
+</option>
+<option value="RON">
+RON
+</option>
+<option value="RUB">
+RUB
+</option>
+<option value="RUR">
+RUR
+</option>
+<option value="SAR">
+SAR
+</option>
+<option value="SEK">
+SEK
+</option>
+<option value="SGD">
+SGD
+</option>
+<option value="THB">
+THB
+</option>
+<option value="TRY">
+TRY
+</option>
+<option value="UAH">
+UAH
+</option>
+<option value="USD">
+USD
+</option>
+<option value="VEF">
+VEF
+</option>
+<option value="XAU">
+XAU
+</option>
+<option value="ZAR">
+ZAR
+</option>
+</select>
+</td>
+</tr>
+<tr class="tr_exchange" style="display: table-row;">
+<td class="left">
+Exchange
+</td>
+<td class="right">
+<select class="btn btn-mini exchange" onchange="chart.update_exchange();">
+<option value="all">
+all exchanges
+</option>
+<option>
+bit-x
+</option>
+<option>
+bit2c
+</option>
+<option>
+bitbay
+</option>
+<option>
+bitcoin.co.id
+</option>
+<option>
+bitcoincentral
+</option>
+<option>
+bitcoinde
+</option>
+<option>
+bitcoinsnorway
+</option>
+<option>
+bitcurex
+</option>
+<option>
+bitfinex
+</option>
+<option>
+bitflyer
+</option>
+<option>
+bithumb
+</option>
+<option>
+bitmarketpl
+</option>
+<option>
+bitmex
+</option>
+<option>
+bitquick
+</option>
+<option>
+bitso
+</option>
+<option>
+bitstamp
+</option>
+<option>
+btcchina
+</option>
+<option>
+btce
+</option>
+<option>
+btcmarkets
+</option>
+<option>
+campbx
+</option>
+<option>
+cex.io
+</option>
+<option>
+clevercoin
+</option>
+<option>
+coinbase
+</option>
+<option>
+coinfloor
+</option>
+<option>
+exmo
+</option>
+<option>
+gemini
+</option>
+<option>
+hitbtc
+</option>
+<option>
+huobi
+</option>
+<option>
+itbit
+</option>
+<option>
+korbit
+</option>
+<option>
+kraken
+</option>
+<option>
+lakebtc
+</option>
+<option>
+localbitcoins
+</option>
+<option>
+mercadobitcoin
+</option>
+<option>
+okcoin
+</option>
+<option>
+paymium
+</option>
+<option>
+quadrigacx
+</option>
+<option>
+therocktrading
+</option>
+<option>
+vaultoro
+</option>
+<option>
+wallofcoins
+</option>
+</select>
+</td>
+</tr>
+<tr class="tr_spread_depth" style="display: none;">
+<td class="left">
+Spread depth
+</td>
+<td class="right">
+<select class="btn btn-mini spread_depth" onchange="chart.update_spread_depth();">
+<option value="0">
+0 BTC
+</option>
+<option value="10">
+10 BTC
+</option>
+<option value="100">
+100 BTC
+</option>
+</select>
+</td>
+</tr>
+<tr class="tr_mining_pool" style="display: none;">
+<td class="left">
+Mining Pool
+</td>
+<td class="right">
+<select class="btn btn-mini mining_pool" onchange="chart.update_mining_pool();">
+<option value="all">
+all mining pools
+</option>
+<option value="175btc.com">
+175btc.com
+</option>
+<option value="1Hash">
+1Hash
+</option>
+<option value="21 Inc.">
+21 Inc.
+</option>
+<option value="50BTC.com">
+50BTC.com
+</option>
+<option value="8baochi">
+8baochi
+</option>
+<option value="A-XBT">
+A-XBT
+</option>
+<option value="AntPool">
+AntPool
+</option>
+<option value="ASICMiner">
+ASICMiner
+</option>
+<option value="BCMonster">
+BCMonster
+</option>
+<option value="bcpool.io">
+bcpool.io
+</option>
+<option value="Bitalo">
+Bitalo
+</option>
+<option value="BitClub Network">
+BitClub Network
+</option>
+<option value="Bitcoin Affiliate Network">
+Bitcoin Affiliate Network
+</option>
+<option value="Bitcoin India">
+Bitcoin India
+</option>
+<option value="Bitcoin.com">
+Bitcoin.com
+</option>
+<option value="BitFury">
+BitFury
+</option>
+<option value="BitMinter">
+BitMinter
+</option>
+<option value="bitparking">
+bitparking
+</option>
+<option value="Bitsolo">
+Bitsolo
+</option>
+<option value="Bravo Mining">
+Bravo Mining
+</option>
+<option value="BTC Guild">
+BTC Guild
+</option>
+<option value="BTC Nuggets">
+BTC Nuggets
+</option>
+<option value="BTC Pool Party">
+BTC Pool Party
+</option>
+<option value="BTC.com">
+BTC.com
+</option>
+<option value="BTC.TOP">
+BTC.TOP
+</option>
+<option value="BTCC Pool">
+BTCC Pool
+</option>
+<option value="BTCChina Pool">
+BTCChina Pool
+</option>
+<option value="BTCDig">
+BTCDig
+</option>
+<option value="BTCMP">
+BTCMP
+</option>
+<option value="BTCServ">
+BTCServ
+</option>
+<option value="BW.COM">
+BW.COM
+</option>
+<option value="CloudHashing">
+CloudHashing
+</option>
+<option value="CoinLab">
+CoinLab
+</option>
+<option value="Cointerra">
+Cointerra
+</option>
+<option value="digitalBTC">
+digitalBTC
+</option>
+<option value="Eligius">
+Eligius
+</option>
+<option value="EMC">
+EMC
+</option>
+<option value="Eobot">
+Eobot
+</option>
+<option value="EXX &amp; BW">
+EXX &amp; BW
+</option>
+<option value="F2Pool">
+F2Pool
+</option>
+<option value="GBMiners">
+GBMiners
+</option>
+<option value="ghash.io">
+ghash.io
+</option>
+<option value="Give Me Coins">
+Give Me Coins
+</option>
+<option value="GoGreenHost">
+GoGreenHost
+</option>
+<option value="HaoBTC">
+HaoBTC
+</option>
+<option value="HASHPOOL">
+HASHPOOL
+</option>
+<option value="HHTT">
+HHTT
+</option>
+<option value="HotPool">
+HotPool
+</option>
+<option value="Huobi">
+Huobi
+</option>
+<option value="Kano CKPool">
+Kano CKPool
+</option>
+<option value="KnCMiner">
+KnCMiner
+</option>
+<option value="MaxBTC">
+MaxBTC
+</option>
+<option value="MegaBigPower">
+MegaBigPower
+</option>
+<option value="mmpool">
+mmpool
+</option>
+<option value="Mt Red">
+Mt Red
+</option>
+<option value="MultiCoin.co">
+MultiCoin.co
+</option>
+<option value="Multipool">
+Multipool
+</option>
+<option value="myBTCcoin Pool">
+myBTCcoin Pool
+</option>
+<option value="Nexious">
+Nexious
+</option>
+<option value="NiceHash Solo">
+NiceHash Solo
+</option>
+<option value="NMCbit">
+NMCbit
+</option>
+<option value="ozcoin">
+ozcoin
+</option>
+<option value="Patel's Mining pool">
+Patel's Mining pool
+</option>
+<option value="Polmine">
+Polmine
+</option>
+<option value="simplecoin.us">
+simplecoin.us
+</option>
+<option value="slush">
+slush
+</option>
+<option value="SlushPool">
+SlushPool
+</option>
+<option value="Solo CKPool">
+Solo CKPool
+</option>
+<option value="ST Mining Corp">
+ST Mining Corp
+</option>
+<option value="TBDice">
+TBDice
+</option>
+<option value="Telco 214">
+Telco 214
+</option>
+<option value="transactioncoinmining">
+transactioncoinmining
+</option>
+<option value="Tricky's BTC Pool">
+Tricky's BTC Pool
+</option>
+<option value="Triplemining.com">
+Triplemining.com
+</option>
+<option value="ViaBTC">
+ViaBTC
+</option>
+<option value="Yourbtc.net">
+Yourbtc.net
+</option>
+</select>
+</td>
+</tr>
+<tr class="tr_compare" style="display: table-row;">
+<td class="left">
+Comparison
+</td>
+<td class="right">
+<select class="btn btn-mini compare" onchange="chart.update_compare();">
+
+
+
+<option value="exchange">compare exchanges</option><option value="currency">compare currencies</option><option value="no">no comparision</option></select>
+</td>
+</tr>
+<tr class="tr_chart_type" style="display: table-row;">
+<td class="left">
+Chart type
+</td>
+<td class="right">
+<select class="btn btn-mini chart_type" onchange="chart.update_chart_type();"><option value="area">stacked area chart</option><option value="area_expanded">expanded area chart</option><option value="line">line chart</option><option value="bar">stacked bar chart</option><option value="bar_grouped">grouped bar chart</option></select>
+</td>
+</tr>
+<tr class="tr_scale_type" style="display: none;">
+<td class="left">
+Scale type
+</td>
+<td class="right">
+<select class="btn btn-mini scale_type" onchange="chart.update_chart_scale_type();"><option value="lin">linear</option><option value="log">logarithmic</option></select>
+</td>
+</tr>
+<tr class="tr_bidask_percent" style="display: none;">
+<td class="left">
+Sum within price range
+</td>
+<td class="right">
+<select class="btn btn-mini bidask_percent" onchange="chart.update_opt_val(this, 'bidask_percent');">
+<option value="1">1%</option>
+<option value="5">5%</option>
+<option value="10">10%</option>
+<option value="20">20%</option>
+<option value="50">50%</option>
+</select>
+</td>
+</tr>
+<tr class="tr_bidask_unit" style="display: none;">
+<td class="left">
+Display sum in
+</td>
+<td class="right">
+<select class="btn btn-mini bidask_unit" onchange="chart.update_opt_val(this, 'bidask_unit');">
+<option value="btc">BTC</option>
+<option value="curr">selected currency</option>
+</select>
+</td>
+</tr>
+<tr class="advanced tr_smoothing" style="display: none;">
+<td class="left">
+Smoothing
+</td>
+<td class="right">
+<select class="btn btn-mini smoothing" onchange="chart.update_chart_smoothing();"><option value="linear">linear (none)</option><option value="monotone">cubic interpolation</option><option value="cardinal">cardinal spline</option><option value="basis">B-spline</option><option value="bundle">bundle</option></select>
+</td>
+</tr>
+<tr class="advanced tr_function" style="display: none;">
+<td class="left">
+Smoothing
+</td>
+<td class="right">
+<select class="btn btn-mini function" onchange="chart.update_chart_function();"><option value="none">none</option><option value="ma5">moving average 5</option><option value="ma10">moving average 10</option><option value="ma20">moving average 20</option></select>
+</td>
+</tr>
+<tr class="advanced tr_volume_unit" style="display: none;">
+<td class="left">
+Display volume in
+</td>
+<td class="right">
+<select class="btn btn-mini volume_unit" onchange="chart.update_opt_val(this, 'volume_unit');">
+<option value="btc">BTC</option>
+<option value="curr">selected currency</option>
+</select>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="span6 details">
+<table class="table">
+<tbody><tr>
+<td class="name">
+Data points used
+</td>
+<td class="total_points value">27,903,063</td>
+</tr>
+<tr>
+<td class="name">
+Data points on the chart
+</td>
+<td class="data_points value">477</td>
+</tr>
+<tr>
+<td class="name">
+Generated at
+</td>
+<td class="generated_at value">03/23/2022 20:26:41</td>
+</tr>
+<tr>
+<td class="name">
+Time to generate
+</td>
+<td class="query_time value">0.043s</td>
+</tr>
+<tr>
+<td class="name">
+Export
+</td>
+<td class="value export">
+<a href="/export_data.csv?c=e&amp;data_type=volume&amp;t=b&amp;timespan=30d" class="csv">CSV</a>
+, 
+<a href="/export_data.xls?c=e&amp;data_type=volume&amp;t=b&amp;timespan=30d" class="xls">XLSX</a>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div id="compare">
+<div class="row-fluid">
+<div class="span12">
+<h3 class="title compare">
+Total in this period
+</h3>
+</div>
+</div>
+<div class="row-fluid">
+<div class="span6">
+<table class="data table-striped table tablesorter tablesorter-default" role="grid">
+<thead>
+<tr role="row" class="tablesorter-headerRow">
+<th class="grouping tablesorter-header tablesorter-headerUnSorted" data-column="0" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" style="user-select: none;" aria-sort="none" aria-label="Exchange: No sort applied, activate to apply an ascending sort"><div class="tablesorter-header-inner">Exchange</div></th>
+<th class="value right tablesorter-header sorter-false tablesorter-headerUnSorted" data-column="1" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" style="user-select: none;" aria-sort="none"><div class="tablesorter-header-inner">Volume [BTC]</div></th>
+<th class="percent right tablesorter-header tablesorter-headerDesc" data-column="2" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" style="user-select: none;" aria-sort="descending" aria-label="Market share: Descending sort applied, activate to apply an ascending sort"><div class="tablesorter-header-inner">Market share</div></th>
+</tr>
+</thead>
+<tbody aria-live="polite" aria-relevant="all"><tr><td><img src="/assets/icons/exchanges/coinbase.ico" onerror="this.src='/assets/icons/exchanges/missing.ico'">&nbsp;coinbase</td><td class="value"> 573k</td><td class="share">53.89%</td></tr><tr><td><img src="/assets/icons/exchanges/kraken.ico" onerror="this.src='/assets/icons/exchanges/missing.ico'">&nbsp;kraken</td><td class="value"> 172k</td><td class="share">16.19%</td></tr><tr><td><img src="/assets/icons/exchanges/bitfinex.ico" onerror="this.src='/assets/icons/exchanges/missing.ico'">&nbsp;bitfinex</td><td class="value"> 163k</td><td class="share">15.37%</td></tr><tr><td><img src="/assets/icons/exchanges/bitstamp.ico" onerror="this.src='/assets/icons/exchanges/missing.ico'">&nbsp;bitstamp</td><td class="value"> 91.7k</td><td class="share">8.63%</td></tr><tr><td><img src="/assets/icons/exchanges/gemini.ico" onerror="this.src='/assets/icons/exchanges/missing.ico'">&nbsp;gemini</td><td class="value"> 40.5k</td><td class="share">3.81%</td></tr><tr><td><img src="/assets/icons/exchanges/others.ico" onerror="this.src='/assets/icons/exchanges/missing.ico'">&nbsp;others</td><td class="value"> 8.08k</td><td class="share">0.76%</td></tr><tr><td><img src="/assets/icons/exchanges/bitso.ico" onerror="this.src='/assets/icons/exchanges/missing.ico'">&nbsp;bitso</td><td class="value"> 4.12k</td><td class="share">0.39%</td></tr><tr><td><img src="/assets/icons/exchanges/exmo.ico" onerror="this.src='/assets/icons/exchanges/missing.ico'">&nbsp;exmo</td><td class="value"> 3.69k</td><td class="share">0.35%</td></tr><tr><td><img src="/assets/icons/exchanges/therocktrading.ico" onerror="this.src='/assets/icons/exchanges/missing.ico'">&nbsp;therocktrading</td><td class="value"> 3.65k</td><td class="share">0.34%</td></tr><tr><td><img src="/assets/icons/exchanges/cex.io.ico" onerror="this.src='/assets/icons/exchanges/missing.ico'">&nbsp;cex.io</td><td class="value"> 2.93k</td><td class="share">0.28%</td></tr></tbody>
+</table>
+<div class="block_size_votes" style="display: none;">
+<p>
+</p><ul class="explanations">
+<li>
+<strong>8MB</strong>
+- blocks containing string "8M" in their coinbase scriptSig (i.e. miners supporting block size increase to 8MB
+<sup>
+<a href="mailto:admin@bitcoinity.org">citation needed</a>
+</sup>
+)
+</li>
+<li>
+<strong>BIP100</strong>
+- blocks containing string "BV" + some digits in their coinbase scriptSig that is
+<a href="http://gtf.org/garzik/bitcoin/BIP100-blocksizechangeproposal.pdf" target="_blank">BIP100</a>
+(and others based on it), also includes blocks with string "BIP100" in coinbase
+</li>
+<li>
+<strong>BIP101</strong>
+- blocks with version 0x20000007 as defined in
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0101.mediawiki" target="_blank">BIP101</a>
+</li>
+<li>
+<strong>None</strong>
+- blocks mined without any indication of block size increase support
+</li>
+</ul>
+<p></p>
+</div>
+</div>
+<div class="span6">
+<div class="svg">
+<svg style="height: 347.2px;" class="nvd3-svg"><g class="nvd3 nv-wrap nv-pieChart" transform="translate(20,50)"><g><g class="nv-pieWrap nvd3-svg"><g class="nvd3 nv-wrap nv-pie nv-chart-8478" transform="translate(0,0)"><g><g class="nv-pie" transform="translate(227.5,138.5)"><g class="nv-slice" fill="#1f77b4" stroke="#1f77b4"><path d="M6.784543267276337e-15,-110.8A110.8,110.8 0 0,1 91.13074457328716,-63.02243563619463L0,0Z"></path></g><g class="nv-slice" fill="#ff7f0e" stroke="#ff7f0e"><path d="M91.13074457328716,-63.02243563619463A110.8,110.8 0 0,1 92.63755365341952,-60.7858836664387L0,0Z"></path></g><g class="nv-slice" fill="#2ca02c" stroke="#2ca02c"><path d="M92.63755365341952,-60.7858836664387A110.8,110.8 0 0,1 110.71719100399687,-4.282944802875067L0,0Z"></path></g><g class="nv-slice" fill="#d62728" stroke="#d62728"><path d="M110.71719100399687,-4.282944802875067A110.8,110.8 0 0,1 110.77481170609246,-2.3624333810205114L0,0Z"></path></g><g class="nv-slice" fill="#9467bd" stroke="#9467bd"><path d="M110.77481170609246,-2.3624333810205114A110.8,110.8 0 1,1 -108.05281658882302,-24.51996792865298L0,0Z"></path></g><g class="nv-slice" fill="#8c564b" stroke="#8c564b"><path d="M-108.05281658882302,-24.51996792865298A110.8,110.8 0 0,1 -107.49184983703861,-26.872703969112223L0,0Z"></path></g><g class="nv-slice" fill="#e377c2" stroke="#e377c2"><path d="M-107.49184983703861,-26.872703969112223A110.8,110.8 0 0,1 -98.06277428355864,-51.57840924080375L0,0Z"></path></g><g class="nv-slice" fill="#7f7f7f" stroke="#7f7f7f"><path d="M-98.06277428355864,-51.57840924080375A110.8,110.8 0 0,1 -7.673488347130629,-110.53396571455514L0,0Z"></path></g><g class="nv-slice" fill="#bcbd22" stroke="#bcbd22"><path d="M-7.673488347130629,-110.53396571455514A110.8,110.8 0 0,1 -2.3883523803337985,-110.77425591222608L0,0Z"></path></g><g class="nv-slice" fill="#17becf" stroke="#17becf"><path d="M-2.3883523803337985,-110.77425591222608A110.8,110.8 0 0,1 7.805653910094486e-14,-110.8L0,0Z"></path></g></g><g class="nv-pieLabels" transform="translate(227.5,138.5)"><g class="nv-label" transform="translate(61.36126334320931,-117.04024034888735)"><rect style="stroke: rgb(255, 255, 255); fill: rgb(255, 255, 255);" rx="3" ry="3"></rect><text style="text-anchor: middle; fill: rgb(0, 0, 0);">bitfinex</text></g><g class="nv-label" transform="translate(109.59737862164118,-73.8379109893057)"><rect style="stroke: rgb(255, 255, 255); fill: rgb(255, 255, 255);" rx="3" ry="3"></rect><text style="text-anchor: middle; fill: rgb(0, 0, 0);"></text></g><g class="nv-label" transform="translate(125.86369360885031,-40.27347925294578)"><rect style="stroke: rgb(255, 255, 255); fill: rgb(255, 255, 255);" rx="3" ry="3"></rect><text style="text-anchor: middle; fill: rgb(0, 0, 0);">bitstamp</text></g><g class="nv-label" transform="translate(132.090561561428,-3.963085462944548)"><rect style="stroke: rgb(255, 255, 255); fill: rgb(255, 255, 255);" rx="3" ry="3"></rect><text style="text-anchor: middle; fill: rgb(0, 0, 0);"></text></g><g class="nv-label" transform="translate(-13.312862230733103,131.47771750082035)"><rect style="stroke: rgb(255, 255, 255); fill: rgb(255, 255, 255);" rx="3" ry="3"></rect><text style="text-anchor: middle; fill: rgb(0, 0, 0);">coinbase</text></g><g class="nv-label" transform="translate(-128.54659060816076,-30.649576555279197)"><rect style="stroke: rgb(255, 255, 255); fill: rgb(255, 255, 255);" rx="3" ry="3"></rect><text style="text-anchor: middle; fill: rgb(0, 0, 0);"></text></g><g class="nv-label" transform="translate(-123.46363957627754,-47.12061335104875)"><rect style="stroke: rgb(255, 255, 255); fill: rgb(255, 255, 255);" rx="3" ry="3"></rect><text style="text-anchor: middle; fill: rgb(0, 0, 0);">gemini</text></g><g class="nv-label" transform="translate(-72.19446099960922,-110.68686598226505)"><rect style="stroke: rgb(255, 255, 255); fill: rgb(255, 255, 255);" rx="3" ry="3"></rect><text style="text-anchor: middle; fill: rgb(0, 0, 0);">kraken</text></g><g class="nv-label" transform="translate(-6.0020368512283735,-132.01362828752377)"><rect style="stroke: rgb(255, 255, 255); fill: rgb(255, 255, 255);" rx="3" ry="3"></rect><text style="text-anchor: middle; fill: rgb(0, 0, 0);"></text></g><g class="nv-label" transform="translate(-1.4243642091751099,-146.14231872558594)"><rect style="stroke: rgb(255, 255, 255); fill: rgb(255, 255, 255);" rx="3" ry="3"></rect><text style="text-anchor: middle; fill: rgb(0, 0, 0);"></text></g></g></g></g></g><g class="nv-legendWrap nvd3-svg" transform="translate(0,-50)"><g class="nvd3 nv-legend" transform="translate(0,5)"><g transform="translate(58,5)"><g class="nv-series" transform="translate(0,5)"><circle style="stroke-width: 2px; fill: rgb(31, 119, 180); fill-opacity: 1; stroke: rgb(31, 119, 180);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">bitfinex</text></g><g class="nv-series" transform="translate(70,5)"><circle style="stroke-width: 2px; fill: rgb(255, 127, 14); fill-opacity: 1; stroke: rgb(255, 127, 14);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">bitso</text></g><g class="nv-series" transform="translate(140,5)"><circle style="stroke-width: 2px; fill: rgb(44, 160, 44); fill-opacity: 1; stroke: rgb(44, 160, 44);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">bitstamp</text></g><g class="nv-series" transform="translate(220,5)"><circle style="stroke-width: 2px; fill: rgb(214, 39, 40); fill-opacity: 1; stroke: rgb(214, 39, 40);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">cex.io</text></g><g class="nv-series" transform="translate(287,5)"><circle style="stroke-width: 2px; fill: rgb(148, 103, 189); fill-opacity: 1; stroke: rgb(148, 103, 189);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">coinbase</text></g><g class="nv-series" transform="translate(0,25)"><circle style="stroke-width: 2px; fill: rgb(140, 86, 75); fill-opacity: 1; stroke: rgb(140, 86, 75);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">exmo</text></g><g class="nv-series" transform="translate(70,25)"><circle style="stroke-width: 2px; fill: rgb(227, 119, 194); fill-opacity: 1; stroke: rgb(227, 119, 194);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">gemini</text></g><g class="nv-series" transform="translate(140,25)"><circle style="stroke-width: 2px; fill: rgb(127, 127, 127); fill-opacity: 1; stroke: rgb(127, 127, 127);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">kraken</text></g><g class="nv-series" transform="translate(220,25)"><circle style="stroke-width: 2px; fill: rgb(188, 189, 34); fill-opacity: 1; stroke: rgb(188, 189, 34);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">others</text></g><g class="nv-series" transform="translate(287,25)"><circle style="stroke-width: 2px; fill: rgb(23, 190, 207); fill-opacity: 1; stroke: rgb(23, 190, 207);" class="nv-legend-symbol" r="5"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">therocktrading</text></g></g></g></g></g></g></svg>
+</div>
+</div>
+</div>
+<div class="block_size_votes" style="display: none;">
+<div class="row-fluid">
+<div class="span12">
+<h3 class="title">
+Votes by miners
+</h3>
+</div>
+</div>
+<div class="row-fluid">
+<div class="span3">
+<h4 class="title" style="text-align: center"> None</h4>
+<table class="votes table-striped table tablesorter" vote=" None">
+<thead>
+<tr>
+<th class="grouping">Miner</th>
+<th class="value right">Number of blocks</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+<div class="span3">
+<h4 class="title" style="text-align: center">8MB</h4>
+<table class="votes table-striped table tablesorter" vote="8MB">
+<thead>
+<tr>
+<th class="grouping">Miner</th>
+<th class="value right">Number of blocks</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+<div class="span3">
+<h4 class="title" style="text-align: center">BIP100</h4>
+<table class="votes table-striped table tablesorter" vote="BIP100">
+<thead>
+<tr>
+<th class="grouping">Miner</th>
+<th class="value right">Number of blocks</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+<div class="span3">
+<h4 class="title" style="text-align: center">BU</h4>
+<table class="votes table-striped table tablesorter" vote="BU">
+<thead>
+<tr>
+<th class="grouping">Miner</th>
+<th class="value right">Number of blocks</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+<div class="row-fluid">
+<div class="span12 bip100">
+<h3 class="title">BIP 100</h3>
+</div>
+</div>
+<div class="row-fluid">
+<div class="span7 offset1 bip100">
+<table class="table-striped table vote_stats">
+<thead>
+<tr>
+<th colspan="2" style="text-align: center">
+In last <strong>12,000</strong> blocks
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right">
+<span class="vote_count all"></span>
+</td>
+<td>
+voted for BIP100 by including 'BIP100' or 'BV' in coinbase scriptSig
+</td>
+</tr>
+<tr>
+<td class="right">
+<span class="vote_count std"></span>
+</td>
+<td>
+included BV notation as described in the BIP100
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="span3 bip100">
+<table class="table-striped table size_stats">
+<thead>
+<tr>
+<th style="text-align: right">
+Number&nbsp;of&nbsp;votes
+</th>
+<th>
+Size&nbsp;[bytes]
+</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+<div class="row-fluid">
+<div class="span12">
+<h5 class="title">BIP BOOP</h5>
+<p>
+There are quite a few propals, and I may be not up to date. If there's another proposal that includes voting on the blockchain and there's already at least one block with a vote, please <a href="mailto:admin@bitcoinity.org">let me know</a> and I'll try to add it.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="groups_table" style="display: none;">
+<div class="row-fluid">
+<div class="span12">
+<h3 class="title">
+Total in selected period
+</h3>
+</div>
+</div>
+<div class="row-fluid">
+<div class="span12">
+<table class="data table-striped table tablesorter">
+<thead>
+<tr>
+<th class="grouping">Exchange</th>
+<th class="value right">Average</th>
+<th class="value right">Maximum</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+<div class="span6">
+<div class="svg">
+<svg></svg>
+</div>
+</div>
+</div>
+</div>
+<div class="p-explanation volatility" style="display: none;">
+<div class="row-fluid">
+<div class="span12">
+<h4 class="title">
+How is it calculated?
+</h4>
+</div>
+</div>
+<div class="row-fluid">
+<div class="span12">
+<p>
+Price volatility is calculated as <a href="https://en.wikipedia.org/wiki/Standard_deviation" target="_blank">standard deviation</a> from all market trades. For longer periods it is average of hourly standard deviations (stddev calculated for each hour then averaged)
+</p>
+</div>
+</div>
+</div>
+<div id="bips" style="display: none;">
+<p>
+</p><div style="text-align: center">
+<img alt="Loading_bar" src="//static.bitcoinity.org/assets/loading_bar-ebe7158a25d4cf7945cdee0273027389.gif">
+</div>
+<p></p>
+</div>
+<div id="difficulty_details" style="display: none;">
+<p>
+</p><div style="text-align: center">
+<img alt="Loading_bar" src="//static.bitcoinity.org/assets/loading_bar-ebe7158a25d4cf7945cdee0273027389.gif">
+</div>
+<p></p>
+</div>
+<div id="market_cap" style="display: none;">
+<div class="row-fluid">
+<div class="span12">
+<h4 class="title center">
+Current Bitcoin market capitalization:
+</h4>
+<h3 class="value center"></h3>
+<div class="calculation center"></div>
+</div>
+</div>
+</div>
+<script>
+  Chart.initial_opts = {"data_type":"volume","currency":"all","exchange":"all","volume_unit":"btc","function":"none","groups_count":10,"timespan":"30d","resolution":"auto","compare":"exchange","chart_type":"bar","smoothing":"linear","scale_type":"lin"}
+  $(function(){
+    window.chart = new Chart(Chart.initial_opts)
+    window.chart.fetch_data(window.location.hash.substring(1))
+  });
+</script>
+
+</div>
+</div>
+<hr>
+<div id="footer">
+(c) 2011-2018 Bitcoinity.org, created by Kacper Cieśla (comboy)
+|
+<a href="//bitcoinity.org/for_exchanges">for exchanges</a>
+|
+<a href="//bitcoinity.org/press">press</a>
+|
+<a href="mailto:admin@bitcoinity.org">contact</a>
+</div>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-22306089-2', 'bitcoinity.org');
+// NOT Done on fetch data so that should be enough
+ga('send', 'pageview');
+</script>
+
+</div>
+
+
+<div id="lbCenter" style="display: none;"><div id="lbImage"><div style="position: relative;"><a id="lbPrevLink" href="#"></a><a id="lbNextLink" href="#"></a></div></div></div><div id="lbBottomContainer" style="display: none;"><div id="lbBottom"><div id="lbOverlay" style="display: none;"></div><div id="lbCaption"></div><div id="lbNumber"></div><div style="clear: both;"></div></div></div></body></html>

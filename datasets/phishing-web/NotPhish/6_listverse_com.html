@@ -1,0 +1,819 @@
+<html class="no-js " lang="en-US"><!--<![endif]--><head><meta charset="UTF-8"><script async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-M3ZNR6H"></script><script type="text/javascript">if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script type="text/javascript">class RocketLazyLoadScripts{constructor(e){this.triggerEvents=e,this.eventOptions={passive:!0},this.userEventListener=this.triggerListener.bind(this),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventListener,e.eventOptions)))}_removeUserInteractionListener(e){this.triggerEvents.forEach((t=>window.removeEventListener(t,e.userEventListener,e.eventOptions)))}triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}async _loadEverythingNow(){this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async),await this._triggerDOMContentLoaded(),await this._triggerWindowLoad(),window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._requestAnimFrame(),new Promise((t=>{const n=document.createElement("script");let r;[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type",r=e.nodeValue),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t()),e.parentNode.replaceChild(n,e)}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){var e=document.createDocumentFragment();[...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async].forEach((t=>{const n=t.getAttribute("src");if(n){const t=document.createElement("link");t.href=n,t.rel="preload",t.as="script",e.appendChild(t)}})),document.head.appendChild(e)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(r){e["rocket"+t]=n=r}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._requestAnimFrame(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-load")),await this._requestAnimFrame(),window.rocketonload&&window.rocketonload(),await this._requestAnimFrame(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),window.dispatchEvent(new Event("rocket-pageshow")),await this._requestAnimFrame(),window.rocketonpageshow&&window.rocketonpageshow()}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,r=document.createRange(),i=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const a=document.createDocumentFragment();r.setStart(a,0),a.appendChild(r.createContextualFragment(t)),i.insertBefore(a,o)}}async _requestAnimFrame(){return new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts(["keydown","mousemove","touchmove","touchstart","touchend","wheel"]);e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+<!--[if lt IE 9]>
+		<script src="https://listverse.com/wp-content/themes/listverse2013/assets/js/html5.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://listverse.com/wp-content/themes/listverse2013/lt-ie9.css?v=1.0.9" />
+	<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+		getKeyValueTargettingValues();
+		function getKeyValueTargettingValues(){
+			window.pagetype = "navigation";
+			window.article_cat = [];
+			window.censored = "false";
+		}
+	</script>
+
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+<title>Top 10 Lists - Listverse</title><link rel="stylesheet" href="https://listverse.com/wp-content/cache/min/1/b6610321d242bb18d2dad5ff7653a8c1.css" media="all" data-minify="1">
+
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<link rel="icon" type="image/png" href="https://listverse.com/wp-content/themes/listverse2013/assets/img/favicon.png">
+<link rel="apple-touch-icon-precomposed" href="https://listverse.com/wp-content/themes/listverse2013/assets/img/apple-touch-precomposed.png">
+<link rel="pingback" href="https://listverse.com/xmlrpc.php">
+<meta name="robots" content="max-image-preview:large">
+
+<style>
+	@font-face {
+		font-family: "sw-icon-font";
+		src:url("http://listverse.com/wp-content/plugins/social-warfare/assets/fonts/sw-icon-font.eot?ver=4.3.0");
+		src:url("http://listverse.com/wp-content/plugins/social-warfare/assets/fonts/sw-icon-font.eot?ver=4.3.0#iefix") format("embedded-opentype"),
+		url("http://listverse.com/wp-content/plugins/social-warfare/assets/fonts/sw-icon-font.woff?ver=4.3.0") format("woff"),
+		url("http://listverse.com/wp-content/plugins/social-warfare/assets/fonts/sw-icon-font.ttf?ver=4.3.0") format("truetype"),
+		url("http://listverse.com/wp-content/plugins/social-warfare/assets/fonts/sw-icon-font.svg?ver=4.3.0#1445203416") format("svg");
+		font-weight: normal;
+		font-style: normal;
+		font-display:block;
+	}
+</style>
+
+
+<meta name="description" content="Top 10 Lists that are hilarious, creepy, unexpected, and addictive. Three fact-filled top ten lists daily. Check us out now!">
+<link rel="canonical" href="https://listverse.com/">
+<link rel="next" href="https://listverse.com/page/2/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Top 10 Lists - Listverse">
+<meta property="og:description" content="Top 10 Lists that are hilarious, creepy, unexpected, and addictive. Three fact-filled top ten lists daily. Check us out now!">
+<meta property="og:url" content="https://listverse.com/">
+<meta property="og:site_name" content="Listverse">
+<meta property="fb:app_id" content="121151394607376">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Top 10 Lists that are hilarious, creepy, unexpected, and addictive. Three fact-filled top ten lists daily. Check us out now!">
+<meta name="twitter:title" content="Top 10 Lists - Listverse">
+<meta name="twitter:site" content="@listverse">
+
+<link rel="dns-prefetch" href="//s.skimresources.com">
+<link rel="dns-prefetch" href="//ads.adthrive.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="dns-prefetch" href="//r.skimresources.com">
+<link rel="dns-prefetch" href="//t.skimresources.com">
+<link rel="dns-prefetch" href="//p.skimresources.com">
+<link rel="dns-prefetch" href="//api.skimlinks.mgr.consensu.org">
+<link rel="dns-prefetch" href="//x.skimresources.com">
+<link rel="dns-prefetch" href="//loadeu.exelator.com">
+<link rel="dns-prefetch" href="//sync.crwdcntrl.net">
+<link rel="dns-prefetch" href="//gdpr-wrapper.privacymanager.io">
+<link rel="dns-prefetch" href="//securepubads.g.doubleclick.net">
+<link rel="dns-prefetch" href="//gdpr.privacymanager.io">
+<link rel="dns-prefetch" href="//sb.scorecardresearch.com">
+<link rel="dns-prefetch" href="//confiant-integrations.global.ssl.fastly.net">
+<link rel="alternate" type="application/rss+xml" title="Listverse » Feed" href="https://listverse.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Listverse » Comments Feed" href="https://listverse.com/comments/feed/">
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://listverse.com/wp-includes/js/jquery/jquery.min.js?ver=3.5.1" id="jquery-core-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://listverse.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://listverse.com/wp-content/cache/min/1/wp-content/themes/listverse2013/assets/js/plugins/superfish.js?ver=1644762482" id="superfish-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://listverse.com/wp-content/cache/min/1/wp-content/themes/listverse2013/assets/js/plugins/supersubs.js?ver=1644762482" id="supersubs-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://listverse.com/wp-content/cache/min/1/wp-content/themes/listverse2013/assets/js/plugins/jquery.fitvids.js?ver=1644762482" id="fitvids-js" defer=""></script>
+<link rel="https://api.w.org/" href="https://listverse.com/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://listverse.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://listverse.com/wp-includes/wlwmanifest.xml">
+<meta name="generator" content="WordPress 5.7.2">
+
+<script type="rocketlazyloadscript">(function(w, d) {
+	w.adthrive = w.adthrive || {};
+	w.adthrive.cmd = w.adthrive.cmd || [];
+	w.adthrive.plugin = 'adthrive-ads-1.0.41-manual';
+	w.adthrive.host = 'ads.adthrive.com';
+	var s = d.createElement('script');
+	s.async = true;
+	s.referrerpolicy='no-referrer-when-downgrade';
+	s.src = 'https://' + w.adthrive.host + '/sites/5f626e29f2ac165fa54f92fb/ads.min.js?referrer=' + w.encodeURIComponent(w.location.href);
+	var n = d.getElementsByTagName('script')[0];
+	n.parentNode.insertBefore(s, n);
+})(window, document);</script>
+
+
+<script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M3ZNR6H');</script>
+
+<link rel="preload" href="/wp-content/themes/listverse2013/assets/webfonts/TitilliumText25L002-webfont.woff" as="font" type="font/woff" crossorigin="anonymous">
+<link rel="preload" href="/wp-content/themes/listverse2013/assets/webfonts/TitilliumText25L003-webfont.woff" as="font" type="font/woff" crossorigin="anonymous">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta name="facebook-domain-verification" content="a5srwsmbml6bni6s14agad3pfdh8i0">
+
+<script type="application/ld+json" class="saswp-schema-markup-output">
+[{"@context":"https:\/\/schema.org","@graph":[{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Bizarre","url":"https:\/\/listverse.com\/bizarre\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"All Bizarre","url":"\/bizarre\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Creepy","url":"https:\/\/listverse.com\/bizarre\/creepy\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Mysteries","url":"https:\/\/listverse.com\/bizarre\/mysteries\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Weird Stuff","url":"https:\/\/listverse.com\/bizarre\/weird-stuff\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Entertainment","url":"https:\/\/listverse.com\/entertainment\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"All Entertainment","url":"\/entertainment\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Gaming","url":"https:\/\/listverse.com\/entertainment\/gaming\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Movies and TV","url":"https:\/\/listverse.com\/entertainment\/movies-and-tv\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Music","url":"https:\/\/listverse.com\/entertainment\/music-entertainment\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Pop Culture","url":"https:\/\/listverse.com\/entertainment\/pop-culture\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"The Arts","url":"https:\/\/listverse.com\/entertainment\/the-arts\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"General Knowledge","url":"https:\/\/listverse.com\/fact-fiction\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"All General Knowledge","url":"\/fact-fiction\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Books","url":"https:\/\/listverse.com\/fact-fiction\/books\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Facts","url":"https:\/\/listverse.com\/fact-fiction\/facts\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"History","url":"https:\/\/listverse.com\/fact-fiction\/history-fact-fiction\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Miscellaneous","url":"https:\/\/listverse.com\/fact-fiction\/miscellaneous-fact-fiction\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Misconceptions","url":"https:\/\/listverse.com\/fact-fiction\/misconceptions\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Lifestyle","url":"https:\/\/listverse.com\/leisure-travel\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"All Lifestyle","url":"\/leisure-travel\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Food","url":"https:\/\/listverse.com\/leisure-travel\/food\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Health","url":"https:\/\/listverse.com\/leisure-travel\/health\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Sport","url":"https:\/\/listverse.com\/leisure-travel\/sport\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Travel","url":"https:\/\/listverse.com\/leisure-travel\/travel\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Science","url":"https:\/\/listverse.com\/science-nature\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"All Science","url":"\/science-nature\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Animals","url":"https:\/\/listverse.com\/science-nature\/animals\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Humans","url":"https:\/\/listverse.com\/science-nature\/humans\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Our World","url":"https:\/\/listverse.com\/science-nature\/our-world\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Space","url":"https:\/\/listverse.com\/science-nature\/space\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Technology","url":"https:\/\/listverse.com\/science-nature\/technology\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Society","url":"https:\/\/listverse.com\/people-politics\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"All Society","url":"\/people-politics\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Crime","url":"https:\/\/listverse.com\/people-politics\/crime\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Politics","url":"https:\/\/listverse.com\/people-politics\/politics\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Religion","url":"https:\/\/listverse.com\/people-politics\/religion-people-politics\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"More","url":"#"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Write &#038; Get Paid","url":"https:\/\/listverse.com\/write-get-paid\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Submit A List","url":"https:\/\/listverse.com\/submit-a-list\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Search Listverse","url":"https:\/\/listverse.com\/search\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"Our Books","url":"https:\/\/listverse.com\/books\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","@id":"https:\/\/listverse.com\/#Main Navigation","name":"About Listverse","url":"https:\/\/listverse.com\/about-listverse\/"}]},
+
+{"@context":"https:\/\/schema.org","@type":"WebSite","@id":"https:\/\/listverse.com#website","headline":"Listverse","name":"Listverse","description":"Top 10 Lists that are hilarious, creepy, unexpected, and addictive. Three fact-filled top ten lists daily. Check us out now!","url":"https:\/\/listverse.com","potentialAction":{"@type":"SearchAction","target":"https:\/\/listverse.com\/?s={search_term_string}","query-input":"required name=search_term_string"}},
+
+{"@context":"https:\/\/schema.org","@type":"Corporation","@id":"https:\/\/listverse.com#Organization","name":"Listverse.com","url":"https:\/\/listverse.com","sameAs":["https:\/\/www.facebook.com\/top10lists"],"logo":{"@type":"ImageObject","url":"https:\/\/listverse.com\/wp-content\/uploads\/2017\/01\/logo-footer.png","width":"190","height":"36"}}]
+</script>
+<link rel="icon" href="https://listverse.com/wp-content/uploads/2020/10/cropped-Listverse-Facebook-Avatar-32x32.png" sizes="32x32">
+<link rel="icon" href="https://listverse.com/wp-content/uploads/2020/10/cropped-Listverse-Facebook-Avatar-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://listverse.com/wp-content/uploads/2020/10/cropped-Listverse-Facebook-Avatar-180x180.png">
+<meta name="msapplication-TileImage" content="https://listverse.com/wp-content/uploads/2020/10/cropped-Listverse-Facebook-Avatar-270x270.png">
+<style type="text/css" id="wp-custom-css">
+			.the-article .lyte-wrapper {
+ float:right !important;
+}		</style>
+<style>
+.ai-viewports                 {--ai: 1;}
+.ai-viewport-3                { display: none !important;}
+.ai-viewport-2                { display: none !important;}
+.ai-viewport-1                { display: inherit !important;}
+.ai-viewport-0                { display: none !important;}
+@media (min-width: 768px) and (max-width: 979px) {
+.ai-viewport-1                { display: none !important;}
+.ai-viewport-2                { display: inherit !important;}
+}
+@media (max-width: 767px) {
+.ai-viewport-1                { display: none !important;}
+.ai-viewport-3                { display: inherit !important;}
+}
+</style>
+
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2262876-1', 'auto');
+  
+  ga('send', 'pageview');	
+
+	
+</script>
+
+<style>
+
+ 
+nav.top-nav ul ul li.nav-posts {display:none!important;}
+
+</style>
+
+
+</head>
+<body class="home blog" id="top">
+
+<header>
+<div class="toolbar">
+<div class="wrapper">
+<nav class="top-nav">
+<a class="home-top" href="/">Go Home</a>
+<ul id="menu-main-navigation" class=""><li id="menu-item-50354" class="load-weird menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-50354"><a href="https://listverse.com/bizarre/">Bizarre</a>
+<ul class="sub-menu">
+<li id="menu-item-50385" class="icon-weird menu-item menu-item-type-custom menu-item-object-custom menu-item-50385"><a href="/bizarre/">All Bizarre</a></li>
+<li id="menu-item-50355" class="icon-creepy menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50355"><a href="https://listverse.com/bizarre/creepy/">Creepy</a></li>
+<li id="menu-item-50356" class="icon-mysteries menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50356"><a href="https://listverse.com/bizarre/mysteries/">Mysteries</a></li>
+<li id="menu-item-50357" class="icon-bizarre menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50357"><a href="https://listverse.com/bizarre/weird-stuff/">Weird Stuff</a></li>
+</ul>
+</li>
+<li id="menu-item-50358" class="load-entertainment menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-50358"><a href="https://listverse.com/entertainment/">Entertainment</a>
+<ul class="sub-menu">
+<li id="menu-item-50386" class="icon-entertainment menu-item menu-item-type-custom menu-item-object-custom menu-item-50386"><a href="/entertainment/">All Entertainment</a></li>
+<li id="menu-item-50359" class="icon-gaming menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50359"><a href="https://listverse.com/entertainment/gaming/">Gaming</a></li>
+<li id="menu-item-50360" class="icon-movies menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50360"><a href="https://listverse.com/entertainment/movies-and-tv/">Movies and TV</a></li>
+<li id="menu-item-50361" class="icon-music menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50361"><a href="https://listverse.com/entertainment/music-entertainment/">Music</a></li>
+<li id="menu-item-50362" class="icon-pop menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50362"><a href="https://listverse.com/entertainment/pop-culture/">Pop Culture</a></li>
+<li id="menu-item-50363" class="icon-arts menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50363"><a href="https://listverse.com/entertainment/the-arts/">The Arts</a></li>
+</ul>
+</li>
+<li id="menu-item-50364" class="load-general menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-50364"><a href="https://listverse.com/fact-fiction/">General Knowledge</a>
+<ul class="sub-menu">
+<li id="menu-item-50387" class="icon-general menu-item menu-item-type-custom menu-item-object-custom menu-item-50387"><a href="/fact-fiction/">All General Knowledge</a></li>
+<li id="menu-item-50365" class="icon-books menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50365"><a href="https://listverse.com/fact-fiction/books/">Books</a></li>
+<li id="menu-item-50366" class="icon-facts menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50366"><a href="https://listverse.com/fact-fiction/facts/">Facts</a></li>
+<li id="menu-item-50367" class="icon-history menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50367"><a href="https://listverse.com/fact-fiction/history-fact-fiction/">History</a></li>
+<li id="menu-item-50368" class="icon-miscellaneous menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50368"><a href="https://listverse.com/fact-fiction/miscellaneous-fact-fiction/">Miscellaneous</a></li>
+<li id="menu-item-50369" class="icon-misconceptions menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50369"><a href="https://listverse.com/fact-fiction/misconceptions/">Misconceptions</a></li>
+</ul>
+</li>
+<li id="menu-item-50370" class="load-lifestyle menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-50370"><a href="https://listverse.com/leisure-travel/">Lifestyle</a>
+<ul class="sub-menu">
+<li id="menu-item-50388" class="icon-lifestyle menu-item menu-item-type-custom menu-item-object-custom menu-item-50388"><a href="/leisure-travel/">All Lifestyle</a></li>
+<li id="menu-item-50371" class="icon-food menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50371"><a href="https://listverse.com/leisure-travel/food/">Food</a></li>
+<li id="menu-item-50372" class="icon-health menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50372"><a href="https://listverse.com/leisure-travel/health/">Health</a></li>
+<li id="menu-item-50373" class="icon-sport menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50373"><a href="https://listverse.com/leisure-travel/sport/">Sport</a></li>
+<li id="menu-item-50374" class="icon-travel menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50374"><a href="https://listverse.com/leisure-travel/travel/">Travel</a></li>
+</ul>
+</li>
+<li id="menu-item-50375" class="load-science menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-50375"><a href="https://listverse.com/science-nature/">Science</a>
+<ul class="sub-menu">
+<li id="menu-item-50389" class="icon-science menu-item menu-item-type-custom menu-item-object-custom menu-item-50389"><a href="/science-nature/">All Science</a></li>
+<li id="menu-item-50376" class="icon-animals menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50376"><a href="https://listverse.com/science-nature/animals/">Animals</a></li>
+<li id="menu-item-50377" class="icon-humans menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50377"><a href="https://listverse.com/science-nature/humans/">Humans</a></li>
+<li id="menu-item-50378" class="icon-world menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50378"><a href="https://listverse.com/science-nature/our-world/">Our World</a></li>
+<li id="menu-item-50379" class="icon-space menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50379"><a href="https://listverse.com/science-nature/space/">Space</a></li>
+<li id="menu-item-50380" class="icon-technology menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50380"><a href="https://listverse.com/science-nature/technology/">Technology</a></li>
+</ul>
+</li>
+<li id="menu-item-50381" class="load-society menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-50381"><a href="https://listverse.com/people-politics/">Society</a>
+<ul class="sub-menu">
+<li id="menu-item-50390" class="icon-society menu-item menu-item-type-custom menu-item-object-custom menu-item-50390"><a href="/people-politics/">All Society</a></li>
+<li id="menu-item-50382" class="icon-crime menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50382"><a href="https://listverse.com/people-politics/crime/">Crime</a></li>
+<li id="menu-item-50383" class="icon-politics menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50383"><a href="https://listverse.com/people-politics/politics/">Politics</a></li>
+<li id="menu-item-50384" class="icon-religion menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50384"><a href="https://listverse.com/people-politics/religion-people-politics/">Religion</a></li>
+</ul>
+</li>
+<li id="menu-item-50391" class="load-none menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-50391"><a href="#">More</a>
+<ul class="sub-menu">
+<li id="menu-item-50398" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50398"><a href="https://listverse.com/write-get-paid/">Write &amp; Get Paid</a></li>
+<li id="menu-item-50397" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50397"><a href="https://listverse.com/submit-a-list/">Submit A List</a></li>
+<li id="menu-item-50396" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50396"><a href="https://listverse.com/search/">Search Listverse</a></li>
+<li id="menu-item-50392" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50392"><a href="https://listverse.com/books/">Our Books</a></li>
+<li id="menu-item-620646" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-620646"><a href="https://listverse.com/about-listverse/">About Listverse</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<div class="search-top">
+<a class="search-top" href="#">Search this site</a>
+<div class="search-form search-top-reveal">
+<form id="cse-search-box" action="https://listverse.com/search/">
+<input type="text" id="search-input" size="31" name="q">
+<button type="submit" id="search-submit" value="Search" name="sa">Search</button>
+</form>
+</div>
+</div> <a class="more-more" href="#" title="Show More Information">Show More Information</a>
+<div class="follow-top">
+<a class="follow" href="#"></a>
+<div class="follow-reveal">
+<div class="inbox-top">
+
+<form action="https://listverse.us6.list-manage.com/subscribe/post?u=734f69ecd326abfe8022c2787&amp;id=5bcc7c5c82" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate="">
+<label class="mainlabel">Lists in your inbox</label>
+<input type="email" value="" name="EMAIL" class="emailaddress required email" id="mce-EMAIL" placeholder="<? _e(" enter="" your="" email="" address"="" ,="" "listverse");="" ?="">" /&gt;
+<div class="follow-submit">
+<button type="submit" name="subscribe" id="mc-embedded-subscribe" value="Submit">Submit</button>
+</div>
+<input type="checkbox" value="1" name="group[6705][1]" id="mce-group[6705]-6705-0" checked=""><label for="mce-group[6705]-6705-0">Daily Lists</label>
+<input type="checkbox" value="2" name="group[6705][2]" id="mce-group[6705]-6705-1"><label for="mce-group[6705]-6705-1">Weekly Lists</label>
+<div id="mce-responses" class="clear">
+<div class="response" id="mce-error-response" style="display:none"></div>
+<div class="response" id="mce-success-response" style="display:none"></div>
+</div>
+</form>
+
+</div>
+<ul>
+<li><a class="twitter" title="Twitter" href="https://twitter.com/listverse">Twitter</a></li>
+<li><a class="facebook" title="Facebook" href="https://facebook.com/top10lists">Facebook</a></li>
+<li><a class="pinterest" title="Pinterest" href="https://pinterest.com/listverse/">Pinterest</a></li>
+<li><a class="rss" title="RSS" href="/feed/">RSS</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="wrapper first">
+<a class="mobile-more" href="#" title="Show Mobile Navigation">Show Mobile Navigation</a>
+<nav class="mobile"></nav>
+<nav class="more"></nav>
+<a href="https://listverse.com/" title="Go to Home"><img class="logo" src="https://listverse.com/wp-content/themes/listverse2013/assets/img/logo@2x.png" data-fullsrc="https://listverse.com/wp-content/themes/listverse2013/assets/img/logo-14402.png" alt="Listverse Logo" width="190" height="27"></a>
+<div class="ga rect">
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;</div>
+</div>
+</header>
+<div class="wrapper">
+<div class="main">
+<div class="mobile-tabs">
+<a class="mobile-tab new-lists active" href="#" title="New Lists">New Lists</a>
+<a class="mobile-tab categories" href="#" title="Categories">Categories</a>
+</div>
+<section class="current">
+<div class="head">
+<div class="choice-categories"><div class="head-title"><a href="#" title="All Categories">All Categories</a></div>
+<ul id="menu-categories" class=""><li id="menu-item-50347" class="icon-weird menu-item menu-item-type-custom menu-item-object-custom menu-item-50347"><a href="#cat-bizarre">Bizarre</a></li>
+<li id="menu-item-50348" class="icon-entertainment menu-item menu-item-type-custom menu-item-object-custom menu-item-50348"><a href="#cat-entertainment">Entertainment</a></li>
+<li id="menu-item-50349" class="icon-general menu-item menu-item-type-custom menu-item-object-custom menu-item-50349"><a href="#cat-general">General Knowledge</a></li>
+<li id="menu-item-50350" class="icon-lifestyle menu-item menu-item-type-custom menu-item-object-custom menu-item-50350"><a href="#cat-lifestyle">Lifestyle</a></li>
+<li id="menu-item-50351" class="icon-science menu-item menu-item-type-custom menu-item-object-custom menu-item-50351"><a href="#cat-science">Science</a></li>
+<li id="menu-item-50352" class="icon-society menu-item menu-item-type-custom menu-item-object-custom menu-item-50352"><a href="#cat-society">Society</a></li>
+</ul> </div>
+<div class="choice-popular"><a class="tab-active" href="#" title="Popular">Popular</a></div>
+<div class="choice-recent"><a href="#" title="Recent">Recent</a></div>
+</div>
+<div class="tab-recent">
+<article class="animals">
+<a href="https://listverse.com/2022/03/25/ten-disease-carrying-bugs-and-creepy-crawlies-that-cure-diseases/"><img src="https://listverse.com/wp-content/uploads/2017/05/feature-a-funnel-web-spider-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2017/05/feature-a-funnel-web-spider-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2017/05/feature-a-funnel-web-spider-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2017/05/feature-a-funnel-web-spider-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2017/05/feature-a-funnel-web-spider-200x200.jpg 200w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/science-nature/animals/">Animals</a> <h4><a href="https://listverse.com/2022/03/25/ten-disease-carrying-bugs-and-creepy-crawlies-that-cure-diseases/">Ten Disease-Carrying Bugs and Creepy Crawlies That Cure Diseases</a></h4>
+<time datetime="2022-03-25">March 25, 2022</time>
+</article>
+<article class="weird-stuff">
+<a href="https://listverse.com/2022/03/25/10-ways-cultures-around-the-world-are-obsessed-with-eyes/"><img src="https://listverse.com/wp-content/uploads/2014/06/179082899-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2014/06/179082899-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2014/06/179082899-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2014/06/179082899-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2014/06/179082899-200x200.jpg 200w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/bizarre/weird-stuff/">Weird Stuff</a> <h4><a href="https://listverse.com/2022/03/25/10-ways-cultures-around-the-world-are-obsessed-with-eyes/">10 Ways Cultures Around the World Are Obsessed with Eyes</a></h4>
+<time datetime="2022-03-25">March 25, 2022</time>
+</article>
+<article class="humans">
+<a href="https://listverse.com/2022/03/24/ten-outside-the-box-charity-challenges/"><img src="https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper-80x80.jpg 80w, https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper-160x160.jpg 160w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/science-nature/humans/">Humans</a> <h4><a href="https://listverse.com/2022/03/24/ten-outside-the-box-charity-challenges/">Ten Outside-the-Box Charity Challenges</a></h4>
+<time datetime="2022-03-24">March 24, 2022</time>
+</article>
+<div class="ga square">
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+</div>
+<article class="movies-and-tv">
+<a href="https://listverse.com/2022/03/24/top-10-most-bizarre-movie-casting-ideas/"><img src="https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo-80x80.jpg 80w, https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo-160x160.jpg 160w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/entertainment/movies-and-tv/">Movies and TV</a> <h4><a href="https://listverse.com/2022/03/24/top-10-most-bizarre-movie-casting-ideas/">Top 10 Most Bizarre Movie Casting Ideas</a></h4>
+<time datetime="2022-03-24">March 24, 2022</time>
+</article>
+<article class="pop-culture">
+<a href="https://listverse.com/2022/03/23/10-famous-dead-people-that-conspiracy-theories-say-are-alive/"><img src="https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1-80x80.jpg 80w, https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1-160x160.jpg 160w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/entertainment/pop-culture/">Pop Culture</a> <h4><a href="https://listverse.com/2022/03/23/10-famous-dead-people-that-conspiracy-theories-say-are-alive/">10 Famous Dead People That Conspiracy Theories Say Are Alive</a></h4>
+<time datetime="2022-03-23">March 23, 2022</time>
+</article>
+<article class="facts">
+<a href="https://listverse.com/2022/03/23/ten-survivalist-foods-and-how-to-find-them/"><img src="https://listverse.com/wp-content/uploads/2019/09/squirrel-mugshot-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2019/09/squirrel-mugshot-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2019/09/squirrel-mugshot-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2019/09/squirrel-mugshot-100x100.jpg 100w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/fact-fiction/facts/">Facts</a> <h4><a href="https://listverse.com/2022/03/23/ten-survivalist-foods-and-how-to-find-them/">Ten Survivalist Foods and How to Find Them</a></h4>
+<time datetime="2022-03-23">March 23, 2022</time>
+</article>
+<article class="crime">
+<a href="https://listverse.com/2022/03/22/top-10-serial-killers-only-crime-buffs-know-about/"><img src="https://listverse.com/wp-content/uploads/2013/08/rsz_crimescene_07ds-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2013/08/rsz_crimescene_07ds-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2013/08/rsz_crimescene_07ds-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2013/08/rsz_crimescene_07ds-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2013/08/rsz_crimescene_07ds-200x200.jpg 200w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/people-politics/crime/">Crime</a> <h4><a href="https://listverse.com/2022/03/22/top-10-serial-killers-only-crime-buffs-know-about/">Top 10 Serial Killers Only Crime Buffs Know About</a></h4>
+<time datetime="2022-03-22">March 22, 2022</time>
+</article>
+<article class="creepy">
+<a href="https://listverse.com/2022/03/22/10-dark-tourist-destinations-in-the-uk/"><img src="https://listverse.com/wp-content/uploads/2016/09/6a-indian-skulls-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2016/09/6a-indian-skulls-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2016/09/6a-indian-skulls-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2016/09/6a-indian-skulls-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2016/09/6a-indian-skulls-200x200.jpg 200w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/bizarre/creepy/">Creepy</a> <h4><a href="https://listverse.com/2022/03/22/10-dark-tourist-destinations-in-the-uk/">10 Dark Tourist Destinations in the UK</a></h4>
+<time datetime="2022-03-22">March 22, 2022</time>
+</article>
+<article class="food">
+<a href="https://listverse.com/2022/03/21/top-10-myths-about-gmos/"><img src="https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1-80x80.jpg 80w, https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1-160x160.jpg 160w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/leisure-travel/food/">Food</a> <h4><a href="https://listverse.com/2022/03/21/top-10-myths-about-gmos/">Top 10 Myths about GMOs</a></h4>
+<time datetime="2022-03-21">March 21, 2022</time>
+</article>
+<article class="history-fact-fiction">
+<a href="https://listverse.com/2022/03/21/top-10-ancient-symbols-used-in-modern-contexts/"><img src="https://listverse.com/wp-content/uploads/2022/03/rune-stones-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2022/03/rune-stones-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2022/03/rune-stones-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2022/03/rune-stones-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2022/03/rune-stones-80x80.jpg 80w, https://listverse.com/wp-content/uploads/2022/03/rune-stones-160x160.jpg 160w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/fact-fiction/history-fact-fiction/">History</a> <h4><a href="https://listverse.com/2022/03/21/top-10-ancient-symbols-used-in-modern-contexts/">Top 10 Ancient Symbols Used in Modern Contexts</a></h4>
+<time datetime="2022-03-21">March 21, 2022</time>
+</article>
+</div>
+<div class="tab-popular">
+<div class="ga square"></div>
+<article>
+<a href="https://listverse.com/2022/03/25/ten-disease-carrying-bugs-and-creepy-crawlies-that-cure-diseases/"><img src="https://listverse.com/wp-content/uploads/2017/05/feature-a-funnel-web-spider-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2017/05/feature-a-funnel-web-spider-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2017/05/feature-a-funnel-web-spider-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2017/05/feature-a-funnel-web-spider-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2017/05/feature-a-funnel-web-spider-200x200.jpg 200w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/science-nature/animals/">Animals</a> <h4><a href="https://listverse.com/2022/03/25/ten-disease-carrying-bugs-and-creepy-crawlies-that-cure-diseases/">Ten Disease-Carrying Bugs and Creepy Crawlies That Cure Diseases</a></h4>
+<time datetime="2022-03-25">March 25, 2022</time>
+</article>
+<article>
+<a href="https://listverse.com/2022/03/25/10-ways-cultures-around-the-world-are-obsessed-with-eyes/"><img src="https://listverse.com/wp-content/uploads/2014/06/179082899-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2014/06/179082899-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2014/06/179082899-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2014/06/179082899-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2014/06/179082899-200x200.jpg 200w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/bizarre/weird-stuff/">Weird Stuff</a> <h4><a href="https://listverse.com/2022/03/25/10-ways-cultures-around-the-world-are-obsessed-with-eyes/">10 Ways Cultures Around the World Are Obsessed with Eyes</a></h4>
+<time datetime="2022-03-25">March 25, 2022</time>
+</article>
+<article>
+<a href="https://listverse.com/2022/03/24/ten-outside-the-box-charity-challenges/"><img src="https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper-80x80.jpg 80w, https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper-160x160.jpg 160w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/science-nature/humans/">Humans</a> <h4><a href="https://listverse.com/2022/03/24/ten-outside-the-box-charity-challenges/">Ten Outside-the-Box Charity Challenges</a></h4>
+<time datetime="2022-03-24">March 24, 2022</time>
+</article>
+<div class="about-cta">
+<div class="about-cta__inner">
+<div class="about-cta__title">
+<h3 class="txt-bold">Who's Behind Listverse?</h3>
+</div>
+<div class="about-cta__img">
+<img class="img-full" src="https://listverse.com/wp-content/themes/listverse2013/assets/img/jamie-frater.jpg" srcset="https://listverse.com/wp-content/themes/listverse2013/assets/img/jamie-frater.jpg 1x, https://listverse.com/wp-content/themes/listverse2013/assets/img/jamie-frater@2x.jpg 2x" alt="Jamie Frater" width="70" height="70">
+</div>
+<p class="about-cta__name">Jamie Frater</p>
+<p class="about-cta__position">Head Editor</p>
+<p class="about-cta__txt">Jamie founded Listverse due to an insatiable desire to share fascinating, obscure, and bizarre facts. He has been a guest speaker on numerous national radio and television stations and is a five time published author.</p>
+<a class="about-cta__link txt-bold" href="https://listverse.com/about-listverse/">More About Us</a>
+</div>
+</div>
+<article>
+<a href="https://listverse.com/2022/03/24/top-10-most-bizarre-movie-casting-ideas/"><img src="https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo-80x80.jpg 80w, https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo-160x160.jpg 160w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/entertainment/movies-and-tv/">Movies and TV</a> <h4><a href="https://listverse.com/2022/03/24/top-10-most-bizarre-movie-casting-ideas/">Top 10 Most Bizarre Movie Casting Ideas</a></h4>
+<time datetime="2022-03-24">March 24, 2022</time>
+</article>
+<article>
+<a href="https://listverse.com/2022/03/23/10-famous-dead-people-that-conspiracy-theories-say-are-alive/"><img src="https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1-80x80.jpg 80w, https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1-160x160.jpg 160w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/entertainment/pop-culture/">Pop Culture</a> <h4><a href="https://listverse.com/2022/03/23/10-famous-dead-people-that-conspiracy-theories-say-are-alive/">10 Famous Dead People That Conspiracy Theories Say Are Alive</a></h4>
+<time datetime="2022-03-23">March 23, 2022</time>
+</article>
+<article>
+<a href="https://listverse.com/2022/03/23/ten-survivalist-foods-and-how-to-find-them/"><img src="https://listverse.com/wp-content/uploads/2019/09/squirrel-mugshot-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2019/09/squirrel-mugshot-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2019/09/squirrel-mugshot-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2019/09/squirrel-mugshot-100x100.jpg 100w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/fact-fiction/facts/">Facts</a> <h4><a href="https://listverse.com/2022/03/23/ten-survivalist-foods-and-how-to-find-them/">Ten Survivalist Foods and How to Find Them</a></h4>
+<time datetime="2022-03-23">March 23, 2022</time>
+</article>
+<div class="ga square">
+</div>
+<article>
+<a href="https://listverse.com/2022/03/22/top-10-serial-killers-only-crime-buffs-know-about/"><img src="https://listverse.com/wp-content/uploads/2013/08/rsz_crimescene_07ds-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2013/08/rsz_crimescene_07ds-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2013/08/rsz_crimescene_07ds-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2013/08/rsz_crimescene_07ds-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2013/08/rsz_crimescene_07ds-200x200.jpg 200w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/people-politics/crime/">Crime</a> <h4><a href="https://listverse.com/2022/03/22/top-10-serial-killers-only-crime-buffs-know-about/">Top 10 Serial Killers Only Crime Buffs Know About</a></h4>
+<time datetime="2022-03-22">March 22, 2022</time>
+</article>
+<article>
+<a href="https://listverse.com/2022/03/22/10-dark-tourist-destinations-in-the-uk/"><img src="https://listverse.com/wp-content/uploads/2016/09/6a-indian-skulls-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2016/09/6a-indian-skulls-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2016/09/6a-indian-skulls-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2016/09/6a-indian-skulls-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2016/09/6a-indian-skulls-200x200.jpg 200w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/bizarre/creepy/">Creepy</a> <h4><a href="https://listverse.com/2022/03/22/10-dark-tourist-destinations-in-the-uk/">10 Dark Tourist Destinations in the UK</a></h4>
+<time datetime="2022-03-22">March 22, 2022</time>
+</article>
+<article>
+<a href="https://listverse.com/2022/03/21/top-10-myths-about-gmos/"><img src="https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1-80x80.jpg 80w, https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1-160x160.jpg 160w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/leisure-travel/food/">Food</a> <h4><a href="https://listverse.com/2022/03/21/top-10-myths-about-gmos/">Top 10 Myths about GMOs</a></h4>
+<time datetime="2022-03-21">March 21, 2022</time>
+</article>
+<article>
+<a href="https://listverse.com/2022/03/21/top-10-ancient-symbols-used-in-modern-contexts/"><img src="https://listverse.com/wp-content/uploads/2022/03/rune-stones-85x85.jpg" class="attachment-square-thumb size-square-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2022/03/rune-stones-85x85.jpg 85w, https://listverse.com/wp-content/uploads/2022/03/rune-stones-150x150.jpg 150w, https://listverse.com/wp-content/uploads/2022/03/rune-stones-100x100.jpg 100w, https://listverse.com/wp-content/uploads/2022/03/rune-stones-80x80.jpg 80w, https://listverse.com/wp-content/uploads/2022/03/rune-stones-160x160.jpg 160w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="85"></a>
+<a class="title-category" href="https://listverse.com/fact-fiction/history-fact-fiction/">History</a> <h4><a href="https://listverse.com/2022/03/21/top-10-ancient-symbols-used-in-modern-contexts/">Top 10 Ancient Symbols Used in Modern Contexts</a></h4>
+<time datetime="2022-03-21">March 21, 2022</time>
+</article>
+</div>
+<div class="ga square asc-ad tas-sticky">
+
+
+</div>
+</section>
+<section class="new">
+<div class="head">
+<div class="head-title">Top 10 Lists</div>
+<a class="btn random" href="https://listverse.com/2014/05/02/10-cruel-death-marches-from-modern-history/">Random List</a>
+</div>
+<article class="lead">
+<a href="https://listverse.com/2022/03/25/ten-disease-carrying-bugs-and-creepy-crawlies-that-cure-diseases/"><img src="https://listverse.com/wp-content/uploads/2017/05/feature-a-funnel-web-spider-632x332.jpg" class="attachment-single-thumb size-single-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2017/05/feature-a-funnel-web-spider.jpg 632w, https://listverse.com/wp-content/uploads/2017/05/feature-a-funnel-web-spider-300x158.jpg 300w, https://listverse.com/wp-content/uploads/2017/05/feature-a-funnel-web-spider-407x214.jpg 407w, https://listverse.com/wp-content/uploads/2017/05/feature-a-funnel-web-spider-364x191.jpg 364w" sizes="(max-width: 632px) 100vw, 632px" width="632" height="332"></a>
+<a class="title-category" href="https://listverse.com/science-nature/animals/">Animals</a>
+<h3><a href="https://listverse.com/2022/03/25/ten-disease-carrying-bugs-and-creepy-crawlies-that-cure-diseases/">Ten Disease-Carrying Bugs and Creepy Crawlies That Cure Diseases</a></h3>
+<p class="meta">
+<span class="author"><a href="https://listverse.com/lvauthor/Danielle%20Williams">Danielle Williams</a></span> 
+
+</p>
+</article>
+
+<center><div id="div-gpt-ad-lv-mobile-top-fp" adonis-marker="">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+						var width = window.innerWidth || document.documentElement.clientWidth;
+						if (width < 768) {
+							googletag.cmd.push(function() { googletag.display('div-gpt-ad-lv-mobile-top-fp'); });
+						}
+					</script>
+</div></center>
+<article>
+<a href="https://listverse.com/2022/03/25/10-ways-cultures-around-the-world-are-obsessed-with-eyes/"><img src="https://listverse.com/wp-content/uploads/2014/06/179082899-407x214.jpg" class="attachment-archive-thumb size-archive-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2014/06/179082899-407x214.jpg 407w, https://listverse.com/wp-content/uploads/2014/06/179082899-300x158.jpg 300w, https://listverse.com/wp-content/uploads/2014/06/179082899.jpg 632w, https://listverse.com/wp-content/uploads/2014/06/179082899-364x191.jpg 364w" sizes="(max-width: 407px) 100vw, 407px" width="407" height="214"></a>
+<a class="title-category" href="https://listverse.com/bizarre/weird-stuff/">Weird Stuff</a>
+<h3><a href="https://listverse.com/2022/03/25/10-ways-cultures-around-the-world-are-obsessed-with-eyes/">10 Ways Cultures Around the World Are Obsessed with Eyes</a></h3>
+<p class="meta">
+<span class="author"><a href="https://listverse.com/lvauthor/Alina%20Calmos">Alina Calmos</a></span> 
+
+</p>
+</article>
+<article>
+<a href="https://listverse.com/2022/03/24/ten-outside-the-box-charity-challenges/"><img src="https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper-407x214.jpg" class="attachment-archive-thumb size-archive-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper-407x214.jpg 407w, https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper-300x158.jpg 300w, https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper-364x191.jpg 364w, https://listverse.com/wp-content/uploads/2022/03/loxley-stormtrooper.jpg 632w" sizes="(max-width: 407px) 100vw, 407px" width="407" height="214"></a>
+<a class="title-category" href="https://listverse.com/science-nature/humans/">Humans</a>
+<h3><a href="https://listverse.com/2022/03/24/ten-outside-the-box-charity-challenges/">Ten Outside-the-Box Charity Challenges</a></h3>
+<p class="meta">
+<span class="author"><a href="https://listverse.com/lvauthor/Joanne%20Gould">Joanne Gould</a></span> 
+
+</p>
+</article>
+<div class="clearboth"></div>
+
+
+
+
+<article>
+<a href="https://listverse.com/2022/03/24/top-10-most-bizarre-movie-casting-ideas/"><img src="https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo-407x214.jpg" class="attachment-archive-thumb size-archive-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo-407x214.jpg 407w, https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo-300x158.jpg 300w, https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo-364x191.jpg 364w, https://listverse.com/wp-content/uploads/2022/03/pacino-as-han-solo.jpg 632w" sizes="(max-width: 407px) 100vw, 407px" width="407" height="214"></a>
+<a class="title-category" href="https://listverse.com/entertainment/movies-and-tv/">Movies and TV</a>
+<h3><a href="https://listverse.com/2022/03/24/top-10-most-bizarre-movie-casting-ideas/">Top 10 Most Bizarre Movie Casting Ideas</a></h3>
+<p class="meta">
+<span class="author"><a href="https://listverse.com/lvauthor/Jennifer%20Lafferty">Jennifer Lafferty</a></span> 
+
+</p>
+</article>
+<center>
+<div id="div-gpt-ad-LV-Mobile-FP-BOTTOM" adonis-marker="">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+						var width = window.innerWidth || document.documentElement.clientWidth;
+						if (width < 768) {
+							googletag.cmd.push(function() { googletag.display('div-gpt-ad-LV-Mobile-FP-BOTTOM'); });
+						}
+					</script>
+</div></center>
+<article>
+<a href="https://listverse.com/2022/03/23/10-famous-dead-people-that-conspiracy-theories-say-are-alive/"><img src="https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1-407x214.jpg" class="attachment-archive-thumb size-archive-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1-407x214.jpg 407w, https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1-300x158.jpg 300w, https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1-364x191.jpg 364w, https://listverse.com/wp-content/uploads/2022/03/tarik-haiga-BxELNNMN88Y-unsplash-1.jpg 632w" sizes="(max-width: 407px) 100vw, 407px" width="407" height="214"></a>
+<a class="title-category" href="https://listverse.com/entertainment/pop-culture/">Pop Culture</a>
+<h3><a href="https://listverse.com/2022/03/23/10-famous-dead-people-that-conspiracy-theories-say-are-alive/">10 Famous Dead People That Conspiracy Theories Say Are Alive</a></h3>
+<p class="meta">
+<span class="author"><a href="https://listverse.com/lvauthor/David%20Long">David Long</a></span> 
+
+</p>
+</article>
+<div class="clearboth"></div>
+<article>
+<a href="https://listverse.com/2022/03/23/ten-survivalist-foods-and-how-to-find-them/"><img src="https://listverse.com/wp-content/uploads/2019/09/squirrel-mugshot-407x214.jpg" class="attachment-archive-thumb size-archive-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2019/09/squirrel-mugshot-407x214.jpg 407w, https://listverse.com/wp-content/uploads/2019/09/squirrel-mugshot-300x158.jpg 300w, https://listverse.com/wp-content/uploads/2019/09/squirrel-mugshot.jpg 632w, https://listverse.com/wp-content/uploads/2019/09/squirrel-mugshot-364x191.jpg 364w" sizes="(max-width: 407px) 100vw, 407px" width="407" height="214"></a>
+<a class="title-category" href="https://listverse.com/fact-fiction/facts/">Facts</a>
+<h3><a href="https://listverse.com/2022/03/23/ten-survivalist-foods-and-how-to-find-them/">Ten Survivalist Foods and How to Find Them</a></h3>
+<p class="meta">
+<span class="author"><a href="https://listverse.com/lvauthor/id%3D32">Christopher Dale</a></span> 
+
+</p>
+</article>
+
+<center>
+<div id="div-gpt-ad-LV-Mobile-FP-LAST" adonis-marker="">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+						var width = window.innerWidth || document.documentElement.clientWidth;
+						if (width < 768) {
+							googletag.cmd.push(function() { googletag.display('div-gpt-ad-LV-Mobile-FP-LAST'); });
+						}
+					</script>
+</div></center>
+<article>
+<a href="https://listverse.com/2022/03/22/top-10-serial-killers-only-crime-buffs-know-about/"><img src="https://listverse.com/wp-content/uploads/2013/08/rsz_crimescene_07ds-407x214.jpg" class="attachment-archive-thumb size-archive-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2013/08/rsz_crimescene_07ds-407x214.jpg 407w, https://listverse.com/wp-content/uploads/2013/08/rsz_crimescene_07ds-300x158.jpg 300w, https://listverse.com/wp-content/uploads/2013/08/rsz_crimescene_07ds.jpg 632w, https://listverse.com/wp-content/uploads/2013/08/rsz_crimescene_07ds-364x191.jpg 364w" sizes="(max-width: 407px) 100vw, 407px" width="407" height="214"></a>
+<a class="title-category" href="https://listverse.com/people-politics/crime/">Crime</a>
+<h3><a href="https://listverse.com/2022/03/22/top-10-serial-killers-only-crime-buffs-know-about/">Top 10 Serial Killers Only Crime Buffs Know About</a></h3>
+<p class="meta">
+<span class="author"><a href="https://listverse.com/lvauthor/C.J.%20Phillips">C.J. Phillips</a></span> 
+
+</p>
+</article>
+<div class="clearboth"></div>
+<article>
+<a href="https://listverse.com/2022/03/22/10-dark-tourist-destinations-in-the-uk/"><img src="https://listverse.com/wp-content/uploads/2016/09/6a-indian-skulls-407x214.jpg" class="attachment-archive-thumb size-archive-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2016/09/6a-indian-skulls-407x214.jpg 407w, https://listverse.com/wp-content/uploads/2016/09/6a-indian-skulls-300x158.jpg 300w, https://listverse.com/wp-content/uploads/2016/09/6a-indian-skulls.jpg 632w, https://listverse.com/wp-content/uploads/2016/09/6a-indian-skulls-364x191.jpg 364w" sizes="(max-width: 407px) 100vw, 407px" width="407" height="214"></a>
+<a class="title-category" href="https://listverse.com/bizarre/creepy/">Creepy</a>
+<h3><a href="https://listverse.com/2022/03/22/10-dark-tourist-destinations-in-the-uk/">10 Dark Tourist Destinations in the UK</a></h3>
+<p class="meta">
+<span class="author"><a href="https://listverse.com/lvauthor/Annie%20Jones">Annie Jones</a></span> 
+
+</p>
+</article>
+<article>
+<a href="https://listverse.com/2022/03/21/top-10-myths-about-gmos/"><img src="https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1-407x214.jpg" class="attachment-archive-thumb size-archive-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1-407x214.jpg 407w, https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1-300x158.jpg 300w, https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1-364x191.jpg 364w, https://listverse.com/wp-content/uploads/2022/03/markus-spiske-3rGrIigBq8Q-unsplash-1.jpg 632w" sizes="(max-width: 407px) 100vw, 407px" width="407" height="214"></a>
+<a class="title-category" href="https://listverse.com/leisure-travel/food/">Food</a>
+<h3><a href="https://listverse.com/2022/03/21/top-10-myths-about-gmos/">Top 10 Myths about GMOs</a></h3>
+<p class="meta">
+<span class="author"><a href="https://listverse.com/lvauthor/George%20Smith">George Smith</a></span> 
+
+</p>
+</article>
+<div class="clearboth"></div>
+<article>
+<a href="https://listverse.com/2022/03/21/top-10-ancient-symbols-used-in-modern-contexts/"><img src="https://listverse.com/wp-content/uploads/2022/03/rune-stones-407x214.jpg" class="attachment-archive-thumb size-archive-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2022/03/rune-stones-407x214.jpg 407w, https://listverse.com/wp-content/uploads/2022/03/rune-stones-300x158.jpg 300w, https://listverse.com/wp-content/uploads/2022/03/rune-stones-364x191.jpg 364w, https://listverse.com/wp-content/uploads/2022/03/rune-stones.jpg 632w" sizes="(max-width: 407px) 100vw, 407px" width="407" height="214"></a>
+<a class="title-category" href="https://listverse.com/fact-fiction/history-fact-fiction/">History</a>
+<h3><a href="https://listverse.com/2022/03/21/top-10-ancient-symbols-used-in-modern-contexts/">Top 10 Ancient Symbols Used in Modern Contexts</a></h3>
+<p class="meta">
+<span class="author"><a href="https://listverse.com/lvauthor/Luisa%20Hagele">Luisa Hagele</a></span> 
+
+</p>
+</article>
+<article>
+<a href="https://listverse.com/2022/03/20/10-lost-films-that-were-recently-found/"><img src="https://listverse.com/wp-content/uploads/2022/03/salome-screenshot-6-407x214.png" class="attachment-archive-thumb size-archive-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2022/03/salome-screenshot-6-407x214.png 407w, https://listverse.com/wp-content/uploads/2022/03/salome-screenshot-6-300x158.png 300w, https://listverse.com/wp-content/uploads/2022/03/salome-screenshot-6-364x191.png 364w, https://listverse.com/wp-content/uploads/2022/03/salome-screenshot-6.png 632w" sizes="(max-width: 407px) 100vw, 407px" width="407" height="214"></a>
+<a class="title-category" href="https://listverse.com/entertainment/movies-and-tv/">Movies and TV</a>
+<h3><a href="https://listverse.com/2022/03/20/10-lost-films-that-were-recently-found/">10 Lost Films That Were Recently Found</a></h3>
+<p class="meta">
+<span class="author"><a href="https://listverse.com/lvauthor/Leaman%20Crews">Leaman Crews</a></span> 
+
+</p>
+</article>
+<div class="pagination">
+<div class="navigation">
+<div class="wrapper">
+<nav class="pagination"><ul><li><span class="curr">1</span></li><li><a href="https://listverse.com/page/2/" class="inactive">2</a></li><li><a href="https://listverse.com/page/3/" class="inactive">3</a></li><li><a href="https://listverse.com/page/2/">›</a></li><li><a href="https://listverse.com/page/933/">»</a></li></ul></nav>
+<div class="nav-next tt-1"><a href="https://listverse.com/page/2/">Next »</a></div>
+
+<div class="nav-previous"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="picks">
+<div class="head">
+<div class="head-title">Editor’s Picks</div>
+</div>
+
+<article>
+<a href="https://listverse.com/2021/09/26/top-10-creepiest-things-found-at-pripyat-and-chernobyl/"><img src="https://listverse.com/wp-content/uploads/2021/09/shutterstock_296142344chernobyl-doll-e1632620304975-364x192.jpg" class="attachment-picks-thumb size-picks-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2021/09/shutterstock_296142344chernobyl-doll-e1632620304975-364x192.jpg 364w, https://listverse.com/wp-content/uploads/2021/09/shutterstock_296142344chernobyl-doll-e1632620304975-300x158.jpg 300w, https://listverse.com/wp-content/uploads/2021/09/shutterstock_296142344chernobyl-doll-e1632620304975-407x215.jpg 407w, https://listverse.com/wp-content/uploads/2021/09/shutterstock_296142344chernobyl-doll-e1632620304975.jpg 631w" sizes="(max-width: 364px) 100vw, 364px" width="364" height="192"></a>
+<a class="title-category" href="https://listverse.com/bizarre/creepy/">Creepy</a> <h3><a href="https://listverse.com/2021/09/26/top-10-creepiest-things-found-at-pripyat-and-chernobyl/">Top 10 Creepiest Things Found At Pripyat And Chernobyl</a></h3>
+<p class="meta">
+<span class="author"><a href="https://listverse.com/lvauthor/Duane%20Wesley">Duane Wesley</a></span>
+
+</p>
+</article>
+<article>
+<a href="https://listverse.com/2021/05/06/top-10-ways-society-today-is-like-pre-war-nazi-germany/"><img src="https://listverse.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-06-at-11.02.10-AM-364x191.png" class="attachment-picks-thumb size-picks-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-06-at-11.02.10-AM-364x191.png 364w, https://listverse.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-06-at-11.02.10-AM-300x158.png 300w, https://listverse.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-06-at-11.02.10-AM-407x214.png 407w, https://listverse.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-06-at-11.02.10-AM.png 632w" sizes="(max-width: 364px) 100vw, 364px" width="364" height="191"></a>
+<a class="title-category" href="https://listverse.com/fact-fiction/history-fact-fiction/">History</a> <h3><a href="https://listverse.com/2021/05/06/top-10-ways-society-today-is-like-pre-war-nazi-germany/">Top 10 Ways Society Today Is Like Pre-War Nazi Germany</a></h3>
+<p class="meta">
+<span class="author"><a href="https://listverse.com/lvauthor/id%3D19">Jonathan H. Kantor</a></span>
+
+</p>
+</article>
+<article>
+<a href="https://listverse.com/2021/03/21/top-10-sinister-facts-about-cyber-warfare/"><img src="https://listverse.com/wp-content/uploads/2020/03/google-hack-engineer-364x191.jpg" class="attachment-picks-thumb size-picks-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2020/03/google-hack-engineer-364x191.jpg 364w, https://listverse.com/wp-content/uploads/2020/03/google-hack-engineer-300x158.jpg 300w, https://listverse.com/wp-content/uploads/2020/03/google-hack-engineer-407x214.jpg 407w, https://listverse.com/wp-content/uploads/2020/03/google-hack-engineer.jpg 632w" sizes="(max-width: 364px) 100vw, 364px" width="364" height="191"></a>
+<a class="title-category" href="https://listverse.com/entertainment/pop-culture/">Pop Culture</a> <h3><a href="https://listverse.com/2021/03/21/top-10-sinister-facts-about-cyber-warfare/">Top 10 Sinister Facts About Cyber Warfare</a></h3>
+<p class="meta">
+<span class="author"><a href="https://listverse.com/lvauthor/Benjamin%20Thomas">Benjamin Thomas</a></span>
+
+</p>
+</article>
+<article>
+<a href="https://listverse.com/2016/02/22/10-unbelievable-stories-about-vladimir-putin/"><img src="https://listverse.com/wp-content/uploads/2016/02/feature-putin-chick-364x191.jpg" class="attachment-picks-thumb size-picks-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2016/02/feature-putin-chick-364x191.jpg 364w, https://listverse.com/wp-content/uploads/2016/02/feature-putin-chick-300x158.jpg 300w, https://listverse.com/wp-content/uploads/2016/02/feature-putin-chick.jpg 632w, https://listverse.com/wp-content/uploads/2016/02/feature-putin-chick-407x214.jpg 407w" sizes="(max-width: 364px) 100vw, 364px" width="364" height="191"></a>
+<a class="title-category" href="https://listverse.com/bizarre/weird-stuff/">Weird Stuff</a> <h3><a href="https://listverse.com/2016/02/22/10-unbelievable-stories-about-vladimir-putin/">10 Unbelievable Stories About Vladimir Putin</a></h3>
+<p class="meta">
+<span class="author"><a href="https://listverse.com/lvauthor/Gordon%20Gora">Gordon Gora</a></span>
+
+</p>
+</article>
+ 
+
+<article>
+<a href="https://listverse.com/2014/02/02/10-epic-russian-military-disasters/"><img src="https://listverse.com/wp-content/uploads/2014/02/Winter_war-1-364x191.jpg" class="attachment-picks-thumb size-picks-thumb wp-post-image" alt="" loading="lazy" srcset="https://listverse.com/wp-content/uploads/2014/02/Winter_war-1-364x191.jpg 364w, https://listverse.com/wp-content/uploads/2014/02/Winter_war-1-300x158.jpg 300w, https://listverse.com/wp-content/uploads/2014/02/Winter_war-1.jpg 632w, https://listverse.com/wp-content/uploads/2014/02/Winter_war-1-407x214.jpg 407w" sizes="(max-width: 364px) 100vw, 364px" width="364" height="191"></a>
+<a class="title-category" href="https://listverse.com/fact-fiction/history-fact-fiction/">History</a> <h3><a href="https://listverse.com/2014/02/02/10-epic-russian-military-disasters/">10 Epic Russian Military Disasters</a></h3>
+<p class="meta">
+<span class="author"><a href="https://listverse.com/lvauthor/J.%20Wisniewski">J. Wisniewski</a></span>
+
+</p>
+</article>
+
+</section>
+</div>
+</div>
+<footer>
+<div class="wrapper">
+<div class="column copyright">
+<a href="https://listverse.com/"><img class="footer-logo" src="https://listverse.com/wp-content/themes/listverse2013/assets/img/logo-footer.png" alt="Listverse Logo" width="230" height="33"></a>
+<small><a href="https://listverse.com/" title="Listverse">Listverse</a> is a Trademark of Listverse Ltd<br>
+Copyright (c) 2007–2022 Listverse Ltd<br>
+All Rights Reserved
+| <a href="https://listverse.com/terms-of-use/" style="color: #d24d33;">Terms Of Use</a>
+<span style="padding-top:10px;"><a href="//www.iubenda.com/privacy-policy/7887438" class="iubenda-white no-brand iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type="rocketlazyloadscript" data-rocket-type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+</span>
+</small>
+</div>
+<div class="column menu">
+<h5>Lists</h5>
+<nav>
+<ul id="menu-footer-lists" class=""><li id="menu-item-50399" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-50399"><a href="https://listverse.com/" aria-current="page">Home</a></li>
+<li id="menu-item-50403" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50403"><a href="https://listverse.com/search/">Search Listverse</a></li>
+<li id="menu-item-50401" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50401"><a href="https://listverse.com/books/">Our Books</a></li>
+<li id="menu-item-620610" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-620610"><a href="https://listverse.com/about-listverse/">About Listverse</a></li>
+</ul>
+</nav>
+</div>
+<div class="column menu menu-2">
+<h5>More</h5>
+<nav>
+<ul id="menu-footer-more" class=""><li id="menu-item-50404" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50404"><a href="https://listverse.com/submit-a-list/">Submit A List</a></li>
+<li id="menu-item-50405" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50405"><a href="https://listverse.com/write-get-paid/">Write &amp; Get Paid</a></li>
+<li id="menu-item-402727" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-402727"><a href="https://discord.gg/XxE6ZRf">Discord Server</a></li>
+<li id="menu-item-100894" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-100894"><a href="https://listverse.com/about-listverse/#section-7">Contact Listverse</a></li>
+</ul>
+</nav>
+</div>
+<div class="column social">
+<h5>Follow</h5>
+<ul>
+<li><a class="twitter" title="Twitter" href="https://twitter.com/listverse">Twitter</a></li>
+<li><a class="facebook" title="Facebook" href="https://facebook.com/top10lists">Facebook</a></li>
+<li><a class="pinterest" title="Pinterest" href="https://pinterest.com/listverse/">Pinterest</a></li>
+<li><a class="rss" title="RSS" href="/feed/">RSS</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<script type="rocketlazyloadscript">
+		siteUrl = "https://listverse.com/wp-content/themes/listverse2013/";
+		
+	</script>
+<script type="rocketlazyloadscript">!function(){"use strict";!function(e){if(-1===e.cookie.indexOf("__adblocker")){e.cookie="__adblocker=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";var t=new XMLHttpRequest;t.open("GET","https://www.npttech.com/advertising.js",!0),t.onreadystatechange=function(){if(XMLHttpRequest.DONE===t.readyState)if(200===t.status){var n=e.createElement("script");n.innerHTML=t.responseText,e.getElementsByTagName("head")[0].appendChild(n)}else{var a=new Date;a.setTime(a.getTime()+3e5),e.cookie="__adblocker=true; expires="+a.toUTCString()+"; path=/"}},t.send()}}(document)}();
+</script>
+<script type="rocketlazyloadscript">!function(){"use strict";var e;e=document,function(){var t,n;function r(){var t=e.createElement("script");t.src="https://cafemedia-com.videoplayerhub.com/galleryplayer.js",e.head.appendChild(t)}function a(){var t=e.cookie.match("(^|[^;]+)\\s*__adblocker\\s*=\\s*([^;]+)");return t&&t.pop()}function c(){clearInterval(n)}return{init:function(){var e;"true"===(t=a())?r():(e=0,n=setInterval((function(){100!==e&&"false"!==t||c(),"true"===t&&(r(),c()),t=a(),e++}),50))}}}().init()}();
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://listverse.com/wp-content/cache/min/1/wp-content/themes/listverse2013/assets/js/general.js?ver=1644762482" id="general-js" defer=""></script>
+<script type="text/javascript" id="dcl_comments-js-extra">
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"listverse"};
+var embedVars = {"disqusConfig":{"integration":"wordpress 3.0.22"},"disqusIdentifier":"621529 https:\/\/listverse.com\/?p=621529","disqusShortname":"listverse","disqusTitle":"Top 10 Creepiest Things Found At Pripyat And Chernobyl","disqusUrl":"https:\/\/listverse.com\/2021\/09\/26\/top-10-creepiest-things-found-at-pripyat-and-chernobyl\/","postId":"621529"};
+var dclCustomVars = {"dcl_progress_text":"Loading..."};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://listverse.com/wp-content/plugins/disqus-conditional-load-pro/assets/js/embed-scroll_start.min.js?ver=11.0.6" id="dcl_comments-js" defer=""></script>
+<script type="text/javascript" id="social_warfare_script-js-extra">
+/* <![CDATA[ */
+var socialWarfare = {"addons":["pro"],"post_id":"621529","variables":{"emphasizeIcons":"0","powered_by_toggle":false,"affiliate_link":"https:\/\/warfareplugins.com"},"floatBeforeContent":""};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://listverse.com/wp-content/plugins/social-warfare/assets/js/script.min.js?ver=4.3.0" id="social_warfare_script-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/2021\/08\/24\/10-foot-tapping-covers-of-massive-disco-hits\/|\/(.+\/)?feed\/?.+\/?|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/wp-admin\/|\/logout\/|\/wp-login.php","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|php|pdf|html|htm","siteUrl":"https:\/\/listverse.com","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="text/javascript" src="https://listverse.com/wp-includes/js/wp-embed.min.js?ver=5.7.2" id="wp-embed-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript"> var swp_nonce = "ee30add066";var swpFloatBeforeContent = false; var swp_ajax_url = "https://listverse.com/wp-admin/admin-ajax.php";var swpClickTracking = true; swpPinIt={"enabled":true,"post_title":"","image_description":"","image_source":"","hLocation":"left","vLocation":"top","minWidth":"200","minHeight":"200","disableOnAnchors":true,"button_size":"1"};</script>
+
+<script type="rocketlazyloadscript">window.addEventListener('DOMContentLoaded', function() {
+function b2a(a){var b,c=0,l=0,f="",g=[];if(!a)return a;do{var e=a.charCodeAt(c++);var h=a.charCodeAt(c++);var k=a.charCodeAt(c++);var d=e<<16|h<<8|k;e=63&d>>18;h=63&d>>12;k=63&d>>6;d&=63;g[l++]="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".charAt(e)+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".charAt(h)+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".charAt(k)+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".charAt(d)}while(c<
+a.length);return f=g.join(""),b=a.length%3,(b?f.slice(0,b-3):f)+"===".slice(b||3)}function a2b(a){var b,c,l,f={},g=0,e=0,h="",k=String.fromCharCode,d=a.length;for(b=0;64>b;b++)f["ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(b)]=b;for(c=0;d>c;c++)for(b=f[a.charAt(c)],g=(g<<6)+b,e+=6;8<=e;)((l=255&g>>>(e-=8))||d-2>c)&&(h+=k(l));return h}b64e=function(a){return btoa(encodeURIComponent(a).replace(/%([0-9A-F]{2})/g,function(b,a){return String.fromCharCode("0x"+a)}))};
+b64d=function(a){return decodeURIComponent(atob(a).split("").map(function(a){return"%"+("00"+a.charCodeAt(0).toString(16)).slice(-2)}).join(""))};
+/* <![CDATA[ */
+ai_front = {"insertion_before":"BEFORE","insertion_after":"AFTER","insertion_prepend":"PREPEND CONTENT","insertion_append":"APPEND CONTENT","insertion_replace_content":"REPLACE CONTENT","insertion_replace_element":"REPLACE ELEMENT","visible":"VISIBLE","hidden":"HIDDEN","fallback":"FALLBACK","automatically_placed":"Automatically placed by AdSense Auto ads code","cancel":"Cancel","use":"Use","add":"Add","parent":"Parent","cancel_element_selection":"Cancel element selection","select_parent_element":"Select parent element","css_selector":"CSS selector","use_current_selector":"Use current selector","element":"ELEMENT","path":"PATH","selector":"SELECTOR"};
+/* ]]> */
+function ai_run_scripts(){(function(a){if("function"===typeof define&&define.amd){define(a);var c=!0}"object"===typeof exports&&(module.exports=a(),c=!0);if(!c){var e=window.Cookies,b=window.Cookies=a();b.noConflict=function(){window.Cookies=e;return b}}})(function(){function a(){for(var e=0,b={};e<arguments.length;e++){var f=arguments[e],d;for(d in f)b[d]=f[d]}return b}function c(e){function b(){}function f(h,k,g){if("undefined"!==typeof document){g=a({path:"/",sameSite:"Lax"},b.defaults,g);"number"===typeof g.expires&&(g.expires=
+new Date(1*new Date+864E5*g.expires));g.expires=g.expires?g.expires.toUTCString():"";try{var l=JSON.stringify(k);/^[\{\[]/.test(l)&&(k=l)}catch(p){}k=e.write?e.write(k,h):encodeURIComponent(String(k)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent);h=encodeURIComponent(String(h)).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent).replace(/[\(\)]/g,escape);l="";for(var n in g)g[n]&&(l+="; "+n,!0!==g[n]&&(l+="="+g[n].split(";")[0]));return document.cookie=
+h+"="+k+l}}function d(h,k){if("undefined"!==typeof document){for(var g={},l=document.cookie?document.cookie.split("; "):[],n=0;n<l.length;n++){var p=l[n].split("="),m=p.slice(1).join("=");k||'"'!==m.charAt(0)||(m=m.slice(1,-1));try{var q=p[0].replace(/(%[0-9A-Z]{2})+/g,decodeURIComponent);m=(e.read||e)(m,q)||m.replace(/(%[0-9A-Z]{2})+/g,decodeURIComponent);if(k)try{m=JSON.parse(m)}catch(r){}g[q]=m;if(h===q)break}catch(r){}}return h?g[h]:g}}b.set=f;b.get=function(h){return d(h,!1)};b.getJSON=function(h){return d(h,
+!0)};b.remove=function(h,k){f(h,"",a(k,{expires:-1}))};b.defaults={};b.withConverter=c;return b}return c(function(){})});AiCookies=Cookies.noConflict();
+ai_check_block=function(a){if(null==a)return!0;var c=AiCookies.getJSON("aiBLOCKS");ai_debug_cookie_status="";null==c&&(c={});"undefined"!==typeof ai_delay_showing_pageviews&&(c.hasOwnProperty(a)||(c[a]={}),c[a].hasOwnProperty("d")||(c[a].d=ai_delay_showing_pageviews));if(c.hasOwnProperty(a)){for(var e in c[a]){if("x"==e){var b="",f=document.querySelectorAll('span[data-ai-block="'+a+'"]')[0];"aiHash"in f.dataset&&(b=f.dataset.aiHash);f="";c[a].hasOwnProperty("h")&&(f=c[a].h);var d=new Date;d=c[a][e]-
+Math.round(d.getTime()/1E3);if(0<d&&f==b)return ai_debug_cookie_status=a="closed for "+d+" s = "+Math.round(1E4*d/3600/24)/1E4+" days",!1;ai_set_cookie(a,"x","");c[a].hasOwnProperty("i")||c[a].hasOwnProperty("c")||ai_set_cookie(a,"h","")}else if("d"==e){if(0!=c[a][e])return ai_debug_cookie_status=a="delayed for "+c[a][e]+" pageviews",!1}else if("i"==e){b="";f=document.querySelectorAll('span[data-ai-block="'+a+'"]')[0];"aiHash"in f.dataset&&(b=f.dataset.aiHash);f="";c[a].hasOwnProperty("h")&&(f=c[a].h);
+if(0==c[a][e]&&f==b)return ai_debug_cookie_status=a="max impressions reached",!1;if(0>c[a][e]&&f==b){d=new Date;d=-c[a][e]-Math.round(d.getTime()/1E3);if(0<d)return ai_debug_cookie_status=a="max imp. reached ("+Math.round(1E4*d/24/3600)/1E4+" days = "+d+" s)",!1;ai_set_cookie(a,"i","");c[a].hasOwnProperty("c")||c[a].hasOwnProperty("x")||ai_set_cookie(a,"h","")}}if("ipt"==e&&0==c[a][e]&&(d=new Date,b=Math.round(d.getTime()/1E3),d=c[a].it-b,0<d))return ai_debug_cookie_status=a="max imp. per time reached ("+
+Math.round(1E4*d/24/3600)/1E4+" days = "+d+" s)",!1;if("c"==e){b="";f=document.querySelectorAll('span[data-ai-block="'+a+'"]')[0];"aiHash"in f.dataset&&(b=f.dataset.aiHash);f="";c[a].hasOwnProperty("h")&&(f=c[a].h);if(0==c[a][e]&&f==b)return ai_debug_cookie_status=a="max clicks reached",!1;if(0>c[a][e]&&f==b){d=new Date;d=-c[a][e]-Math.round(d.getTime()/1E3);if(0<d)return ai_debug_cookie_status=a="max clicks reached ("+Math.round(1E4*d/24/3600)/1E4+" days = "+d+" s)",!1;ai_set_cookie(a,"c","");c[a].hasOwnProperty("i")||
+c[a].hasOwnProperty("x")||ai_set_cookie(a,"h","")}}if("cpt"==e&&0==c[a][e]&&(d=new Date,b=Math.round(d.getTime()/1E3),d=c[a].ct-b,0<d))return ai_debug_cookie_status=a="max clicks per time reached ("+Math.round(1E4*d/24/3600)/1E4+" days = "+d+" s)",!1}if(c.hasOwnProperty("G")&&c.G.hasOwnProperty("cpt")&&0==c.G.cpt&&(d=new Date,b=Math.round(d.getTime()/1E3),d=c.G.ct-b,0<d))return ai_debug_cookie_status=a="max global clicks per time reached ("+Math.round(1E4*d/24/3600)/1E4+" days = "+d+" s)",!1}ai_debug_cookie_status=
+"OK";return!0};
+ai_check_and_insert_block=function(a,c){if(null==a)return!0;var e=document.getElementsByClassName(c);if(e.length){e=e[0];var b=e.closest(".code-block");if(ai_check_block(a)){if(ai_insert_code(e),b){var f=b.querySelectorAll(".ai-debug-block");b&&f.length&&(b.classList.remove("ai-list-block"),b.classList.remove("ai-list-block-ip"),b.classList.remove("ai-list-block-filter"),b.style.visibility="",b.classList.contains("ai-remove-position")&&(b.style.position=""))}}else{f=e.closest("div[data-ai]");
+if(null!=f&&"undefined"!=typeof f.getAttribute("data-ai")){var d=JSON.parse(b64d(f.getAttribute("data-ai")));"undefined"!==typeof d&&d.constructor===Array&&(d[1]="",f.setAttribute("data-ai",b64e(JSON.stringify(d))))}f=b.querySelectorAll(".ai-debug-block");b&&f.length&&(b.classList.remove("ai-list-block"),b.classList.remove("ai-list-block-ip"),b.classList.remove("ai-list-block-filter"),b.style.visibility="",b.classList.contains("ai-remove-position")&&(b.style.position=""))}e.classList.remove(c)}e=
+document.querySelectorAll("."+c+"-dbg");b=0;for(f=e.length;b<f;b++)d=e[b],d.querySelector(".ai-status").textContent=ai_debug_cookie_status,d.querySelector(".ai-cookie-data").textContent=ai_get_cookie_text(a),d.classList.remove(c+"-dbg")};function ai_load_cookie(){var a=AiCookies.getJSON("aiBLOCKS");null==a&&(a={});return a}function ai_get_cookie(a,c){var e="",b=ai_load_cookie();b.hasOwnProperty(a)&&b[a].hasOwnProperty(c)&&(e=b[a][c]);return e}
+function ai_set_cookie(a,c,e){var b=ai_load_cookie();if(""===e){if(b.hasOwnProperty(a)){delete b[a][c];a:{c=b[a];for(f in c)if(c.hasOwnProperty(f)){var f=!1;break a}f=!0}f&&delete b[a]}}else b.hasOwnProperty(a)||(b[a]={}),b[a][c]=e;0===Object.keys(b).length&&b.constructor===Object?AiCookies.remove("aiBLOCKS"):AiCookies.set("aiBLOCKS",b,{expires:365,path:"/"});return b}
+ai_get_cookie_text=function(a){var c=AiCookies.getJSON("aiBLOCKS");null==c&&(c={});var e="";c.hasOwnProperty("G")&&(e="G["+JSON.stringify(c.G).replace(/"/g,"").replace("{","").replace("}","")+"] ");var b="";c.hasOwnProperty(a)&&(b=JSON.stringify(c[a]).replace(/"/g,"").replace("{","").replace("}",""));return e+b};
+ai_insert=function(c,h,t){for(var n=-1!=h.indexOf(":eq")?jQuery(h):document.querySelectorAll(h),u=0,y=n.length;u<y;u++){var b=n[u];selector_string=b.hasAttribute("id")?"#"+b.getAttribute("id"):b.hasAttribute("class")?"."+b.getAttribute("class").replace(RegExp(" ","g"),"."):"";var v=document.createElement("div");v.innerHTML=t;var m=v.getElementsByClassName("ai-selector-counter")[0];null!=m&&(m.innerText=u+1);m=v.getElementsByClassName("ai-debug-name ai-main")[0];if(null!=m){var l="";"before"==c?l=
+ai_front.insertion_before:"after"==c?l=ai_front.insertion_after:"prepend"==c?l=ai_front.insertion_prepend:"append"==c?l=ai_front.insertion_append:"replace-content"==c?l=ai_front.insertion_replace_content:"replace-element"==c&&(l=ai_front.insertion_replace_element);-1==selector_string.indexOf(".ai-viewports")&&(m.innerText=l+" "+h+" ("+b.tagName.toLowerCase()+selector_string+")")}m=document.createRange();l=!0;try{var w=m.createContextualFragment(v.innerHTML)}catch(r){l=!1}"before"==c?l?b.parentNode.insertBefore(w,
+b):jQuery(v.innerHTML).insertBefore(jQuery(b)):"after"==c?l?b.parentNode.insertBefore(w,b.nextSibling):jQuery(v.innerHTML).insertBefore(jQuery(b.nextSibling)):"prepend"==c?l?b.insertBefore(w,b.firstChild):jQuery(v.innerHTML).insertBefore(jQuery(b.firstChild)):"append"==c?l?b.insertBefore(w,null):jQuery(v.innerHTML).appendTo(jQuery(b)):"replace-content"==c?(b.innerHTML="",l?b.insertBefore(w,null):jQuery(v.innerHTML).appendTo(jQuery(b))):"replace-element"==c&&(l?b.parentNode.insertBefore(w,b):jQuery(v.innerHTML).insertBefore(jQuery(b)),
+b.parentNode.removeChild(b))}};
+ai_insert_code=function(c){function h(m,l){return null==m?!1:m.classList?m.classList.contains(l):-1<(" "+m.className+" ").indexOf(" "+l+" ")}function t(m,l){null!=m&&(m.classList?m.classList.add(l):m.className+=" "+l)}function n(m,l){null!=m&&(m.classList?m.classList.remove(l):m.className=m.className.replace(new RegExp("(^|\\b)"+l.split(" ").join("|")+"(\\b|$)","gi")," "))}if("undefined"!=typeof c){var u=!1;if(h(c,"no-visibility-check")||c.offsetWidth||c.offsetHeight||c.getClientRects().length){u=
+c.getAttribute("data-code");var y=c.getAttribute("data-insertion"),b=c.getAttribute("data-selector");if(null!=u)if(null!=y&&null!=b){if(-1!=b.indexOf(":eq")?jQuery(b).length:document.querySelectorAll(b).length)ai_insert(y,b,b64d(u)),n(c,"ai-viewports")}else{y=document.createRange();b=!0;try{var v=y.createContextualFragment(b64d(u))}catch(m){b=!1}b?c.parentNode.insertBefore(v,c.nextSibling):jQuery(b64d(u)).insertBefore(jQuery(c.nextSibling));n(c,"ai-viewports")}u=!0}else v=c.previousElementSibling,
+h(v,"ai-debug-bar")&&h(v,"ai-debug-script")&&(n(v,"ai-debug-script"),t(v,"ai-debug-viewport-invisible")),n(c,"ai-viewports");return u}};
+ai_insert_list_code=function(c){var h=document.getElementsByClassName(c)[0];if("undefined"!=typeof h){var t=ai_insert_code(h),n=h.closest("div.code-block");if(n){t||n.removeAttribute("data-ai");var u=n.querySelectorAll(".ai-debug-block");n&&u.length&&(n.classList.remove("ai-list-block"),n.classList.remove("ai-list-block-ip"),n.classList.remove("ai-list-block-filter"),n.style.visibility="",n.classList.contains("ai-remove-position")&&(n.style.position=""))}h.classList.remove(c);t&&
+ai_process_elements()}};ai_insert_viewport_code=function(c){var h=document.getElementsByClassName(c)[0];if("undefined"!=typeof h){var t=ai_insert_code(h);h.classList.remove(c);t&&(c=h.closest("div.code-block"),null!=c&&(t=h.getAttribute("style"),null!=t&&c.setAttribute("style",c.getAttribute("style")+" "+t)));setTimeout(function(){h.removeAttribute("style")},2);ai_process_elements()}};
+ai_insert_code_by_class=function(c){var h=document.getElementsByClassName(c)[0];"undefined"!=typeof h&&(ai_insert_code(h),h.classList.remove(c))};ai_insert_client_code=function(c,h){var t=document.getElementsByClassName(c)[0];if("undefined"!=typeof t){var n=t.getAttribute("data-code");null!=n&&ai_check_block()&&ai_check_and_insert_block()&&(t.setAttribute("data-code",n.substring(Math.floor(h/19))),ai_insert_code_by_class(c),t.remove())}};ai_process_elements_active=!1;
+function ai_process_elements(){ai_process_elements_active||setTimeout(function(){ai_process_elements_active=!1;"function"==typeof ai_process_rotations&&ai_process_rotations();"function"==typeof ai_process_lists&&ai_process_lists(jQuery(".ai-list-data"));"function"==typeof ai_process_ip_addresses&&ai_process_ip_addresses(jQuery(".ai-ip-data"));"function"==typeof ai_process_filter_hooks&&ai_process_filter_hooks(jQuery(".ai-filter-check"));"function"==typeof ai_adb_process_blocks&&ai_adb_process_blocks()},
+5);ai_process_elements_active=!0}
+var Arrive=function(c,h,t){function n(r,d,e){b.addMethod(d,e,r.unbindEvent);b.addMethod(d,e,r.unbindEventWithSelectorOrCallback);b.addMethod(d,e,r.unbindEventWithSelectorAndCallback)}function u(r){r.arrive=l.bindEvent;n(l,r,"unbindArrive");r.leave=w.bindEvent;n(w,r,"unbindLeave")}if(c.MutationObserver&&"undefined"!==typeof HTMLElement){var y=0,b=function(){var r=HTMLElement.prototype.matches||HTMLElement.prototype.webkitMatchesSelector||HTMLElement.prototype.mozMatchesSelector||HTMLElement.prototype.msMatchesSelector;
+return{matchesSelector:function(d,e){return d instanceof HTMLElement&&r.call(d,e)},addMethod:function(d,e,f){var a=d[e];d[e]=function(){if(f.length==arguments.length)return f.apply(this,arguments);if("function"==typeof a)return a.apply(this,arguments)}},callCallbacks:function(d,e){e&&e.options.onceOnly&&1==e.firedElems.length&&(d=[d[0]]);for(var f=0,a;a=d[f];f++)a&&a.callback&&a.callback.call(a.elem,a.elem);e&&e.options.onceOnly&&1==e.firedElems.length&&e.me.unbindEventWithSelectorAndCallback.call(e.target,
+e.selector,e.callback)},checkChildNodesRecursively:function(d,e,f,a){for(var g=0,k;k=d[g];g++)f(k,e,a)&&a.push({callback:e.callback,elem:k}),0<k.childNodes.length&&b.checkChildNodesRecursively(k.childNodes,e,f,a)},mergeArrays:function(d,e){var f={},a;for(a in d)d.hasOwnProperty(a)&&(f[a]=d[a]);for(a in e)e.hasOwnProperty(a)&&(f[a]=e[a]);return f},toElementsArray:function(d){"undefined"===typeof d||"number"===typeof d.length&&d!==c||(d=[d]);return d}}}(),v=function(){var r=function(){this._eventsBucket=
+[];this._beforeRemoving=this._beforeAdding=null};r.prototype.addEvent=function(d,e,f,a){d={target:d,selector:e,options:f,callback:a,firedElems:[]};this._beforeAdding&&this._beforeAdding(d);this._eventsBucket.push(d);return d};r.prototype.removeEvent=function(d){for(var e=this._eventsBucket.length-1,f;f=this._eventsBucket[e];e--)d(f)&&(this._beforeRemoving&&this._beforeRemoving(f),(f=this._eventsBucket.splice(e,1))&&f.length&&(f[0].callback=null))};r.prototype.beforeAdding=function(d){this._beforeAdding=
+d};r.prototype.beforeRemoving=function(d){this._beforeRemoving=d};return r}(),m=function(r,d){var e=new v,f=this,a={fireOnAttributesModification:!1};e.beforeAdding(function(g){var k=g.target;if(k===c.document||k===c)k=document.getElementsByTagName("html")[0];var p=new MutationObserver(function(x){d.call(this,x,g)});var q=r(g.options);p.observe(k,q);g.observer=p;g.me=f});e.beforeRemoving(function(g){g.observer.disconnect()});this.bindEvent=function(g,k,p){k=b.mergeArrays(a,k);for(var q=b.toElementsArray(this),
+x=0;x<q.length;x++)e.addEvent(q[x],g,k,p)};this.unbindEvent=function(){var g=b.toElementsArray(this);e.removeEvent(function(k){for(var p=0;p<g.length;p++)if(this===t||k.target===g[p])return!0;return!1})};this.unbindEventWithSelectorOrCallback=function(g){var k=b.toElementsArray(this);e.removeEvent("function"===typeof g?function(p){for(var q=0;q<k.length;q++)if((this===t||p.target===k[q])&&p.callback===g)return!0;return!1}:function(p){for(var q=0;q<k.length;q++)if((this===t||p.target===k[q])&&p.selector===
+g)return!0;return!1})};this.unbindEventWithSelectorAndCallback=function(g,k){var p=b.toElementsArray(this);e.removeEvent(function(q){for(var x=0;x<p.length;x++)if((this===t||q.target===p[x])&&q.selector===g&&q.callback===k)return!0;return!1})};return this},l=new function(){function r(f,a,g){return b.matchesSelector(f,a.selector)&&(f._id===t&&(f._id=y++),-1==a.firedElems.indexOf(f._id))?(a.firedElems.push(f._id),!0):!1}var d={fireOnAttributesModification:!1,onceOnly:!1,existing:!1};l=new m(function(f){var a=
+{attributes:!1,childList:!0,subtree:!0};f.fireOnAttributesModification&&(a.attributes=!0);return a},function(f,a){f.forEach(function(g){var k=g.addedNodes,p=g.target,q=[];null!==k&&0<k.length?b.checkChildNodesRecursively(k,a,r,q):"attributes"===g.type&&r(p,a,q)&&q.push({callback:a.callback,elem:p});b.callCallbacks(q,a)})});var e=l.bindEvent;l.bindEvent=function(f,a,g){"undefined"===typeof g?(g=a,a=d):a=b.mergeArrays(d,a);var k=b.toElementsArray(this);if(a.existing){for(var p=[],q=0;q<k.length;q++)for(var x=
+k[q].querySelectorAll(f),z=0;z<x.length;z++)p.push({callback:g,elem:x[z]});if(a.onceOnly&&p.length)return g.call(p[0].elem,p[0].elem);setTimeout(b.callCallbacks,1,p)}e.call(this,f,a,g)};return l},w=new function(){function r(f,a){return b.matchesSelector(f,a.selector)}var d={};w=new m(function(){return{childList:!0,subtree:!0}},function(f,a){f.forEach(function(g){g=g.removedNodes;var k=[];null!==g&&0<g.length&&b.checkChildNodesRecursively(g,a,r,k);b.callCallbacks(k,a)})});var e=w.bindEvent;w.bindEvent=
+function(f,a,g){"undefined"===typeof g?(g=a,a=d):a=b.mergeArrays(d,a);e.call(this,f,a,g)};return w};h&&u(h.fn);u(HTMLElement.prototype);u(NodeList.prototype);u(HTMLCollection.prototype);u(HTMLDocument.prototype);u(Window.prototype);h={};n(l,h,"unbindAllArrive");n(w,h,"unbindAllLeave");return h}}(window,"undefined"===typeof jQuery?null:jQuery,void 0);
+var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.createTemplateTagFirstArg=function(a){return a.raw=a};$jscomp.createTemplateTagFirstArgWithRaw=function(a,n){a.raw=n;return a};$jscomp.arrayIteratorImpl=function(a){var n=0;return function(){return n<a.length?{done:!1,value:a[n++]}:{done:!0}}};$jscomp.arrayIterator=function(a){return{next:$jscomp.arrayIteratorImpl(a)}};$jscomp.makeIterator=function(a){var n="undefined"!=typeof Symbol&&Symbol.iterator&&a[Symbol.iterator];return n?n.call(a):$jscomp.arrayIterator(a)};
+jQuery(function(a){function n(d){d=d.match(ba);return null!=d&&1<d.length&&"string"===typeof d[1]&&0<d[1].length?d[1].toLowerCase():null}function B(d){return d.includes(":")?(d=d.split(":"),1E3*(3600*parseInt(d[0])+60*parseInt(d[1])+parseInt(d[2]))):null}function t(d){try{var l=Date.parse(d);isNaN(l)&&(l=null)}catch(F){l=null}if(null==l&&d.includes(" ")){d=d.split(" ");try{l=Date.parse(d[0]),l+=B(d[1]),isNaN(l)&&(l=null)}catch(F){l=null}}return l}function G(){(jQuery("#ai-iab-tcf-bar").length||jQuery(".ai-list-manual").length)&&
+"function"==typeof __tcfapi&&"function"==typeof ai_load_blocks&&"undefined"==typeof ai_iab_tcf_callback_installed&&(__tcfapi("addEventListener",2,function(d,l){l&&"useractioncomplete"===d.eventStatus&&(ai_tcData=d,ai_load_blocks(),jQuery("#ai-iab-tcf-status").text("IAB TCF 2.0 DATA LOADED"),jQuery("#ai-iab-tcf-bar").addClass("status-ok").removeClass("status-error"))}),ai_iab_tcf_callback_installed=!0)}function u(d){d=("; "+document.cookie).split("; "+d+"=");if(2===d.length)return d.pop().split(";").shift()}
+function m(d){if(u(d)){var l=window.location.hostname;u(d)&&(document.cookie=d+"=;path=/"+(l?";domain="+l:"")+";expires=Thu, 01 Jan 1970 00:00:01 GMT");document.cookie=d+"=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;"}}Array.prototype.includes||(Array.prototype.includes=function(d){return!!~this.indexOf(d)});var ba=/:\/\/(.[^/:]+)/i;ai_process_lists=function(d){function l(e,c,k){if(0==e.length){if("!@!"==k)return!0;c!=k&&("true"==k.toLowerCase()?k=!0:"false"==k.toLowerCase()&&(k=!1));return c==
+k}if("object"!=typeof c&&"array"!=typeof c)return!1;var f=e[0];e=e.slice(1);if("*"==f)for(c=$jscomp.makeIterator(Object.entries(c)),f=c.next();!f.done;f=c.next()){if(f=$jscomp.makeIterator(f.value),f.next(),f=f.next().value,l(e,f,k))return!0}else if(f in c)return l(e,c[f],k);return!1}function F(e,c,k){if("object"!=typeof e||-1==c.indexOf("["))return!1;c=c.replace(/]| /gi,"").split("[");return l(c,e,k)}function ca(){"function"==typeof __tcfapi&&(a("#ai-iab-tcf-status").text("IAB TCF 2.0 DETECTED"),
+__tcfapi("getTCData",2,function(e,c){c?(a("#ai-iab-tcf-bar").addClass("status-ok"),"tcloaded"==e.eventStatus||"useractioncomplete"==e.eventStatus?(ai_tcData=e,e.gdprApplies?a("#ai-iab-tcf-status").text("IAB TCF 2.0 DATA LOADED"):jQuery("#ai-iab-tcf-status").text("IAB TCF 2.0 GDPR DOES NOT APPLY"),a("#ai-iab-tcf-bar").addClass("status-ok").removeClass("status-error"),setTimeout(function(){ai_process_lists()},10)):"cmpuishown"==e.eventStatus&&(ai_cmpuishown=!0,a("#ai-iab-tcf-status").text("IAB TCF 2.0 CMP UI SHOWN"),
+a("#ai-iab-tcf-bar").addClass("status-ok").removeClass("status-error"))):(a("#ai-iab-tcf-status").text("IAB TCF 2.0 __tcfapi getTCData failed"),a("#ai-iab-tcf-bar").removeClass("status-ok").addClass("status-error"))}))}function K(e){"function"==typeof __tcfapi?("undefined"==typeof ai_iab_tcf_callback_installed&&G(),"undefined"==typeof ai_tcData_requested&&(ai_tcData_requested=!0,ca(),url_parameters_need_tcData=!0)):e&&(a("#ai-iab-tcf-bar").addClass("status-error").removeClass("status-ok"),a("#ai-iab-tcf-status").text("IAB TCF 2.0 MISSING: __tcfapi function not found"))}
+d=null==d?a("div.ai-list-data, meta.ai-list-data"):d.filter(".ai-list-data");if(d.length){d.removeClass("ai-list-data");var J=document.cookie.split(";");J.forEach(function(e,c){J[c]=e.trim()});var V=getAllUrlParams(window.location.search);if(null!=V.referrer)var w=V.referrer;else w=document.referrer,""!=w&&(w=n(w));var R=window.navigator.userAgent,S=R.toLowerCase(),W=navigator.language,L=W.toLowerCase();if("undefined"!==typeof MobileDetect)var X=new MobileDetect(R);d.each(function(){var e=a(this).closest("div.code-block"),
+c=!0,k=a(this).attr("referer-list");if("undefined"!=typeof k){k=b64d(k).split(",");var f=a(this).attr("referer-list-type"),C=!1;a.each(k,function(A,g){if(""==g)return!0;if("*"==g.charAt(0))if("*"==g.charAt(g.length-1)){if(g=g.substr(1,g.length-2),-1!=w.indexOf(g))return C=!0,!1}else{if(g=g.substr(1),w.substr(-g.length)==g)return C=!0,!1}else if("*"==g.charAt(g.length-1)){if(g=g.substr(0,g.length-1),0==w.indexOf(g))return C=!0,!1}else if("#"==g){if(""==w)return C=!0,!1}else if(g==w)return C=!0,!1});
+switch(f){case "B":C&&(c=!1);break;case "W":C||(c=!1)}}if(c&&(k=a(this).attr("client-list"),"undefined"!=typeof k&&"undefined"!==typeof X))switch(k=b64d(k).split(","),f=a(this).attr("client-list-type"),r=!1,a.each(k,function(A,g){if(""==g.trim())return!0;var M=g.split("&&");a.each(M,function(da,b){var x=!0,q=!1;b=b.trim();"!!"==b.substring(0,2)&&(x=!1,b=b.substring(2));"language:"==b.substring(0,9)&&(q=!0,b=b.substring(9).toLowerCase());var p=!1;q?"*"==b.charAt(0)?"*"==b.charAt(b.length-1)?(b=b.substr(1,
+b.length-2).toLowerCase(),-1!=L.indexOf(b)&&(p=!0)):(b=b.substr(1).toLowerCase(),L.substr(-b.length)==b&&(p=!0)):"*"==b.charAt(b.length-1)?(b=b.substr(0,b.length-1).toLowerCase(),0==L.indexOf(b)&&(p=!0)):b==L&&(p=!0):"*"==b.charAt(0)?"*"==b.charAt(b.length-1)?(b=b.substr(1,b.length-2).toLowerCase(),-1!=S.indexOf(b)&&(p=!0)):(b=b.substr(1).toLowerCase(),S.substr(-b.length)==b&&(p=!0)):"*"==b.charAt(b.length-1)?(b=b.substr(0,b.length-1).toLowerCase(),0==S.indexOf(b)&&(p=!0)):X.is(b)&&(p=!0);r=p?x:!x;
+if(!r)return!1});if(r)return!1}),f){case "B":r&&(c=!1);break;case "W":r||(c=!1)}var N=k=!1;if(c){var h=a(this).attr("parameter-list");if("undefined"!=typeof h){h=b64d(h);f=a(this).attr("parameter-list-type");h=h.replace("tcf-gdpr","tcf-v2[gdprApplies]=true");h=h.replace("tcf-no-gdpr","tcf-v2[gdprApplies]=false");h=h.replace("tcf-google","tcf-v2[vendor][consents][755]=true && tcf-v2[purpose][consents][1]=true");h=h.replace("tcf-media.net","tcf-v2[vendor][consents][142]=true && tcf-v2[purpose][consents][1]=true");
+h=h.replace("tcf-amazon","tcf-v2[vendor][consents][793]=true && tcf-v2[purpose][consents][1]=true");h=h.replace("tcf-ezoic","tcf-v2[vendor][consents][347]=true && tcf-v2[purpose][consents][1]=true");h=h.split(",");var Y=[];J.forEach(function(A){A=A.split("=");try{var g=JSON.parse(decodeURIComponent(A[1]))}catch(M){g=decodeURIComponent(A[1])}Y[A[0]]=g});var r=!1,O=a(this);a.each(h,function(A,g){var M=g.split("&&");a.each(M,function(da,b){var x=!0;b=b.trim();"!!"==b.substring(0,2)&&(x=!1,b=b.substring(2));
+var q=b,p="!@!",Z=-1!=b.indexOf("["),aa=(0==b.indexOf("tcf-v2")||0==b.indexOf("euconsent-v2"))&&-1!=b.indexOf("[");-1!=b.indexOf("=")&&(p=b.split("="),q=p[0],p=p[1],Z=-1!=q.indexOf("["),aa=(0==q.indexOf("tcf-v2")||0==q.indexOf("euconsent-v2"))&&-1!=q.indexOf("["));if(aa)a("#ai-iab-tcf-bar").show(),"object"==typeof ai_tcData?(a("#ai-iab-tcf-bar").addClass("status-ok"),q=q.replace(/]| /gi,"").split("["),q.shift(),r=(q=l(q,ai_tcData,p))?x:!x):(O.addClass("ai-list-data"),N=!0,"function"==typeof __tcfapi?
+K(!1):"undefined"==typeof ai_tcData_retrying&&(ai_tcData_retrying=!0,setTimeout(function(){"function"==typeof __tcfapi?K(!1):setTimeout(function(){"function"==typeof __tcfapi?K(!1):setTimeout(function(){K(!0)},3E3)},1E3)},600)));else if(Z)r=(q=F(Y,q,p))?x:!x;else{var T=!1;"!@!"==p?J.every(function(ea){return ea.split("=")[0]==b?(T=!0,!1):!0}):T=-1!=J.indexOf(b);r=T?x:!x}if(!r)return!1});if(r)return!1});r&&(N=!1);switch(f){case "B":r&&(c=!1);break;case "W":r||(c=!1)}a(this).hasClass("ai-list-manual")&&
+(c?(O.removeClass("ai-list-data"),O.removeClass("ai-list-manual")):(k=!0,O.addClass("ai-list-data")));if(!k&&!N&&(f=a(this).data("debug-info"),"undefined"!=typeof f&&(f=a("."+f),0!=f.length))){var v=f.parent();v.hasClass("ai-debug-info")&&v.remove()}}}v=a(this).prevAll(".ai-debug-bar.ai-debug-lists");f=""==w?"#":w;v.find(".ai-debug-name.ai-list-info").text(f).attr("title",R+"\n"+W);v.find(".ai-debug-name.ai-list-status").text(c?ai_front.visible:ai_front.hidden);f=!1;if(c){var D=a(this).attr("scheduling-start");
+h=a(this).attr("scheduling-end");var H=a(this).attr("scheduling-days");if("undefined"!=typeof D&&"undefined"!=typeof h&&"undefined"!=typeof H){f=!0;var y=b64d(D),P=b64d(h),U=parseInt(a(this).attr("scheduling-fallback")),Q=parseInt(a(this).attr("gmt"));y.includes("-")||P.includes("-")?(h=t(y)+Q,D=t(P)+Q):(h=B(y),D=B(P));H=b64d(H).split(",");v=a(this).attr("scheduling-type");var z=(new Date).getTime()+Q,E=new Date(z),I=E.getDay();y.includes("-")||P.includes("-")||(y=(new Date(E.getFullYear(),E.getMonth(),
+E.getDate())).getTime()+Q,z-=y,0>z&&(z+=864E5));0==I?I=6:I--;y=z>=h&&z<D&&H.includes(I.toString());switch(v){case "B":y=!y}y||(c=!1);E=E.toISOString().split(".")[0].replace("T"," ");v=a(this).prevAll(".ai-debug-bar.ai-debug-scheduling");v.find(".ai-debug-name.ai-scheduling-info").text(E+" "+I+" current_time:"+Math.floor(z.toString()/1E3)+"  start_date:"+Math.floor(h/1E3).toString()+" ="+(z>=h).toString()+" end_date:"+Math.floor(D/1E3).toString()+" =:"+(z<D).toString()+" days:"+H.toString()+" =:"+
+H.includes(I.toString()).toString());v.find(".ai-debug-name.ai-scheduling-status").text(c?ai_front.visible:ai_front.hidden);c||0==U||(v.removeClass("ai-debug-scheduling").addClass("ai-debug-fallback"),v.find(".ai-debug-name.ai-scheduling-status").text(ai_front.fallback+"="+U))}}if(k||N)return!0;a(this).css({visibility:"",position:"",width:"",height:"","z-index":""});c?(e.css({visibility:""}),e.hasClass("ai-remove-position")&&e.css({position:""}),"undefined"!=typeof a(this).data("code")&&(c=b64d(a(this).data("code")),
+0!=a(this).closest("head").length?(a(this).after(c),a(this).remove()):a(this).append(c),ai_process_element(this))):f&&!y&&0!=U?(e.css({visibility:""}),e.hasClass("ai-remove-position")&&e.css({position:""}),a(this).next(".ai-fallback").removeClass("ai-fallback"),"undefined"!=typeof a(this).data("fallback-code")?(c=b64d(a(this).data("fallback-code")),a(this).append(c),ai_process_element(this)):(a(this).hide(),e.find(".ai-debug-block").length||e.hide()),c=e.attr("data-ai"),"undefined"!==typeof c&&!1!==
+c&&(c=a(this).attr("fallback-tracking"),"undefined"!==typeof c&&!1!==c&&e.attr("data-ai",c))):(a(this).hide(),e.find(".ai-debug-block").length||e.hide(),e.removeAttr("data-ai").removeClass("ai-track"),e.find(".ai-debug-block").length?(e.css({visibility:""}).removeClass("ai-close"),e.hasClass("ai-remove-position")&&e.css({position:""})):e.hide());a(this).attr("data-code","");a(this).attr("data-fallback-code","");e.removeClass("ai-list-block")})}};a(document).ready(function(d){setTimeout(function(){ai_process_lists();
+setTimeout(function(){G();if("function"==typeof ai_load_blocks){var l=function(F){"cmplzEnableScripts"!=F.type&&"all"!==F.consentLevel||ai_load_blocks()};jQuery(document).on("cmplzEnableScripts",l);jQuery(document).on("cmplz_event_marketing",l)}},50);jQuery(".ai-debug-page-type").dblclick(function(){jQuery("#ai-iab-tcf-status").text("CONSENT COOKIES");jQuery("#ai-iab-tcf-bar").show()});jQuery("#ai-iab-tcf-bar").click(function(){m("euconsent-v2");m("__lxG__consent__v2");m("__lxG__consent__v2_daisybit");
+m("__lxG__consent__v2_gdaisybit");m("CookieLawInfoConsent");m("cookielawinfo-checkbox-advertisement");m("cookielawinfo-checkbox-analytics");m("cookielawinfo-checkbox-necessary");m("complianz_policy_id");m("complianz_consent_status");m("cmplz_marketing");m("cmplz_consent_status");m("cmplz_preferences");m("cmplz_statistics-anonymous");m("cmplz_choice");m("moove_gdpr_popup");m("real_cookie_banner-blog:1-tcf");m("real_cookie_banner-blog:1");jQuery("#ai-iab-tcf-status").text("CONSENT COOKIES DELETED")})},
+5)})});function ai_process_element(a){setTimeout(function(){"function"==typeof ai_process_rotations_in_element&&ai_process_rotations_in_element(a);"function"==typeof ai_process_lists&&ai_process_lists(jQuery(".ai-list-data",a));"function"==typeof ai_process_ip_addresses&&ai_process_ip_addresses(jQuery(".ai-ip-data",a));"function"==typeof ai_process_filter_hooks&&ai_process_filter_hooks(jQuery(".ai-filter-check",a));"function"==typeof ai_adb_process_blocks&&ai_adb_process_blocks(a)},5)}
+function getAllUrlParams(a){var n=a?a.split("?")[1]:window.location.search.slice(1);a={};if(n){n=n.split("#")[0];n=n.split("&");for(var B=0;B<n.length;B++){var t=n[B].split("="),G=void 0,u=t[0].replace(/\[\d*\]/,function(m){G=m.slice(1,-1);return""});t="undefined"===typeof t[1]?"":t[1];u=u.toLowerCase();t=t.toLowerCase();a[u]?("string"===typeof a[u]&&(a[u]=[a[u]]),"undefined"===typeof G?a[u].push(t):a[u][G]=t):a[u]=t}}return a};
+jQuery(function(a){function u(e,c){c||(c=window.location.href);e=e.replace(/[\[\]]/g,"\\$&");var f=(new RegExp("[?&]"+e+"(=([^&#]*)|&|#|$)")).exec(c);return f?f[2]?decodeURIComponent(f[2].replace(/\+/g," ")):"":null}function v(e){e.removeClass("ai-ip-data");var c=!1;if(""!=ai_ip_data){try{var f=JSON.parse(ai_ip_data),g=f[0],l=f[1],n=f[2],p=f[3]}catch(d){return}var r=!1;-1!=g.indexOf("#")&&(r=!0,g=g.replace("#",""));var q="";r&&(q="CFP BLOCKED, ");q=q+g+", "+l;null!=n&&null!=p&&(q=q+":"+n+":"+p);null==
+n&&(n="");null==p&&(p="");null!=f&&e.each(function(){var d=a(this).closest("div.code-block");c=!0;var h=a(this).attr("ip-addresses");if("undefined"!=typeof h){h=h.split(",");var t=a(this).attr("ip-address-list"),k=!1;a.each(h,function(w,b){if("*"==b.charAt(0))if("*"==b.charAt(b.length-1)){if(b=b.substr(1,b.length-2),-1!=g.indexOf(b))return k=!0,!1}else{if(b=b.substr(1),g.substr(-b.length)==b)return k=!0,!1}else if("*"==b.charAt(b.length-1)){if(b=b.substr(0,b.length-1),0==g.indexOf(b))return k=
+!0,!1}else if("#"==b){if(""==g)return k=!0,!1}else if("CFP"==b.toUpperCase()){if(r)return k=!0,!1}else if(b==g)return k=!0,!1});switch(t){case "B":k&&(c=!1);break;case "W":k||(c=!1)}}if(c&&(h=a(this).attr("countries"),"undefined"!=typeof h))switch(h=h.split(","),t=a(this).attr("country-list"),k=!1,a.each(h,function(w,b){var m=b.trim().split(":");if(null==m[1]||""==n)m[1]="";if(null==m[2]||""==p)m[2]="";var x=m.join(":").toUpperCase();m=(l+":"+(""==m[1]?"":n)+":"+(""==m[2]?"":p)).toUpperCase();if(x==
+m)return k=!0,!1}),t){case "B":k&&(c=!1);break;case "W":k||(c=!1)}a(this).css({visibility:"",position:"",width:"",height:"","z-index":""});h=a(this).prev(".ai-debug-bar");h.find(".ai-debug-name.ai-ip-country").text(q);h.find(".ai-debug-name.ai-ip-status").text(c?ai_front.visible:ai_front.hidden);c?(d.css({visibility:""}),d.hasClass("ai-remove-position")&&d.css({position:""}),"undefined"!=typeof a(this).data("code")&&(h=b64d(a(this).data("code")),0!=a(this).closest("head").length?(a(this).after(h),
+a(this).remove()):a(this).append(h),a(this).attr("data-code",""),ai_process_element(this))):(a(this).hide(),d.find(".ai-debug-block").length||d.hide(),d.removeAttr("data-ai"),d.find(".ai-debug-block")?(d.css({visibility:""}).removeClass("ai-close"),d.hasClass("ai-remove-position")&&d.css({position:""}),"undefined"!=typeof a(this).data("code")&&(d.removeClass("ai-list-block"),d.removeClass("ai-list-block-filter"),d.prev().hasClass("ai-debug-info")&&d.prev().remove())):d.hide());d.removeClass("ai-list-block-ip")})}}
+ai_process_ip_addresses=function(e){e=null==e?a("div.ai-ip-data, meta.ai-ip-data"):e.filter(".ai-ip-data");if(e.length)if("undefined"!=typeof ai_ip_data)v(e);else if("undefined"==typeof ai_ip_data_requested){ai_ip_data_requested=!0;var c="/wp-admin/admin-ajax.php?action=ai_ajax&ip-data=ip-address-country-city&ai_check=1535fcc77b&ver="+((new Date).getTime()+"-"+Math.round(1E5*Math.random())),f=u("ai-debug-ip-address");null!=f&&(c+="&ai-debug-ip-address="+f);f=u("ai-debug-country");null!=f&&
+(c+="&ai-debug-country="+f);a.get(c,function(g){ai_ip_data=g;if(""==g){var l="Ajax request returned empty data, geo-targeting disabled";console.error(l);"undefined"!=typeof ai_js_errors&&ai_js_errors.push([l,c,0])}else try{JSON.parse(g)}catch(n){l="Ajax call returned invalid data, geo-targeting disabled",console.error(l,g),"undefined"!=typeof ai_js_errors&&ai_js_errors.push([l,c,0])}e=a("div.ai-ip-data, meta.ai-ip-data");e.length&&v(e)}).fail(function(g,l,n){a("div.ai-ip-data").each(function(){a(this).css({display:"none",
+visibility:"",position:"",width:"",height:"","z-index":""}).removeClass("ai-ip-data").hide()})})}};a(document).ready(function(e){setTimeout(function(){ai_process_ip_addresses()},5)})});
+function ai_process_element(a){setTimeout(function(){"function"==typeof ai_process_rotations_in_element&&ai_process_rotations_in_element(a);"function"==typeof ai_process_lists&&ai_process_lists(jQuery(".ai-list-data",a));"function"==typeof ai_process_ip_addresses&&ai_process_ip_addresses(jQuery(".ai-ip-data",a));"function"==typeof ai_process_filter_hooks&&ai_process_filter_hooks(jQuery(".ai-filter-check",a));"function"==typeof ai_adb_process_blocks&&ai_adb_process_blocks(a)},5)};
+
+ai_js_code = true;
+}
+function ai_wait_for_jquery(){function b(f,c){var a=document.createElement("script");a.src=f;var d=document.getElementsByTagName("head")[0],e=!1;a.onload=a.onreadystatechange=function(){e||this.readyState&&"loaded"!=this.readyState&&"complete"!=this.readyState||(e=!0,c&&c(),a.onload=a.onreadystatechange=null,d.removeChild(a))};d.appendChild(a)}window.jQuery&&window.jQuery.fn?ai_run_scripts():(ai_jquery_waiting_counter++,4==ai_jquery_waiting_counter&&b("https://listverse.com/wp-includes/js/jquery/jquery.min.js?ver=3.5.1",function(){b("https://listverse.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=5.7.2",
+null)}),30>ai_jquery_waiting_counter&&setTimeout(function(){ai_wait_for_jquery()},50))}ai_jquery_waiting_counter=0;ai_wait_for_jquery();
+
+});</script>
+
+
+
+
+</body></html>

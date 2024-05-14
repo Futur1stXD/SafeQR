@@ -1,0 +1,776 @@
+<html lang="en-US"><!--<![endif]--><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<!--[if lt IE 9]>
+<script src="https://krebsonsecurity.com/wp-content/themes/kos-mar2021/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<title>Krebs on Security – In-depth security news and investigation</title>
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="alternate" type="application/rss+xml" title="Krebs on Security » Feed" href="https://krebsonsecurity.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Krebs on Security » Comments Feed" href="https://krebsonsecurity.com/comments/feed/">
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/krebsonsecurity.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.9.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+</script><script src="https://krebsonsecurity.com/wp-includes/js/wp-emoji-release.min.js?ver=5.9.2" type="text/javascript" defer=""></script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="colorbox-theme1-css" href="https://krebsonsecurity.com/wp-content/plugins/jquery-lightbox-for-native-galleries/colorbox/theme1/colorbox.css?ver=1.3.14" type="text/css" media="screen">
+<link rel="stylesheet" id="wp-block-library-css" href="https://krebsonsecurity.com/wp-includes/css/dist/block-library/style.min.css?ver=5.9.2" type="text/css" media="all">
+<style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel="stylesheet" id="contact-form-7-css" href="https://krebsonsecurity.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.5.6" type="text/css" media="all">
+<link rel="stylesheet" id="publisho-style-css" href="https://krebsonsecurity.com/wp-content/themes/kos-mar2021/style.css?subver=1.2&amp;ver=5.9.2" type="text/css" media="all">
+<style id="publisho-style-inline-css" type="text/css">
+
+	.themonic-nav .current-menu-item > a, .themonic-nav .current-menu-ancestor > a, .themonic-nav .current_page_item > a, .themonic-nav .current_page_ancestor > a {
+		background: #cc6600;
+	}
+	.themonic-nav ul.nav-menu, .themonic-nav div.nav-menu > ul {
+		border-bottom: 5px solid #cc6600;
+	}
+	#site-navigation .topheadmenu a {
+    background: rgba(0, 0, 0, 0);
+	}
+	.themonic-nav li a:hover {
+		background: #cc6600;
+	}
+	.themonic-nav li:hover {
+		background: #cc6600;
+	}.wrapper .flexslider {margin: 0 0 30px;}.frontp .btm-wrap {
+    border-top: 1px solid #e9e9e9;
+	}
+	.entry-summary {
+    border-top: none;
+	}.frontp .btm-wrap { margin-bottom: 30px;}.site { font-size:14px;}.site { font-family:'Roboto', arial ;}
+</style>
+<link rel="stylesheet" id="publisho-custom-style-css" href="https://krebsonsecurity.com/wp-content/themes/kos-mar2021/custom.css?subver=1.2&amp;ver=5.9.2" type="text/css" media="all">
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='publisho-ie-css'  href='https://krebsonsecurity.com/wp-content/themes/kos-mar2021/css/ie.css?ver=20160606' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="fontawesome-css-css" href="https://krebsonsecurity.com/wp-content/themes/kos-mar2021/fonts/font-awesome.min.css?ver=5.9.2" type="text/css" media="all">
+<link rel="stylesheet" id="publisho_custom_fonts-css" href="//fonts.googleapis.com/css?family=Roboto%3Aregular%2Citalic%2C500%26subset%3Dlatin%2C" type="text/css" media="screen">
+<script type="text/javascript" src="https://krebsonsecurity.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://krebsonsecurity.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="https://krebsonsecurity.com/wp-content/plugins/jquery-lightbox-for-native-galleries/colorbox/jquery.colorbox-min.js?ver=1.3.14" id="colorbox-js"></script>
+<link rel="https://api.w.org/" href="https://krebsonsecurity.com/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://krebsonsecurity.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://krebsonsecurity.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.9.2">
+<!-- JavaScript Pull-Quotes plugin v2.2 -->
+	<link rel="stylesheet" href="https://krebsonsecurity.com/wp-content/plugins/jspullquotes/resources/jspullquotes-core.css" type="text/css">
+	<link rel="stylesheet" href="https://krebsonsecurity.com/wp-content/plugins/jspullquotes/resources/jspullquotes-default.css" type="text/css">
+	<script type="text/javascript" src="https://krebsonsecurity.com/wp-content/plugins/jspullquotes/resources/jspullquotes.js"></script>
+	<script type="text/javascript">
+		var arrOptions = new Array("1", "1", "right", "1", "1", "blockquote", "pullquote", "pullquote pqRight");
+		pullQuoteOpts(arrOptions);
+	</script>
+<!-- end pull-quote additions -->
+<!-- jQuery Lightbox For Native Galleries v3.1.3 | http://www.viper007bond.com/wordpress-plugins/jquery-lightbox-for-native-galleries/ -->
+<script type="text/javascript">
+// <![CDATA[
+	jQuery(document).ready(function($){
+		$(".gallery").each(function(index, obj){
+			var galleryid = Math.floor(Math.random()*10000);
+			$(obj).find("a").colorbox({rel:galleryid, maxWidth:"95%", maxHeight:"95%"});
+		});
+		$("a.lightbox").colorbox({maxWidth:"95%", maxHeight:"95%"});
+	});
+// ]]>
+</script>
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #ffffff; }
+</style>
+	<link rel="me" href="https://twitter.com/briankrebs"><meta name="twitter:widgets:link-color" content="#000000"><meta name="twitter:widgets:border-color" content="#000000"><meta name="twitter:partner" content="tfwp">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Krebs on Security"><meta name="twitter:site" content="@briankrebs"><meta name="twitter:description" content="In-depth security news and investigation">
+</head>
+<body class="home blog custom-background custom-background-white single-author frontp hfeed">
+<div id="page" class="site">
+	<!-- <div class="publisho-top-mobile-nav clear"></div> -->
+	<div class="themonic-logo themonic-ad3"><div class="a-statement">Advertisement</div><a href="https://www.proofpoint.com/us/resources/threat-reports/cost-of-insider-threats?utm_source=krebs&amp;utm_medium=display&amp;utm_campaign=2022_ponemon_cost_of_insider_threats">
+<img src="/b-proof/26.png">
+</a></div>
+	<div class="themonic-logo themonic-ad6"><div class="a-statement">Advertisement</div><a href="https://drata.com/?utm_source=krebsonsecurity&amp;utm_medium=paid&amp;utm_campaign=br_q1&amp;utm_content=continuous_compliance">
+<img src="/b-drata/2.png">
+</a></div>
+	<nav id="site-navigation" class="themonic-nav" role="navigation">
+	</nav><!-- #site-navigation -->
+	<div class="clear"></div>
+	<header id="masthead" class="site-header" role="banner">
+ 					<div class="desktop-social">
+						<div class="socialmedia">
+							<a href="http://twitter.com/briankrebs" target="_blank"><i class="fa fa-twitter"></i></a> 
+															<a class="rss" href="https://krebsonsecurity.com/feed/" target="_blank"><i class="fa fa-rss"></i></a>	
+									<a class="rss" href="https://www.linkedin.com/in/bkrebs/" target="_blank"><i class="fa fa-linkedin"></i></a>	
+								</div>
+				 	</div>
+																						   
+		
+		<div class="themonic-logo responsive-img-container">
+			<a href="https://krebsonsecurity.com/" title="Krebs on Security" rel="home"><img src="https://krebsonsecurity.com/wp-content/uploads/2021/03/kos-27-03-2021.jpg" alt="Krebs on Security"></a>
+		</div>
+
+					<div class="mobile-social">
+						<div class="socialmedia">
+							<a href="http://twitter.com/briankrebs" target="_blank"><i class="fa fa-twitter"></i></a> 
+															<a class="rss" href="https://krebsonsecurity.com/feed/" target="_blank"><i class="fa fa-rss"></i></a>	
+									<a class="rss" href="https://www.linkedin.com/in/bkrebs/" target="_blank"><i class="fa fa-linkedin"></i></a>	
+								</div>
+					</div>
+		
+				<!-- <div class="publisho-mobile-nav clear"></div> -->
+		<nav id="site-navigation" class="themonic-nav" role="navigation">
+			<a class="assistive-text" href="#content" title="Skip to content">Skip to content</a>
+			<div id="menu-top" class="nav-menu"><ul>
+<li class="current_page_item"><a href="https://krebsonsecurity.com/">Home</a></li><li class="page_item page-item-2"><a href="https://krebsonsecurity.com/about/">About the Author</a></li>
+<li class="page_item page-item-645"><a href="https://krebsonsecurity.com/cpm/">Advertising/Speaking</a></li>
+</ul></div>
+		</nav><!-- #site-navigation -->
+		<div class="clear"></div>
+	</header><!-- #masthead -->
+	<div id="main" class="wrapper">
+		<div id="primary" class="site-content">
+	
+
+	
+		<div id="content" role="main">
+
+		<article id="post-59041" class="post-59041 post type-post status-publish format-standard has-post-thumbnail hentry category-sunshine category-neer-do-well-news category-sim-swapping tag-allison-nixon tag-breachbase tag-catalin-cimpanu tag-dev-0537 tag-doxbin tag-electronic-arts tag-flashpoint tag-lapsus tag-microsoft tag-oklaqq tag-okta tag-palo-alto-networks tag-raidforums tag-recursion-team tag-sim-swapping tag-swatting tag-unit-221b tag-vodafone tag-whitedoxbin">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2022/03/a-closer-look-at-the-lapsus-data-extortion-group/" title="Permalink to A Closer Look at the LAPSUS$ Data Extortion Group" rel="bookmark">A Closer Look at the LAPSUS$ Data Extortion Group</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">March 23, 2022</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2022/03/a-closer-look-at-the-lapsus-data-extortion-group/#comments">26 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p><strong>Microsoft </strong>and identity management platform <strong>Okta</strong> both this week disclosed breaches involving <strong>LAPSUS$</strong>, a relatively new cybercrime group that specializes in stealing data from big companies and threatening to publish it unless a ransom demand is paid. Here’s a closer look at LAPSUS$, and some of the low-tech but high-impact methods the group uses to gain access to targeted organizations.</p>
+<p>First surfacing in December 2021 with an extortion demand on Brazil’s Ministry of Health, LAPSUS$ made headlines more recently for posting screenshots of internal tools tied to a number of major corporations, including <strong>NVIDIA, Samsung, and Vodafone.</strong></p>
+<p>On Tuesday, LAPSUS$ announced via its Telegram channel it was releasing source code stolen from Microsoft. In <a href="https://www.microsoft.com/security/blog/2022/03/22/dev-0537-criminal-actor-targeting-organizations-for-data-exfiltration-and-destruction/" target="_blank" rel="noopener">a blog post</a> published Mar. 22, Microsoft said it interrupted the LAPSUS$ group’s source code download before it could finish, and that it was able to do so because LAPSUS$ publicly discussed their illicit access on their Telegram channel before the download could complete.</p>
+<div id="attachment_59043" style="width: 1069px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-59043" class="size-full wp-image-59043" src="https://krebsonsecurity.com/wp-content/uploads/2022/03/lapsuss-died.png" alt="" srcset="https://krebsonsecurity.com/wp-content/uploads/2022/03/lapsuss-died.png 1059w, https://krebsonsecurity.com/wp-content/uploads/2022/03/lapsuss-died-768x173.png 768w, https://krebsonsecurity.com/wp-content/uploads/2022/03/lapsuss-died-782x176.png 782w" sizes="(max-width: 1059px) 100vw, 1059px" width="1059" height="238"><p id="caption-attachment-59043" class="wp-caption-text">One of the LAPSUS$ group members admitted on their Telegram channel that the Microsoft source code download had been interrupted.</p></div>
+<p>“This public disclosure escalated our action allowing our team to intervene and interrupt the actor mid-operation, limiting broader impact,” Microsoft wrote. “No customer code or data was involved in the observed activities. Our investigation has found a single account had been compromised, granting limited access. Microsoft does not rely on the secrecy of code as a security measure and viewing source code does not lead to elevation of risk.”</p>
+<p>While it may be tempting to dismiss LAPSUS$ as an immature and fame-seeking group, their tactics should make anyone in charge of corporate security sit up and take notice. Microsoft says LAPSUS$ — which it boringly calls “<strong>DEV-0537</strong>” — mostly gains illicit access to targets via “social engineering.” This involves bribing or tricking employees at the target organization or at its myriad partners, such as customer support call centers and help desks.</p>
+<p>“Microsoft found instances where the group successfully gained access to target organizations through recruited employees (or employees of their suppliers or business partners),” Microsoft wrote. The post continues:</p>
+<blockquote><p>“DEV-0537 advertised that they wanted to buy credentials for their targets to entice employees or contractors to take part in its operation. For a fee, the willing accomplice must provide their credentials and approve the MFA prompt or have the user install AnyDesk or other remote management software on a corporate workstation allowing the actor to take control of an authenticated system. Such a tactic was just one of the ways DEV-0537 took advantage of the security access and business relationships their target organizations have with their service providers and supply chains.”</p></blockquote>
+<p>The LAPSUS$ Telegram channel has grown to more than 45,000 subscribers, and Microsoft points to an ad LAPSUS$ posted there offering to recruit insiders at major mobile phone providers, large software and gaming companies, hosting firms and call centers.</p>
+<p>Sources tell KrebsOnSecurity that LAPSUS$ has been recruiting insiders via multiple social media platforms since at least November 2021. One of the core LAPSUS$ members who used the nicknames “Oklaqq” and “WhiteDoxbin” <a href="https://camas.github.io/reddit-search/#{%22author%22:%22oklaqq%22,%22searchFor%22:1,%22resultSize%22:100}" target="_blank" rel="noopener">posted recruitment messages to Reddit last year</a>, offering employees at AT&amp;T, T-Mobile and Verizon up to $20,000 a week to perform “inside jobs.”</p>
+<div id="attachment_59044" style="width: 1033px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-59044" loading="lazy" class="size-full wp-image-59044" src="https://krebsonsecurity.com/wp-content/uploads/2022/03/white-oklaqq.png" alt="" srcset="https://krebsonsecurity.com/wp-content/uploads/2022/03/white-oklaqq.png 1023w, https://krebsonsecurity.com/wp-content/uploads/2022/03/white-oklaqq-768x294.png 768w, https://krebsonsecurity.com/wp-content/uploads/2022/03/white-oklaqq-782x300.png 782w" sizes="(max-width: 1023px) 100vw, 1023px" width="1023" height="392"><p id="caption-attachment-59044" class="wp-caption-text">LAPSUS$ leader Oklaqq a.k.a. “WhiteDoxbin” offering to pay $20,000 a week to corrupt employees at major mobile providers.</p></div>
+<p>Many of LAPSUS$’s recruitment ads are written in both English and Portuguese. According to cyber intelligence firm <a href="https://www.flashpoint-intel.com" target="_blank" rel="noopener">Flashpoint</a>, the bulk of the group’s victims (15 of them) have been in Latin America and Portugal.</p>
+<p>“LAPSUS$ currently does not operate a clearnet or darknet leak site or traditional social media accounts—it operates solely via Telegram and email,” Flashpoint wrote in an analysis of the group. “LAPSUS$ appears to be highly sophisticated, carrying out increasingly high-profile data breaches. The group has claimed it is not state-sponsored. The individuals behind the group are likely experienced and have demonstrated in-depth technical knowledge and abilities.”</p>
+<p>Microsoft said LAPSUS$ has been known to target the personal email accounts of employees at organizations they wish to hack, knowing that most employees these days use some sort of VPN to remotely access their employer’s network.</p>
+<p>“In some cases, [LAPSUS$] first targeted and compromised an individual’s personal or private (non-work-related) accounts giving them access to then look for additional credentials that could be used to gain access to corporate systems,” Microsoft wrote. “Given that employees typically use these personal accounts or numbers as their second-factor authentication or password recovery, the group would often use this access to reset passwords and complete account recovery actions.”</p>
+<p>In other cases, Microsoft said, LAPSUS$ has been seen calling a target organization’s help desk and attempting to convince support personnel to reset a privileged account’s credentials.</p>
+<p>“The group used the previously gathered information (for example, profile pictures) and had a native-English-sounding caller speak with the help desk personnel to enhance their social engineering lure,” Microsoft explained. “Observed actions have included DEV-0537 answering common recovery prompts such as “first street you lived on” or “mother’s maiden name” to convince help desk personnel of authenticity. Since many organizations outsource their help desk support, this tactic attempts to exploit those supply chain relationships, especially where organizations give their help desk personnel the ability to elevate privileges.”</p>
+<div id="attachment_59048" style="width: 766px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-59048" loading="lazy" class=" wp-image-59048" src="https://krebsonsecurity.com/wp-content/uploads/2022/03/lapsussjobs.png" alt="" srcset="https://krebsonsecurity.com/wp-content/uploads/2022/03/lapsussjobs.png 812w, https://krebsonsecurity.com/wp-content/uploads/2022/03/lapsussjobs-768x691.png 768w, https://krebsonsecurity.com/wp-content/uploads/2022/03/lapsussjobs-782x704.png 782w" sizes="(max-width: 756px) 100vw, 756px" width="756" height="681"><p id="caption-attachment-59048" class="wp-caption-text">LAPSUS$ recruiting insiders via its Telegram channel.</p></div>
+<p> <a href="https://krebsonsecurity.com/2022/03/a-closer-look-at-the-lapsus-data-extortion-group/#more-59041" class="more-link">Continue reading <span class="meta-nav">→</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+	<div id="between_article_ad" class="themonic-ad5"><a href="http://cybersecurity-strategy-masters.nyu.edu/landing-page/?utm_source=krebs&amp;utm_medium=banner">
+<img src="/b-nyu/5.gif">
+</a></div>	<article id="post-58914" class="post-58914 post type-post status-publish format-standard has-post-thumbnail hentry category-neer-do-well-news category-web-fraud-2-0 tag-aleksandr-nastra-zhukov tag-chronopay tag-dmitry-artimovich tag-igor-artimovich tag-pavel-vrublevsky tag-redeye tag-vladislav-horohorin">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2022/03/spam-nation-villain-vrublevsky-charged-with-fraud/" title="Permalink to ‘Spam Nation’ Villain Vrublevsky Charged With Fraud" rel="bookmark">‘Spam Nation’ Villain Vrublevsky Charged With Fraud</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">March 22, 2022</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2022/03/spam-nation-villain-vrublevsky-charged-with-fraud/#comments">13 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p><strong>Pavel Vrublevsky</strong>, founder of the Russian payment technology firm <strong>ChronoPay</strong> and the antagonist in my 2014 book “<a href="https://www.amazon.com/dp/B00L5QGBL0/ref=dp-kindle-redirect?_encoding=UTF8&amp;btkr=1" target="_blank" rel="noopener">Spam Nation</a>,” was arrested in Moscow this month and charged with fraud. Russian authorities allege Vrublevsky operated several fraudulent SMS-based payment schemes, and facilitated money laundering for <strong>Hydra</strong>, the largest Russian darknet market. But according to information obtained by KrebsOnSecurity, it is equally likely Vrublevsky was arrested thanks to his propensity for carefully documenting the links between Russia’s state security services and the cybercriminal underground.</p>
+<div id="attachment_10429" style="width: 713px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-10429" loading="lazy" class="size-full wp-image-10429" src="https://krebsonsecurity.com/wp-content/uploads/2011/06/Pavelpic.jpg" alt="" srcset="https://krebsonsecurity.com/wp-content/uploads/2011/06/Pavelpic.jpg 703w, https://krebsonsecurity.com/wp-content/uploads/2011/06/Pavelpic-300x207.jpg 300w" sizes="(max-width: 703px) 100vw, 703px" width="703" height="487"><p id="caption-attachment-10429" class="wp-caption-text">An undated photo of Vrublevsky at his ChronoPay office in Moscow.</p></div>
+<p>ChronoPay specializes in providing access to the global credit card networks for “high risk” merchants — businesses involved in selling services online that tend to generate an unusually large number of chargebacks and reports of fraud, and hence have a higher risk of failure.</p>
+<p>When I first began writing about Vrublevsky <a href="http://voices.washingtonpost.com/securityfix/2009/07/following_the_money_trail_of_r.html" target="_blank" rel="noopener">in 2009 as a reporter for The Washington Post</a>, ChronoPay and its sister firm <strong>Red &amp; Partners</strong> (RNP) were earning millions setting up payment infrastructure <a href="https://krebsonsecurity.com/2011/03/chronopays-scareware-diaries/" target="_blank" rel="noopener">for fake antivirus peddlers</a> and <a href="https://krebsonsecurity.com/2011/02/russian-cops-crash-pill-pusher-party/" target="_blank" rel="noopener">spammers pimping male enhancement drugs</a>.</p>
+<p>Using the hacker alias “<strong>RedEye</strong>,” the ChronoPay CEO oversaw a burgeoning pharmacy spam affiliate program called <a href="https://krebsonsecurity.com/?s=rx-promotion" target="_blank" rel="noopener">Rx-Promotion</a>, which paid some of Russia’s most talented spammers and virus writers to bombard the world with junk email promoting Rx-Promotion’s pill shops. RedEye also was the administrator of <strong>Crutop</strong>, a Russian language forum and affiliate program that catered to thousands of adult webmasters.</p>
+<p>In 2013, Vrublevsky was <a href="https://krebsonsecurity.com/2013/08/pavel-vrublevsky-sentenced-to-2-5-years/" target="_blank" rel="noopener">sentenced to 2.5 years in a Russian penal colony</a> for convincing one of his top affiliates to launch a distributed denial-of-service (DDoS) attack against a competitor that shut down the ticketing system for the state-owned <strong>Aeroflot</strong> airline.</p>
+<p>Following his release from jail, Vrublevsky began working on a new digital payments platform based in Hong Kong called <strong>HPay Ltd</strong> (a.k.a. Hong Kong Processing Corporation). HPay appears to have had a great number of clients that were running schemes which bamboozled people with fake lotteries and prize contests.</p>
+<p>According to Russian prosecutors, the scam went like this: Consumers would receive an SMS with links to sites that falsely claimed a number of well-known companies were sponsoring drawings and lotteries for people who enrolled or agreed to answer surveys. All who responded were told they were winners, but also that they had to pay a commission to pick up the prize. That scheme allegedly stole 500 million rubles (~ USD $4.5 million) from over 100,000 consumers.</p>
+<p>There are scant public records that show a connection between ChronoPay and HPay, apart from the fact that the latter’s website — hpay[.]io — was originally hosted on the same server (185.180.196.74) along with a handful of other domains, including Vrublevsky’s personal website <strong>rnp[.]com</strong>.</p>
+<p>But then earlier this month, KrebsOnSecurity received a large amount of information that was stolen from ChronoPay recently when hackers managed to compromise the company’s <strong>Confluence</strong> server. Confluence is a web-based corporate wiki platform, and ChronoPay used their Confluence installation to document in exquisite detail how it creatively distributes the risk associated with high-risk processing by routing transactions through a myriad of shell companies and third-party processors.</p>
+<div id="attachment_59012" style="width: 769px" class="wp-caption aligncenter"><a href="https://krebsonsecurity.com/wp-content/uploads/2022/03/cc-tacticaldata.png" target="_blank" rel="noopener"><img aria-describedby="caption-attachment-59012" loading="lazy" class="wp-image-59012" src="https://krebsonsecurity.com/wp-content/uploads/2022/03/cc-tacticaldata.png" alt="" srcset="https://krebsonsecurity.com/wp-content/uploads/2022/03/cc-tacticaldata.png 1565w, https://krebsonsecurity.com/wp-content/uploads/2022/03/cc-tacticaldata-768x325.png 768w, https://krebsonsecurity.com/wp-content/uploads/2022/03/cc-tacticaldata-1536x650.png 1536w, https://krebsonsecurity.com/wp-content/uploads/2022/03/cc-tacticaldata-782x331.png 782w" sizes="(max-width: 759px) 100vw, 759px" width="759" height="321"></a><p id="caption-attachment-59012" class="wp-caption-text">A Google-translated snippet of the hacked ChronoPay Confluence installation. Click to enlarge.</p></div>
+<p>Incredibly, Vrublevsky himself appears to have used ChronoPay’s Confluence wiki to document his entire 20+ years of personal and professional history in the high-risk payments space, including the company’s most recent forays with HPay. The latest document in the hacked archive is dated April 2021.</p>
+<p>These diary entries, interspersed between highly technical how-tos, are all written in Russian and in the third person. But they are unmistakably Vrublevsky’s words: Some of the elaborate stories in the wiki were identical to theories that Vrublevsky himself espoused to me throughout hundreds of hours of phone interviews. Also, in some of the entries the narrator switches from “he” to “I” when describing the actions of Vrublevsky.</p>
+<p>Vrublevsky’s memoire/wiki invokes the nicknames and real names of Russian hackers who worked with the protection of corrupt officials in the Russian <strong>Federal Security Service</strong> (FSB), the successor agency to the Soviet KGB. In several diary entries, Vrublevsky writes about various cybercriminals and Russian law enforcement officials involved in processing credit card payments tied to online gambling sites.</p>
+<p>Russian banks are prohibited from processing payments for online gambling, and as a result many online gaming sites catering to Russian speakers have chosen to process credit card payments through Ukrainian financial institutions.</p>
+<p>That’s according to <strong>Vladislav “BadB” Horohorin</strong>, the convicted cybercriminal who shared the ChronoPay Confluence data with KrebsOnSecurity. In February 2017, Horohorin was released after serving four years in a U.S. prison for his role in the <a href="https://en.wikipedia.org/wiki/Vladislav_Horohorin" target="_blank" rel="noopener">2009 theft of more than $9 million from RBS Worldpay</a>.</p>
+<p>Horohorin said Vrublevsky has been using his knowledge of the card processing networks to extort people in the online gambling industry who may run afoul of Russian laws.</p>
+<p>“Russia has strict regulations against processing for the gambling business,” Horohorin said. “While Russian banks can’t do it, Ukrainian ones can, so we have Ukrainian banks processing gambling and casinos, which mostly Russian gamblers use. What Pavel does is he blackmails those Ukrainian banks using his connections and knowledge. Some pay, some don’t. But some people are not very tolerant of that kind of abuse.” <a href="https://krebsonsecurity.com/2022/03/spam-nation-villain-vrublevsky-charged-with-fraud/#more-58914" class="more-link">Continue reading <span class="meta-nav">→</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+	<div class="themonic-ad2"><div class="a-statement">Advertisement</div></div>	<article id="post-58969" class="post-58969 post type-post status-publish format-standard has-post-thumbnail hentry category-russias-war-on-ukraine category-comingstorm tag-alex-holden tag-github tag-hold-security tag-protestware">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2022/03/pro-ukraine-protestware-pushes-antiwar-ads-geo-targeted-malware/" title="Permalink to Pro-Ukraine ‘Protestware’ Pushes Antiwar Ads, Geo-Targeted Malware" rel="bookmark">Pro-Ukraine ‘Protestware’ Pushes Antiwar Ads, Geo-Targeted Malware</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">March 17, 2022</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2022/03/pro-ukraine-protestware-pushes-antiwar-ads-geo-targeted-malware/#comments">90 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p>Researchers are tracking a number of open-source “<strong>protestware</strong>” projects on <strong>GitHub</strong> that have recently altered their code to display “Stand with Ukraine” messages for users, or basic facts about the carnage in Ukraine. The group also is tracking several code packages that were recently modified to erase files on computers that appear to be coming from Russian or Belarusian Internet addresses.</p>
+<p><img loading="lazy" class="aligncenter wp-image-58985" src="https://krebsonsecurity.com/wp-content/uploads/2022/03/PROTESTWARE.png" alt="" width="755" height="153"></p>
+<p>The <a href="https://github.com/ThorgrimGrudgebearer/GreatBookOfGrudges/blob/main/README.md" target="_blank" rel="noopener">upstart tracking effort</a> is being crowdsourced via <strong>Telegram</strong>, but the output of the Russian research group is centralized in <a href="https://docs.google.com/spreadsheets/d/1H3xPB4PgWeFcHjZ7NOPtrcya_Ua4jUolWm-7z9-jSpQ/htmlview?pru=AAABf7z88MA*ITSp0EBrKinw0LjFWZ9tzQ#gid=2074850979" target="_blank" rel="noopener">a Google Spreadsheet that is open to the public</a>. Most of the GitHub code repositories tracked by this group include relatively harmless components that will either display a simple message in support of Ukraine, or show statistics about the war in Ukraine — such as casualty numbers — and links to more information on the Deep Web.</p>
+<p>For example, the popular library <strong>ES5-ext</strong> hadn’t updated its code in nearly two years. But on March 7, the code project added a component “<a href="https://github.com/medikoo/es5-ext/commit/28de285ed433b45113f01e4ce7c74e9a356b2af2" target="_blank" rel="noopener">postinstall.js</a>,” which checks to see if the user’s computer is tied to a Russian Internet address. If so, the code broadcasts a “Call for peace:”</p>
+<div id="attachment_58971" style="width: 760px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-58971" loading="lazy" class="wp-image-58971" src="https://krebsonsecurity.com/wp-content/uploads/2022/03/callforpeace.png" alt="" srcset="https://krebsonsecurity.com/wp-content/uploads/2022/03/callforpeace.png 799w, https://krebsonsecurity.com/wp-content/uploads/2022/03/callforpeace-768x702.png 768w, https://krebsonsecurity.com/wp-content/uploads/2022/03/callforpeace-782x714.png 782w" sizes="(max-width: 750px) 100vw, 750px" width="750" height="685"><p id="caption-attachment-58971" class="wp-caption-text">A message that appears for Russian users of the popular es5-ext code library on GitHub. The message has been Google-Translated from Russian to English.</p></div>
+<p>A more concerning example can be found at the GitHub page for “<strong>vue-cli</strong>,” a popular Javascript framework for building web-based user interfaces. On March 15, users discovered <a href="https://github.com/vuejs/vue-cli/issues/7054" target="_blank" rel="noopener">a new component had been added</a> that was designed to wipe all files from any systems visiting from a Russian or Belarusian Internet address (the malicious code has since been removed):</p>
+<div id="attachment_58974" style="width: 761px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-58974" loading="lazy" class=" wp-image-58974" src="https://krebsonsecurity.com/wp-content/uploads/2022/03/vue-cli.png" alt="" srcset="https://krebsonsecurity.com/wp-content/uploads/2022/03/vue-cli.png 789w, https://krebsonsecurity.com/wp-content/uploads/2022/03/vue-cli-768x503.png 768w, https://krebsonsecurity.com/wp-content/uploads/2022/03/vue-cli-782x512.png 782w" sizes="(max-width: 751px) 100vw, 751px" width="751" height="492"><p id="caption-attachment-58974" class="wp-caption-text">Readers complaining that an update to the popular Vue-Cli package sought to wipe files if the user was coming from a Russian IP address.</p></div>
+<p>“Man, I love politics in my APIs,” GitHub user “<strong>MSchleckser</strong>” commented wryly on Mar. 15. <a href="https://krebsonsecurity.com/2022/03/pro-ukraine-protestware-pushes-antiwar-ads-geo-targeted-malware/#more-58969" class="more-link">Continue reading <span class="meta-nav">→</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+		<article id="post-58917" class="post-58917 post type-post status-publish format-standard has-post-thumbnail hentry category-neer-do-well-news tag-aleksei-burkov tag-directconnection tag-jake-sullivan tag-k0pa tag-mazafaka tag-naama-issachar tag-vladimir-putin">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2022/03/lawmakers-probe-early-release-of-top-ru-cybercrook/" title="Permalink to Lawmakers Probe Early Release of Top RU Cybercrook" rel="bookmark">Lawmakers Probe Early Release of Top RU Cybercrook</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">March 15, 2022</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2022/03/lawmakers-probe-early-release-of-top-ru-cybercrook/#comments">54 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<div id="attachment_49530" style="width: 767px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-49530" loading="lazy" class=" wp-image-49530" src="https://krebsonsecurity.com/wp-content/uploads/2019/11/burkov-jerusalem-getty.png" alt="" width="757" height="477"><p id="caption-attachment-49530" class="wp-caption-text">Aleksei Burkov, seated second from right, attends a hearing in Jerusalem in 2015. Image: Andrei Shirokov / Tass via Getty Images.</p></div>
+<p><strong>Aleksei Burkov</strong>, a cybercriminal who long operated two of Russia’s most exclusive underground hacking forums, was arrested in 2015 by Israeli authorities. The Russian government fought Burkov’s extradition to the U.S. for four years — even arresting and jailing an Israeli woman to force a prisoner swap. That effort failed: Burkov was sent to America, pleaded guilty, and was sentenced to nine years in prison. But a little more than a year later, he was quietly released and deported back to Russia. Now some Republican lawmakers are asking why a Russian hacker once described as “an asset of supreme importance” was allowed to shorten his stay.</p>
+<p>A native of St. Petersburg, Russia, Burkov admitted to running CardPlanet, a site that sold more than 150,000 stolen credit card accounts, and to being a founder of DirectConnection — a closely guarded online community that attracted some of the world’s most-wanted Russian hackers.</p>
+<p>But Burkov’s cybercriminal activities spanned far beyond mere credit card fraud. A <a href="https://krebsonsecurity.com/2019/11/why-were-the-russians-so-set-against-this-hacker-being-extradited/" target="_blank" rel="noopener">2019 deep dive into Burkov’s hacker alias “K0pa”</a> revealed he also was co-administrator of the secretive Russian cybercrime forum “<a href="https://krebsonsecurity.com/2021/03/three-top-russian-cybercrime-forums-hacked/" target="_blank" rel="noopener">Mazafaka</a>.” Like DirectConnection, Mazafaka’s member roster was a veritable “Who’s Who?” of the Russian hacker underground, and K0pa played a key role in vetting new members and settling disputes for both communities.</p>
+<p>K0pa’s elevated status in the Russian cybercrime community made him one of the most connected malicious hackers ever apprehended by U.S. authorities. As I wrote at the time of Burkov’s extradition, the Kremlin was probably concerned that he simply knew too much about Russia’s propensity to outsource certain activities to its criminal hacker community.</p>
+<p>“To my knowledge, no one has accused Burkov of being some kind of cybercrime fixer or virtual badguy Rolodex for the Russian government,” KrebsOnSecurity <a href="https://krebsonsecurity.com/2019/11/why-were-the-russians-so-set-against-this-hacker-being-extradited/" target="_blank" rel="noopener">wrote</a> in 2019. “On the other hand, from his onetime lofty perch atop some of the most exclusive Russian cybercrime forums, K0pa certainly would have fit that role nicely.”</p>
+<p>Burkov was arrested in December 2015 on an international warrant while visiting Israel, and over the ensuing four years the Russian government aggressively sought to keep him from being extradited to the United States.</p>
+<p>When Israeli authorities turned down requests to send him back to Russia — supposedly to face separate hacking charges there — the Russians imprisoned Israeli citizen <strong>Naama Issachar</strong> on trumped-up drug charges in a bid to trade prisoners. Nevertheless, Burkov was extradited to the United States in November 2019.</p>
+<p>And if there were any doubts Issachar was jailed for use as a political pawn, Russian President <strong>Vladimir Putin</strong> erased those by <a href="https://www.bbc.com/news/world-europe-51301827" target="_blank" rel="noopener">pardoning her</a> in January 2020, <a href="https://krebsonsecurity.com/2020/01/russian-cybercrime-boss-burkov-pleads-guilty/" target="_blank" rel="noopener">just hours after Burkov pleaded guilty in the United States</a>.</p>
+<p>In June 2020, Burkov was <a href="https://krebsonsecurity.com/2020/06/russian-cybercrime-boss-burkov-gets-9-years/" target="_blank" rel="noopener">sentenced to nine years in prison</a>. But a little more than a year later — Aug. 25, 2021 — Burkov was released and deported back to Russia. According to <a href="https://gop-foreignaffairs.house.gov/wp-content/uploads/2022/03/Letter-to-Sullivan-on-Aleksei-Burkov.pdf" target="_blank" rel="noopener">a letter</a> (PDF) sent Monday by four Republican House lawmakers to White House National Security Advisor <strong>Jake Sullivan</strong>, U.S. Immigration and Customs Enforcement (ICE) officials escorted Burkov onto a plane destined for Moscow shortly after his release. <a href="https://krebsonsecurity.com/2022/03/lawmakers-probe-early-release-of-top-ru-cybercrook/#more-58917" class="more-link">Continue reading <span class="meta-nav">→</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+		<article id="post-58886" class="post-58886 post type-post status-publish format-standard has-post-thumbnail hentry category-latest-warnings category-russias-war-on-ukraine category-comingstorm tag-anycast tag-bill-woodcock tag-dns tag-john-todd tag-linx tag-london-internet-exchange tag-megafon tag-packet-clearing-house tag-quad9 tag-rostelecom">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2022/03/report-recent-10x-increase-in-cyberattacks-on-ukraine/" title="Permalink to Report: Recent 10x Increase in Cyberattacks on Ukraine" rel="bookmark">Report: Recent 10x Increase in Cyberattacks on Ukraine</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">March 11, 2022</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2022/03/report-recent-10x-increase-in-cyberattacks-on-ukraine/#comments">40 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p>As their cities suffered more intense bombardment by Russian military forces this week, Ukrainian Internet users came under renewed cyberattacks, with one Internet company providing service there saying they blocked ten times the normal number of phishing and malware attacks targeting Ukrainians.</p>
+<p><img loading="lazy" class="aligncenter wp-image-58898" src="https://krebsonsecurity.com/wp-content/uploads/2022/03/ua-ru.png" alt="" srcset="https://krebsonsecurity.com/wp-content/uploads/2022/03/ua-ru.png 804w, https://krebsonsecurity.com/wp-content/uploads/2022/03/ua-ru-768x280.png 768w, https://krebsonsecurity.com/wp-content/uploads/2022/03/ua-ru-782x285.png 782w" sizes="(max-width: 760px) 100vw, 760px" width="760" height="277"></p>
+<p><strong>John Todd</strong> is general manager of <a href="https://www.quad9.net/news/blog/quad9-and-your-data/" target="_blank" rel="noopener">Quad9</a>, a free “anycast” DNS platform. DNS stands for Domain Name System, which is like a globally distributed phone book for the Internet that maps human-friendly website names (example.com) to numeric Internet addresses (8.8.4.4.) that are easier for computers to manage. Your computer or mobile device generates DNS lookups each time you send or receive an email, or browse to a webpage.</p>
+<p>With anycast, one Internet address can apply to many servers, meaning that any one of a number of DNS servers can respond to DNS queries, and usually the one that is geographically closest to the customer making the request will provide the response.</p>
+<p>Quad9 insulates its users from a range of cyberattacks by blocking DNS requests for known-bad domain names, i.e., those confirmed to be hosting malicious software, phishing websites, stalkerware and other threats. And normally, the ratio of DNS queries coming from Ukraine that are allowed versus blocked by Quad9 is fairly constant.</p>
+<p>But Todd says that on March 9, Quad9’s systems blocked 10 times the normal number of DNS requests coming from Ukraine, and to a lesser extent Poland.</p>
+<p>Todd said Quad9 saw a significant drop in traffic reaching its Kyiv POP [point of presence] during the hostilities, presumably due to fiber cuts or power outages. Some of that traffic then shifted to Warsaw, which for much of Ukraine’s networking is the next closest significant interconnect site.</p>
+<div id="attachment_58897" style="width: 769px" class="wp-caption aligncenter"><a href="https://krebsonsecurity.com/wp-content/uploads/2022/03/q9-ua.png"><img aria-describedby="caption-attachment-58897" loading="lazy" class="wp-image-58897" src="https://krebsonsecurity.com/wp-content/uploads/2022/03/q9-ua.png" alt="" srcset="https://krebsonsecurity.com/wp-content/uploads/2022/03/q9-ua.png 1235w, https://krebsonsecurity.com/wp-content/uploads/2022/03/q9-ua-768x208.png 768w, https://krebsonsecurity.com/wp-content/uploads/2022/03/q9-ua-782x212.png 782w" sizes="(max-width: 759px) 100vw, 759px" width="759" height="206"></a><p id="caption-attachment-58897" class="wp-caption-text">Quad9’s view of a spike in malicious traffic targeting Ukrainian users this week. Click to enlarge.</p></div>
+<p>“While our overall traffic dropped in Kyiv — and slightly increased in Warsaw due to infrastructure outages inside of .ua — the ratio of (good queries):(blocked queries) has spiked in both cities,” he continued. “The spike in that blocking ratio [Wednesday] afternoon in Kyiv was around 10x the normal level when comparing against other cities in Europe (Amsterdam, Frankfurt.) While Ukraine always is slightly higher (20%-ish) than Western Europe, this order-of-magnitude jump is unprecedented.” <a href="https://krebsonsecurity.com/2022/03/report-recent-10x-increase-in-cyberattacks-on-ukraine/#more-58886" class="more-link">Continue reading <span class="meta-nav">→</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+		<article id="post-58876" class="post-58876 post type-post status-publish format-standard has-post-thumbnail hentry category-patches tag-cve-2022-21967 tag-cve-2022-21990 tag-cve-2022-23277 tag-cve-2022-23285 tag-cve-2022-24459 tag-cve-2022-24503 tag-cve-2022-24508 tag-cve-2022-24512 tag-dustin-childs tag-greg-wiseman tag-immersive-labs tag-kevin-breen tag-microsoft-exchange-server tag-microsoft-patch-tuesday-march-2022 tag-rapid7 tag-remote-desktop tag-trend-micro-zero-day-initiative tag-windows-smbv3">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2022/03/microsoft-patch-tuesday-march-2022-edition/" title="Permalink to Microsoft Patch Tuesday, March 2022 Edition" rel="bookmark">Microsoft Patch Tuesday, March 2022 Edition</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">March 9, 2022</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2022/03/microsoft-patch-tuesday-march-2022-edition/#comments">20 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p><strong>Microsoft</strong> on Tuesday released software updates to plug at least 70 security holes in its <strong>Windows</strong> operating systems and related software. For the second month running, there are no scary zero-day threats looming for Windows users, and relatively few “critical” fixes. And yet we know from experience that attackers are already trying to work out how to turn these patches into a roadmap for exploiting the flaws they fix. Here’s a look at the security weaknesses Microsoft says are most likely to be targeted first.</p>
+<p><img loading="lazy" class="aligncenter wp-image-52647" src="https://krebsonsecurity.com/wp-content/uploads/2020/08/windowsec.png" alt="" width="725" height="532"></p>
+<p><strong>Greg Wiseman</strong>, product manager at <strong>Rapid7</strong>, notes that three vulnerabilities fixed this month have been previously disclosed, potentially giving attackers a head start in working out how to exploit them. Those include remote code execution bugs <a href="https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2022-24512" target="_blank" rel="noopener">CVE-2022-24512</a>, affecting <strong>.NET</strong> and <strong>Visual Studio</strong>, and <a href="https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2022-21990" target="_blank" rel="noopener">CVE-2022-21990</a>, affecting <strong>Remote Desktop Client</strong>. <a href="https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2022-24459" target="_blank" rel="noopener">CVE-2022-24459</a> is a vulnerability in the <strong>Windows Fax and Scan</strong> service. All three publicly disclosed vulnerabilities are rated “<a href="https://www.microsoft.com/en-us/msrc/security-update-severity-rating-system?SilentAuth=1&amp;wa=wsignin1.0" target="_blank" rel="noopener">Important</a>” by Microsoft.</p>
+<p>Just three of the fixes this month earned Microsoft’s most-dire “<strong>Critical</strong>” rating, which Redmond assigns to bugs that can be exploited to remotely compromise a Windows PC with little to no help from users. Two of those critical flaws involve Windows video codecs. Perhaps the most concerning critical bug quashed this month is <a href="https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2022-23277" target="_blank" rel="noopener">CVE-2022-23277</a>, a&nbsp; remote code execution flaw affecting <strong>Microsoft Exchange Server</strong>.</p>
+<p>“Thankfully, this is a post-authentication vulnerability, meaning attackers need credentials to exploit it,” Wiseman said. “Although passwords can be obtained via phishing and other means, this one shouldn’t be as rampantly exploited as the <a href="https://krebsonsecurity.com/2021/03/at-least-30000-u-s-organizations-newly-hacked-via-holes-in-microsofts-email-software/" target="_blank" rel="noopener">deluge of Exchange vulnerabilities we saw throughout 2021</a>. Exchange administrators should still patch as soon as reasonably possible.”</p>
+<p><a href="https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2022-24508" target="_blank" rel="noopener">CVE-2022-24508</a> is a remote code execution bug affecting <strong>Windows SMBv3</strong>, the technology that handles file sharing in Windows environments.</p>
+<p>“This has potential for widespread exploitation, assuming an attacker can put together a suitable exploit,” Wiseman said. “Luckily, like this month’s Exchange vulnerabilities, this, too, requires authentication.” <a href="https://krebsonsecurity.com/2022/03/microsoft-patch-tuesday-march-2022-edition/#more-58876" class="more-link">Continue reading <span class="meta-nav">→</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+		<article id="post-58854" class="post-58854 post type-post status-publish format-standard has-post-thumbnail hentry category-russias-war-on-ukraine tag-cogent tag-doug-madory tag-icann tag-kentik tag-lumen-technologies tag-neil-macfarquhar tag-sergey-vovnenko">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2022/03/internet-backbone-giant-lumen-shuns-ru/" title="Permalink to Internet Backbone Giant Lumen Shuns .RU" rel="bookmark">Internet Backbone Giant Lumen Shuns .RU</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">March 8, 2022</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2022/03/internet-backbone-giant-lumen-shuns-ru/#comments">50 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p><strong>Lumen Technologies</strong>, an American company that operates one of the largest Internet backbones and carries a significant percentage of the world’s Internet traffic, said today it will stop routing traffic for organizations based in Russia. Lumen’s decision comes just days after a similar exit by backbone provider <strong>Cogent</strong>, and amid a news media crackdown in Russia that has already left millions of Russians in the dark about what is really going on with their president’s war in Ukraine.</p>
+<p><img loading="lazy" class="aligncenter wp-image-44395" src="https://krebsonsecurity.com/wp-content/uploads/2018/07/shunned.jpg" alt="" width="751" height="503"></p>
+<p>Monroe, La. based Lumen [<a href="https://www.google.com/finance/quote/LUMN:NYSE" target="_blank" rel="noopener">NYSE: LUMN</a>] (formerly&nbsp;<strong>CenturyLink</strong>) initially said it would halt all new business with organizations based in Russia, leaving open the possibility of continuing to serve existing clients there. But on Tuesday the company said it could no longer justify that stance.</p>
+<p>“Life has taken a turn in Russia and Lumen is unable to continue to operate in this market,” Lumen said in a published statement. “The business services we provide are extremely small and very limited as is our physical presence. However, we are taking steps to immediately stop business in the region.”</p>
+<p>“We decided to disconnect the network due to increased security risk inside Russia,” the statement continues. “We have not yet experienced network disruptions but given the increasingly uncertain environment and the heightened risk of state action, we took this move to ensure the security of our and our customers’ networks, as well as the ongoing integrity of the global Internet.”</p>
+<p>According to Internet infrastructure monitoring firm <strong>Kentik</strong>, Lumen is the top international transit provider to Russia, with customers including Russian telecom giants Rostelecom and TTK, as well as all three major mobile operators (MTS, Megafon and VEON).</p>
+<p>“A backbone carrier disconnecting its customers in a country the size of Russia is without precedent in the history of the internet and reflects the intense global reaction that the world has had over the invasion of Ukraine,” <a href="https://www.kentik.com/blog/cogent-disconnects-from-russia/" target="_blank" rel="noopener">wrote</a> <strong>Doug Madory</strong>, Kentik’s director of Internet analysis.</p>
+<p>It’s not clear whether any other Internet backbone providers — some of which are based outside of the United States — will follow the lead of Lumen and Cogent. But Madory notes that as economic sanctions continue to exact a toll on Russia’s economy, its own telecommunications firms may have difficulty paying foreign transit providers for service.</p>
+<p>Ukrainian leaders petitioned the <strong>Internet Corporation for Assigned Names and Numbers</strong> (ICANN) — the nonprofit organization charged with overseeing the global domain name system — to disconnect Russia’s top-level domain (.ru) from the Internet. ICANN respectfully declined that request, but many technology giants, including Amazon, Apple and Microsoft, have moved on their own to suspend new business in the country.</p>
+<p>Meanwhile, Russia recently cracked down on the last remaining vestiges of a free press within its borders, passing a new law that threatens up to 15 years in jail for anyone who publishes content that refers to the conflict in Ukraine as a “war” or “invasion.” <a href="https://krebsonsecurity.com/2022/03/internet-backbone-giant-lumen-shuns-ru/#more-58854" class="more-link">Continue reading <span class="meta-nav">→</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+		<article id="post-58766" class="post-58766 post type-post status-publish format-standard has-post-thumbnail hentry category-neer-do-well-news category-ransomware category-russias-war-on-ukraine tag-athens-university-school-of-information-sciences-and-technolog tag-begemot tag-bloodrush tag-chainalysis tag-conti-ransomware tag-ddos tag-demon tag-ghost tag-gizmodo tag-jeffrey-ladish tag-mango tag-matt-novak tag-pump-and-dump tag-squid tag-stern tag-van">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2022/03/conti-ransomware-group-diaries-part-iv-cryptocrime/" title="Permalink to Conti Ransomware Group Diaries, Part IV: Cryptocrime" rel="bookmark">Conti Ransomware Group Diaries, Part IV: Cryptocrime</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">March 7, 2022</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2022/03/conti-ransomware-group-diaries-part-iv-cryptocrime/#comments">14 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p><img loading="lazy" class="aligncenter wp-image-58826" src="https://krebsonsecurity.com/wp-content/uploads/2022/03/blockchainsmartcontracts.png" alt="" srcset="https://krebsonsecurity.com/wp-content/uploads/2022/03/blockchainsmartcontracts.png 936w, https://krebsonsecurity.com/wp-content/uploads/2022/03/blockchainsmartcontracts-768x334.png 768w, https://krebsonsecurity.com/wp-content/uploads/2022/03/blockchainsmartcontracts-782x340.png 782w" sizes="(max-width: 759px) 100vw, 759px" width="759" height="330"></p>
+<p>Three stories here last week pored over several years’ worth of internal chat records stolen from the <strong>Conti</strong> ransomware group, the most profitable ransomware gang in operation today. The candid messages revealed how Conti&nbsp;<a href="https://krebsonsecurity.com/2022/03/conti-ransomware-group-diaries-part-i-evasion/" target="_blank" rel="noopener">evaded law enforcement and intelligence agencies</a>, what it was like on&nbsp;<a href="https://krebsonsecurity.com/2022/03/conti-ransomware-group-diaries-part-ii-the-office/" target="_blank" rel="noopener">a typical day at the Conti office</a>, and how Conti&nbsp;<a href="https://krebsonsecurity.com/2022/03/conti-ransomware-group-diaries-part-iii-weaponry/" target="_blank" rel="noopener">secured the digital weaponry used in their attacks</a>. This final post on the Conti conversations explores different schemes that Conti pursued to invest in and steal cryptocurrencies.</p>
+<p>When you’re perhaps the most successful ransomware group around — Conti made $180 million last year in extortion payments, <a href="https://krebsonsecurity.com/wp-content/uploads/2022/03/contistats-768x391.png" target="_blank" rel="noopener">well more than any other crime group</a>, according to <strong>Chainalysis</strong> — you tend to have a lot digital currency like Bitcoin.</p>
+<p>This wealth allowed Conti to do things that regular investors couldn’t — such as moving the price of cryptocurrencies in one direction or the other. Or building a cryptocurrency platform and seeding it with loads of ill-gotten crypto from phantom investors.</p>
+<p>One Conti top manager — aptly-named “<strong>Stern</strong>” because he incessantly needled Conti underlings to complete their assigned tasks — was obsessed with the idea of creating his own crypto scheme for cross-platform blockchain applications.</p>
+<p>“I’m addicted right now, I’m interested in trading, defi, blockchain, new projects,” Stern told “<strong>Bloodrush</strong>” on Nov. 3, 2021. “Big companies have too many secrets that they hold on to, thinking that this is their main value, these patents and data.”</p>
+<p>In a discussion thread that spanned many months in Conti’s internal chat room, Stern said the plan was to create their own crypto universe.</p>
+<p>“Like Netherium, Polkadot and Binance smart chain, etc.,” Stern wrote. “Does anyone know more about this? Study the above systems, code, principles of work. To build our own, where it will already be possible to plug in NFT, DEFI, DEX and all the new trends that are and will be. For others to create their own coins, exchanges and projects on our system.”</p>
+<p>It appears that Stern has been paying multiple developers to pursue the notion of building a peer-to-peer (P2P) based system for “smart contracts” — programs stored on a blockchain that run whenever predetermined conditions are met.</p>
+<p>It’s unclear under what context the Conti gang was interested in smart contracts, but the idea of a ransomware group insisting on payments via smart contracts is not entirely new. In 2020, researchers from <strong>Athens University School of Information Sciences and Technology</strong> in Greece <a href="https://arxiv.org/pdf/2003.04426.pdf" target="_blank" rel="noopener">showed</a> (PDF) how ransomware-as-a-service offerings might one day be executed through smart contracts.</p>
+<p>Before that, <strong>Jeffrey Ladish</strong>, an information security consultant based in Oakland, Calif., penned a <a href="https://medium.com/reserve-currency/smart-contracts-will-make-ransomware-more-profitable-part-1-a687fc370320" target="_blank" rel="noopener">two-part analysis</a> on why smart contracts will make ransomware more profitable.</p>
+<p>“By using a smart contract, an operator can trustlessly sell their victims a decryption key for money,” Ladish wrote. “That is, a victim can send some money to a smart contract with a guarantee that they will either receive the decryption key to their data or get their money back. The victim does not have to trust the person who hacked their computer because they can verify that the smart contract will fairly handle the exchange.”</p>
+<p>The Conti employee “<strong>Van</strong>” appears to have taken the lead on the P2P crypto platform, which he said was being developed using the Rust programming language.</p>
+<p>“I am trying to make a p2p network in Rust,” Van told “<strong>Demon</strong>” on Feb. 19, 2022 [Demon appears to be one of Stern’s aliases]. “I’m sorting it out and have already started writing code.”</p>
+<p>“It’s cool you like Rust,” Demon replied. “I think it will help us with smart contracts.”</p>
+<p>Stern apparently believed in his crypto dreams so much that he sponsored a $100,000 article writing contest on the Russian language cybercrime forum Exploit, asking interested applicants to put forth various ideas for crypto platforms. Such contests are an easy way to buy intellectual property for ongoing projects, and they’re also effective recruiting tools for cybercriminal organizations.</p>
+<p>“Cryptocurrency article contest! [100.000$],” wrote mid-level Conti manager “Mango,” to boss Stern, copying the title of the post on the Exploit forum. “What the hell are you doing there…”</p>
+<p>A few days later Mango reports to Stern that he has “prepared everything for both the social network and articles for crypto contests.” <a href="https://krebsonsecurity.com/2022/03/conti-ransomware-group-diaries-part-iv-cryptocrime/#more-58766" class="more-link">Continue reading <span class="meta-nav">→</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+		<article id="post-58724" class="post-58724 post type-post status-publish format-standard has-post-thumbnail hentry category-neer-do-well-news category-ransomware category-russias-war-on-ukraine tag-alarm tag-bentley tag-bio tag-bloodrush tag-chainalysis tag-cobalt-strike tag-conti tag-grant tag-kaktus tag-lemans-corporation tag-pin tag-ransomware tag-reshaev tag-revers tag-salamandra tag-skippy tag-the-spaniard tag-tramp tag-trickbotleaks tag-trump">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2022/03/conti-ransomware-group-diaries-part-iii-weaponry/" title="Permalink to Conti Ransomware Group Diaries, Part III: Weaponry" rel="bookmark">Conti Ransomware Group Diaries, Part III: Weaponry</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">March 4, 2022</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2022/03/conti-ransomware-group-diaries-part-iii-weaponry/#comments">23 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p>Part I of this series examined newly-leaked internal chats from the <strong>Conti</strong> ransomware group, and how the crime gang <a href="https://krebsonsecurity.com/2022/03/conti-ransomware-group-diaries-part-i-evasion/" target="_blank" rel="noopener">dealt with its own internal breaches</a>. Part II explored what it’s like <a href="https://krebsonsecurity.com/2022/03/conti-ransomware-group-diaries-part-ii-the-office/" target="_blank" rel="noopener">to be an employee of Conti’s sprawling organization</a>. Today’s Part III looks at how Conti abused popular commercial security services to undermine the security of their targets, as well as how the team’s leaders strategized for the upper hand in ransom negotiations with victims.</p>
+<div id="attachment_58780" style="width: 769px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-58780" loading="lazy" class=" wp-image-58780" src="https://krebsonsecurity.com/wp-content/uploads/2022/03/contistats.png" alt="" srcset="https://krebsonsecurity.com/wp-content/uploads/2022/03/contistats.png 932w, https://krebsonsecurity.com/wp-content/uploads/2022/03/contistats-768x391.png 768w, https://krebsonsecurity.com/wp-content/uploads/2022/03/contistats-782x398.png 782w" sizes="(max-width: 759px) 100vw, 759px" width="759" height="386"><p id="caption-attachment-58780" class="wp-caption-text">Conti is by far the most aggressive and profitable ransomware group in operation today. Image: Chainalysis</p></div>
+<p>Conti is by far the most successful ransomware group in operation today, routinely pulling in multi-million dollar payments from victim organizations. That’s because more than perhaps any other ransomware outfit, Conti has chosen to focus its considerable staff and talents on targeting companies with more than $100 million in annual revenues.</p>
+<p>As it happens, Conti itself recently joined the $100 million club. According to the latest <a href="https://go.chainalysis.com/rs/503-FAP-074/images/Crypto-Crime-Report-2022.pdf" target="_blank" rel="noopener">Crypto Crime Report</a> (PDF) published by virtual currency tracking firm <strong>Chainalysis</strong>, Conti generated at least $180 million in revenue last year.</p>
+<p>On Feb. 27, a Ukrainian cybersecurity researcher who is currently in Ukraine leaked almost two years’ worth of internal chat records from Conti, which had just posted a press release to its victim shaming blog saying it fully supported Russia’s invasion of his country. Conti warned it would use its cyber prowess to strike back at anyone who interfered in the conflict.</p>
+<p>The leaked chats show that the Conti group — which fluctuated in size from 65 to more than 100 employees — budgeted several thousand dollars each month to pay for a slew of security and antivirus tools. Conti sought out these tools both for continuous testing (to see how many products detected their malware as bad), but also for their own internal security.</p>
+<p>A chat between Conti upper manager “<strong>Reshaev</strong>” and subordinate “<strong>Pin</strong>” on Aug. 8, 2021 shows Reshaev ordering Pin to quietly check on the activity of the Conti network administrators once a week — to ensure they’re not doing anything to undermine the integrity or security of the group’s operation. Reshaev tells Pin to install endpoint detection and response (EDR) tools on every administrator’s computer.</p>
+<p>“Check admins’ activity on servers each week,” Reshaev said. “Install EDR on every computer (for example, Sentinel, Cylance, CrowdStrike); set up more complex storage system; protect LSAS dump on all computers; have only 1 active accounts; install latest security updates; install firewall on all network.”</p>
+<p>Conti managers were hyper aware that their employees handled incredibly sensitive and invaluable data stolen from companies, information that would sell like hotcakes on the underground cybercrime forums. But in a company run by crooks, trust doesn’t come easily.</p>
+<p>“You check on me all the time, don’t you trust me?,” asked mid-level Conti member “<strong>Bio</strong>” of “<strong>Tramp</strong>” (a.k.a. “<strong>Trump</strong>“), a top Conti overlord. Bio was handling a large bitcoin transfer from a victim ransom payment, and Bio detected that Trump was monitoring him.</p>
+<p>“When that kind of money and people from the street come in who have never seen that kind of money, how can you trust them 1,000%?” Trump replied. “I’ve been working here for more than 15 years and haven’t seen anything else.” <a href="https://krebsonsecurity.com/2022/03/conti-ransomware-group-diaries-part-iii-weaponry/#more-58724" class="more-link">Continue reading <span class="meta-nav">→</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+		<article id="post-58690" class="post-58690 post type-post status-publish format-standard has-post-thumbnail hentry category-sunshine category-neer-do-well-news category-comingstorm tag-bentley tag-bleeping-computer tag-conti tag-emotet tag-hof tag-lawrence-abrams tag-mango tag-palo-alto-networks tag-ransomware tag-reverse tag-ryuk tag-stern tag-trickbot">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2022/03/conti-ransomware-group-diaries-part-ii-the-office/" title="Permalink to Conti Ransomware Group Diaries, Part II: The Office" rel="bookmark">Conti Ransomware Group Diaries, Part II: The Office</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">March 2, 2022</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2022/03/conti-ransomware-group-diaries-part-ii-the-office/#comments">33 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p>Earlier this week, a Ukrainian security researcher leaked almost two years’ worth of internal chat logs from <strong>Conti</strong>, one of the more rapacious and ruthless ransomware gangs in operation today. <a href="https://krebsonsecurity.com/2022/03/conti-ransomware-group-diaries-part-i-evasion/" target="_blank" rel="noopener">Tuesday’s story</a> examined how Conti dealt with its own internal breaches and attacks from private security firms and governments. In Part II of this series we’ll explore what it’s like to work for Conti, as described by the Conti employees themselves.</p>
+<p><img loading="lazy" class="aligncenter wp-image-58726" src="https://krebsonsecurity.com/wp-content/uploads/2022/03/conti.png" alt="" srcset="https://krebsonsecurity.com/wp-content/uploads/2022/03/conti.png 806w, https://krebsonsecurity.com/wp-content/uploads/2022/03/conti-768x378.png 768w, https://krebsonsecurity.com/wp-content/uploads/2022/03/conti-782x385.png 782w" sizes="(max-width: 759px) 100vw, 759px" width="759" height="374"></p>
+<p>The Conti group’s chats reveal a great deal about its internal structure and hierarchy. Conti maintains many of the same business units as a legitimate, small- to medium-sized enterprise, including a Human Resources department that is in charge of constantly interviewing potential new hires.</p>
+<p>Other Conti departments with their own distinct budgets, staff schedules, and senior leadership include:</p>
+<p>–<strong>Coders:</strong> Programmers hired to write malicious code, integrate disparate technologies<br>
+–<strong>Testers:</strong> Workers in charge of testing Conti malware against security tools and obfuscating it<br>
+–<strong>Administrators:</strong> Workers tasked with setting up, tearing down servers, other attack infrastructure<br>
+–<strong>Reverse Engineers:</strong> Those who can disassemble computer code, study it, find vulnerabilities or weaknesses<br>
+–<strong>Penetration Testers/Hackers:</strong> Those on the front lines battling against corporate security teams to steal data, and plant ransomware.</p>
+<p>Conti appears to have contracted out much of its spamming operations, or at least there was no mention of “Spammers” as direct employees. Conti’s leaders seem to have set strict budgets for each of its organizational units, although it occasionally borrowed funds allocated for one department to address the pressing cashflow needs of another.</p>
+<p>A great many of the more revealing chats concerning Conti’s structure are between “<strong>Mango</strong>” — a mid-level Conti manager to whom many other Conti employees report each day — and “<strong>Stern</strong>,” a sort of cantankerous taskmaster who can be seen constantly needling the staff for reports on their work.</p>
+<p>In July 2021, Mango told Stern that the group was placing ads on several Russian-language cybercrime forums to hire more workers. “The salary is $2k in the announcement, but there are a lot of comments that we are recruiting galley slaves,” Mango wrote. “Of course, we dispute that and say those who work and bring results can earn more, but there are examples of coders who work normally and earn $5-$10k salary.”</p>
+<p>The Conti chats show the gang primarily kept tabs on the victim bots infected with their malware via both the <strong>Trickbot</strong> and <strong>Emotet</strong> crimeware-as-a-service platforms, and that it employed dozens of people to continuously test, maintain and expand this infrastructure 24 hours a day, 7 days a week.</p>
+<p>Conti members referred to Emotet as “<strong>Booz</strong>” or “<strong>Buza</strong>,” and it is evident from reading these chat logs that Buza had its own stable of more than 50 coders, and likely much of the same organizational structure as Conti.</p>
+<p>According to Mango, as of July 18, 2021 the Conti gang employed 62 people, mostly low-level malware coders and software testers. However, Conti’s employee roster appears to have fluctuated wildly from one month to the next. For example, on multiple occasions the organization was forced to fire many employees as a security precaution in the wake of its own internal security breaches.</p>
+<p>In May 2021, Stern told Mango he wanted his underlings to hire 100 more “encoders” to work with the group’s malware before the bulk of the gang returns from their summer vacations in Crimea. Most of these new hires, Stern says, will join the penetration testing/hacking teams headed by Conti leaders “<strong>Hof</strong>” and “<strong>Reverse</strong>.” Both Hof and Reverse appear to have direct access to the Emotet crimeware platform.</p>
+<p>On July 30, 2021, Mango tells stern the payroll has increased to 87 salaried employees, with more hires on the way. But trying to accurately gauge the size of the Conti organization is problematic, in part because cybersecurity experts have long held that Conti is merely a rebrand of another ransomware strain and affiliate program known as <a href="https://en.wikipedia.org/wiki/Ryuk_(ransomware)" target="_blank" rel="noopener">Ryuk</a>. </p>
+<p>First spotted in 2018, Ryuk was just as ruthless and mercenary as Conti, and the FBI says that in the first year of its operation Ryuk earned more than $61 million in ransom payouts.</p>
+<p>“Conti is a Targeted version of Ryuk, which comes from Trickbot and Emotet which we’ve been monitoring for some time,” researchers at <a href="https://www.paloaltonetworks.com/blog/security-operations/conti-or-so-i-am-told/" target="_blank" rel="noopener">Palo Alto Networks wrote about Ryuk last year</a>. “A heavy focus was put on hospital systems, likely due to the necessity for uptime, as these systems were overwhelmed with handling the ongoing COVID-19 pandemic. We observed initial Ryuk ransom requests ranging from US$600,000 to $10 million across multiple industries.”</p>
+<p>On May 14, 2021, Ireland’s <strong>Health Service Executive</strong> (HSE) <a href="https://krebsonsecurity.com/2021/12/inside-irelands-public-healthcare-ransomware-scare/" target="_blank" rel="noopener">suffered a major ransomware attack at the hands of Conti</a>. The attack would disrupt services at several Irish hospitals, and resulted in the near complete shutdown of the HSE’s national and local networks, forcing the cancellation of many outpatient clinics and healthcare services. It took the HSE until Sept. 21, 2021 to fully restore all of its systems from the attack, at an estimated cost of more than $600 million.</p>
+<p>It remains unclear from reading these chats how many of Conti’s staff understood how much of the organization’s operations overlapped with that of Ryuk. <strong>Lawrence Abrams</strong> at <a href="https://www.bleepingcomputer.com" target="_blank" rel="noopener">Bleeping Computer</a> pointed to an October 2020 Conti chat in which the Emotet representative “Buza” posts a link to a security firm’s analysis of Ryuk’s return.</p>
+<p><img loading="lazy" class="aligncenter  wp-image-58740" src="https://krebsonsecurity.com/wp-content/uploads/2022/03/abramstweet.png" alt="" width="584" height="800"></p>
+<p>“<strong>Professor</strong>,” the nickname chosen by one of Conti’s most senior generals, replies that indeed Ryuk’s tools, techniques and procedures are nearly identical to Conti’s.</p>
+<p>“adf.bat — this is my fucking batch file,” Professor writes, evidently surprised at having read the analysis and spotting his own code being re-used in high-profile ransomware attacks by Ryuk.</p>
+<p>“Feels like [the] same managers were running both Ryuk and Conti, with a slow migration to Conti in June 2020,” Abrams <a href="https://twitter.com/LawrenceAbrams/status/1499046186942144523" target="_blank" rel="noopener">wrote on Twitter</a>. “However, based on chats, some affiliates didn’t know that Ryuk and Conti were run by the same people.” <a href="https://krebsonsecurity.com/2022/03/conti-ransomware-group-diaries-part-ii-the-office/#more-58690" class="more-link">Continue reading <span class="meta-nav">→</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+				
+			
+								<div class="themonic-pagination"><div class="pagination"><ul><li class="current"><span class="currenttext">1</span></li><li><a href="https://krebsonsecurity.com/page/2/" class="inactive">2</a></li><li><a href="https://krebsonsecurity.com/page/3/" class="inactive">3</a></li><li><a href="https://krebsonsecurity.com/page/4/" class="inactive">4</a></li><li><a href="https://krebsonsecurity.com/page/2/" class="inactive">Next ›</a></li><a class="inactive" href="https://krebsonsecurity.com/page/213/">Last »</a></ul></div></div>
+					<div style="display: block; clear: both;"></div>
+			
+		
+
+	
+
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+
+        <div id="sidebar_ad" class="widget themonic-ad5"><div class="a-statement">Advertisement</div><a href="https://drata.com/?utm_source=krebsonsecurity&amp;utm_medium=paid&amp;utm_campaign=br_q1&amp;utm_content=continuous_compliance">
+<img src="/b-drata/3.png">
+</a></div>
+
+                        <br><div class="widget themonic-ad1"><div class="a-statement">Advertisement</div></div><br>
+
+			<aside id="custom_html-2" class="widget_text widget widget_custom_html"><p class="widget-title">Mailing List</p><div class="textwidget custom-html-widget"><a href="/subscribe/">Subscribe here</a></div></aside><aside id="search-2" class="widget widget_search"><p class="widget-title">Search KrebsOnSecurity</p><form role="search" method="get" id="searchform" class="searchform" action="https://krebsonsecurity.com/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s">
+					<input type="submit" id="searchsubmit" value="Search">
+				</div>
+			</form></aside>
+		<aside id="recent-posts-3" class="widget widget_recent_entries">
+		<p class="widget-title">Recent Posts</p>
+		<ul>
+											<li>
+					<a href="https://krebsonsecurity.com/2022/03/a-closer-look-at-the-lapsus-data-extortion-group/">A Closer Look at the LAPSUS$ Data Extortion Group</a>
+									</li>
+											<li>
+					<a href="https://krebsonsecurity.com/2022/03/spam-nation-villain-vrublevsky-charged-with-fraud/">‘Spam Nation’ Villain Vrublevsky Charged With Fraud</a>
+									</li>
+											<li>
+					<a href="https://krebsonsecurity.com/2022/03/pro-ukraine-protestware-pushes-antiwar-ads-geo-targeted-malware/">Pro-Ukraine ‘Protestware’ Pushes Antiwar Ads, Geo-Targeted Malware</a>
+									</li>
+											<li>
+					<a href="https://krebsonsecurity.com/2022/03/lawmakers-probe-early-release-of-top-ru-cybercrook/">Lawmakers Probe Early Release of Top RU Cybercrook</a>
+									</li>
+											<li>
+					<a href="https://krebsonsecurity.com/2022/03/report-recent-10x-increase-in-cyberattacks-on-ukraine/">Report: Recent 10x Increase in Cyberattacks on Ukraine</a>
+									</li>
+					</ul>
+
+		</aside><aside id="text-2" class="widget widget_text">			<div class="textwidget"><a name="subscribe2"></a></div>
+		</aside><aside id="widget_sp_image-15" class="widget widget_sp_image"><p class="widget-title">Spam Nation</p><a href="https://www.amazon.com/Spam-Nation-Organized-Cybercrime-Epidemic-ebook/dp/B00L5QGBL0/ref=dp_kinw_strp_1" target="_blank" class="widget_sp_image-image-link" title="Spam Nation"><img alt="Spam Nation" class="attachment-266x404 aligncenter" style="max-width: 100%;" src="https://krebsonsecurity.com/wp-content/uploads/2015/04/spamnation-nyt.png" width="266" height="404"></a><div class="widget_sp_image-description"><p>A New York Times Bestseller! </p>
+</div></aside><aside id="widget_sp_image-25" class="widget widget_sp_image"><p class="widget-title">Thinking of a Cybersecurity Career?</p><a href="https://krebsonsecurity.com/2020/07/thinking-of-a-cybersecurity-career-read-this/" target="_blank" class="widget_sp_image-image-link" title="Thinking of a Cybersecurity Career? Read This."><img alt="Thinking of a Cybersecurity Career?" class="attachment-full" style="max-width: 100%;" srcset="https://krebsonsecurity.com/wp-content/uploads/2020/07/codepeople.png 625w, https://krebsonsecurity.com/wp-content/uploads/2020/07/codepeople-580x393.png 580w" sizes="(max-width: 625px) 100vw, 625px" src="https://krebsonsecurity.com/wp-content/uploads/2020/07/codepeople.png" width="625" height="424"></a><div class="widget_sp_image-description"><p>Read this.</p>
+</div></aside><aside id="widget_sp_image-3" class="widget widget_sp_image"><p class="widget-title">All About Skimmers </p><a href="https://krebsonsecurity.com/all-about-skimmers/" target="_blank" class="widget_sp_image-image-link" title="All About Skimmers "><img alt="All About Skimmers" class="attachment-299x232 aligncenter" style="max-width: 100%;" src="https://krebsonsecurity.com/wp-content/uploads/2010/08/skimgallery1.jpg" width="299" height="232"></a><div class="widget_sp_image-description"><p>Click image for my skimmer series.</p>
+</div></aside><aside id="categories-2" class="widget widget_categories"><p class="widget-title">Story Categories</p>
+			<ul>
+					<li class="cat-item cat-item-5"><a href="https://krebsonsecurity.com/category/sunshine/" title="Includes investigative blog posts meant to shine a light on the darker corners of the Internet.">A Little Sunshine</a>
+</li>
+	<li class="cat-item cat-item-2240"><a href="https://krebsonsecurity.com/category/all-about-skimmers/">All About Skimmers</a>
+</li>
+	<li class="cat-item cat-item-9085"><a href="https://krebsonsecurity.com/category/ashley-madison-breach/">Ashley Madison breach</a>
+</li>
+	<li class="cat-item cat-item-3191"><a href="https://krebsonsecurity.com/category/breadcrumbs/">Breadcrumbs</a>
+</li>
+	<li class="cat-item cat-item-3771"><a href="https://krebsonsecurity.com/category/data-breaches/" title="Stories about data breaches at retailers, corporations, governments and organizations of all sizes.">Data Breaches</a>
+</li>
+	<li class="cat-item cat-item-4624"><a href="https://krebsonsecurity.com/category/ddos-for-hire/">DDoS-for-Hire</a>
+</li>
+	<li class="cat-item cat-item-9173"><a href="https://krebsonsecurity.com/category/employment-fraud/">Employment Fraud</a>
+</li>
+	<li class="cat-item cat-item-2151"><a href="https://krebsonsecurity.com/category/how-to-break-into-security/" title="If you've ever wanted career advice on how to make a shift into the security industry, look no further.">How to Break Into Security</a>
+</li>
+	<li class="cat-item cat-item-87"><a href="https://krebsonsecurity.com/category/latest-warnings/">Latest Warnings</a>
+</li>
+	<li class="cat-item cat-item-4071"><a href="https://krebsonsecurity.com/category/neer-do-well-news/">Ne'er-Do-Well News</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://krebsonsecurity.com/category/other/">Other</a>
+</li>
+	<li class="cat-item cat-item-1306"><a href="https://krebsonsecurity.com/category/pharma-wars/">Pharma Wars</a>
+</li>
+	<li class="cat-item cat-item-8240"><a href="https://krebsonsecurity.com/category/ransomware/">Ransomware</a>
+</li>
+	<li class="cat-item cat-item-9635"><a href="https://krebsonsecurity.com/category/russias-war-on-ukraine/">Russia's War on Ukraine</a>
+</li>
+	<li class="cat-item cat-item-599"><a href="https://krebsonsecurity.com/category/security-tools/">Security Tools</a>
+</li>
+	<li class="cat-item cat-item-8298"><a href="https://krebsonsecurity.com/category/sim-swapping/">SIM Swapping</a>
+</li>
+	<li class="cat-item cat-item-4079"><a href="https://krebsonsecurity.com/category/spam-nation/">Spam Nation</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://krebsonsecurity.com/category/smallbizvictims/" title="Posts in this category will include new stories similar to those told in the Small Business Victims category on The Washington Post's Security Fix blog, which chronicled the methods organized cyber thieve are using to steal hundreds of thousands of dollars from dozens of small- to mid-sized companies around the country.">Target: Small Businesses</a>
+</li>
+	<li class="cat-item cat-item-5167"><a href="https://krebsonsecurity.com/category/tax-refund-fraud/">Tax Refund Fraud</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://krebsonsecurity.com/category/comingstorm/" title="This category includes blog posts about computer and Internet security threats now and on the horizon.">The Coming Storm</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://krebsonsecurity.com/category/patches/" title="Short posts on the latest security updates for widely-used software.
+">Time to Patch</a>
+</li>
+	<li class="cat-item cat-item-21"><a href="https://krebsonsecurity.com/category/web-fraud-2-0/">Web Fraud 2.0</a>
+</li>
+			</ul>
+
+			</aside><aside id="widget_sp_image-5" class="widget widget_sp_image"><p class="widget-title">The Value of a Hacked PC</p><a href="https://krebsonsecurity.com/2012/10/the-scrap-value-of-a-hacked-pc-revisited/" target="_blank" class="widget_sp_image-image-link" title="The Value of a Hacked PC"><img alt="valuehackedpc " class="attachment-285x180 aligncenter" style="max-width: 100%;" src="https://krebsonsecurity.com/wp-content/uploads/2012/12/valuehackedpc-285x180.png" width="285" height="180"></a><div class="widget_sp_image-description"><p>Badguy uses for your PC</p>
+</div></aside><aside id="widget_sp_image-9" class="widget widget_sp_image"><p class="widget-title">Badguy Uses for Your Email </p><a href="https://krebsonsecurity.com/2013/06/the-value-of-a-hacked-email-account/" target="_self" class="widget_sp_image-image-link" title="Badguy Uses for Your Email "><img alt="Badguy Uses for Your Email " class="attachment-full aligncenter" style="max-width: 100%;" srcset="https://krebsonsecurity.com/wp-content/uploads/2013/06/badguyemail.png 296w, https://krebsonsecurity.com/wp-content/uploads/2013/06/badguyemail-285x163.png 285w" sizes="(max-width: 296px) 100vw, 296px" src="https://krebsonsecurity.com/wp-content/uploads/2013/06/badguyemail.png" width="296" height="170"></a><div class="widget_sp_image-description"><p>Your email account may be worth far more than you imagine.</p>
+</div></aside><aside id="widget_sp_image-24" class="widget widget_sp_image"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=MCCRKHWRX57HS" id="donate" target="_self" class="widget_sp_image-image-link"><img alt="Donate to Krebs On Security" class="attachment-medium aligncenter" style="max-width: 100%;" src="https://krebsonsecurity.com/wp-content/uploads/2016/09/donatepaypal2-1.png" width="250" height="55"></a></aside><aside id="most_popular_posts-3" class="widget widget_most_popular_posts">
+<p class="widget-title">Most Popular Posts</p>
+<ul>	<li><a href="https://krebsonsecurity.com/2018/07/sextortion-scam-uses-recipients-hacked-passwords/">Sextortion Scam Uses Recipient's Hacked Passwords</a> (1076)</li>
+	<li><a href="https://krebsonsecurity.com/2015/07/online-cheating-site-ashleymadison-hacked/">Online Cheating Site AshleyMadison Hacked</a> (798)</li>
+	<li><a href="https://krebsonsecurity.com/2013/12/sources-target-investigating-data-breach/">Sources: Target Investigating Data Breach</a> (620)</li>
+	<li><a href="https://krebsonsecurity.com/2020/11/trump-fires-security-chief-christopher-krebs/">Trump Fires Security Chief Christopher Krebs</a> (534)</li>
+	<li><a href="https://krebsonsecurity.com/2013/12/cards-stolen-in-target-breach-flood-underground-markets/">Cards Stolen in Target Breach Flood Underground Markets</a> (445)</li>
+	<li><a href="https://krebsonsecurity.com/2013/05/reports-liberty-reserve-founder-arrested-site-shuttered/">Reports: Liberty Reserve Founder Arrested, Site Shuttered</a> (416)</li>
+	<li><a href="https://krebsonsecurity.com/2015/08/was-the-ashley-madison-database-leaked/">Was the Ashley Madison Database Leaked?</a> (376)</li>
+	<li><a href="https://krebsonsecurity.com/2021/01/ddos-guard-to-forfeit-internet-space-occupied-by-parler/">DDoS-Guard To Forfeit Internet Space Occupied by Parler</a> (374)</li>
+	<li><a href="https://krebsonsecurity.com/2014/05/true-goodbye-using-truecrypt-is-not-secure/">True Goodbye: 'Using TrueCrypt Is Not Secure'</a> (363)</li>
+	<li><a href="https://krebsonsecurity.com/2015/08/who-hacked-ashley-madison/">Who Hacked Ashley Madison?</a> (361)</li>
+</ul>
+</aside>
+<aside id="media_image-2" class="widget widget_media_image"><p class="widget-title">Why So Many Top Hackers Hail from Russia</p><a href="https://krebsonsecurity.com/2017/06/why-so-many-top-hackers-hail-from-russia/"><img src="https://krebsonsecurity.com/wp-content/uploads/2017/06/computered-580x389.png" class="image wp-image-39684  attachment-medium size-medium" alt="" loading="lazy" style="max-width: 100%; height: auto;" srcset="https://krebsonsecurity.com/wp-content/uploads/2017/06/computered-580x389.png 580w, https://krebsonsecurity.com/wp-content/uploads/2017/06/computered-768x514.png 768w, https://krebsonsecurity.com/wp-content/uploads/2017/06/computered-940x630.png 940w, https://krebsonsecurity.com/wp-content/uploads/2017/06/computered.png 1551w" sizes="(max-width: 580px) 100vw, 580px" width="580" height="389"></a></aside><aside id="widget_sp_image-11" class="widget widget_sp_image"><p class="widget-title">Category: Web Fraud 2.0</p><a href="https://krebsonsecurity.com/category/web-fraud-2-0/" target="_blank" class="widget_sp_image-image-link" title="Category: Web Fraud 2.0"><img alt="Criminnovations" class="attachment-medium aligncenter" style="max-width: 100%;" src="https://krebsonsecurity.com/wp-content/uploads/2013/11/cybercrimeinnovations-227x400.png" width="227" height="400"></a><div class="widget_sp_image-description"><p>Innovations from the Underground</p>
+</div></aside><aside id="widget_sp_image-12" class="widget widget_sp_image"><a href="https://krebsonsecurity.com/2014/03/are-credit-monitoring-services-worth-it/" target="_blank" class="widget_sp_image-image-link"><img class="attachment-medium aligncenter" style="max-width: 100%;" srcset="https://krebsonsecurity.com/wp-content/uploads/2014/03/shreddedID-copy-285x189.png 285w, https://krebsonsecurity.com/wp-content/uploads/2014/03/shreddedID-copy-600x399.png 600w, https://krebsonsecurity.com/wp-content/uploads/2014/03/shreddedID-copy.png 849w" sizes="(max-width: 285px) 100vw, 285px" src="https://krebsonsecurity.com/wp-content/uploads/2014/03/shreddedID-copy-285x189.png" width="285" height="189"></a><div class="widget_sp_image-description"><p>ID Protection Services Examined</p>
+</div></aside><aside id="widget_sp_image-13" class="widget widget_sp_image"><p class="widget-title">Is Antivirus Dead?</p><a href="https://krebsonsecurity.com/2014/05/antivirus-is-dead-long-live-antivirus/" target="_blank" class="widget_sp_image-image-link" title="Is Antivirus Dead?"><img alt="Is Antivirus Dead?" class="attachment-medium aligncenter" style="max-width: 100%;" srcset="https://krebsonsecurity.com/wp-content/uploads/2014/05/cryptservices-285x161.png 285w, https://krebsonsecurity.com/wp-content/uploads/2014/05/cryptservices-600x339.png 600w, https://krebsonsecurity.com/wp-content/uploads/2014/05/cryptservices.png 945w" sizes="(max-width: 285px) 100vw, 285px" src="https://krebsonsecurity.com/wp-content/uploads/2014/05/cryptservices-285x161.png" width="285" height="161"></a><div class="widget_sp_image-description"><p>The reasons for its decline</p>
+</div></aside><aside id="widget_sp_image-14" class="widget widget_sp_image"><p class="widget-title">The Growing Tax Fraud Menace</p><a href="https://krebsonsecurity.com/category/tax-refund-fraud/" target="_blank" class="widget_sp_image-image-link" title="The Growing Tax Fraud Menace"><img alt="The Growing Tax Fraud Menace" class="attachment-medium aligncenter" style="max-width: 100%;" srcset="https://krebsonsecurity.com/wp-content/uploads/2014/04/taxfraud-285x285.jpg 285w, https://krebsonsecurity.com/wp-content/uploads/2014/04/taxfraud-150x150.jpg 150w, https://krebsonsecurity.com/wp-content/uploads/2014/04/taxfraud-600x600.jpg 600w, https://krebsonsecurity.com/wp-content/uploads/2014/04/taxfraud.jpg 693w" sizes="(max-width: 285px) 100vw, 285px" src="https://krebsonsecurity.com/wp-content/uploads/2014/04/taxfraud-285x285.jpg" width="285" height="285"></a><div class="widget_sp_image-description"><p>File 'em Before the Bad Guys Can </p>
+</div></aside><aside id="widget_sp_image-17" class="widget widget_sp_image"><p class="widget-title">Inside a Carding Shop</p><a href="https://krebsonsecurity.com/2014/06/peek-inside-a-professional-carding-shop/" target="_blank" class="widget_sp_image-image-link" title="Inside a Carding Shop"><img alt="Inside a Carding Shop" class="attachment-medium aligncenter" style="max-width: 100%;" src="https://krebsonsecurity.com/wp-content/uploads/2014/06/mcdumpalsjoined.png" width="194" height="340"></a><div class="widget_sp_image-description"><p>A crash course in carding. </p>
+</div></aside><aside id="widget_sp_image-18" class="widget widget_sp_image"><p class="widget-title">Beware Social Security Fraud</p><a href="https://krebsonsecurity.com/2013/09/crooks-hijack-retirement-funds-via-ssa-portal/" target="_blank" class="widget_sp_image-image-link" title="Beware Social Security Fraud"><img alt="Beware Social Security Fraud" class="attachment-full aligncenter" style="max-width: 100%;" src="https://krebsonsecurity.com/wp-content/uploads/2016/09/myssn-285x293.png" width="285" height="293"></a><div class="widget_sp_image-description"><p>Sign up, or Be Signed Up! </p>
+</div></aside><aside id="widget_sp_image-2" class="widget widget_sp_image"><p class="widget-title">How Was Your Card Stolen?</p><a href="https://krebsonsecurity.com/2015/01/how-was-your-credit-card-stolen/" target="_blank" class="widget_sp_image-image-link" title="How Was Your Card Stolen?"><img alt="How Was Your Card Stolen?" class="attachment-full aligncenter" style="max-width: 100%;" srcset="https://krebsonsecurity.com/wp-content/uploads/2016/09/carddominoes-285x285.jpg 285w, https://krebsonsecurity.com/wp-content/uploads/2016/09/carddominoes-285x285-150x150.jpg 150w" sizes="(max-width: 285px) 100vw, 285px" src="https://krebsonsecurity.com/wp-content/uploads/2016/09/carddominoes-285x285.jpg" width="285" height="285"></a><div class="widget_sp_image-description"><p>Finding out is not so easy. </p>
+</div></aside><aside id="widget_sp_image-22" class="widget widget_sp_image"><p class="widget-title">Krebs’s 3 Rules…</p><a href="https://krebsonsecurity.com/2011/05/krebss-3-basic-rules-for-online-safety/" target="_blank" class="widget_sp_image-image-link" title="Krebs’s 3 Rules…"><img alt="Krebs’s 3 Rules…" class="attachment-medium aligncenter" style="max-width: 100%;" srcset="https://krebsonsecurity.com/wp-content/uploads/2011/05/three-300x300.jpg 300w, https://krebsonsecurity.com/wp-content/uploads/2011/05/three-150x150.jpg 150w, https://krebsonsecurity.com/wp-content/uploads/2011/05/three.jpg 347w" sizes="(max-width: 300px) 100vw, 300px" src="https://krebsonsecurity.com/wp-content/uploads/2011/05/three-300x300.jpg" width="300" height="300"></a><div class="widget_sp_image-description"><p>...For Online Safety. </p>
+</div></aside>		</div><!-- #secondary -->
+		</div><!-- #main .wrapper -->
+	
+	<div id="publisho-footer" class="widget-area">
+				<div class="footer-widget">
+                				</div>
+				<div class="footer-widget">
+								</div>
+				<div class="footer-widget">
+								</div>
+	</div>
+
+	<div class="site-wordpress">
+					© Krebs on Security<br>
+	</div>
+	<!-- .site-info --><div class="clear"></div>
+</div><!-- #page -->
+
+<script type="text/javascript" src="https://krebsonsecurity.com/wp-content/themes/kos-mar2021/js/slicknav.js?ver=5.9.2" id="publisho-mobile-navigation-js"></script>
+
+
+</body></html>

