@@ -83,10 +83,10 @@ async def phishing_malware_defacement(url: str, model_filename: str, attack_type
                 writer.writerow(['url', 'label', 'attack_type'])
             writer.writerow([url, result, attack_type])
             
-        return {attack_type: result}
+        return {"result": result}
     except Exception as e:
         print(f"Error while analyzing {attack_type}: {e}")
-        return {attack_type: "error"}
+        return {"result": "error"}
 
 
 # Phishing Web / SQL Injection / XSS
@@ -95,7 +95,7 @@ async def phishingWeb_sql_xss(url: str, model_filename: str, attack_type: str) -
         html = get_html_from_url(url)
         
         if html == 'error':
-            return {attack_type: "error"}
+            return {"result": "error"}
         
         model = tf.keras.models.Sequential([
             tf.keras.layers.Conv2D(64, (3, 3), activation=tf.nn.relu, input_shape=(100, 100, 1)),
@@ -137,10 +137,10 @@ async def phishingWeb_sql_xss(url: str, model_filename: str, attack_type: str) -
                 writer.writerow(['url', 'label', 'attack_type'])
             writer.writerow([url, result, attack_type])
 
-        return {attack_type: result}
+        return {"result": result}
     except Exception as e:
         print("Error in phishingWeb_sql_xss: ", e)
-        return {attack_type: "error"}
+        return {"result": "error"}
 
 
 # VirusTotal API
@@ -164,10 +164,10 @@ async def virusTotal_API(url: str) -> dict:
                 writer.writerow(['url', 'label'])
             writer.writerow([url, result])
 
-        return {"virus-total": result}
+        return {"result": result}
     except Exception as e:
         print("Error in VirusTotal: ", e)
-        return {"virus-total": "error"}
+        return {"result": "error"}
 
 
 # URL INFO
@@ -194,7 +194,6 @@ async def url_info(url: str) -> dict:
         return result
     except Exception as e:
         print(f"Error in url_info: {e}")
-        return {"url_info": "error"}
 
 
 # Get Domain of URL
