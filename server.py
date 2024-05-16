@@ -40,7 +40,7 @@ async def malware_defacement_analyze(url_data: dict) -> dict:
     try:
         url = url_data.get('url')
 
-        request = await functions.phishing_malware_defacement(url, 'malware-defacement.pkl', 'malware_defacement')
+        request = await functions.phishing_malware_defacement(url, 'malware-defacement.pkl', 'malware-defacement')
 
         return request
     except Exception as e:
@@ -52,7 +52,7 @@ async def malware_defacement_analyze(url_data: dict) -> dict:
     try:
         url = url_data.get('url')
 
-        request = await functions.phishingWeb_sql_xss(url, 'sql-injection.h5', 'sql_injection')
+        request = await functions.phishingWeb_sql_xss(url, 'sql-injection.h5', 'sql-injection')
 
         return request
     except Exception as e:
