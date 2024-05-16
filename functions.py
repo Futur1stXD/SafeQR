@@ -164,10 +164,10 @@ async def virusTotal_API(url: str) -> dict:
                 writer.writerow(['url', 'label'])
             writer.writerow([url, result])
 
-        return {"virusTotal": result}
+        return {"virus-total": result}
     except Exception as e:
         print("Error in VirusTotal: ", e)
-        return {"virusTotal": "error"}
+        return {"virus-total": "error"}
 
 
 # URL INFO

@@ -27,7 +27,7 @@ async def phishingWeb_analyze(url_data: dict) -> dict:
     try:
         url = url_data.get('url')
 
-        request = await functions.phishingWeb_sql_xss(url, 'phishing-web.h5', 'phishingWeb')
+        request = await functions.phishingWeb_sql_xss(url, 'phishing-web.h5', 'phishing-web')
 
         return request
     except Exception as e:
