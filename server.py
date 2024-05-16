@@ -71,6 +71,31 @@ async def xss_analyze(url_data: dict) -> dict:
         print("Error while making POST in xss: ", e)
 
 
+@app.post('/virus-total')
+async def virusTotal_analyze(url_data: dict) -> dict:
+    try:
+        url = url_data.get('url')
+
+        request = await functions.virusTotal_API(url)
+
+        return request
+    except Exception as e:
+        print("Error while making POST in Virus Totel: ", e)
+
+
+@app.post('/url-info')
+async def url_info(url_data: dict) -> dict:
+    try:
+        url = url_data.get('url')
+
+        request = await functions.url_info(url)
+
+        return request
+    except Exception as e:
+        print("Error while making POST in url-info: ", e)
+        return {"url_info": "error"}
+
+
 # Server Settings & Main
 async def main():
     config = uvicorn.Config("server:app", host='0.0.0.0', port=8080, log_level='info')
