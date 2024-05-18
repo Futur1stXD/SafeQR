@@ -41,6 +41,8 @@ The accuracy of the models is:
 - SQL-Injection (99%)
 - XSS (98%)
 
+All requests to the server are saved in .csv files to further improve the model
+
 ### How to run the project ###
 pip3 install -r ./requirements.txt or pip install -r ./requirements.txt
 python3 server.py
