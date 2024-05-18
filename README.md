@@ -20,7 +20,7 @@ A total of 7 endpoints are implemented on the server:
 /url-info - for getting URLs info.
 
 We used machine learning methods to analyze links. Here is the total amount of data used:
-- Phishing (1.000.000 URLs):
+- Phishing (1.100.000 URLs):
   - https://www.kaggle.com/datasets/sid321axn/malicious-urls-dataset
   - https://www.kaggle.com/datasets/taruntiwarihp/phishing-site-urls/data
   - https://github.com/Kiinitix/Malware-Detection-using-Machine-learning/blob/main/Dataset/data.csv
