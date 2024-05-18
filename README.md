@@ -11,13 +11,13 @@ To develop the server, we chose the Fast API (Python) as the main tool. In fact,
 
 A total of 7 endpoints are implemented on the server:
 
-/phishing - to analyze the presence of phishing,
-/phishing-web - to analyze phishing inside web pages,
-/malware-defacement - to detect malware and defaces,
-/sql-injection - to identify SQL injections,
-/xss - to identify possible attacks through cross-site scripting (XSS),
-/virustotal - for additional analysis using the VirusTotal service,
-/url-info - for getting URLs info.
+- /phishing - to analyze the presence of phishing,
+- /phishing-web - to analyze phishing inside web pages,
+- /malware-defacement - to detect malware and defaces,
+- /sql-injection - to identify SQL injections,
+- /xss - to identify possible attacks through cross-site scripting (XSS),
+- /virustotal - for additional analysis using the VirusTotal service,
+- /url-info - for getting URLs info.
 
 We used machine learning methods to analyze links. Here is the total amount of data used:
 - Phishing (1.100.000 URLs):
