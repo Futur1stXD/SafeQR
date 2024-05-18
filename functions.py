@@ -198,12 +198,15 @@ async def url_info(url: str) -> dict:
 
 # Get Domain of URL
 def getDomain(url: str) -> str:
-    if check_protocol(url):
-        url = url[8:]
-    else:
-        url = url[7:]
-    
-    return url.split('/')[0]
+    try:
+        if check_protocol(url):
+            url = url[8:]
+        else:
+            url = url[7:]
+        
+        return url.split('/')[0]
+    except Exception as e:
+        print(e)
 
 
 # Get IP-Address of Domain
@@ -218,21 +221,27 @@ def getIp(domain: str) -> str:
 
 # Get Country Code & City
 async def getRegion(ip: str) -> tuple:
-    params = ['status', 'countryCode', 'city']
+    try:
+        params = ['status', 'countryCode', 'city']
 
-    request = requests.get('http://ip-api.com/json/' + ip, params={'fields': ','.join(params)})
+        request = requests.get('http://ip-api.com/json/' + ip, params={'fields': ','.join(params)})
 
-    info = request.json()
-    
-    if info.get('status') == 'success':
-        return info.get('countryCode'), info.get('city')
-    else:
-        return "none", "none"
+        info = request.json()
+        
+        if info.get('status') == 'success':
+            return info.get('countryCode'), info.get('city')
+        else:
+            return "none", "none"
+    except Exception as e:
+        print(e)
 
 
 # Function for checking HTTPS protocol
 def check_protocol(url: str) -> bool:
-    if url.startswith('https'):
-        return True
-    
-    return False
+    try:
+        if url.startswith('https'):
+            return True
+        
+        return False
+    except Exception as e:
+        print(e)
