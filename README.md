@@ -4,7 +4,7 @@
 ## About Project ##
 We have developed a server for analyzing QR codes on potentially malicious objects. Our server analyzes URLs for phishing attempts, phishing within HTML pages, malware, defacement, SQL injection, cross-site scripting (XSS), and utilizes VirusTotal for further analysis.
 
-https://github.com/Futur1stXD/SafeQR/assets/126179639/887c98e0-1775-4146-adbc-6105128ff844
+https://github.com/Futur1stXD/SafeQR/assets/126179639/1e7d1858-562f-407e-97be-6175d55fef14
 
 ## The stack used ##
 To develop the server, we chose the Fast API (Python) as the main tool. In fact, the server receives a URL link and sends it to a certain endpoint, where the analysis takes place, and then the response is returned in JSON format: {"result": "..."}.
