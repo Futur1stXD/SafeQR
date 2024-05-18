@@ -215,7 +215,8 @@ def getIp(domain: str) -> str:
         ipaddress.ip_address(domain)
         return domain
     
-    except:
+    except Exception as e:
+        print(e)
         return socket.gethostbyname(domain)
 
 
