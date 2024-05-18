@@ -74,10 +74,10 @@ async def phishing_malware_defacement(url: str, model_filename: str, attack_type
 
         result = prediction[0]
 
-        csv_path = './collecting/overall.csv'
+        csv_path = './collecting/overall_url_results.csv'
         file_exists = os.path.isfile(csv_path)
 
-        with open('./collecting/overall.csv', mode='a', newline='') as file:
+        with open(csv_path, mode='a', newline='') as file:
             writer = csv.writer(file)
             if not file_exists:
                 writer.writerow(['url', 'label', 'attack_type'])
