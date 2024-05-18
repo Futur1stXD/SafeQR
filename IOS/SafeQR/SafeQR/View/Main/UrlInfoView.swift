@@ -16,6 +16,7 @@ struct UrlInfoView: View {
     
     @State private var isUrlMalicious: Bool = false
     @State private var maliciousCounter: [AttackTypes] = []
+    @State private var maliciousErrors: [AttackTypes] = []
     @State private var serverPostingCounter: Int = 0
     
     @State private var isLoading: LoadingState = .none
@@ -203,6 +204,14 @@ struct UrlInfoView: View {
                                                 .padding(.horizontal, 10)
                                         }
                                         .frame(maxWidth: .infinity, alignment: .leading)
+                                        ForEach(maliciousErrors, id:\.self) { errors in
+                                            Text("\(errors.icon()) \(errors.displayName()): error")
+                                                .font(.system(size: 14))
+                                                .foregroundStyle(.orange)
+                                                .padding(.vertical, 5)
+                                                .padding(.horizontal, 10)
+                                        }
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                     }
                                 }
                             } else {
@@ -330,6 +339,10 @@ struct UrlInfoView: View {
                         if result == "bad" || result == "malware" || result == "defacement" {
                             maliciousCounter.append(attack)
                             isUrlMalicious = true
+                        }
+                        
+                        if result == "error" {
+                            maliciousErrors.append(attack)
                         }
                         serverPostingCounter += 1
                     } else {
