@@ -1,5 +1,5 @@
 # Safe QR | Diploma Work #
-**By: Myrzakhanov Abylaykhan CS-2104, Erassyl Omirtay CS-2104, Isagaliyeva Aruzhan CS-2106**
+***By: Myrzakhanov Abylaykhan CS-2104, Erassyl Omirtay CS-2104, Isagaliyeva Aruzhan CS-2106***
 
 ## About Project ##
 We have developed a server for analyzing QR codes on potentially malicious objects. Our server analyzes URLs for phishing attempts, phishing within HTML pages, malware, defacement, SQL injection, cross-site scripting (XSS), and utilizes VirusTotal for further analysis.
@@ -41,7 +41,7 @@ The accuracy of the models is:
 - SQL-Injection (99%)
 - XSS (98%)
 
-All requests to the server are saved in .csv files to further improve the model
+***All requests to the server are saved in .csv files to further improve the models.***
 
 ### How to run the project ###
 pip3 install -r ./requirements.txt or pip install -r ./requirements.txt
